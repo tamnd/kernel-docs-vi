@@ -1,0 +1,7 @@
+# Provenance of the upstream Documentation/ tree mirrored in this repo.
+# Updated by scripts/init-upstream.sh and scripts/sync-upstream.sh.
+ref: master
+commit: 8541d8f725c673db3bd741947f27974358b2e163
+date: 2026-04-17T17:57:04-07:00
+source: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+synced_at: 2026-04-18T04:35:51Z
