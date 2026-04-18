@@ -1,0 +1,48 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ad7314.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ad7314
+====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự AD7314
+
+Tiền tố: 'ad7314'
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog.
+
+* Thiết bị tương tự ADT7301
+
+Tiền tố: 'adt7301'
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog.
+
+* Thiết bị tương tự ADT7302
+
+Tiền tố: 'adt7302'
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog.
+
+Sự miêu tả
+-----------
+
+Driver hỗ trợ các phần trên.  Ad7314 có 10 bit
+cảm biến có 1lsb = 0,25 độ C. Adt7301 và
+adt7302 có cảm biến 14 bit với 1lsb = 0,03125 độ C.
+
+Ghi chú
+-----
+
+Hiện tại chế độ tắt nguồn không được hỗ trợ.

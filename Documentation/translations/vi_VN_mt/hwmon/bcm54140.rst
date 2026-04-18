@@ -1,0 +1,57 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/bcm54140.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Broadcom BCM54140 Quad SGMII/QSGMII PHY
+=======================================
+
+Chip được hỗ trợ:
+
+* Broadcom BCM54140
+
+Bảng dữ liệu: không công khai
+
+Tác giả: Michael Walle <michael@walle.cc>
+
+Sự miêu tả
+-----------
+
+Broadcom BCM54140 là Quad SGMII/QSGMII PHY hỗ trợ giám sát
+nhiệt độ khuôn của nó cũng như hai điện áp tương tự.
+
+AVDDL là điện áp tương tự 1.0V, AVDDH là điện áp tương tự 3,3V.
+Cả điện áp và nhiệt độ đều được đo theo kiểu vòng tròn.
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ.
+
+=====================================================================================
+in0_label "AVDDL"
+in0_input Đã đo điện áp AVDDL.
+in0_min Điện áp AVDDL tối thiểu.
+in0_max Điện áp AVDDL tối đa.
+báo động điện áp in0_alarm AVDDL.
+
+in1_label "AVDDH"
+in1_input Đã đo điện áp AVDDH.
+in1_min Điện áp AVDDH tối thiểu.
+in1_max Điện áp AVDDH tối đa.
+báo động điện áp in1_alarm AVDDH.
+
+temp1_input Nhiệt độ khuôn.
+temp1_min Nhiệt độ khuôn tối thiểu.
+temp1_max Nhiệt độ khuôn tối đa.
+temp1_alarm Báo động nhiệt độ chết.
+=====================================================================================

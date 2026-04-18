@@ -1,0 +1,112 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm73.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm73
+==================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas LM73
+
+Tiền tố: 'lm73'
+
+Địa chỉ được quét: I2C 0x48, 0x49, 0x4a, 0x4c, 0x4d và 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Texas Instruments
+
+ZZ0000ZZ
+
+
+Tác giả: Guillaume Ligneul <guillaume.ligneul@gmail.com>
+
+Tài liệu: Chris Verges <kg4ysn@gmail.com>
+
+
+Sự miêu tả
+-----------
+
+LM73 là cảm biến nhiệt độ kỹ thuật số.  Tất cả các giá trị nhiệt độ đều
+được tính bằng độ C.
+
+Hỗ trợ độ phân giải đo lường
+------------------------------
+
+LM73 hỗ trợ bốn độ phân giải, được xác định theo độ C trên mỗi
+LSB: 0,25, 0,125, 0,0625 và 0,3125.  Thay đổi chế độ phân giải
+ảnh hưởng đến thời gian chuyển đổi của bộ chuyển đổi tương tự sang kỹ thuật số của LM73.
+Từ không gian người dùng, độ phân giải mong muốn có thể được chỉ định như một hàm của
+thời gian chuyển đổi thông qua thuộc tính sysfs 'update_interval' cho
+thiết bị.  Thuộc tính này sẽ chuẩn hóa phạm vi giá trị đầu vào thành
+thời gian tối đa được xác định cho độ phân giải trong biểu dữ liệu.
+
+========================================
+    Chuyển đổi độ phân giải Phạm vi đầu vào thời gian
+    (C/LSB) (msec) (msec)
+    ========================================
+    0,25 14 0..14
+    0,125 28 15..28
+    0,0625 56 29..56
+    0,03125 112 57..vô cực
+    ========================================
+
+Các ví dụ sau đây cho thấy thuộc tính 'update_interval' có thể hoạt động như thế nào
+được sử dụng để thay đổi thời gian chuyển đổi::
+
+$ echo 0 > update_interval
+    $ cập nhật mèo_interval
+    14
+    $ mèo temp1_input
+    24250
+
+$ echo 22 > update_interval
+    $ cập nhật mèo_interval
+    28
+    $ mèo temp1_input
+    24125
+
+$ echo 56 > update_interval
+    $ cập nhật mèo_interval
+    56
+    $ mèo temp1_input
+    24062
+
+$ echo 85 > update_interval
+    $ cập nhật mèo_interval
+    112
+    $ mèo temp1_input
+    24031
+
+Như được hiển thị ở đây, trình điều khiển lm73 tự động điều chỉnh bất kỳ đầu vào nào của người dùng cho
+'update_interval' thông qua chức năng bước.  Đọc lại các
+Giá trị 'update_interval' sau thao tác ghi sẽ xác nhận
+thời gian chuyển đổi đang được sử dụng tích cực.
+
+Về mặt toán học, độ phân giải có thể được suy ra từ thời gian chuyển đổi
+thông qua chức năng sau:
+
+g(x) = 0,250 * [log(x/14) / log(2)]
+
+trong đó 'x' là đầu ra từ 'update_interval' và 'g(x)' là
+độ phân giải tính bằng độ C trên LSB.
+
+Hỗ trợ cảnh báo
+-------------
+
+LM73 có cơ chế cảnh báo quá nhiệt đơn giản.  Cái này
+tính năng được hiển thị thông qua các thuộc tính sysfs.
+
+Các thuộc tính 'temp1_max_alarm' và 'temp1_min_alarm' là cờ
+được cung cấp bởi LM73 cho biết nhiệt độ đo được có
+lần lượt vượt qua ngưỡng 'temp1_max' và 'temp1_min'.  Những cái này
+các giá trị _phải_ được đọc để xóa các thanh ghi trên LM73.

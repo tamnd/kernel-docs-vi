@@ -1,0 +1,59 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max31790.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max31790
+======================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX31790
+
+Tiền tố: 'max31790'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Il Han <corone.il.han@gmail.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip Maxim MAX31790.
+
+MAX31790 điều khiển tốc độ của tối đa sáu quạt bằng sáu quạt độc lập
+Đầu ra PWM. Tốc độ quạt mong muốn (hoặc chu kỳ hoạt động PWM) được ghi
+thông qua giao diện I2C. Các đầu ra điều khiển trực tiếp quạt "4 dây",
+hoặc có thể được sử dụng để điều chỉnh các cực nguồn của quạt bằng bộ điều khiển bên ngoài
+vượt qua bóng bán dẫn.
+
+Đầu vào máy đo tốc độ giám sát đầu ra logic của máy đo tốc độ quạt để có độ chính xác (+/- 1%)
+giám sát và điều khiển quạt RPM cũng như phát hiện lỗi quạt.
+Sáu chân là đầu vào máy đo tốc độ chuyên dụng. Bất kỳ đầu ra nào trong số sáu đầu ra PWM đều có thể
+cũng được cấu hình để phục vụ như đầu vào máy đo tốc độ.
+
+
+Mục nhập hệ thống
+-------------
+
+===================== =============================================================
+fan[1-12]_đầu vào tốc độ đo tốc độ quạt RO trong RPM
+fan[1-12]_fault Quạt RO gặp lỗi
+fan[1-6]_target RW tốc độ quạt mong muốn trong RPM
+fan[1-6]_enable RW bật hoặc tắt đầu vào máy đo tốc độ
+pwm[1-6]_enable chế độ điều chỉnh RW, 0=đã tắt (chu kỳ nhiệm vụ=0%), 1=chế độ thủ công, 2=chế độ vòng/phút
+pwm[1-6] RW đọc: chu kỳ nhiệm vụ pwm hiện tại,
+                       ghi: chu kỳ nhiệm vụ pwm mục tiêu (0-255)
+===================== =============================================================

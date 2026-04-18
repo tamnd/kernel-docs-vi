@@ -1,0 +1,81 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/nct7904.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân nct7904
+=====================
+
+Chip được hỗ trợ:
+
+* Nuvoton NCT7904D
+
+Tiền tố: nct7904
+
+Địa chỉ: I2C 0x2d, 0x2e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Nuvoton
+
+ZZ0000ZZ
+
+Tác giả: Vadim V. Vlasov <vvlasov@dev.rtsoft.ru>
+
+
+Sự miêu tả
+-----------
+
+NCT7904D là màn hình phần cứng hỗ trợ tới 20 cảm biến điện áp,
+cảm biến nhiệt độ bên trong, nhiệt độ Intel PECI và AMD SB-TSI CPU
+giao diện, tối đa 12 đầu vào máy đo tốc độ quạt, tối đa 4 kênh điều khiển quạt
+với SmartFan.
+
+
+Mục nhập hệ thống
+-------------
+
+Hiện tại, trình điều khiển chỉ hỗ trợ các tính năng sau:
+
+====================================================================================
+in[1-20]_input Đo điện áp đầu vào (mV)
+
+fan[1-12]_input Số đo tốc độ của quạt (vòng/phút)
+
+temp1_input Nhiệt độ cục bộ (1/1000 độ,
+			Độ phân giải 0,125 độ)
+
+temp[2-9]_input Nhiệt độ CPU (1/1000 độ,
+			Độ phân giải 0,125 độ)
+
+pwm[1-4]_enable R/W, 1/2 cho chế độ thủ công hoặc SmartFan
+			Cài đặt chế độ SmartFan chỉ được hỗ trợ nếu nó đã được
+			được cấu hình trước đó bởi BIOS (hoặc cấu hình EEPROM)
+
+pwm[1-4] R/O ở chế độ SmartFan, R/W ở chế độ điều khiển thủ công
+====================================================================================
+
+Trình điều khiển kiểm tra các thanh ghi điều khiển cảm biến và không xuất cảm biến
+không được kích hoạt. Dù sao đi nữa, một cảm biến được kích hoạt có thể thực sự không hoạt động.
+được kết nối và do đó cung cấp số đọc bằng không.
+
+
+Hạn chế
+-----------
+
+Các tính năng sau không được hỗ trợ trong phiên bản hiện tại:
+
+- Điều khiển SmartFan
+ - Cơ quan giám sát
+ -GPIO
+ - cảm biến nhiệt độ bên ngoài
+ -SMI
+ - giá trị tối thiểu/tối đa
+ - nhiều thứ khác...

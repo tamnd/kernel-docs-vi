@@ -1,0 +1,80 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max31785.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max31785
+======================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX31785, MAX31785A
+
+Tiền tố: 'max31785' hoặc 'max31785a'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Andrew Jeffery <andrew@aj.id.au>
+
+Sự miêu tả
+-----------
+
+Maxim MAX31785 là thiết bị PMBus cung cấp quạt đa kênh, vòng kín
+quản lý với nhiệt độ và cảm biến điện áp từ xa. Điều khiển quạt đa dạng
+các tính năng được cung cấp, bao gồm điều khiển tần số PWM, độ trễ nhiệt độ,
+đo tốc độ kép và theo dõi sức khỏe của quạt.
+
+Đối với cấu hình rôto kép, MAX31785A hiển thị máy đo tốc độ rôto thứ hai
+số đọc trong thuộc tính fan[5-8]_input. Ngược lại, MAX31785 chỉ hiển thị
+phép đo rôto chậm nhất và thực hiện như vậy trong thuộc tính đầu vào quạt[1-4]_.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Thuộc tính Sysfs
+----------------
+
+====================================================================================
+fan[1-4]_alarm Cảnh báo quạt.
+fan[1-4]_fault Lỗi quạt.
+quạt[1-8]_đầu vào Quạt RPM. Trên MAX31785A, đầu vào 5-8 tương ứng với
+			cánh quạt thứ hai 1-4
+fan[1-4]_target Mục tiêu đầu vào của quạt
+
+in[1-6]_crit Điện áp đầu ra tối đa tới hạn
+in[1-6]_crit_alarm Báo động cao tới hạn điện áp đầu ra
+in[1-6]_input Đo điện áp đầu ra
+trong[1-6]_label "vout[18-23]"
+in[1-6]_lcrit Điện áp đầu ra tối thiểu quan trọng
+in[1-6]_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in[1-6]_max Điện áp đầu ra tối đa
+in[1-6]_max_alarm Báo động điện áp đầu ra cao
+in[1-6]_min Điện áp đầu ra tối thiểu
+in[1-6]_min_alarm Báo động điện áp đầu ra thấp
+
+pwm[1-4] Chu kỳ hoạt động của mục tiêu quạt (0..255)
+pwm[1-4]_enable 0: Tốc độ tối đa
+			1: Điều khiển PWM bằng tay
+			2: PWM tự động (điều khiển quạt RPM phản hồi nhanh)
+			3: Vòng kín tự động (điều khiển quạt phản hồi tạm thời)
+
+temp[1-11]_crit Nhiệt độ cao tới hạn
+temp[1-11]_crit_alarm Báo động nhiệt độ chip tới hạn cao
+temp[1-11]_input Nhiệt độ đo được
+temp[1-11]_max Nhiệt độ tối đa
+temp[1-11]_max_alarm Báo động nhiệt độ chip cao
+====================================================================================

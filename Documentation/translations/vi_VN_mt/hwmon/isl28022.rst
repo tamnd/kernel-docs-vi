@@ -1,0 +1,76 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/isl28022.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân isl28022
+======================
+
+Chip được hỗ trợ:
+
+* Renesas ISL28022
+
+Tiền tố: 'isl28022'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Renesas
+
+ZZ0000ZZ
+
+tác giả:
+    Carsten Spieß <mail@carsten-spiess.de>
+
+Sự miêu tả
+-----------
+
+ISL28022 là màn hình nguồn có giao diện I2C. Các thiết bị giám sát
+điện áp, dòng điện qua điện trở shunt và công suất tính toán.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+Có thể đặt giá trị shunt tính bằng micro-ohms, dải điện áp shunt và tính trung bình
+với thuộc tính của thiết bị.
+Vui lòng tham khảo Tài liệu/devicetree/binds/hwmon/renesas,isl28022.yaml
+để liên kết nếu cây thiết bị được sử dụng.
+
+Trình điều khiển chỉ hỗ trợ chế độ ADC shunt và bus liên tục ở độ phân giải 15bit.
+Tính trung bình có thể được đặt từ 1 đến 128 mẫu (công suất 2) trên cả hai kênh.
+Cho phép dải điện áp shunt là 40, 80, 160 hoặc 320mV
+Phạm vi điện áp bus là cố định 60V.
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Tất cả các thuộc tính là chỉ đọc.
+
+====================================================================================
+điện áp bus in0_input (milli Volt)
+điện áp shunt in1_input (milli Volt)
+
+curr1_input hiện tại (milli Ampe)
+power1_công suất đầu vào (micro watt)
+====================================================================================
+
+Mục gỡ lỗi
+---------------
+
+Các thuộc tính sau được hỗ trợ. Tất cả các thuộc tính là chỉ đọc.
+
+====================================================================================
+điện áp shunt_điện áp shunt (micro Volt)
+====================================================================================

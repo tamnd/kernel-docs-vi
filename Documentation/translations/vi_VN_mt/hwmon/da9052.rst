@@ -1,0 +1,92 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/da9052.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân da9052
+====================
+
+Chip được hỗ trợ:
+
+* Hộp thoại Bán dẫn DA9052-BC và DA9053-AA/Bx PMIC
+
+Tiền tố: 'da9052'
+
+Bảng dữ liệu: Bảng dữ liệu không có sẵn công khai.
+
+Tác giả: David Dajun Chen <dchen@diasemi.com>
+
+Sự miêu tả
+-----------
+
+DA9052/53 cung cấp Bộ chuyển đổi tương tự sang kỹ thuật số (ADC) với 10 bit
+độ phân giải và mạch theo dõi và giữ kết hợp với đầu vào tương tự
+bộ ghép kênh. Bộ ghép kênh đầu vào tương tự sẽ cho phép chuyển đổi tối đa 10
+đầu vào khác nhau. Mạch theo dõi và giữ đảm bảo điện áp đầu vào ổn định ở mức
+đầu vào của ADC trong quá trình chuyển đổi.
+
+ADC được sử dụng để đo các đầu vào sau:
+
+==================================================================================
+Kênh 0 VDDOUT - đo điện áp hệ thống
+Kênh 1 ICH - đo dòng điện của bộ sạc pin bên trong
+Kênh 2 TBAT - đầu ra từ pin NTC
+Kênh 3 VBAT - đo điện áp pin
+Kênh 4 ADC_IN4 - đầu vào trở kháng cao (0 - 2.5V)
+Kênh 5 ADC_IN5 - đầu vào trở kháng cao (0 - 2.5V)
+Kênh 6 ADC_IN6 - đầu vào trở kháng cao (0 - 2.5V)
+Giao diện kênh 7 XY - TSI để đo điện áp X và Y của cảm ứng
+	  chiết áp điện trở màn hình
+Kênh 8 Tjunc nội bộ. - cảm giác (cảm biến nhiệt độ bên trong)
+Kênh 9 VBBAT - đo điện áp ắc quy dự phòng
+==================================================================================
+
+Bằng cách sử dụng các thuộc tính sysfs, chúng ta có thể đo điện áp hệ thống VDDOUT, pin
+dòng sạc ICH, nhiệt độ pin TBAT, nhiệt độ điểm nối pin
+TJUNC, điện áp pin VBAT và điện áp pin dự phòng VBBAT.
+
+Giám sát điện áp
+------------------
+
+Điện áp được lấy mẫu bằng ADC 10 bit.
+
+Điện áp pin được tính như sau:
+
+Milli volt = ((giá trị ADC * 1000) / 512) + 2500
+
+Điện áp ắc quy dự phòng được tính như sau:
+
+Milli volt = (giá trị ADC * 2500) / 512;
+
+Điện áp trên các kênh 4, 5 và 6 của ADC được tính như sau:
+
+Milli volt = (giá trị ADC * 2500) / 1023
+
+Giám sát nhiệt độ
+----------------------
+
+Nhiệt độ được lấy mẫu bằng ADC 10 bit.  Nhiệt độ mối nối và pin
+được giám sát bởi các kênh ADC.
+
+Nhiệt độ tiếp giáp được tính:
+
+Độ C = 1,708 * (TJUNC_RES - T_OFFSET) - 108,8
+
+Thuộc tính nhiệt độ đường giao nhau được trình điều khiển hỗ trợ.
+
+Nhiệt độ pin được tính:
+
+Độ C = 1/(t1+1/298) - 273
+
+trong đó t1 = (1/B)* ln((giá trị ADC * 2.5)/(R25ZZ0000ZZ255))
+
+Giá trị mặc định của R25, B, ITBAT lần lượt là 10e3, 3380 và 50e-6.

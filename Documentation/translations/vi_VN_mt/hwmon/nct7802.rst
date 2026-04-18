@@ -1,0 +1,52 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/nct7802.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân nct7802
+=====================
+
+Chip được hỗ trợ:
+
+* Nuvoton NCT7802Y
+
+Tiền tố: 'nct7802'
+
+Địa chỉ được quét: I2C 0x28..0x2f
+
+Bảng dữ liệu: Có sẵn từ trang web Nuvoton
+
+tác giả:
+
+Guenter Roeck <linux@roeck-us.net>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ giám sát phần cứng Nuvoton NCT7802Y
+chip. NCT7802Y hỗ trợ 6 cảm biến nhiệt độ, 5 cảm biến điện áp và 3 quạt
+cảm biến tốc độ.
+
+Kiểm soát tốc độ Smart Fan™ có sẵn thông qua thuộc tính pwmX_auto_point.
+
+Bo mạch đã được thử nghiệm và phiên bản BIOS
+-------------------------------
+
+Trình điều khiển đã được báo cáo là làm việc với các bảng sau và
+Các phiên bản BIOS.
+
+============================================================================
+Phiên bản bo mạch BIOS
+============================================================================
+Kontron COMe-bSC2 CHR2E934.001.GGO
+Kontron COMe-bIP2 CCR2E212
+============================================================================

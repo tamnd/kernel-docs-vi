@@ -1,0 +1,73 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc4215.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc4215
+=====================
+
+Chip được hỗ trợ:
+
+* Công nghệ tuyến tính LTC4215
+
+Tiền tố: 'ltc4215'
+
+Địa chỉ được quét: 0x44
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+Tác giả: Ira W. Snyder <iws@ovro.caltech.edu>
+
+
+Sự miêu tả
+-----------
+
+Bộ điều khiển LTC4215 cho phép lắp và tháo bo mạch một cách an toàn
+từ một bảng nối đa năng trực tiếp.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị LTC4215, do thực tế là một số
+trong số các địa chỉ có thể không thân thiện với việc thăm dò. Bạn sẽ phải
+khởi tạo các thiết bị một cách rõ ràng.
+
+Ví dụ: phần sau sẽ tải trình điều khiển cho LTC4215 tại địa chỉ 0x44
+trên xe buýt I2C #0::
+
+$ modprobe ltc4215
+	$ echo ltc4215 0x44 > /sys/bus/i2c/devices/i2c-0/new_device
+
+
+Mục nhập hệ thống
+-------------
+
+LTC4215 có các giới hạn tích hợp về quá áp, thiếu điện áp và
+cảnh báo dòng chảy ngầm. Điều này làm cho rất có thể tài liệu tham khảo
+mạch sẽ được sử dụng
+
+====================================================
+điện áp đầu vào in1_input
+điện áp đầu ra in2_input
+
+báo động điện áp đầu vào in1_min_alarm
+báo động quá áp đầu vào in1_max_alarm
+
+dòng điện đầu vào hiện tại1_input
+curr1_max_alarm báo động quá dòng
+
+power1_input sử dụng năng lượng
+power1_alarm báo động nguồn kém
+====================================================

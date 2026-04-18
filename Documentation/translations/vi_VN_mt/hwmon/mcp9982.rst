@@ -1,0 +1,123 @@
+.. SPDX-License-Identifier: GPL-2.0+
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mcp9982.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân MCP998X
+=====================
+
+Chip được hỗ trợ:
+
+* Công nghệ vi mạch MCP998X/MCP9933 và MCP998XD/MCP9933D
+
+Tiền tố: 'mcp9982'
+
+Bảng dữ liệu:
+    ZZ0000ZZ
+
+tác giả:
+
+- Victor Duicu <victor.duicu@microchip.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho dòng MCP998X bao gồm: MCP9982,
+MCP9982D, MCP9983, MCP9983D, MCP9984, MCP9984D, MCP9985, MCP9985D,
+MCP9933 và MCP9933D.
+
+Dòng MCP998X là thiết bị ô tô đa kênh 2 dây có độ chính xác cao
+màn hình nhiệt độ.
+
+Các chip trong họ này có số lượng kênh bên ngoài khác nhau,
+từ 1 (MCP9982) đến 4 kênh (MCP9985). Đọc điốt trong
+kết nối chống song song được hỗ trợ bởi MCP9984/85/33 và
+MCP9984D/85D/33D. Có mạch tắt phần cứng chuyên dụng
+chỉ có ở MCP998XD và MCP9933D.
+
+Nhiệt độ được đọc theo mili độ C, dao động từ -64 đến
+191,875 với độ chính xác 0,125.
+
+Mỗi kênh có giới hạn tối thiểu, tối đa và tới hạn cùng với các cảnh báo liên quan.
+Các chip cũng thực hiện cơ chế trễ chỉ áp dụng cho mức tối đa
+và các giới hạn tới hạn. Sự khác biệt tương đối giữa một giới hạn và độ trễ của nó
+giống nhau cho cả hai và giá trị được lưu trong một thanh ghi duy nhất.
+
+Các chip đo nhiệt độ với tỷ lệ chuyển đổi thay đổi.
+Update_interval = Chuyển đổi/Giây, do đó các tùy chọn có sẵn là:
+- 16000 (ms) = 1 chuyển đổi/16 giây
+- 8000 (ms) = 1 chuyển đổi/8 giây
+- 4000 (ms) = 1 chuyển đổi/4 giây
+- 2000 (ms) = 1 chuyển đổi/2 giây
+- 1000 (ms) = 1 chuyển đổi/giây
+- 500 (ms) = 2 chuyển đổi/giây
+- 250 (ms) = 4 chuyển đổi/giây
+- 125 (ms) = 8 chuyển đổi/giây
+- 64 (ms) = 16 chuyển đổi/giây
+- 32 (ms) = 32 chuyển đổi/giây
+- 16 (ms) = 64 chuyển đổi/giây
+
+Ghi chú sử dụng
+-----------
+
+Các tham số có thể được cấu hình trong devicetree:
+- Hoạt động ở chế độ diode chống song song
+- sửa lỗi điện trở trên kênh 1 và 2
+- sửa lỗi điện trở trên kênh 3 và 4
+- trạng thái năng lượng
+
+Chip 82/83 và 82D/83D không hỗ trợ chế độ diode chống song song.
+Đối với các chip có chữ "D" trong tên, tính năng sửa lỗi điện trở phải được bật.
+Vui lòng xem Tài liệu/devicetree/binds/hwmon/microchip,mcp9982.yaml
+để biết chi tiết.
+
+Có hai trạng thái năng lượng:
+- Trạng thái hoạt động: trong đó chip đang chuyển đổi trên tất cả các kênh tại
+tỷ lệ được lập trình.
+
+- Trạng thái chờ: trong đó máy chủ phải bắt đầu một chu kỳ chuyển đổi.
+
+Các chip có tên "D" chỉ hoạt động ở trạng thái Hoạt động và các chip không có
+có thể làm việc ở một trong hai trạng thái.
+
+Chip có chữ "D" trong tên không thể đặt khoảng thời gian cập nhật chậm hơn 1 giây.
+
+Trong số các thuộc tính trễ, chỉ có thuộc tính tempX_crit_hyst là có thể ghi được
+trong khi những cái khác chỉ được đọc. Cài đặt tempX_crit_hyst ghi lại sự khác biệt
+giữa tempX_crit và tempX_crit_hyst trong thanh ghi trễ. Giá trị mới
+tự động áp dụng cho các giới hạn khác. Khi bật nguồn thiết bị bắt đầu bằng
+độ trễ 10 độ.
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn nhiệt độ và
+update_interval là đọc-ghi. Thuộc tính tempX_crit_hyst là đọc-ghi,
+trong khi tempX_max_hyst chỉ đọc. Tất cả các thuộc tính khác chỉ được đọc.
+
+===============================================================================
+temp[1-5]_label Tên người dùng cho kênh.
+temp[1-5]_input Đo nhiệt độ cho kênh.
+
+temp[1-5]_crit Giới hạn nhiệt độ tới hạn.
+temp[1-5]_crit_alarm Cảnh báo giới hạn nhiệt độ tới hạn.
+temp[1-5]_crit_hyst Độ trễ giới hạn nhiệt độ tới hạn.
+
+temp[1-5]_max Giới hạn nhiệt độ cao.
+temp[1-5]_max_alarm Báo động giới hạn nhiệt độ cao.
+temp[1-5]_max_hyst Độ trễ giới hạn nhiệt độ cao.
+
+temp[1-5]_min Giới hạn nhiệt độ thấp.
+temp[1-5]_min_alarm Cảnh báo giới hạn nhiệt độ thấp.
+
+update_interval Khoảng thời gian mà chip sẽ cập nhật số đọc.
+===============================================================================

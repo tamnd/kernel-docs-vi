@@ -1,0 +1,105 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max6697.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Kernel driver max6697
+=====================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX6581
+
+Tiền tố: 'max6581'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6602
+
+Tiền tố: 'max6602'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6622
+
+Tiền tố: 'max6622'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6636
+
+Tiền tố: 'max6636'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6689
+
+Tiền tố: 'max6689'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6693
+
+Tiền tố: 'max6693'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6694
+
+Tiền tố: 'max6694'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6697
+
+Tiền tố: 'max6697'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6698
+
+Tiền tố: 'max6698'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6699
+
+Tiền tố: 'max6699'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả:
+
+Guenter Roeck <linux@roeck-us.net>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho một số cảm biến nhiệt độ tương thích MAX6697
+chip. Các chip hỗ trợ một cảm biến nhiệt độ cục bộ cộng với bốn, sáu hoặc bảy cảm biến
+cảm biến nhiệt độ từ xa. Cảm biến nhiệt độ từ xa được kết nối bằng diode
+bóng bán dẫn nhiệt, ngoại trừ MAX6698 hỗ trợ ba bóng bán dẫn kết nối bằng diode
+bóng bán dẫn nhiệt cộng với ba nhiệt điện ngoài nhiệt độ cục bộ
+cảm biến.
+
+Trình điều khiển cung cấp các thuộc tính sysfs sau. temp1 là cục bộ (chip)
+nhiệt độ, temp[2..n] là nhiệt độ từ xa. Thực sự được hỗ trợ
+thuộc tính trên mỗi kênh phụ thuộc vào loại chip và kênh.
+
+================= ================================================================
+nhiệt độ RO tempX_input
+ngưỡng nhiệt độ tối đa tempX_max RW
+tempX_max_alarm Cảnh báo ngưỡng nhiệt độ tối đa RO
+ngưỡng nhiệt độ tới hạn tempX_crit RW
+tempX_crit_alarm Cảnh báo ngưỡng nhiệt độ quan trọng RO
+tempX_fault Lỗi diode nhiệt độ RO (chỉ cảm biến từ xa)
+================= ================================================================

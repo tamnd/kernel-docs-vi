@@ -1,0 +1,413 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/it87.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân it87
+==================
+
+Chip được hỗ trợ:
+
+* IT8603E/IT8623E
+
+Tiền tố: 'it8603'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8620E
+
+Tiền tố: 'it8620'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+* IT8628E
+
+Tiền tố: 'it8628'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8689E
+
+Tiền tố: 'it8689'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8705F
+
+Tiền tố: 'it87'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Sau khi được công bố rộng rãi trên trang web ITE, nhưng không còn nữa
+
+* IT8712F
+
+Tiền tố: 'it8712'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Sau khi được công bố rộng rãi trên trang web ITE, nhưng không còn nữa
+
+* IT8716F/IT8726F
+
+Tiền tố: 'it8716'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Sau khi được công bố rộng rãi trên trang web ITE, nhưng không còn nữa
+
+* IT8718F
+
+Tiền tố: 'it8718'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Sau khi được công bố rộng rãi trên trang web ITE, nhưng không còn nữa
+
+* IT8720F
+
+Tiền tố: 'it8720'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8721F/IT8758E
+
+Tiền tố: 'it8721'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8728F
+
+Tiền tố: 'it8728'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8732F
+
+Tiền tố: 'it8732'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8771E
+
+Tiền tố: 'it8771'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8772E
+
+Tiền tố: 'it8772'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8781F
+
+Tiền tố: 'it8781'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8782F
+
+Tiền tố: 'it8782'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8783E/F
+
+Tiền tố: 'it8783'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8786E
+
+Tiền tố: 'it8786'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8790E
+
+Tiền tố: 'it8790'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT8792E/IT8795E
+
+Tiền tố: 'it8792'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* IT87952E
+
+Tiền tố: 'it87952'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không có sẵn công khai
+
+* SiS950 [bản sao của IT8705F]
+
+Tiền tố: 'it87'
+
+Địa chỉ được quét: từ không gian cấu hình Super I/O (8 cổng I/O)
+
+Bảng dữ liệu: Không còn có sẵn
+
+
+tác giả:
+    - Christophe Gauthron
+    - Jean Delvare <jdelvare@suse.de>
+
+
+Thông số mô-đun
+-----------------
+
+* cập nhật_vbat bool
+    0 nếu vbat báo cáo giá trị bật nguồn, 1 nếu vbat cần được cập nhật sau
+    mỗi lần đọc. Mặc định là 0. Trên một số bo mạch, điện áp pin được cung cấp
+    bằng pin hoặc nguồn điện trên bo mạch. Chỉ lần đọc đầu tiên
+    khi bật nguồn sẽ là điện áp pin thực tế (mà chip thực hiện
+    tự động). Trên các bo mạch khác, điện áp pin luôn được cung cấp cho
+    con chip này có thể được đọc bất cứ lúc nào. Đọc quá nhiều có thể giảm
+    thời lượng pin nhưng không có thông tin nào được đưa ra trong bảng dữ liệu.
+
+* fix_pwm_Polarity bool
+    Buộc phân cực PWM lên mức hoạt động cao (DANGEROUS). Một số chip được
+    bị định cấu hình sai bởi BIOS - Các giá trị PWM sẽ bị đảo ngược. Tùy chọn này cố gắng
+    để khắc phục điều này. Vui lòng liên hệ với nhà sản xuất BIOS của bạn và yêu cầu họ khắc phục.
+
+* buộc_id ngắn, ngắn
+
+Buộc nhiều ID chip đến giá trị được chỉ định, phân tách bằng ','.
+  Ví dụ: "force_id=0x8689,0x8633".  Giá trị 0 bị bỏ qua
+  cho con chip đó.
+  Lưu ý: Một giá trị Force_id duy nhất (ví dụ: "force_id=0x8689") được sử dụng cho
+  tất cả các chip, để chỉ đặt chip đầu tiên, hãy sử dụng "force_id=0x8689,0".
+  Chỉ nên dùng để thử nghiệm.
+
+* bỏ qua_resource_conflict bool
+
+Tương tự như acpi_enforce_resources=lax nhưng chỉ ảnh hưởng tới driver này.
+  Xung đột tài nguyên ACPI sẽ bị bỏ qua nếu tham số này được cung cấp và
+  đặt thành 1.
+  Được cung cấp vì có báo cáo trên toàn hệ thống acpi_enfore_resources=lax
+  có thể dẫn đến lỗi khởi động trên một số hệ thống.
+  Lưu ý: Điều này vốn có rủi ro vì nó có nghĩa là cả ACPI và trình điều khiển này đều
+  có thể truy cập vào chip cùng một lúc. Điều này có thể dẫn đến tình trạng chủng tộc và,
+  trường hợp xấu nhất, dẫn đến việc khởi động lại hệ thống không mong muốn.
+
+
+Giao diện phần cứng
+-------------------
+
+Tất cả các chip được trình điều khiển này hỗ trợ đều là chip LPC Super-I/O, được truy cập
+thông qua bus LPC (các cổng I/O giống ISA). IT8712F cũng có một
+Giao diện SMBus với các chức năng giám sát phần cứng. Người lái xe này không
+Tuy nhiên, nó hỗ trợ giao diện này lâu hơn vì nó chậm hơn và kém tin cậy hơn
+hơn quyền truy cập ISA và chỉ khả dụng trên một số ít
+mô hình bo mạch chủ.
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho IT8603E, IT8620E, IT8623E, IT8628E,
+IT8689E, IT8705F, IT8712F, IT8716F, IT8718F, IT8720F, IT8721F, IT8726F,
+IT8728F, IT8732F, IT8758E, IT8771E, IT8772E, IT8781F, IT8782F, IT8783E/F,
+Các chip IT8786E, IT8790E, IT8792E/IT8795E, IT87952E và SiS950.
+
+Các chip này là “chip Super I/O”, hỗ trợ đĩa mềm, cổng hồng ngoại,
+cần điều khiển và những thứ linh tinh khác. Để giám sát phần cứng, họ
+bao gồm một 'bộ điều khiển môi trường' với 3 cảm biến nhiệt độ, 3 quạt
+cảm biến tốc độ quay, 8 cảm biến điện áp, cảnh báo liên quan và khung gầm
+phát hiện xâm nhập.
+
+IT8712F và IT8716F còn có thêm đầu vào VID, được sử dụng để báo cáo
+điện áp Vcore của bộ xử lý. IT8712F đời đầu có 5 chân VID,
+IT8716F và IT8712F muộn có 6. Chúng được chia sẻ với các chức năng khác
+tuy nhiên, vì vậy chức năng này có thể không khả dụng trên một hệ thống nhất định.
+
+IT8718F và IT8720F cũng có đầu vào VID (tối đa 8 chân) nhưng giá trị
+được lưu trữ trong không gian cấu hình Super-I/O. Do hạn chế về mặt kỹ thuật,
+giá trị này hiện chỉ có thể được đọc một lần tại thời điểm khởi tạo, vì vậy
+trình điều khiển sẽ không nhận thấy và báo cáo những thay đổi về giá trị VID. hai
+Các bit VID phía trên chia sẻ các chân của chúng với đầu vào điện áp (in5 và in6) để bạn
+không thể có cả hai trên một bảng nhất định.
+
+Các phiên bản IT8716F, IT8718F, IT8720F, IT8721F/IT8758E và IT8712F mới hơn
+có hỗ trợ thêm 2 fan nữa. Những người hâm mộ bổ sung được hỗ trợ bởi
+người lái xe.
+
+Các IT8716F, IT8718F, IT8720F, IT8721F/IT8758E, IT8732F, IT8781F, IT8782F,
+IT8783E/F, IT8712F và IT8705F muộn cũng có máy đo tốc độ 16 bit tùy chọn
+bộ đếm cho quạt từ 1 đến 3. Điều này tốt hơn (không còn tình trạng lộn xộn ở bộ chia đồng hồ quạt nữa) nhưng
+không tương thích với các chip và phiên bản cũ hơn. Chế độ đo tốc độ 16-bit
+được kích hoạt bởi trình điều khiển khi phát hiện thấy một trong các chip trên.
+
+IT8726F chỉ được cải tiến một chút IT8716F với phần cứng bổ sung
+để giải trình tự nguồn AMD. Do đó chip sẽ có tên là IT8716F
+tới các ứng dụng không gian người dùng.
+
+IT8728F, IT8771E và IT8772E được coi là tương thích với IT8721F,
+cho đến khi có bảng dữ liệu (hy vọng vậy.)
+
+IT8603E/IT8623E là một thiết kế tùy chỉnh, phần giám sát phần cứng tương tự như
+IT8728F. Nó chỉ hỗ trợ 3 quạt, chế độ quạt 16 bit và chế độ tốc độ tối đa
+của quạt không được hỗ trợ (giá trị 0 của pwmX_enable).
+
+IT8620E và IT8628E là thiết kế tùy chỉnh, phần giám sát phần cứng tương tự
+tới IT8728F. Nó chỉ hỗ trợ chế độ quạt 16 bit. Cả hai chip đều hỗ trợ tới 6 quạt.
+
+IT8689E hỗ trợ autopwm mới hơn, ADC 12mV, quạt 16 bit, sáu quạt, sáu PWM
+kênh, PWM tần số 2, sáu đầu vào nhiệt độ và AVCC3 (in9).
+
+IT8790E, IT8792E/IT8795E và IT87952E hỗ trợ tối đa 3 quạt. quạt 16-bit
+chế độ luôn được bật.
+
+IT8732F hỗ trợ chế độ vòng kín để điều khiển quạt, nhưng đây không phải là
+hiện do người lái xe thực hiện.
+
+Nhiệt độ được đo bằng độ C. Báo động được kích hoạt một lần
+khi giới hạn tắt máy quá nhiệt bị vượt qua.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. Khi nào
+Bộ đếm tốc độ kế 16 bit không được sử dụng, số đọc của quạt có thể được chia cho
+một bộ chia có thể lập trình (1, 2, 4 hoặc 8) để cung cấp phạm vi đọc rộng hơn hoặc
+độ chính xác. Với số chia là 2, giá trị biểu thị thấp nhất là khoảng
+2600RPM. Không phải tất cả các giá trị RPM đều có thể được biểu diễn chính xác, do đó một số cách làm tròn
+đã xong.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng bằng vôn. Một
+báo động được kích hoạt nếu điện áp đã vượt quá mức tối thiểu có thể lập trình hoặc
+giới hạn tối đa. Lưu ý rằng mức tối thiểu trong trường hợp này luôn có nghĩa là 'gần nhất với
+không'; điều này rất quan trọng đối với các phép đo điện áp âm. Trên hầu hết các chip, tất cả
+đầu vào điện áp có thể đo điện áp trong khoảng từ 0 đến 4,08 volt, với độ phân giải
+là 0,016 vôn.  IT8603E, IT8721F/IT8758E và IT8728F có thể đo từ 0 đến
+3,06 volt, với độ phân giải 0,012 volt.  IT8732F có thể đo từ 0 đến
+2,8 volt với độ phân giải 0,0109 volt.  Điện áp pin in8 không
+có thanh ghi giới hạn.
+
+Trên IT8603E, IT8620E, IT8628E, IT8689E, IT8721F/IT8758E, IT8732F, IT8781F,
+IT8782F và IT8783E/F, một số đầu vào điện áp nằm bên trong và được điều chỉnh tỷ lệ bên trong
+chíp:
+
+* in3 (tùy chọn)
+* in7 (tùy chọn cho IT8781F, IT8782F và IT8783E/F)
+* in8 (luôn luôn)
+* in9 (IT8603E, IT8622E và IT8689E: luôn là AVCC3; các loại khác: tùy chọn)
+
+Trình điều khiển xử lý việc này một cách minh bạch nên không gian người dùng không cần phải quan tâm.
+
+Các dòng VID (IT8712F/IT8716F/IT8718F/IT8720F) mã hóa giá trị điện áp lõi:
+mức điện áp mà bộ xử lý của bạn sẽ hoạt động. Điều này được mã hóa cứng bởi
+bo mạch chính và/hoặc chính bộ xử lý. Đó là một giá trị tính bằng volt.
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể đã
+đã biến mất! Lưu ý rằng trong quá trình triển khai hiện tại, tất cả phần cứng
+các thanh ghi được đọc bất cứ khi nào dữ liệu được đọc (trừ khi nó nhỏ hơn 1,5
+giây kể từ lần cập nhật cuối cùng). Điều này có nghĩa là bạn có thể dễ dàng bỏ lỡ
+báo động chỉ một lần.
+
+Số đọc vượt quá giới hạn cũng có thể phát ra tiếng bíp nếu chip được lắp đúng cách.
+có dây và được cấu hình. Tiếng bíp có thể được bật hoặc tắt tùy theo loại cảm biến
+(nhiệt độ, điện áp và quạt.)
+
+IT87xx chỉ cập nhật giá trị của nó sau mỗi 1,5 giây; đọc nó thường xuyên hơn
+sẽ không gây hại gì nhưng sẽ trả về giá trị 'cũ'.
+
+Để thay đổi cảm biến N thành nhiệt điện trở, 'echo 4 > tempN_type' trong đó N là 1, 2,
+hoặc 3. Để thay đổi cảm biến N thành điốt nhiệt, 'echo 3 > tempN_type'.
+Cho 0 cho cảm biến không sử dụng. Bất kỳ giá trị nào khác đều không hợp lệ. Để cấu hình cái này tại
+khởi động, hãy tham khảo /etc/sensors.conf của lm_sensors. (4 = nhiệt điện trở;
+3 = diode nhiệt)
+
+
+Kiểm soát tốc độ quạt
+-----------------
+
+Các tính năng kiểm soát tốc độ quạt được giới hạn ở chế độ PWM thủ công. tự động
+Xử lý điều khiển chế độ "Người bảo vệ thông minh" chỉ được triển khai cho các chip cũ hơn
+(xem bên dưới.) Tuy nhiên, nếu bạn muốn chuyển sang "chế độ thủ công", chỉ cần viết 1 vào
+pwmN_enable.
+
+Nếu bạn chỉ có thể kiểm soát tốc độ quạt với các giá trị PWM rất nhỏ,
+hãy thử giảm tần số cơ bản PWM (pwm1_freq). Tùy thuộc vào quạt,
+nó có thể cung cấp cho bạn phạm vi kiểm soát lớn hơn một chút. Cùng tần số là
+được sử dụng để điều khiển tất cả đầu ra của quạt, đó là lý do tại sao pwm2_freq và pwm3_freq là
+chỉ đọc.
+
+
+Điều khiển tốc độ quạt tự động (giao diện cũ)
+-------------------------------------------
+
+Driver hỗ trợ giao diện cũ điều khiển tốc độ quạt tự động
+được triển khai bởi các chip IT8705F cho đến phiên bản F và IT8712F
+chip lên tới bản sửa đổi G.
+
+Giao diện này thực hiện 4 điểm ngắt đầu ra nhiệt độ so với PWM.
+Đầu ra PWM của điểm ngắt 4 luôn có giá trị tối đa (quạt chạy
+ở tốc độ tối đa) trong khi đầu ra PWM của 3 điểm ngắt còn lại có thể
+tự do lựa chọn. Nhiệt độ của cả 4 điểm chuyến đi có thể được tự do lựa chọn.
+Ngoài ra, điểm cắt 1 có kèm theo nhiệt độ trễ để
+ngăn chặn việc chuyển đổi nhanh giữa bật và tắt quạt.
+
+Chip tự động tính toán giá trị đầu ra PWM dựa trên đầu vào
+nhiệt độ, dựa trên quy tắc đơn giản này: nếu giá trị nhiệt độ là
+giữa điểm ngắt N và điểm ngắt N+1 thì giá trị đầu ra PWM là
+điểm dừng N. Chế độ điều khiển tự động kém linh hoạt
+hơn chế độ điều khiển thủ công nhưng nó phản ứng nhanh hơn, mạnh mẽ hơn và
+không sử dụng chu trình CPU.
+
+Điểm ngắt phải được đặt chính xác trước khi chuyển sang tốc độ quạt tự động
+chế độ điều khiển. Trình điều khiển sẽ thực hiện kiểm tra tính toàn vẹn cơ bản trước khi
+thực sự chuyển sang chế độ điều khiển tự động.
+
+
+Thuộc tính bù nhiệt độ
+-----------------------------
+
+Trình điều khiển hỗ trợ các thuộc tính sysfs tạm thời [1-3]_offset để điều chỉnh báo cáo
+nhiệt độ cho điốt nhiệt hoặc bóng bán dẫn nhiệt nối với điốt.
+Nếu một cảm biến nhiệt độ được cấu hình cho nhiệt điện trở, các giá trị thuộc tính
+bị bỏ qua. Nếu loại cảm biến nhiệt là Intel PECI, độ lệch nhiệt độ
+phải được lập trình ở nhiệt độ tới hạn CPU.

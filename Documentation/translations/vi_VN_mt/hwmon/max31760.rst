@@ -1,0 +1,89 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max31760.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max31760
+======================
+
+Chip được hỗ trợ:
+  * Thiết bị tương tự MAX31760
+
+Tiền tố: 'max31760'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+Tác giả: Ibrahim Tilki <Ibrahim.Tilki@analog.com>
+
+Sự miêu tả
+-----------
+
+MAX31760 tích hợp cảm biến nhiệt độ cùng với quạt PWM chính xác
+kiểm soát. Nó đo chính xác nhiệt độ khuôn cục bộ và nhiệt độ từ xa
+nhiệt độ của một bóng bán dẫn kết nối đi-ốt rời rạc, chẳng hạn như 2N3906,
+hoặc một diode nhiệt thường thấy trên CPU, bộ xử lý đồ họa (GPU),
+và các ASIC khác. Nhiều ngưỡng nhiệt độ, chẳng hạn như địa phương
+nhiệt độ cao/quá nhiệt độ (OT) và nhiệt độ cao/quá nhiệt độ từ xa, có thể được thiết lập bằng một
+Giao diện tương thích I2C. Tốc độ quạt được điều khiển dựa trên nhiệt độ
+đọc dưới dạng chỉ mục cho bảng tra cứu 48 byte (LUT) chứa
+Các giá trị PWM do người dùng lập trình. Kiến trúc dựa trên LUT linh hoạt cho phép
+người dùng lập trình tốc độ quạt phi tuyến mượt mà so với việc truyền nhiệt độ
+chức năng giảm thiểu tiếng ồn của quạt. Hai đầu vào máy đo tốc độ cho phép
+đo tốc độ của hai quạt một cách độc lập. Khi địa phương hoặc từ xa
+Vượt quá ngưỡng OT, chân SHDN được xác nhận ở mức thấp và có thể được sử dụng để
+tắt hệ thống. Chân ALERT chuyên dụng báo cáo rằng cục bộ hoặc
+ngưỡng nhiệt độ cao từ xa đã bị vượt quá.
+
+Phạm vi đo nhiệt độ: từ -55°C đến 125°C
+
+Độ phân giải nhiệt độ: 11 Bit, ± 0,125°C
+
+Vui lòng tham khảo cách khởi tạo trình điều khiển này: Documentation/i2c/instantiating-devices.rst
+
+Bảng tra cứu điều khiển quạt tự động
+---------------------------------
+
+==============================================
+Tên chỉ mục LUT
+==============================================
+1 giá trị PWM cho T < +18°C
+2 Giá trị PWM cho +18°C ≤ T < +20°C
+3 Giá trị PWM cho +20°C ≤ T < +22°C
+...       ...
+47 Giá trị PWM cho +108°C ≤ T < +110°C
+48 Giá trị PWM cho T ≥ +110°C
+==============================================
+
+Mục nhập hệ thống
+-------------
+
+================================ ===============================================================================================
+fan[1-2]_input Tốc độ quạt (tính bằng RPM)
+fan[1-2]_enable Kích hoạt tính năng đọc quạt và cảnh báo lỗi quạt
+fan[1-2]_fault Trạng thái lỗi của quạt
+temp[1-2]_label Nhãn kênh nhiệt độ "Từ xa" và "Cục bộ"
+temp[1-2]_input Số đọc của cảm biến nhiệt độ (tính bằng mili độ C)
+temp1_fault Trạng thái lỗi cảm biến nhiệt độ từ xa
+temp[1-2]_max Giá trị nhiệt độ tối đa. Xác nhận mã pin "ALERT" khi vượt quá
+temp[1-2]_max_alarm Trạng thái cảnh báo nhiệt độ tối đa
+temp[1-2]_crit Giá trị tới hạn của nhiệt độ. Xác nhận mã pin "SHDN" khi vượt quá
+temp[1-2]_crit_alarm Trạng thái cảnh báo nhiệt độ quan trọng
+Giá trị pwm1 PWM để điều khiển quạt trực tiếp
+pwm1_enable 1: điều khiển quạt trực tiếp, 2: điều khiển quạt tự động dựa trên nhiệt độ
+tần số pwm1_freq PWM tính bằng hertz
+pwm1_auto_channels_temp Nguồn nhiệt độ để điều khiển quạt tự động. 1: temp1, 2: temp2, 3: max(temp1, temp2)
+Giá trị pwm1_auto_point[1-48]_pwm PWM cho điểm LUT
+pwm1_auto_point_temp_hyst Độ trễ nhiệt độ để điều khiển quạt tự động. Có thể là 2000mC hoặc 4000mC
+================================ ===============================================================================================

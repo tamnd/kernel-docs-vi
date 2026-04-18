@@ -1,0 +1,58 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max6620.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max6620
+=====================
+
+Chip được hỗ trợ:
+
+Maxim MAX6620
+
+Tiền tố: 'max6620'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+    - L\. Grunenberg <contact@lgrunenberg.de>
+    - Mạng tích lũy <support@cumulusnetworks.com>
+    - Shuotian Cheng <shuche@microsoft.com>
+    - Arun Saravanan Balachandran <Arun_Saravanan_Balac@dell.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho bộ điều khiển quạt Maxim MAX6620.
+
+Trình điều khiển cấu hình bộ điều khiển quạt ở chế độ RPM. Để cung cấp thêm cho bài đọc
+phạm vi hoặc độ chính xác, giá trị mong muốn có thể được đặt bằng thanh ghi có thể lập trình
+(1, 2, 4, 8, 16 hoặc 32). Đặt giá trị cao hơn cho tốc độ lớn hơn.
+
+Trình điều khiển cung cấp quyền truy cập cảm biến sau trong sysfs:
+
+======================= ===========================================================
+fan[1-4]_alarm ro Cảnh báo quạt.
+fan[1-4]_div rw Đặt phạm vi RPM danh nghĩa của quạt. Giá trị hợp lệ
+                         là 1, 2, 4, 8, 16 và 32.
+fan[1-4]_input ro Tốc độ quạt trong RPM.
+fan[1-4]_target rw Tốc độ quạt mong muốn trong RPM.
+======================= ===========================================================
+
+ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.

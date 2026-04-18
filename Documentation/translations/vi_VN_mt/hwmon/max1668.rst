@@ -1,0 +1,84 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max1668.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max1668
+=====================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX1668, MAX1805 và MAX1989
+
+Tiền tố: 'max1668'
+
+Địa chỉ được quét: I2C 0x18, 0x19, 0x1a, 0x29, 0x2a, 0x2b, 0x4c, 0x4d, 0x4e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả:
+
+David George <david.george@ska.ac.za>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Maxim MAX1668, MAX1805 và MAX1989
+chip.
+
+Ba thiết bị rất giống nhau nhưng MAX1805 bị rút gọn tính năng
+thiết lập; chỉ có hai đầu vào nhiệt độ từ xa so với bốn đầu vào có sẵn ở đầu kia
+hai IC.
+
+Trình điều khiển có thể phân biệt giữa các thiết bị và tạo sysfs
+mục như sau:
+
+- MAX1805, MAX1668 và MAX1989:
+
+================ ===================================================================
+temp1_input ro nhiệt độ cục bộ (môi trường xung quanh)
+temp1_max rw ngưỡng nhiệt độ tối đa cục bộ cho cảnh báo
+temp1_max_alarm ro cảnh báo ngưỡng tối đa nhiệt độ cục bộ
+temp1_min rw ngưỡng nhiệt độ tối thiểu cục bộ để báo động
+temp1_min_alarm ro cảnh báo ngưỡng tối thiểu nhiệt độ cục bộ
+temp2_input ro nhiệt độ từ xa 1
+temp2_max rw nhiệt độ từ xa 1 ngưỡng tối đa cho cảnh báo
+temp2_max_alarm ro nhiệt độ từ xa 1 cảnh báo ngưỡng tối đa
+temp2_min rw nhiệt độ từ xa 1 ngưỡng tối thiểu để cảnh báo
+temp2_min_alarm ro nhiệt độ từ xa 1 cảnh báo ngưỡng tối thiểu
+temp3_input ro nhiệt độ từ xa 2
+temp3_max rw nhiệt độ từ xa 2 ngưỡng tối đa cho cảnh báo
+temp3_max_alarm ro nhiệt độ từ xa 2 cảnh báo ngưỡng tối đa
+temp3_min rw nhiệt độ từ xa 2 ngưỡng tối thiểu để cảnh báo
+temp3_min_alarm ro nhiệt độ từ xa 2 cảnh báo ngưỡng tối thiểu
+================ ===================================================================
+
+- Chỉ MAX1668 và MAX1989:
+
+================ ===================================================================
+temp4_input ro nhiệt độ từ xa 3
+temp4_max rw nhiệt độ từ xa 3 ngưỡng tối đa cho cảnh báo
+temp4_max_alarm ro nhiệt độ từ xa 3 cảnh báo ngưỡng tối đa
+temp4_min rw nhiệt độ từ xa 3 ngưỡng tối thiểu để cảnh báo
+temp4_min_alarm ro nhiệt độ từ xa 3 cảnh báo ngưỡng tối thiểu
+temp5_input ro nhiệt độ từ xa 4
+temp5_max rw nhiệt độ từ xa 4 ngưỡng tối đa cho cảnh báo
+temp5_max_alarm ro nhiệt độ từ xa 4 cảnh báo ngưỡng tối đa
+temp5_min rw nhiệt độ từ xa 4 ngưỡng tối thiểu để cảnh báo
+temp5_min_alarm ro nhiệt độ từ xa 4 cảnh báo ngưỡng tối thiểu
+================ ===================================================================
+
+Thông số mô-đun
+-----------------
+
+*chỉ đọc: int
+  Đặt thành khác 0 nếu bạn muốn ngăn quyền truy cập ghi vào ngưỡng cảnh báo.

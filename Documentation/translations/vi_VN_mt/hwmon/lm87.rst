@@ -1,0 +1,100 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm87.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm87
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM87
+
+Tiền tố: 'lm87'
+
+Địa chỉ được quét: I2C 0x2c - 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự ADM1024
+
+Tiền tố: 'adm1024'
+
+Địa chỉ được quét: I2C 0x2c - 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+tác giả:
+	- Frodo Looijaard <frodol@dds.nl>,
+	- Philip Edelbrock <phil@netroedge.com>,
+	- Mark Studebaker <mdsxyz123@yahoo.com>,
+	- Stephen Rousset <stephen.rousset@rocketlogix.com>,
+	- Dan Eaton <dan.eaton@rocketlogix.com>,
+	- Jean Delvare <jdelvare@suse.de>,
+	- Cổng 2.6 gốc Jeff Oliver
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Chất bán dẫn Quốc gia LM87
+và Thiết bị Analog ADM1024.
+
+LM87 triển khai tối đa ba cảm biến nhiệt độ, tối đa hai quạt
+cảm biến tốc độ quay, tối đa bảy cảm biến điện áp, cảnh báo và một số
+những thứ linh tinh. ADM1024 hoàn toàn tương thích.
+
+Nhiệt độ được đo bằng độ C. Mỗi đầu vào có mức cao
+và cài đặt báo động thấp. Giới hạn cao tạo ra cảnh báo khi giá trị
+vượt lên trên nó và một cảnh báo cũng được tạo ra khi giá trị xuống dưới
+giới hạn thấp.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia cho một bộ chia có thể lập trình (1, 2, 4 hoặc 8) để đưa ra
+các bài đọc có phạm vi rộng hơn hoặc chính xác hơn. Không phải tất cả các giá trị RPM đều có thể được xác định chính xác
+được đại diện, do đó một số làm tròn được thực hiện. Với số chia là 2, thấp nhất
+giá trị đại diện là khoảng 2600 RPM.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng theo
+vôn. Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá giới hạn có thể lập trình được
+giới hạn tối thiểu hoặc tối đa. Lưu ý rằng mức tối thiểu trong trường hợp này luôn có nghĩa là
+'gần bằng 0 nhất'; điều này rất quan trọng đối với các phép đo điện áp âm.
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể
+đã biến mất rồi! Lưu ý rằng trong quá trình triển khai hiện tại, tất cả
+các thanh ghi phần cứng được đọc bất cứ khi nào có dữ liệu được đọc (trừ khi nó ít hơn
+hơn 1,0 giây kể từ lần cập nhật cuối cùng). Điều này có nghĩa là bạn có thể dễ dàng
+bỏ lỡ các báo thức chỉ một lần.
+
+Trình điều khiển lm87 chỉ cập nhật giá trị của nó sau mỗi 1,0 giây; đọc nó nhiều hơn
+thường sẽ không gây hại gì nhưng sẽ trả về các giá trị 'cũ'.
+
+
+Cấu hình phần cứng
+-----------------------
+
+LM87 có bốn chân có thể phục vụ một trong hai chức năng có thể,
+tùy thuộc vào cấu hình phần cứng.
+
+Một số chức năng chia sẻ chân, do đó không phải tất cả các chức năng đều có sẵn cùng một lúc
+thời gian. Điều này phụ thuộc vào thiết lập phần cứng. Driver này bình thường
+giả định rằng phần sụn đã cấu hình chip chính xác. Đây không phải là nơi nào
+trong trường hợp này, mã nền tảng phải đặt platform_data của máy khách I2C thành điểm
+thành giá trị u8 để ghi vào thanh ghi kênh.
+
+Để tham khảo, đây là danh sách các chức năng độc quyền:
+ - in0+in5 (mặc định) hoặc temp3
+ - fan1 (mặc định) hoặc in6
+ - fan2 (mặc định) hoặc in7
+ - Dòng VID (mặc định) hoặc dòng IRQ (không được trình điều khiển này xử lý)

@@ -1,0 +1,58 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max31730.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max31790
+======================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX31730
+
+Tiền tố: 'max31730'
+
+Địa chỉ được quét: 0x1c, 0x1d, 0x1e, 0x1f, 0x4c, 0x4d, 0x4e, 0x4f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Maxim MAX31730.
+
+Cảm biến nhiệt độ MAX31730 giám sát nhiệt độ của chính nó và
+nhiệt độ của ba bóng bán dẫn kết nối diode bên ngoài. Việc điều hành
+điện áp cung cấp từ 3.0V đến 3.6V. Sự hủy bỏ kháng cự bù đắp
+cho điện trở nối tiếp cao trong dấu vết bảng mạch và nhiệt bên ngoài
+diode, trong khi bù beta hiệu chỉnh cho phép đo nhiệt độ
+lỗi do bóng bán dẫn cảm biến beta thấp.
+
+
+Mục nhập hệ thống
+-------------
+
+=================== == =============================================================
+temp[1-4]_enable RW Bật/tắt nhiệt độ
+                       Đặt thành 0 để bật kênh, 0 để tắt
+temp[1-4]_input RO Đầu vào nhiệt độ
+temp[2-4]_fault RO Chỉ báo lỗi cho các kênh từ xa
+temp[1-4]_max RW Nhiệt độ tối đa
+temp[1-4]_max_alarm RW Cảnh báo nhiệt độ tối đa
+temp[1-4]_min RW Nhiệt độ tối thiểu. Chung cho tất cả các kênh.
+                       Chỉ temp1_min mới có thể ghi được.
+temp[1-4]_min_alarm RO Cảnh báo nhiệt độ tối thiểu
+temp[2-4]_offset RW Bù nhiệt độ cho các kênh từ xa
+=================== == =============================================================

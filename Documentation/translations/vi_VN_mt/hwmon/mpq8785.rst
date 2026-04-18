@@ -1,0 +1,121 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mpq8785.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân mpq8785
+=======================
+
+Chip được hỗ trợ:
+
+* Gia đình MPS MPM3695
+  * MPS MPM82504
+  * MPS MPQ8785
+
+Tiền tố: 'mpq8785'
+
+Tác giả: Charles Hsu <ythsu0511@gmail.com>
+
+Sự miêu tả
+-----------
+
+Dòng MPM3695 là mô-đun nguồn tích hợp đầy đủ, siêu mỏng, có thể mở rộng với
+giao diện PMBus. Nó cung cấp một giải pháp năng lượng hoàn chỉnh đạt được hiệu suất lên tới
+10A (biến thể -10), 20A (biến thể -25), 25A (biến thể -20), 100A (biến thể -100)
+dòng điện đầu ra với khả năng điều chỉnh dòng và tải tuyệt vời trên phạm vi đầu vào rộng
+dải điện áp. Nó hoạt động với hiệu suất cao trong phạm vi tải rộng và có thể
+được song song để cung cấp dòng điện cao hơn. Các biến thể -10,-20 và -100 có sự khác nhau
+phạm vi thanh ghi cấu hình thang đo điện áp (10 bit) so với phiên bản -25 (11 bit).
+
+MPM82504 là mô-đun nguồn tích hợp đầy đủ, có thể mở rộng, 25A với một PMBus
+giao diện. Thiết bị cung cấp giải pháp nguồn hoàn chỉnh đạt dòng điện lên tới 25A
+trên mỗi kênh đầu ra. MPM82504 có bốn kênh đầu ra có thể song song
+để cung cấp dòng điện đầu ra 50A, 75A hoặc 100A cho các cấu hình linh hoạt.
+Thiết bị cũng có thể hoạt động song song với MPM3695-100 và bổ sung
+Thiết bị MPM82504 để cung cấp dòng điện đầu ra cao hơn. MPM82504 hoạt động
+với hiệu suất cao trên phạm vi tải rộng.
+
+MPQ8785 là thiết bị tích hợp đầy đủ, tương thích với PMBus, tần số cao, đồng bộ
+công cụ chuyển đổi đô la. MPQ8785 cung cấp một giải pháp rất nhỏ gọn có thể đạt tới
+Dòng điện đầu ra 40A mỗi pha, với khả năng điều chỉnh tải và đường dây tuyệt vời trong khoảng thời gian
+phạm vi cung cấp đầu vào rộng. MPQ8785 hoạt động với hiệu suất cao trên phạm vi rộng
+phạm vi tải hiện tại đầu ra.
+
+Giao diện PMBus cung cấp cấu hình bộ chuyển đổi và các thông số chính
+giám sát.
+
+Các thiết bị sử dụng thời gian bật kỹ thuật số nhiều pha độc quyền của MPS (MCOT)
+điều khiển, cung cấp phản ứng nhất thời nhanh và giúp ổn định vòng lặp dễ dàng.
+Sơ đồ MCOT cũng cho phép kết nối nhiều thiết bị hoặc kênh trong
+song song với khả năng chia sẻ dòng điện và xen kẽ pha tuyệt vời cho dòng điện cao
+ứng dụng.
+
+Các tính năng bảo vệ tích hợp đầy đủ bao gồm bảo vệ quá dòng (OCP),
+bảo vệ quá áp (OVP), bảo vệ dưới điện áp (UVP) và
+bảo vệ quá nhiệt (OTP).
+
+Thiết bị tương thích với:
+
+- Giao diện PMBus rev 1.3.
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs'
+đối với điện áp đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho dòng điện đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho nhiệt độ:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ

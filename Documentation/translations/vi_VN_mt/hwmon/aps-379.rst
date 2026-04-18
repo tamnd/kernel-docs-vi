@@ -1,0 +1,71 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/aps-379.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân aps-379
+=====================
+
+Chip được hỗ trợ:
+
+* Sony APS-379
+
+Tiền tố: 'aps-379'
+
+Địa chỉ được quét: -
+
+tác giả:
+        - Chris Packham
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho màn hình PMBus trên Sony APS-379
+cung cấp điện mô-đun. APS-379 khác với tiêu chuẩn PMBus cho
+Lệnh READ_VOUT bằng cách sử dụng định dạng tuyến tính11 thay vì tuyến tính16.
+
+Các lệnh PMBus được hỗ trợ đã biết là:
+
+=== ======================================== ======= =====
+Giao thức chức năng Cmd Chia tỷ lệ byte
+=== ======================================== ======= =====
+01 Lệnh bật / tắt (OPERATION) Byte R/W -- 1
+10 WRITE_PROTECT Byte R/W -- 1
+3B FAN_COMMAND_1 Từ R/W -- 2
+46 Giới hạn hiện tại (tính bằng phần trăm) Từ R/W 2^0 2
+47 Byte phản hồi lỗi giới hạn hiện tại R/W -- 1
+79 Bit dữ liệu cảnh báo (STATUS_WORD) Word Rd -- 2
+8B Điện áp đầu ra (READ_VOUT) Word Rd 2^-4 2
+8C Dòng điện đầu ra (READ_IOUT) Word Rd 2^-2 2
+Nguồn điện 8D Nhiệt độ xung quanh Word Rd 2^0 2
+90 READ_FAN_SPEED_1 Từ Rd 2^6 2
+91 READ_FAN_SPEED_2 Từ Rd 2^6 2
+96 Công suất đầu ra (READ_POUT) Từ Rd 2^1 2
+97 Công suất đầu vào (READ_PIN) Từ Rd 2^1 2
+9A Mã số thiết bị (MFR_MODEL) Khối R/W -- 10
+9B Khối số sửa đổi đơn vị R/W -- 10
+Khối số sê-ri đơn vị 9E R/W -- 8
+99 ID nhà sản xuất đơn vị (MFR_ID) Khối R/W -- 8
+Đơn vị D0 Khối thông tin thời gian chạy Rd -- 4
+Phiên bản phần mềm D5 Cust -- 8
+B0 Dữ liệu người dùng 1 (USER_DATA_00) Khối R/W -- 4
+B1 Dữ liệu người dùng 2 (USER_DATA_01) Khối R/W -- 4
+B2 Dữ liệu người dùng 3 (USER_DATA_02) Khối R/W -- 4
+B3 Dữ liệu người dùng 4 (USER_DATA_03) Khối R/W -- 4
+B4 Dữ liệu người dùng 5 (USER_DATA_04) Khối R/W -- 4
+B5 Dữ liệu người dùng 6 (USER_DATA_05) Khối R/W -- 4
+B6 Dữ liệu người dùng 7 (USER_DATA_06) Khối R/W -- 4
+B7 Dữ liệu người dùng 8 (USER_DATA_07) Khối R/W -- 4
+F0 Lệnh hiệu chuẩn Byte R/W -- 1
+F1 Dữ liệu hiệu chuẩn Word Wr 2^9 2
+F2 Mở khóa hiệu chuẩn Byte Wr -- 1
+=== ======================================== ======= =====

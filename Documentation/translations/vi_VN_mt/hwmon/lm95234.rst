@@ -1,0 +1,62 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm95234.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm95234
+=====================
+
+Chip được hỗ trợ:
+
+* Chất bán dẫn quốc gia / Texas Instruments LM95233
+
+Địa chỉ được quét: I2C 0x18, 0x2a, 0x2b
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Texas Instruments
+
+ZZ0000ZZ
+
+* Chất bán dẫn quốc gia / Texas Instruments LM95234
+
+Địa chỉ được quét: I2C 0x18, 0x4d, 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Texas Instruments
+
+ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+Sự miêu tả
+-----------
+
+LM95233 và LM95234 là các cảm biến nhiệt độ kỹ thuật số 11 bit với 2 dây
+Giao diện System Management Bus (SMBus) và công nghệ TrueTherm
+có thể theo dõi rất chính xác nhiệt độ của hai (LM95233)
+hoặc bốn điốt từ xa (LM95234) cũng như nhiệt độ của chính nó.
+Các điốt từ xa có thể là các thiết bị bên ngoài như bộ vi xử lý,
+bộ xử lý đồ họa hoặc 2N3904 được kết nối bằng diode. TruTherm của chip
+Công nghệ bù beta cho phép cảm nhận quy trình 90 nm hoặc 65 nm
+điốt nhiệt một cách chính xác.
+
+Tất cả các giá trị nhiệt độ được tính bằng mili độ C. Nhiệt độ
+được cung cấp trong phạm vi từ -127 đến +255 độ (+127,875 độ cho
+cảm biến bên trong). Độ phân giải phụ thuộc vào nhiệt độ đầu vào và phạm vi.
+
+Mỗi cảm biến có giới hạn tối đa riêng, nhưng độ trễ là chung cho tất cả
+các kênh. Độ trễ có thể được cấu hình bằng thuộc tính tem1_max_hyst và
+ảnh hưởng đến độ trễ trên tất cả các kênh. Hai cảm biến bên ngoài đầu tiên cũng
+có một giới hạn tới hạn.
+
+Trình điều khiển lm95234 có thể thay đổi khoảng thời gian cập nhật thành một tập hợp giá trị cố định.
+Nó sẽ làm tròn đến khoảng thời gian có thể lựa chọn tiếp theo. Xem bảng dữ liệu để biết chính xác
+các giá trị. Đọc các giá trị cảm biến thường xuyên hơn sẽ không gây hại gì nhưng sẽ trả về kết quả
+giá trị “cũ”.

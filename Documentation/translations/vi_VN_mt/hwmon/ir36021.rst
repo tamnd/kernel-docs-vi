@@ -1,0 +1,75 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ir36021.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ir36021
+=====================
+
+Chip được hỗ trợ:
+
+* Infineon IR36021
+
+Tiền tố: ir36021
+    Địa chỉ được quét: -
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Infineon
+      ZZ0000ZZ
+
+tác giả:
+      - Chris Packham <chris.packham@allyedtelesis.co.nz>
+
+Sự miêu tả
+-----------
+
+IR36021 là bộ điều khiển Buck nhiều pha kỹ thuật số hai vòng được thiết kế cho
+điểm tải ứng dụng.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Thuộc tính Sysfs
+----------------
+
+======================================================
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào
+curr1_alarm Báo lỗi đầu vào
+
+curr2_label "iout1"
+curr2_input Đo dòng điện đầu ra
+curr2_alarm Xuất cảnh báo quá dòng
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_alarm Cảnh báo điện áp đầu vào thấp
+
+in2_label "vout1"
+in2_input Đo điện áp đầu ra
+in2_alarm Cảnh báo quá điện áp đầu ra
+
+power1_label "pin"
+power1_input Công suất đầu vào đo được
+power1_alarm Báo động dưới điện áp đầu vào
+
+power2_label "bĩu môi1"
+power2_input Công suất đầu ra đo được
+
+temp1_input Nhiệt độ đo được
+temp1_alarm Báo động nhiệt độ
+
+temp2_input Đã đo nhiệt độ vòng lặp khác
+temp2_alarm Báo động nhiệt độ
+======================================================

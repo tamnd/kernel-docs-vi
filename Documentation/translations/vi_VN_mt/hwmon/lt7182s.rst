@@ -1,0 +1,104 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lt7182s.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lt7182s
+=====================
+
+Chip được hỗ trợ:
+
+* ADI LT7182S
+
+Tiền tố: 'lt7182s'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+LT7182S là Bộ chuyển đổi im lặng bước xuống đa pha 6A, 20V hai kênh với
+Hỗ trợ quản lý hệ thống điện kỹ thuật số.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Ví dụ: các lệnh sau sẽ tải trình điều khiển cho LT7182S
+tại địa chỉ 0x4f trên xe buýt I2C #4::
+
+# modprobe lt7182s
+    # echo lt7182s 0x4f > /sys/bus/i2c/devices/i2c-4/new_device
+
+Nó cũng có thể được khởi tạo bằng cách khai báo một mục trong cây thiết bị.
+
+
+Thuộc tính Sysfs
+----------------
+
+================================================================
+Curr[1-2]_label "iin[12]"
+curr[1-2]_input Dòng điện đầu vào đo được
+Curr[1-2]_max Dòng điện đầu vào tối đa
+curr[1-2]_max_alarm Báo động hiện tại ở mức cao
+
+Curr[3-4]_label "iout[1-2]"
+curr[3-4]_input Đo dòng điện đầu ra
+curr[3-4]_highest Dòng điện đầu ra đo được cao nhất
+Curr[3-4]_max Dòng điện đầu ra tối đa
+Curr[3-4]_max_alarm Dòng điện đầu ra báo động ở mức cao
+
+trong[1-2]_label "vin[12]"
+in[1-2]_input Đo điện áp đầu vào
+in[1-2]_highest Điện áp đầu vào đo được cao nhất
+in[1-2]_crit Điện áp đầu vào tối đa tới hạn
+in[1-2]_crit_alarm Báo động cao tới hạn điện áp đầu vào
+in[1-2]_min Điện áp đầu vào tối thiểu
+in[1-2]_min_alarm Báo động điện áp đầu vào thấp
+in[1-2]_rated_min Điện áp đầu vào tối thiểu định mức
+in[1-2]_rated_max Điện áp đầu vào tối đa định mức
+in1_reset_history Viết để thiết lập lại lịch sử cho tất cả các thuộc tính
+
+trong[3-5]_label "vmon[1-3]"
+in[3-5]_input Đo điện áp trên các chân ITH1/ITH2/EXTVCC
+			Chỉ khả dụng nếu được bật với MFR_ADC_CONTROL_LT7182S
+			lệnh.
+
+trong[3-4|6-7]_label "vout[1-2]"
+in[3-4|6-7]_input Đo điện áp đầu ra
+in[3-4|6-7]_highest Điện áp đầu ra đo được cao nhất
+in[3-4|6-7]_lcrit Điện áp đầu ra tối thiểu tới hạn
+in[3-4|6-7]_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in[3-4|6-7]_min Điện áp đầu ra tối thiểu
+in[3-4|6-7]_max_alarm Báo động điện áp đầu ra thấp
+in[3-4|6-7]_max Điện áp đầu ra tối đa
+in[3-4|6-7]_max_alarm Báo động điện áp đầu ra cao
+in[3-4|6-7]_crit Điện áp đầu ra tối đa tới hạn
+in[3-4|6-7]_crit_alarm Báo động cao tới hạn điện áp đầu ra
+
+power[1-2]_label "bĩu môi[1-2]"
+power[1-2]_input Công suất đầu ra đo được
+
+temp1_input Nhiệt độ đo được
+temp1_crit Nhiệt độ cao tới hạn
+temp1_crit_alarm Báo động nhiệt độ chip tới hạn cao
+temp1_max Nhiệt độ tối đa
+temp1_max_alarm Báo động nhiệt độ chip cao
+================================================================

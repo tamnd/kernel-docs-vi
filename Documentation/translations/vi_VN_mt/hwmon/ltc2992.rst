@@ -1,0 +1,68 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc2992.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc2992
+=====================
+
+Chip được hỗ trợ:
+  * Công nghệ tuyến tính LTC2992
+    Tiền tố: 'ltc2992'
+    Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Alexandru Tachici <alexandru.tachici@analog.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho màn hình nguồn LTC2992 Công nghệ tuyến tính.
+
+LTC2992 là thiết bị giám sát hệ thống ray-to-rail để đo dòng điện,
+điện áp và công suất của hai nguồn cung cấp.
+
+Hai ADC đồng thời đo dòng điện của từng nguồn cung cấp. Màn hình ADC thứ ba
+điện áp đầu vào và bốn điện áp phụ trợ bên ngoài.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi,
+tất cả các thuộc tính khác là chỉ đọc.
+
+in_reset_history Đặt lại tất cả các giá trị cao nhất/thấp nhất.
+
+inX_input Đo điện áp.
+inX_lowest Điện áp đo tối thiểu.
+inX_highest Điện áp đo được tối đa.
+inX_min Điện áp tối thiểu cho phép.
+inX_max Điện áp tối đa cho phép.
+inX_min_alarm Đã xảy ra hiện tượng sụt áp. Đã xóa khi đọc.
+inX_max_alarm Xảy ra quá điện áp. Đã xóa khi đọc.
+
+currX_input Đo dòng điện.
+currX_lowest Dòng điện đo tối thiểu.
+currX_highest Dòng điện đo được tối đa.
+currX_min Dòng điện tối thiểu cho phép.
+currX_max Dòng điện tối đa cho phép.
+currX_min_alarm Đã xảy ra dòng điện ngầm. Đã xóa khi đọc.
+currX_max_alarm Xảy ra hiện tượng quá dòng. Đã xóa khi đọc.
+
+powerX_input Đo công suất.
+powerX_input_lowest Điện áp đo tối thiểu.
+powerX_input_highest Điện áp đo được tối đa.
+powerX_min Công suất tối thiểu.
+powerX_max Công suất tối đa.
+powerX_min_alarm Đã xảy ra tình trạng thiếu điện. Đã xóa khi đọc.
+powerX_max_alarm Đã xảy ra tình trạng quá tải. Đã xóa khi đọc.

@@ -1,0 +1,54 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/g760a.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân g760a
+===================
+
+Chip được hỗ trợ:
+
+* Công ty Công nghệ Chế độ Hỗn hợp Toàn cầu G760A
+
+Tiền tố: 'g760a'
+
+Bảng dữ liệu: Có sẵn công khai tại trang web GMT
+
+ZZ0000ZZ
+
+Tác giả: Herbert Valerio Riedel <hvr@gnu.org>
+
+Sự miêu tả
+-----------
+
+Bộ điều khiển tốc độ quạt GMT G760A PWM được kết nối trực tiếp với quạt
+và thực hiện điều khiển vòng kín tốc độ quạt.
+
+Tốc độ quạt được lập trình bằng cách cài đặt khoảng thời gian thông qua 'pwm1' của hai
+xung tốc độ liên tiếp. Chu kỳ được xác định theo đồng hồ
+số chu kỳ của nguồn xung nhịp 32kHz giả định.
+
+Đặt khoảng thời gian bằng 0 sẽ dừng quạt; đặt khoảng thời gian thành 255 bộ
+quạt đạt tốc độ tối đa.
+
+Tốc độ quay của quạt đo được được trả về thông qua 'fan1_input' được suy ra
+từ chu kỳ xung tốc độ đo được bằng cách giả sử lại đồng hồ 32kHz
+nguồn và một quạt 2 xung trên mỗi vòng quay.
+
+Tệp 'báo động' cung cấp quyền truy cập vào hai bit cảnh báo được cung cấp bởi
+thanh ghi trạng thái của chip G760A: Bit 0 được đặt khi quạt thực tế
+tốc độ chênh lệch hơn 20% so với tốc độ quạt được lập trình;
+bit 1 được đặt khi tốc độ quạt dưới 1920 RPM.
+
+Trình điều khiển g760a sẽ không cập nhật giá trị của nó thường xuyên hơn mọi lần
+thứ hai khác; đọc chúng thường xuyên hơn sẽ không có hại gì, nhưng sẽ quay trở lại
+giá trị “cũ”.

@@ -1,0 +1,144 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc4282.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc4282
+==========================================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự LTC4282
+
+Tiền tố: 'ltc4282'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+Tác giả: Nuno Sá <nuno.sa@analog.com>
+
+Sự miêu tả
+___________
+
+Bộ điều khiển trao đổi nóng LTC4282 cho phép lắp và tháo bo mạch một cách an toàn
+từ một bảng nối đa năng trực tiếp. Sử dụng một hoặc nhiều bóng bán dẫn vượt qua kênh N bên ngoài,
+điện áp nguồn của bo mạch và dòng điện khởi động được tăng lên ở mức có thể điều chỉnh được. Một
+Giao diện I2C và ADC trên bo mạch cho phép giám sát dòng điện, điện áp,
+nguồn điện, năng lượng và tình trạng lỗi. Thiết bị có tính năng dòng điện gập tương tự
+giám sát giới hạn và cung cấp cho các ứng dụng từ 2.9V đến 33V. Cổng 12V kép
+ổ đĩa cho phép các ứng dụng công suất cao chia sẻ vùng hoạt động an toàn trên
+MOSFET song song hoặc hỗ trợ khởi động 2 giai đoạn sạc tải đầu tiên
+điện dung, sau đó cho phép đường dẫn có điện trở thấp đến tải. các
+LTC4282 rất phù hợp với các ứng dụng công suất cao vì khả năng giám sát chính xác
+khả năng và giới hạn dòng điện chính xác làm giảm các điểm cực đoan trong đó cả hai tải
+và nguồn điện phải hoạt động an toàn. Cấu hình không thay đổi cho phép
+tính linh hoạt trong việc tạo ra các cảnh báo tự động và phản ứng với các lỗi.
+
+Mục nhập hệ thống
+_____________
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi và tất cả những thứ khác
+thuộc tính chỉ đọc. Lưu ý rằng in0 và in1 loại trừ lẫn nhau. Kích hoạt
+cái này vô hiệu hóa cái kia và vô hiệu hóa cái này sẽ kích hoạt cái kia.
+
+======================================================================
+in0_input Điện áp đầu ra (mV).
+in0_min Ngưỡng thấp áp
+in0_max Ngưỡng quá áp
+in0_lowest Điện áp đo được thấp nhất
+in0_highest Điện áp đo được cao nhất
+in0_reset_history Viết 1 để thiết lập lại lịch sử in0.
+			Cũng xóa các bản ghi lỗi ngắn và xấu của thai nhi.
+in0_min_alarm Báo động điện áp thấp
+in0_max_alarmBáo động quá áp
+in0_enable Bật/Tắt giám sát VSOURCE
+in0_fault Lỗi MOSFET. FET bị hỏng hoặc bị chập.
+in0_label Nhãn kênh (VSOURCE)
+
+in1_input Điện áp đầu vào (mV).
+in1_min Ngưỡng thấp áp
+in1_max Ngưỡng quá áp
+in1_lowest Điện áp đo được thấp nhất
+in1_highest Điện áp đo được cao nhất
+in1_reset_history Viết 1 để thiết lập lại lịch sử in1.
+			Đồng thời xóa nhật ký lỗi quá áp/điện áp thấp.
+in1_min_alarm Báo động điện áp thấp
+in1_max_alarmBáo động quá áp
+in1_lcrit_alarm Báo động điện áp thấp tới hạn
+in1_crit_alarm Báo động quá áp quan trọng
+in1_enable Bật/Tắt giám sát VDD
+in1_label Nhãn kênh (VDD)
+
+in2_input Điện áp GPIO (mV)
+in2_min Ngưỡng thấp áp
+in2_max Ngưỡng quá áp
+in2_lowest Điện áp đo được thấp nhất
+in2_highest Điện áp đo được cao nhất
+in2_reset_history Viết 1 để thiết lập lại lịch sử in2
+in2_min_alarm Báo động điện áp thấp
+in2_max_alarmBáo động quá áp
+in2_label Nhãn kênh (VGPIO)
+
+curr1_input Cảm nhận dòng điện (mA)
+curr1_min Ngưỡng dưới dòng
+curr1_max Ngưỡng quá dòng
+curr1_lowest Dòng điện đo được thấp nhất
+curr1_highest Dòng điện đo được cao nhất
+curr1_reset_history Viết 1 để thiết lập lại lịch sử curr1.
+			Cũng xóa nhật ký lỗi quá dòng.
+curr1_min_alarm Báo động dòng điện ngầm
+curr1_max_alarmBáo động quá dòng
+curr1_crit_alarm Báo động quá dòng quan trọng
+curr1_label Nhãn kênh (ISENSE)
+
+power1_input Công suất (tính bằng uW)
+power1_min Ngưỡng công suất thấp
+power1_max Ngưỡng công suất cao
+power1_input_lowest Sử dụng năng lượng tối thiểu trong lịch sử
+power1_input_highest Sử dụng năng lượng tối đa trong lịch sử
+power1_reset_history Viết 1 để thiết lập lại lịch sử power1.
+			Cũng xóa nhật ký lỗi nguồn.
+power1_min_alarm Báo động điện năng thấp
+power1_max_alarm Báo động công suất cao
+power1_label Nhãn kênh (Nguồn)
+
+energy1_input Năng lượng được đo theo thời gian (tính bằng microJoule)
+energy1_enable Bật/Tắt Tích lũy năng lượng
+======================================================================
+
+Mục DebugFs
+_______________
+
+Con chip này cũng có một sổ đăng ký nhật ký lỗi để có thể ghi lại các lỗi. Do đó,
+vì đây là những sự kiện ghi nhật ký nên chúng tôi cấp quyền truy cập vào chúng trong các bản gỡ lỗi. Lưu ý rằng
+ngay cả khi một số lỗi được phát hiện trong các nhật ký này, điều đó nhất thiết có nghĩa là
+rằng sự thất bại vẫn còn hiện diện. Như đã đề cập trong các mục Sysfs thích hợp,
+những nhật ký này có thể được xóa bằng cách ghi vào thuộc tính reset_history thích hợp.
+
+.. warning:: The debugfs interface is subject to change without notice
+             and is only available when the kernel is compiled with
+             ``CONFIG_DEBUG_FS`` defined.
+
+ZZ0000ZZ
+chứa các thuộc tính sau:
+
+======================================================================
+power1_bad_fault_log Đặt thành 1 khi xảy ra lỗi xấu power1.
+in0_fet_short_fault_log Đặt thành 1 khi ADC phát hiện lỗi ngắn mạch FET.
+in0_fet_bad_fault_log Đặt thành 1 khi xảy ra lỗi FET-BAD.
+in1_crit_fault_log Đặt thành 1 khi xảy ra lỗi quá điện áp VDD.
+in1_lcrit_fault_log Đặt thành 1 khi xảy ra lỗi điện áp thấp VDD.
+curr1_crit_fault_log Đặt thành 1 khi xảy ra lỗi quá dòng.
+======================================================================

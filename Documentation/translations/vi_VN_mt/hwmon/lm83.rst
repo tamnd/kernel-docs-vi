@@ -1,0 +1,111 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm83.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm83
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM83
+
+Tiền tố: 'lm83'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM82
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+Tác giả: Jean Delvare <jdelvare@suse.de>
+
+Sự miêu tả
+-----------
+
+LM83 là cảm biến nhiệt độ kỹ thuật số. Nó cảm nhận được nhiệt độ của chính mình như
+cũng như nhiệt độ của tối đa ba điốt bên ngoài. LM82 là
+phiên bản rút gọn của LM83 chỉ hỗ trợ một diode bên ngoài.
+Cả hai đều tương thích với nhiều thiết bị khác như LM84 và tất cả
+bản sao ADM1021 khác. Sự khác biệt chính giữa LM83 và LM84
+trong đó cái sau chỉ có thể cảm nhận được nhiệt độ của một diode bên ngoài.
+
+Sử dụng trình điều khiển adm1021 cho LM83 sẽ hoạt động nhưng chỉ có hai nhiệt độ
+sẽ được báo cáo thay vì bốn.
+
+LM83 chỉ được tìm thấy trên một số bo mạch chủ. Cả hai đều được xác nhận
+danh sách và một danh sách chưa được xác nhận theo sau. Nếu bạn có thể xác nhận hoặc xác nhận
+thực tế là bất kỳ bo mạch chủ nào trong số này thực sự có LM83, vui lòng
+liên hệ với chúng tôi. Lưu ý rằng LM90 có thể dễ dàng bị phát hiện nhầm là LM83.
+
+Bo mạch chủ được xác nhận:
+    === =====
+    SBS P014
+    SBS PSL09
+    === =====
+
+Bo mạch chủ chưa được xác nhận:
+    ======================
+    Gigabyte GA-8IK1100
+    Tôi sẽ MPX2
+    Soltek SL-75DRV5
+    ======================
+
+LM82 được xác nhận đã được tìm thấy trên hầu hết các tài liệu tham khảo Geode AMD
+thiết kế và nền tảng thử nghiệm.
+
+Trình điều khiển đã được thử nghiệm thành công bởi Magnus Forsström, người mà tôi
+muốn cảm ơn ở đây. Tất nhiên sẽ có nhiều người thử nghiệm hơn được chào đón.
+
+Có thể dễ dàng giải thích việc LM83 hiếm khi được sử dụng.
+Hầu hết các bo mạch chủ đều có nhiều thứ hơn là chỉ có cảm biến nhiệt độ để
+theo dõi sức khỏe. Chúng cũng có điện áp và tốc độ quay của quạt
+cảm biến. Điều này có nghĩa là các chip chỉ có nhiệt độ thường được sử dụng làm
+chip thứ cấp kết hợp với chip khác như IT8705F hoặc tương tự
+chip, cung cấp nhiều tính năng hơn. Vì hệ thống thường cần ba
+cảm biến nhiệt độ (bo mạch chủ, bộ xử lý, nguồn điện) và sơ cấp
+chip cung cấp một số cảm biến nhiệt độ, chip phụ, nếu cần,
+sẽ không phải xử lý nhiều hơn hai nhiệt độ. Như vậy, bản sao ADM1021
+là đủ và không cần cảm biến bốn nhiệt độ
+chip như LM83. Trường hợp duy nhất sử dụng LM83 sẽ khiến
+có ý nghĩa trên các hệ thống SMP, chẳng hạn như Iwill MPX2 đã đề cập ở trên,
+bởi vì bạn muốn có thêm một cảm biến nhiệt độ cho mỗi lần bổ sung
+CPU.
+
+Trên SBS P014, điều này lại khác, vì LM83 là phần cứng duy nhất
+giám sát chipset. Một cảm biến nhiệt độ được sử dụng cho bo mạch chủ
+(thực tế là đo nhiệt độ của chính LM83), một cái được sử dụng cho
+CPU. Hai cảm biến còn lại phải được sử dụng để đo nhiệt độ của
+hai điểm khác của bo mạch chủ. Chúng tôi nghi ngờ những điểm này là
+cầu bắc và nam, nhưng điều này không thể được xác nhận.
+
+Tất cả các giá trị nhiệt độ được tính bằng độ C. Nhiệt độ địa phương
+được đưa ra trong phạm vi từ 0 đến +85 độ. Nhiệt độ từ xa là
+được đưa ra trong phạm vi từ 0 đến +125 độ. Độ phân giải là 1,0 độ,
+độ chính xác được đảm bảo đến 3,0 độ (xem bảng dữ liệu để biết thêm
+chi tiết).
+
+Mỗi cảm biến có giới hạn cao riêng, nhưng giới hạn tới hạn là chung cho
+cả bốn cảm biến. Không có cơ chế trễ như trên hầu hết
+cảm biến nhiệt độ gần đây.
+
+Trình điều khiển lm83 sẽ không cập nhật giá trị của nó thường xuyên hơn mọi lần.
+thứ hai khác; đọc chúng thường xuyên hơn sẽ không có hại gì, nhưng sẽ quay trở lại
+giá trị “cũ”.

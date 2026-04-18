@@ -1,0 +1,64 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adt7411.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adt7411
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADT7411
+
+Tiền tố: 'adt7411'
+
+Địa chỉ được quét: 0x48, 0x4a, 0x4b
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+Tác giả: Wolfram Sang (dựa trên adt7470 của Darrick J. Wong)
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip ADT7411 của Thiết bị Analog. Có thể có
+là các chip khác thực hiện giao diện này.
+
+ADT7411 có thể sử dụng giao diện 2 dây tương thích I2C/SMBus hoặc
+Giao diện 4 dây tương thích SPI. Nó cung cấp tín hiệu tương tự sang kỹ thuật số 10 bit
+bộ chuyển đổi đo 1 nhiệt độ, vdd và 8 điện áp đầu vào. Nó có một
+cảm biến nhiệt độ bên trong, nhưng cũng có thể kết nối một cảm biến bên ngoài (một
+mất 2 đầu vào rồi). Có các thanh ghi giới hạn cao và thấp cho tất cả các đầu vào.
+
+Kiểm tra bảng dữ liệu để biết chi tiết.
+
+giao diện sysfs
+---------------
+
+====================================
+đầu vào điện áp vdd in0_input
+in[1-8]_input đầu vào tương tự 1-8
+đầu vào nhiệt độ temp1_input
+====================================
+
+Ngoài các giao diện tiêu chuẩn, trình điều khiển này còn bổ sung thêm (0 = tắt, 1 = bật):
+
+===========================================================================
+  adc_ref_vdd Sử dụng vdd làm tham chiếu thay vì 2,25 V
+  fast_sampling Mẫu ở 22,5 kHz thay vì 1,4 kHz, nhưng bỏ bộ lọc
+  no_average Tắt tính trung bình trên 16 mẫu
+  ===========================================================================
+
+Ghi chú
+-----
+
+SPI, cảm biến nhiệt độ bên ngoài và thanh ghi giới hạn chưa được hỗ trợ.

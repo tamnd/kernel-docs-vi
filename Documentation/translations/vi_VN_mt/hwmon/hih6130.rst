@@ -1,0 +1,59 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/hih6130.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân hih6130
+=====================
+
+Chip được hỗ trợ:
+
+* Honeywell HIH-6130 / HIH-6131
+
+Tiền tố: 'hih6130'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Honeywell
+
+ZZ0000ZZ
+
+tác giả:
+  Iain Paton <ipaton0@gmail.com>
+
+Sự miêu tả
+-----------
+
+HIH-6130 & HIH-6131 là các cảm biến độ ẩm và nhiệt độ trong gói SO8.
+Điểm khác biệt giữa 2 máy là HIH-6131 có hiện tượng ngưng tụ
+bộ lọc.
+
+Các thiết bị giao tiếp với giao thức I2C. Tất cả các cảm biến được đặt giống nhau
+Địa chỉ I2C là 0x27 theo mặc định, do đó, một mục nhập có I2C_BOARD_INFO("hih6130", 0x27)
+có thể được sử dụng trong mã thiết lập bảng.
+
+Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết chi tiết về cách
+khởi tạo các thiết bị I2C.
+
+giao diện sysfs
+---------------
+
+temp1_input
+	đầu vào nhiệt độ
+
+độ ẩm1_input
+	đầu vào độ ẩm
+
+Ghi chú
+-----
+
+Chế độ lệnh và báo động hiện không được hỗ trợ.

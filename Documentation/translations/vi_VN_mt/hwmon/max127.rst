@@ -1,0 +1,57 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max127.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max127
+====================
+
+Tác giả:
+
+* Tao Ren <rentao.bupt@gmail.com>
+
+Chip được hỗ trợ:
+
+* Tối đa MAX127
+
+Tiền tố: 'max127'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Sự miêu tả
+-----------
+
+MAX127 là hệ thống thu thập dữ liệu 12-bit đa phạm vi (DAS) cung cấp
+8 kênh đầu vào tương tự được lập trình phần mềm độc lập cho
+nhiều phạm vi khác nhau. Phạm vi khả dụng là {0,5V}, {0,10V}, {-5,5V}
+và {-10,10V}.
+
+MAX127 có giao diện nối tiếp tương thích I2C 2 dây cho phép
+giao tiếp giữa nhiều thiết bị sử dụng đường SDA và SCL.
+
+Giao diện hệ thống
+---------------
+
+==================================================================================
+  in[0-7]_input Điện áp đầu vào (tính bằng mV) của kênh tương ứng.
+		 RO
+
+in[0-7]_min Giới hạn đầu vào dưới (tính bằng mV) cho kênh tương ứng.
+		 Phạm vi ADC và LSB sẽ được cập nhật khi giới hạn được thay đổi.
+		 Đối với MAX127, nó sẽ được điều chỉnh thành -10000, -5000 hoặc 0.
+		 RW
+
+in[0-7]_max Giới hạn đầu vào cao hơn (tính bằng mV) cho kênh tương ứng.
+		 Phạm vi ADC và LSB sẽ được cập nhật khi giới hạn được thay đổi.
+		 Đối với MAX127, nó sẽ được điều chỉnh thành 0, 5000 hoặc 10000.
+		 RW
+  ==================================================================================

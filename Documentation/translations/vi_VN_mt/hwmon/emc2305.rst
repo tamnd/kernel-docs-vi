@@ -1,0 +1,48 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/emc2305.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân emc2305
+=====================
+
+Chip được hỗ trợ:
+   Vi mạch EMC2305, EMC2303, EMC2302, EMC2301
+
+Tiền tố: 'emc2305'
+
+Datasheet: Có sẵn công khai tại website Microchip:
+      ZZ0000ZZ
+
+Sự miêu tả:
+------------
+Trình điều khiển này triển khai hỗ trợ cho Bộ điều khiển quạt PWM dựa trên Microchip EMC2301/2/3/5 RPM.
+Bộ điều khiển quạt EMC2305 hỗ trợ tối đa 5 ổ quạt PWM được điều khiển độc lập.
+Tốc độ quay của quạt được báo cáo trong RPM.
+Trình điều khiển hỗ trợ điều khiển PWM dựa trên RPM để giữ quạt ở tốc độ mong muốn.
+Trình điều khiển cung cấp khả năng có một giao diện PWM chung cho tất cả FAN
+hoặc lên đến mức tối đa có sẵn hoặc được định cấu hình của các xung độc lập.
+
+Trình điều khiển cung cấp các giao diện sysfs sau trong hệ thống con hwmon:
+
+================== =========================================================
+fan[1-5]_fault Tệp RO cho máy đo tốc độ TACH1-TACH5 chỉ báo lỗi
+fan[1-5]_input Tệp RO cho máy đo tốc độ Đầu vào TACH1-TACH5 (trong RPM)
+Tệp pwm[1-5] RW cho chu kỳ hoạt động mục tiêu của quạt[1-5] (0..255)
+================== =========================================================
+
+Giao diện sysfs trong hệ thống con nhiệt:
+
+================== ==========================================================================================
+Tệp cur_state RW cho trạng thái làm mát hiện tại của thiết bị làm mát (0..max_state)
+file RO max_state cho trạng thái làm mát tối đa của thiết bị làm mát
+================== ==========================================================================================

@@ -1,0 +1,71 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/da9055.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân da9055
+====================
+
+Chip được hỗ trợ:
+  * Hộp thoại bán dẫn DA9055 PMIC
+
+Tiền tố: 'da9055'
+
+Bảng dữ liệu: Bảng dữ liệu không có sẵn công khai.
+
+Tác giả: David Dajun Chen <dchen@diasemi.com>
+
+Sự miêu tả
+-----------
+
+DA9055 cung cấp Bộ chuyển đổi tương tự sang kỹ thuật số (ADC) với 10 bit
+độ phân giải và mạch theo dõi và giữ kết hợp với đầu vào tương tự
+bộ ghép kênh. Bộ ghép kênh đầu vào tương tự sẽ cho phép chuyển đổi tối đa 5
+đầu vào khác nhau. Mạch theo dõi và giữ đảm bảo điện áp đầu vào ổn định ở mức
+đầu vào của ADC trong quá trình chuyển đổi.
+
+ADC được sử dụng để đo các đầu vào sau:
+
+- Kênh 0: VDDOUT - đo điện áp hệ thống
+- Kênh 1: ADC_IN1 - đầu vào trở kháng cao (0 - 2.5V)
+- Kênh 2: ADC_IN2 - đầu vào trở kháng cao (0 - 2.5V)
+- Kênh 3: ADC_IN3 - đầu vào trở kháng cao (0 - 2.5V)
+- Kênh 4: Tjunc nội bộ. - cảm giác (cảm biến nhiệt độ bên trong)
+
+Bằng cách sử dụng các thuộc tính sysfs, chúng ta có thể đo điện áp hệ thống VDDOUT,
+nhiệt độ tiếp giáp chip và điện áp kênh phụ.
+
+Giám sát điện áp
+------------------
+
+Điện áp được lấy mẫu ở chế độ AUTO, nó cũng có thể được lấy mẫu thủ công và cho kết quả
+được lưu trữ trong ADC 10 bit.
+
+Điện áp hệ thống được tính như sau:
+
+Milli volt = ((giá trị ADC * 1000) / 85) + 2500
+
+Điện áp trên các kênh 1, 2 và 3 của ADC được tính như sau:
+
+Milli volt = (giá trị ADC * 1000) / 102
+
+Giám sát nhiệt độ
+----------------------
+
+Nhiệt độ được lấy mẫu bằng ADC 10 bit.  Nhiệt độ giao lộ
+được giám sát bởi các kênh ADC.
+
+Nhiệt độ tiếp giáp được tính:
+
+Độ C = -0,4084 * (ADC_RES - T_OFFSET) + 307,6332
+
+Thuộc tính nhiệt độ đường giao nhau được trình điều khiển hỗ trợ.

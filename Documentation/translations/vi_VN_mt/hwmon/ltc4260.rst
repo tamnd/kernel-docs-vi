@@ -1,0 +1,78 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc4260.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc4260
+=====================
+
+Chip được hỗ trợ:
+
+* Công nghệ tuyến tính LTC4260
+
+Tiền tố: 'ltc4260'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Bộ điều khiển Hot Swap LTC4260 cho phép lắp bo mạch một cách an toàn
+và loại bỏ khỏi một bảng nối đa năng trực tiếp.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị LTC4260 vì không có đăng ký
+có thể được sử dụng một cách an toàn để nhận dạng chip. Bạn sẽ phải khởi tạo
+các thiết bị một cách rõ ràng.
+
+Ví dụ: phần sau sẽ tải trình điều khiển cho LTC4260 tại địa chỉ 0x10
+trên xe buýt I2C #1::
+
+$ modprobe ltc4260
+	$ echo ltc4260 0x10 > /sys/bus/i2c/devices/i2c-1/new_device
+
+
+Mục nhập hệ thống
+-------------
+
+Số đọc điện áp do trình điều khiển này cung cấp được báo cáo là thu được từ ADC
+sổ đăng ký. Nếu lắp đặt một bộ điện trở chia điện áp, hãy tính toán
+điện áp thực bằng cách nhân giá trị được báo cáo với (R1+R2)/R2, trong đó R1 là
+giá trị của điện trở chia so với điện áp đo được và R2 là giá trị
+của điện trở chia so với mặt đất.
+
+Số đọc hiện tại do trình điều khiển này cung cấp được báo cáo là được lấy từ ADC
+Đăng ký Sense hiện tại. Giá trị được báo cáo giả định rằng điện trở cảm giác 1 mOhm
+được cài đặt. Nếu lắp một điện trở có ý nghĩa khác, hãy tính giá trị thực
+hiện tại bằng cách chia giá trị được báo cáo cho giá trị điện trở cảm nhận tính bằng mOhm.
+
+=================================================
+in1_input SOURCE điện áp (mV)
+in1_min_alarm Báo động điện áp thấp
+in1_max_alarmBáo động quá áp
+
+in2_input Điện áp ADIN (mV)
+in2_alarm Báo lỗi nguồn điện
+
+curr1_input SENSE hiện tại (mA)
+curr1_alarm SENSE báo động quá dòng
+=================================================

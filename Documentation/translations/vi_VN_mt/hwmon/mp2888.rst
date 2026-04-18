@@ -1,0 +1,125 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mp2888.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân mp2888
+====================
+
+Chip được hỗ trợ:
+
+* MPS MP12254
+
+Tiền tố: 'mp2888'
+
+Tác giả:
+
+Vadim Pasternak <vadimp@nvidia.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Monolithic Power Systems, Inc. (MPS)
+nhà cung cấp bộ điều khiển nhiều pha, kỹ thuật số, vòng lặp kép MP2888.
+
+Thiết bị này: hỗ trợ:
+
+- Một đường ray điện.
+- Có thể lập trình nhiều pha lên tới 10 pha.
+- Giao diện PWM-VID
+- Một trang 0 dành cho đo từ xa.
+- Chân lập trình cho địa chỉ PMBus.
+- EEPROM tích hợp để lưu trữ cấu hình tùy chỉnh.
+
+Khiếu nại thiết bị với:
+
+- Giao diện PMBus rev 1.3.
+
+Thiết bị hỗ trợ định dạng trực tiếp để đọc dòng điện đầu ra, điện áp đầu ra,
+công suất đầu vào và đầu ra và nhiệt độ.
+Thiết bị hỗ trợ định dạng tuyến tính để đọc điện áp đầu vào và công suất đầu vào.
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho dòng điện:
+
+- đối với đầu vào hiện tại và báo động tối đa;
+- đối với dòng điện pha: đầu vào và nhãn.
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs', trong đó:
+
+- 'n' là số pha được cấu hình (từ 1 đến 10);
+- chỉ số 1 cho "iout";
+- chỉ số 2 ... 1 + n cho các pha.
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho điện áp:
+
+- đối với điện áp vào: đầu vào, ngưỡng tới hạn thấp và cao, thấp và cao
+  báo động quan trọng;
+- đối với điện áp ra: đầu vào và báo động cao;
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs', trong đó
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho sức mạnh:
+
+- cấp nguồn cho báo động và đầu vào.
+- khi mất điện: nắp, nắp cảnh báo một đầu vào.
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs', trong đó
+- chỉ số 1 cho "pin";
+- chỉ số 2 cho "bĩu môi";
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho nhiệt độ:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ

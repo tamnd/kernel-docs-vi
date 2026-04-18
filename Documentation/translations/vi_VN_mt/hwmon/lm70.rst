@@ -1,0 +1,83 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm70.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm70
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM70
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP121/TMP123
+
+Thông tin: ZZ0000ZZ
+
+* Dụng cụ Texas TMP122/TMP124
+
+Thông tin: ZZ0000ZZ
+
+* Dụng cụ Texas TMP125
+
+Thông tin: ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM71
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM74
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+tác giả:
+	Kaiwan N Billimoria <kaiwan@designergraphix.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Chất bán dẫn Quốc gia LM70
+cảm biến nhiệt độ.
+
+Chip cảm biến nhiệt độ LM70 hỗ trợ một cảm biến nhiệt độ duy nhất.
+Nó giao tiếp với bộ xử lý chủ (hoặc vi điều khiển) thông qua một
+Giao diện Bus SPI/Microwire.
+
+Giao tiếp với LM70 rất đơn giản: khi cần cảm nhận nhiệt độ,
+trình điều khiển truy cập LM70 bằng giao tiếp SPI: 16 chu kỳ SCLK
+bao gồm vòng lặp MOSI/MISO. Khi kết thúc quá trình truyền, 11 bit 2
+bổ sung nhiệt độ kỹ thuật số (được gửi qua dòng SIO), có sẵn trong
+trình điều khiển để giải thích. Trình điều khiển này sử dụng lõi của kernel
+Hỗ trợ SPI.
+
+Như một ví dụ thực tế (trong cây) về giao diện "Trình điều khiển giao thức SPI" này
+với "Trình điều khiển bộ điều khiển chính SPI", xem driver/spi/spi_lm70llp.c
+và các tài liệu liên quan của nó.
+
+LM74 và TMP121/TMP122/TMP123/TMP124 rất giống nhau; sự khác biệt chính là
+Dữ liệu nhiệt độ 13 bit (độ phân giải 0,0625 độ C).
+
+TMP122/TMP124 cũng có ngưỡng nhiệt độ có thể định cấu hình.
+
+TMP125 kém chính xác hơn và cung cấp dữ liệu nhiệt độ 10 bit
+với độ phân giải 0,25 độ C.
+
+LM71 cũng rất giống nhau; sự khác biệt chính là nhiệt độ 14-bit
+dữ liệu (độ phân giải 0,03125 độ C).
+
+Nhờ có
+---------
+Jean Delvare <jdelvare@suse.de> đã hướng dẫn tài xế bên hwmon
+sự phát triển.

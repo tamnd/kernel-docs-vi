@@ -1,0 +1,64 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adc128d818.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adc128d818
+========================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas ADC818D818
+
+Tiền tố: 'adc818d818'
+
+Địa chỉ được quét: I2C 0x1d, 0x1e, 0x1f, 0x2d, 0x2e, 0x2f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI ZZ0000ZZ
+
+Tác giả: Guenter Roeck
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Texas Instruments ADC128D818.
+Nó được mô tả là 'Màn hình hệ thống ADC với cảm biến nhiệt độ'.
+
+ADC128D818 thực hiện một cảm biến nhiệt độ và bảy cảm biến điện áp.
+
+Nhiệt độ được đo bằng độ C. Có một bộ giới hạn.
+Khi giới hạn nhiệt độ HOT bị vượt qua, điều này sẽ gây ra cảnh báo
+được xác nhận lại cho đến khi nhiệt độ giảm xuống dưới Độ trễ HOT.
+Các phép đo được đảm bảo trong khoảng từ -55 đến +125 độ. Nhiệt độ
+phép đo có độ phân giải 0,5 độ; các giới hạn có độ phân giải
+là 1 độ.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng bằng vôn.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa. Lưu ý rằng mức tối thiểu trong trường hợp này luôn có nghĩa là 'gần nhất với
+không'; điều này rất quan trọng đối với các phép đo điện áp âm. Tất cả điện áp
+đầu vào có thể đo điện áp trong khoảng từ 0 đến 2,55 volt, với độ phân giải
+là 0,625 mV.
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể
+đã biến mất vào thời điểm báo động được đọc. Người lái xe
+lưu trữ trạng thái cảnh báo cho từng cảm biến cho đến khi ít nhất nó được báo cáo
+một lần, để đảm bảo rằng cảnh báo được báo cáo tới không gian người dùng.
+
+ADC128D818 chỉ cập nhật giá trị của nó khoảng một lần mỗi giây;
+đọc nó thường xuyên hơn sẽ không gây hại gì nhưng sẽ trả về các giá trị 'cũ'.
+
+Ngoài danh sách địa chỉ được quét, chip còn có thể được cấu hình cho
+địa chỉ 0x35 đến 0x37. Những địa chỉ đó không được quét. Bạn phải khởi tạo
+trình điều khiển một cách rõ ràng nếu chip được cấu hình cho bất kỳ địa chỉ nào trong số đó trong
+hệ thống của bạn.

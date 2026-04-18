@@ -1,0 +1,378 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/dme1737.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân dme1737
+=====================
+
+Chip được hỗ trợ:
+
+* SMSC DME1737 và các thiết bị tương thích (như Asus A8000)
+
+Tiền tố: 'dme1737'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: Được cung cấp bởi SMSC theo yêu cầu và theo NDA
+
+* SMSC SCH3112, SCH3114, SCH3116
+
+Tiền tố: 'sch311x'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super-I/O
+
+Bảng dữ liệu: Có sẵn trên Internet
+
+* SMSC SCH5027
+
+Tiền tố: 'sch5027'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: Được cung cấp bởi SMSC theo yêu cầu và theo NDA
+
+* SMSC SCH5127
+
+Tiền tố: 'sch5127'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super-I/O
+
+Bảng dữ liệu: Được cung cấp bởi SMSC theo yêu cầu và theo NDA
+
+tác giả:
+    Juerg Haefliger <juergh@gmail.com>
+
+
+Thông số mô-đun
+-----------------
+
+*bắt_bắt_đầu: bool
+			Cho phép giám sát đầu vào điện áp, quạt và nhiệt độ
+			và chức năng điều khiển đầu ra PWM. Sử dụng tham số này
+			không cần thiết vì BIOS thường đảm nhiệm việc
+			về điều này.
+
+* thăm dò_all_addr: bool
+			Bao gồm các địa chỉ LPC không chuẩn 0x162e và 0x164e
+			khi thăm dò các thiết bị ISA. Điều này là cần thiết cho
+			các bảng sau:
+			- VIA EPIA SN18000
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này thực hiện hỗ trợ cho khả năng giám sát phần cứng của
+SMSC DME1737 và Asus A8000 (giống nhau), SMSC SCH5027, SCH311x,
+và chip Super-I/O SCH5127. Những con chip này có tính năng giám sát 3 cảm biến nhiệt độ
+temp[1-3] (2 điốt từ xa và 1 điốt bên trong), 8 điện áp vào [0-7] (7 bên ngoài và 7 điốt bên trong)
+1 bên trong) và tối đa 6 tốc độ quạt [1-6]. Ngoài ra, các chip thực hiện
+lên đến 5 PWM đầu ra pwm[1-3,5-6] để kiểm soát tốc độ quạt cả bằng tay và
+tự động.
+
+Đối với DME1737, A8000 và SCH5027, quạt[1-2] và pwm[1-2] luôn hiện diện.
+Fan[3-6] và pwm[3,5-6] là các tính năng tùy chọn và tính khả dụng của chúng phụ thuộc vào
+cấu hình của chip. Trình điều khiển sẽ phát hiện những tính năng nào
+hiện diện trong quá trình khởi tạo và tạo các thuộc tính sysfs tương ứng.
+
+Đối với SCH311x và SCH5127, quạt[1-3] và pwm[1-3] luôn hiện diện và
+fan[4-6] và pwm[5-6] không tồn tại.
+
+Các tính năng giám sát phần cứng của DME1737, A8000 và SCH5027 chỉ có
+có thể truy cập qua SMBus, trong khi SCH311x và SCH5127 chỉ cung cấp quyền truy cập qua
+xe buýt ISA. Do đó, trình điều khiển sẽ tự đăng ký làm trình điều khiển máy khách I2C
+nếu nó phát hiện DME1737, A8000 hoặc SCH5027 và là trình điều khiển nền tảng nếu nó
+phát hiện chip SCH311x hoặc SCH5127.
+
+
+Giám sát điện áp
+------------------
+
+Đầu vào điện áp được lấy mẫu với độ phân giải 12 bit và có nội bộ
+điện trở tỉ lệ. Do đó, các giá trị được trình điều khiển trả về phản ánh đúng
+milivolt và không cần chia tỷ lệ. Các đầu vào điện áp được ánh xạ như sau
+(cột cuối cùng cho biết phạm vi đầu vào):
+
+DME1737, A8000::
+
+in0: +5VTR (+5V dự phòng) 0V - 6.64V
+	in1: Vccp (lõi xử lý) 0V - 3V
+	in2: VCC (nội bộ +3.3V) 0V - 4.38V
+	in3: +5V 0V - 6.64V
+	in4: +12V 0V - 16V
+	in5: VTR (+3.3V dự phòng) 0V - 4.38V
+	in6: Vbat (+3.0V) 0V - 4.38V
+
+SCH311x::
+
+in0: +2.5V 0V - 3.32V
+	in1: Vccp (lõi xử lý) 0V - 2V
+	in2: VCC (nội bộ +3.3V) 0V - 4.38V
+	in3: +5V 0V - 6.64V
+	in4: +12V 0V - 16V
+	in5: VTR (+3.3V dự phòng) 0V - 4.38V
+	in6: Vbat (+3.0V) 0V - 4.38V
+
+SCH5027::
+
+in0: +5VTR (+5V dự phòng) 0V - 6.64V
+	in1: Vccp (lõi xử lý) 0V - 3V
+	in2: VCC (nội bộ +3.3V) 0V - 4.38V
+	in3: V2_IN 0V - 1.5V
+	in4: V1_IN 0V - 1.5V
+	in5: VTR (+3.3V dự phòng) 0V - 4.38V
+	in6: Vbat (+3.0V) 0V - 4.38V
+
+SCH5127::
+
+in0: +2,5 0V - 3,32V
+	in1: Vccp (lõi xử lý) 0V - 3V
+	in2: VCC (nội bộ +3.3V) 0V - 4.38V
+	in3: V2_IN 0V - 1.5V
+	in4: V1_IN 0V - 1.5V
+	in5: VTR (+3.3V dự phòng) 0V - 4.38V
+	in6: Vbat (+3.0V) 0V - 4.38V
+	in7: Vtrip (+1.5V) 0V - 1.99V
+
+Mỗi đầu vào điện áp có các giới hạn tối thiểu và tối đa liên quan để kích hoạt cảnh báo
+khi vượt qua.
+
+
+Giám sát nhiệt độ
+----------------------
+
+Nhiệt độ được đo với độ phân giải 12 bit và được báo cáo bằng mili độ
+độ C. Con chip này cũng có tính năng bù cho cả 3 đầu vào nhiệt độ -
+khi được lập trình - được thêm vào số đọc đầu vào. Con chip thực hiện tất cả
+tự mở rộng quy mô và do đó người lái xe sẽ báo cáo nhiệt độ thực không
+cần bất kỳ điều chỉnh không gian người dùng. Các đầu vào nhiệt độ được ánh xạ như sau
+(cột cuối cùng cho biết phạm vi đầu vào)::
+
+temp1: Nhiệt độ diode 1 (loại 3904) -127C - +127C
+	temp2: Nhiệt độ bên trong DME1737 -127C - +127C
+	temp3: Nhiệt độ diode 2 (loại 3904) -127C - +127C
+
+Mỗi đầu vào nhiệt độ có các giới hạn tối thiểu và tối đa liên quan sẽ kích hoạt cảnh báo
+khi vượt qua. Ngoài ra, mỗi đầu vào nhiệt độ có một thuộc tính lỗi
+trả về 1 khi phát hiện thấy diode bị lỗi hoặc đầu vào không được kết nối và 0
+mặt khác.
+
+
+Giám sát quạt
+--------------
+
+RPM của quạt được đo bằng độ phân giải 16 bit. Con chip này cung cấp đầu vào cho 6
+máy đo tốc độ quạt. Tất cả 6 đầu vào đều có giới hạn tối thiểu liên quan sẽ kích hoạt
+báo động khi vượt qua. Đầu vào quạt 1-4 cung cấp các thuộc tính loại cần được đặt
+tới số xung trên mỗi vòng quay của quạt mà máy đo tốc độ được kết nối
+tạo ra. Các giá trị được hỗ trợ là 1, 2 và 4. Đầu vào quạt 5-6 chỉ hỗ trợ quạt
+tạo ra 2 xung trên mỗi vòng quay. Đầu vào quạt 5-6 cũng cung cấp tối đa
+thuộc tính cần được đặt ở mức tối đa RPM có thể đạt được (quạt ở mức công suất 100%-
+chu kỳ) của đầu vào. Con chip điều chỉnh tốc độ lấy mẫu dựa trên giá trị này.
+
+
+Kiểm soát đầu ra PWM
+------------------
+
+Con chip này có 5 đầu ra PWM. Đầu ra PWM 1-3 được liên kết với quạt
+đầu vào 1-3 và đầu ra PWM 5-6 được liên kết với đầu vào quạt 5-6. Đầu ra PWM
+1-3 có thể được cấu hình để hoạt động ở chế độ thủ công hoặc tự động bằng cách cài đặt
+thuộc tính kích hoạt thích hợp cho phù hợp. PWM đầu ra 5-6 chỉ có thể hoạt động
+ở chế độ thủ công, do đó các thuộc tính kích hoạt của chúng ở dạng chỉ đọc. Khi được đặt thành
+chế độ thủ công, tốc độ quạt được cài đặt bằng cách ghi giá trị chu kỳ hoạt động vào
+thuộc tính PWM thích hợp. Ở chế độ tự động, thuộc tính PWM trả về
+chu kỳ hoạt động hiện tại được thiết lập bởi bộ điều khiển quạt trong chip. Tất cả đầu ra PWM
+hỗ trợ cài đặt tần số đầu ra thông qua thuộc tính freq.
+
+Ở chế độ tự động, chip hỗ trợ cài đặt tốc độ tăng PWM
+xác định tốc độ đầu ra PWM điều chỉnh theo những thay đổi của
+đầu vào nhiệt độ. Việc liên kết đầu ra PWM với đầu vào nhiệt độ được thực hiện thông qua
+các vùng nhiệt độ. Con chip này có 3 vùng được phân công theo nhiệt độ
+đầu vào là tĩnh và được xác định trong quá trình khởi tạo. Những nhiệm vụ này có thể
+được truy xuất thông qua các thuộc tính vùng [1-3]_auto_channels_temp. Mỗi đầu ra PWM
+được ấn định cho một (hoặc nhiều) vùng nhiệt độ thông qua
+thuộc tính pwm[1-3]_auto_channels_zone. Mỗi đầu ra PWM có 3 đầu ra riêng biệt
+chu kỳ nhiệm vụ: đầy đủ, thấp và tối thiểu. Full được nối cứng bên trong tới 255 (100%)
+và thấp và tối thiểu có thể được lập trình thông qua pwm[1-3]_auto_point1_pwm và
+pwm[1-3]_auto_pwm_min tương ứng. Ngưỡng nhiệt của các vùng là
+được lập trình thông qua vùng[1-3]_auto_point[1-3]_temp và
+vùng [1-3]_auto_point1_temp_hyst:
+
+===========================================================================
+	pwm[1-3]_auto_point2_pwm chu kỳ nhiệm vụ tốc độ đầy đủ (255, tức là 100%)
+	pwm[1-3]_auto_point1_pwm chu kỳ nhiệm vụ tốc độ thấp
+	pwm[1-3]_auto_pwm_min chu kỳ nhiệm vụ tốc độ tối thiểu
+
+vùng [1-3]_auto_point3_temp nhiệt độ tốc độ tối đa (tất cả đầu ra)
+	vùng [1-3]_auto_point2_temp nhiệt độ tốc độ tối đa
+	vùng [1-3]_auto_point1_temp nhiệt độ tốc độ thấp
+	vùng [1-3]_auto_point1_temp_hyst nhiệt độ tốc độ tối thiểu
+	===========================================================================
+
+Con chip điều chỉnh tuyến tính chu kỳ nhiệm vụ đầu ra trong phạm vi auto_point1_pwm
+tới auto_point2_pwm nếu nhiệt độ của vùng liên quan nằm trong khoảng
+auto_point1_temp và auto_point2_temp. Nếu nhiệt độ giảm xuống dưới mức
+giá trị auto_point1_temp_hyst, chu kỳ nhiệm vụ đầu ra được đặt thành auto_pwm_min
+giá trị chỉ hỗ trợ hai giá trị: 0 hoặc auto_point1_pwm. Điều đó có nghĩa là
+quạt tắt hoàn toàn hoặc tiếp tục quay với tốc độ thấp
+chu kỳ nhiệm vụ. Nếu bất kỳ nhiệt độ nào tăng cao hơn giá trị auto_point3_temp,
+tất cả các đầu ra PWM được đặt ở chu kỳ hoạt động 100%.
+
+Sau đây là một cách trình bày khác về cách chip thiết lập chu kỳ nhiệm vụ đầu ra
+dựa trên nhiệt độ của vùng nhiệt liên quan:
+
+=============================== ===================
+	Chu kỳ hoạt động nhiệt độ Chu kỳ hoạt động
+			Nhiệt độ tăng Nhiệt độ giảm
+	=============================== ===================
+	tốc độ tối đa tốc độ tối đa tốc độ tối đa
+
+- < tuyến tính -
+			điều chỉnh
+			chu kỳ nhiệm vụ >
+
+tốc độ thấp tốc độ thấp tốc độ thấp
+	- tốc độ tối thiểu tốc độ thấp
+	tốc độ tối thiểu tốc độ tối thiểu tốc độ tối thiểu
+	- tốc độ tối thiểu
+	=============================== ===================
+
+
+Thuộc tính Sysfs
+----------------
+
+Sau đây là danh sách tất cả các thuộc tính sysfs mà trình điều khiển cung cấp,
+quyền và mô tả ngắn gọn:
+
+================================ ======= ============================================
+Tên Perm Mô tả
+================================ ======= ============================================
+điện áp tham chiếu lõi cpu0_vid RO CPU trong
+					milivolt.
+Phiên bản mô-đun điều chỉnh điện áp VRM RW
+					số.
+
+in[0-7]_input RO Điện áp đo được tính bằng milivolt.
+in[0-7]_min RW Giới hạn thấp cho điện áp đầu vào.
+in[0-7]_max RW Giới hạn cao cho điện áp đầu vào.
+in[0-7]_alarm Cảnh báo điện áp đầu vào RO. Trả về 1 nếu
+					điện áp đầu vào bị hoặc đi ra ngoài
+					phạm vi tối thiểu-tối đa liên quan, 0 nếu không.
+
+temp[1-3]_input RO Nhiệt độ đo được tính bằng mili độ
+					độ C.
+temp[1-3]_min RW Giới hạn thấp cho đầu vào tạm thời.
+temp[1-3]_max RW Giới hạn cao cho đầu vào tạm thời.
+temp[1-3]_offset RW Offset cho đầu vào tạm thời. Giá trị này sẽ
+					được thêm vào bởi chip để đo
+					nhiệt độ.
+temp[1-3]_alarm RO Báo động cho đầu vào nhiệt độ. Trả về 1 nếu tạm thời
+					đầu vào là hoặc đi ra ngoài liên kết
+					phạm vi tối thiểu-tối đa, 0 nếu không.
+temp[1-3]_fault RO Lỗi đầu vào nhiệt độ. Trả về 1 nếu chip
+					phát hiện một diode nhiệt bị lỗi hoặc một
+					đầu vào tạm thời không được kết nối, nếu không thì bằng 0.
+
+vùng [1-3]_auto_channels_temp RO Vùng nhiệt độ đến đầu vào nhiệt độ
+					lập bản đồ. Thuộc tính này là một trường bit
+					và hỗ trợ các giá trị sau:
+
+- 1: nhiệt độ1
+						- 2: nhiệt độ2
+						- 4: temp3
+vùng [1-3]_auto_point1_temp_hyst RW Độ trễ tạm thời điểm 1 tự động PWM. các
+					đầu ra của PWM tương ứng được đặt
+					đến giá trị pwm_auto_min nếu nhiệt độ
+					giảm xuống dưới auto_point1_temp_hyst
+					giá trị.
+vùng[1-3]_auto_point[1-3]_temp RW Điểm tạm thời PWM tự động. Auto_point1 là
+					nhiệt độ tốc độ thấp, auto_point2 là
+					tốc độ tối đa và auto_point3 là
+					nhiệt độ tại đó tất cả đầu ra PWM được đặt
+					đến tốc độ tối đa (chu kỳ nhiệm vụ 100%).
+
+fan[1-6]_input RO Đo tốc độ quạt trong RPM.
+fan[1-6]_min RW Giới hạn thấp cho đầu vào quạt.
+fan[1-6]_alarm RO Báo động cho đầu vào quạt. Trả về 1 nếu quạt
+					đầu vào thấp hơn hoặc thấp hơn giá trị liên quan
+					giá trị tối thiểu, 0 nếu không.
+fan[1-4]_type RW Loại quạt kèm theo. Thể hiện ở
+					số xung trên mỗi vòng quay
+					quạt tạo ra. Các giá trị được hỗ trợ là
+					1, 2 và 4.
+fan[5-6]_max RW RPM có thể đạt được tối đa ở chu kỳ hoạt động 100%.
+					Cần thiết cho chip để điều chỉnh
+					tốc độ lấy mẫu tương ứng.
+
+pmw[1-3,5-6] RO/RW Chu kỳ hoạt động của đầu ra PWM. Được hỗ trợ
+					giá trị là 0-255 (0%-100%). Chỉ
+					có thể ghi nếu PWM liên quan ở
+					chế độ thủ công.
+pwm[1-3]_enable RW Kích hoạt PWM đầu ra 1-3. Được hỗ trợ
+					giá trị là:
+
+- 0: tắt (đầu ra @ 100%)
+						- 1: chế độ thủ công
+						- 2: chế độ tự động
+pwm[5-6]_enable RO Kích hoạt PWM đầu ra 5-6. Luôn luôn
+					trả về 1 vì 2 đầu ra này là
+					nối dây cứng sang chế độ thủ công.
+pmw[1-3,5-6]_freq RW Tần số của đầu ra PWM. Được hỗ trợ
+					giá trị nằm trong khoảng 11Hz-30000Hz
+					(mặc định là 25000Hz).
+pmw[1-3]_ramp_rate RW Tốc độ tăng của đầu ra PWM. Xác định cách
+					chu kỳ nhiệm vụ PWM sẽ thay đổi nhanh chóng
+					khi PWM ở chế độ tự động.
+					Được biểu thị bằng ms trên mỗi bước PWM. Được hỗ trợ
+					các giá trị nằm trong khoảng 0ms-206ms
+					(mặc định là 0, có nghĩa là nhiệm vụ-
+					chu kỳ thay đổi ngay lập tức).
+pwm[1-3]_auto_channels_zone RW PWM xuất ra ánh xạ vùng nhiệt độ.
+					Thuộc tính này là một trường bit và
+					hỗ trợ các giá trị sau:
+
+- 1: khu 1
+						- 2: khu 2
+						- 4: khu 3
+						- 6: vùng cao nhất[2-3]
+						- 7: vùng cao nhất[1-3]
+pwm[1-3]_auto_pwm_min RW Tự động PWM phút pwm. Nhiệm vụ tối thiểu PWM-
+					chu kỳ. Các giá trị được hỗ trợ là 0 hoặc
+					auto_point1_pwm.
+pwm[1-3]_auto_point1_pwm RW Điểm pwm tự động PWM. Auto_point1 là
+					chu kỳ làm việc tốc độ thấp.
+pwm[1-3]_auto_point2_pwm RO Auto PWM điểm pwm. Auto_point2 là
+					chu kỳ nhiệm vụ tốc độ tối đa rất khó
+					nối dây tới 255 (chu kỳ nhiệm vụ 100%).
+================================ ======= ============================================
+
+Sự khác biệt về chip
+----------------
+
+============================== ======= ======= ========
+Tính năng dme1737 sch311x sch5027 sch5127
+============================== ======= ======= ========
+temp[1-3]_offset có có
+vid vâng
+khu 3 vâng vâng vâng
+vùng[1-3]_hyst có có
+pwm tối thiểu/tắt vâng vâng
+fan3 chọn có chọn có
+pwm3 chọn có chọn có
+tùy chọn fan4
+tùy chọn fan5
+tùy chọn pwm5
+tùy chọn fan6
+tùy chọn pwm6
+in7 vâng
+============================== ======= ======= ========

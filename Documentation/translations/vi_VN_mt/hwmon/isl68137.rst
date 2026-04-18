@@ -1,0 +1,669 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/isl68137.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân isl68137
+======================
+
+Chip được hỗ trợ:
+
+* Renesas ISL68137
+
+Tiền tố: 'isl68137'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai tại trang web Renesas
+      ZZ0000ZZ
+
+* Renesas ISL68220
+
+Tiền tố: 'isl68220'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68221
+
+Tiền tố: 'isl68221'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68222
+
+Tiền tố: 'isl68222'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68223
+
+Tiền tố: 'isl68223'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68224
+
+Tiền tố: 'isl68224'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68225
+
+Tiền tố: 'isl68225'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68226
+
+Tiền tố: 'isl68226'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68227
+
+Tiền tố: 'isl68227'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68229
+
+Tiền tố: 'isl68229'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68233
+
+Tiền tố: 'isl68233'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL68239
+
+Tiền tố: 'isl68239'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69222
+
+Tiền tố: 'isl69222'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69223
+
+Tiền tố: 'isl69223'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69224
+
+Tiền tố: 'isl69224'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69225
+
+Tiền tố: 'isl69225'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69227
+
+Tiền tố: 'isl69227'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69228
+
+Tiền tố: 'isl69228'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69234
+
+Tiền tố: 'isl69234'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69236
+
+Tiền tố: 'isl69236'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69239
+
+Tiền tố: 'isl69239'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69242
+
+Tiền tố: 'isl69242'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69243
+
+Tiền tố: 'isl69243'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69247
+
+Tiền tố: 'isl69247'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69248
+
+Tiền tố: 'isl69248'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69254
+
+Tiền tố: 'isl69254'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69255
+
+Tiền tố: 'isl69255'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69256
+
+Tiền tố: 'isl69256'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69259
+
+Tiền tố: 'isl69259'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69260
+
+Tiền tố: 'isl69260'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69268
+
+Tiền tố: 'isl69268'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69269
+
+Tiền tố: 'isl69269'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas ISL69298
+
+Tiền tố: 'isl69298'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas RAA228000
+
+Tiền tố: 'raa228000'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas RAA228004
+
+Tiền tố: 'raa228004'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas RAA228006
+
+Tiền tố: 'raa228006'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas RAA228228
+
+Tiền tố: 'raa228228'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas RAA228244
+
+Tiền tố: 'raa228244'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Được cung cấp bởi Renesas theo yêu cầu và NDA
+
+* Renesas RAA228246
+
+Tiền tố: 'raa228246'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Được cung cấp bởi Renesas theo yêu cầu và NDA
+
+* Renesas RAA228942
+
+Tiền tố: 'raa228942'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Được cung cấp bởi Renesas theo yêu cầu và NDA
+
+* Renesas RAA228943
+
+Tiền tố: 'raa228943'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Được cung cấp bởi Renesas theo yêu cầu và NDA
+
+* Renesas RAA229001
+
+Tiền tố: 'raa229001'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas RAA229004
+
+Tiền tố: 'raa229004'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Có sẵn công khai (sau khi ra mắt vào tháng 8 năm 2020) tại trang web Renesas
+
+* Renesas RAA229141
+
+Tiền tố: 'raa229141'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+Được cung cấp bởi Renesas theo yêu cầu và NDA
+
+tác giả:
+      - Maxim Sloyko <maxims@google.com>
+      - Robert Lippert <rlippert@google.com>
+      - Patrick Venture <venture@google.com>
+      - Grant Peltier <grant.peltier.jg@renesas.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ Renesas ISL68137 và tất cả Renesas thế hệ thứ 2
+bộ điều chỉnh điện áp nhiều pha kỹ thuật số (raa_dmpvr2). ISL68137 là một thiết bị kỹ thuật số
+đầu ra bộ điều khiển PWM có thể cấu hình 7 pha với giao diện AVSBus. thứ 2
+các thiết bị phát điện được nhóm thành 4 cấu hình riêng biệt: '1rail' cho
+thiết bị đường ray đơn, '2rail' dành cho thiết bị đường ray kép, '3rail' dành cho thiết bị 3 đường ray,
+và 'hv' cho các thiết bị đường ray đơn có điện áp cao. Tham khảo các bảng dữ liệu riêng lẻ
+để biết thêm thông tin.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Chế độ hoạt động ISL68137 AVS phải được bật/tắt khi chạy.
+
+Ngoài các thuộc tính pmbus sysfs thông thường, trình điều khiển hiển thị thuộc tính điều khiển
+dành cho ISL68137.
+
+Đối với bộ điều chỉnh điện áp nhiều pha kỹ thuật số Renesas thế hệ thứ 2, chỉ có
+các thuộc tính pmbus sysfs bình thường được hỗ trợ.
+
+Thuộc tính hệ thống ISL68137
+-------------------------
+
+================================================================
+avs(0|1)_enable Kiểm soát trạng thái AVS của mỗi đường ray.
+
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào
+Curr1_crit Dòng tối đa quan trọng
+curr1_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+Curr[2-3]_label "iout[1-2]"
+curr[2-3]_input Đo dòng điện đầu ra
+Curr[2-3]_crit Dòng tối đa tới hạn
+curr[2-3]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_lcrit Điện áp đầu vào tối thiểu quan trọng
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động cao tới hạn điện áp đầu vào
+
+trong[2-3]_label "vout[1-2]"
+in[2-3]_input Đo điện áp đầu ra
+in[2-3]_lcrit Điện áp đầu ra tối thiểu quan trọng
+in[2-3]_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in[2-3]_crit Điện áp đầu ra tối đa tới hạn
+in[2-3]_crit_alarm Báo động cao tới hạn điện áp đầu ra
+
+power1_label "pin"
+power1_input Công suất đầu vào đo được
+power1_alarm Báo động nguồn điện đầu vào cao
+
+power[2-3]_label "bĩu môi[1-2]"
+power[2-3]_input Công suất đầu ra đo được
+
+temp[1-3]_input Nhiệt độ đo được
+temp[1-3]_crit Nhiệt độ cao tới hạn
+temp[1-3]_crit_alarm Cảnh báo nhiệt độ chip tới hạn cao
+temp[1-3]_max Nhiệt độ tối đa
+temp[1-3]_max_alarm Báo động nhiệt độ chip cao
+================================================================
+
+thuộc tính raa_dmpvr2_1rail/hv sysfs
+------------------------------------
+
+======================================================================
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào
+Curr1_crit Dòng tối đa quan trọng
+curr1_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+curr2_label "iout"
+curr2_input Đo dòng điện đầu ra
+Curr2_crit Dòng tối đa tới hạn
+curr2_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_lcrit Điện áp đầu vào tối thiểu quan trọng
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động cao tới hạn điện áp đầu vào
+
+in2_label "vmon"
+in2_input Đọc điện áp VMON theo tỷ lệ từ chân VMON
+
+in3_label "vout"
+in3_input Đo điện áp đầu ra
+in3_lcrit Điện áp đầu ra tối thiểu quan trọng
+in3_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in3_crit Điện áp đầu ra tối đa tới hạn
+in3_crit_alarm Báo động điện áp đầu ra tới hạn cao
+
+power1_label "pin"
+power1_input Công suất đầu vào đo được
+power1_alarm Báo động nguồn điện đầu vào cao
+
+power2_label "bĩu môi"
+power2_input Công suất đầu ra đo được
+
+temp[1-3]_input Nhiệt độ đo được
+temp[1-3]_crit Nhiệt độ cao tới hạn
+temp[1-3]_crit_alarm Cảnh báo nhiệt độ chip tới hạn cao
+temp[1-3]_max Nhiệt độ tối đa
+temp[1-3]_max_alarm Báo động nhiệt độ chip cao
+======================================================================
+
+thuộc tính sysfs raa_dmpvr2_2rail
+---------------------------------
+
+======================================================================
+Curr[1-2]_label "iin[1-2]"
+curr[1-2]_input Dòng điện đầu vào đo được
+Curr[1-2]_crit Dòng tối đa tới hạn
+curr[1-2]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+Curr[3-4]_label "iout[1-2]"
+curr[3-4]_input Đo dòng điện đầu ra
+Curr[3-4]_crit Dòng tối đa tới hạn
+curr[3-4]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_lcrit Điện áp đầu vào tối thiểu quan trọng
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động cao tới hạn điện áp đầu vào
+
+in2_label "vmon"
+in2_input Đọc điện áp VMON theo tỷ lệ từ chân VMON
+
+trong[3-4]_label "vout[1-2]"
+in[3-4]_input Đo điện áp đầu ra
+in[3-4]_lcrit Điện áp đầu ra tối thiểu quan trọng
+in[3-4]_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in[3-4]_crit Điện áp đầu ra tối đa tới hạn
+in[3-4]_crit_alarm Báo động cao tới hạn điện áp đầu ra
+
+power[1-2]_label "pin[1-2]"
+power[1-2]_input Công suất đầu vào đo được
+power[1-2]_alarm Báo động nguồn đầu vào cao
+
+power[3-4]_label "bĩu môi[1-2]"
+power[3-4]_input Công suất đầu ra đo được
+
+temp[1-5]_input Nhiệt độ đo được
+temp[1-5]_crit Nhiệt độ cao tới hạn
+temp[1-5]_crit_alarm Báo động nhiệt độ chip tới hạn cao
+temp[1-5]_max Nhiệt độ tối đa
+temp[1-5]_max_alarm Báo động nhiệt độ chip cao
+======================================================================
+
+thuộc tính sysfs raa_dmpvr2_3rail
+---------------------------------
+
+======================================================================
+Curr[1-3]_label "iin[1-3]"
+curr[1-3]_input Dòng điện đầu vào đo được
+Curr[1-3]_crit Dòng tối đa tới hạn
+curr[1-3]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+Curr[4-6]_label "iout[1-3]"
+curr[4-6]_input Đo dòng điện đầu ra
+Curr[4-6]_crit Dòng tối đa tới hạn
+curr[4-6]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_lcrit Điện áp đầu vào tối thiểu quan trọng
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động cao tới hạn điện áp đầu vào
+
+in2_label "vmon"
+in2_input Đọc điện áp VMON theo tỷ lệ từ chân VMON
+
+trong[3-5]_label "vout[1-3]"
+in[3-5]_input Đo điện áp đầu ra
+in[3-5]_lcrit Điện áp đầu ra tối thiểu quan trọng
+in[3-5]_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in[3-5]_crit Điện áp đầu ra tối đa tới hạn
+in[3-5]_crit_alarm Báo động cao tới hạn điện áp đầu ra
+
+power[1-3]_label "pin[1-3]"
+power[1-3]_input Công suất đầu vào đo được
+power[1-3]_alarm Báo động nguồn đầu vào cao
+
+power[4-6]_label "bĩu môi[1-3]"
+power[4-6]_input Công suất đầu ra đo được
+
+temp[1-7]_input Nhiệt độ đo được
+temp[1-7]_crit Nhiệt độ cao tới hạn
+temp[1-7]_crit_alarm Cảnh báo nhiệt độ chip tới hạn cao
+temp[1-7]_max Nhiệt độ tối đa
+temp[1-7]_max_alarm Báo động nhiệt độ chip cao
+======================================================================

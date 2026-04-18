@@ -1,0 +1,107 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max15301.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max15301
+======================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX15301
+
+Tiền tố: 'max15301', 'bmr461'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX15303
+
+Tiền tố: 'max15303'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Erik Rosen <erik.rosen@metormote.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho chip điều khiển Maxim MAX15301 và
+các mô-đun tương thích.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst và Documentation.hwmon/pmbus-core để biết chi tiết
+trên trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Thông số mô-đun
+-----------------
+
+trì hoãn
+-----
+
+Bộ điều khiển yêu cầu khoảng thời gian tối thiểu giữa các lần truy cập bus I2C.
+Khoảng thời gian mặc định được đặt thành 100 us. Để ghi đè thủ công, trình điều khiển
+cung cấp một tham số mô-đun có thể ghi, 'độ trễ', có thể được sử dụng để
+đặt khoảng thời gian thành giá trị trong khoảng từ 0 đến 65,535 micro giây.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
+thuộc tính chỉ đọc.
+
+=====================================================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào.
+in1_lcrit Điện áp đầu vào tối thiểu tới hạn.
+in1_crit Điện áp đầu vào tối đa tới hạn.
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp.
+in1_crit_alarm Báo động điện áp đầu vào tới hạn cao.
+
+in2_label "vout1"
+in2_input Đo điện áp đầu ra.
+in2_lcrit Điện áp đầu ra tối thiểu quan trọng.
+in2_crit Điện áp đầu ra tối đa tới hạn.
+in2_lcrit_alarm Báo động điện áp đầu ra tới hạn ở mức thấp tới hạn.
+in2_crit_alarm Báo động điện áp đầu ra tới hạn ở mức cao tới hạn.
+
+curr1_label "iout1"
+curr1_input Đo dòng điện đầu ra.
+curr1_crit Dòng điện đầu ra tối đa tới hạn.
+curr1_crit_alarm Xuất cảnh báo tới hạn hiện tại ở mức cao.
+
+temp1_input Đo nhiệt độ tối đa của tất cả các pha.
+temp1_max Giới hạn nhiệt độ tối đa.
+temp1_max_alarm Báo động nhiệt độ cao.
+temp1_crit Giới hạn nhiệt độ tối đa tới hạn.
+temp1_crit_alarm Báo động nhiệt độ tối đa tới hạn.
+=====================================================================================

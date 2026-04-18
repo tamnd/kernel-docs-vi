@@ -1,0 +1,103 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mc13783-adc.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân mc13783-adc
+=========================
+
+Chip được hỗ trợ:
+
+* Freescale MC13783
+
+Tiền tố: 'mc13783'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Freescale MC13892
+
+Tiền tố: 'mc13892'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+
+tác giả:
+
+- Sascha Hauer <s.hauer@pengutronix.de>
+   - Luotao Fu <l.fu@pengutronix.de>
+
+Sự miêu tả
+-----------
+
+Freescale MC13783 và MC13892 là Mạch quản lý nguồn và âm thanh.
+Trong số những thứ khác, chúng có bộ chuyển đổi A/D 10 bit. Bộ chuyển đổi có 16
+(MC13783) tương ứng. 12 kênh (MC13892) có thể được sử dụng ở các chế độ khác nhau. các
+Bộ chuyển đổi A/D có độ phân giải 2,25mV.
+
+Một số kênh có thể được sử dụng làm đầu vào Mục đích chung hoặc ở chế độ chuyên dụng với
+áp dụng quy mô nội bộ của chip.
+
+Hiện tại driver chỉ hỗ trợ kênh Cung cấp ứng dụng (BP/BPSNS),
+đầu vào Mục đích chung và màn hình cảm ứng.
+
+Xem các bảng sau để biết ý nghĩa của các kênh khác nhau và
+chia tỷ lệ nội bộ chip:
+
+-MC13783:
+
+======= ================================================= =========================
+Chia tỷ lệ phạm vi đầu vào tín hiệu kênh
+======= ================================================= =========================
+0 Điện áp pin (BATT) 2,50 - 4,65V -2,40V
+1 Dòng điện pin (BATT - BATTISNS) -50 - 50 mV x20
+2 Nguồn cung cấp ứng dụng (BP) 2,50 - 4,65V -2,40V
+3 Điện áp sạc (CHRGRAW) 0 - 10V / /5
+							0 - 20V /10
+4 Dòng sạc (CHRGISNSP-CHRGISNSN) -0,25 - 0,25V x4
+5 Mục đích chung ADIN5 / Điện trở nhiệt của bộ pin 0 - 2.30V Không
+6 Mục đích chung ADIN6 / Điện áp dự phòng (LICELL) 0 - 2,30V / Không /
+							1,50 - 3,50V -1,20V
+7 Mục đích chung ADIN7 / UID / Nhiệt độ khuôn 0 - 2,30V / Không /
+							0 - 2,55V / x0,9 / Không
+8 Mục đích chung ADIN8 0 - 2.30V Không
+9 Mục đích chung ADIN9 0 - 2.30V Không
+10 Mục đích chung ADIN10 0 - 2.30V Không
+11 Mục đích chung ADIN11 0 - 2.30V Không
+12 Mục đích chung TSX1 / Tấm X màn hình cảm ứng 1 0 - 2.30V Không
+13 Mục đích chung TSX2 / Tấm X màn hình cảm ứng 2 0 - 2.30V Không
+14 Mục đích chung TSY1 / Màn hình cảm ứng chữ Y 1 0 - 2.30V Không
+15 Mục đích chung TSY2 / Màn hình cảm ứng chữ Y 2 0 - 2.30V Không
+======= ================================================= =========================
+
+-MC13892:
+
+======= ================================================= =========================
+Chia tỷ lệ phạm vi đầu vào tín hiệu kênh
+======= ================================================= =========================
+0 Điện áp pin (BATT) 0 - 4,8V /2
+1 Dòng điện pin (BATT - BATTISNSCC) -60 - 60 mV x20
+2 Nguồn cung cấp ứng dụng (BPSNS) 0 - 4,8V /2
+3 Điện áp sạc (CHRGRAW) 0 - 12V / /5
+							0 - 20V /10
+4 Dòng sạc (CHRGISNS-BPSNS) / -0,3 - 0,3V / x4 /
+	Màn hình cảm ứng X-plate 1 0 - 2.4V Không
+5 Mục đích chung ADIN5 / Điện trở nhiệt của bộ pin 0 - 2.4V Không
+6 Mục đích chung ADIN6 / Điện áp dự phòng (LICELL) 0 - 2.4V / Không
+	Điện áp dự phòng (LICELL) 0 - 3,6V x2/3
+7 Mục đích chung ADIN7 / UID / Nhiệt độ khuôn 0 - 2.4V / Không /
+							0 - 4,8V /2
+12 Mục đích chung TSX1 / Tấm X màn hình cảm ứng 1 0 - 2.4V Không
+13 Mục đích chung TSX2 / Tấm X màn hình cảm ứng 2 0 - 2.4V Không
+14 Mục đích chung TSY1 / Màn hình cảm ứng chữ Y 1 0 - 2.4V Không
+15 Mục đích chung TSY2 / Màn hình cảm ứng chữ Y 2 0 - 2.4V Không
+======= ================================================= =========================

@@ -1,0 +1,47 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/nct7363.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân nct7363
+=====================
+
+Chip được hỗ trợ:
+
+* Nuvoton NCT7363Y
+
+Tiền tố: nct7363
+
+Địa chỉ: I2C 0x20, 0x21, 0x22, 0x23
+
+Tác giả: Ban Feng <kcfeng0@nuvoton.com>
+
+
+Sự miêu tả
+-----------
+
+NCT7363Y là bộ điều khiển quạt cung cấp tới 16 quạt độc lập
+Màn hình đầu vào FAN và tối đa 16 đầu ra PWM độc lập với giao diện SMBus.
+
+
+Mục nhập hệ thống
+-------------
+
+Hiện tại, trình điều khiển hỗ trợ các tính năng sau:
+
+=========================================================
+fanX_input cung cấp giá trị vòng quay quạt hiện tại trong RPM
+fanX_alarm báo cáo trạng thái thực của quạt tốc độ thấp
+fanX_min lấy hoặc đặt ngưỡng số lượng người hâm mộ
+
+pwmX nhận hoặc đặt giá trị điều khiển quạt PWM.
+=========================================================

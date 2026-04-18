@@ -1,0 +1,88 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max6650.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Kernel driver max6650
+=====================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX6650
+
+Tiền tố: 'max6650'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX6651
+
+Tiền tố: 'max6651'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+    - Hans J. Koch <hjk@hansjkoch.de>
+    - John Morris <john.morris@spirentcom.com>
+    - Claus Gindhart <claus.gindhart@kontron.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Maxim MAX6650 và MAX6651.
+
+2 máy rất giống nhau nhưng MAX6550 bị rút gọn tính năng
+thiết lập, ví dụ: chỉ có một đầu vào quạt, thay vì 4 cho MAX6651.
+
+Driver không phân biệt được 2 thiết bị.
+
+Trình điều khiển cung cấp các quyền truy cập cảm biến sau trong sysfs:
+
+====================== =============================================================
+fan1_input ro máy đo tốc độ quạt trong RPM
+fan2_input ro "
+fan3_input ro "
+fan4_input ro "
+fan1_target rw tốc độ quạt mong muốn ở RPM (chỉ ở chế độ vòng kín)
+pwm1_enable chế độ điều chỉnh rw, 0=bật hoàn toàn, 1=vòng lặp mở, 2=vòng kín
+			3=tắt
+pwm1 rw tốc độ tương đối (0-255), 255=max. tốc độ.
+			Chỉ được sử dụng ở chế độ vòng lặp mở.
+fan1_div rw đặt phạm vi tốc độ mà đầu vào có thể xử lý. pháp lý
+			các giá trị là 1, 2, 4 và 8. Sử dụng các giá trị thấp hơn cho
+			người hâm mộ nhanh hơn.
+====================== =============================================================
+
+ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+Thông số mô-đun
+-----------------
+
+Nếu bo mạch của bạn có BIOS khởi tạo MAX6650/6651 một cách chính xác, bạn có thể
+chỉ cần tải mô-đun của bạn mà không cần tham số. Nó sẽ không chạm vào cấu hình
+đăng ký sau đó. Nếu bo mạch BIOS của bạn không khởi tạo chip hoặc bạn muốn
+cài đặt khác nhau, bạn có thể đặt các thông số sau:
+
+điện áp_12V: 5=quạt 5V, 12=quạt 12V, 0=không thay đổi
+bộ đếm gộp trước: Các giá trị có thể là 1,2,4,8,16 hoặc 0 nếu không thay đổi
+đồng hồ: Tần số xung nhịp tính bằng Hz của chip mà trình điều khiển phải giả định [254000]
+
+Vui lòng xem bảng dữ liệu MAX6650/6651 và đảm bảo rằng bạn hoàn toàn
+hiểu ý nghĩa của các tham số này trước khi bạn cố gắng thay đổi chúng.

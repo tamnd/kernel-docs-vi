@@ -1,0 +1,53 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max77705.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max77705
+======================
+
+Chip được hỗ trợ:
+
+* Tích hợp Maxim MAX77705
+
+Tiền tố: 'max77705'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+tác giả:
+      - Dzmitry Sankouski <dsankouski@gmail.com>
+
+Sự miêu tả
+-----------
+
+MAX77705 PMIC cung cấp các phép đo dòng điện và điện áp bên cạnh đồng hồ đo nhiên liệu:
+- chip input current
+- dòng điện và điện áp bus hệ thống
+- VBYP voltage
+
+Thuộc tính Sysfs
+----------------
+
+==============================================================
+in1_label "vbyp"
+in1_input Đo điện áp vbyp của chip
+in2_label "vsys"
+in2_input Đo điện áp bus hệ thống chip
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào của chip.
+curr2_label "isys"
+curr2_input Đo dòng điện bus hệ thống chip.
+==============================================================

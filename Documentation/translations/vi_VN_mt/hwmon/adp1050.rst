@@ -1,0 +1,135 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adp1050.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adp1050
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADP1050
+
+Tiền tố: 'adp1050'
+
+Địa chỉ được quét: I2C 0x70 - 0x77
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự ADP1051
+
+Tiền tố: 'adp1051'
+
+Địa chỉ được quét: I2C 0x70 - 0x77
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự ADP1055
+
+Tiền tố: 'adp1055'
+
+Địa chỉ được quét: I2C 0x4B - 0x77
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị analog LTP8800-1A/-2/-4A
+
+Tiền tố: 'ltp8800'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+         ZZ0001ZZ
+         ZZ0002ZZ
+
+tác giả:
+
+- Radu Sabau <radu.sabau@analog.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho các Thiết bị Analog ADP1050, ADP1051,
+và Bộ điều khiển kỹ thuật số ADP1055 để cấp nguồn cách ly với giao diện PMBus,
+và bộ điều chỉnh μModule bước xuống LTP8800.
+
+ADP1050, ADP1051 và ADP1055 là bộ điều khiển kỹ thuật số tiên tiến với PMBus™
+giao diện nhắm mục tiêu nguồn điện dc-to-dc mật độ cao, hiệu suất cao
+chuyển đổi được sử dụng để theo dõi nhiệt độ, điện áp và dòng điện của hệ thống. các
+LTP8800 là dòng bộ điều chỉnh μModule bậc thang cung cấp bộ vi xử lý
+điện áp lõi từ kiến trúc phân phối điện 54V. Thông qua PMBus
+giao diện, thiết bị có thể giám sát điện áp đầu vào/đầu ra, dòng điện đầu vào và
+nhiệt độ.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+các thiết bị một cách rõ ràng.
+Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết chi tiết.
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+Thuộc tính Sysfs
+----------------
+
+==============================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_alarm Báo động điện áp đầu vào
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động điện áp đầu vào cao
+in1_lcrit Điện áp đầu vào tối thiểu quan trọng
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp
+in2_label "vout1"
+in2_input Đo điện áp đầu ra
+in2_crit Điện áp đầu ra tối đa tới hạn
+in2_crit_alarm Báo động điện áp đầu ra cao
+in2_lcrit Điện áp đầu ra tối thiểu quan trọng
+in2_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in2_max Điện áp đầu ra tối đa tới hạn
+in2_max_alarm Báo động tối đa quan trọng của điện áp đầu ra
+in2_min Điện áp đầu ra tối thiểu quan trọng
+in2_min_alarm Cảnh báo tối thiểu quan trọng của điện áp đầu ra
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào.
+curr1_alarm Nhập cảnh báo hiện tại
+curr1_crit Dòng đầu vào tối đa quan trọng
+curr1_crit_alarm Nhập cảnh báo hiện tại ở mức cao
+curr2_label "iout1"
+curr2_input Đo dòng điện đầu ra
+curr2_alarm Báo động hiện tại đầu ra
+curr2_crit Dòng điện đầu ra tối đa tới hạn
+curr2_crit_alarm Dòng điện báo động cao
+curr2_lcrit Dòng điện đầu ra tối thiểu quan trọng
+curr2_lcrit_alarm Báo động dòng tới hạn đầu ra ở mức thấp
+curr2_max Dòng điện đầu ra tối đa quan trọng
+curr2_max_alarm Xuất cảnh báo cực đại tới hạn hiện tại
+power1_label "bĩu môi1"
+power1_input Công suất đầu ra đo được
+power1_crit Công suất đầu ra tối đa tới hạn
+power1_crit_alarm Báo động công suất đầu ra cao
+temp1_input Nhiệt độ đo được
+temp1_crit Nhiệt độ cao tới hạn
+temp1_crit_alarm Báo động nhiệt độ chip tới hạn cao
+temp1_max Nhiệt độ tối đa tới hạn
+temp1_max_alarm Cảnh báo nhiệt độ tối đa tới hạn
+temp2_input Nhiệt độ đo được
+temp2_crit Nhiệt độ cao tới hạn
+temp2_crit_alarm Báo động nhiệt độ chip cao tới mức quan trọng
+temp2_max Nhiệt độ tối đa tới hạn
+temp2_max_alarm Cảnh báo nhiệt độ tối đa tới hạn
+==============================================================

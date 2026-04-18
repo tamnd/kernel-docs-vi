@@ -1,0 +1,98 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max20751.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max20751
+======================
+
+Chip được hỗ trợ:
+
+* châm ngôn MAX20751
+
+Tiền tố: 'max20751'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Ghi chú ứng dụng: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ MAX20751 Multiphase Master với Giao diện PMBus
+và Bộ chuyển đổi Buck nội bộ.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi.
+Vui lòng xem Tài liệu/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ.
+
+====================================================================================
+in1_label "vin1"
+in1_input Đo điện áp.
+in1_min Điện áp đầu vào tối thiểu.
+in1_max Điện áp đầu vào tối đa.
+in1_lcrit Điện áp đầu vào tối thiểu tới hạn.
+in1_crit Điện áp đầu vào tối đa tới hạn.
+in1_min_alarm Báo động điện áp đầu vào thấp.
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp.
+in1_min_alarm Báo động điện áp đầu vào thấp.
+in1_max_alarm Báo động điện áp đầu vào cao.
+
+in2_label "vout1"
+in2_input Đo điện áp.
+in2_min Điện áp đầu ra tối thiểu.
+in2_max Điện áp đầu ra tối đa.
+in2_lcrit Điện áp đầu ra tối thiểu tới hạn.
+in2_crit Điện áp đầu ra tối đa tới hạn.
+in2_min_alarm Báo động điện áp đầu ra thấp.
+in2_lcrit_alarm Báo động điện áp đầu ra cực thấp.
+in2_min_alarm Báo động điện áp đầu ra thấp.
+in2_max_alarm Báo động điện áp đầu ra cao.
+
+curr1_input Đo dòng điện đầu ra.
+curr1_label "iout1"
+curr1_max Dòng điện đầu ra tối đa.
+curr1_alarm Báo động cao hiện tại.
+
+temp1_input Đo nhiệt độ.
+temp1_max Nhiệt độ tối đa.
+temp1_crit Nhiệt độ cao tới hạn.
+temp1_max_alarm Báo động nhiệt độ chip cao.
+temp1_crit_alarm Báo động nhiệt độ chip tới hạn cao.
+
+power1_input Công suất đầu ra.
+power1_label "bĩu môi1"
+====================================================================================

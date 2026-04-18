@@ -1,0 +1,52 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ds620.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ds620
+===================
+
+Chip được hỗ trợ:
+
+* Chất bán dẫn Dallas DS620
+
+Tiền tố: 'ds620'
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+tác giả:
+	Roland Stigge <stigge@antcom.de>
+	dựa trên ds1621.c bởi
+	Christian W. Zuckschwerdt <zany@triq.net>
+
+Sự miêu tả
+-----------
+
+DS620 là nhiệt kế và bộ điều nhiệt kỹ thuật số (một ví dụ). Nó có cả hai
+giới hạn nhiệt độ cao và thấp có thể được người dùng xác định (tức là được lập trình
+vào các thanh ghi cố định trên chip). Phạm vi nhiệt độ là -55 độ C
+đến +125. Trong khoảng từ 0 đến 70 độ C, độ chính xác là 0,5 Kelvin. giá trị
+được trả về qua sysfs hiển thị vị trí thập phân sau.
+
+Chức năng điều chỉnh nhiệt hoạt động như sau: Khi được định cấu hình qua platform_data
+(struct ds620_platform_data) .pomode == 0 (mặc định), chân đầu ra bộ điều nhiệt
+PO luôn ở mức thấp. Nếu .pomode == 1, bộ điều chỉnh nhiệt ở chế độ PO_LOW. Tức là,
+chân đầu ra PO sẽ hoạt động khi nhiệt độ giảm xuống dưới temp1_min và
+vẫn hoạt động cho đến khi nhiệt độ vượt quá temp1_max.
+
+Tương tự, với .pomode == 2, bộ điều chỉnh nhiệt ở chế độ PO_HIGH. Tức là PO
+chân đầu ra sẽ hoạt động khi nhiệt độ vượt quá temp1_max và duy trì
+hoạt động cho đến khi nhiệt độ giảm xuống dưới temp1_min.
+
+Chân đầu ra PO của DS620 hoạt động ở mức hoạt động thấp.

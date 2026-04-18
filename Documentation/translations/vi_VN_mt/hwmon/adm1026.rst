@@ -1,0 +1,115 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adm1026.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adm1026
+=====================
+
+Chip được hỗ trợ:
+  * Thiết bị tương tự ADM1026
+
+Tiền tố: 'adm1026'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+tác giả:
+	- Philip Pokorny <ppokorny@penguincomputing.com> cho Penguin Computing
+	- Justin Thiessen <jthiessen@penguincomputing.com>
+
+Thông số mô-đun
+-----------------
+
+* gpio_input: mảng int (min=1, max=17)
+    Danh sách các chân GPIO (0-16) để lập trình làm đầu vào
+
+* gpio_output: mảng int (min=1, max=17)
+    Danh sách các chân GPIO (0-16) để lập trình làm đầu ra
+
+* gpio_inverted: mảng int (min=1, max=17)
+    Danh sách các chân GPIO (0-16) để lập trình đảo ngược
+
+*gpio_normal: mảng int (min=1, max=17)
+    Danh sách các chân GPIO (0-16) để lập trình như bình thường/không đảo ngược
+
+* gpio_fan: mảng int (min=1, max=8)
+    Danh sách các chân GPIO (0-7) để lập trình dưới dạng quạt
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Thiết bị Analog ADM1026. Tương tự
+Các thiết bị gọi nó là "bộ điều khiển quản lý hệ thống nhiệt hoàn chỉnh".
+
+ADM1026 thực hiện ba (3) cảm biến nhiệt độ, 17 cảm biến điện áp,
+16 đường I/O kỹ thuật số đa năng, tám (8) cảm biến tốc độ quạt (8-bit),
+một đầu ra analog và một đầu ra PWM cùng với các bit giới hạn, cảnh báo và mặt nạ cho
+tất cả những điều trên. Thậm chí còn có 8k byte bộ nhớ EEPROM trên chip.
+
+Nhiệt độ được đo bằng độ C. Có hai bên ngoài
+đầu vào cảm biến và một cảm biến bên trong. Mỗi cảm biến có mức cao và mức thấp
+giới hạn. Nếu vượt quá giới hạn, một ngắt (#ZZ0000ZZ) có thể được
+được tạo ra. Các ngắt có thể được che dấu. Ngoài ra còn có hiện tượng quá nhiệt
+giới hạn cho mỗi cảm biến. Nếu vượt quá giới hạn này, đầu ra #ZZ0001ZZ sẽ
+được khẳng định. Nhiệt độ và giới hạn hiện tại có độ phân giải là 1
+bằng cấp.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (vòng quay mỗi phút) nhưng được đo
+tính bằng đồng hồ bên trong 22,5kHz. Mỗi quạt có giới hạn cao
+tương ứng với tốc độ quạt tối thiểu. Nếu vượt quá giới hạn, một ngắt
+có thể được tạo ra. Mỗi quạt có thể được lập trình để chia đồng hồ tham chiếu
+bằng 1, 2, 4 hoặc 8. Không phải tất cả các giá trị RPM đều có thể được biểu diễn chính xác, vì vậy một số
+làm tròn được thực hiện. Với dải phân cách là 8, tốc độ chậm nhất có thể đo được của một
+hai xung trên mỗi quạt quay là 661 RPM.
+
+Có 17 cảm biến điện áp. Một cảnh báo sẽ được kích hoạt nếu điện áp có
+vượt qua giới hạn tối thiểu hoặc tối đa có thể lập trình. Lưu ý rằng mức tối thiểu trong này
+trường hợp luôn có nghĩa là 'gần nhất với số 0'; điều này rất quan trọng đối với điện áp âm
+số đo. Một số đầu vào có bộ suy giảm tích hợp để chúng có thể đo
+điện áp cao hơn trực tiếp. Điện áp 3,3V, 5V, 12V, -12V và ắc quy đều có
+đầu vào chuyên dụng. Có một số đầu vào được chia tỷ lệ thành phạm vi toàn thang 0-3V
+cho sức mạnh đầu cuối SCSI. Các đầu vào còn lại không được chia tỷ lệ và có
+phạm vi toàn thang 0-2,5V. Điện áp tham chiếu 2,5V hoặc 1,82V được cung cấp
+để đo điện áp âm.
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể đã
+đã biến mất! Lưu ý rằng trong quá trình triển khai hiện tại, tất cả phần cứng
+các thanh ghi được đọc bất cứ khi nào có dữ liệu được đọc (trừ khi nó nhỏ hơn 2.0
+giây kể từ lần cập nhật cuối cùng). Điều này có nghĩa là bạn có thể dễ dàng bỏ lỡ
+báo động chỉ một lần.
+
+ADM1026 đo liên tục. Đầu vào analog được đo khoảng 4
+lần một giây. Thời gian đo tốc độ quạt phụ thuộc vào tốc độ quạt và
+số chia. Có thể mất tới 1,5 giây để đo tất cả tốc độ quạt.
+
+ADM1026 có khả năng tự động điều khiển tốc độ quạt dựa trên
+đầu vào cảm biến nhiệt độ. Cả đầu ra PWM và đầu ra DAC đều có thể được
+dùng để điều khiển tốc độ quạt. Thông thường chỉ một trong hai đầu ra này sẽ được
+đã sử dụng. Viết giá trị PWM hoặc DAC tối thiểu vào điều khiển thích hợp
+đăng ký. Sau đó đặt giới hạn nhiệt độ thấp trong các giá trị tmin cho từng
+cảm biến nhiệt độ. Phạm vi kiểm soát được cố định ở 20°C và
+chênh lệch lớn nhất giữa dòng điện và tmin của bộ cảm biến nhiệt độ
+đầu ra điều khiển. Xem bảng dữ liệu để biết một số mạch ví dụ cho
+kiểm soát tốc độ quạt với đầu ra PWM và DAC. Các cảm biến tốc độ quạt
+không có bù PWM nên có lẽ tốt nhất nên điều khiển quạt
+điện áp từ dây dẫn điện chứ không phải trên dây nối đất.
+
+Bảng dữ liệu hiển thị một ứng dụng mẫu có tín hiệu VID được gắn vào
+Dòng GPIO. Thật không may, chip có thể không được kết nối với các dòng VID
+theo cách này. Trình điều khiển giả định rằng các chip ZZ0000ZZ được kết nối theo cách này với
+nhận được điện áp VID.

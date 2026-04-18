@@ -1,0 +1,326 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm93.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm93
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM93
+
+Tiền tố 'lm93'
+
+Địa chỉ được quét: I2C 0x2c-0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM94
+
+Tiền tố 'lm94'
+
+Địa chỉ được quét: I2C 0x2c-0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+tác giả:
+	- Mark M. Hoffman <mhoffman@lightlink.com>
+	- Được chuyển sang phiên bản 2.6 bởi Eric J. Bowersox <ericb@aspsys.com>
+	- Chuyển thể sang phiên bản 2.6.20 bởi Carsten Emde <ce@osadl.org>
+	- Được sửa đổi để tích hợp tuyến chính bởi Hans J. Koch <hjk@hansjkoch.de>
+
+Thông số mô-đun
+-----------------
+
+* init: số nguyên
+  Đặt thành khác 0 để buộc một số lần khởi tạo (mặc định là 0).
+* vô hiệu hóa_block: số nguyên
+  Giá trị "0" cho phép SMBus chặn các giao dịch dữ liệu nếu máy chủ hỗ trợ chúng.  Một "1"
+  vô hiệu hóa các giao dịch dữ liệu khối SMBus.  Mặc định là 0.
+* vccp_limit_type: mảng số nguyên (2)
+  Định cấu hình loại giới hạn in7 và in8, trong đó 0 có nghĩa là tuyệt đối và khác 0
+  có nghĩa là tương đối.  "Tương đối" ở đây đề cập đến "Giám sát Vccp động bằng cách sử dụng
+  VID" từ bảng dữ liệu.  Nó đơn giản hóa rất nhiều giao diện để cho phép
+  chỉ có một bộ giới hạn (tuyệt đối hoặc tương đối) được áp dụng tại một thời điểm
+  thời gian (mặc dù phần cứng có khả năng kích hoạt cả hai).  có
+  Dù sao, đây không phải là trường hợp sử dụng hấp dẫn để kích hoạt cả hai cùng một lúc.  Mặc định
+  là "0,0".
+* vid_agtl: số nguyên
+  "0" định cấu hình các chân VID cho V(ih) = 2,1V min, V(il) = tối đa 0,8V.
+  "1" định cấu hình các chân VID cho V(ih) = 0,8V phút, V(il) = tối đa 0,4V.
+  (Cài đặt sau được gọi là Tương thích AGTL+ trong biểu dữ liệu.)
+  tức là tham số này kiểm soát ngưỡng đầu vào của chân VID; nếu VID của bạn
+  đầu vào không hoạt động, hãy thử thay đổi điều này.  Giá trị mặc định là "0".
+
+
+Mô tả phần cứng
+--------------------
+
+(từ bảng dữ liệu)
+
+Màn hình phần cứng LM93 có giao diện kỹ thuật số hai dây tương thích với
+SMBus 2.0. Sử dụng ADC 8 bit, LM93 đo nhiệt độ của hai điều khiển từ xa
+bóng bán dẫn được kết nối bằng diode cũng như khuôn riêng của nó và 16 nguồn điện
+điện áp. Để đặt tốc độ quạt, LM93 có hai đầu ra PWM, mỗi đầu ra đều có
+được kiểm soát bởi tối đa bốn vùng nhiệt độ. Thuật toán điều khiển quạt được tra cứu
+dựa trên bảng. LM93 bao gồm bộ lọc kỹ thuật số có thể được gọi để làm mịn
+chỉ số nhiệt độ để kiểm soát tốc độ quạt tốt hơn. LM93 có bốn
+đầu vào máy đo tốc độ để đo tốc độ quạt. Thanh ghi giới hạn và trạng thái cho tất cả
+bao gồm các giá trị đo được. LM93 được xây dựng dựa trên chức năng của
+ASIC quản lý bo mạch chủ trước đây và sử dụng một số tính năng của LM85
+(tức là chế độ đo tốc độ thông minh). Nó cũng bổ sung thêm hỗ trợ đo lường và kiểm soát
+để giám sát Vccp động và PROCHOT. Nó được thiết kế để giám sát một hệ thống kép
+bộ xử lý bo mạch chủ lớp Xeon với tối thiểu các thành phần bên ngoài.
+
+LM94 cũng được hỗ trợ ở chế độ tương thích LM93. Cảm biến và tính năng bổ sung của
+LM94 không được hỗ trợ.
+
+
+Giao diện người dùng
+--------------
+
+#ZZ0000ZZ
+^^^^^^^^
+
+LM93 có thể giám sát hai tín hiệu #ZZ0001ZZ.  Kết quả được tìm thấy trong
+các tập tin sysfs prochot1, prochot2, prochot1_avg, prochot2_avg, prochot1_max,
+và prochot2_max.  prochot1_max và prochot2_max chứa giới hạn người dùng
+tương ứng cho #ZZ0002ZZ và #ZZ0003ZZ.  prochot1 và prochot2 chứa
+các bài đọc hiện tại cho khoảng thời gian hoàn chỉnh gần đây nhất.  các
+giá trị của prochot1_avg và prochot2_avg giống như một khoảng thời gian 2
+trung bình di chuyển theo cấp số nhân (nhưng không hoàn toàn - kiểm tra biểu dữ liệu). Lưu ý
+rằng giá trị thứ ba này được tính toán bởi chính con chip.  Tất cả các phạm vi giá trị
+từ 0-255 trong đó 0 biểu thị không điều chỉnh và 255 biểu thị > 99,6%.
+
+Khoảng thời gian giám sát cho hai tín hiệu #ZZ0000ZZ cũng có thể được cấu hình.
+Những khoảng thời gian này có thể được tìm thấy trong các tệp sysfs prochot1_interval và
+prochot2_interval.  Các giá trị trong các tệp này chỉ định khoảng thời gian cho
+#ZZ0001ZZ và #ZZ0002ZZ tương ứng.  Chọn một giá trị không có trong này
+list sẽ khiến trình điều khiển sử dụng khoảng thời gian lớn nhất tiếp theo.  Có sẵn
+khoảng thời gian là (tính bằng giây):
+
+Khoảng thời gian #ZZ0000ZZ:
+	0,73, 1,46, 2,9, 5,8, 11,7, 23,3, 46,6, 93,2, 186, 372
+
+Có thể định cấu hình LM93 để rút ngắn hai #ZZ0001ZZ một cách hợp lý
+tín hiệu.  tức là khi #ZZ0002ZZ được xác nhận, LM93 sẽ tự động
+khẳng định #ZZ0004ZZ và ngược lại.  Chế độ này được kích hoạt bằng cách viết một
+số nguyên khác 0 cho tệp sysfs prochot_short.
+
+LM93 cũng có thể ghi đè các chân #ZZ0001ZZ bằng cách truyền tín hiệu PWM vào
+một hoặc cả hai.  Khi bị ghi đè, tín hiệu có chu kỳ 3,56 ms,
+độ rộng xung tối thiểu là 5 đồng hồ (ở 22,5kHz => chu kỳ nhiệm vụ 6,25%) và
+độ rộng xung tối đa là 80 đồng hồ (ở 22,5kHz => chu kỳ nhiệm vụ 99,88%).
+
+Các tệp sysfs prochot1_override và prochot2_override chứa boolean
+các số nguyên kích hoạt hoặc vô hiệu hóa chức năng ghi đè cho #ZZ0000ZZ và
+#ZZ0001ZZ, tương ứng.  Tệp sysfs prochot_override_duty_cycle
+chứa một giá trị điều khiển chu kỳ nhiệm vụ cho tín hiệu PWM được sử dụng khi
+chức năng ghi đè được kích hoạt.  Giá trị này nằm trong khoảng từ 0 đến 15, với 0
+biểu thị chu kỳ làm việc tối thiểu và 15 biểu thị mức tối đa.
+
+#ZZ0000ZZ
+^^^^^^^^
+
+LM93 có thể giám sát hai tín hiệu #ZZ0001ZZ. Kết quả được tìm thấy trong
+tập tin sysfs vrdhot1 và vrdhot2. Có một giá trị cho mỗi tệp: một boolean cho
+trong đó 1 biểu thị #ZZ0002ZZ được xác nhận và 0 biểu thị nó bị phủ định. Những cái này
+tập tin chỉ đọc.
+
+Chế độ đo thông minh (từ biểu dữ liệu)::
+
+Nếu quạt được điều khiển bằng bộ truyền động phía thấp PWM, máy đo tốc độ
+	đầu ra của quạt bị hỏng. LM93 bao gồm máy đo tốc độ thông minh
+	mạch cho phép đọc máy đo tốc độ chính xác
+	đạt được bất chấp tín hiệu bị hỏng.  Ở chế độ tach thông minh, tất cả
+	bốn tín hiệu được đo trong vòng 4 giây.
+
+Chế độ bấm thông minh được người lái kích hoạt bằng cách ghi 1 hoặc 2 (liên kết
+máy đo tốc độ quạt có pwm) vào tệp sysfs fan<n>_smart_tach.  số không
+sẽ vô hiệu hóa chức năng cho quạt đó.  Lưu ý rằng không thể sử dụng chế độ Smart tach
+được bật nếu tần số đầu ra PWM là 22500 Hz (xem bên dưới).
+
+Hướng dẫn sử dụng PWM
+^^^^^^^^^^
+
+LM93 có chế độ cố định hoặc ghi đè cho hai đầu ra PWM (mặc dù, có
+vẫn còn một số điều kiện sẽ ghi đè ngay cả chế độ này - xem phần
+15.10.6 của biểu dữ liệu để biết chi tiết.) Tệp sysfs pwm1_override
+và pwm2_override được sử dụng để kích hoạt chế độ này; mỗi số là một số nguyên boolean
+trong đó 0 vô hiệu hóa và 1 kích hoạt chế độ điều khiển thủ công.  Các tập tin sysfs pwm1
+và pwm2 được sử dụng để thiết lập chu trình làm việc thủ công; mỗi là một số nguyên (0-255)
+trong đó 0 là chu kỳ thuế 0% và 255 là 100%.  Lưu ý rằng các giá trị chu kỳ nhiệm vụ
+bị hạn chế bởi phần cứng. Chọn một giá trị không có sẵn
+sẽ khiến trình điều khiển sử dụng giá trị lớn nhất tiếp theo.  Cũng lưu ý: khi sử dụng thủ công
+Chế độ PWM bị tắt, giá trị của pwm1 và pwm2 cho biết nhiệm vụ hiện tại
+chu kỳ được chọn bởi h/w.
+
+Tần số đầu ra PWM
+^^^^^^^^^^^^^^^^^^^^
+
+LM93 hỗ trợ một số tần số khác nhau cho các kênh đầu ra PWM.
+Các tệp sysfs pwm1_freq và pwm2_freq được sử dụng để chọn tần số. các
+giá trị tần số bị hạn chế bởi phần cứng.  Việc chọn một giá trị được
+không có sẵn sẽ khiến trình điều khiển sử dụng giá trị lớn nhất tiếp theo.  Cũng lưu ý
+rằng tham số này có ý nghĩa đối với Chế độ đo thông minh (xem bên trên).
+
+Tần số đầu ra PWM (tính bằng Hz):
+	12, 36, 48, 60, 72, 84, 96, 22500 (mặc định)
+
+PWM tự động
+^^^^^^^^^^^^^
+
+LM93 có khả năng điều khiển quạt tự động phức tạp, với nhiều chức năng khác nhau
+các điểm cấu hình.  Để bắt đầu, mỗi đầu ra PWM có thể được liên kết với bất kỳ
+sự kết hợp của tám nguồn kiểm soát.  PWM cuối cùng là lớn nhất
+các nguồn điều khiển riêng lẻ mà đầu ra PWM bị ràng buộc.
+
+Tám nguồn điều khiển là: temp1-temp4 (còn gọi là "vùng" trong biểu dữ liệu),
+#ZZ0000ZZ 1 & 2 và #ZZ0001ZZ 1 & 2. Các liên kết được thể hiện dưới dạng mặt nạ bit
+trong các tệp sysfs pwm<n>_auto_channels, trong đó "1" cho phép liên kết và
+số "0" vô hiệu hóa nó. Giá trị mặc định h/w là 0x0f (giới hạn tất cả nhiệt độ).
+
+====== ============
+	0x01 Nhiệt độ 1
+	0x02 Nhiệt độ 2
+	0x04 Nhiệt độ 3
+	0x08 Nhiệt độ 4
+	0x10 #ZZ0000ZZ 1
+	0x20 #ZZ0001ZZ 2
+	0x40 #ZZ0002ZZ 1
+	0x80 #ZZ0003ZZ 2
+	====== ============
+
+Hàm y = f(x) lấy nhiệt độ nguồn x đến đầu ra PWM y.  Cái này
+chức năng của LM93 được lấy từ nhiệt độ cơ bản và bảng 12
+sự bù trừ nhiệt độ.  Nhiệt độ cơ bản được biểu thị bằng độ C trong
+các tệp sysfs tạm thời<n>_auto_base.  Các khoản bù đắp được thể hiện dưới dạng tích lũy
+độ C, với giá trị offset <i> cho giá trị nhiệt độ <n> là
+có trong tệp temp<n>_auto_offset<i>.  Ví dụ. nếu nhiệt độ cơ bản
+là 40C:
+
+==========================================================
+     bù #	temp<n>_auto_offset<i> phạm vi pwm
+     ==========================================================
+	 1 0 - 25,00%
+	 2 0 - 28,57%
+	 3 1 40C - 41C 32,14%
+	 4 1 41C - 42C 35,71%
+	 5 2 42C - 44C 39,29%
+	 6 2 44C - 46C 42,86%
+	 7 2 48C - 50C 46,43%
+	 8 2 50C - 52C 50,00%
+	 9 2 52C - 54C 53,57%
+	10 2 54C - 56C 57,14%
+	11 2 56C - 58C 71,43%
+	12 2 58C - 60C 85,71%
+	- -> 60C 100,00%
+     ==========================================================
+
+Độ lệch hợp lệ nằm trong phạm vi 0C <= x <= 7,5C với khoảng tăng 0,5C.
+
+Có một nhiệt độ cơ sở độc lập cho mỗi kênh nhiệt độ. Lưu ý,
+tuy nhiên, chỉ có hai bảng bù trừ: mỗi bảng cho temp[12] và
+nhiệt độ [34].  Do đó, bất kỳ thay đổi nào đối với ví dụ: temp1_auto_offset<i> cũng sẽ
+ảnh hưởng đến temp2_auto_offset<i>.
+
+LM93 cũng có thể áp dụng độ trễ cho bảng bù để ngăn chặn các hiện tượng không mong muốn.
+dao động giữa hai bước trong bảng offset.  Những giá trị này được tìm thấy trong
+các tệp sysfs temp<n>_auto_offset_hyst.  Giá trị trong tập tin này có
+cách trình bày tương tự như trong temp<n>_auto_offset<i>.
+
+Nếu số đọc nhiệt độ giảm xuống dưới giá trị cơ bản cho kênh đó, LM93
+sẽ sử dụng giá trị PWM tối thiểu.  Các giá trị này được tìm thấy trong tệp sysfs
+tạm thời<n>_auto_pwm_min.  Lưu ý, chỉ có hai mức tối thiểu: mỗi mức cho temp[12]
+và nhiệt độ [34].  Do đó, bất kỳ thay đổi nào đối với ví dụ: temp1_auto_pwm_min cũng sẽ
+ảnh hưởng đến temp2_auto_pwm_min.
+
+Chu kỳ quay vòng PWM
+^^^^^^^^^^^^^^^^^
+
+Chu kỳ quay vòng xảy ra khi đầu ra PWM được lệnh từ chu kỳ nhiệm vụ 0% đến
+một số giá trị > 0%.  LM93 hỗ trợ chu kỳ hoạt động tối thiểu trong quá trình khởi động.  Những cái này
+các giá trị được tìm thấy trong các tệp sysfs pwm<n>_auto_spinup_min. Giá trị trong này
+tệp có cùng cách biểu diễn với các giá trị chu kỳ nhiệm vụ PWM khác. các
+thời lượng của chu kỳ quay lên cũng có thể được cấu hình.  Những giá trị này được tìm thấy trong
+các tệp sysfs pwm<n>_auto_spinup_time. Giá trị trong tập tin này là
+thời gian quay tính bằng giây.  Thời gian quay vòng có sẵn bị hạn chế bởi
+phần cứng.  Việc chọn một giá trị không có sẵn sẽ khiến trình điều khiển
+để sử dụng giá trị lớn nhất tiếp theo.
+
+Thời lượng quay lên:
+	0 (đã tắt, h/w mặc định), 0,1, 0,25, 0,4, 0,7, 1,0, 2,0, 4,0
+
+Tăng tốc #ZZ0000ZZ và #ZZ0001ZZ PWM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Nếu tín hiệu #ZZ0000ZZ hoặc #ZZ0001ZZ được xác nhận trong khi liên kết với đầu ra PWM
+kênh, LM93 sẽ tăng tốc đầu ra PWM lên tới chu kỳ nhiệm vụ 100% ở chế độ rời rạc
+các bước. Thời lượng của mỗi bước có thể được cấu hình. Có hai tập tin, với
+mỗi giá trị tính bằng giây: pwm_auto_prochot_ramp và pwm_auto_vrdhot_ramp.
+Thời gian tăng tốc có sẵn bị hạn chế bởi phần cứng.  Chọn một giá trị
+không có sẵn sẽ khiến trình điều khiển sử dụng giá trị lớn nhất tiếp theo.
+
+Thời gian tăng tốc:
+	0 (tắt, h/w mặc định) đến 0,75 trong khoảng thời gian 0,05 giây
+
+Tăng cường quạt
+^^^^^^^^^
+
+Đối với mỗi kênh nhiệt độ, có một nhiệt độ tăng cường: nếu kênh
+vượt quá giới hạn này, LM93 sẽ ngay lập tức điều khiển cả hai đầu ra PWM lên 100%.
+Giới hạn này được biểu thị bằng độ C trong tệp sysfs temp<n>_auto_boost.
+Ngoài ra còn có nhiệt độ trễ cho chức năng này: sau khi tăng
+đạt đến giới hạn, kênh nhiệt độ phải giảm xuống dưới giá trị này trước khi
+chức năng tăng cường bị vô hiệu hóa.  Nhiệt độ này còn được biểu thị bằng độ
+C trong tệp sysfs temp<n>_auto_boost_hyst.
+
+Chân GPIO
+^^^^^^^^^
+
+LM93 có thể giám sát mức logic của bốn chân GPIO chuyên dụng cũng như
+bốn chân đầu vào tach.  GPIO0-GPIO3 tương ứng với (quạt) tach 1-4.
+Tất cả tám GPIO đều được đọc bằng cách đọc bitmask trong tệp sysfs gpio.  các
+LSB là GPIO0 và MSB là GPIO7.
+
+
+LM93 Tệp sysfs độc đáo
+-----------------------
+
+================================================================================
+mô tả tập tin
+================================================================================
+prochot<n> hiện tại #ZZ0000ZZ %
+prochot<n>_avg trung bình động #ZZ0001ZZ %
+prochot<n>_giới hạn tối đa #ZZ0002ZZ %
+prochot_short kích hoạt hoặc vô hiệu hóa chân logic #ZZ0003ZZ ngắn
+prochot<n>_override buộc #ZZ0004ZZ xác nhận là PWM
+chu kỳ nhiệm vụ prochot_override_duty_cycle cho tín hiệu PWM được sử dụng khi
+			    #ZZ0007ZZ bị ghi đè
+prochot<n>_interval Khoảng thời gian lấy mẫu #ZZ0008ZZ PWM
+vrdhot<n> 0 nghĩa là phủ định, 1 nghĩa là khẳng định
+fan<n>_smart_tach bật hoặc tắt chế độ đo thông minh
+pwm<n>_auto_channels chọn nguồn điều khiển cho đầu ra PWM
+pwm<n>_auto_spinup_min chu kỳ nhiệm vụ tối thiểu trong quá trình khởi động
+pwm<n>_auto_spinup_time thời gian quay vòng
+pwm_auto_prochot_ramp tăng thời gian trên mỗi bước khi #ZZ0011ZZ được xác nhận
+pwm_auto_vrdhot_ramp tăng thời gian trên mỗi bước khi #ZZ0012ZZ được xác nhận
+cơ sở kênh nhiệt độ temp<n>_auto_base
+độ lệch kênh nhiệt độ temp<n>_auto_offset[1-12]
+temp<n>_auto_offset_hyst độ trễ bù kênh nhiệt độ
+tăng kênh nhiệt độ temp<n>_auto_boost (PWM lên 100%)
+			    giới hạn
+temp<n>_auto_boost_hyst độ trễ tăng cường kênh nhiệt độ
+trạng thái đầu vào gpio của 8 chân GPIO; chỉ đọc
+================================================================================

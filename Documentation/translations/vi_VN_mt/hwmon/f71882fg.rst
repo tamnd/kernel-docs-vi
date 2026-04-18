@@ -1,0 +1,207 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/f71882fg.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân f71882fg
+======================
+
+Chip được hỗ trợ:
+
+* Fintek F71808E
+
+Tiền tố: 'f71808e'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Không công khai
+
+* Fintek F71808A
+
+Tiền tố: 'f71808a'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Không công khai
+
+* Fintek F71858FG
+
+Tiền tố: 'f71858fg'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+* Fintek F71862FG và F71863FG
+
+Tiền tố: 'f71862fg'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+* Fintek F71869F và F71869E
+
+Tiền tố: 'f71869'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+* Fintek F71869A
+
+Tiền tố: 'f71869a'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Không công khai
+
+* Fintek F71882FG và F71883FG
+
+Tiền tố: 'f71882fg'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+* Fintek F71889FG
+
+Tiền tố: 'f71889fg'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+* Fintek F71889ED
+
+Tiền tố: 'f71889ed'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Sẽ sớm có trên trang web Fintek
+
+* Fintek F71889A
+
+Tiền tố: 'f71889a'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Sẽ sớm có trên trang web Fintek
+
+* Fintek F8000
+
+Tiền tố: 'f8000'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Không công khai
+
+* Fintek F81801U
+
+Tiền tố: 'f71889fg'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Không công khai
+
+Lưu ý:
+	  Đây là biến thể 64 chân của F71889FG, chúng có
+	  cùng một ID thiết bị và hoàn toàn tương thích về phần cứng
+	  việc giám sát được quan tâm.
+
+* Fintek F81865F
+
+Tiền tố: 'f81865f'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+Tác giả: Hans de Goede <hdegoede@redhat.com>
+
+
+Sự miêu tả
+-----------
+
+Chip Super I/O Fintek F718xx/F8000 bao gồm tính năng giám sát phần cứng hoàn chỉnh
+khả năng. Họ có thể theo dõi tới 9 điện áp, 4 quạt và 3 nhiệt độ
+cảm biến.
+
+Những con chip này cũng có tính năng điều khiển quạt, sử dụng DC hoặc PWM, trong
+ba chế độ khác nhau (một hướng dẫn sử dụng, hai chế độ tự động).
+
+Trình điều khiển giả định rằng không có nhiều hơn một con chip hiện diện, điều này có vẻ như
+hợp lý.
+
+
+Giám sát
+----------
+
+Giám sát điện áp, quạt và nhiệt độ sử dụng hệ thống tiêu chuẩn
+giao diện như được ghi lại trong giao diện sysfs, không có bất kỳ ngoại lệ nào.
+
+
+Điều khiển quạt
+-----------
+
+Cả hai phương pháp điều khiển tốc độ quạt DC và PWM (điều chế độ rộng xung) đều
+được hỗ trợ. Việc sử dụng loại nào phù hợp phụ thuộc vào mạch điện bên ngoài trên
+bo mạch chủ, do đó trình điều khiển giả định rằng BIOS đã đặt phương thức
+đúng cách.
+
+Lưu ý rằng điểm ngắt vùng nhiệt độ được đánh số thấp nhất tương ứng với
+ranh giới giữa vùng nhiệt độ cao nhất và một nhưng cao nhất, và
+ngược lại. Vì vậy, các điểm ngắt vùng nhiệt độ 1-4 (hoặc 1-2) đi từ nhiệt độ cao
+đến nhiệt độ thấp! Đây là cách mọi thứ được triển khai trong IC và trình điều khiển
+bắt chước điều này.
+
+Có 2 chế độ xác định tốc độ của quạt, chu kỳ làm việc PWM (hoặc DC
+điện áp), trong đó chu kỳ nhiệm vụ 0-100% (0-100% của 12V) được chỉ định. Và RPM
+chế độ trong đó RPM thực tế của quạt (như đã đo) được kiểm soát và tốc độ
+được chỉ định là 0-100% của tệp fan#_full_speed.
+
+Vì cả hai chế độ đều hoạt động ở tỷ lệ 0-100% (được ánh xạ tới 0-255), nên không có
+có rất nhiều sự khác biệt khi sửa đổi cài đặt điều khiển quạt. duy nhất
+điểm khác biệt quan trọng là ở chế độ RPM, 0-100% kiểm soát tốc độ quạt
+trong khoảng 0-100% của fan#_full_speed. Người ta giả định rằng nếu các chương trình BIOS
+Chế độ RPM thì nó cũng sẽ set fan#_full_speed đúng cách, nếu không thì
+điều khiển quạt sẽ không hoạt động bình thường, trừ khi bạn đặt fan#_full_speed lành mạnh
+coi trọng bản thân.
+
+Việc chuyển đổi giữa các chế độ này đòi hỏi phải khởi tạo lại toàn bộ
+các thanh ghi, do đó chế độ mà BIOS đã đặt sẽ được giữ nguyên. Chế độ này là
+được in khi tải trình điều khiển.
+
+Hỗ trợ ba chế độ điều khiển quạt khác nhau; số chế độ được viết
+vào tệp pwm#_enable. Lưu ý rằng không phải tất cả các chế độ đều được hỗ trợ trên tất cả
+chip và một số chế độ có thể chỉ khả dụng ở chế độ RPM / PWM.
+Viết chế độ không được hỗ trợ sẽ dẫn đến lỗi tham số không hợp lệ.
+
+* 1: Chế độ thủ công
+  Bạn yêu cầu chu kỳ nhiệm vụ/điện áp DC cụ thể của PWM hoặc % cụ thể của
+  fan#_full_speed bằng cách viết thư cho pwm# file. Chế độ này chỉ
+  khả dụng trên F71858FG / F8000 nếu kênh quạt ở chế độ RPM.
+
+* 2: Chế độ tự động bình thường
+  Bạn có thể xác định một số điểm cắt nhiệt độ/tốc độ quạt chỉ định
+  tỷ lệ phần trăm mà quạt sẽ chạy ở mỗi nhiệt độ và
+  cảm biến nhiệt độ mà quạt phải tuân theo, sử dụng giao diện sysfs tiêu chuẩn.
+  Số lượng và loại điểm dừng phụ thuộc vào chip - xem phần có sẵn
+  các tập tin trong sysfs.
+  Fan/PWM kênh 3 của F8000 luôn ở chế độ này!
+
+* 3: Chế độ điều chỉnh nhiệt (Chỉ khả dụng trên F8000 khi ở chế độ chu kỳ làm việc)
+  Tốc độ quạt được điều chỉnh để giữ nhiệt độ mà quạt được ánh xạ tới giữa
+  temp#_auto_point2_temp và temp#_auto_point3_temp.
+
+Tất cả các chế độ tự động yêu cầu pwm1 tương ứng với fan1, pwm2 tương ứng với
+fan2 và pwm3 sang fan3.

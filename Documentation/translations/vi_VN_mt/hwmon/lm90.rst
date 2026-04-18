@@ -1,0 +1,717 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm90.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm90
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM84
+
+Tiền tố: 'lm84'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM90
+
+Tiền tố: 'lm90'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM89
+
+Tiền tố: 'lm89' (không tự động phát hiện)
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM99
+
+Tiền tố: 'lm99'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM86
+
+Tiền tố: 'lm86'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADM1020
+
+Tiền tố: 'adm1020'
+
+Địa chỉ được quét: I2C 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web DigiKey
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADM1021
+
+Tiền tố: 'adm1021'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web DigiKey
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADM1021A/ADM1023
+
+Tiền tố: 'adm1023'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+	       ZZ0001ZZ
+
+* Thiết bị tương tự ADM1032
+
+Tiền tố: 'adm1032'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web DigiKey
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT7461
+
+Tiền tố: 'adt7461'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT7461A
+
+Tiền tố: 'adt7461a'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT7481
+
+Tiền tố: 'adt7481'
+
+Địa chỉ được quét: I2C 0x4b và 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web DigiKey
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT7482
+
+Tiền tố: 'adt7482'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT7483A
+
+Tiền tố: 'adt7483a'
+
+Địa chỉ được quét: I2C 0x18, 0x19, 0x1a, 0x29, 0x2a, 0x2b, 0x4c, 0x4d, 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* TRÊN Chất bán dẫn NCT1008
+
+Tiền tố: 'nct1008'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* TRÊN Chất bán dẫn NCT210
+
+Tiền tố: 'adm1021'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* TRÊN Chất bán dẫn NCT214
+
+Tiền tố: 'nct214'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* TRÊN Chất bán dẫn NCT218
+
+Tiền tố: 'nct218'
+
+Địa chỉ được quét: I2C 0x4c - 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* TRÊN Chất bán dẫn NCT72
+
+Tiền tố: 'nct72'
+
+Địa chỉ được quét: I2C 0x4c - 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ON Semiconductor
+
+ZZ0000ZZ
+
+* Tối đa MAX1617
+
+Tiền tố: 'max1617'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX1617A
+
+Tiền tố: 'max1617a'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6642
+
+Tiền tố: 'max6642'
+
+Địa chỉ được quét: I2C 0x48-0x4f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6646
+
+Tiền tố: 'max6646'
+
+Địa chỉ được quét: I2C 0x4d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6647
+
+Tiền tố: 'max6646'
+
+Địa chỉ được quét: I2C 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6648
+
+Tiền tố: 'max6648'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6649
+
+Tiền tố: 'max6646'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6654
+
+Tiền tố: 'max6654'
+
+Địa chỉ được quét: I2C 0x18, 0x19, 0x1a, 0x29, 0x2a, 0x2b,
+
+0x4c, 0x4d và 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6657
+
+Tiền tố: 'max6657'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6658
+
+Tiền tố: 'max6657'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6659
+
+Tiền tố: 'max6659'
+
+Địa chỉ được quét: I2C 0x4c, 0x4d, 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6680
+
+Tiền tố: 'max6680'
+
+Địa chỉ được quét: I2C 0x18, 0x19, 0x1a, 0x29, 0x2a, 0x2b,
+
+0x4c, 0x4d và 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6681
+
+Tiền tố: 'max6680'
+
+Địa chỉ được quét: I2C 0x18, 0x19, 0x1a, 0x29, 0x2a, 0x2b,
+
+0x4c, 0x4d và 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6692
+
+Tiền tố: 'max6648'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6695
+
+Tiền tố: 'max6695'
+
+Địa chỉ được quét: I2C 0x18
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Tối đa MAX6696
+
+Tiền tố: 'max6695'
+
+Địa chỉ được quét: I2C 0x18, 0x19, 0x1a, 0x29, 0x2a, 0x2b,
+
+0x4c, 0x4d và 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Winbond/Nuvoton W83L771W/G
+
+Tiền tố: 'w83l771'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web DigiKey
+
+ZZ0000ZZ
+
+* Winbond/Nuvoton W83L771AWG/ASG
+
+Tiền tố: 'w83l771'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Không có sẵn công khai, có thể được yêu cầu từ Nuvoton
+
+* Nuvoton NCT7716
+
+Tiền tố: 'nct7716'
+
+Địa chỉ được quét: I2C 0x48, 0x49
+
+Bảng dữ liệu: Không có sẵn công khai, có thể được yêu cầu từ Nuvoton
+
+* Nuvoton NCT7717
+
+Tiền tố: 'nct7717'
+
+Địa chỉ được quét: I2C 0x48
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Nuvoton
+
+ZZ0000ZZ
+
+* Nuvoton NCT7718
+
+Tiền tố: 'nct7718'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Nuvoton
+
+ZZ0000ZZ
+
+* Philips/NXP SA56004X
+
+Tiền tố: 'sa56004'
+
+Địa chỉ được quét: I2C 0x48 đến 0x4F
+
+Bảng dữ liệu: Có sẵn công khai tại trang web NXP
+
+ZZ0000ZZ
+
+* GMT G781
+
+Tiền tố: 'g781'
+
+Địa chỉ được quét: I2C 0x4c, 0x4d
+
+Bảng dữ liệu: Không có sẵn công khai từ GMT
+
+* Dụng cụ Texas TMP451
+
+Tiền tố: 'tmp451'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI
+
+ZZ0000ZZ
+
+* Dụng cụ Texas TMP461
+
+Tiền tố: 'tmp461'
+
+Địa chỉ được quét: I2C 0x48 đến 0x4F
+
+Bảng dữ liệu: Có sẵn công khai tại trang web TI
+
+ZZ0000ZZ
+
+* Philips NE1617, NE1617A
+
+Tiền tố: 'max1617' (có thể được phát hiện là max1617)
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web DigiKey
+
+ZZ0000ZZ
+
+* Philips NE1618
+
+Tiền tố: 'ne1618'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web DigiKey
+
+ZZ0000ZZ
+
+* Genesys Logic GL523SM
+
+Tiền tố: 'gl523sm'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Không còn có sẵn trên trang web Genesys Logic
+
+* TI THMC10
+
+Tiền tố: 'thmc10'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Không còn có sẵn trên trang web TI
+
+* Onsemi MC1066
+
+Tiền tố: 'mc1066'
+
+Địa chỉ được quét: I2C 0x18 - 0x1a, 0x29 - 0x2b, 0x4c - 0x4e
+
+Bảng dữ liệu: Không còn có sẵn trên trang web Onsemi
+
+Tác giả: Jean Delvare <jdelvare@suse.de>
+
+
+Sự miêu tả
+-----------
+
+LM90 là cảm biến nhiệt độ kỹ thuật số. Nó cảm nhận được nhiệt độ của chính mình như
+cũng như nhiệt độ của một diode bên ngoài. Nó tương thích
+với nhiều thiết bị khác, nhiều thiết bị trong số đó được hỗ trợ bởi trình điều khiển này.
+
+Dòng chip được trình điều khiển này hỗ trợ có nguồn gốc từ MAX1617.
+Con chip này cũng như các chip tương thích khác hỗ trợ điều khiển cục bộ và điều khiển từ xa.
+cảm biến nhiệt độ với độ chính xác 8 bit. Các chip sau này mang lại độ chính xác được cải thiện
+và các tính năng bổ sung khác như độ trễ và bù nhiệt độ
+sổ đăng ký.
+
+Lưu ý rằng không có cách nào dễ dàng để phân biệt giữa MAX6657,
+Các biến thể MAX6658 và MAX6659. Các tính năng bổ sung của MAX6659 chỉ có
+được trình điều khiển này hỗ trợ nếu chip nằm ở địa chỉ 0x4d hoặc 0x4e,
+hoặc nếu loại chip được chọn rõ ràng là max6659.
+MAX6680 và MAX6681 chỉ khác nhau về sơ đồ chân, do đó rõ ràng là chúng
+không thể (và không cần) phân biệt được.
+
+Các chipset khác nhau trong họ này không hoàn toàn giống nhau, mặc dù
+rất giống nhau. Để tham khảo, đây là danh sách không đầy đủ các thông tin cụ thể
+tính năng:
+
+LM84:
+  * Độ phân giải cảm biến 8 bit
+
+ADM1020, ADM1021, GL523SM, MAX1617, NE1617, NE1617A, THMC10:
+  * Độ phân giải cảm biến 8 bit
+  * Giới hạn nhiệt độ thấp
+
+NCT210, NE1618:
+  * Độ phân giải cảm biến 11 bit cho cảm biến nhiệt độ từ xa
+  * Giới hạn nhiệt độ thấp
+
+ADM1021A, ADM1023:
+  * Thanh ghi bù nhiệt độ cho cảm biến nhiệt độ từ xa
+  * Độ phân giải 11 bit cho cảm biến nhiệt độ từ xa
+  * Giới hạn nhiệt độ thấp
+
+LM90:
+  * Độ phân giải 11 bit cho cảm biến nhiệt độ từ xa
+  * Thanh ghi bù nhiệt độ cho cảm biến nhiệt độ từ xa
+  * Giới hạn nhiệt độ thấp và tới hạn
+  * Tỷ lệ chuyển đổi có thể cấu hình
+  * Thanh ghi cấu hình bộ lọc và cảnh báo ở 0xBF.
+  * ALERT được kích hoạt khi nhiệt độ vượt quá giới hạn tới hạn.
+
+LM86 và LM89:
+  * Tương tự như LM90
+  * Độ chính xác của kênh bên ngoài tốt hơn
+
+LM99:
+  * Tương tự như LM89
+  * Nhiệt độ bên ngoài giảm 16 độ
+
+ADM1032:
+  * Đăng ký cảnh báo liên tiếp ở 0x22.
+  * Tính trung bình chuyển đổi.
+  * Lên tới 64 chuyển đổi/giây.
+  * ALERT được kích hoạt bằng cảm biến từ xa mở.
+  * SMBus PEC hỗ trợ các giao dịch Ghi Byte và Nhận Byte.
+
+ADT7461, ADT7461A, NCT1008:
+  * Phạm vi nhiệt độ mở rộng (phá vỡ khả năng tương thích)
+  * Độ phân giải thấp hơn cho nhiệt độ từ xa
+  * SMBus PEC hỗ trợ các giao dịch Ghi Byte và Nhận Byte.
+  * Độ phân giải nhiệt độ 10 bit
+
+ADT7481, ADT7482, ADT7483:
+  * Thanh ghi bù nhiệt độ
+  * Hỗ trợ SMBus PEC
+  * Độ phân giải nhiệt độ 10 bit cho cảm biến bên ngoài
+  * Hai cảm biến từ xa
+  * Địa chỉ có thể lựa chọn (ADT7483)
+
+MAX6642:
+  * Không có đăng ký giới hạn quan trọng
+  * Tỷ lệ chuyển đổi không thể cấu hình
+  * Độ phân giải cục bộ tốt hơn (10 bit)
+  * Độ phân giải cảm biến bên ngoài 10 bit
+
+MAX6646, MAX6647, MAX6649:
+  * Độ phân giải cục bộ tốt hơn
+  * Phạm vi mở rộng nhiệt độ bên ngoài không dấu
+
+MAX6648, MAX6692:
+  * Độ phân giải cục bộ tốt hơn
+  * Nhiệt độ không dấu
+
+MAX6654, MAX6690:
+  * Độ phân giải cục bộ tốt hơn
+  * Địa chỉ có thể lựa chọn
+  * Lựa chọn loại cảm biến từ xa
+  * Phạm vi nhiệt độ mở rộng
+  * Độ phân giải mở rộng chỉ khả dụng khi tốc độ chuyển đổi <= 1 Hz
+
+MAX6657 và MAX6658:
+  * Độ phân giải cục bộ tốt hơn
+  * Lựa chọn loại cảm biến từ xa
+
+MAX6659:
+  * Độ phân giải cục bộ tốt hơn
+  * Địa chỉ có thể lựa chọn
+  * Giới hạn nhiệt độ tới hạn thứ hai
+  * Lựa chọn loại cảm biến từ xa
+
+MAX6680 và MAX6681:
+  * Địa chỉ có thể lựa chọn
+  * Lựa chọn loại cảm biến từ xa
+
+MAX6695 và MAX6696:
+  * Độ phân giải cục bộ tốt hơn
+  * Địa chỉ có thể lựa chọn (max6696)
+  * Giới hạn nhiệt độ tới hạn thứ hai
+  * Hai cảm biến từ xa
+
+W83L771W/G
+  * Biến thể G không có chì, mặt khác tương tự như W.
+  * Thanh ghi cấu hình bộ lọc và cảnh báo ở 0xBF
+  * Đường trung bình động (tùy thuộc vào tỷ lệ chuyển đổi)
+
+W83L771AWG/ASG
+  * Người kế nhiệm W83L771W/G, tính năng tương tự.
+  * Các biến thể AWG và ASG chỉ khác nhau về định dạng gói.
+  * Cấu hình hệ số lý tưởng điốt (cảm biến từ xa) ở mức 0xE3
+
+NCT7716:
+  * Độ phân giải cảm biến 8 bit
+  * Địa chỉ có thể lựa chọn
+  * Tỷ lệ chuyển đổi có thể cấu hình
+
+NCT7717:
+  * Độ phân giải cảm biến 8 bit
+  * Tỷ lệ chuyển đổi có thể cấu hình
+
+NCT7718:
+  * Thanh ghi bù nhiệt độ cho cảm biến nhiệt độ từ xa
+  * Độ phân giải 11 bit cho cảm biến nhiệt độ từ xa
+  * Giới hạn nhiệt độ thấp
+  * Tỷ lệ chuyển đổi có thể cấu hình
+
+SA56004X:
+  * Độ phân giải cục bộ tốt hơn
+
+Tất cả các giá trị nhiệt độ được tính bằng độ C. Độ phân giải
+là 1,0 độ đối với nhiệt độ cục bộ, 0,125 độ đối với điều khiển từ xa
+nhiệt độ, ngoại trừ MAX6654, MAX6657, MAX6658 và MAX6659 có
+độ phân giải 0,125 độ cho cả hai nhiệt độ.
+
+Mỗi cảm biến có giới hạn cao và thấp riêng, cộng với giới hạn tới hạn.
+Ngoài ra, có một giá trị trễ tương đối chung cho cả hai
+các giá trị. Để làm cho cuộc sống của các ứng dụng trong không gian người dùng trở nên dễ dàng hơn, hai giá trị tuyệt đối
+được xuất, một giá trị cho mỗi kênh, nhưng tất nhiên các giá trị này được liên kết với nhau.
+Chỉ có thể đặt độ trễ cục bộ từ không gian người dùng và cùng một delta
+áp dụng cho hiện tượng trễ từ xa.
+
+Trình điều khiển lm90 sẽ không cập nhật các giá trị của nó thường xuyên hơn so với được định cấu hình bằng
+thuộc tính update_interval; đọc chúng thường xuyên hơn sẽ không có hại gì, nhưng sẽ
+trả về giá trị 'cũ'.
+
+Hỗ trợ cảnh báo SMBus
+-------------------
+
+Trình điều khiển này có hỗ trợ cơ bản cho cảnh báo SMBus. Khi nhận được cảnh báo,
+thanh ghi trạng thái được đọc và kênh nhiệt độ bị lỗi được ghi lại.
+
+Các chip Thiết bị Analog (ADM1032, ADT7461 và ADT7461A) và BẬT
+Chip bán dẫn (NCT1008) không triển khai giao thức cảnh báo SMBus
+đúng cách nên cần phải cẩn thận hơn: đầu ra ALERT bị tắt khi
+một cảnh báo được nhận và chỉ được kích hoạt lại khi cảnh báo không còn nữa.
+Nếu không, chip sẽ chặn cảnh báo từ các chip khác trên bus trong thời gian dài.
+khi báo thức đang hoạt động.
+
+Hỗ trợ PEC
+-----------
+
+ADM1032 là chip duy nhất trong dòng hỗ trợ PEC. Nó có
+Tuy nhiên, không hỗ trợ PEC trên tất cả các giao dịch, vì vậy cần phải cẩn thận.
+
+Khi đọc giá trị thanh ghi, byte PEC được tính toán và gửi bởi
+Chip ADM1032. Tuy nhiên, trong trường hợp giao dịch kết hợp (SMBus Read
+Byte), ADM1032 chỉ tính giá trị CRC trong nửa sau của
+thông điệp hơn là toàn bộ nó, bởi vì nó cho rằng nửa đầu
+của tin nhắn thuộc về một giao dịch khác. Kết quả là CRC
+giá trị khác với những gì chủ SMBus mong đợi và tất cả các lần đọc đều không thành công.
+
+Vì lý do này, trình điều khiển lm90 sẽ chỉ kích hoạt PEC cho ADM1032 nếu
+xe buýt hỗ trợ các loại giao dịch SMBus Gửi Byte và Nhận Byte.
+Các giao dịch này sẽ được sử dụng để đọc các giá trị đăng ký, thay vì
+SMBus Read Byte và PEC sẽ hoạt động bình thường.
+
+Ngoài ra, ADM1032 không hỗ trợ SMBus Send Byte với PEC.
+Thay vào đó, nó sẽ cố gắng ghi giá trị PEC vào thanh ghi (vì
+Giao dịch SMBus Send Byte với PEC tương tự như giao dịch Write Byte
+không có PEC), đó không phải là điều chúng tôi muốn. Do đó, PEC bị vô hiệu hóa rõ ràng
+trên SMBus Gửi giao dịch Byte trong trình điều khiển lm90.
+
+PEC trên các giao dịch dữ liệu byte thể hiện sự gia tăng đáng kể về băng thông
+mức sử dụng (+33% cho ghi, +25% cho đọc) trong điều kiện bình thường. Với nhu cầu
+để sử dụng hai giao dịch SMBus để đọc, chi phí này sẽ tăng lên +50%. Tệ hơn nữa,
+hai giao dịch thường có nghĩa là độ trễ gấp đôi khi chờ đợi
+hoàn thành giao dịch, tăng gấp đôi thời gian làm mới bộ đệm đăng ký một cách hiệu quả.
+Tôi đoán độ tin cậy có giá của nó, nhưng lần này nó khá đắt.
+
+Vì vậy, vì không phải ai cũng thích sự chậm lại, PEC bị tắt theo mặc định và
+có thể được kích hoạt thông qua sysfs. Chỉ cần ghi 1 vào tệp "pec" và PEC sẽ
+đã bật. Viết 0 vào tệp đó để tắt PEC lần nữa.

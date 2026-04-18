@@ -1,0 +1,60 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max31722.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max31722
+======================
+
+Chip được hỗ trợ:
+
+* Tích hợp Maxim MAX31722
+
+Tiền tố: 'max31722'
+
+Mã số ACPI: MAX31722
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tích hợp Maxim MAX31723
+
+Tiền tố: 'max31723'
+
+Mã số ACPI: MAX31723
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Tiberiu Breana <tiberiu.a.breana@intel.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này bổ sung hỗ trợ cho nhiệt kế Maxim Integrated MAX31722/MAX31723
+và bộ điều nhiệt chạy trên giao diện SPI.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này sử dụng ACPI để tự động phát hiện thiết bị. Xem ID ACPI ở phần trên.
+
+Mục nhập hệ thống
+-------------
+
+Thuộc tính sau được hỗ trợ:
+
+====================================================================================
+temp1_input Đo nhiệt độ. Chỉ đọc.
+====================================================================================

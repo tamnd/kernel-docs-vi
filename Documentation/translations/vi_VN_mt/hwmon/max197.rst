@@ -1,0 +1,84 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max197.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max197
+====================
+
+Tác giả:
+
+* Vivien Didelot <vivien.didelot@savoirfairelinux.com>
+
+Chip được hỗ trợ:
+
+* Tối đa MAX197
+
+Tiền tố: 'max197'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX199
+
+Tiền tố: 'max199'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Sự miêu tả
+-----------
+
+Bộ chuyển đổi A/D MAX197 và MAX199 đều có 8 kênh, đa dải, 5V,
+DAS 12-bit với giao diện bus 8+4 và bảo vệ lỗi.
+
+Phạm vi khả dụng cho MAX197 là {0,-5V} đến 5V và {0,-10V} đến 10V,
+trong khi chúng là {0,-2V} đến 2V và {0,-4V} đến 4V trên MAX199.
+
+Dữ liệu nền tảng
+-------------
+
+Dữ liệu nền tảng MAX197 (được xác định trong linux/platform_data/max197.h) phải là
+chứa đầy một con trỏ tới hàm chuyển đổi, được định nghĩa như ::
+
+chuyển đổi int(u8 ctrl);
+
+ctrl là byte điều khiển cần ghi để bắt đầu chuyển đổi mới.
+Nếu thành công, hàm phải trả về giá trị thô 12 bit được đọc từ chip,
+hoặc một mã lỗi tiêu cực khác.
+
+Định dạng byte điều khiển:
+
+======= ===========================================================
+Tên bit Mô tả
+7,6 chế độ Đồng hồ và Tắt nguồn PD1,PD0
+5 ACQMOD Mua lại được kiểm soát nội bộ hoặc bên ngoài
+4 RNG Biên độ điện áp toàn thang ở đầu vào
+3 BIP Chế độ chuyển đổi đơn cực hoặc lưỡng cực
+Kênh 2,1,0 A2,A1,A0
+======= ===========================================================
+
+Giao diện hệ thống
+---------------
+
+==================================================================================
+  in[0-7]_input Giá trị chuyển đổi cho kênh tương ứng.
+		 RO
+
+in[0-7]_min Giới hạn dưới (tính bằng mV) cho kênh tương ứng.
+		 Đối với MAX197, nó sẽ được điều chỉnh thành -10000, -5000 hoặc 0.
+		 Đối với MAX199, nó sẽ được điều chỉnh thành -4000, -2000 hoặc 0.
+		 RW
+
+in[0-7]_max Giới hạn cao hơn (tính bằng mV) cho kênh tương ứng.
+		 Đối với MAX197, nó sẽ được điều chỉnh thành 0, 5000 hoặc 10000.
+		 Đối với MAX199, nó sẽ được điều chỉnh thành 0, 2000 hoặc 4000.
+		 RW
+  ==================================================================================

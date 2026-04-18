@@ -1,0 +1,55 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc2991.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc2991
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự LTC2991
+
+Tiền tố: 'ltc2991'
+
+Địa chỉ được quét: I2C 0x48 - 0x4f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+
+- Antoniu Miclaus <antoniu.miclaus@analog.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Analog Devices LTC2991 Octal I2C
+Màn hình điện áp, dòng điện và nhiệt độ.
+
+LTC2991 được sử dụng để theo dõi nhiệt độ, điện áp và dòng điện của hệ thống.
+Thông qua giao diện nối tiếp I2C, tám màn hình có thể đo riêng lẻ
+cung cấp điện áp và có thể được ghép nối để đo vi sai cảm giác dòng điện
+điện trở hoặc bóng bán dẫn cảm biến nhiệt độ. Các phép đo bổ sung bao gồm
+nhiệt độ bên trong và VCC bên trong.
+
+
+giao diện sysfs
+---------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là chỉ đọc.
+
+===================================
+inX_input: điện áp đầu vào
+currX_input: đầu vào hiện tại
+tempX_input: đầu vào nhiệt độ
+===================================

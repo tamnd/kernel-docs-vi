@@ -1,0 +1,74 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adm1025.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adm1025
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADM1025, ADM1025A
+
+Tiền tố: 'adm1025'
+
+Địa chỉ được quét: I2C 0x2c - 0x2e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+* Philips NE1619
+
+Tiền tố: 'ne1619'
+
+Địa chỉ được quét: I2C 0x2c - 0x2d
+
+Bảng dữ liệu: Có sẵn công khai tại trang web của Philips
+
+NE1619 có một số điểm khác biệt với ADM1025 ban đầu:
+
+* Chỉ có hai địa chỉ có thể (0x2c - 0x2d).
+  * Không có thanh ghi bù nhiệt độ, nhưng chúng tôi vẫn không sử dụng nó.
+  * Không có chế độ INT cho chân 16. Dù sao thì chúng tôi cũng không chơi với nó.
+
+tác giả:
+	- Chen-Yuan Wu <gwu@esoft.com>,
+	- Jean Delvare <jdelvare@suse.de>
+
+Sự miêu tả
+-----------
+
+(Đây là từ Analog Devices.) ADM1025 là phần cứng hệ thống hoàn chỉnh
+giám sát các hệ thống dựa trên bộ vi xử lý, cung cấp phép đo và giới hạn
+so sánh các tham số hệ thống khác nhau. Năm đầu vào đo điện áp
+được cung cấp để giám sát các nguồn điện +2.5V, +3.3V, +5V và +12V và
+điện áp lõi bộ xử lý. ADM1025 có thể giám sát nguồn điện thứ sáu
+điện áp bằng cách đo VCC của chính nó. Một đầu vào (hai chân) được dành riêng cho một
+diode cảm biến nhiệt độ từ xa và cảm biến nhiệt độ trên chip cho phép
+nhiệt độ môi trường xung quanh cần được theo dõi.
+
+Một điểm đặc biệt của con chip này là chân 11 có thể được nối cứng thành hai
+cách cư xử khác nhau. Nó có thể hoạt động như nguồn điện áp tương tự +12V
+đầu vào hoặc làm mục nhập kỹ thuật số thứ năm để đọc VID (bit 4). Đó là
+hơi lạ vì cả hai đều hữu ích và lý do thiết kế
+con chip đó ít nhất là mơ hồ đối với tôi. Bit 5 của cấu hình
+thanh ghi có thể được sử dụng để xác định cách thức kết nối chip. Xin lưu ý rằng
+đó không phải là sự lựa chọn mà bạn phải thực hiện với tư cách là người dùng. Sự lựa chọn đã có rồi
+được thực hiện bởi nhà sản xuất bo mạch chủ của bạn. Nếu bit cấu hình không được đặt
+đúng cách, bạn sẽ có số đọc sai +12V hoặc số đọc VID sai. Con đường
+trình điều khiển xử lý việc bảo toàn bit này thông qua quá trình khởi tạo
+quá trình này, giả sử rằng BIOS đã thiết lập nó đúng cách trước đó. Nếu nó quay
+không đúng trong một số trường hợp, chúng tôi sẽ cung cấp một tham số mô-đun để buộc
+chế độ.
+
+Trình điều khiển này cũng hỗ trợ ADM1025A, khác với ADM1025
+chỉ ở chỗ nó có "đầu vào VID thoát mở trong khi ADM1025 có trên chip
+Kéo lên 100k trên đầu vào VID". Nó không tạo ra bất kỳ sự khác biệt nào đối với chúng tôi.

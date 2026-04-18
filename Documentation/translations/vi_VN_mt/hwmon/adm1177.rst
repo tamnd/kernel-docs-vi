@@ -1,0 +1,50 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adm1177.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adm1177
+=====================
+
+Chip được hỗ trợ:
+  * Thiết bị tương tự ADM1177
+    Tiền tố: 'adm1177'
+    Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Beniamin Bia <beniamin.bia@analog.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Thiết bị Analog ADM1177
+Bộ điều khiển hoán đổi nóng và màn hình nguồn kỹ thuật số với chốt khởi động mềm.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Tài liệu/i2c/instantiating-devices.rst
+để biết chi tiết.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Thuộc tính tối đa hiện tại
+là đọc-ghi, tất cả các thuộc tính khác là chỉ đọc.
+
+in0_input Điện áp đo được tính bằng milivolt.
+
+curr1_input Dòng điện đo được tính bằng miliampe.
+curr1_max Ngưỡng tắt quá dòng tính bằng miliampe.

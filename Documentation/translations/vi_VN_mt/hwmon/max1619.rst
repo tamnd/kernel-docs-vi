@@ -1,0 +1,43 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max1619.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max1619
+=====================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX1619
+
+Tiền tố: 'max1619'
+
+Địa chỉ được quét: I2C 0x18-0x1a, 0x29-0x2b, 0x4c-0x4e
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+tác giả:
+       - Oleksij Rempel <bug-track@fisher-privat.net>,
+       - Jean Delvare <jdelvare@suse.de>
+
+Sự miêu tả
+-----------
+
+MAX1619 là cảm biến nhiệt độ kỹ thuật số. Nó cảm nhận được nhiệt độ của chính mình như
+cũng như nhiệt độ của một diode bên ngoài.
+
+Tất cả các giá trị nhiệt độ được tính bằng độ C. Độ phân giải
+là 1,0 độ đối với nhiệt độ cục bộ và nhiệt độ từ xa.
+
+Chỉ có cảm biến bên ngoài mới có giới hạn cao và thấp.

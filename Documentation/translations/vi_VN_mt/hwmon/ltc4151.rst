@@ -1,0 +1,69 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc4151.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc4151
+=====================
+
+Chip được hỗ trợ:
+
+* Công nghệ tuyến tính LTC4151
+
+Tiền tố: 'ltc4151'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+Tác giả: Per Dalen <per.dalen@appeartv.com>
+
+
+Sự miêu tả
+-----------
+
+LTC4151 là Bộ theo dõi dòng điện và điện áp I2C điện áp cao.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị LTC4151 vì không có đăng ký
+có thể được sử dụng một cách an toàn để nhận dạng chip. Bạn sẽ phải khởi tạo
+các thiết bị một cách rõ ràng.
+
+Ví dụ: phần sau sẽ tải trình điều khiển cho LTC4151 tại địa chỉ 0x6f
+trên xe buýt I2C #0::
+
+# modprobe ltc4151
+	# echo ltc4151 0x6f > /sys/bus/i2c/devices/i2c-0/new_device
+
+
+Mục nhập hệ thống
+-------------
+
+Số đọc điện áp do trình điều khiển này cung cấp được báo cáo là thu được từ ADIN
+và các thanh ghi VIN.
+
+Số đọc hiện tại do trình điều khiển này cung cấp được báo cáo là thu được từ Current
+Đăng ký cảm giác. Giá trị được báo cáo giả định rằng điện trở cảm giác 1 mOhm là
+đã cài đặt.
+
+============================================
+in1_input VDIN điện áp (mV)
+
+in2_input Điện áp ADIN (mV)
+
+curr1_input SENSE hiện tại (mA)
+============================================

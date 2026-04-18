@@ -1,0 +1,234 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max34440.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max34440
+======================
+
+Chip được hỗ trợ:
+
+* ADI ADPM12160
+
+Tiền tố: 'adpm12160'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: -
+
+* ADI ADPM12200
+
+Tiền tố: 'adpm12200'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: -
+
+* Tối đa MAX34440
+
+Tiền tố: 'max34440'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX34441
+
+Bộ quản lý cấp nguồn 5 kênh PMBus và bộ điều khiển quạt thông minh
+
+Tiền tố: 'max34441'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX34446
+
+Bộ ghi dữ liệu nguồn điện PMBus
+
+Tiền tố: 'max34446'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX34451
+
+Màn hình V/I 16 kênh PMBus và Bộ tuần tự/Bộ ký quỹ 12 kênh
+
+Tiền tố: 'max34451'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX34460
+
+Bộ theo dõi và tuần tự điện áp 12 kênh PMBus
+
+Tiền tố: 'max34460'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX34461
+
+Bộ theo dõi và tuần tự điện áp 16 kênh PMBus
+
+Tiền tố: 'max34461'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ nhiều thiết bị: giám sát phần cứng cho Maxim MAX34440
+Trình quản lý nguồn điện 6 kênh PMBus, MAX34441 Bộ nguồn 5 kênh PMBus
+Trình quản lý và Bộ điều khiển quạt thông minh cũng như Dữ liệu cung cấp điện MAX34446 PMBus
+Người ghi nhật ký; Bộ theo dõi và tuần tự điện áp PMBus cho MAX34451, MAX34460 và
+MAX34461; Mô-đun nguồn DC/DC PMBus ADPM12160 và ADPM12200. MAX34451
+hỗ trợ giám sát điện áp hoặc dòng điện của 12 kênh dựa trên chân GIN. các
+MAX34460 hỗ trợ 12 kênh điện áp và MAX34461 hỗ trợ 16 kênh điện áp
+các kênh. ADPM12160 và ADPM12200 cũng giám sát cả đầu vào và đầu ra
+của điện áp và dòng điện.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+Đối với MAX34446, giá trị của thuộc tính currX_crit xác định xem hiện tại hay
+đo điện áp được kích hoạt cho một kênh nhất định. Đo điện áp là
+được bật nếu currX_crit được đặt thành 0; phép đo hiện tại được kích hoạt nếu
+thuộc tính được đặt thành giá trị dương. Đo công suất chỉ được bật nếu
+kênh 1 (3) được cấu hình để đo điện áp và kênh 2 (4) được cấu hình để đo điện áp
+được cấu hình để đo dòng điện.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
+thuộc tính chỉ đọc.
+
+trong
+~~
+
+====================================================================================
+trong[1-6]_label "vout[1-6]".
+in[1-6]_input Đo điện áp. Từ đăng ký READ_VOUT.
+in[1-6]_min Điện áp tối thiểu. Từ đăng ký VOUT_UV_WARN_LIMIT.
+in[1-6]_max Điện áp tối đa. Từ đăng ký VOUT_OV_WARN_LIMIT.
+in[1-6]_lcrit Điện áp tối thiểu tới hạn. Đăng ký VOUT_UV_FAULT_LIMIT.
+in[1-6]_crit Điện áp tối đa tới hạn. Từ VOUT_OV_FAULT_LIMIT
+			đăng ký.
+in[1-6]_min_alarm Báo động điện áp thấp. Từ trạng thái VOLTAGE_UV_WARNING.
+in[1-6]_max_alarm Báo động điện áp cao. Từ trạng thái VOLTAGE_OV_WARNING.
+in[1-6]_lcrit_alarm Báo động điện áp thấp tới hạn. Từ VOLTAGE_UV_FAULT
+			trạng thái.
+in[1-6]_crit_alarm Báo động điện áp tới hạn cao. Từ VOLTAGE_OV_FAULT
+			trạng thái.
+in[1-6]_lowest Điện áp tối thiểu lịch sử.
+in[1-6]_highest Điện áp tối đa lịch sử.
+in[1-6]_reset_history Viết bất kỳ giá trị nào để đặt lại lịch sử.
+====================================================================================
+
+.. note::
+
+    - MAX34446 only supports in[1-4].
+    - ADPM12160, and ADPM12200 only supports in[1-2]. Label is "vin1"
+      and "vout1" respectively.
+
+Curr
+~~~~
+
+=====================================================================================
+Curr[1-6]_label "iout[1-6]".
+curr[1-6]_input Đo dòng điện. Từ đăng ký READ_IOUT.
+Curr[1-6]_max Dòng điện tối đa. Từ đăng ký IOUT_OC_WARN_LIMIT.
+Curr[1-6]_crit Dòng tối đa tới hạn. Từ IOUT_OC_FAULT_LIMIT
+			đăng ký.
+curr[1-6]_max_alarm Báo động hiện tại ở mức cao. Từ trạng thái IOUT_OC_WARNING.
+curr[1-6]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao. Từ trạng thái IOUT_OC_FAULT.
+curr[1-4]_average Dòng điện trung bình lịch sử (chỉ MAX34446/34451).
+hiện tại [1-6]_highest Dòng điện tối đa lịch sử.
+curr[1-6]_reset_history Viết bất kỳ giá trị nào để đặt lại lịch sử.
+=====================================================================================
+
+.. note::
+
+    - in6 and curr6 attributes only exist for MAX34440.
+    - MAX34446 only supports curr[1-4].
+    - For ADPM12160, and ADPM12200, curr[1] is "iin1" and curr[2-6]
+      are "iout[1-5]".
+
+Quyền lực
+~~~~~
+
+=====================================================================================
+power[1,3]_label "bĩu môi[1,3]"
+power[1,3]_input Đo công suất.
+power[1,3]_average Công suất trung bình lịch sử.
+power[1,3]_highest Công suất tối đa trong lịch sử.
+=====================================================================================
+
+.. note:: Power attributes only exist for MAX34446.
+
+Nhiệt độ
+~~~~
+
+=====================================================================================
+temp[1-8]_input Đo nhiệt độ. Từ đăng ký READ_TEMPERATURE_1.
+			temp1 là nhiệt độ bên trong của chip. temp2..temp5
+			là cảm biến nhiệt độ I2C từ xa. Đối với MAX34441, temp6
+			là một cảm biến diode nhiệt từ xa. Đối với MAX34440, nhiệt độ6..8
+			là cảm biến nhiệt độ I2C từ xa.
+temp[1-8]_max Nhiệt độ tối đa. Từ đăng ký OT_WARN_LIMIT.
+temp[1-8]_crit Nhiệt độ cao tới hạn. Từ đăng ký OT_FAULT_LIMIT.
+temp[1-8]_max_alarm Báo động nhiệt độ cao.
+temp[1-8]_crit_alarm Báo động nhiệt độ cao tới mức tới hạn.
+temp[1-8]_average Nhiệt độ trung bình lịch sử (chỉ MAX34446).
+temp[1-8]_highest Nhiệt độ tối đa trong lịch sử.
+temp[1-8]_reset_history Viết bất kỳ giá trị nào để đặt lại lịch sử.
+=====================================================================================
+
+
+.. note::
+   - temp7 and temp8 attributes only exist for MAX34440.
+   - MAX34446 only supports temp[1-3].
+   - ADPM12160, and ADPM12200 only supports temp[1].
+
+
+.. note::
+
+   - MAX34451 supports attribute groups in[1-16] (or curr[1-16] based on
+     input pins) and temp[1-5].
+   - MAX34460 supports attribute groups in[1-12] and temp[1-5].
+   - MAX34461 supports attribute groups in[1-16] and temp[1-5].

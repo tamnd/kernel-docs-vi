@@ -1,0 +1,166 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/jc42.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân jc42
+==================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADT7408
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Atmel AT30TS00, AT30TS002A/B, AT30TSE004A
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* IDT TSE2002B3, TSE2002GB2, TSE2004GB2, TS3000B3, TS3000GB0, TS3000GB2,
+
+TS3001GB2
+
+Bảng dữ liệu:
+
+Có sẵn từ trang web IDT
+
+* Tối đa MAX6604
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Vi mạch MCP9804, MCP9805, MCP9808, MCP98242, MCP98243, MCP98244, MCP9843
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* Chất bán dẫn NXP SE97, SE97B, SE98, SE98A
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* TRÊN Chất bán dẫn CAT34TS02, CAT6095
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* ST Vi Điện Tử STTS424, STTS424E02, STTS2002, STTS2004, STTS3000
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* Chip cảm biến nhiệt độ tương thích JEDEC JC 42.4
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+
+Chung cho tất cả các chip:
+
+Tiền tố: 'jc42'
+
+Địa chỉ được quét: I2C 0x18 - 0x1f
+
+tác giả:
+	Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho các cảm biến nhiệt độ tuân thủ JEDEC JC 42.4,
+được sử dụng trên nhiều mô-đun bộ nhớ DDR3 dành cho thiết bị di động và máy chủ. Một số
+hệ thống sử dụng cảm biến để ngăn bộ nhớ quá nóng bằng cách tự động điều chỉnh
+bộ điều khiển bộ nhớ.
+
+Trình điều khiển tự động phát hiện các chip được liệt kê ở trên nhưng có thể được khởi tạo thủ công
+để hỗ trợ các chip tương thích JC 42.4 khác.
+
+Ví dụ: phần sau đây sẽ tải trình điều khiển cho tuân thủ JC 42.4 chung
+cảm biến nhiệt độ tại địa chỉ 0x18 trên bus I2C #1::
+
+# modprobe jc42
+	# echo jc42 0x18 > /sys/bus/i2c/devices/i2c-1/new_device
+
+Chip tương thích JC 42.4 hỗ trợ một cảm biến nhiệt độ duy nhất. Tối thiểu, tối đa,
+và nhiệt độ tới hạn có thể được cấu hình. Có cảnh báo cao, thấp,
+và ngưỡng quan trọng.
+
+Ngoài ra còn có độ trễ để kiểm soát ngưỡng đặt lại cảnh báo.
+Theo thông số kỹ thuật JC 42.4, ngưỡng trễ có thể được cấu hình thành 0, 1,5,
+3,0 và 6,0 độ C. Các giá trị độ trễ được định cấu hình sẽ được làm tròn thành các giá trị đó
+giới hạn. Con chip chỉ hỗ trợ một thanh ghi duy nhất để định cấu hình độ trễ,
+áp dụng cho mọi giới hạn. Thanh ghi này có thể được ghi bằng cách viết vào
+temp1_crit_hyst. Các thuộc tính trễ khác là chỉ đọc.
+
+Nếu BIOS đã cấu hình cảm biến để quản lý nhiệt độ tự động, nó sẽ
+có khả năng là nó đã khóa các thanh ghi, tức là giới hạn nhiệt độ
+không thể thay đổi được.
+
+Mục nhập hệ thống
+-------------
+
+=======================================================================
+nhiệt độ temp1_input (RO)
+temp1_min Nhiệt độ tối thiểu (RO hoặc RW)
+temp1_max Nhiệt độ tối đa (RO hoặc RW)
+temp1_crit Nhiệt độ cao tới hạn (RO hoặc RW)
+
+temp1_crit_hyst Nhiệt độ trễ tới hạn (RO hoặc RW)
+temp1_max_hyst Nhiệt độ trễ tối đa (RO)
+
+temp1_min_alarm Báo động nhiệt độ thấp
+temp1_max_alarm Báo động nhiệt độ cao
+temp1_crit_alarm Báo động nhiệt độ quan trọng
+=======================================================================

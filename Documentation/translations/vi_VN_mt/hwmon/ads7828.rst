@@ -1,0 +1,79 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ads7828.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Quảng cáo trình điều khiển hạt nhân7828
+=====================
+
+Chip được hỗ trợ:
+
+* Texas Instruments/Burr-Brown ADS7828
+
+Tiền tố: 'ads7828'
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Texas Instruments:
+
+ZZ0000ZZ
+
+* Dụng cụ Texas ADS7830
+
+Tiền tố: 'ads7830'
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Texas Instruments:
+
+ZZ0000ZZ
+
+tác giả:
+	- Steve Hardy <shardy@redhat.com>
+	- Vivien Didelot <vivien.didelot@savoirfairelinux.com>
+	- Guillaume Roguez <guillaume.roguez@savoirfairelinux.com>
+
+Dữ liệu nền tảng
+-------------
+
+Trình điều khiển ads7828 chấp nhận cấu trúc ads7828_platform_data tùy chọn (được xác định
+trong include/linux/platform_data/ads7828.h). Các trường cấu trúc là:
+
+* diff_input: (bool) Phép toán vi phân
+    được đặt thành true cho chế độ vi sai, false cho chế độ kết thúc đơn mặc định.
+
+* ext_vref: (bool) Tham chiếu bên ngoài
+    được đặt thành true nếu nó hoạt động với tham chiếu bên ngoài, sai theo mặc định
+    tham chiếu nội bộ.
+
+* vref_mv: (unsigned int) Điện áp tham chiếu
+    nếu sử dụng tham chiếu bên ngoài, hãy đặt giá trị này thành điện áp tham chiếu tính bằng mV,
+    nếu không nó sẽ mặc định về giá trị bên trong (2500mV). Giá trị này sẽ là
+    giới hạn với các giới hạn được chip chấp nhận, được mô tả trong biểu dữ liệu.
+
+Nếu không có cấu trúc nào được cung cấp, cấu hình mặc định là kết thúc đơn
+ hoạt động và điện áp tham chiếu bên trong (2.5V).
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Texas Instruments ADS7828 và ADS7830.
+
+Thiết bị ADS7828 là bộ chuyển đổi A/D 8 kênh 12 bit, trong khi ADS7830 thì có
+lấy mẫu 8 bit.
+
+Nó có thể hoạt động ở chế độ kết thúc đơn (đầu vào 8 + ve) hoặc ở chế độ vi sai,
+trong đó có thể đo được 4 cặp vi sai.
+
+Con chip này cũng có khả năng sử dụng điện áp tham chiếu bên ngoài.  Cái này
+có thể được yêu cầu nếu phần cứng của bạn cung cấp ADS7828 từ nguồn 5V, xem
+bảng dữ liệu để biết thêm chi tiết.
+
+Không có cách nào đáng tin cậy để xác định con chip này nên trình điều khiển sẽ không quét
+một số địa chỉ để cố gắng tự động phát hiện nó. Điều đó có nghĩa là bạn sẽ phải
+khai báo tĩnh thiết bị trong mã hỗ trợ nền tảng.

@@ -1,0 +1,49 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adm1266.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adm1266
+=====================
+
+Chip được hỗ trợ:
+  * Thiết bị tương tự ADM1266
+    Tiền tố: 'adm1266'
+    Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Alexandru Tachici <alexandru.tachici@analog.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho bộ tuần tự ADM1266 của Thiết bị Analog.
+
+ADM1266 là bộ giải mã có tính năng đọc lại điện áp từ 17 kênh thông qua một
+tích hợp 12 bit SAR ADC, được truy cập bằng giao diện PMBus.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi, thiết lập lại lịch sử
+thuộc tính chỉ ghi, tất cả các thuộc tính khác chỉ đọc.
+
+inX_label "voutx"
+inX_input Đo điện áp.
+inX_min Điện áp tối thiểu.
+inX_max Điện áp tối đa.
+inX_min_alarm Báo động điện áp thấp.
+inX_max_alarm Báo động điện áp cao.

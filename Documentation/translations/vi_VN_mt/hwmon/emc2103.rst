@@ -1,0 +1,51 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/emc2103.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân emc2103
+======================
+
+Chip được hỗ trợ:
+
+* SMSC EMC2103
+
+Địa chỉ được quét: I2C 0x2e
+
+Tiền tố: 'emc2103'
+
+Bảng dữ liệu: Không công khai
+
+tác giả:
+	Steve Glendinning <steve.glendinning@smsc.com>
+
+Sự miêu tả
+-----------
+
+Chip EMC2103 của Standard Microsystems Corporation (SMSC)
+chứa tối đa 4 cảm biến nhiệt độ và một bộ điều khiển quạt.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia cho một bộ chia có thể lập trình (1, 2, 4 hoặc 8) để đưa ra
+các bài đọc có phạm vi rộng hơn hoặc chính xác hơn. Không phải tất cả các giá trị RPM đều có thể được xác định chính xác
+được đại diện, do đó một số làm tròn được thực hiện. Với số chia là 1, thấp nhất
+giá trị đại diện là 480 RPM.
+
+Trình điều khiển này hỗ trợ điều khiển dựa trên RPM, để sử dụng mục tiêu này cho người hâm mộ
+nên được ghi vào fan1_target và pwm1_enable phải được đặt thành 3.
+
+Các biến thể 2103-2 và 2103-4 có cảm biến nhiệt độ thứ ba, có thể
+được kết nối với hai điốt chống song song.  Những giá trị này có thể được đọc
+như temp3 và temp4.  Nếu chỉ có một diode được gắn vào kênh này, temp4
+sẽ hiển thị là "lỗi".  Tham số mô-đun "apd=0" có thể được sử dụng để ngăn chặn
+kênh thứ 4 này khi không lắp điốt chống song song.

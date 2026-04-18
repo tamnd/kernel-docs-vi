@@ -1,0 +1,61 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/emc6w201.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân emc6w201
+======================
+
+Chip được hỗ trợ:
+
+* SMSC EMC6W201
+
+Tiền tố: 'emc6w201'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: Không công khai
+
+Tác giả: Jean Delvare <jdelvare@suse.de>
+
+
+Sự miêu tả
+-----------
+
+Từ bảng dữ liệu:
+
+"EMC6W201 là thiết bị giám sát môi trường có quạt tự động
+khả năng kiểm soát và tăng cường âm thanh hệ thống để khử tiếng ồn.
+Thiết bị tuân thủ ACPI này cung cấp khả năng giám sát phần cứng cho tối đa sáu
+điện áp (bao gồm VCC của chính nó) và năm cảm biến nhiệt bên ngoài,
+đo tốc độ của tối đa năm quạt và kiểm soát tốc độ của
+nhiều quạt DC sử dụng ba đầu ra Bộ điều biến độ rộng xung (PWM). Lưu ý
+rằng có thể điều khiển nhiều hơn ba quạt bằng cách kết nối hai
+quạt đến một đầu ra PWM. EMC6W201 sẽ có sẵn ở dạng 36 chân
+Gói QFN."
+
+Thiết bị này có chức năng gần giống với dòng EMC6D100, nhưng
+đăng ký không tương thích.
+
+Trình điều khiển hiện chỉ hỗ trợ giám sát điện áp,
+nhiệt độ và tốc độ quạt. Giới hạn có thể được thay đổi. Báo động không
+được hỗ trợ và điều khiển tốc độ quạt cũng không.
+
+
+Các hệ thống đã biết với EMC6W201
+---------------------------
+
+EMC6W201 là một thiết bị hiếm, chỉ có trên một số hệ thống, được sản xuất tại
+2005 và 2006. Các hệ thống đã biết với thiết bị này:
+
+* Máy trạm Dell Precision 670
+* Bo mạch chủ Gigabyte 2CEWH

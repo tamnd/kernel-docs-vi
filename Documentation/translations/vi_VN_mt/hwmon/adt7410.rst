@@ -1,0 +1,108 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adt7410.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adt7410
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADT7410
+
+Tiền tố: 'adt7410'
+
+Địa chỉ được quét: Không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+  * Thiết bị tương tự ADT7420
+
+Tiền tố: 'adt7420'
+
+Địa chỉ được quét: Không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT7310
+
+Tiền tố: 'adt7310'
+
+Địa chỉ được quét: Không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT7320
+
+Tiền tố: 'adt7320'
+
+Địa chỉ được quét: Không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+Tác giả: Hartmut Knaack <knaack.h@gmx.de>
+
+Sự miêu tả
+-----------
+
+ADT7310/ADT7410 là cảm biến nhiệt độ có dải nhiệt độ định mức là
+-55°C đến +150°C. Nó có độ chính xác cao +/- 0,5°C và có thể hoạt động ở nhiệt độ
+độ phân giải 13 bit (0,0625°C) hoặc 16 bit (0,0078°C). Cảm biến cung cấp một
+Chân INT để chỉ ra rằng điểm đặt nhiệt độ tối thiểu hoặc tối đa đã được
+vượt quá, cũng như chân nhiệt độ tới hạn (CT) để chỉ ra rằng
+điểm đặt nhiệt độ tới hạn đã bị vượt quá. Cả hai chân có thể được thiết lập với một
+độ trễ thông thường là 0°C - 15°C và một hàng lỗi, dao động từ 1 đến 4 sự kiện.
+Cả hai chân có thể được đặt riêng lẻ ở mức hoạt động thấp hoặc mức hoạt động cao, trong khi toàn bộ
+thiết bị có thể chạy ở chế độ so sánh hoặc chế độ ngắt. Hỗ trợ ADT7410
+lấy mẫu nhiệt độ liên tục, cũng như lấy mẫu một giá trị nhiệt độ cho mỗi
+thứ hai hoặc thậm chí chỉ lấy một mẫu theo yêu cầu để tiết kiệm điện. Ngoài ra, nó có thể
+tắt nguồn hoàn toàn ADC của nó, nếu cần quản lý nguồn điện.
+
+ADT7320/ADT7420 tương thích với đăng ký, điểm khác biệt duy nhất là
+gói, phạm vi nhiệt độ hoạt động hẹp hơn một chút (-40°C đến +150°C) và
+độ chính xác tốt hơn (0,25°C thay vì 0,50°C.)
+
+Sự khác biệt giữa ADT7310/ADT7320 và ADT7410/ADT7420 là bộ điều khiển
+giao diện, ADT7310 và ADT7320 sử dụng SPI trong khi ADT7410 và ADT7420 sử dụng
+I2C.
+
+Ghi chú cấu hình
+-------------------
+
+Vì thiết bị sử dụng một giá trị trễ, là giá trị bù ở mức tối thiểu,
+nhiệt độ tối đa và tới hạn, nó chỉ có thể được đặt ở temp#_max_hyst.
+Tuy nhiên, temp#_min_hyst và temp#_crit_hyst hiển thị tương ứng của chúng
+độ trễ.
+Thiết bị được đặt ở độ phân giải 16 bit và chế độ so sánh.
+
+giao diện sysfs
+---------------
+
+==================================================================================
+đầu vào nhiệt độ temp#_input
+điểm đặt nhiệt độ tối thiểu temp#_min
+điểm đặt nhiệt độ tối đa temp#_max
+điểm đặt nhiệt độ tới hạn temp#_crit
+Độ trễ temp#_min_hyst cho nhiệt độ tối thiểu (chỉ đọc)
+Độ trễ temp#_max_hyst cho nhiệt độ tối đa (đọc/ghi)
+Độ trễ temp#_crit_hyst cho nhiệt độ tới hạn (chỉ đọc)
+Cờ báo nhiệt độ tối thiểu temp#_min_alarm
+Cờ báo nhiệt độ tối đa temp#_max_alarm
+cờ báo nhiệt độ tới hạn temp#_crit_alarm
+==================================================================================

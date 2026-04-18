@@ -1,0 +1,129 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mp9945.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân mp9945
+=====================
+
+Chip được hỗ trợ:
+
+* MPS mp9945
+
+Tiền tố: 'mp9945'
+
+Tác giả:
+
+Cosmo Chou <chou.cosmo@gmail.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Monolithic Power Systems, Inc. (MPS)
+Bộ điều khiển một pha kỹ thuật số MP9945.
+
+Thiết bị tương thích với:
+
+- Giao diện PMBus rev 1.3.
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs'
+đối với điện áp đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho dòng điện đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho dòng điện đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho nguồn điện đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho công suất đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho nhiệt độ:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ

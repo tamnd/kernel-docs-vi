@@ -1,0 +1,86 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/nct6683.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân nct6683
+=====================
+
+Chip được hỗ trợ:
+
+* Nuvoton NCT6683D/NCT6686D/NCT6687D
+
+Tiền tố: 'nct6683'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+tác giả:
+
+Guenter Roeck <linux@roeck-us.net>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip Nuvoton NCT6683D eSIO.
+
+Các chip triển khai tới 32 cảm biến nhiệt độ và điện áp dùng chung.
+Nó hỗ trợ tới 16 cảm biến quay quạt và tối đa 8 động cơ điều khiển quạt.
+
+Nhiệt độ được đo bằng độ C. Độ phân giải đo là
+0,5 độ C.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng tính bằng milivolt.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút).
+
+Lưu ý sử dụng
+----------
+
+Giới hạn vị trí đăng ký trên bo mạch Intel với phần mềm EC phiên bản 1.0
+ngày xây dựng 03/04/13 không khớp với các vị trí đăng ký trong Nuvoton
+bảng dữ liệu. Nuvoton xác nhận Intel sử dụng phiên bản firmware đặc biệt
+với các địa chỉ đăng ký khác nhau. Thông số kỹ thuật mô tả Intel
+chương trình cơ sở được giữ dưới NDA bởi Nuvoton và Intel và không có sẵn
+tới công chúng.
+
+Một số vị trí đăng ký có thể được thiết kế ngược; những người khác cũng vậy
+được giấu kỹ. Vì điều này, việc ghi bất kỳ giá trị nào từ hệ điều hành là
+được coi là quá rủi ro với phần sụn này và đã bị vô hiệu hóa. Tất cả các giới hạn
+tất cả đều phải được viết từ BIOS.
+
+Trình điều khiển chỉ được thử nghiệm với phần mềm Intel và theo mặc định
+chỉ khởi tạo trên bo mạch Intel. Để kích hoạt nó trên các bo mạch không phải của Intel,
+đặt tham số mô-đun 'bắt buộc' thành 1.
+
+Các bo mạch và phiên bản phần mềm đã được thử nghiệm
+-----------------------------------
+
+Trình điều khiển đã được báo cáo là làm việc với các bảng sau và
+các phiên bản phần sụn.
+
+====================================================================================
+Phiên bản phần mềm bo mạch
+====================================================================================
+Phiên bản phần mềm Intel DH87RL NCT6683D EC phiên bản 1.0 xây dựng 03/04/13
+Phiên bản phần mềm Intel DH87MC NCT6683D EC 1.0 bản dựng 04/03/13
+Phiên bản phần mềm Intel DB85FL NCT6683D EC phiên bản 1.0 xây dựng 03/04/13
+AMD BC-250 NCT6686D EC phiên bản phần mềm 1.0 xây dựng 28/07/21
+Phiên bản phần mềm ASRock X570 NCT6683D EC 1.0 build 28/06/19
+Phiên bản phần mềm ASRock X670E NCT6686D EC 1.0 build 19/05/22
+ASRock B650 Steel Legend WiFi NCT6686D EC firmware phiên bản 1.0 build 09/11/23
+ASRock Z590 Taichi NCT6686D EC firmware phiên bản 1.0 build 25/01/21
+MSI B550 NCT6687D Phiên bản phần mềm EC 1.0 xây dựng 07/05/20
+MSI X670-P NCT6687D EC phiên bản phần mềm 0.0 bản dựng 27/09/22
+MSI X870E NCT6687D Phiên bản phần mềm EC 0.0 bản dựng 13/11/24
+====================================================================================

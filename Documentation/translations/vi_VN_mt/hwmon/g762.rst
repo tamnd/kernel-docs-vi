@@ -1,0 +1,88 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/g762.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân g762
+==================
+
+Bộ điều khiển tốc độ quạt GMT G762 PWM được kết nối trực tiếp với quạt
+và thực hiện điều khiển tốc độ quạt theo vòng kín hoặc vòng hở. Hai
+các chế độ - PWM hoặc DC - được thiết bị hỗ trợ.
+
+Để biết thêm thông tin, bảng dữ liệu chi tiết có sẵn tại
+Hệ thống ZZ0000ZZ
+các ràng buộc được mô tả trong Documentation/hwmon/sysfs-interface.rst.
+
+Các mục sau đây có sẵn cho người dùng trong thư mục con của
+/sys/bus/i2c/drivers/g762/ để điều khiển hoạt động của thiết bị.
+Điều này có thể được thực hiện thủ công bằng cách sử dụng các mục sau nhưng thường là
+được thực hiện thông qua daemon người dùng như fancontrol.
+
+Lưu ý rằng những mục đó không cung cấp cách thiết lập cụ thể
+đặc tính phần cứng của hệ thống (đồng hồ tham chiếu, xung trên mỗi
+cách mạng quạt,...); Chúng có thể được sửa đổi thông qua các ràng buộc devicetree
+được ghi lại trong Documentation/devicetree/binds/hwmon/gmt,g762.yaml hoặc
+sử dụng cấu trúc platform_data cụ thể khi khởi tạo bảng
+tệp (xem include/linux/platform_data/g762.h).
+
+fan1_target:
+	    đặt tốc độ quạt mong muốn. Điều này chỉ có ý nghĩa trong vòng kín
+	    kiểm soát tốc độ quạt (tức là khi pwm1_enable được đặt thành 2).
+
+fan1_input:
+	    cung cấp giá trị vòng quay của quạt hiện tại trong RPM theo báo cáo của
+	    quạt vào thiết bị.
+
+fan1_div:
+	    bộ chia đồng hồ quạt. Giá trị được hỗ trợ là 1, 2, 4 và 8.
+
+fan1_pulse:
+	    số xung trên mỗi vòng quay của quạt. Giá trị được hỗ trợ
+	    là 2 và 4.
+
+fan1_fault:
+	    báo cáo lỗi quạt, tức là không có chuyển đổi trên chốt bánh răng quạt cho
+	    khoảng 0,7s (nếu quạt không tự tắt).
+
+fan1_alarm:
+	    ở chế độ điều khiển vòng kín, nếu giá trị RPM của quạt vượt quá 25%
+	    của giá trị được lập trình trong hơn 6 giây 'fan1_alarm' là
+	    đặt thành 1.
+
+pwm1_enable:
+	    đặt chế độ điều khiển tốc độ quạt hiện tại, tức là 1 cho quạt thủ công
+	    điều khiển tốc độ (vòng hở) thông qua pwm1 được mô tả bên dưới, 2 cho
+	    điều khiển tốc độ quạt tự động (vòng kín) thông qua fan1_target
+	    ở trên.
+
+pwm1_mode:
+	    đặt hoặc nhận chế độ điều khiển quạt: 1 cho chế độ PWM, 0 cho chế độ DC.
+
+pwm1:
+	    nhận hoặc đặt giá trị điều khiển quạt PWM ở chế độ vòng lặp mở. Đây là một
+	    giá trị nguyên từ 0 đến 255. 0 dừng quạt, 255 tạo ra
+	    nó chạy hết tốc lực.
+
+Cả ở chế độ PWM ('pwm1_mode' được đặt thành 1) và chế độ DC ('pwm1_mode' được đặt thành 0),
+khi chế độ điều khiển tốc độ quạt hiện tại là vòng lặp mở ('pwm1_enable' được đặt thành 1),
+tốc độ quạt được lập trình bằng cách đặt giá trị trong khoảng từ 0 đến 255 thông qua 'pwm1'
+mục nhập (0 dừng quạt, 255 làm cho nó chạy ở tốc độ tối đa). Ở chế độ vòng kín
+('pwm1_enable' được đặt thành 2), tốc độ quay dự kiến trong RPM có thể được chuyển tới
+chip thông qua 'fan1_target'. Ở chế độ vòng kín, tốc độ mục tiêu được so sánh
+với tốc độ hiện tại (có sẵn qua 'fan1_input') của thiết bị và phản hồi
+được thực hiện để phù hợp với giá trị mục tiêu đó. Giá trị tốc độ quạt được tính toán
+dựa trên các thông số liên quan đến đặc tính vật lý của
+hệ thống: tần số nguồn đồng hồ tham chiếu, số xung trên mỗi quạt
+cách mạng, v.v.
+
+Lưu ý rằng trình điều khiển sẽ cập nhật giá trị của nó nhiều nhất một lần mỗi giây.

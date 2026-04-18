@@ -1,0 +1,110 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mp2856.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân mp2856
+====================
+
+Chip được hỗ trợ:
+
+* MPS MP2856
+
+Tiền tố: 'mp2856'
+
+* MPS MP2857
+
+Tiền tố: 'mp2857'
+
+Tác giả:
+
+Peter Yin <peter.yin@quantatw.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Monolithic Power Systems, Inc. (MPS)
+nhà cung cấp bộ điều khiển nhiều pha, kỹ thuật số, vòng lặp kép MP2856/MP2857
+
+Thiết bị này:
+
+- Hỗ trợ lên đến hai đường ray điện.
+- Hỗ trợ 2 trang 0 và 1 và cả trang 2 để cấu hình.
+- Có thể định cấu hình đọc VOUT ở định dạng trực tiếp hoặc VID và cho phép
+  cài đặt các định dạng khác nhau trên đường ray 1 và 2. Đối với VID, như sau
+  các giao thức có sẵn: Chế độ AMD SVI3 với 5-mV/LSB.
+
+Hỗ trợ thiết bị:
+
+- Giao diện SVID.
+- Giao diện AVSBus.
+
+Thiết bị tương thích với:
+
+- Giao diện PMBus rev 1.3.
+
+Thiết bị hỗ trợ định dạng trực tiếp để đọc dòng điện đầu ra, điện áp đầu ra,
+công suất đầu vào và đầu ra và nhiệt độ.
+Thiết bị hỗ trợ định dạng tuyến tính để đọc điện áp đầu vào và công suất đầu vào.
+Thiết bị hỗ trợ VID và các định dạng trực tiếp để đọc điện áp đầu ra.
+Các chế độ VID dưới đây được hỗ trợ: AMD SVI3.
+
+Trình điều khiển cung cấp các thuộc tính sysfs sau cho các phép đo hiện tại:
+
+- chỉ số 1 cho "iin";
+- chỉ số 2, 3 cho "iout";
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sysfs sau để đo điện áp.
+
+- chỉ số 1 cho "vin";
+- chỉ số 2, 3 cho "vout";
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sysfs sau để đo công suất.
+
+- chỉ số 1 cho "pin";
+- chỉ số 2, 3 cho "bĩu môi";
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sysfs sau để đo nhiệt độ.
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ

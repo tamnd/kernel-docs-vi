@@ -1,0 +1,84 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lt3074.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lt3074
+====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự LT3074
+
+Tiền tố: 'lt3074'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Cedric Encarnacion <cedricjustine.encarnacion@analog.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Analog Devices LT3074 Linear
+Bộ điều chỉnh với giao diện PMBus.
+
+LT3074 là thiết bị điện áp thấp, độ ồn cực thấp và tốc độ truyền tải cực nhanh
+bộ điều chỉnh tuyến tính đáp ứng với giao diện nối tiếp PMBus. Đo từ xa PMBus
+tính năng cung cấp thông tin liên quan đến điện áp và dòng điện đầu ra,
+điện áp đầu vào, điện áp phân cực và nhiệt độ khuôn.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+các thiết bị một cách rõ ràng. Vui lòng xem Tài liệu/i2c/instantiating-devices.rst
+để biết chi tiết.
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+Mục nhập hệ thống
+-------------
+
+====================================================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_max Giới hạn cảnh báo quá áp đầu vào
+in1_max_alarm Trạng thái cảnh báo quá áp đầu vào
+in1_min Giới hạn cảnh báo thấp áp đầu vào
+in1_min_alarm Trạng thái cảnh báo điện áp đầu vào thấp
+in2_label "vmon"
+in2_input Đo điện áp phân cực
+in2_max Giới hạn cảnh báo quá áp thiên vị
+in2_min Giới hạn cảnh báo điện áp thấp thiên vị
+in3_label "vout1"
+in3_input Đo điện áp đầu ra
+in3_max Giới hạn cảnh báo quá áp đầu ra
+in3_max_alarm Trạng thái cảnh báo quá áp đầu ra
+in3_min Giới hạn cảnh báo điện áp đầu ra thấp
+in3_min_alarm Trạng thái cảnh báo điện áp đầu ra thấp
+curr1_label "iout1"
+curr1_input Đo dòng điện đầu ra.
+curr1_crit Giới hạn lỗi quá dòng đầu ra
+curr1_crit_alarm Trạng thái lỗi quá dòng đầu ra
+temp1_input Nhiệt độ đo được
+temp1_max Giới hạn nhiệt độ tối đa
+temp1_max_alarm Trạng thái cảnh báo quá nhiệt
+====================================================================================

@@ -1,0 +1,340 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/asc7621.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=======================
+Trình điều khiển hạt nhân asc7621
+=====================
+
+Chip được hỗ trợ:
+
+Andigilog aSC7621 và aSC7621a
+
+Tiền tố: 'asc7621'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+		George Joseph
+
+Mô tả được cung cấp bởi Dave Pivin @ Andigilog:
+
+Andigilog có cả phiên bản PECI và tiền PECI của Heceta-6, như
+Intel gọi họ. Heceta-6e có tần số cao PWM và Heceta-6p có
+đã thêm PECI và vùng nhiệt thứ 4. Andigilog aSC7611 là
+Phần Heceta-6e và aSC7621 là phần Heceta-6p. Cả hai đều ở trong
+sản xuất số lượng lớn, vận chuyển cho Intel và các công ty phụ của họ.
+
+Chúng tôi đã cải tiến cả hai phần so với Intel quản lý
+đặc điểm kỹ thuật. Cải tiến đầu tiên là độ phân giải đọc nhiệt độ. Chúng tôi
+Ngoài ra, đã sử dụng các thanh ghi dưới 20 giờ cho các chức năng dành riêng cho nhà cung cấp
+cho những người trong phạm vi nhà cung cấp do Intel chỉ định.
+
+Quá trình chuyển đổi của chúng tôi tạo ra kết quả được báo cáo là hai byte.
+Bộ điều khiển tốc độ quạt sử dụng giá trị tốt hơn này để tạo ra quạt "không bước"
+Đầu ra PWM. Hai byte này được "khóa đọc" để đảm bảo rằng một lần
+byte cao hoặc thấp được đọc, byte còn lại sẽ bị khóa cho đến sau
+lần đọc tiếp theo của bất kỳ thanh ghi nào. Vì vậy, để có được số đọc nguyên tử, hãy đọc cao hay thấp
+byte thì lần đọc tiếp theo sẽ là byte đối diện. Dữ liệu của chúng tôi
+trang cho biết độ phân giải 10 bit, mặc dù bạn có thể tìm thấy các bit thấp hơn
+đang hoạt động, chúng không nhất thiết phải đáng tin cậy hoặc hữu ích ở bên ngoài. Chúng tôi
+đã chọn không che giấu chúng.
+
+Chúng tôi sử dụng tính năng lọc quan trọng mà người dùng có thể điều chỉnh như được mô tả trong
+bảng dữ liệu. Báo cáo nhiệt độ và đầu ra quạt PWM của chúng tôi rất mượt mà
+khi so sánh với đối thủ cạnh tranh, ngoài độ phân giải cao hơn
+báo cáo nhiệt độ. Đầu ra PWM mượt mà hơn không yêu cầu người dùng
+sự can thiệp.
+
+Chúng tôi cung cấp các tính năng GPIO trên các chân VID trước đây. Đây là những cống mở
+đầu ra hoặc đầu vào và có thể được sử dụng làm I/O cho mục đích chung hoặc làm cảnh báo
+đầu ra dựa trên giới hạn nhiệt độ. Đây là vào lúc 19h và 1Ah.
+
+Chúng tôi cung cấp khả năng ánh xạ linh hoạt các chỉ số nhiệt độ tới các vùng nhiệt. bất kỳ
+nhiệt độ có thể được ánh xạ tới bất kỳ vùng nào có nhiệm vụ mặc định
+tuân theo thông số kỹ thuật của Intel.
+
+Vì có một quạt phân bổ vùng cho phép nhiệt độ "nóng hơn"
+một tập hợp các vùng để điều khiển PWM của từng quạt riêng lẻ, nhưng không có
+cho người dùng, chúng tôi đã thêm một chỉ báo cho biết vùng nào
+hiện đang điều khiển PWM cho một chiếc quạt nhất định. Cái này có trong sổ đăng ký
+00h.
+
+Cả hai số đọc nhiệt độ diode từ xa có thể được cung cấp một giá trị bù như vậy
+rằng số đọc được báo cáo cũng như nhiệt độ được sử dụng để xác định
+PWM có thể được bù đắp cho mục đích hiệu chỉnh hệ thống.
+
+PECI Cấu hình mở rộng cho phép có nhiều hơn hai tên miền trên mỗi
+Địa chỉ PECI và cũng cung cấp chức năng kích hoạt cho mỗi PECI
+địa chỉ. Người ta có thể sử dụng sự phân bổ vùng linh hoạt của chúng tôi để có một vùng
+được gán cho tối đa 4 địa chỉ PECI. Điều này là không thể trong mặc định
+Cấu hình Intel. Điều này sẽ hữu ích trong các hệ thống đa CPU với
+từng quạt sẽ được hưởng lợi từ việc kiểm soát quạt riêng lẻ.
+Đây là trong thanh ghi 0Eh.
+
+Hệ thống đo tốc độ kế rất linh hoạt và có thể thích ứng với nhiều
+các loại quạt. Chúng tôi cũng có thể hỗ trợ PWM kéo dài xung để quạt 3 dây
+có thể được sử dụng Những đặc điểm này nằm trong các thanh ghi từ 04h đến 07h.
+
+Cuối cùng, chúng tôi đã thêm chức năng tắt tach để tắt tach.
+hệ thống đo lường cho từng tach để tiết kiệm điện. Đó là
+trong sổ đăng ký 75h.
+
+--------------------------------------------------------------------------
+
+aSC7621 Mô tả sản phẩm
+===========================
+
+aSC7621 có giao diện kỹ thuật số hai dây tương thích với SMBus 2.0.
+Sử dụng ADC 10 bit, aSC7621 đo nhiệt độ của hai diode từ xa
+bóng bán dẫn được kết nối cũng như khuôn riêng của nó. Hỗ trợ cho nền tảng
+Giao diện điều khiển môi trường (PECI) được bao gồm.
+
+Sử dụng thông tin nhiệt độ từ bốn vùng này, tốc độ quạt tự động
+thuật toán điều khiển được sử dụng để giảm thiểu tác động âm thanh trong khi đạt được
+nhiệt độ CPU được khuyến nghị dưới các tải hoạt động khác nhau.
+
+Để cài đặt tốc độ quạt, aSC7621 có ba chế độ điều chế độ rộng xung độc lập
+(PWM) đầu ra được điều khiển bởi một hoặc kết hợp ba,
+các vùng nhiệt độ. Cả hai dải PWM tần số cao và tần số thấp đều được hỗ trợ.
+
+aSC7621 cũng bao gồm một bộ lọc kỹ thuật số có thể được sử dụng để làm mịn
+chỉ số nhiệt độ để kiểm soát tốt hơn tốc độ quạt và âm thanh tối thiểu
+tác động.
+
+aSC7621 có đầu vào máy đo tốc độ để đo tốc độ quạt trên tối đa bốn quạt.
+Các thanh ghi giới hạn và trạng thái cho tất cả các giá trị đo được đưa vào để cảnh báo
+máy chủ hệ thống cho biết mọi phép đo đều nằm ngoài giới hạn được lập trình
+thông qua các thanh ghi trạng thái.
+
+Điện áp hệ thống của nguồn bo mạch chủ VCCP, 2.5V, 3.3V, 5.0V và 12V là
+được giám sát hiệu quả với các điện trở mở rộng bên trong.
+
+Đặc trưng
+--------
+
+- Hỗ trợ giao diện PECI và giám sát các điốt nhiệt bên trong và từ xa
+- Giao diện nối tiếp 2 dây, tương thích SMBus 2.0
+- ADC 10 bit
+- Màn hình nguồn cung cấp bo mạch chủ/bộ xử lý VCCP, 2.5V, 3.3V, 5.0V và 12V
+- Lập trình điều khiển quạt tự động dựa trên chỉ số nhiệt độ
+- Lọc tiếng ồn khi đọc nhiệt độ để điều khiển tốc độ quạt
+- Độ phân giải cảm biến nhiệt độ kỹ thuật số 0,25C
+- 3 đầu ra điều khiển tốc độ quạt PWM cho quạt 2, 3 hoặc 4 dây và tối đa 4 quạt
+  đầu vào máy đo tốc độ
+- Tăng cường nhiệt độ đo được để gán Vùng nhiệt độ.
+- Cung cấp dải tần số PWM cao và thấp
+- 3 chân GPIO để sử dụng tùy chỉnh
+- Gói QSOP 24 đầu chì
+
+Ghi chú cấu hình
+===================
+
+Ngoại trừ những nơi được ghi chú bên dưới, các mục sysfs được tạo bởi trình điều khiển này tuân theo
+các tiêu chuẩn được xác định trong "giao diện sysfs".
+
+temp1_source
+	= ====================================================
+	0 (mặc định) peci_legacy = 0, Nhiệt độ từ xa 1
+		peci_legacy = 1, PECI Nhiệt độ bộ xử lý 0
+	1 Điều khiển từ xa 1 Nhiệt độ
+	2 Điều khiển từ xa 2 Nhiệt độ
+	3 Nhiệt độ bên trong
+	4 PECI Nhiệt độ bộ xử lý 0
+	5 PECI Nhiệt độ bộ xử lý 1
+	6 PECI Nhiệt độ bộ xử lý 2
+	7 PECI Nhiệt độ bộ xử lý 3
+	= ====================================================
+
+temp2_source
+	= ====================================================
+	0 (mặc định) Nhiệt độ bên trong
+	1 Điều khiển từ xa 1 Nhiệt độ
+	2 Điều khiển từ xa 2 Nhiệt độ
+	3 Nhiệt độ bên trong
+	4 PECI Nhiệt độ bộ xử lý 0
+	5 PECI Nhiệt độ bộ xử lý 1
+	6 PECI Nhiệt độ bộ xử lý 2
+	7 PECI Nhiệt độ bộ xử lý 3
+	= ====================================================
+
+temp3_source
+	= ====================================================
+	0 (mặc định) Remote 2 Nhiệt độ
+	1 Điều khiển từ xa 1 Nhiệt độ
+	2 Điều khiển từ xa 2 Nhiệt độ
+	3 Nhiệt độ bên trong
+	4 PECI Nhiệt độ bộ xử lý 0
+	5 PECI Nhiệt độ bộ xử lý 1
+	6 PECI Nhiệt độ bộ xử lý 2
+	7 PECI Nhiệt độ bộ xử lý 3
+	= ====================================================
+
+temp4_source
+	= ====================================================
+	0 (mặc định) peci_legacy = 0, PECI Nhiệt độ bộ xử lý 0
+		peci_legacy = 1, Nhiệt độ từ xa 1
+	1 Điều khiển từ xa 1 Nhiệt độ
+	2 Điều khiển từ xa 2 Nhiệt độ
+	3 Nhiệt độ bên trong
+	4 PECI Nhiệt độ bộ xử lý 0
+	5 PECI Nhiệt độ bộ xử lý 1
+	6 PECI Nhiệt độ bộ xử lý 2
+	7 PECI Nhiệt độ bộ xử lý 3
+	= ====================================================
+
+temp[1-4]_smoothing_enable / temp[1-4]_smoothing_time
+	Làm mịn các mức tăng đột biến trong chỉ số nhiệt độ do tiếng ồn gây ra.
+	Các giá trị hợp lệ tính bằng mili giây là:
+
+* 35000
+	* 17600
+	* 11800
+	* 7000
+	* 4400
+	* 3000
+	* 1600
+	* 800
+
+nhiệt độ [1-4]_crit
+	Khi nhiệt độ vùng tương ứng đạt đến giá trị này,
+	Đầu ra pwm ALL sẽ đạt 100%.
+
+temp[5-8]_input / temp[5-8]_enable
+	aSC7621 cũng có thể đọc nhiệt độ do bộ xử lý cung cấp
+	thông qua xe buýt PECI.  Thông thường đây là những nhiệt độ "cốt lõi" và mang tính chất tương đối
+	đến điểm bắt đầu mạch điều khiển nhiệt tự động
+	điều tiết.  Điều này có nghĩa là đây thường là những số âm.
+
+pwm[1-3]_enable
+	=============================================================================
+	0 Tắt quạt.
+	1 quạt điều khiển bằng tay.
+	2 Quạt được điều khiển tự động và sẽ chạy ở tốc độ pwm tối thiểu
+			nếu nhiệt độ của vùng dưới mức tối thiểu.
+	3 Quạt được điều khiển tự động nhưng sẽ tắt nếu
+			nhiệt độ vùng này thấp hơn mức tối thiểu.
+	4-254 Bị bỏ qua.
+	Quạt 255 đầy đủ.
+	=============================================================================
+
+pwm[1-3]_auto_channels
+	Bitmap như được mô tả trong giao diện sysctl như sau
+	ngoại lệ...
+
+Chỉ có sự kết hợp các vùng sau đây (và mặt nạ tương ứng của chúng)
+	là hợp lệ:
+
+* 1
+	* 2
+	* 3
+	* 2,3
+	* 1,2,3
+	* 4
+	* 1,2,3,4
+
+* Giá trị đặc biệt:
+
+==========================
+	  0 Bị vô hiệu hóa.
+	  16 Quạt điều khiển bằng tay.
+	  31 Quạt đầy đủ.
+	  ==========================
+
+
+pwm[1-3]_invert
+	Khi được đặt, sẽ đảo ngược ý nghĩa của pwm[1-3].
+	tức là khi pwm = 0, quạt sẽ hoạt động đầy đủ và
+	khi pwm = 255 thì quạt sẽ tắt.
+
+pwm[1-3]_freq
+	Tần số PWM tính bằng Hz
+	Các giá trị hợp lệ tính bằng Hz là:
+
+* 10
+	* 15
+	* 23
+	* 30 (mặc định)
+	* 38
+	* 47
+	* 62
+	* 94
+	* 23000
+	* 24000
+	* 25000
+	* 26000
+	* 27000
+	* 28000
+	* 29000
+	* 30000
+
+Việc đặt bất kỳ giá trị nào khác sẽ bị bỏ qua.
+
+peci_enable
+	Bật hoặc tắt PECI
+
+peci_avg
+	Thời gian trung bình của bộ lọc đầu vào.
+
+* 0 0 giây. (không làm mịn) (mặc định)
+	* 1 0,25 giây.
+	* 2 0,5 giây.
+	* 3 1,0 giây.
+	* 4 2,0 ​​giây.
+	* 5 4,0 giây.
+	* 6 8,0 giây.
+	* 7 0,0 giây.
+
+peci_legacy
+	= ================================================
+	0 Chế độ tiêu chuẩn (mặc định)
+		Việc đọc Diode 1 từ xa được liên kết với
+		Vùng nhiệt độ 1, PECI được liên kết với
+		Khu 4
+
+1 Chế độ kế thừa
+		PECI được liên kết với Vùng nhiệt độ 1,
+		Diode từ xa 1 được liên kết với Vùng 4
+	= ================================================
+
+peci_diode
+	Bộ lọc điốt
+
+= ======================
+	0 0,25 giây.
+	1 1,1 giây.
+	2 2,4 giây.  (mặc định)
+	3 3,4 giây.
+	4 5,0 giây.
+	5 6,8 giây.
+	6 10,2 giây.
+	7 16,4 giây.
+	= ======================
+
+peci_4miền
+	Kích hoạt bốn miền
+
+= ====================================================
+	0 1 hoặc 2 Miền cho bộ xử lý được kích hoạt (mặc định)
+	1 3 hoặc 4 Miền cho bộ xử lý được kích hoạt
+	= ====================================================
+
+peci_domain
+	Tên miền
+
+= =======================================================
+	0 Bộ xử lý chứa một miền duy nhất (0) (mặc định)
+	1 Bộ xử lý chứa hai miền (0,1)
+	= =======================================================

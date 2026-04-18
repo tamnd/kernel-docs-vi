@@ -1,0 +1,141 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max16065.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max16065
+======================
+
+
+Chip được hỗ trợ:
+
+* Tối đa MAX16065, MAX16066
+
+Tiền tố: 'max16065', 'max16066'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Tối đa MAX16067
+
+Tiền tố: 'max16067'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Tối đa MAX16068
+
+Tiền tố: 'max16068'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Tối đa MAX16070/MAX16071
+
+Tiền tố: 'max16070', 'max16071'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+[Từ bảng dữ liệu] Trình quản lý hệ thống có thể định cấu hình flash MAX16065/MAX16066
+theo dõi và sắp xếp nhiều điện áp hệ thống. MAX16065/MAX16066 cũng có thể
+giám sát chính xác (+/- 2,5%) một kênh hiện tại bằng cách sử dụng bộ điều khiển phía cao chuyên dụng
+bộ khuếch đại cảm nhận dòng điện. MAX16065 quản lý tới 12 điện áp hệ thống
+đồng thời và MAX16066 quản lý tới tám điện áp cung cấp.
+
+Trình quản lý hệ thống có thể định cấu hình flash MAX16067 giám sát và sắp xếp nhiều
+điện áp hệ thống. MAX16067 quản lý đồng thời tới sáu điện áp hệ thống.
+
+Trình quản lý hệ thống có thể cấu hình flash MAX16068 giám sát và quản lý tối đa sáu
+điện áp hệ thống đồng thời.
+
+Màn hình hệ thống có thể định cấu hình flash MAX16070/MAX16071 giám sát nhiều
+điện áp hệ thống. MAX16070/MAX16071 cũng có thể giám sát chính xác (+/-2,5%)
+một kênh hiện tại sử dụng bộ khuếch đại cảm nhận dòng điện phía cao chuyên dụng. các
+MAX16070 giám sát đồng thời tới 12 điện áp hệ thống và MAX16071
+giám sát tối đa tám điện áp cung cấp.
+
+Mỗi kênh được giám sát đều có giới hạn tới hạn thấp và cao riêng. MAX16065,
+MAX16066, MAX16070 và MAX16071 hỗ trợ một giới hạn bổ sung
+có thể cấu hình như giới hạn thứ cấp thấp hoặc cao. MAX16065, MAX16066,
+MAX16070 và MAX16071 cũng hỗ trợ giám sát dòng điện.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò thiết bị vì không có đăng ký nào
+có thể được sử dụng một cách an toàn để nhận dạng chip. Bạn sẽ phải khởi tạo
+các thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+WARNING: Không truy cập vào các thanh ghi chip bằng lệnh i2cdump và không sử dụng
+bất kỳ lệnh i2ctools nào trên thanh ghi lệnh (0xa5 đến 0xac). Những con chip
+được hỗ trợ bởi trình điều khiển này diễn giải mọi quyền truy cập vào thanh ghi lệnh (bao gồm cả
+đọc lệnh) làm yêu cầu thực thi lệnh được đề cập. Điều này có thể dẫn đến
+mất điện, reset bo mạch và/hoặc hỏng Flash. Trường hợp xấu nhất, hội đồng quản trị của bạn có thể
+biến thành một viên gạch.
+
+
+Mục nhập hệ thống
+-------------
+
+=====================================================================================
+in[0-11]_input Đo điện áp đầu vào.
+
+in12_input Điện áp trên chân CSP (Cực dương cảm nhận hiện tại).
+			Chỉ khi chip hỗ trợ cảm biến hiện tại và nếu
+			cảm biến hiện tại được kích hoạt.
+
+in[0-11]_min Giới hạn cảnh báo thấp.
+			Được hỗ trợ trên MAX16065, MAX16066, MAX16070 và MAX16071
+			chỉ.
+
+in[0-11]_max Giới hạn cảnh báo cao.
+			Được hỗ trợ trên MAX16065, MAX16066, MAX16070 và MAX16071
+			chỉ.
+
+Hỗ trợ giới hạn cảnh báo thấp hoặc cao
+			(tùy thuộc vào cấu hình chip), nhưng không phải cả hai.
+
+in[0-11]_lcrit Giới hạn tới hạn thấp.
+
+in[0-11]_crit Giới hạn tới hạn cao.
+
+in[0-11]_alarm Báo động điện áp đầu vào.
+
+curr1_input Đầu vào có ý nghĩa hiện tại; chỉ khi chip hỗ trợ hiện tại
+			cảm biến và liệu cảm biến hiện tại có được bật hay không.
+			Dòng điện hiển thị giả định dòng điện là 0,001 Ohm
+			điện trở.
+
+curr1_alarmBáo động quá dòng; chỉ khi chip hỗ trợ hiện tại
+			cảm biến và liệu cảm biến hiện tại có được bật hay không.
+=====================================================================================

@@ -1,0 +1,59 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm77.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm77
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM77
+
+Tiền tố: 'lm77'
+
+Địa chỉ được quét: I2C 0x48 - 0x4b
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+
+Tác giả: Andras BALI <drewie@freemail.hu>
+
+Sự miêu tả
+-----------
+
+LM77 thực hiện một cảm biến nhiệt độ. Nhiệt độ
+cảm biến kết hợp với cảm biến nhiệt độ loại khoảng cách dải tần,
+ADC 10 bit và bộ so sánh kỹ thuật số với phần trên do người dùng lập trình
+và giá trị giới hạn dưới.
+
+LM77 thực hiện 3 giới hạn: thấp (temp1_min), cao (temp1_max) và
+quan trọng (temp1_crit.) Nó cũng thực hiện một cơ chế trễ
+áp dụng cho cả 3 giới hạn. Sự khác biệt tương đối được lưu trữ trong một
+đăng ký trên chip, có nghĩa là sự khác biệt tương đối giữa
+giới hạn và độ trễ của nó luôn giống nhau đối với cả 3 giới hạn.
+
+Chi tiết triển khai này ngụ ý như sau:
+
+* Khi thiết lập một giới hạn, độ trễ của nó sẽ tự động tuân theo,
+  chênh lệch không đổi. Ví dụ: nếu giới hạn tới hạn cũ
+  là 80 độ C, và độ trễ là 75 độ C, và bạn thay đổi
+  giới hạn tới hạn là 90 độ C thì hiện tượng trễ sẽ
+  tự động thay đổi đến 85 độ C.
+* Cả 3 độ trễ không thể được thiết lập độc lập. Chúng tôi quyết định làm
+  temp1_crit_hyst có thể ghi, trong khi temp1_min_hyst và temp1_max_hyst thì có thể ghi
+  chỉ đọc. Cài đặt temp1_crit_hyst ghi lại sự khác biệt giữa
+  temp1_crit_hyst và temp1_crit vào chip và tương tự
+  độ trễ tự động áp dụng cho giới hạn thấp và cao.
+* Các giới hạn nên được đặt trước độ trễ.

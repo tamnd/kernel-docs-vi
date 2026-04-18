@@ -1,0 +1,156 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max31827.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max31827
+======================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX31827
+
+Tiền tố: 'max31827'
+
+Địa chỉ được quét: I2C 0x40 - 0x5f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX31828
+
+Tiền tố: 'max31828'
+
+Địa chỉ được quét: I2C 0x40 - 0x5f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX31829
+
+    Prefix: 'max31829'
+
+Địa chỉ được quét: I2C 0x40 - 0x5f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+tác giả:
+	- Daniel Matyas <daniel.matyas@analog.com>
+
+Sự miêu tả
+-----------
+
+Các chip được trình điều khiển này hỗ trợ khá giống nhau. Sự khác biệt duy nhất
+giữa chúng được tìm thấy trong hành vi bật nguồn mặc định của chip. Trong khi
+Hàng đợi lỗi của MAX31827 được đặt thành 1, hàng đợi lỗi của hai chip còn lại được đặt thành
+4. Ngoài ra, trạng thái hoạt động cảnh báo của MAX31829 ở mức cao, trong khi hai trạng thái còn lại
+báo động của chip đang hoạt động ở mức thấp. Điều quan trọng cần lưu ý là các chip có thể
+được cấu hình để hoạt động theo cách tương tự với 1 thao tác ghi vào
+thanh ghi cấu hình. Từ đây trở đi, chúng ta sẽ gọi tất cả các chip này là
+MAX31827.
+
+MAX31827 triển khai cảm biến nhiệt độ với sơ đồ đóng gói 6 WLP. Cái này
+cảm biến đo nhiệt độ của chính con chip.
+
+MAX31827 có cảnh báo nhiệt độ thấp và quá nhiệt với giá trị hiệu dụng và
+giá trị trễ: -40 và -30 độ đối với báo động nhiệt độ thấp và +100 và
++90 độ để báo động quá nhiệt.
+
+Cảnh báo có thể được cấu hình ở chế độ so sánh và ngắt từ
+devicetree. Trong chế độ so sánh, các bit trạng thái OT/UT có giá trị là 1 khi
+nhiệt độ tăng trên giá trị TH hoặc giảm xuống dưới TL, điều này cũng phụ thuộc vào
+việc lựa chọn Hàng đợi Lỗi. Trạng thái OT trở về 0 khi nhiệt độ giảm
+dưới giá trị TH_HYST hoặc khi vào chế độ tắt máy. Tương tự, trạng thái UT
+trở về 0 khi nhiệt độ tăng lên trên giá trị TL_HYST hoặc khi tắt máy
+chế độ được nhập.
+
+Trong chế độ ngắt vượt quá TH cũng đặt trạng thái OT thành 1, trạng thái này vẫn được đặt cho đến khi
+một thao tác đọc được thực hiện trên thanh ghi cấu hình/trạng thái (tối đa hoặc tối thiểu
+thuộc tính); tại thời điểm này, nó trở về 0. Khi trạng thái OT được đặt thành 1 từ
+vượt quá TH và đặt lại, nó chỉ được đặt lại thành 1 khi nhiệt độ giảm
+dưới TH_HYST. Đầu ra vẫn được xác nhận cho đến khi nó được đặt lại bằng một lần đọc. Đó là
+đặt lại nếu nhiệt độ tăng trên TH, v.v. Logic tương tự được áp dụng
+đến hoạt động của bit trạng thái UT.
+
+Đặt MAX31827 vào chế độ tắt máy cũng đặt lại các bit trạng thái OT/UT. Lưu ý
+rằng nếu chế độ được thay đổi trong khi các bit trạng thái OT/UT được thiết lập, trạng thái OT/UT
+có thể cần phải thiết lập lại trước khi nó bắt đầu hoạt động bình thường. Để ngăn chặn điều này,
+nên thực hiện đọc thanh ghi cấu hình/trạng thái để
+xóa các bit trạng thái trước khi thay đổi chế độ vận hành.
+
+Việc chuyển đổi có thể được thực hiện thủ công với chức năng một lần và tự động với
+một tần số xác định. Khi bật nguồn, chip đo nhiệt độ với tốc độ 1 chuyển đổi/s.
+Tỷ lệ chuyển đổi có thể được sửa đổi bằng thuộc tính update_interval của chip.
+Chuyển đổi/giây = 1/update_interval. Vì vậy, các tùy chọn có sẵn theo
+bảng dữ liệu là:
+
+- 64000 (ms) = 1 chuyển đổi/64 giây
+- 32000 (ms) = 1 chuyển đổi/32 giây
+- 16000 (ms) = 1 chuyển đổi/16 giây
+- 4000 (ms) = 1 chuyển đổi/4 giây
+- 1000 (ms) = 1 chuyển đổi/giây (mặc định)
+- 250 (ms) = 4 chuyển đổi/giây
+- 125 (ms) = 8 chuyển đổi/giây
+
+Kích hoạt thiết bị khi thiết bị đã được kích hoạt có tác dụng phụ là cài đặt
+tần số chuyển đổi thành 1 chuyển đổi/s. Thời gian chuyển đổi thay đổi tùy theo
+độ phân giải.
+
+Thời gian chuyển đổi tăng gấp đôi khi độ phân giải tăng lên. các
+độ phân giải có sẵn là:
+
+- Thời gian chuyển đổi 8 bit -> 8,75 ms
+- Thời gian chuyển đổi 9 bit -> 17,5 ms
+- Thời gian chuyển đổi 10 bit -> 35 ms
+- 12 bit (mặc định) -> thời gian chuyển đổi 140 ms
+
+Có thuộc tính temp1_solution cho biết sự thay đổi đơn vị trong
+nhiệt độ đầu vào tính bằng mili độ C.
+
+- 1000mC -> 8bit
+- 500mC -> 9bit
+- 250mC -> 10bit
+- 62 mC -> 12 bit (mặc định) - thực ra đây là 62,5, nhưng fil trả về 62
+
+Khi chip ở chế độ tắt máy và yêu cầu thao tác đọc, thao tác một lần sẽ được thực hiện
+được kích hoạt, thiết bị sẽ đợi <thời gian chuyển đổi> mili giây và chỉ sau đó mới được kích hoạt.
+thanh ghi giá trị nhiệt độ được đọc. Lưu ý rằng thời gian chuyển đổi được làm tròn
+lên đến số nguyên gần nhất có thể.
+
+LSB của các giá trị nhiệt độ là 0,0625 độ C, nhưng các giá trị của
+nhiệt độ được hiển thị bằng mili độ. Điều này có nghĩa là một số dữ liệu được
+bị mất. Khoảng cách giữa 2 giá trị liên tiếp là 62 hoặc 63. Có thể thấy hiệu ứng này
+trong việc viết các giá trị cảnh báo nữa. Đối với số dương, giá trị đầu vào của người dùng
+sẽ luôn được làm tròn xuống giá trị gần nhất có thể đối với số âm
+đầu vào của người dùng sẽ luôn được làm tròn đến giá trị gần nhất có thể.
+
+Thời gian chờ của xe buýt sẽ đặt lại giao diện tương thích với I2C khi SCL ở mức thấp trong hơn
+30ms (danh nghĩa).
+
+Phân cực cảnh báo xác định trạng thái hoạt động của cảnh báo là thấp hay cao. các
+hành vi của cả hai cài đặt đều phụ thuộc vào cài đặt Hàng đợi lỗi. ALARM
+Pin là đầu ra thoát mở và cần có điện trở pullup để hoạt động.
+
+Các bit Hàng đợi Lỗi chọn số lượng lỗi nhiệt độ liên tiếp phải xảy ra
+trước khi các lỗi quá nhiệt hoặc thấp nhiệt được chỉ ra trong
+các bit trạng thái tương ứng.
+
+Hỗ trợ PEC
+-----------
+
+Khi đọc giá trị thanh ghi, byte PEC được tính toán và gửi bởi chip.
+
+PEC trong giao dịch dữ liệu từ thể hiện sự gia tăng đáng kể về băng thông
+mức sử dụng (+33% cho cả ghi và đọc) trong điều kiện bình thường.
+
+Vì hoạt động này ngụ ý rằng sẽ có thêm độ trễ cho mỗi
+giao dịch, PEC có thể bị vô hiệu hóa hoặc kích hoạt thông qua sysfs.
+Chỉ cần ghi 1 vào tệp "pec" để bật PEC và 0 để tắt nó.

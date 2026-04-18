@@ -1,0 +1,121 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ina238.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ina238
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas INA228
+
+Tiền tố: 'ina228'
+
+Địa chỉ: I2C 0x40 - 0x4f
+
+Bảng dữ liệu:
+	ZZ0000ZZ
+
+* Dụng cụ Texas INA237
+
+Tiền tố: 'ina237'
+
+Địa chỉ: I2C 0x40 - 0x4f
+
+Bảng dữ liệu:
+	ZZ0000ZZ
+
+* Dụng cụ Texas INA238
+
+Tiền tố: 'ina238'
+
+Địa chỉ: I2C 0x40 - 0x4f
+
+Bảng dữ liệu:
+	ZZ0000ZZ
+
+* Dụng cụ Texas INA700
+
+Bảng dữ liệu:
+	ZZ0000ZZ
+
+* Dụng cụ Texas INA780
+
+Bảng dữ liệu:
+	ZZ0000ZZ
+
+* Silergy SQ52206
+
+Tiền tố: 'SQ52206'
+
+Địa chỉ: I2C 0x40 - 0x4f
+
+Tác giả: Nathan Rossi <nathan.rossi@digi.com>
+
+Sự miêu tả
+-----------
+
+INA238 là thiết bị theo dõi shunt, nguồn và nhiệt độ hiện tại với I2C
+giao diện. Nó bao gồm một số chức năng có thể lập trình bao gồm cảnh báo,
+tỷ lệ chuyển đổi, lấy trung bình mẫu và độ chính xác điện áp shunt có thể lựa chọn.
+
+Giá trị shunt tính bằng micro-ohms có thể được đặt thông qua thuộc tính thiết bị, từ
+mã nền tảng hoặc từ dữ liệu cây thiết bị. Vui lòng tham khảo
+Documentation/devicetree/binds/hwmon/ti,ina2xx.yaml cho các ràng buộc nếu
+cây thiết bị được sử dụng.
+
+INA237 là một biến thể về mặt chức năng tương đương của INA238 với một chút
+độ chính xác khác nhau. INA228 là một biến thể khác của INA238 với ADC cao hơn
+độ phân giải. Con chip này cũng báo cáo năng lượng.
+
+INA700 và INA780 là các biến thể của dòng chip có điện trở shunt tích hợp.
+Họ cũng báo cáo năng lượng.
+
+SQ52206 là con chip tương thích nhất của Sylergy. Nó báo cáo năng lượng
+cũng như mức tiêu thụ điện năng cao nhất.
+
+Mục nhập hệ thống
+-------------
+
+====================================================================================
+in0_input Điện áp Shunt (mV)
+in0_min Ngưỡng điện áp shunt tối thiểu (mV)
+in0_min_alarm Báo động điện áp shunt tối thiểu
+in0_max Ngưỡng điện áp shunt tối đa (mV)
+in0_max_alarm Báo động điện áp shunt tối đa
+
+in1_input Điện áp bus (mV)
+in1_min Ngưỡng điện áp bus tối thiểu (mV)
+in1_min_alarm Báo động điện áp shunt tối thiểu
+in1_max Ngưỡng điện áp bus tối đa (mV)
+in1_max_alarm Báo động điện áp shunt tối đa
+
+power1_input Đo công suất (uW)
+power1_max Ngưỡng công suất tối đa (uW)
+power1_max_alarm Báo động công suất tối đa
+power1_input_highest Công suất đỉnh (uW)
+				(chỉ SQ52206)
+
+curr1_input Đo dòng điện (mA)
+curr1_min Ngưỡng hiện tại tối thiểu (mA)
+curr1_min_alarm Báo động hiện tại tối thiểu
+curr1_max Ngưỡng dòng điện tối đa (mA)
+curr1_max_alarm Báo động hiện tại tối đa
+
+energy1_input Đo năng lượng (uJ)
+				(chỉ SQ52206, INA237 và INA780)
+
+temp1_input Đo nhiệt độ khuôn (mC)
+temp1_max Ngưỡng nhiệt độ khuôn tối đa (mC)
+temp1_max_alarm Báo động nhiệt độ khuôn tối đa
+====================================================================================

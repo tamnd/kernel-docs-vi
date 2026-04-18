@@ -1,0 +1,127 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/amc6821.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân amc6821
+=====================
+
+Chip được hỗ trợ:
+
+Dụng cụ Texas AMC6821
+
+Tiền tố: 'amc6821'
+
+Địa chỉ được quét: 0x18, 0x19, 0x1a, 0x2c, 0x2d, 0x2e, 0x4c, 0x4d, 0x4e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+	Tomaz Mertelj <tomaz.mertelj@guest.arnes.si>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip Texas Instruments amc6821.
+Con chip này có một trên chip và một cảm biến nhiệt độ từ xa và một quạt pwm
+bộ điều chỉnh.
+pwm có thể được điều khiển từ phần mềm hoặc tự động.
+
+Trình điều khiển cung cấp các quyền truy cập cảm biến sau trong sysfs:
+
+======================== =====================================================
+temp1_input ro nhiệt độ trên chip
+temp1_min rw "
+temp1_max rw "
+temp1_crit rw "
+temp1_min_alarm ro "
+temp1_max_alarm ro "
+temp1_crit_alarm ro "
+
+temp2_input ro nhiệt độ từ xa
+temp2_min rw "
+temp2_max rw "
+temp2_crit rw "
+temp2_min_alarm ro "
+temp2_max_alarm ro "
+temp2_crit_alarm ro "
+temp2_fault ro "
+
+tốc độ máy đo tốc độ ro fan1_input
+fan1_min rw "
+fan1_max rw "
+fan1_fault ro "
+fan1_pulses rw Số xung trên mỗi vòng quay có thể là 2 hoặc 4.
+fan1_target rw Tốc độ quạt mục tiêu, được sử dụng với pwm1_enable
+				chế độ 4.
+
+pwm1 rw pwm1
+pwm1_enable chế độ điều chỉnh rw, 1=vòng mở, 2=điều khiển bằng quạt
+				bằng nhiệt độ từ xa, 3=quạt được điều khiển bởi
+				sự kết hợp giữa nhiệt độ trên chip và
+				nhiệt độ cảm biến từ xa,
+				4=quạt được điều khiển bởi vòng tua mục tiêu được đặt với
+				thuộc tính fan1_target.
+pwm1_mode rw Chế độ điều khiển nhiệm vụ quạt (0=DC, 1=PWM)
+pwm1_auto_channels_temp ro 1 nếu pwm_enable==2, 3 nếu pwm_enable==3
+pwm1_auto_point1_pwm ro Được nối cứng về 0, chia sẻ cho cả hai
+				kênh nhiệt độ.
+pwm1_auto_point2_pwm rw Giá trị này được chia sẻ cho cả nhiệt độ
+				các kênh.
+pwm1_auto_point3_pwm rw Được nối cứng tới 255, dùng chung cho cả hai
+				kênh nhiệt độ.
+
+temp1_auto_point1_temp ro Được nối cứng với temp2_auto_point1_temp
+				đó là rw. Dưới nhiệt độ này quạt sẽ ngừng hoạt động.
+temp1_auto_point2_temp rw Giới hạn nhiệt độ thấp của tỷ lệ
+				phạm vi. Dưới nhiệt độ này
+				pwm1 = pwm1_auto_point2_pwm. Nó có thể đi từ
+				0 độ C đến 124 độ C theo các bước
+				4 độ C. Đọc nó sau khi viết để có được
+				giá trị thực tế.
+temp1_auto_point3_temp rw Trên nhiệt độ này, quạt chạy ở mức tối đa
+				tốc độ. Nó có thể đi từ temp1_auto_point2_temp.
+				Nó chỉ có thể có một số giá trị rời rạc nhất định
+				phụ thuộc vào temp1_auto_point2_temp và
+				pwm1_auto_point2_pwm. Đọc nó ra sau
+				viết để có được giá trị thực tế.
+
+temp2_auto_point1_temp rw Phải nằm trong khoảng từ 0 độ C đến 63 độ C và
+				nó xác định nhiệt độ làm mát thụ động.
+				Dưới nhiệt độ này, quạt dừng hoạt động
+				chế độ vòng kín.
+temp2_auto_point2_temp rw Giới hạn nhiệt độ thấp của tỷ lệ
+				phạm vi. Dưới nhiệt độ này
+				pwm1 = pwm1_auto_point2_pwm. Nó có thể đi từ
+				0 độ C đến 124 độ C theo các bước
+				là 4 độ C.
+
+temp2_auto_point3_temp rw Trên nhiệt độ này, quạt chạy ở mức tối đa
+				tốc độ. Nó chỉ có thể có một số rời rạc nhất định
+				các giá trị phụ thuộc vào temp2_auto_point2_temp
+				và pwm1_auto_point2_pwm. Đọc nó ra sau
+				viết để có được giá trị thực tế.
+======================== =====================================================
+
+
+Thông số mô-đun
+-----------------
+
+Nếu bo mạch của bạn có BIOS khởi động chính xác amc6821, bạn nên
+tải mô-đun với: init=0.
+
+Nếu bo mạch BIOS của bạn không khởi tạo chip hoặc bạn muốn
+cài đặt khác nhau, bạn có thể đặt các thông số sau:
+
+- ban đầu=1,
+- pwminv: 0 đầu ra pwm mặc định, 1 đảo ngược đầu ra pwm.

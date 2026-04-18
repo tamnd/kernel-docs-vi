@@ -1,0 +1,125 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc4245.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc4245
+=====================
+
+Chip được hỗ trợ:
+
+* Công nghệ tuyến tính LTC4245
+
+Tiền tố: 'ltc4245'
+
+Địa chỉ được quét: 0x20-0x3f
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+Tác giả: Ira W. Snyder <iws@ovro.caltech.edu>
+
+
+Sự miêu tả
+-----------
+
+Bộ điều khiển LTC4245 cho phép lắp và tháo bo mạch một cách an toàn
+từ một bảng nối đa năng trực tiếp trong nhiều hệ thống cung cấp như CompactPCI và
+PCI Express.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị LTC4245, do thực tế là một số
+trong số các địa chỉ có thể không thân thiện với việc thăm dò. Bạn sẽ phải
+khởi tạo các thiết bị một cách rõ ràng.
+
+Ví dụ: phần sau sẽ tải trình điều khiển cho LTC4245 tại địa chỉ 0x23
+trên xe buýt I2C #1::
+
+$ modprobe ltc4245
+	$ echo ltc4245 0x23 > /sys/bus/i2c/devices/i2c-1/new_device
+
+
+Mục nhập hệ thống
+-------------
+
+LTC4245 có các giới hạn tích hợp cho các cảnh báo hiện tại trên và dưới. Cái này
+làm cho rất có thể mạch tham chiếu sẽ được sử dụng.
+
+Trình điều khiển này sử dụng các giá trị trong biểu dữ liệu để thay đổi giá trị thanh ghi
+vào các giá trị được chỉ định trong tài liệu giao diện sysfs. Các bài đọc hiện tại
+dựa vào các điện trở cảm giác được liệt kê trong Bảng 2: "Giá trị điện trở cảm giác".
+
+====================================================================================
+in1_input Điện áp đầu vào 12v (mV)
+in2_input Điện áp đầu vào 5v (mV)
+in3_input Điện áp đầu vào 3v (mV)
+in4_input Điện áp đầu vào Vee (-12v) (mV)
+
+báo động điện áp thấp đầu vào in1_min_alarm 12v
+báo động điện áp thấp đầu vào in2_min_alarm 5v
+báo động điện áp thấp đầu vào in3_min_alarm 3v
+in4_min_alarm Báo động thiếu điện áp đầu vào Vee (-12v)
+
+curr1_input dòng điện 12v (mA)
+curr2_input dòng điện 5v (mA)
+curr3_input dòng điện 3v (mA)
+curr4_input Dòng điện Vee (-12v) (mA)
+
+curr1_max_alarm 12v báo động quá dòng
+curr2_max_alarm 5v báo động quá dòng
+curr3_max_alarm 3v báo động quá dòng
+curr4_max_alarm Báo động quá dòng Vee (-12v)
+
+in5_input điện áp đầu ra 12v (mV)
+in6_input Điện áp đầu ra 5v (mV)
+in7_input điện áp đầu ra 3v (mV)
+in8_input Điện áp đầu ra Vee (-12v) (mV)
+
+in5_min_alarm báo động thiếu điện áp đầu ra 12v
+báo động điện áp thấp đầu ra in6_min_alarm 5v
+báo động điện áp thấp đầu ra in7_min_alarm 3v
+in8_min_alarm Cảnh báo thiếu điện áp đầu ra Vee (-12v)
+
+in9_input Dữ liệu điện áp GPIO (xem lưu ý 1)
+in10_input Dữ liệu điện áp GPIO (xem lưu ý 1)
+in11_input Dữ liệu điện áp GPIO (xem lưu ý 1)
+
+power1_input sử dụng điện năng 12 v (mW)
+power2_input mức sử dụng điện năng 5v (mW)
+power3_input mức sử dụng điện năng 3v (mW)
+power4_input Mức sử dụng điện năng Vee (-12v) (mW)
+====================================================================================
+
+
+Lưu ý 1
+------
+
+Nếu bạn đã định cấu hình trình điều khiển NOT để lấy mẫu tất cả các chân GPIO dưới dạng analog
+điện áp thì các thuộc tính sysfs in10_input và in11_input sẽ không được
+được tạo ra. Trình điều khiển sẽ lấy mẫu chân GPIO hiện được kết nối với
+ADC dưới dạng điện áp tương tự và báo cáo giá trị trong in9_input.
+
+Nếu bạn đã định cấu hình trình điều khiển để lấy mẫu tất cả các chân GPIO dưới dạng điện áp tương tự,
+sau đó chúng sẽ được lấy mẫu theo kiểu vòng tròn. Nếu không gian người dùng cũng đọc
+từ từ, -EAGAIN sẽ được trả về khi bạn đọc thuộc tính sysfs chứa
+việc đọc cảm biến.
+
+Chip LTC4245 có thể được cấu hình để lấy mẫu tất cả các chân GPIO bằng hai phương pháp:
+
+1) dữ liệu nền tảng - xem include/linux/platform_data/ltc4245.h
+2) Cây thiết bị -- thêm thuộc tính "ltc4245,use-extra-gpios" vào mỗi chip
+
+Chế độ hoạt động mặc định là lấy mẫu một chân GPIO.

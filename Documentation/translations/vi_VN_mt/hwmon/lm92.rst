@@ -1,0 +1,62 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm92.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm92
+==================
+
+Chip được hỗ trợ:
+
+* Chất bán dẫn quốc gia / Texas Instruments LM92
+
+Tiền tố: 'lm92'
+
+Địa chỉ được quét: I2C 0x48 - 0x4b
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Chất bán dẫn quốc gia / Texas Instruments LM76
+
+Tiền tố: 'lm92'
+
+Địa chỉ được quét: không có, phải được khởi tạo rõ ràng
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị Maxim /Analog MAX6633/MAX6634/MAX6635
+
+Tiền tố: 'max6635'
+
+Địa chỉ được quét: không có, phải được khởi tạo rõ ràng
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+tác giả:
+       - Abraham van der Merwe <abraham@2d3d.co.za>
+       - Jean Delvare <jdelvare@suse.de>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho National Semiconductor / Texas
+Dụng cụ cảm biến nhiệt độ LM92.
+
+Mỗi cảm biến nhiệt độ LM92 hỗ trợ một cảm biến nhiệt độ duy nhất. có
+báo động cho các ngưỡng cao, thấp và quan trọng. Ngoài ra còn có độ trễ đối với
+kiểm soát các ngưỡng để đặt lại cảnh báo.
+
+Trình điều khiển cũng hỗ trợ LM76 và Maxim MAX6633/MAX6634/MAX6635,
+hầu hết tương thích nhưng không có đăng ký ID nhà cung cấp và do đó phải
+được khởi tạo một cách rõ ràng.

@@ -1,0 +1,74 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max17616.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max17616
+======================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự MAX17616/MAX17616A
+
+Tiền tố: 'max17616'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả:
+
+- Kim Seer Paller <kimseer.paller@analog.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Thiết bị Analog MAX17616/MAX17616A
+Bộ giới hạn dòng điện với OV/Surge, UV, Phân cực ngược, Mất bảo vệ nối đất
+với giao diện PMBus.
+
+MAX17616/MAX17616A là bộ giới hạn dòng điện 3V đến 80V, 7A với quá điện áp,
+tăng áp, sụt áp, phân cực ngược và mất khả năng bảo vệ mặt đất. Thông qua
+giao diện PMBus, thiết bị có thể giám sát điện áp đầu vào/đầu ra, dòng điện đầu ra
+và nhiệt độ.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+các thiết bị một cách rõ ràng. Vui lòng xem Tài liệu/i2c/instantiating-devices.rst
+để biết chi tiết.
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+Mục nhập hệ thống
+-------------
+
+==============================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_alarm Báo động điện áp đầu vào
+in2_label "vout1"
+in2_input Đo điện áp đầu ra
+curr1_label "iout1"
+curr1_input Đo dòng điện đầu ra.
+curr1_alarm Báo động hiện tại đầu ra
+temp1_input Nhiệt độ đo được
+temp1_alarm Báo động nhiệt độ chip
+==============================================================

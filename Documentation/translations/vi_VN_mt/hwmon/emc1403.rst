@@ -1,0 +1,105 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/emc1403.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân emc1403
+=====================
+
+Chip được hỗ trợ:
+
+* SMSC / Vi mạch EMC1402, EMC1412
+
+Địa chỉ được quét: I2C 0x18, 0x1c, 0x29, 0x4c, 0x4d, 0x5c
+
+Tiền tố: 'emc1402'
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+	-ZZ0001ZZ
+
+* SMSC / Vi mạch EMC1403, EMC1404, EMC1413, EMC1414
+
+Địa chỉ được quét: I2C 0x18, 0x29, 0x4c, 0x4d
+
+Tiền tố: 'emc1403', 'emc1404'
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+	-ZZ0001ZZ
+
+* SMSC / Vi mạch EMC1422
+
+Địa chỉ được quét: I2C 0x4c
+
+Tiền tố: 'emc1422'
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+
+* SMSC / Vi mạch EMC1423, EMC1424
+
+Địa chỉ được quét: I2C 0x4c
+
+Tiền tố: 'emc1423', 'emc1424'
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+
+* SMSC / Vi mạch EMC1428, EMC1438
+
+Địa chỉ được quét: I2C 0x18, 0x4c, 0x4d
+
+Tiền tố: 'emc1428', 'emc1438'
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+	-ZZ0001ZZ
+
+tác giả:
+    Thử thách Kalhan <kalhan.trisal@intel.com>
+
+
+Sự miêu tả
+-----------
+
+Chip Microsystems Corporation (SMSC) / Microchip EMC14xx
+chứa tới tám cảm biến nhiệt độ. EMC14x2 hỗ trợ hai cảm biến
+(một bên trong, một bên ngoài). EMC14x3 hỗ trợ ba cảm biến (một bên trong,
+hai bên ngoài), EMC14x4 hỗ trợ bốn cảm biến (một bên trong, ba bên ngoài),
+và EMC14x8 hỗ trợ tám cảm biến (một bên trong, bảy bên ngoài).
+
+Các chip thực hiện ba giới hạn cho mỗi cảm biến: thấp (tempX_min), cao
+(tempX_max) và quan trọng (tempX_crit.) Các chip cũng thực hiện một
+cơ chế trễ áp dụng cho mọi giới hạn. Sự khác biệt tương đối
+được lưu trữ trong một thanh ghi duy nhất trên chip, có nghĩa là giá trị tương đối
+sự khác biệt giữa giới hạn và độ trễ của nó luôn giống nhau đối với
+cả ba giới hạn.
+
+Chi tiết triển khai này ngụ ý như sau:
+
+* Khi thiết lập một giới hạn, độ trễ của nó sẽ tự động tuân theo,
+  chênh lệch không đổi. Ví dụ: nếu giới hạn tới hạn cũ
+  là 80 độ C, và độ trễ là 75 độ C, và bạn thay đổi
+  giới hạn tới hạn là 90 độ C thì hiện tượng trễ sẽ
+  tự động thay đổi đến 85 độ C.
+* Các giá trị trễ không thể được thiết lập độc lập. Chúng tôi quyết định làm
+  chỉ temp1_crit_hyst có thể ghi, trong khi tất cả các thuộc tính trễ khác
+  chỉ ở chế độ đọc. Cài đặt temp1_crit_hyst ghi lại sự khác biệt giữa
+  temp1_crit_hyst và temp1_crit vào chip và tương tự
+  độ trễ tự động áp dụng cho tất cả các giới hạn khác.
+* Các giới hạn nên được đặt trước độ trễ.

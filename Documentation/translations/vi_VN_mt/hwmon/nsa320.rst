@@ -1,0 +1,78 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/nsa320.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân nsa320_hwmon
+==========================
+
+Chip được hỗ trợ:
+
+* Bộ vi điều khiển Holtek HT46R065 với phần sụn tích hợp để cấu hình
+
+nó hoạt động như một màn hình phần cứng.
+
+Tiền tố: 'nsa320'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Không có sẵn, trình điều khiển được thiết kế ngược dựa trên
+
+Nguồn hạt nhân Zyxel
+
+
+
+Tác giả:
+
+Adam Baker <linux@baker-net.org.uk>
+
+Sự miêu tả
+-----------
+
+Con chip này được biết là được sử dụng trong các Đơn vị Zyxel NSA320 và NSA325 NAS và
+cũng có trong một số biến thể của NSA310 nhưng trình điều khiển chỉ được thử nghiệm
+trên NSA320. Trong tất cả các thiết bị này, nó được kết nối với cùng 3 GPIO
+các đường được sử dụng để cung cấp các đường chọn chip, đồng hồ và dữ liệu. các
+giao diện hoạt động tương tự như SPI nhưng ở tốc độ thấp hơn nhiều so với thông thường
+được sử dụng cho SPI.
+
+Sau mỗi xung chọn chip, chip sẽ tạo ra một từ 32 bit duy nhất
+chứa 0x55 làm điểm đánh dấu để cho biết dữ liệu đang được đọc chính xác,
+tiếp theo là tốc độ quạt 8 bit trong 100 giây của RPM và nhiệt độ 16 bit trong
+một phần mười độ.
+
+
+giao diện sysfs
+---------------
+
+================================
+đầu vào nhiệt độ temp1_input
+fan1_tốc độ quạt đầu vào
+================================
+
+Ghi chú
+-----
+
+Thời gian truy cập được sử dụng trong trình điều khiển giống như được sử dụng trong Zyxel
+hạt nhân được cung cấp. Thử nghiệm đã chỉ ra rằng nếu độ trễ giữa việc chọn chip và
+xung đồng hồ đầu tiên giảm từ 100 ms xuống chỉ còn dưới 10 ms sau đó chip
+sẽ không tạo ra bất kỳ đầu ra nào. Nếu thời lượng của một trong hai pha của đồng hồ
+giảm từ 100 us xuống dưới 15 us thì các xung dữ liệu có thể sẽ bị giảm
+đọc hai lần làm hỏng đầu ra. Phân tích trên dựa trên một mẫu
+của một đơn vị nhưng gợi ý rằng các giá trị độ trễ do Zyxel cung cấp bao gồm
+sự khoan dung hợp lý.
+
+Trình điều khiển kết hợp một giới hạn mà nó sẽ không kiểm tra các giá trị được cập nhật
+nhanh hơn một lần một giây. Điều này là do phần cứng mất tương đối nhiều thời gian
+thời gian để đọc dữ liệu từ thiết bị và khi thực hiện, nó sẽ đọc cả dữ liệu tạm thời và
+tốc độ quạt. Vì trường hợp có khả năng xảy ra nhất đối với hai truy cập liên tiếp nhanh chóng là
+nên đọc cả hai giá trị này để tránh độ trễ đọc thứ hai là điều mong muốn.

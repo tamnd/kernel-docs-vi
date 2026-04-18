@@ -1,0 +1,113 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ina209.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ina209
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Burr-Brown / Texas INA209
+
+Tiền tố: 'ina209'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+	ZZ0000ZZ
+
+tác giả:
+	- Paul Hays <Paul.Hays@cattail.ca>
+	- Ira W. Snyder <iws@ovro.caltech.edu>
+	- Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+TI / Burr-Brown INA209 giám sát điện áp, dòng điện và nguồn ở phía cao
+của nguồn điện một chiều D.C. Nó có thể thực hiện các phép đo và tính toán trong
+nền tảng để cung cấp bài đọc bất cứ lúc nào. Nó bao gồm một chương trình có thể lập trình
+hệ số hiệu chuẩn để chia tỷ lệ các giá trị dòng điện và công suất được hiển thị.
+
+
+Mục nhập hệ thống
+-------------
+
+Chip INA209 có cấu hình cao cả thông qua kết nối phần cứng và thông qua
+xe buýt I2C. Xem bảng dữ liệu để biết chi tiết.
+
+Điều này cố gắng hiển thị hầu hết các tính năng giám sát của phần cứng thông qua
+sysfs. Nó không hỗ trợ mọi tính năng của con chip này.
+
+====================================================================================
+điện áp shunt đầu vào in0_input (mV)
+in0_input_highest đọc tối đa lịch sử điện áp shunt (mV)
+in0_input_lowest đọc tối thiểu lịch sử điện áp shunt (mV)
+in0_reset_history đặt lại lịch sử điện áp shunt
+giới hạn báo động tối đa điện áp shunt in0_max (mV)
+giới hạn báo động tối thiểu điện áp shunt in0_min (mV)
+in0_crit_max giới hạn báo động tối đa điện áp shunt crit (mV)
+in0_crit_min giới hạn cảnh báo điện áp shunt crit min (mV)
+vượt quá giới hạn cảnh báo tối đa của điện áp shunt in0_max_alarm
+vượt quá giới hạn cảnh báo tối thiểu của điện áp shunt in0_min_alarm
+vượt quá giới hạn cảnh báo tối đa của điện áp shunt in0_crit_max_alarm
+vượt quá giới hạn cảnh báo tối thiểu của điện áp shunt in0_crit_min_alarm
+
+điện áp bus in1_input (mV)
+in1_input_highest đọc tối đa lịch sử điện áp bus (mV)
+in1_input_lowest đọc tối thiểu lịch sử điện áp bus (mV)
+in1_reset_history đặt lại lịch sử điện áp bus
+giới hạn báo động tối đa điện áp bus in1_max (mV)
+giới hạn báo động tối thiểu điện áp bus in1_min (mV)
+giới hạn báo động tối đa của điện áp bus in1_crit_max (mV)
+giới hạn cảnh báo điện áp bus in1_crit_min crit min (mV)
+vượt quá giới hạn cảnh báo tối đa của điện áp bus in1_max_alarm
+vượt quá giới hạn cảnh báo tối thiểu của điện áp bus in1_min_alarm
+vượt quá giới hạn cảnh báo tối đa của điện áp bus in1_crit_max_alarm
+vượt quá giới hạn cảnh báo điện áp crit tối thiểu của bus in1_crit_min_alarm
+
+power1_đo công suất đầu vào (uW)
+power1_input_highest công suất tối đa trong lịch sử (uW)
+power1_reset_history đặt lại lịch sử nguồn
+power1_max giới hạn cảnh báo công suất tối đa (uW)
+power1_crit giới hạn cảnh báo mức điện năng (uW)
+power1_max_alarm đã vượt quá giới hạn cảnh báo nguồn tối đa
+power1_crit_alarm vượt quá giới hạn cảnh báo crit nguồn
+
+đo dòng điện đầu vàocurr1_input (mA)
+
+update_interval thời gian chuyển đổi dữ liệu; ảnh hưởng đến số lượng mẫu được sử dụng
+			đến kết quả trung bình cho điện áp shunt và bus.
+====================================================================================
+
+Nhận xét chung
+---------------
+
+Các thanh ghi nguồn và dòng điện trong chip này yêu cầu hiệu chuẩn
+thanh ghi được lập trình chính xác trước khi chúng được sử dụng. Thông thường điều này được mong đợi
+được thực hiện trong BIOS. Trong trường hợp không lập trình BIOS, điện trở shunt
+điện áp có thể được cung cấp bằng cách sử dụng dữ liệu nền tảng. Trình điều khiển sử dụng dữ liệu nền tảng từ
+trình điều khiển ina2xx cho mục đích này. Nếu dữ liệu đăng ký hiệu chuẩn không được cung cấp
+thông qua dữ liệu nền tảng, trình điều khiển sẽ kiểm tra xem thanh ghi hiệu chuẩn đã được cài đặt chưa
+được lập trình (tức là có giá trị không bằng 0). Nếu vậy, giá trị này được giữ lại.
+Mặt khác, giá trị mặc định phản ánh giá trị điện trở shunt là 10 mOhm là
+được lập trình vào sổ đăng ký hiệu chuẩn.
+
+
+Chân đầu ra
+-----------
+
+Lập trình chân đầu ra là một tính năng của bo mạch phụ thuộc vào BIOS. Đó là
+nằm ngoài phạm vi của trình điều khiển giám sát phần cứng để bật hoặc tắt đầu ra
+ghim.

@@ -1,0 +1,197 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm75.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm75
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM75
+
+Tiền tố: 'lm75'
+
+Địa chỉ được quét: I2C 0x48 - 0x4f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM75A
+
+Tiền tố: 'lm75a'
+
+Địa chỉ được quét: I2C 0x48 - 0x4f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+* Dallas Semiconductor (nay là Thiết bị Analog) DS75, DS1775, DS7505
+
+Tiền tố: 'ds75', 'ds1775', 'ds7505'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+	       ZZ0001ZZ
+	       ZZ0002ZZ
+
+* Tối đa MAX6625, MAX6626, MAX31725, MAX31726
+
+Tiền tố: 'max6625', 'max6626', 'max31725', 'max31726'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+	       ZZ0001ZZ
+
+* Vi mạch (TelCom) TCN75
+
+Tiền tố: 'tcn75'
+
+Địa chỉ được quét: không có
+
+Datasheet: Có sẵn công khai tại website Microchip
+
+ZZ0000ZZ
+
+* Vi mạch MCP9800, MCP9801, MCP9802, MCP9803
+
+Tiền tố: 'mcp980x'
+
+Địa chỉ được quét: không có
+
+Datasheet: Có sẵn công khai tại website Microchip
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADT75
+
+Tiền tố: 'adt75'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* ST Vi Điện Tử STDS75
+
+Tiền tố: 'stds75'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ST
+
+ZZ0000ZZ
+
+* ST Vi Điện Tử STLM75
+
+Tiền tố: 'stlm75'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web ST
+
+ZZ0000ZZ
+
+* Dụng cụ Texas TMP100, TMP101, TMP105, TMP112, TMP75, TMP75B, TMP75C, TMP175, TMP275, TMP1075
+
+Tiền tố: 'tmp100', 'tmp101', 'tmp105', 'tmp112', 'tmp175', 'tmp75', 'tmp75b', 'tmp75c', 'tmp275', 'tmp1075'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Texas Instruments
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* NXP LM75B, P3T1750, P3T1755, PCT2075
+
+Tiền tố: 'lm75b', 'p3t1750', 'p3t1755', 'pct2075'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web NXP
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* AMS OSRAM AS6200
+
+Tiền tố: 'as6200'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web AMS
+
+ZZ0000ZZ
+
+Tác giả: Frodo Looijaard <frodol@dds.nl>
+
+Sự miêu tả
+-----------
+
+LM75 thực hiện một cảm biến nhiệt độ. Giới hạn có thể được thiết lập thông qua
+Thanh ghi tắt máy quá nhiệt và thanh ghi trễ. Mỗi giá trị có thể
+thiết lập và đọc đến độ chính xác nửa độ.
+Một cảnh báo được đưa ra (thường là cho LM78 được kết nối) khi nhiệt độ
+cao hơn giá trị Tắt máy khi quá nhiệt; nó vẫn tiếp tục cho đến khi
+nhiệt độ giảm xuống dưới giá trị Độ trễ.
+Tất cả nhiệt độ đều được tính bằng độ C và được đảm bảo trong phạm vi
+phạm vi từ -55 đến +125 độ.
+
+Trình điều khiển lưu trữ các giá trị trong khoảng thời gian khác nhau trong khoảng 1 giây đối với
+chip chậm nhất và 125 ms cho chip nhanh nhất; đọc nó thường xuyên hơn
+sẽ không gây hại gì nhưng sẽ trả về giá trị 'cũ'.
+
+LM75 ban đầu thường được sử dụng kết hợp với các chip giống LM78
+trên bo mạch chủ PC, để đo nhiệt độ của (các) bộ xử lý. bản sao
+hiện được sử dụng trong các thiết kế nhúng khác nhau.
+
+LM75 về cơ bản là một tiêu chuẩn công nghiệp; có thể có cái khác
+Bản sao LM75 không được liệt kê ở đây, có hoặc không có nhiều cải tiến khác nhau,
+được hỗ trợ. Các bản sao không được trình điều khiển phát hiện, trừ khi
+họ tái tạo các thủ thuật đăng ký chính xác của LM75 ban đầu và phải
+do đó được khởi tạo một cách rõ ràng. Độ phân giải cao hơn lên tới 16-bit
+được hỗ trợ bởi trình điều khiển này, các cải tiến cụ thể khác thì không.
+
+LM77 không được hỗ trợ, trái ngược với những gì chúng tôi đã giả vờ từ lâu.
+Cả hai chip đơn giản là không tương thích, mã hóa giá trị khác nhau.

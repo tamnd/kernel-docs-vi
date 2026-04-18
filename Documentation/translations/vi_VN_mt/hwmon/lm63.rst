@@ -1,0 +1,109 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm63.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm63
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM63
+
+Tiền tố: 'lm63'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM64
+
+Tiền tố: 'lm64'
+
+Địa chỉ được quét: I2C 0x18 và 0x4e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM96163
+
+Tiền tố: 'lm96163'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+
+Tác giả: Jean Delvare <jdelvare@suse.de>
+
+Cảm ơn Tyan và đặc biệt là Alex Buckingham vì đã thiết lập một chiếc điều khiển từ xa
+truy cập vào nền tảng thử nghiệm S4882 của họ cho trình điều khiển này.
+
+ZZ0000ZZ
+
+Sự miêu tả
+-----------
+
+LM63 là cảm biến nhiệt độ kỹ thuật số có tích hợp giám sát quạt
+và kiểm soát.
+
+LM63 về cơ bản là LM86 có tính năng giám sát và kiểm soát tốc độ quạt
+khả năng được thêm vào. Tuy nhiên, nó thiếu một số tính năng của LM86:
+
+- Không có giới hạn thấp cho nhiệt độ cục bộ.
+ - Không có giới hạn tới hạn đối với nhiệt độ cục bộ.
+ - Giới hạn tới hạn cho nhiệt độ từ xa chỉ có thể được thay đổi một lần. Chúng tôi
+   sẽ coi giới hạn tới hạn là chỉ đọc.
+
+Bảng dữ liệu không rõ ràng lắm về việc đọc máy đo tốc độ là gì.
+
+Lời giải thích từ National Semiconductor: Hai bit thấp hơn của lệnh đọc
+giá trị phải được che giấu. Giá trị vẫn có chiều rộng 16 bit.
+
+Tất cả các giá trị nhiệt độ được tính bằng độ C. Độ phân giải là 1.0
+độ cho nhiệt độ cục bộ, 0,125 độ cho nhiệt độ từ xa.
+
+Tốc độ quạt được đo bằng máy đo tốc độ. Trái ngược với hầu hết các chip
+lưu trữ giá trị trong thanh ghi 8 bit và có bộ chia xung nhịp có thể lựa chọn
+để đảm bảo rằng kết quả sẽ vừa với thanh ghi, LM63 sử dụng 16-bit
+giá trị đo tốc độ của quạt. Nó có thể đo tốc độ quạt xuống tới
+83 RPM, ít nhất là trên lý thuyết.
+
+Lưu ý rằng chân sử dụng để giám sát quạt được chia sẻ với cảnh báo ra
+chức năng. Tùy thuộc vào cách người thiết kế bo mạch muốn sử dụng chip, quạt
+việc giám sát tốc độ sẽ có thể thực hiện được hoặc không. Cấu hình chip phù hợp
+được giao cho BIOS và người lái xe sẽ tin tưởng nó một cách mù quáng. Chỉ có bản gốc
+LM63 mắc phải hạn chế này, LM64 và LM96163 có các chân riêng biệt
+để theo dõi và cảnh báo quạt. Trên LM64, tính năng giám sát luôn được bật;
+trên LM96163 nó có thể bị tắt.
+
+Đầu ra PWM có thể được sử dụng để kiểm soát tốc độ của quạt. LM63 có hai
+Chế độ PWM: thủ công và tự động. Chế độ tự động chưa được triển khai đầy đủ
+(bạn không thể xác định đường cong PWM/nhiệt độ tùy chỉnh của mình) và không thể thay đổi chế độ
+được hỗ trợ.
+
+Trình điều khiển lm63 sẽ không cập nhật các giá trị của nó thường xuyên hơn so với cấu hình bằng
+thuộc tính sysfs update_interval; đọc chúng thường xuyên hơn sẽ không có hại gì,
+nhưng sẽ trả về giá trị 'cũ'. Các giá trị trong bảng tra cứu điều khiển quạt tự động
+(thuộc tính pwm1_auto_*) có thời gian tồn tại độc lập là 5 giây.
+
+LM64 thực sự là một LM63 với các dòng GPIO. Người lái xe không
+hiện tại hỗ trợ các dòng GPIO này.
+
+LM96163 là phiên bản nâng cao của LM63 với độ chính xác nhiệt độ được cải thiện
+và độ phân giải PWM tốt hơn. Đối với LM96163, loại cảm biến nhiệt độ bên ngoài là
+có thể định cấu hình dưới dạng diode nhúng CPU (1) hoặc bóng bán dẫn 3904 (2).

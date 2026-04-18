@@ -1,0 +1,300 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm85.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm85
+==================
+
+Chip được hỗ trợ:
+
+* National Semiconductor LM85 (phiên bản B và C)
+
+Tiền tố: 'lm85b' hoặc 'lm85c'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas LM96000
+
+Tiền tố: 'lm9600'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự ADM1027
+
+Tiền tố: 'adm1027'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự ADT7463
+
+Tiền tố: 'adt7463'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự ADT7468
+
+Tiền tố: 'adt7468'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* SMSC EMC6D100, SMSC EMC6D101
+
+Tiền tố: 'emc6d100'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* SMSC EMC6D102
+
+Tiền tố: 'emc6d102'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* SMSC EMC6D103
+
+Tiền tố: 'emc6d103'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* SMSC EMC6D103S
+
+Tiền tố: 'emc6d103s'
+
+Địa chỉ được quét: I2C 0x2c, 0x2d, 0x2e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+       - Philip Pokorny <ppokorny@penguincomputing.com>,
+       - Frodo Looijaard <frodol@dds.nl>,
+       - Richard Barrington <rich_b_nz@clear.net.nz>,
+       - Margit Schubert-Trong khi <margitsw@t-online.de>,
+       - Justin Thiessen <jthiessen@penguincomputing.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Chất bán dẫn Quốc gia LM85 và
+các chip tương thích bao gồm Analog Devices ADM1027, ADT7463, ADT7468 và
+Dòng chip SMSC EMC6D10x.
+
+LM85 sử dụng giao diện 2 dây tương thích với SMBUS 2.0
+đặc điểm kỹ thuật. Sử dụng bộ chuyển đổi tương tự sang kỹ thuật số, nó đo được ba (3)
+nhiệt độ và năm (5) điện áp. Nó có bốn (4) bộ đếm 16-bit cho
+đo tốc độ quạt. Năm (5) đầu vào kỹ thuật số được cung cấp để lấy mẫu
+Tín hiệu VID từ bộ xử lý đến VRM. Cuối cùng, có ba (3) PWM
+đầu ra có thể được sử dụng để kiểm soát tốc độ quạt.
+
+Các đầu vào điện áp có điện trở tỷ lệ bên trong sao cho:
+điện áp có thể được đo mà không cần điện trở bên ngoài:
+
+Điện áp lõi 2.5V, 3.3V, 5V, 12V và CPU (2.25V)
+
+Nhiệt độ đo được là một điốt bên trong và hai điốt từ xa.
+Remote 1 nói chung là nhiệt độ CPU. Những đầu vào này được thiết kế để
+đo điốt nhiệt giống như điốt trong bộ xử lý Pentium 4 trong ổ cắm
+423 hoặc gói socket 478. Họ cũng có thể đo nhiệt độ bằng cách sử dụng
+bóng bán dẫn như 2N3904.
+
+Một hệ thống điều khiển tinh vi cho đầu ra PWM được thiết kế trong
+LM85 cho phép điều chỉnh tốc độ quạt tự động dựa trên bất kỳ
+ba cảm biến nhiệt độ. Mỗi đầu ra PWM được điều chỉnh riêng và
+lập trình được. Sau khi được định cấu hình, LM85 sẽ điều chỉnh đầu ra PWM theo
+phản ứng với nhiệt độ đo được mà không cần sự can thiệp của vật chủ.
+Tính năng này cũng có thể bị tắt để điều khiển thủ công PWM.
+
+Mỗi đầu vào đo được (điện áp, nhiệt độ, tốc độ quạt) đều có
+giá trị giới hạn cao/thấp tương ứng. LM85 sẽ báo hiệu ALARM nếu có
+giá trị đo được vượt quá một trong hai giới hạn.
+
+LM85 liên tục lấy mẫu tất cả các đầu vào. Trình điều khiển lm85 sẽ không đọc được
+các thanh ghi thường xuyên hơn một lần một giây. Hơn nữa, dữ liệu cấu hình là
+chỉ đọc một lần mỗi 5 phút. Có nhiều gấp đôi dữ liệu cấu hình so với
+các phép đo, vì vậy đây có vẻ là một sự tối ưu hóa đáng giá.
+
+Tính năng đặc biệt
+----------------
+
+LM85 có bốn chế độ giám sát tốc độ quạt. ADM1027 chỉ có hai.
+Cả hai đều có mạch đặc biệt để bù cho tương tác PWM với
+Tín hiệu TACH từ người hâm mộ. ADM1027 có thể được cấu hình để đo
+tốc độ của quạt hai dây nhưng mạch điều hòa đầu vào thì khác
+cho chế độ 3 dây và 2 dây. Vì lý do này nên các chế độ quạt 2 dây không được
+tiếp xúc với sự kiểm soát của người dùng. BIOS nên khởi tạo chúng theo đúng
+chế độ. Nếu bạn đã thiết kế ADM1027 của riêng mình, bạn sẽ phải sửa đổi
+init_client và thêm tham số insmod để thiết lập chức năng này.
+
+Để làm trơn tru phản ứng của quạt với những thay đổi về nhiệt độ, LM85 có một
+bộ lọc tùy chọn để làm mịn nhiệt độ. ADM1027 có tính năng tương tự
+config nhưng thay vào đó sử dụng nó để đánh giá giới hạn những thay đổi về tốc độ quạt.
+
+ADM1027, ADT7463 và ADT7468 có ADC 10 bit và do đó có thể
+đo nhiệt độ với độ phân giải 0,25 độ C. Họ cũng cung cấp một khoản bù đắp
+đến các chỉ số nhiệt độ được áp dụng tự động trong quá trình
+đo lường. Phần bù này có thể được sử dụng để loại bỏ bất kỳ lỗi nào do dấu vết
+và vị trí. Tài liệu nói rằng độ lệch là 0,25 độ C
+các bước, nhưng trong thử nghiệm ban đầu của ADM1027, đó là các bước 1,00 độC. Tương tự
+Các thiết bị đã xác nhận "lỗi" này. ADT7463 được báo cáo là hoạt động như
+được mô tả trong tài liệu. Trình điều khiển lm85 hiện tại không hiển thị
+thanh ghi offset.
+
+ADT7468 có chế độ PWM tần số cao, trong đó tất cả các đầu ra PWM đều được
+được điều khiển bởi đồng hồ 22,5 kHz. Đây là chế độ toàn cầu, không phải đầu ra trên mỗi PWM,
+điều đó có nghĩa là việc đặt bất kỳ tần số PWM nào trên 11,3 kHz sẽ chuyển đổi
+cả 3 đầu ra PWM đều có tần số 22,5 kHz. Ngược lại, đặt bất kỳ PWM nào
+tần số dưới 11,3 kHz sẽ chuyển tất cả 3 đầu ra PWM sang tần số
+trong khoảng từ 10 đến 100 Hz, sau đó có thể được điều chỉnh riêng.
+
+Xem bảng dữ liệu của nhà cung cấp để biết thêm thông tin. Có ghi chú ứng dụng
+từ National (AN-1260) với một số thông tin bổ sung về LM85.
+Bảng dữ liệu của Thiết bị Analog rất chi tiết và mô tả quy trình
+xác định cấu hình tối ưu cho bộ điều khiển PWM tự động.
+
+SMSC EMC6D100 & EMC6D101 giám sát điện áp, nhiệt độ bên ngoài và
+tốc độ quạt. Họ sử dụng khả năng giám sát này để cảnh báo hệ thống
+các điều kiện giới hạn và có thể tự động kiểm soát tốc độ của nhiều
+quạt trong PC hoặc hệ thống nhúng. EMC6D101, có sẵn ở dạng SSOP 24 chân
+gói và EMC6D100, có sẵn trong gói SSOP 28 chân, được thiết kế
+để được đăng ký tương thích. EMC6D100 cung cấp tất cả các tính năng của
+EMC6D101 cộng thêm các tính năng giám sát điện áp và điều khiển hệ thống.
+Rất tiếc là không thể phân biệt giữa các gói
+các phiên bản ở cấp độ thanh ghi để các đầu vào điện áp bổ sung này có thể đọc
+không. EMC6D102 và EMC6D103 có các bit ADC bổ sung do đó mở rộng độ chính xác
+kênh điện áp và nhiệt độ.
+
+SMSC EMC6D103S tương tự EMC6D103, nhưng không hỗ trợ pwm#_auto_pwm_minctl
+và temp#_auto_temp_off.
+
+LM96000 hỗ trợ các chế độ PWM tần số cao bổ sung (22,5 kHz, 24 kHz,
+25,7 kHz, 27,7 kHz và 30 kHz), có thể được định cấu hình trên cơ sở mỗi PWM.
+
+Cấu hình phần cứng
+-----------------------
+
+LM85 có thể được nhảy tới 3 địa chỉ SMBus khác nhau. có
+không có tùy chọn cấu hình phần cứng nào khác cho LM85.
+
+Trình điều khiển lm85 phát hiện cả phiên bản LM85B và LM85C của chip. Xem
+bảng dữ liệu để biết mô tả đầy đủ về sự khác biệt. Khác với
+xác định chip, trình điều khiển sẽ hành xử không khác gì đối với
+hai con chip này. LM85B được khuyên dùng cho các thiết kế mới.
+
+Các chip ADM1027, ADT7463 và ADT7468 có đầu ra SMBALERT tùy chọn
+có thể được sử dụng để báo hiệu cho chipset trong trường hợp vượt quá giới hạn hoặc
+cảm biến nhiệt độ thất bại. Các ngắt cảm biến riêng lẻ có thể được che giấu để
+chúng sẽ không kích hoạt SMBALERT. Đầu ra SMBALERT nếu được định cấu hình sẽ thay thế một đầu ra
+của các chức năng khác (PWM2 hoặc IN0). Chức năng này không được triển khai
+trong trình điều khiển hiện tại.
+
+ADT7463 và ADT7468 cũng có đầu ra/đầu vào THERM tùy chọn có thể
+được kết nối với đầu ra PROC_HOT của bộ xử lý. Nếu có, quạt tự động
+tính năng điều khiển Tmin động có thể được kích hoạt để giữ nhiệt độ hệ thống
+trong phạm vi thông số kỹ thuật (chỉ?!) với tiếng ồn của quạt ít nhất có thể.
+
+Ghi chú cấu hình
+-------------------
+
+Bên cạnh các giao diện tiêu chuẩn, trình điều khiển còn bổ sung thêm:
+
+* Nhiệt độ và vùng
+
+Mỗi cảm biến nhiệt độ được liên kết với một Vùng. Có ba
+cảm biến và do đó có ba vùng (# 1, 2 và 3). Mỗi vùng có các mục sau
+điểm cấu hình nhiệt độ:
+
+* temp#_auto_temp_off
+	- nhiệt độ dưới mức mà quạt nên tắt hoặc quay ở mức rất thấp.
+* temp#_auto_temp_min
+	- nhiệt độ mà quạt bắt đầu quay.
+* temp#_auto_temp_max
+	- nhiệt độ khi quạt quay ở tốc độ tối đa.
+* temp#_auto_temp_crit
+	- nhiệt độ khi tất cả các quạt sẽ chạy hết tốc độ.
+
+Điều khiển PWM
+^^^^^^^^^^^
+
+Có ba đầu ra PWM. Bảng dữ liệu LM85 gợi ý rằng
+điều khiển đầu ra pwm3 cả fan3 và fan4. Mỗi PWM có thể riêng lẻ
+được cấu hình và gán cho một vùng cho giá trị điều khiển của nó. Mỗi PWM có thể
+được cấu hình riêng theo các tùy chọn sau.
+
+* pwm#_auto_pwm_min
+	- phần này chỉ định giá trị PWM cho temp#_auto_temp_off
+	  nhiệt độ. (Giá trị PWM từ 0 đến 255)
+
+* pwm#_auto_pwm_minctl
+	- cờ này chọn nhiệt độ temp#_auto_temp_off
+	  hành vi của người hâm mộ. Viết 1 để fan quay cuồng
+	  pwm#_auto_pwm_min hoặc viết 0 để tắt chúng.
+
+.. note::
+
+	It has been reported that there is a bug in the LM85 that causes
+	the flag to be associated with the zones not the PWMs. This
+	contradicts all the published documentation. Setting pwm#_min_ctl
+	in this case actually affects all PWMs controlled by zone '#'.
+
+Lựa chọn vùng điều khiển PWM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* pwm#_auto_channels
+	- vùng điều khiển được liên kết với PWM
+
+Lựa chọn cấu hình:
+
+============================================================
+Giá trị Ý nghĩa
+============================================================
+      1 Kiểm soát bởi Khu 1
+      2 Kiểm soát bởi Khu 2
+      3 Kiểm soát bởi Khu 3
+     23 Được kiểm soát bởi nhiệt độ cao hơn của Vùng 2 hoặc 3
+    123 Được kiểm soát bởi nhiệt độ cao nhất của Vùng 1, 2 hoặc 3
+      0 PWM luôn 0% (tắt)
+     -1 PWM luôn 100% (bật đầy đủ)
+     -2 Điều khiển thủ công (ghi vào 'pwm#' để đặt)
+============================================================
+
+National LM85 có hai cấu hình dành riêng cho nhà cung cấp
+tính năng. Tắc. chế độ và Kiểm soát Spinup. Để biết thêm chi tiết về những điều này,
+xem bảng dữ liệu LM85 hoặc Ghi chú ứng dụng AN-1260. Những tính năng này
+trình điều khiển lm85 hiện không được hỗ trợ.
+
+Thiết bị Analog ADM1027 có một số cải tiến dành riêng cho nhà cung cấp.
+Có thể cài đặt số xung trên mỗi vòng quay của quạt, theo dõi tốc độ
+có thể được tối ưu hóa cho hoạt động PWM và có thể áp dụng phần bù cho
+nhiệt độ để bù đắp cho các lỗi hệ thống trong
+số đo. Những tính năng này hiện không được lm85 hỗ trợ
+người lái xe.
+
+Ngoài các tính năng của ADM1027, ADT7463 và ADT7468 còn có
+Kiểm soát Tmin và số lượng xác nhận THERM. Điều khiển Tmin tự động có tác dụng
+điều chỉnh giá trị Tmin để duy trì cảm biến nhiệt độ đo được ở mức
+nhiệt độ quy định. Không có nhiều tài liệu về tính năng này trong
+bảng dữ liệu ADT7463. Điều này không được hỗ trợ bởi trình điều khiển hiện tại.

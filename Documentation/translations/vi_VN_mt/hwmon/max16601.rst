@@ -1,0 +1,157 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max16601.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max16601
+======================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX16508
+
+Tiền tố: 'max16508'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Chưa được công bố
+
+* Tối đa MAX16600
+
+Tiền tố: 'max16600'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Chưa được công bố
+
+* Tối đa MAX16601
+
+Tiền tố: 'max16601'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Chưa được công bố
+
+* Tối đa MAX16602
+
+Tiền tố: 'max16602'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ Bộ điều chỉnh điện áp đầu ra kép MAX16508 VR13
+cũng như MAX16600, MAX16601 và MAX16602 VR13.HC Đầu ra kép
+Chip điều chỉnh điện áp.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi.
+Vui lòng xem Tài liệu/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ.
+
+====================================================================================
+in1_label "vin1"
+in1_input VCORE điện áp đầu vào.
+in1_alarm Báo động điện áp đầu vào.
+
+in2_label "vout1"
+in2_input VCORE điện áp đầu ra.
+in2_alarm Cảnh báo điện áp đầu ra.
+
+curr1_label "iin1"
+curr1_input Dòng điện đầu vào VCORE, xuất phát từ chu kỳ nhiệm vụ
+				và dòng điện đầu ra.
+curr1_max Dòng điện đầu vào tối đa.
+curr1_max_alarm Báo động cao hiện tại.
+
+Curr[P+2]_label "iin1.P"
+curr[P+2]_input VCORE dòng điện đầu vào pha P.
+
+Curr[N+2]_label "iin2"
+curr[N+2]_input Dòng điện đầu vào VCORE, lấy từ cảm biến
+				phần tử.
+				'N' là số pha được kích hoạt/được phổ biến.
+
+Curr[N+3]_label "iin3"
+curr[N+3]_input VSA dòng điện đầu vào.
+
+Curr[N+4]_label "iout1"
+dòng điện đầu ra hiện tại [N+4]_input VCORE.
+Curr[N+4]_crit Dòng điện đầu ra tới hạn.
+curr[N+4]_crit_alarm Xuất ra cảnh báo quan trọng hiện tại.
+current[N+4]_max Dòng điện đầu ra tối đa.
+curr[N+4]_max_alarm Xuất ra cảnh báo hiện tại ở mức cao.
+
+curr[N+P+5]_label "iout1.P"
+curr[N+P+5]_input VCORE dòng điện đầu ra pha P.
+
+Curr[2*N+5]_label "iout3"
+curr[2*N+5]_input VSA dòng điện đầu ra.
+curr[2*N+5]_highest Dòng điện đầu ra VSA tối đa trong lịch sử.
+curr[2*N+5]_reset_history Viết bất kỳ giá trị nào để đặt lại curr21_highest.
+curr[2*N+5]_crit Dòng điện đầu ra tới hạn.
+curr[2*N+5]_crit_alarm Xuất ra cảnh báo quan trọng hiện tại.
+curr[2*N+5]_max Dòng điện đầu ra tối đa.
+curr[2*N+5]_max_alarm Xuất ra cảnh báo hiện tại ở mức cao.
+
+power1_label "pin1"
+power1_input Công suất đầu vào, lấy từ chu kỳ nhiệm vụ và đầu ra
+				hiện tại.
+power1_alarm Báo động nguồn đầu vào.
+
+power2_label "pin2"
+power2_input Nguồn vào, lấy từ cảm biến dòng điện đầu vào.
+
+power3_label "bĩu môi"
+power3_input Công suất đầu ra.
+
+nhiệt độ temp1_input VCORE.
+temp1_crit Nhiệt độ cao tới hạn.
+temp1_crit_alarm Báo động nhiệt độ chip tới hạn cao.
+temp1_max Nhiệt độ tối đa.
+temp1_max_alarm Báo động nhiệt độ chip cao.
+
+nhiệt độ temp2_input TSENSE_0
+nhiệt độ temp3_input TSENSE_1
+nhiệt độ temp4_input TSENSE_2
+nhiệt độ temp5_input TSENSE_3
+
+nhiệt độ temp6_input VSA.
+temp6_crit Nhiệt độ cao tới hạn.
+temp6_crit_alarm Báo động nhiệt độ chip tới hạn cao.
+temp6_max Nhiệt độ tối đa.
+temp6_max_alarm Báo động nhiệt độ chip cao.
+====================================================================================

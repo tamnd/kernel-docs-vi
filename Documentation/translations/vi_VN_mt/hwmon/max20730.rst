@@ -1,0 +1,94 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max20730.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max20730
+======================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX20710
+
+Tiền tố: 'max20710'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX20730
+
+Tiền tố: 'max20730'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX20734
+
+Tiền tố: 'max20734'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tối đa MAX20743
+
+Tiền tố: 'max20743'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Maxim MAX20710, MAX20730, MAX20734 và MAX20743
+Bộ điều chỉnh chuyển đổi bước xuống tích hợp có hỗ trợ PMBus.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi.
+Vui lòng xem Tài liệu/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Mục nhập hệ thống
+-------------
+
+======================== ============================================================
+curr1_crit RW/RO Dòng điện đầu ra tới hạn. Vui lòng xem bảng dữ liệu để biết
+                          giới hạn được hỗ trợ. Chỉ đọc nếu chip
+                          viết được bảo vệ; đọc-ghi khác.
+curr1_crit_alarm RO Đầu ra cảnh báo quan trọng hiện tại
+curr1_input RO Dòng điện đầu ra
+curr1_label RO 'iout1'
+in1_alarm RO Báo động điện áp đầu vào
+in1_input RO Điện áp đầu vào
+in1_label RO 'vin'
+in2_alarm RO Cảnh báo điện áp đầu ra
+in2_input RO Điện áp đầu ra
+in2_label RO 'vout1'
+temp1_crit RW/RO Nhiệt độ tới hạn. Giá trị được hỗ trợ là 130 hoặc 150
+                          độ C. Chỉ đọc nếu chip được bảo vệ ghi;
+                          đọc-ghi khác.
+temp1_crit_alarm RO Báo động nhiệt độ quan trọng
+nhiệt độ chip RO temp1_input
+======================== ============================================================

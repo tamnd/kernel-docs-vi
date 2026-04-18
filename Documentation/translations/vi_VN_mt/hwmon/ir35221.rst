@@ -1,0 +1,106 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ir35221.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ir35221
+=====================
+
+Chip được hỗ trợ:
+  * Infineon IR35221
+
+Tiền tố: 'ir35221'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Bảng dữ liệu không có sẵn công khai.
+
+Tác giả: Samuel Mendoza-Jonas <sam@mendozajonas.com>
+
+
+Sự miêu tả
+-----------
+
+IR35221 là Bộ chuyển đổi nhiều pha DC-DC kỹ thuật số
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Ví dụ: các lệnh sau sẽ tải trình điều khiển cho IR35221
+tại địa chỉ 0x70 trên xe buýt I2C #4::
+
+# modprobe ir35221
+	# echo ir35221 0x70 > /sys/bus/i2c/devices/i2c-4/new_device
+
+
+Thuộc tính Sysfs
+----------------
+
+====================================================================================
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào
+curr1_max Dòng điện tối đa
+curr1_max_alarm Báo động cao hiện tại
+
+Curr[2-3]_label "iout[1-2]"
+curr[2-3]_input Đo dòng điện đầu ra
+Curr[2-3]_crit Dòng tối đa tới hạn
+curr[2-3]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+curr[2-3]_highest Dòng điện đầu ra cao nhất
+curr[2-3]_lowest Dòng điện đầu ra thấp nhất
+Curr[2-3]_max Dòng điện tối đa
+curr[2-3]_max_alarm Báo động hiện tại ở mức cao
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động cao tới hạn điện áp đầu vào
+in1_highest Điện áp đầu vào cao nhất
+in1_lowest Điện áp đầu vào thấp nhất
+in1_min Điện áp đầu vào tối thiểu
+in1_min_alarm Báo động điện áp đầu vào thấp
+
+trong[2-3]_label "vout[1-2]"
+in[2-3]_input Đo điện áp đầu ra
+in[2-3]_lcrit Điện áp đầu ra tối thiểu quan trọng
+in[2-3]_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in[2-3]_crit Điện áp đầu ra tối đa tới hạn
+in[2-3]_crit_alarm Báo động cao tới hạn điện áp đầu ra
+in[2-3]_highest Điện áp đầu ra cao nhất
+in[2-3]_lowest Điện áp đầu ra thấp nhất
+in[2-3]_max Điện áp đầu ra tối đa
+in[2-3]_max_alarm Báo động điện áp đầu ra cao
+in[2-3]_min Điện áp đầu ra tối thiểu
+in[2-3]_min_alarm Báo động điện áp đầu ra thấp
+
+power1_label "pin"
+power1_input Công suất đầu vào đo được
+power1_alarm Báo động nguồn điện đầu vào cao
+power1_max Giới hạn công suất đầu vào
+
+power[2-3]_label "bĩu môi[1-2]"
+power[2-3]_input Công suất đầu ra đo được
+power[2-3]_max Giới hạn công suất đầu ra
+power[2-3]_max_alarm Báo động nguồn đầu ra cao
+
+temp[1-2]_input Nhiệt độ đo được
+temp[1-2]_crit Nhiệt độ cao tới hạn
+temp[1-2]_crit_alarm Cảnh báo nhiệt độ chip tới hạn cao
+temp[1-2]_highest Nhiệt độ cao nhất
+temp[1-2]_lowest Nhiệt độ thấp nhất
+temp[1-2]_max Nhiệt độ tối đa
+temp[1-2]_max_alarm Báo động nhiệt độ chip cao
+====================================================================================

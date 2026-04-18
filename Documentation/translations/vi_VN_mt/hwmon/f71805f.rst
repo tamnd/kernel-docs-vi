@@ -1,0 +1,195 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/f71805f.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân f71805f
+=====================
+
+Chip được hỗ trợ:
+
+* Fintek F71805F/FG
+
+Tiền tố: 'f71805f'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+* Fintek F71806F/FG
+
+Tiền tố: 'f71872f'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+* Fintek F71872F/FG
+
+Tiền tố: 'f71872f'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Có sẵn trên trang web Fintek
+
+Tác giả: Jean Delvare <jdelvare@suse.de>
+
+Cảm ơn Denis Kieft từ Barracuda Networks vì đã quyên góp một
+hệ thống thử nghiệm (bo mạch chủ Jetway K8M8MS tùy chỉnh, với CPU và RAM) và
+để cung cấp tài liệu ban đầu.
+
+Cảm ơn Kris Chen và Aaron Huang từ Fintek đã trả lời các câu hỏi kỹ thuật
+câu hỏi và cung cấp thêm tài liệu.
+
+Cảm ơn Chris Lin từ Jetway đã cung cấp sơ đồ nối dây và
+trả lời các câu hỏi kỹ thuật.
+
+
+Sự miêu tả
+-----------
+
+Chip Super I/O Fintek F71805F/FG bao gồm tính năng giám sát phần cứng hoàn chỉnh
+khả năng. Nó có thể giám sát tới 9 điện áp (đếm công suất của chính nó
+nguồn), 3 quạt và 3 cảm biến nhiệt độ.
+
+Con chip này cũng có các tính năng điều khiển quạt, sử dụng DC hoặc PWM, trong
+ba chế độ khác nhau (một hướng dẫn sử dụng, hai chế độ tự động).
+
+Chip Super I/O Fintek F71872F/FG gần như giống nhau, với hai
+giám sát điện áp bên trong bổ sung (VSB và pin). Nó cũng có tính năng
+6 đầu vào VID. Đầu vào VID chưa được trình điều khiển này hỗ trợ.
+
+Chip Fintek F71806F/FG Super-I/O về cơ bản giống như chip
+F71872F/FG và không thể phân biệt được với nó.
+
+Trình điều khiển giả định rằng không có nhiều hơn một con chip hiện diện, điều này có vẻ như
+hợp lý.
+
+
+Giám sát điện áp
+------------------
+
+Điện áp được lấy mẫu bằng ADC 8 bit với LSB là 8 mV. Được hỗ trợ
+do đó, phạm vi là từ 0 đến 2.040 V. Các giá trị điện áp nằm ngoài phạm vi này
+cần điện trở bên ngoài. Một ngoại lệ là in0, được sử dụng để giám sát
+nguồn điện riêng của chip (+3,3V) và được phân chia bên trong bởi một
+yếu tố 2. Đối với F71872F/FG, in9 (VSB) và in10 (pin) cũng là
+chia nội bộ cho hệ số 2.
+
+Hai LSB của thanh ghi giới hạn điện áp không được sử dụng (luôn luôn là 0), vì vậy
+bạn chỉ có thể đặt giới hạn theo các bước 32 mV (trước khi chia tỷ lệ).
+
+Các giá trị dây dẫn và điện trở do Fintek đề xuất như sau:
+
+========================= ==== ======= ============ ================
+trong pin dự kiến
+	tên sử dụng R1 R2 chia nguyên val.
+========================= ==== ======= ============ ================
+in0 VCC VCC3.3V int.    int.        2,00 1,65 V
+in1 VIN1 VTT1.2V 10K - 1,00 1,20 V
+in2 VIN2 VRAM 100K 100K 2,00 ~1,25 V [1]_
+in3 VIN3 VCHIPSET 47K 100K 1,47 2,24 V [2]_
+in4 VIN4 VCC5V 200K 47K 5,25 0,95 V
+in5 VIN5 +12V 200K 20K 11.00 1.05 V
+in6 VIN6 VCC1.5V 10K - 1,00 1,50 V
+in7 VIN7 VCORE 10K - 1,00 ~1,40 V [1]_
+in8 VIN8 VSB5V 200K 47K 1,00 0,95 V
+in10 VSB VSB3.3V int.    int.        2,00 1,65 V [3]_
+in9 VBAT VBATTERY int.    int.        2,00 1,50 V [3]_
+========================= ==== ======= ============ ================
+
+.. [1] Depends on your hardware setup.
+.. [2] Obviously not correct, swapping R1 and R2 would make more sense.
+.. [3] F71872F/FG only.
+
+Những giá trị này tốt nhất có thể được sử dụng làm gợi ý vì các nhà sản xuất bo mạch chủ
+được tự do sử dụng một thiết lập hoàn toàn khác. Trên thực tế,
+Jetway K8M8MS sử dụng thiết lập khác biệt đáng kể. Bạn sẽ phải
+tìm hiểu tài liệu về bo mạch chủ của riêng bạn và chỉnh sửa cảm biến.conf
+tương ứng.
+
+Mỗi điện áp đo được có các giới hạn thấp và cao liên quan, mỗi giới hạn đó
+kích hoạt báo động khi vượt qua.
+
+
+Giám sát quạt
+--------------
+
+Tốc độ quay của quạt được báo cáo là giá trị 12 bit từ đồng hồ có cổng
+tín hiệu. Có thể đo được tốc độ xuống tới 366 RPM. Không có lý thuyết
+giới hạn cao, nhưng giá trị trên 6000 RPM dường như gây ra vấn đề. Hiệu quả
+độ phân giải thấp hơn nhiều so với bạn mong đợi, bước giữa các
+đăng ký giá trị là 10 thay vì 1.
+
+Con chip này sử dụng 2 quạt xung trên mỗi vòng quay.
+
+Cảnh báo sẽ được kích hoạt nếu tốc độ quay giảm xuống dưới mức có thể lập trình được
+giới hạn hoặc quá thấp để có thể đo được.
+
+
+Giám sát nhiệt độ
+----------------------
+
+Nhiệt độ được báo cáo bằng độ C. Mỗi nhiệt độ đo được
+có giới hạn cao, những lần vượt qua đó sẽ gây ra báo động. Có một sự liên quan
+giá trị trễ, dưới giá trị này nhiệt độ phải giảm xuống trước khi
+báo động được xóa.
+
+Tất cả các kênh nhiệt độ đều ở bên ngoài, không có nhiệt độ nhúng
+cảm biến. Mỗi kênh có thể được sử dụng để kết nối một diode nhiệt
+hoặc một nhiệt điện trở. Trình điều khiển báo cáo chế độ hiện đang được chọn, nhưng
+không cho phép thay đổi nó. Về lý thuyết, BIOS lẽ ra phải có cấu hình
+mọi thứ đúng cách.
+
+
+Điều khiển quạt
+-----------
+
+Cả hai phương pháp điều khiển tốc độ quạt DC và PWM (điều chế độ rộng xung) đều
+được hỗ trợ. Việc sử dụng loại nào phù hợp phụ thuộc vào mạch điện bên ngoài trên
+bo mạch chủ, do đó trình điều khiển giả định rằng BIOS đã đặt phương thức
+đúng cách. Tài xế sẽ báo phương thức nhưng không cho bạn thay đổi
+nó.
+
+Khi sử dụng phương pháp PWM, bạn có thể chọn tần số hoạt động,
+từ 187,5 kHz (mặc định) đến 31 Hz. Tần số tốt nhất phụ thuộc vào
+mô hình quạt. Theo nguyên tắc chung, tần số thấp hơn dường như cho kết quả tốt hơn
+nhưng có thể tạo ra tiếng ồn cao khó chịu. Vì vậy, một tần số chỉ
+trên phạm vi âm thanh, chẳng hạn như 25 kHz, có thể là một lựa chọn tốt; nếu điều này
+không cung cấp cho bạn khả năng kiểm soát tuyến tính tốt, hãy thử giảm nó. Fintek khuyến nghị
+không xuống dưới 1 kHz, vì máy đo tốc độ quạt bị nhầm lẫn bởi tần số thấp hơn
+tần số cũng vậy.
+
+Khi sử dụng phương pháp DC, Fintek khuyên bạn không nên hạ điện áp xuống dưới 5 V.
+tương ứng với giá trị pwm là 106 cho trình điều khiển. Người lái xe không
+thực thi giới hạn này mặc dù.
+
+Hỗ trợ ba chế độ điều khiển quạt khác nhau; số chế độ được viết
+vào tệp pwm<n>_enable.
+
+* 1: Chế độ thủ công
+  Bạn yêu cầu chu kỳ nhiệm vụ PWM cụ thể hoặc điện áp DC bằng cách ghi vào
+  tập tin pwm<n>.
+
+* 2: Chế độ nhiệt độ
+  Bạn xác định 3 điểm ngắt nhiệt độ/tốc độ quạt bằng cách sử dụng
+  pwm<n>_auto_point<m>_temp và _fan. Chúng xác định một cầu thang
+  mối quan hệ giữa nhiệt độ và tốc độ quạt với hai điểm bổ sung
+  được nội suy giữa các giá trị mà bạn xác định. Khi nhiệt độ
+  ở dưới mức auto_point1_temp thì quạt đã tắt.
+
+* 3: Chế độ tốc độ quạt
+  Bạn yêu cầu tốc độ quạt cụ thể bằng cách ghi vào tệp fan<n>_target.
+
+Cả hai chế độ tự động đều yêu cầu pwm1 tương ứng với fan1, pwm2 tương ứng với
+fan2 và pwm3 sang fan3. Chế độ nhiệt độ cũng yêu cầu temp1 tương ứng
+tới pwm1 và fan1, v.v.

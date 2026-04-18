@@ -1,0 +1,49 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/hs3001.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân HS3001
+====================
+
+Chip được hỗ trợ:
+
+* Renesas HS3001, HS3002, HS3003, HS3004
+
+Tiền tố: 'hs3001'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả:
+
+- Andre Werner <andre.werner@systec-electronic.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip Renesas HS3001, độ ẩm
+và họ nhiệt độ. Nhiệt độ được đo bằng độ C, tương đối
+độ ẩm được biểu thị bằng phần trăm. Trong giao diện sysfs, tất cả các giá trị đều được
+được chia tỷ lệ theo 1000, tức là giá trị của 31,5 độ C là 31500.
+
+Thiết bị giao tiếp với giao thức I2C. Cảm biến có I2C
+địa chỉ 0x44 theo mặc định.
+
+giao diện sysfs
+---------------
+
+======================================
+temp1_input: đầu vào nhiệt độ
+độ ẩm1_input: đầu vào độ ẩm
+======================================

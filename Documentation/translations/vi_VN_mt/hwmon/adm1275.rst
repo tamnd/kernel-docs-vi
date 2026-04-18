@@ -1,0 +1,186 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adm1275.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adm1275
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADM1075
+
+Tiền tố: 'adm1075'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: www.analog.com/static/imported-files/data_sheets/ADM1075.pdf
+
+* Thiết bị tương tự ADM1272
+
+Tiền tố: 'adm1272'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: www.analog.com/static/imported-files/data_sheets/ADM1272.pdf
+
+* Thiết bị tương tự ADM1273
+
+Tiền tố: 'adm1273'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Chưa có sẵn công khai
+
+* Thiết bị tương tự ADM1275
+
+Tiền tố: 'adm1275'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: www.analog.com/static/imported-files/data_sheets/ADM1275.pdf
+
+* Thiết bị tương tự ADM1276
+
+Tiền tố: 'adm1276'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: www.analog.com/static/imported-files/data_sheets/ADM1276.pdf
+
+* Thiết bị tương tự ADM1278
+
+Tiền tố: 'adm1278'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: www.analog.com/static/imported-files/data_sheets/ADM1278.pdf
+
+* Thiết bị tương tự ADM1281
+
+Tiền tố: 'adm1281'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự ADM1293/ADM1294
+
+Tiền tố: 'adm1293', 'adm1294'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Silergy SQ24905C
+
+Tiền tố: 'mc09c'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho các Thiết bị Analog ADM1075, ADM1272,
+ADM1273, ADM1275, ADM1276, ADM1278, ADM1281, ADM1293, ADM1294 và SQ24905C
+Bộ điều khiển trao đổi nóng và màn hình nguồn kỹ thuật số.
+
+ADM1075, ADM1272, ADM1273, ADM1275, ADM1276, ADM1278, ADM1281, ADM1293,
+ADM1294 và SQ24905C là bộ điều khiển trao đổi nóng cho phép bảng mạch được
+được gỡ bỏ hoặc chèn vào một bảng nối đa năng trực tiếp. Họ cũng có tính năng hiện tại và
+đọc lại điện áp thông qua bộ chuyển đổi tương tự sang kỹ thuật số 12 bit tích hợp (ADC),
+được truy cập bằng giao diện PMBus.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+ADM1075, không giống như nhiều thiết bị PMBus khác, không hỗ trợ điện áp bên trong
+hoặc chia tỷ lệ hiện tại. Điện áp, dòng điện và công suất được báo cáo là các phép đo thô,
+và thường sẽ phải được thu nhỏ lại.
+
+Giá trị shunt tính bằng micro-ohms có thể được đặt thông qua cây thiết bị tại thời điểm biên dịch. làm ơn
+tham khảo Tài liệu/devicetree/binds/hwmon/adi,adm1275.yaml để biết các ràng buộc
+nếu cây thiết bị được sử dụng.
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi, thiết lập lại lịch sử
+thuộc tính chỉ ghi, tất cả các thuộc tính khác chỉ đọc.
+
+====================================================================================
+inX_label "vin1" hoặc "vout1" tùy thuộc vào biến thể chip và
+			cấu hình. Trên ADM1075, ADM1293 và ADM1294,
+			vout1 báo cáo điện áp trên chân VAUX.
+inX_input Đo điện áp.
+inX_min Điện áp tối thiểu.
+inX_max Điện áp tối đa.
+inX_min_alarm Báo động điện áp thấp.
+inX_max_alarm Báo động điện áp cao.
+inX_highest Điện áp tối đa lịch sử.
+inX_reset_history Viết bất kỳ giá trị nào để thiết lập lại lịch sử.
+
+curr1_label "iout1"
+curr1_input Đo dòng điện.
+curr1_max Dòng điện tối đa.
+curr1_max_alarm Báo động cao hiện tại.
+curr1_lcrit Dòng điện tối thiểu quan trọng. Tùy theo chip
+			cấu hình, curr1_lcrit hoặc curr1_crit là
+			được hỗ trợ, nhưng không phải cả hai.
+curr1_lcrit_alarm Báo động dòng điện quan trọng ở mức thấp.
+Curr1_crit Dòng tối đa tới hạn. Tùy theo chip
+			cấu hình, curr1_lcrit hoặc curr1_crit là
+			được hỗ trợ, nhưng không phải cả hai.
+curr1_crit_alarm Báo động hiện tại ở mức cao tới hạn.
+curr1_highest Dòng điện tối đa lịch sử.
+curr1_reset_history Viết bất kỳ giá trị nào để thiết lập lại lịch sử.
+
+power1_label "pin1"
+power1_input Nguồn điện đầu vào.
+power1_input_lowest Công suất đầu vào thấp nhất được quan sát. Chỉ ADM1293 và ADM1294.
+power1_input_highest Công suất đầu vào quan sát được cao nhất.
+power1_reset_history Viết bất kỳ giá trị nào để thiết lập lại lịch sử.
+
+Các thuộc tính nguồn được hỗ trợ trên ADM1075, ADM1272,
+			ADM1273, ADM1276, ADM1293 và ADM1294.
+
+temp1_input Nhiệt độ chip.
+temp1_max Nhiệt độ chip tối đa.
+temp1_max_alarm Báo động nhiệt độ.
+temp1_crit Nhiệt độ chip tới hạn.
+temp1_crit_alarm Báo động nhiệt độ cao tới hạn.
+temp1_highest Nhiệt độ cao nhất quan sát được.
+temp1_reset_history Viết bất kỳ giá trị nào để thiết lập lại lịch sử.
+
+Thuộc tính nhiệt độ được hỗ trợ trên ADM1272,
+			ADM1273, ADM1278, ADM1281 và SQ24905C.
+====================================================================================

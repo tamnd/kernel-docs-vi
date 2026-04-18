@@ -1,0 +1,88 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ina3221.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ina3221
+=====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas INA3221
+
+Tiền tố: 'ina3221'
+
+Địa chỉ: I2C 0x40 - 0x43
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Texas Instruments
+
+ZZ0000ZZ
+
+Tác giả: Andrew F. Davis <afd@ti.com>
+
+Sự miêu tả
+-----------
+
+Texas Instruments INA3221 giám sát điện áp, dòng điện và nguồn ở mức cao
+bên của tối đa ba nguồn điện D.C. INA3221 giám sát cả tình trạng thả shunt
+và cung cấp điện áp, với thời gian chuyển đổi có thể lập trình và tính trung bình, dòng điện
+và sức mạnh được tính toán phía máy chủ từ những điều này.
+
+Mục nhập hệ thống
+-------------
+
+====================================================================================
+in[123]_label Nhãn kênh điện áp
+in[123]_enable Điều khiển kích hoạt kênh điện áp
+trong [123]_input Kênh điện áp bus (mV)
+các kênh đo dòng điện đầu vào(mA) hiện tại [123]_input
+shunt[123]_resistor Kênh điện trở shunt(uOhm)
+Curr[123]_crit Cài đặt dòng điện cảnh báo quan trọng(mA), kích hoạt
+			báo động tương ứng khi dòng điện tương ứng
+			ở trên giá trị này
+Curr[123]_crit_alarm Đã vượt quá giới hạn hiện tại của cảnh báo quan trọng
+curr[123]_max Cài đặt dòng cảnh báo (mA), kích hoạt
+			báo động tương ứng khi dòng điện tương ứng
+			trung bình ở trên giá trị này.
+curr[123]_max_alarm Đã vượt quá giới hạn hiện tại của cảnh báo
+in[456]_input Điện áp Shunt(uV) tương ứng cho các kênh 1, 2 và 3
+in7_input Tổng các kênh điện áp shunt (uV)
+in7_label Nhãn kênh cho tổng điện áp shunt
+curr4_input Tổng số kênh đo dòng điện (mA),
+                        (chỉ khả dụng khi tất cả các kênh sử dụng cùng một điện trở
+                        giá trị cho điện trở shunt của chúng)
+curr4_crit Cài đặt dòng điện cảnh báo quan trọng (mA) cho tổng dòng điện
+                        đo, kích hoạt báo động tương ứng
+                        khi dòng điện tương ứng cao hơn giá trị này
+                        (chỉ có hiệu quả khi tất cả các kênh sử dụng cùng một điện trở
+                        giá trị cho điện trở shunt của chúng)
+curr4_crit_alarm đã vượt quá giới hạn hiện tại của cảnh báo quan trọng trong tổng số
+                        các phép đo hiện tại.
+mẫu Số lượng mẫu sử dụng ở chế độ trung bình.
+
+Hỗ trợ danh sách số lượng mẫu:
+
+1, 4, 16, 64, 128, 256, 512, 1024
+
+update_interval Thời gian chuyển đổi dữ liệu tính bằng mili giây như sau:
+
+update_interval = C x S x (BC + SC)
+
+* C: số kênh đã kích hoạt
+                          * S: số lượng mẫu
+                          * BC: thời gian chuyển đổi điện áp bus tính bằng mili giây
+                          * SC: thời gian chuyển đổi điện áp song song tính bằng mili giây
+
+Ảnh hưởng đến cả thời gian chuyển đổi điện áp Bus và Shunt.
+                        Lưu ý rằng việc đặt update_interval thành 0ms sẽ đặt cả BC
+                        và SC tới 140 us (thời gian chuyển đổi tối thiểu).
+====================================================================================

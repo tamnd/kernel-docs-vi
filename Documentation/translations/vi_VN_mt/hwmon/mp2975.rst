@@ -1,0 +1,140 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mp2975.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân mp2975
+====================
+
+Chip được hỗ trợ:
+
+* MPS MP12254
+
+Tiền tố: 'mp2975'
+
+Tác giả:
+
+Vadim Pasternak <vadimp@nvidia.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Monolithic Power Systems, Inc. (MPS)
+nhà cung cấp bộ điều khiển nhiều pha, kỹ thuật số, vòng lặp kép MP2975.
+
+Thiết bị này:
+
+- Hỗ trợ lên đến hai đường ray điện.
+- Cung cấp 8 điều chế độ rộng xung (PWM) và có thể được cấu hình lên
+  vận hành 8 pha cho đường ray 1 và vận hành lên đến 4 pha cho đường ray
+  2.
+- Hỗ trợ hai trang 0 và 1 cho đo từ xa và cả trang 2 và 3 cho
+  cấu hình.
+- Có thể định cấu hình đọc VOUT ở định dạng trực tiếp hoặc VID và cho phép
+  cài đặt các định dạng khác nhau trên đường ray 1 và 2. Đối với VID, như sau
+  có sẵn các giao thức: Chế độ VR13 với 5-mV DAC; Chế độ VR13 với
+  Chế độ 10-mV DAC, IMVP9 với 5-mV DAC.
+
+Hỗ trợ thiết bị:
+
+- Giao diện SVID.
+- Giao diện AVSBus.
+
+Khiếu nại thiết bị với:
+
+- Giao diện PMBus rev 1.3.
+
+Thiết bị hỗ trợ định dạng trực tiếp để đọc dòng điện đầu ra, điện áp đầu ra,
+công suất đầu vào và đầu ra và nhiệt độ.
+Thiết bị hỗ trợ định dạng tuyến tính để đọc điện áp đầu vào và công suất đầu vào.
+Thiết bị hỗ trợ VID và các định dạng trực tiếp để đọc điện áp đầu ra.
+Các chế độ VID dưới đây được hỗ trợ: VR12, VR13, IMVP9.
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho dòng điện:
+
+- đối với dòng điện vào: đầu vào, báo động tối đa;
+- đối với đầu vào hiện tại, báo động tối đa và giá trị cao nhất;
+- đối với dòng điện pha: đầu vào và nhãn.
+  thuộc tính.
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs', trong đó
+
+- ‘n’ là số trang đo từ xa (từ 1 đến 2);
+- 'k' là số pha được cấu hình (từ 1 đến 8);
+- chỉ số 1, 1*n cho "iin";
+- chỉ số n+1, n+2 cho "iout";
+- chỉ số 2*n+1 ... 2*n + k cho các pha.
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho điện áp:
+
+- đối với điện áp vào: đầu vào, ngưỡng tới hạn cao, cảnh báo tới hạn cao, tất cả chỉ
+  từ trang 0;
+- đối với điện áp ra: đầu vào, ngưỡng tới hạn thấp và cao, thấp và cao
+  báo động quan trọng, từ trang 0 và 1;
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs', trong đó
+
+- ‘n’ là số trang đo từ xa (từ 1 đến 2);
+- chỉ số 1 cho "iin";
+- chỉ số n+1, n+2 cho "vout";
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho sức mạnh:
+
+- cấp nguồn cho báo động và đầu vào.
+- đối với nguồn điện ra: cao nhất và đầu vào.
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs', trong đó
+
+- ‘n’ là số trang đo từ xa (từ 1 đến 2);
+- chỉ số 1 cho "pin";
+- chỉ số n+1, n+2 cho "bĩu môi";
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính tiếp theo cho nhiệt độ (chỉ từ trang 0):
+
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ

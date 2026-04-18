@@ -1,0 +1,44 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mc34vr500.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân mc34vr500
+=======================
+
+Chip được hỗ trợ:
+
+* NXP MC34VR500
+
+Tiền tố: 'mc34vr500'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Mario Kicherer <dev@kicherer.org>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ ban đầu cho NXP MC34VR500 PMIC. MC34VR500
+theo dõi nhiệt độ, điện áp đầu vào và dòng điện đầu ra và cung cấp
+báo động tương ứng. Đối với nhiệt độ, chip có thể gửi ngắt nếu
+nhiệt độ tăng lên trên một trong các giá trị sau: 110°, 120°, 125° và
+130°C. Đối với điện áp đầu vào, một ngắt được gửi khi điện áp
+giảm xuống dưới 2,8V.
+
+Hiện tại, trình điều khiển này chỉ thực hiện điện áp đầu vào và nhiệt độ
+báo động. Các ngắt được ánh xạ như sau:
+
+<= 2,8V -> in0_min_alarm
+>110°c -> temp1_max_alarm
+>120°c -> temp1_crit_alarm
+>130°c -> temp1_emergency_alarm

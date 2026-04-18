@@ -1,0 +1,88 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm80.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm80
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM80
+
+Tiền tố: 'lm80'
+
+Địa chỉ được quét: I2C 0x28 - 0x2f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM96080
+
+Tiền tố: 'lm96080'
+
+Địa chỉ được quét: I2C 0x28 - 0x2f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+
+tác giả:
+       - Frodo Looijaard <frodol@dds.nl>,
+       - Philip Edelbrock <phil@netroedge.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho LM80 Chất bán dẫn Quốc gia.
+Nó được mô tả là 'Bộ vi xử lý tương thích giao diện nối tiếp ACPI
+Giám sát phần cứng hệ thống'. LM96080 là phiên bản mới hơn,
+nó tương thích với pin và thanh ghi, với một số tính năng bổ sung không có
+vẫn được hỗ trợ bởi người lái xe.
+
+LM80 thực hiện một cảm biến nhiệt độ, hai cảm biến tốc độ quay của quạt,
+bảy cảm biến điện áp, báo động và một số thứ linh tinh.
+
+Nhiệt độ được đo bằng độ C. Có hai bộ giới hạn
+hoạt động độc lập. Khi giới hạn nhiệt độ HOT bị vượt qua,
+điều này sẽ gây ra cảnh báo và sẽ được xác nhận lại cho đến khi nhiệt độ
+giảm xuống dưới Độ trễ HOT. Giới hạn tắt máy khi quá nhiệt (OS)
+sẽ hoạt động theo cách tương tự (nhưng điều này phải được kiểm tra; bảng dữ liệu
+không rõ ràng về điều này). Các phép đo được đảm bảo trong khoảng từ -55 đến
++125 độ. Phép đo nhiệt độ hiện tại có độ phân giải là
+0,0625 độ; các giới hạn có độ phân giải 1 độ.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia cho một bộ chia có thể lập trình (1, 2, 4 hoặc 8) để đưa ra
+các bài đọc có phạm vi rộng hơn hoặc chính xác hơn. Không phải tất cả các giá trị RPM đều có thể được xác định chính xác
+được đại diện, do đó một số làm tròn được thực hiện. Với số chia là 2, thấp nhất
+giá trị đại diện là khoảng 2600 RPM.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng bằng vôn.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa. Lưu ý rằng mức tối thiểu trong trường hợp này luôn có nghĩa là 'gần nhất với
+không'; điều này rất quan trọng đối với các phép đo điện áp âm. Tất cả điện áp
+đầu vào có thể đo điện áp trong khoảng từ 0 đến 2,55 volt, với độ phân giải
+là 0,01V.
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể
+đã biến mất rồi! Lưu ý rằng trong quá trình triển khai hiện tại, tất cả
+các thanh ghi phần cứng được đọc bất cứ khi nào có dữ liệu được đọc (trừ khi nó ít hơn
+hơn 2,0 giây kể từ lần cập nhật cuối cùng). Điều này có nghĩa là bạn có thể dễ dàng
+bỏ lỡ các báo thức chỉ một lần.
+
+LM80 chỉ cập nhật giá trị của nó sau mỗi 1,5 giây; đọc nó thường xuyên hơn
+sẽ không gây hại gì nhưng sẽ trả về giá trị 'cũ'.

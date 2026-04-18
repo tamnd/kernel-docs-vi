@@ -1,0 +1,198 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hid/hid-alps.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=============================
+Giao thức bàn di chuột ALPS HID
+==========================
+
+Giới thiệu
+------------
+Hiện tại driver ALPS HID hỗ trợ thiết bị U1 Touchpad.
+
+Thông tin cơ bản về thiết bị U1.
+
+========== ======
+ID nhà cung cấp 0x044E
+ID sản phẩm 0x120B
+ID phiên bản 0x0121
+========== ======
+
+
+Bộ mô tả HID
+--------------
+
+======= ========================= ===========================================
+Ghi chú giá trị trường byte
+======= ========================= ===========================================
+0 wHIDDescLength 001E Độ dài của bộ mô tả HID: 30 byte
+2 bcdVersion 0100 Tương thích với Phiên bản 1.00
+4 wReportDescLength 00B2 Bộ mô tả báo cáo là 178 Byte (0x00B2)
+6 wReportDescRegister 0002 Mã định danh để đọc Bộ mô tả Báo cáo
+8 wInputRegister 0003 Mã định danh để đọc Báo cáo đầu vào
+10 wMaxInputLength 0053 Báo cáo đầu vào là 80 Byte + 2
+12 wOutputRegister 0000 Mã định danh để đọc Báo cáo đầu ra
+14 wMaxOutputLength 0000 Không có báo cáo đầu ra
+16 wCommandRegister 0005 Mã định danh cho Thanh ghi lệnh
+18 wDataRegister 0006 Mã định danh cho thanh ghi dữ liệu
+20 wVendorID 044E ID nhà cung cấp 0x044E
+22 wProductID 120B ID sản phẩm 0x120B
+24 wVersionID 0121 Phiên bản 01.21
+26 RESERVED 0000 RESERVED
+======= ========================= ===========================================
+
+
+ID báo cáo
+---------
+
+=========================================================================
+ReportID-1 (Báo cáo đầu vào) (HIDUsage-Mouse) cho TP&SP
+ReportID-2 (Báo cáo đầu vào) (Bàn phím HIDUsage) cho TP
+ReportID-3 (Báo cáo đầu vào) (Cách sử dụng của nhà cung cấp: Dữ liệu tối đa 10 ngón tay) cho TP
+ReportID-4 (Báo cáo đầu vào) (Cách sử dụng của nhà cung cấp: dữ liệu bit BẬT) cho GP
+ReportID-5 (Báo cáo tính năng)
+ReportID-6 (Báo cáo đầu vào) (Cách sử dụng của nhà cung cấp: dữ liệu StickPointer) cho SP
+ReportID-7 (Báo cáo tính năng) Cập nhật flash (Bộ nạp khởi động)
+=========================================================================
+
+
+Mẫu dữ liệu
+------------
+
+=============== ========================
+Báo cáo trường hợp1ID_1 TP/SP Tương đối/Tương đối
+Báo cáo trường hợp 2ID_3 TP Tuyệt đối
+	Báo cáoID_6 SP Tuyệt đối
+=============== ========================
+
+
+Lệnh Đọc/Ghi
+------------------
+Để đọc/ghi vào RAM, cần gửi lệnh đến thiết bị.
+
+Định dạng lệnh như dưới đây.
+
+Dữ liệuByte(SET_REPORT)
+~~~~~~~~~~~~~~~~~~~~
+
+=============================
+Byte1 Byte lệnh
+Địa chỉ Byte2 - Byte 0 (LSB)
+Địa chỉ Byte3 - Byte 1
+Địa chỉ Byte4 - Byte 2
+Địa chỉ Byte5 - Byte 3 (MSB)
+Byte giá trị byte6
+Tổng kiểm tra byte7
+=============================
+
+Byte lệnh là đọc=0xD1/ghi=0xD2.
+
+Địa chỉ là địa chỉ đọc/ghi RAM.
+
+Value Byte đang ghi dữ liệu khi bạn gửi lệnh ghi.
+
+Khi bạn đọc RAM, không có ý nghĩa gì cả.
+
+Dữ liệuByte(GET_REPORT)
+~~~~~~~~~~~~~~~~~~~~
+
+=============================
+Byte1 Byte phản hồi
+Địa chỉ Byte2 - Byte 0 (LSB)
+Địa chỉ Byte3 - Byte 1
+Địa chỉ Byte4 - Byte 2
+Địa chỉ Byte5 - Byte 3 (MSB)
+Byte giá trị byte6
+Tổng kiểm tra byte7
+=============================
+
+Giá trị đọc được lưu trữ trong Value Byte.
+
+
+Định dạng gói
+-------------
+
+Byte dữ liệu trên bàn di chuột
+~~~~~~~~~~~~~~~~~~
+
+
+======= ======= ======= ======= ======= ======= ======= ======= =====
+- b7 b6 b5 b4 b3 b2 b1 b0
+======= ======= ======= ======= ======= ======= ======= ======= =====
+1 0 0 SW6 SW5 SW4 SW3 SW2 SW1
+2 0 0 0 Fcv Fn3 Fn2 Fn1 Fn0
+3 Xa0_7 Xa0_6 Xa0_5 Xa0_4 Xa0_3 Xa0_2 Xa0_1 Xa0_0
+4 Xa0_15 Xa0_14 Xa0_13 Xa0_12 Xa0_11 Xa0_10 Xa0_9 Xa0_8
+5 Ya0_7 Ya0_6 Ya0_5 Ya0_4 Ya0_3 Ya0_2 Ya0_1 Ya0_0
+6 Ya0_15 Ya0_14 Ya0_13 Ya0_12 Ya0_11 Ya0_10 Ya0_9 Ya0_8
+7 LFB0 Zs0_6 Zs0_5 Zs0_4 Zs0_3 Zs0_2 Zs0_1 Zs0_0
+
+8 Xa1_7 Xa1_6 Xa1_5 Xa1_4 Xa1_3 Xa1_2 Xa1_1 Xa1_0
+9 Xa1_15 Xa1_14 Xa1_13 Xa1_12 Xa1_11 Xa1_10 Xa1_9 Xa1_8
+10 Ya1_7 Ya1_6 Ya1_5 Ya1_4 Ya1_3 Ya1_2 Ya1_1 Ya1_0
+11 Ya1_15 Ya1_14 Ya1_13 Ya1_12 Ya1_11 Ya1_10 Ya1_9 Ya1_8
+12 LFB1 Zs1_6 Zs1_5 Zs1_4 Zs1_3 Zs1_2 Zs1_1 Zs1_0
+
+13 Xa2_7 Xa2_6 Xa2_5 Xa2_4 Xa2_3 Xa2_2 Xa2_1 Xa2_0
+14 Xa2_15 Xa2_14 Xa2_13 Xa2_12 Xa2_11 Xa2_10 Xa2_9 Xa2_8
+15 Ya2_7 Ya2_6 Ya2_5 Ya2_4 Ya2_3 Ya2_2 Ya2_1 Ya2_0
+16 Ya2_15 Ya2_14 Ya2_13 Ya2_12 Ya2_11 Ya2_10 Ya2_9 Ya2_8
+17 LFB2 Zs2_6 Zs2_5 Zs2_4 Zs2_3 Zs2_2 Zs2_1 Zs2_0
+
+18 Xa3_7 Xa3_6 Xa3_5 Xa3_4 Xa3_3 Xa3_2 Xa3_1 Xa3_0
+19 Xa3_15 Xa3_14 Xa3_13 Xa3_12 Xa3_11 Xa3_10 Xa3_9 Xa3_8
+20 Ya3_7 Ya3_6 Ya3_5 Ya3_4 Ya3_3 Ya3_2 Ya3_1 Ya3_0
+21 Ya3_15 Ya3_14 Ya3_13 Ya3_12 Ya3_11 Ya3_10 Ya3_9 Ya3_8
+22 LFB3 Zs3_6 Zs3_5 Zs3_4 Zs3_3 Zs3_2 Zs3_1 Zs3_0
+
+23 Xa4_7 Xa4_6 Xa4_5 Xa4_4 Xa4_3 Xa4_2 Xa4_1 Xa4_0
+24 Xa4_15 Xa4_14 Xa4_13 Xa4_12 Xa4_11 Xa4_10 Xa4_9 Xa4_8
+25 Ya4_7 Ya4_6 Ya4_5 Ya4_4 Ya4_3 Ya4_2 Ya4_1 Ya4_0
+26 Ya4_15 Ya4_14 Ya4_13 Ya4_12 Ya4_11 Ya4_10 Ya4_9 Ya4_8
+27 LFB4 Zs4_6 Zs4_5 Zs4_4 Zs4_3 Zs4_2 Zs4_1 Zs4_0
+======= ======= ======= ======= ======= ======= ======= ======= =====
+
+
+SW1-SW6:
+	Trạng thái SW ON/OFF
+Xan_15-0(16bit):
+	X Dữ liệu tuyệt đối của ngón tay thứ n
+Yan_15-0(16bit):
+	Y Dữ liệu tuyệt đối của ngón tay thứ n
+Zsn_6-0(7bit):
+	Vùng hoạt động của ngón tay thứ n
+
+
+Byte dữ liệu StickPointer
+~~~~~~~~~~~~~~~~~~~~~~
+
+======= ======= ======= ======= ======= ======= ======= ======= =====
+- b7 b6 b5 b4 b3 b2 b1 b0
+======= ======= ======= ======= ======= ======= ======= ======= =====
+Byte1 1 1 1 0 1 SW3 SW2 SW1
+Byte2 X7 X6 X5 X4 X3 X2 X1 X0
+Byte3 X15 X14 X13 X12 X11 X10 X9 X8
+Byte4 Y7 Y6 Y5 Y4 Y3 Y2 Y1 Y0
+Byte5 Y15 Y14 Y13 Y12 Y11 Y10 Y9 Y8
+Byte6 Z7 Z6 Z5 Z4 Z3 Z2 Z1 Z0
+Byte7 T&P Z14 Z13 Z12 Z11 Z10 Z9 Z8
+======= ======= ======= ======= ======= ======= ======= ======= =====
+
+SW1-SW3:
+	Trạng thái SW ON/OFF
+Xn_15-0(16bit):
+	X Dữ liệu tuyệt đối
+Yn_15-0(16bit):
+	Y Dữ liệu tuyệt đối
+Zn_14-0(15bit):
+	Z

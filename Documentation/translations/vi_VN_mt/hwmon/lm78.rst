@@ -1,0 +1,94 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm78.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm78
+==================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia LM78 / LM78-J
+
+Tiền tố: 'lm78'
+
+Địa chỉ được quét: I2C 0x28 - 0x2f, ISA 0x290 (8 cổng I/O)
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM79
+
+Tiền tố: 'lm79'
+
+Địa chỉ được quét: I2C 0x28 - 0x2f, ISA 0x290 (8 cổng I/O)
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+
+tác giả:
+	- Frodo Looijaard <frodol@dds.nl>
+	- Jean Delvare <jdelvare@suse.de>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho National Semiconductor LM78, LM78-J
+và LM79. Chúng được mô tả là 'Màn hình phần cứng hệ thống vi xử lý'.
+
+Hầu như không có sự khác biệt giữa ba chip được hỗ trợ. Về mặt chức năng,
+LM78 và LM78-J hoàn toàn giống nhau. LM79 có thêm một dòng VID nữa,
+được sử dụng để báo cáo điện áp thấp hơn mà bộ xử lý Pentium mới hơn sử dụng.
+Từ đây trở đi, LM7* có nghĩa là một trong ba loại này.
+
+LM7* triển khai một cảm biến nhiệt độ, ba cảm biến tốc độ quay của quạt,
+bảy cảm biến điện áp, đường dây VID, cảnh báo và một số nội dung linh tinh.
+
+Nhiệt độ được đo bằng độ C. Báo động được kích hoạt một lần
+khi giới hạn tắt máy quá nhiệt bị vượt qua; nó lại được kích hoạt
+ngay khi nó giảm xuống dưới giá trị Độ trễ. Một hành vi hữu ích hơn
+có thể được tìm thấy bằng cách đặt giá trị Độ trễ thành +127 độ C; trong
+trường hợp này, cảnh báo sẽ được đưa ra trong suốt thời gian khi nhiệt độ thực tế
+cao hơn giá trị Tắt máy khi quá nhiệt. Các phép đo được đảm bảo
+trong khoảng từ -55 đến +125 độ, với độ phân giải 1 độ.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia cho một bộ chia có thể lập trình (1, 2, 4 hoặc 8) để đưa ra
+các bài đọc có phạm vi rộng hơn hoặc chính xác hơn. Không phải tất cả các giá trị RPM đều có thể được xác định chính xác
+được đại diện, do đó một số làm tròn được thực hiện. Với số chia là 2, thấp nhất
+giá trị đại diện là khoảng 2600 RPM.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng bằng vôn.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa. Lưu ý rằng mức tối thiểu trong trường hợp này luôn có nghĩa là 'gần nhất với
+không'; điều này rất quan trọng đối với các phép đo điện áp âm. Tất cả điện áp
+đầu vào có thể đo điện áp trong khoảng từ 0 đến 4,08 volt, với độ phân giải
+là 0,016 vôn.
+
+Các dòng VID mã hóa giá trị điện áp lõi: mức điện áp bộ xử lý của bạn
+nên làm việc với. Điều này được mã hóa cứng bởi bo mạch chính và/hoặc chính bộ xử lý.
+Đó là một giá trị tính bằng volt. Khi nó bị ngắt kết nối, bạn thường sẽ tìm thấy
+giá trị 3,50 V ở đây.
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể
+đã biến mất rồi! Lưu ý rằng trong quá trình triển khai hiện tại, tất cả
+các thanh ghi phần cứng được đọc bất cứ khi nào có dữ liệu được đọc (trừ khi nó ít hơn
+hơn 1,5 giây kể từ lần cập nhật cuối cùng). Điều này có nghĩa là bạn có thể dễ dàng
+bỏ lỡ các báo thức chỉ một lần.
+
+LM7* chỉ cập nhật giá trị của nó sau mỗi 1,5 giây; đọc nó thường xuyên hơn
+sẽ không gây hại gì nhưng sẽ trả về giá trị 'cũ'.

@@ -1,0 +1,57 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adm1031.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adm1031
+=====================
+
+Chip được hỗ trợ:
+  * Thiết bị tương tự ADM1030
+
+Tiền tố: 'adm1030'
+
+Địa chỉ được quét: I2C 0x2c đến 0x2e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Thiết bị tương tự ADM1031
+
+Tiền tố: 'adm1031'
+
+Địa chỉ được quét: I2C 0x2c đến 0x2e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+tác giả:
+	- Alexandre d'Alton <alex@alexdalton.org>
+	- Jean Delvare <jdelvare@suse.de>
+
+Sự miêu tả
+-----------
+
+ADM1030 và ADM1031 là cảm biến nhiệt độ kỹ thuật số và bộ điều khiển quạt.
+Chúng cảm nhận được nhiệt độ của chính mình cũng như nhiệt độ lên đến một
+(ADM1030) hoặc hai điốt bên ngoài (ADM1031).
+
+Tất cả các giá trị nhiệt độ được tính bằng độ C. Độ phân giải là 0,5
+độ cho nhiệt độ cục bộ, 0,125 độ cho nhiệt độ từ xa.
+
+Mỗi kênh nhiệt độ có giới hạn cao và thấp riêng, cộng với mức tới hạn
+giới hạn.
+
+ADM1030 giám sát một tốc độ quạt duy nhất, trong khi ADM1031 giám sát tối đa
+hai. Mỗi kênh quạt có giới hạn tốc độ thấp riêng.

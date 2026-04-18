@@ -1,0 +1,108 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adt7470.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adt7470
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADT7470
+
+Tiền tố: 'adt7470'
+
+Địa chỉ được quét: I2C 0x2C, 0x2E, 0x2F
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+Tác giả: Darrick J. Wong
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip ADT7470 của Thiết bị Analog.  Có thể có
+là các chip khác thực hiện giao diện này.
+
+ADT7470 sử dụng giao diện 2 dây tương thích với SMBus 2.0
+đặc điểm kỹ thuật. Sử dụng bộ chuyển đổi tương tự sang kỹ thuật số, nó đo được tới mười (10)
+nhiệt độ bên ngoài. Nó có bốn (4) bộ đếm 16 bit để đo tốc độ quạt.
+Có bốn (4) đầu ra PWM có thể được sử dụng để kiểm soát tốc độ quạt.
+
+Một hệ thống điều khiển phức tạp cho đầu ra PWM được thiết kế trong ADT7470
+cho phép tốc độ quạt được điều chỉnh tự động dựa trên bất kỳ yếu tố nào trong số 10 yếu tố
+cảm biến nhiệt độ. Mỗi đầu ra PWM được điều chỉnh riêng và
+lập trình được. Sau khi được định cấu hình, ADT7470 sẽ điều chỉnh đầu ra PWM theo
+phản ứng với nhiệt độ đo được với sự can thiệp sâu hơn của vật chủ.  Cái này
+tính năng này cũng có thể bị tắt để điều khiển thủ công PWM.
+
+Mỗi đầu vào đo được (nhiệt độ, tốc độ quạt) có mức cao/thấp tương ứng
+các giá trị giới hạn. ADT7470 sẽ báo hiệu ALARM nếu bất kỳ giá trị đo nào vượt quá
+hoặc giới hạn.
+
+ADT7470 liên tục lấy mẫu tất cả các đầu vào.  Một luồng hạt nhân được khởi động cho
+mục đích truy vấn định kỳ các cảm biến nhiệt độ, do đó cho phép
+Điều khiển pwm quạt tự động để cài đặt tốc độ quạt.  Người lái xe sẽ không đọc
+đăng ký thường xuyên hơn 5 giây một lần.  Hơn nữa, dữ liệu cấu hình là
+chỉ đọc một lần mỗi phút.
+
+Tính năng đặc biệt
+----------------
+
+ADT7470 có ADC 8 bit và có khả năng đo nhiệt độ với 1
+độ phân giải độ C.
+
+Bảng dữ liệu của Thiết bị Analog rất chi tiết và mô tả quy trình
+xác định cấu hình tối ưu cho bộ điều khiển PWM tự động.
+
+Ghi chú cấu hình
+-------------------
+
+Bên cạnh các giao diện tiêu chuẩn, trình điều khiển còn bổ sung thêm những điều sau:
+
+* Điều khiển PWM
+
+* pwm#_auto_point1_pwm và pwm#_auto_point1_temp và
+* pwm#_auto_point2_pwm và pwm#_auto_point2_temp -
+
+- điểm1: Đặt tốc độ pwm ở giới hạn nhiệt độ thấp hơn.
+  - điểm2: Đặt tốc độ pwm ở giới hạn nhiệt độ cao hơn.
+
+ADT7470 sẽ chia tỷ lệ pwm giữa tốc độ pwm thấp hơn và cao hơn khi
+nhiệt độ nằm giữa hai ranh giới nhiệt độ.  Phạm vi giá trị PWM
+từ 0 (tắt) đến 255 (tốc độ tối đa).  Tốc độ quạt sẽ được đặt ở mức tối đa khi
+cảm biến nhiệt độ liên quan đến điều khiển PWM vượt quá
+pwm#_auto_point2_temp.
+
+Trình điều khiển cũng cho phép điều khiển tần số PWM:
+
+* pwm1_freq
+
+Tần số PWM được làm tròn đến tần số gần nhất trong số:
+
+* 11,0 Hz
+* 14,7 Hz
+* 22,1 Hz
+* 29,4 Hz
+* 35,3 Hz
+* 44,1 Hz
+* 58,8 Hz
+* 88,2 Hz
+* 1,4 kHz
+* 22,5 kHz
+
+Ghi chú
+-----
+
+Đầu vào nhiệt độ không còn cần phải được đọc định kỳ từ không gian người dùng trong
+thứ tự cho thuật toán pwm tự động chạy.  Đây là trường hợp trước đây
+các phiên bản của trình điều khiển.

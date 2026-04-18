@@ -1,0 +1,81 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc3815.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc3815
+=====================
+
+Chip được hỗ trợ:
+
+* Công nghệ tuyến tính LTC3815
+
+Tiền tố: 'ltc3815'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+LTC3815 là Bộ chuyển đổi bước xuống DC/DC đồng bộ nguyên khối.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Ví dụ: các lệnh sau sẽ tải trình điều khiển cho LTC3815
+tại địa chỉ 0x20 trên xe buýt I2C #1::
+
+# modprobe ltc3815
+	# echo ltc3815 0x20 > /sys/bus/i2c/devices/i2c-1/new_device
+
+
+Thuộc tính Sysfs
+----------------
+
+====================================================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào.
+in1_alarm Báo động điện áp đầu vào.
+in1_highest Điện áp đầu vào cao nhất.
+in1_reset_history Đặt lại lịch sử điện áp đầu vào.
+
+in2_label "vout1".
+in2_input Đo điện áp đầu ra.
+in2_alarm Cảnh báo điện áp đầu ra.
+in2_highest Điện áp đầu ra cao nhất.
+in2_reset_history Đặt lại lịch sử điện áp đầu ra.
+
+temp1_input Đo nhiệt độ chip.
+temp1_alarm Báo động nhiệt độ.
+temp1_highest Nhiệt độ đo được cao nhất.
+temp1_reset_history Đặt lại lịch sử nhiệt độ.
+
+curr1_label "iin".
+curr1_input Đo dòng điện đầu vào.
+curr1_highest Dòng điện đầu vào cao nhất.
+curr1_reset_history Đặt lại lịch sử hiện tại đầu vào.
+
+curr2_label "iout1".
+curr2_input Đo dòng điện đầu ra.
+curr2_alarm Xuất cảnh báo hiện tại.
+curr2_highest Dòng điện đầu ra cao nhất.
+curr2_reset_history Đặt lại lịch sử hiện tại đầu ra.
+====================================================================================

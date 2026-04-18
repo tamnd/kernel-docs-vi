@@ -1,0 +1,104 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ir38064.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ir38064
+=====================
+
+Chip được hỗ trợ:
+
+* Infineon IR38060
+
+Tiền tố: 'IR38060'
+    Địa chỉ được quét: -
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Infineon
+      ZZ0000ZZ
+
+* Infineon IR38064
+
+Tiền tố: 'ir38064'
+    Địa chỉ được quét: -
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Infineon
+      ZZ0000ZZ
+
+* Infineon IR38164
+
+Tiền tố: 'ir38164'
+    Địa chỉ được quét: -
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Infineon
+      ZZ0000ZZ
+
+* Infineon ir38263
+
+Tiền tố: 'ir38263'
+    Địa chỉ được quét: -
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Infineon
+      ZZ0000ZZ
+
+tác giả:
+      - Maxim Sloyko <maxims@google.com>
+      - Patrick Venture <venture@google.com>
+
+Sự miêu tả
+-----------
+
+IR38x6x là Bộ điều chỉnh điện áp một đầu vào, Bộ điều chỉnh Buck đồng bộ, Bộ chuyển đổi DC-DC.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Thuộc tính Sysfs
+----------------
+
+======================================================
+curr1_label "iout1"
+curr1_input Đo dòng điện đầu ra
+Curr1_crit Dòng tối đa quan trọng
+curr1_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+curr1_max Dòng điện tối đa
+curr1_max_alarm Báo động cao hiện tại
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động cao tới hạn điện áp đầu vào
+in1_min Điện áp đầu vào tối thiểu
+in1_min_alarm Báo động điện áp đầu vào thấp
+
+in2_label "vout1"
+in2_input Đo điện áp đầu ra
+in2_lcrit Điện áp đầu ra tối thiểu quan trọng
+in2_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in2_crit Điện áp đầu ra tối đa tới hạn
+in2_crit_alarm Báo động điện áp đầu ra cao tới hạn
+in2_max Điện áp đầu ra tối đa
+in2_max_alarm Báo động điện áp đầu ra cao
+in2_min Điện áp đầu ra tối thiểu
+in2_min_alarm Báo động điện áp đầu ra thấp
+
+power1_label "bĩu môi1"
+power1_input Công suất đầu ra đo được
+
+temp1_input Nhiệt độ đo được
+temp1_crit Nhiệt độ cao tới hạn
+temp1_crit_alarm Báo động nhiệt độ chip tới hạn cao
+temp1_max Nhiệt độ tối đa
+temp1_max_alarm Báo động nhiệt độ chip cao
+======================================================

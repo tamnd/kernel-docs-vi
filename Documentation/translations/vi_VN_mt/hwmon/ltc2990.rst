@@ -1,0 +1,76 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc2990.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc2990
+=====================
+
+
+Chip được hỗ trợ:
+
+* Công nghệ tuyến tính LTC2990
+
+Tiền tố: 'ltc2990'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+
+Tác giả:
+
+- Mike Looijmans <mike.looijmans@topic.nl>
+	- Tom Levens <tom.levens@cern.ch>
+
+
+Sự miêu tả
+-----------
+
+LTC2990 là Bộ theo dõi điện áp, dòng điện và nhiệt độ Quad I2C.
+Đầu vào của chip có thể đo 4 điện áp hoặc hai đầu vào cùng nhau (1+2 và 3+4)
+có thể được kết hợp để đo điện áp vi sai, thường được sử dụng để
+đo dòng điện qua một điện trở nối tiếp hoặc nhiệt độ với bộ điều khiển bên ngoài
+điốt.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+
+Thuộc tính Sysfs
+----------------
+
+============== =======================================================
+in0_input Điện áp ở chân Vcc tính bằng milivolt (trong khoảng 2,5V đến 5V)
+temp1_input Nhiệt độ bên trong chip tính bằng mili độ C
+============== =======================================================
+
+Một tập hợp con của các thuộc tính sau được hiển thị, tùy thuộc vào phép đo
+chế độ của chip.
+
+============== ===============================================================
+in[1-4]_Điện áp đầu vào tại chân V[1-4] tính bằng milivolt
+temp2_input Cảm biến nhiệt độ bên ngoài TR1 tính bằng mili độ C
+temp3_input Cảm biến nhiệt độ bên ngoài TR2 tính bằng mili độ C
+curr1_input Dòng điện tính bằng mA trên V1-V2 giả sử điện trở cảm giác 1mOhm
+curr2_input Dòng điện tính bằng mA trên V3-V4 giả sử điện trở cảm giác 1mOhm
+============== ===============================================================
+
+Các phép đo "curr*_input" thực sự báo cáo sự sụt giảm điện áp trên
+chân đầu vào tính bằng microvolt. Điều này tương đương với dòng điện qua 1mOhm
+điện trở cảm giác. Chia giá trị được báo cáo cho giá trị điện trở có ý nghĩa thực tế
+tính bằng mOhm để có được giá trị thực tế.

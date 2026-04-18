@@ -1,0 +1,114 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc2947.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc2947-i2c và ltc2947-spi
+==========================================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự LTC2947
+
+Tiền tố: 'ltc2947'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+Tác giả: Nuno Sá <nuno.sa@analog.com>
+
+Sự miêu tả
+___________
+
+LTC2947 là thiết bị theo dõi năng lượng và năng lượng có độ chính xác cao để đo dòng điện,
+điện áp, công suất, nhiệt độ, điện tích và năng lượng. Máy hỗ trợ cả SPI
+và I2C tùy thuộc vào cấu hình chip.
+Thiết bị này cũng đo lượng tích lũy dưới dạng năng lượng. Nó có hai ngân hàng
+thanh ghi để đọc/đặt các giá trị liên quan đến năng lượng. Các ngân hàng này có thể được cấu hình
+độc lập để có các thiết lập như: energy1 luôn tích lũy và chỉ enrgy2
+tích lũy nếu dòng điện dương (để kiểm tra hiệu suất sạc pin cho
+ví dụ). Thiết bị cũng hỗ trợ chân GPIO có thể được cấu hình làm đầu ra
+để điều khiển quạt như một hàm của nhiệt độ đo được. Sau đó, GPIO trở thành
+hoạt động ngay khi số đo nhiệt độ cao hơn ngưỡng xác định. các
+kênh temp2 được sử dụng để kiểm soát ngưỡng này và đọc các giá trị tương ứng
+báo động.
+
+Mục nhập hệ thống
+_____________
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi, reset_history
+là chỉ ghi và tất cả các thuộc tính khác là chỉ đọc.
+
+======================================================================
+in0_input điện áp VP-VM (mV).
+in0_min Ngưỡng thấp áp
+in0_max Ngưỡng quá áp
+in0_lowest Điện áp đo được thấp nhất
+in0_highest Điện áp đo được cao nhất
+in0_reset_history Viết 1 để thiết lập lại lịch sử in1
+in0_min_alarm Báo động điện áp thấp
+in0_max_alarmBáo động quá áp
+in0_label Nhãn kênh (VP-VM)
+
+in1_input DVCC điện áp (mV)
+in1_min Ngưỡng thấp áp
+in1_max Ngưỡng quá áp
+in1_lowest Điện áp đo được thấp nhất
+in1_highest Điện áp đo được cao nhất
+in1_reset_history Viết 1 để thiết lập lại lịch sử in2
+in1_min_alarm Báo động điện áp thấp
+in1_max_alarmBáo động quá áp
+in1_label Nhãn kênh (DVCC)
+
+curr1_input IP-IM Cảm nhận dòng điện (mA)
+curr1_min Ngưỡng dưới dòng
+curr1_max Ngưỡng quá dòng
+curr1_lowest Dòng điện đo được thấp nhất
+curr1_highest Dòng điện đo được cao nhất
+curr1_reset_history Viết 1 để thiết lập lại lịch sử curr1
+curr1_min_alarm Báo động dòng điện ngầm
+curr1_max_alarmBáo động quá dòng
+curr1_label Nhãn kênh (IP-IM)
+
+power1_input Công suất (tính bằng uW)
+power1_min Ngưỡng công suất thấp
+power1_max Ngưỡng công suất cao
+power1_input_lowest Sử dụng năng lượng tối thiểu trong lịch sử
+power1_input_highest Sử dụng năng lượng tối đa trong lịch sử
+power1_reset_history Viết 1 để thiết lập lại lịch sử power1
+power1_min_alarm Báo động điện năng thấp
+power1_max_alarm Báo động công suất cao
+power1_label Nhãn kênh (Nguồn)
+
+temp1_input Nhiệt độ chip (tính bằng milliC)
+temp1_min Ngưỡng nhiệt độ thấp
+temp1_max Ngưỡng nhiệt độ cao
+temp1_input_lowest Sử dụng nhiệt độ tối thiểu trong lịch sử
+temp1_input_highest Sử dụng nhiệt độ tối đa trong lịch sử
+temp1_reset_history Viết 1 để thiết lập lại lịch sử temp1
+temp1_min_alarm Báo động nhiệt độ thấp
+temp1_max_alarm Báo động nhiệt độ cao
+temp1_label Nhãn kênh (Môi trường xung quanh)
+
+temp2_min Ngưỡng nhiệt độ thấp để điều khiển quạt
+temp2_max Ngưỡng nhiệt độ cao để điều khiển quạt
+temp2_min_alarm Cảnh báo điều khiển quạt ở nhiệt độ thấp
+temp2_max_alarm Cảnh báo điều khiển quạt ở nhiệt độ cao
+temp2_label Nhãn kênh (TEMPFAN)
+
+energy1_input Năng lượng được đo theo thời gian (tính bằng microJoule)
+
+energy2_input Năng lượng được đo theo thời gian (tính bằng microJoule)
+======================================================================

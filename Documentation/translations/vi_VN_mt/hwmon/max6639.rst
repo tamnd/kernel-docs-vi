@@ -1,0 +1,69 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/max6639.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân max6639
+=====================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX6639
+
+Tiền tố: 'max6639'
+
+Địa chỉ được quét: I2C 0x2c, 0x2e, 0x2f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+    - Anh Trường Khánh <hechangqing@semptian.com>
+    - Roland Stigge <stigge@antcom.de>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Maxim MAX6639. Con chip này có 2 kênh
+màn hình nhiệt độ với bộ điều khiển tốc độ quạt kép PWM. Nó có thể giám sát chính nó
+nhiệt độ và một bóng bán dẫn kết nối đi-ốt bên ngoài hoặc hai bóng bán dẫn bên ngoài
+bóng bán dẫn kết nối diode.
+
+Các thuộc tính thiết bị sau được triển khai thông qua sysfs:
+
+======================= ==== ========================================================
+Nội dung R/W thuộc tính
+======================= ==== ========================================================
+temp1_input R Đầu vào kênh nhiệt độ 1 (0..150 C)
+temp2_input R Đầu vào kênh nhiệt độ 2 (0..150 C)
+temp1_fault R Lỗi diode kênh nhiệt độ 1
+temp2_fault R Lỗi diode kênh nhiệt độ 2
+temp1_max RW Đặt nhiệt độ THERM cho đầu vào 1
+			    (trong C, xem bảng dữ liệu)
+temp2_max RW Đặt nhiệt độ THERM cho đầu vào 2
+temp1_crit RW Đặt nhiệt độ ALERT cho đầu vào 1
+temp2_crit RW Đặt nhiệt độ ALERT cho đầu vào 2
+temp1_emergency RW Cài đặt nhiệt độ OT cho đầu vào 1
+			    (trong C, xem bảng dữ liệu)
+temp2_emergency RW Cài đặt nhiệt độ OT cho đầu vào 2
+pwm1 RW Quạt 1 chu kỳ nhiệm vụ mục tiêu (0..255)
+pwm2 RW Quạt 2 chu kỳ nhiệm vụ mục tiêu (0..255)
+fan1_input R Đầu vào máy đo tốc độ quạt TACH1 (trong RPM)
+fan2_input R Đầu vào máy đo tốc độ quạt TACH2 (trong RPM)
+fan1_fault R Lỗi quạt 1
+fan2_fault R Lỗi quạt 2
+temp1_max_alarm R Báo động về nhiệt độ THERM trên kênh 1
+temp2_max_alarm R Báo động về nhiệt độ THERM trên kênh 2
+temp1_crit_alarm R Báo động về nhiệt độ ALERT trên kênh 1
+temp2_crit_alarm R Báo động về nhiệt độ ALERT trên kênh 2
+temp1_emergency_alarm R Báo động nhiệt độ OT trên kênh 1
+temp2_emergency_alarm R Báo động nhiệt độ OT trên kênh 2
+======================= ==== ========================================================

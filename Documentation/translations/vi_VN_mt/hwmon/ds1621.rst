@@ -1,0 +1,231 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ds1621.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ds1621
+====================
+
+Chip được hỗ trợ:
+
+* Chất bán dẫn Dallas / DS1621 tích hợp Maxim
+
+Tiền tố: 'ds1621'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Chất bán dẫn Dallas DS1625
+
+Tiền tố: 'ds1625'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tích hợp Maxim DS1631
+
+Tiền tố: 'ds1631'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tích hợp Maxim DS1721
+
+Tiền tố: 'ds1721'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Tích hợp Maxim DS1731
+
+Tiền tố: 'ds1731'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+      - Christian W. Zuckschwerdt <zany@triq.net>
+      - những đóng góp quý báu của Jan M. Sendler <sendler@sendler.de>
+      - được Aurelien Jarno chuyển sang phiên bản 2.6 <aurelien@aurel32.net>
+	với sự giúp đỡ của Jean Delvare <jdelvare@suse.de>
+
+Thông số mô-đun
+------------------
+
+* phân cực int
+  Phân cực của đầu ra:
+
+* 0 = mức hoạt động cao,
+  * 1 = hoạt động ở mức thấp
+
+Sự miêu tả
+-----------
+
+DS1621 là nhiệt kế và bộ điều nhiệt kỹ thuật số (một ví dụ). Nó có
+cả giới hạn nhiệt độ cao và thấp có thể được người dùng xác định (tức là
+được lập trình vào các thanh ghi cố định trên chip). Phạm vi nhiệt độ là -55
+độ C đến +125 với mức tăng 0,5. Bạn có thể chuyển đổi điều này thành một
+Phạm vi Fahrenheit từ -67 đến +257 độ với 0,9 bước. Nếu phân cực
+tham số không được cung cấp, giá trị ban đầu được sử dụng.
+
+Đối với bộ điều nhiệt, hoạt động cũng có thể được lập trình bằng cách sử dụng cực tính
+chuyển đổi. Một mặt ("bộ sưởi"), đầu ra bộ điều chỉnh nhiệt của chip,
+Tout, sẽ kích hoạt khi đạt đến nhiệt độ giới hạn thấp hoặc dưới nhiệt độ và
+duy trì ở mức cao cho đến khi đạt hoặc vượt quá giới hạn cao. Mặt khác
+("mát hơn"), ngược lại. Theo cách đó, "máy sưởi" tương đương với "hoạt động ở mức thấp", trong khi
+"dầu xả" tương đương với "hoạt động cao". Xin lưu ý rằng bảng dữ liệu DS1621
+ở điểm này có phần sai lệch vì việc thiết lập bit phân cực không
+không chỉ đơn giản là đảo ngược Tout.
+
+Điều thứ hai là trong quá trình thử nghiệm rộng rãi, Tout đã cho thấy khả năng chịu đựng
+lên tới +/- 0,5 độ ngay cả khi so sánh với nhiệt độ chính xác
+bài đọc. Đảm bảo có khoảng cách giới hạn nhiệt độ cao và thấp ít nhất
+Tuy nhiên, 1,0 độ C để tránh Tout "nảy lên"!
+
+Các bit cảnh báo được đặt khi đạt hoặc vượt quá giới hạn cao hoặc thấp và
+được thiết lập lại bởi mô-đun ngay khi phạm vi nhiệt độ tương ứng được
+trái.
+
+Các thanh ghi cảnh báo không có cách nào phù hợp để tìm hiểu về thực tế
+trạng thái của Tout. Họ sẽ chỉ cho bạn biết về lịch sử của nó, dù có hay không
+bất kỳ giới hạn nào đã từng được đáp ứng hoặc vượt quá kể từ lần bật nguồn hoặc
+đặt lại. Lưu ý: Khi kiểm tra cho thấy trạng thái của Tout có thể thay đổi
+khi không có báo thức nào được đặt.
+
+Vì không có phiên bản hoặc sổ đăng ký nhận dạng nhà cung cấp nên có
+không có nhận dạng duy nhất cho các thiết bị này. Vì vậy, thiết bị rõ ràng
+cần phải khởi tạo để nhận dạng và hoạt động chính xác của thiết bị
+(một thiết bị cho mỗi địa chỉ trong dải địa chỉ này: 0x48..0x4f).
+
+DS1625 tương thích với chân cắm và có chức năng tương đương với DS1621,
+nhưng DS1621 được sinh ra để thay thế nó. DS1631, DS1721 và DS1731 là
+cũng tương thích với chân cắm với DS1621 và cung cấp hỗ trợ đa độ phân giải.
+
+Ngoài ra, bảng dữ liệu DS1721 cho biết các cờ nhiệt độ (THF và TLF)
+được sử dụng nội bộ, tuy nhiên, những cờ này được đặt và xóa như thực tế
+nhiệt độ vượt qua cài đặt tối thiểu hoặc tối đa (theo mặc định được đặt thành 75
+và 80 độ tương ứng).
+
+Chuyển đổi nhiệt độ
+----------------------
+
+- DS1621 - 750ms (các thiết bị cũ hơn có thể mất tới 1000ms)
+- DS1625 - 500ms
+- DS1631 - 93ms..750ms cho độ phân giải 9..12 bit tương ứng.
+- DS1721 - 93ms..750ms cho độ phân giải 9..12 bit tương ứng.
+- DS1731 - 93ms..750ms cho độ phân giải 9..12 bit tương ứng.
+
+Lưu ý:
+Trên DS1621, quyền truy cập nội bộ vào các thanh ghi không thay đổi có thể kéo dài trong 10 mili giây
+hoặc ít hơn (chưa được xác minh trên các thiết bị khác).
+
+Độ chính xác nhiệt độ
+--------------------
+
+- DS1621: +/- 0,5 độ C (từ 0 đến +70 độ)
+- DS1625: +/- 0,5 độ C (từ 0 đến +70 độ)
+- DS1631: +/- 0,5 độ C (từ 0 đến +70 độ)
+- DS1721: +/- 1,0 độ C (từ -10 đến +85 độ)
+- DS1731: +/- 1,0 độ C (từ -10 đến +85 độ)
+
+.. Note::
+
+   Please refer to the device datasheets for accuracy at other temperatures.
+
+Độ phân giải nhiệt độ:
+-----------------------
+Như đã đề cập ở trên, DS1631, DS1721 và DS1731 cung cấp nhiều độ phân giải
+hỗ trợ, đạt được thông qua các bit thanh ghi cấu hình R0 và R1, trong đó:
+
+R0..R1
+------
+
+== == ===================================
+R0 R1
+== == ===================================
+ 0 0 9 bit, 0,5 độ C
+ 1 0 10 bit, 0,25 độ C
+ 0 1 11 bit, 0,125 độ C
+ 1 1 12 bit, 0,0625 độ C
+== == ===================================
+
+.. Note::
+
+   At initial device power-on, the default resolution is set to 12-bits.
+
+Có thể thay đổi chế độ phân giải cho DS1631, DS1721 hoặc DS1731 từ
+không gian người dùng, thông qua thuộc tính sysfs 'update_interval' của thiết bị. Thuộc tính này
+sẽ bình thường hóa phạm vi giá trị đầu vào thành độ phân giải tối đa của thiết bị
+các giá trị được xác định trong biểu dữ liệu như sau:
+
+=================================================
+Phạm vi đầu vào thời gian chuyển đổi độ phân giải
+ (C/LSB) (msec) (msec)
+=================================================
+0,5 93,75 0....94
+0,25 187,5 95...187
+0,125 375 188..375
+0,0625 750 376..vô cực
+=================================================
+
+Các ví dụ sau đây cho thấy thuộc tính 'update_interval' có thể hoạt động như thế nào
+được sử dụng để thay đổi thời gian chuyển đổi::
+
+$ cập nhật mèo_interval
+  750
+  $ mèo temp1_input
+  22062
+  $
+  $ echo 300 > update_interval
+  $ cập nhật mèo_interval
+  375
+  $ mèo temp1_input
+  22125
+  $
+  $ echo 150 > update_interval
+  $ cập nhật mèo_interval
+  188
+  $ mèo temp1_input
+  22250
+  $
+  $ echo 1 > update_interval
+  $ cập nhật mèo_interval
+  94
+  $ mèo temp1_input
+  22000
+  $
+  $ echo 1000 > update_interval
+  $ cập nhật mèo_interval
+  750
+  $ mèo temp1_input
+  22062
+  $
+
+Như hình, driver ds1621 tự động điều chỉnh “update_interval”
+đầu vào của người dùng, thông qua chức năng bước. Đọc lại giá trị 'update_interval'
+sau thao tác ghi sẽ cung cấp thời gian chuyển đổi được thiết bị sử dụng.
+
+Về mặt toán học, độ phân giải có thể được suy ra từ thời gian chuyển đổi
+thông qua chức năng sau:
+
+g(x) = 0,5 * [thời gian chuyển đổi tối thiểu/x]
+
+Ở đâu:
+
+- 'x' = đầu ra từ 'update_interval'
+ - 'g(x)' = độ phân giải tính bằng độ C trên LSB.
+ - 93,75ms = thời gian chuyển đổi tối thiểu

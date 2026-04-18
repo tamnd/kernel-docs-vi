@@ -1,0 +1,171 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adt7475.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adt7475
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADT7473
+
+Tiền tố: 'adt7473'
+
+Địa chỉ được quét: I2C 0x2C, 0x2D, ​​0x2E
+
+Bảng dữ liệu: Có sẵn công khai tại trang web On Semiconductors
+
+* Thiết bị tương tự ADT7475
+
+Tiền tố: 'adt7475'
+
+Địa chỉ được quét: I2C 0x2E
+
+Bảng dữ liệu: Có sẵn công khai tại trang web On Semiconductors
+
+* Thiết bị tương tự ADT7476
+
+Tiền tố: 'adt7476'
+
+Địa chỉ được quét: I2C 0x2C, 0x2D, ​​0x2E
+
+Bảng dữ liệu: Có sẵn công khai tại trang web On Semiconductors
+
+* Thiết bị tương tự ADT7490
+
+Tiền tố: 'adt7490'
+
+Địa chỉ được quét: I2C 0x2C, 0x2D, ​​0x2E
+
+Bảng dữ liệu: Có sẵn công khai tại trang web On Semiconductors
+
+tác giả:
+	- Jordan Crouse
+	- Hans de Goede
+	- Darrick J. Wong (tài liệu)
+	- Jean Delvare
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho các Thiết bị Analog ADT7473, ADT7475,
+Họ chip ADT7476 và ADT7490. ADT7473 và ADT7475 chỉ khác nhau ở
+chi tiết nhỏ. ADT7476 có các tính năng bổ sung, bao gồm cả điện áp bổ sung
+đầu vào đo lường và hỗ trợ VID. ADT7490 cũng có thêm
+các tính năng, bao gồm đầu vào đo điện áp bổ sung và hỗ trợ PECI. Tất cả
+các chip được hỗ trợ sẽ được thiết kế chung với tên "ADT747x" trong
+phần còn lại của tài liệu này.
+
+ADT747x sử dụng giao diện 2 dây tương thích với SMBus 2.0
+đặc điểm kỹ thuật. Sử dụng bộ chuyển đổi tương tự sang kỹ thuật số, nó đo được ba (3)
+nhiệt độ và hai (2) điện áp trở lên. Nó có bốn (4) bộ đếm 16 bit
+để đo tốc độ quạt. Có ba (3) đầu ra PWM có thể được sử dụng
+để kiểm soát tốc độ quạt.
+
+Một hệ thống điều khiển tinh vi cho đầu ra PWM được thiết kế trong
+ADT747x cho phép điều chỉnh tốc độ quạt tự động dựa trên bất kỳ
+ba cảm biến nhiệt độ. Mỗi đầu ra PWM được điều chỉnh riêng và
+lập trình được. Sau khi được định cấu hình, ADT747x sẽ điều chỉnh đầu ra PWM theo
+phản ứng với nhiệt độ đo được mà không cần sự can thiệp của vật chủ.
+Tính năng này cũng có thể bị tắt để điều khiển thủ công PWM.
+
+Mỗi đầu vào đo được (điện áp, nhiệt độ, tốc độ quạt) đều có
+giá trị giới hạn cao/thấp tương ứng. ADT747x sẽ báo hiệu ALARM nếu
+bất kỳ giá trị đo nào vượt quá giới hạn.
+
+ADT747x lấy mẫu liên tục tất cả các đầu vào. Trình điều khiển sẽ không đọc
+các thanh ghi thường xuyên hơn một lần mỗi giây. Hơn nữa,
+dữ liệu cấu hình chỉ được đọc một lần mỗi phút.
+
+Tóm tắt sự khác biệt về chip
+------------------------
+
+ADT7473:
+  * 2 đầu vào điện áp
+  * tối ưu hóa âm thanh hệ thống (không được triển khai)
+
+ADT7475:
+  * 2 đầu vào điện áp
+
+ADT7476:
+  * 5 đầu vào điện áp
+  * Hỗ trợ VID
+
+ADT7490:
+  * 6 đầu vào điện áp
+  * 1 đầu vào Imon
+  * Hỗ trợ PECI (không được triển khai)
+  * 2 chân GPIO (chưa được triển khai)
+  * tối ưu hóa âm thanh hệ thống (không được triển khai)
+
+Ánh xạ Sysfs
+-------------
+
+==== ================================ ===========
+trong ADT7490 ADT7476 ADT7475 ADT7473
+==== ================================ ===========
+in0 2.5VIN (22) 2.5VIN (22) - -
+in1 VCCP (23) VCCP (23) VCCP (14) VCCP (14)
+in2 VCC (4) VCC (4) VCC (4) VCC (3)
+in3 5VIN (20) 5VIN (20)
+in4 12VIN (21) 12VIN (21)
+in5 VTT (8)
+in6 Imon (19)
+==== ================================ ===========
+
+Tính năng đặc biệt
+----------------
+
+ADT747x có ADC 10 bit và do đó có thể đo nhiệt độ
+với độ phân giải 0,25 độ C. Số đo nhiệt độ có thể
+được định cấu hình cho định dạng bù hai hoặc định dạng "Offset 64",
+trong đó 64 được trừ khỏi giá trị thô để có được giá trị nhiệt độ.
+
+Bảng dữ liệu rất chi tiết và mô tả quy trình xác định
+một cấu hình tối ưu cho điều khiển PWM tự động.
+
+Kiểm soát tốc độ quạt
+-----------------
+
+Trình điều khiển hiển thị hai điểm ngắt trên mỗi kênh PWM.
+
+- điểm1: Đặt tốc độ PWM ở giới hạn nhiệt độ thấp hơn
+- điểm2: Đặt tốc độ PWM ở giới hạn nhiệt độ cao hơn
+
+ADT747x sẽ chia tỷ lệ PWM một cách tuyến tính giữa PWM thấp hơn và PWM cao hơn
+tốc độ khi nhiệt độ nằm giữa hai ranh giới nhiệt độ.
+Ranh giới nhiệt độ có liên quan đến các kênh nhiệt độ hơn là
+Đầu ra PWM và đầu ra PWM nhất định có thể được kiểm soát bởi một số nhiệt độ
+các kênh. Kết quả là ADT747x có thể tính toán nhiều hơn một giá trị PWM
+cho một kênh tại một thời điểm nhất định, trong trường hợp đó giá trị tối đa (nhanh nhất
+tốc độ quạt) được áp dụng. Giá trị PWM nằm trong khoảng từ 0 (tắt) đến 255 (tốc độ tối đa).
+
+Tốc độ quạt có thể được đặt ở mức tối đa khi cảm biến nhiệt độ liên quan đến
+điều khiển PWM vượt quá temp#_max.
+
+Tại Tmin - độ trễ, đầu ra PWM có thể tắt (chu kỳ nhiệm vụ 0%) hoặc ở mức
+tối thiểu (tức là auto_point1_pwm). Hành vi này có thể được cấu hình bằng cách sử dụng
+ZZ0000ZZ. Giá trị bằng 0 có nghĩa là quạt sẽ tắt
+tắt. Giá trị 1 có nghĩa là quạt sẽ chạy ở tốc độ auto_point1_pwm.
+
+Có thể cấu hình khả năng đáp ứng của ADT747x với những thay đổi về nhiệt độ.
+Điều này cho phép làm trơn tru quá trình chuyển đổi tốc độ quạt. Để thiết lập thời gian chuyển tiếp
+đặt giá trị tính bằng ms trong thuộc tính sysfs ZZ0000ZZ.
+
+Ghi chú
+-----
+
+Trình điều khiển nhị phân nVidia trình bày chip ADT7473 thông qua bus i2c trên thẻ.
+Thật không may, họ không thiết lập được lớp bộ điều hợp i2c, vì vậy trình điều khiển này có thể
+không tìm thấy chip cho đến khi trình điều khiển nvidia được vá.

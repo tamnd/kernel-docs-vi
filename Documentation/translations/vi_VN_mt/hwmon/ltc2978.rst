@@ -1,0 +1,503 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc2978.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc2978
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự LT7170
+
+Tiền tố: 'lt7170'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự LT7171
+
+Tiền tố: 'lt7171'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC2972
+
+Tiền tố: 'ltc2972'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC2974
+
+Tiền tố: 'ltc2974'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC2975
+
+Tiền tố: 'ltc2975'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC2977
+
+Tiền tố: 'ltc2977'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC2978, LTC2978A
+
+Tiền tố: 'ltc2978'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC2979
+
+Tiền tố: 'ltc2979'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC2980
+
+Tiền tố: 'ltc2980'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC3880
+
+Tiền tố: 'ltc3880'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC3882
+
+Tiền tố: 'ltc3882'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC3883
+
+Tiền tố: 'ltc3883'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC3884
+
+Tiền tố: 'ltc3884'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC3886
+
+Tiền tố: 'ltc3886'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC3887
+
+Tiền tố: 'ltc3887'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC3889
+
+Tiền tố: 'ltc3889'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC7841
+
+Tiền tố: 'ltc7841'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTC7880
+
+Tiền tố: 'ltc7880'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTM2987
+
+Tiền tố: 'ltm2987'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTM4644
+
+Tiền tố: 'ltm4644'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTM4673
+
+Tiền tố: 'ltm4673'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTM4675
+
+Tiền tố: 'ltm4675'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTM4676
+
+Tiền tố: 'ltm4676'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTM4677
+
+Tiền tố: 'ltm4677'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ tuyến tính LTM4678
+
+Tiền tố: 'ltm4678'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự LTM4680
+
+Tiền tố: 'ltm4680'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự LTM4686
+
+Tiền tố: 'ltm4686'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự LTM4700
+
+Tiền tố: 'ltm4700'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+- LT7170 và LT7171 là Bộ chuyển mạch im lặng 20 A, 16 V, một pha hoặc hai pha
+- Bộ điều chỉnh giảm áp với Quản lý hệ thống điện kỹ thuật số.
+- LTC2974 và LTC2975 là bộ quản lý nguồn điện kỹ thuật số bốn.
+- LTC2978 là màn hình cung cấp năng lượng bát phân.
+- LTC2977 là pin thay thế tương thích cho LTC2978.
+- LTC2980 là Trình quản lý hệ thống điện 16 kênh, bao gồm hai LTC2977
+- trong một khuôn duy nhất. Con chip này được khởi tạo và báo cáo là hai con chip riêng biệt
+- trên hai địa chỉ bus I2C khác nhau.
+- LTC3880, LTC3882, LTC3886 và LTC3887 là các loại bước xuống nhiều pha đầu ra kép
+- Bộ điều khiển DC/DC.
+- LTC3883 là bộ điều khiển DC/DC hạ áp một pha.
+- LTM2987 là Trình quản lý hệ thống điện 16 kênh với hai LTC2977 plus
+- các thành phần bổ sung trên một khuôn duy nhất. Con chip được khởi tạo và báo cáo
+- dưới dạng hai chip riêng biệt trên hai địa chỉ bus I2C khác nhau.
+- LTM4675 là bộ điều chỉnh μModule 9A kép hoặc 18A đơn
+- LTM4676 là bộ điều chỉnh uModule 13A kép hoặc 26A đơn.
+- LTM4686 là bộ điều chỉnh uModule kép 10A hoặc 20A đơn.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng.
+
+Ví dụ: các lệnh sau sẽ tải trình điều khiển cho LTC2978 tại địa chỉ
+0x60 trên xe buýt I2C #1::
+
+# modprobe ltc2978
+	# echo ltc2978 0x60 > /sys/bus/i2c/devices/i2c-1/new_device
+
+
+Thuộc tính Sysfs
+----------------
+
+=====================================================================================
+in1_label "vin"
+
+in1_input Đo điện áp đầu vào.
+
+in1_min Điện áp đầu vào tối thiểu.
+
+in1_max Điện áp đầu vào tối đa.
+
+LTC2974, LTC2975, LTC2977, LTC2980, LTC2978,
+			Chỉ LTC2979 và LTM2987.
+
+in1_lcrit Điện áp đầu vào tối thiểu tới hạn.
+
+LTC2972, LTC2974, LTC2975, LTC2977, LTC2980, LTC2978,
+			Chỉ LTC2979 và LTM2987.
+
+in1_crit Điện áp đầu vào tối đa tới hạn.
+
+in1_min_alarm Báo động điện áp đầu vào thấp.
+
+in1_max_alarm Báo động điện áp đầu vào cao.
+
+LTC2972, LTC2974, LTC2975, LTC2977, LTC2980, LTC2978,
+			Chỉ LTC2979 và LTM2987.
+
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp.
+
+LTC2972, LTC2974, LTC2975, LTC2977, LTC2980, LTC2978,
+			Chỉ LTC2979 và LTM2987.
+
+in1_crit_alarm Báo động điện áp đầu vào tới hạn cao.
+
+in1_lowest Điện áp đầu vào thấp nhất.
+
+LTC2972, LTC2974, LTC2975, LTC2977, LTC2980, LTC2978,
+			và chỉ LTM2987.
+
+in1_highest Điện áp đầu vào cao nhất.
+
+in1_reset_history Đặt lại lịch sử điện áp đầu vào.
+
+trong[N]_label "vout[1-8]".
+
+- LT7170, LT7171: N=2
+			- LTC2972: N=2-3
+			- LTC2974, LTC2975: N=2-5
+			- LTC2977, LTC2979, LTC2980, LTM2987: N=2-9
+			- LTC2978: N=2-9
+			- LTC3880, LTC3882, LTC3884, LTC23886 LTC3887, LTC3889,
+			  LTC7880, LTM4644, LTM4675, LTM4676, LTM4677, LTM4678,
+			  LTM4680, LTM4700: N=2-3
+			- LTC3883: N=2
+			- LTC7841: N=2
+
+in[N]_input Đo điện áp đầu ra.
+
+in[N]_min Điện áp đầu ra tối thiểu.
+
+in[N]_max Điện áp đầu ra tối đa.
+
+in[N]_lcrit Điện áp đầu ra tối thiểu tới hạn.
+
+in[N]_crit Điện áp đầu ra tối đa tới hạn.
+
+in[N]_min_alarm Báo động điện áp đầu ra thấp.
+
+in[N]_max_alarm Báo động điện áp đầu ra cao.
+
+in[N]_lcrit_alarm Báo động điện áp đầu ra cực thấp.
+
+in[N]_crit_alarm Cảnh báo điện áp đầu ra tới hạn cao.
+
+in[N]_lowest Điện áp đầu ra thấp nhất.
+
+Chỉ LTC2972, LTC2974, LTC2975 và LTC2978.
+
+in[N]_highest Điện áp đầu ra cao nhất.
+
+in[N]_reset_history Đặt lại lịch sử điện áp đầu ra.
+
+temp[N]_input Đo nhiệt độ.
+
+- Trên LT7170 và LT7171, temp1 báo chip
+			  nhiệt độ.
+			- Trên LTC2972, temp[1-2] báo cáo nhiệt độ bên ngoài,
+			  và temp 3 báo cáo nhiệt độ chip.
+			- Trên LTC2974 và LTC2975, báo cáo tạm thời [1-4] bên ngoài
+			  nhiệt độ và temp5 báo cáo nhiệt độ chip.
+			- Trên LTC2977, LTC2979, LTC2980, LTC2978 và LTM2987,
+			  chỉ hỗ trợ một phép đo nhiệt độ và
+			  báo cáo nhiệt độ chip.
+			- Trên LTC3880, LTC3882, LTC3886, LTC3887, LTC3889,
+			  LTM4664, LTM4675, LTM4676, LTM4677, LTM4678, LTM4680,
+			  và báo cáo bên ngoài LTM4700, temp1 và temp2
+			  nhiệt độ và temp3 báo cáo nhiệt độ chip.
+			- Trên LTC3883, temp1 báo nhiệt độ bên ngoài,
+			  và temp2 báo cáo nhiệt độ chip.
+
+temp[N]_min Nhiệt độ tối thiểu.
+
+LTC2972, LTC2974, LCT2977, LTM2980, LTC2978,
+			Chỉ LTC2979 và LTM2987.
+
+temp[N]_max Nhiệt độ tối đa.
+
+temp[N]_lcrit Nhiệt độ thấp tới hạn.
+
+temp[N]_crit Nhiệt độ cao tới hạn.
+
+temp[N]_min_alarm Báo động nhiệt độ thấp.
+
+LTC2972, LTC2974, LTC2975, LTC2977, LTM2980, LTC2978,
+			Chỉ LTC2979 và LTM2987.
+
+temp[N]_max_alarm Báo động nhiệt độ cao.
+
+
+temp[N]_lcrit_alarm Báo động nhiệt độ thấp tới mức tới hạn.
+
+temp[N]_crit_alarm Báo động nhiệt độ cao tới mức tới hạn.
+
+temp[N]_lowest Nhiệt độ đo được thấp nhất.
+
+- LTC2972, LTC2974, LTC2975, LTC2977, LTM2980, LTC2978,
+			  Chỉ LTC2979 và LTM2987.
+			- Không hỗ trợ cảm biến nhiệt độ chip trên LTC2974
+			  và LTC2975.
+
+temp[N]_highest Nhiệt độ đo được cao nhất.
+
+Không hỗ trợ bật cảm biến nhiệt độ chip
+			LTC2974 và LTC2975.
+
+temp[N]_reset_history Đặt lại lịch sử nhiệt độ.
+
+Không hỗ trợ bật cảm biến nhiệt độ chip
+			LTC2974 và LTC2975.
+
+power1_label "pin". Chỉ LTC3883 và LTC3886.
+
+power1_input Đo công suất đầu vào.
+
+power[N]_label "bĩu môi[1-4]".
+
+- LTC2972: N=1-2
+			- LTC2974, LTC2975: N=1-4
+			- LTC2977, LTC2979, LTC2980, LTM2987: Không được hỗ trợ
+			- LTC2978: Không được hỗ trợ
+			- LTC3880, LTC3882, LTC3884, LTC3886, LTC3887, LTC3889,
+			  LTM4664, LTM4675, LTM4676, LTM4677, LTM4678, LTM4680,
+			  LTM4700: N=1-2
+			- LTC3883: N=2
+
+power[N]_input Đo công suất đầu ra.
+
+curr1_label "iin".
+
+LT7170, LT7171, LTC3880, LTC3883, LTC3884, LTC3886,
+			LTC3887, LTC3889, LTM4644, LTM4675, LTM4676, LTM4677,
+			Chỉ LTM4678, LTM4680 và LTM4700.
+
+curr1_input Đo dòng điện đầu vào.
+
+curr1_max Dòng điện đầu vào tối đa.
+
+curr1_max_alarm Nhập cảnh báo hiện tại ở mức cao.
+
+curr1_highest Dòng điện đầu vào cao nhất.
+
+Chỉ LTC3883 và LTC3886.
+
+curr1_reset_history Đặt lại lịch sử hiện tại đầu vào.
+
+Chỉ LTC3883 và LTC3886.
+
+Curr[N]_label "iout[1-4]".
+
+- LT7170, LT7171: N=1
+			-LTC2972: N-1-2
+			- LTC2974, LTC2975: N=1-4
+			- LTC2977, LTC2979, LTC2980, LTM2987: không được hỗ trợ
+			- LTC2978: không được hỗ trợ
+			- LTC3880, LTC3882, LTC3884, LTC3886, LTC3887, LTC3889,
+			  LTM4664, LTM4675, LTM4676, LTM4677, LTM4678, LTM4680,
+			  LTM4700: N=2-3
+			- LTC3883: N=2
+			- LTC7841: N=2
+
+curr[N]_input Đo dòng điện đầu ra.
+
+Curr[N]_max Dòng điện đầu ra tối đa.
+
+Curr[N]_crit Dòng điện đầu ra cao tới hạn.
+
+curr[N]_lcrit Dòng điện đầu ra cực thấp tới hạn.
+
+Chỉ LTC2972, LTC2974 và LTC2975.
+
+curr[N]_max_alarm Xuất ra cảnh báo hiện tại ở mức cao.
+
+curr[N]_crit_alarm Xuất ra cảnh báo tới hạn hiện tại ở mức cao.
+
+curr[N]_lcrit_alarm Xuất ra cảnh báo tới hạn hiện tại ở mức thấp.
+
+Chỉ LTC2972, LTC2974 và LTC2975.
+
+curr[N]_lowest Dòng điện đầu ra thấp nhất.
+
+Chỉ LTC2972, LTC2974 và LTC2975.
+
+curr[N]_highest Dòng điện đầu ra cao nhất.
+
+curr[N]_reset_history Đặt lại lịch sử hiện tại đầu ra.
+=====================================================================================

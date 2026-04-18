@@ -1,0 +1,761 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/gpu/i915.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============================
+ Trình điều khiển Intel GFX drm/i915
+===========================
+
+Trình điều khiển drm/i915 hỗ trợ tất cả (ngoại trừ một số lỗi rất sớm).
+model) tích hợp chipset GFX với cả màn hình và kết xuất Intel
+khối. Điều này không bao gồm một tập hợp các nền tảng SoC có đơn vị kết xuất SGX,
+những cái này có hỗ trợ cơ bản thông qua trình điều khiển gma500 drm.
+
+Cơ sở hạ tầng trình điều khiển cốt lõi
+==========================
+
+Phần này bao gồm cơ sở hạ tầng trình điều khiển cốt lõi được sử dụng bởi cả màn hình
+và các bộ phận GEM của trình điều khiển.
+
+Quản lý năng lượng thời gian chạy
+------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/intel_runtime_pm.c
+   :doc: runtime pm
+
+.. kernel-doc:: drivers/gpu/drm/i915/intel_runtime_pm.c
+   :internal:
+
+.. kernel-doc:: drivers/gpu/drm/i915/intel_uncore.c
+   :internal:
+
+Xử lý ngắt
+------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_irq.c
+   :doc: interrupt handling
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_irq.c
+   :functions: intel_irq_init intel_irq_init_hw intel_hpd_init
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_irq.c
+   :functions: intel_irq_suspend
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_irq.c
+   :functions: intel_irq_resume
+
+Hỗ trợ khách Intel GVT-g (vGPU)
+-------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_vgpu.c
+   :doc: Intel GVT-g guest support
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_vgpu.c
+   :internal:
+
+Hỗ trợ máy chủ Intel GVT-g (kiểu thiết bị vGPU)
+-------------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/intel_gvt.c
+   :doc: Intel GVT-g host support
+
+.. kernel-doc:: drivers/gpu/drm/i915/intel_gvt.c
+   :internal:
+
+cách giải quyết
+-----------
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_workarounds.c
+   :doc: Hardware workarounds
+
+Xử lý phần cứng hiển thị
+=========================
+
+Phần này bao gồm mọi thứ liên quan đến phần cứng hiển thị bao gồm
+cơ sở hạ tầng thiết lập chế độ, xử lý mặt phẳng, sprite và con trỏ và
+hiển thị, thăm dò đầu ra và các chủ đề liên quan.
+
+Cơ sở hạ tầng cài đặt chế độ
+---------------------------
+
+Trình điều khiển i915 cho đến nay là trình điều khiển DRM duy nhất không sử dụng
+mã trợ giúp DRM phổ biến để thực hiện các trình tự cài đặt chế độ. Như vậy nó có
+cơ sở hạ tầng được thiết kế riêng để thực thi cấu hình hiển thị
+thay đổi.
+
+Theo dõi bộ đệm trước
+--------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_frontbuffer.c
+   :doc: frontbuffer tracking
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_frontbuffer.h
+   :internal:
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_frontbuffer.c
+   :internal:
+
+Hiển thị báo cáo thiếu FIFO
+-------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_fifo_underrun.c
+   :doc: fifo underrun handling
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_fifo_underrun.c
+   :internal:
+
+Cấu hình máy bay
+-------------------
+
+Phần này bao gồm cấu hình và thành phần mặt phẳng với phần chính
+mặt phẳng, họa tiết, con trỏ và lớp phủ. Điều này bao gồm cơ sở hạ tầng
+để thực hiện cập nhật vsync'ed nguyên tử của tất cả trạng thái này và cũng được liên kết chặt chẽ
+các chủ đề như thiết lập và tính toán hình mờ, nén bộ đệm khung và
+bảng điều khiển tự làm mới.
+
+Người trợ giúp máy bay nguyên tử
+--------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_plane.c
+   :doc: atomic plane helpers
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_plane.c
+   :internal:
+
+Lật trang không đồng bộ
+----------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_display.c
+   :doc: asynchronous flip implementation
+
+Thăm dò đầu ra
+--------------
+
+Phần này bao gồm việc thăm dò đầu ra và cơ sở hạ tầng liên quan như
+mã phát hiện và giảm thiểu cơn bão ngắt hotplug. Lưu ý rằng
+Trình điều khiển i915 vẫn sử dụng hầu hết mã trợ giúp DRM phổ biến cho đầu ra
+thăm dò, vì vậy những phần đó áp dụng đầy đủ.
+
+Cắm nóng
+-------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_hotplug.c
+   :doc: Hotplug
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_hotplug.c
+   :internal:
+
+Âm thanh độ nét cao
+---------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_audio.c
+   :doc: High Definition Audio over HDMI and Display Port
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_audio.c
+   :internal:
+
+.. kernel-doc:: include/drm/intel/i915_component.h
+   :internal:
+
+Hỗ trợ âm thanh Intel HDMI LPE
+----------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_lpe_audio.c
+   :doc: LPE Audio integration for HDMI or DP playback
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_lpe_audio.c
+   :internal:
+
+Bảng điều khiển Tự làm mới PSR (PSR/SRD)
+--------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_psr.c
+   :doc: Panel Self Refresh (PSR/SRD)
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_psr.c
+   :internal:
+
+Nén bộ đệm khung (FBC)
+------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_fbc.c
+   :doc: Frame Buffer Compression (FBC)
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_fbc.c
+   :internal:
+
+Chuyển đổi tốc độ làm mới màn hình (DRRS)
+-------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_drrs.c
+   :doc: Display Refresh Rate Switching (DRRS)
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_drrs.c
+   :internal:
+
+DPIO
+----
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dpio_phy.c
+   :doc: DPIO
+
+Hỗ trợ phần mềm DMC
+--------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dmc.c
+   :doc: DMC Firmware Support
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dmc.c
+   :internal:
+
+Hàng đợi lật DMC
+--------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_flipq.c
+   :doc: DMC Flip Queue
+
+Hỗ trợ khóa đánh thức DMC
+--------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dmc_wl.c
+   :doc: DMC wakelock support
+
+Bảng BIOS Video (VBT)
+----------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_bios.c
+   :doc: Video BIOS Table (VBT)
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_bios.c
+   :internal:
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_vbt_defs.h
+   :internal:
+
+Hiển thị đồng hồ
+--------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_cdclk.c
+   :doc: CDCLK / RAWCLK
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_cdclk.c
+   :internal:
+
+Hiển thị PLL
+------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dpll_mgr.c
+   :doc: Display PLLs
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dpll_mgr.c
+   :internal:
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dpll_mgr.h
+   :internal:
+
+Bộ đệm trạng thái hiển thị
+--------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dsb.c
+   :doc: DSB
+
+.. kernel-doc:: drivers/gpu/drm/i915/display/intel_dsb.c
+   :internal:
+
+Lập trình GT
+==============
+
+Các thanh ghi Multicast/Sao chép (MCR)
+------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_gt_mcr.c
+   :doc: GT Multicast/Replicated (MCR) Register Support
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_gt_mcr.c
+   :internal:
+
+Quản lý bộ nhớ và gửi lệnh
+========================================
+
+Phần này bao gồm tất cả những thứ liên quan đến việc triển khai GEM trong
+trình điều khiển i915.
+
+Thông tin cơ bản về Intel GPU
+----------------
+
+Intel GPU có nhiều động cơ. Có một số loại động cơ:
+
+- Trình truyền lệnh kết xuất (RCS). Một công cụ để hiển thị 3D và
+  thực hiện tính toán.
+- Bộ truyền lệnh làm mờ (BCS). Một động cơ để thực hiện việc làm mờ và/hoặc
+  thao tác sao chép.
+- Trình truyền lệnh video. Một công cụ được sử dụng để mã hóa và giải mã video. Ngoài ra
+  đôi khi được gọi là 'BSD' trong tài liệu phần cứng.
+- Bộ truyền lệnh nâng cao video (VECS). Một công cụ để cải thiện video.
+  Đôi khi còn được gọi là 'VEBOX' trong tài liệu phần cứng.
+- Bộ truyền lệnh tính toán (CCS). Một công cụ có quyền truy cập vào phương tiện truyền thông và
+  Đường ống GPGPU, nhưng không phải đường ống 3D.
+- Bộ điều khiển bảo mật đồ họa (GSCCS). Một động cơ chuyên dụng cho nội bộ
+  giao tiếp với bộ điều khiển GSC về các tác vụ liên quan đến bảo mật như
+  Bảo vệ nội dung số băng thông cao (HDCP), Đường dẫn xe được bảo vệ (PXP),
+  và xác thực phần mềm HuC.
+
+Dòng Intel GPU là dòng GPU tích hợp sử dụng Unified
+Truy cập bộ nhớ. Để GPU "làm việc", không gian người dùng sẽ cung cấp
+Bộ đệm hàng loạt GPU thông qua một trong các ioctls ZZ0001ZZ
+hoặc ZZ0002ZZ. Hầu hết các bộ đệm theo lô như vậy sẽ
+hướng dẫn GPU thực hiện công việc (ví dụ: kết xuất) và công việc đó
+cần bộ nhớ để đọc và bộ nhớ để ghi. Tất cả bộ nhớ
+được gói gọn trong các đối tượng bộ đệm GEM (thường được tạo bằng ioctl
+ZZ0003ZZ). Một ioctl cung cấp bộ đệm hàng loạt cho GPU
+để tạo cũng sẽ liệt kê tất cả các đối tượng bộ đệm GEM mà bộ đệm bó đọc
+và/hoặc viết. Để biết chi tiết triển khai quản lý bộ nhớ, hãy xem
+ZZ0000ZZ.
+
+Trình điều khiển i915 cho phép không gian người dùng tạo ngữ cảnh thông qua ioctl
+ZZ0000ZZ được xác định bằng mã 32 bit
+số nguyên. Bối cảnh như vậy phải được không gian người dùng xem là -loosely-
+tương tự như ý tưởng về quy trình CPU của một hệ điều hành. i915
+trình điều khiển đảm bảo rằng các lệnh được đưa ra cho một ngữ cảnh cố định sẽ được
+được thực thi sao cho việc ghi lệnh đã ban hành trước đó được nhìn thấy bởi
+đọc các lệnh sau. Hành động được đưa ra giữa các bối cảnh khác nhau
+(ngay cả khi từ cùng một bộ mô tả tệp) NOT được đảm bảo rằng
+và cách duy nhất để đồng bộ hóa giữa các ngữ cảnh (thậm chí từ cùng một ngữ cảnh
+mô tả tập tin) thông qua việc sử dụng hàng rào. Ít nhất là từ xa trở lại
+Gen4, cũng có bối cảnh mang theo bối cảnh GPU HW;
+bối cảnh CTNH về cơ bản (ít nhất là) là trạng thái của GPU.
+Ngoài các đảm bảo về thứ tự, kernel sẽ khôi phục GPU
+trạng thái thông qua ngữ cảnh CTNH khi các lệnh được đưa ra cho một ngữ cảnh, điều này sẽ tiết kiệm
+không gian người dùng cần khôi phục (ít nhất là) trạng thái GPU tại
+bắt đầu của mỗi bộ đệm. Các ioctls không được dùng nữa để gửi bộ đệm theo lô
+công việc có thể chuyển ID đó (ở các bit thấp hơn của drm_i915_gem_execbuffer2::rsvd1)
+để xác định bối cảnh nào sẽ sử dụng với lệnh.
+
+GPU có không gian địa chỉ và quản lý bộ nhớ riêng. Hạt nhân
+trình điều khiển duy trì bảng dịch bộ nhớ cho GPU. Dành cho người lớn tuổi
+GPU (tức là những GPU trước Gen8), có một bản dịch toàn cầu duy nhất như vậy
+bảng, Bảng dịch đồ họa toàn cầu (GTT). Dành cho thế hệ mới hơn
+GPU, mỗi bối cảnh đều có bảng dịch riêng, được gọi là Per-Process
+Bảng dịch đồ họa (PPGTT). Điều đáng lưu ý là mặc dù
+PPGTT được đặt tên theo từng quy trình, thực tế nó được đặt theo ngữ cảnh. Khi không gian người dùng
+gửi một bộ đệm bó, hạt nhân sẽ duyệt danh sách các đối tượng bộ đệm GEM
+được sử dụng bởi batchbuffer và đảm bảo rằng không chỉ bộ nhớ của
+mỗi đối tượng bộ đệm GEM như vậy thường trú nhưng nó cũng hiện diện trong
+(PP)GTT. Nếu đối tượng bộ đệm GEM chưa được đặt trong (PP)GTT,
+sau đó nó được cấp một địa chỉ. Hai hậu quả của việc này là: hạt nhân
+cần chỉnh sửa bộ đệm đã gửi để ghi giá trị chính xác của
+địa chỉ GPU khi GEM BO được gán địa chỉ GPU và kernel
+có thể đuổi GEM BO khác khỏi (PP)GTT để tạo phòng địa chỉ
+cho một GEM BO khác. Do đó, các ioctls gửi bộ đệm theo lô
+để thực thi cũng bao gồm danh sách tất cả các vị trí trong bộ đệm
+tham khảo địa chỉ GPU để kernel có thể chỉnh sửa bộ đệm một cách chính xác.
+Quá trình này được gọi là tái định cư.
+
+Nguyên tắc khóa
+------------------
+
+.. note::
+   This is a description of how the locking should be after
+   refactoring is done. Does not necessarily reflect what the locking
+   looks like while WIP.
+
+#. Tất cả các quy tắc khóa và hợp đồng giao diện với giao diện trình điều khiển chéo
+   (dma-buf, dma_fence) cần được tuân theo.
+
+#. dma_resv sẽ là khóa ngoài cùng (khi cần) và ww_acquire_ctx
+   sẽ được nâng lên ở mức cao nhất và được truyền lại trong i915_gem_ctx
+   trong chuỗi cuộc gọi
+
+#. Trong khi giữ khóa lru/trình quản lý bộ nhớ (bạn thân, drm_mm, bất cứ thứ gì)
+   phân bổ bộ nhớ hệ thống không được phép
+
+#. Không lồng các khóa quản lý bộ nhớ/lru khác nhau vào nhau.
+   Lần lượt đưa chúng vào để cập nhật việc cấp phát bộ nhớ, dựa vào đối tượng
+   dma_resv ww_mutex để tuần tự hóa các hoạt động khác.
+
+#. Gợi ý cho khóa quản lý lru/bộ nhớ là chúng nhỏ
+   đủ để trở thành spinlocks.
+
+#. Tất cả các tính năng cần phải đi kèm với quá trình tự kiểm tra kernel toàn diện và/hoặc
+   Kiểm tra IGT khi thích hợp
+
+#. Tất cả các đường dẫn uAPI LMEM cần phải có khả năng khởi động lại hoàn toàn (_interruptible()
+   cho tất cả các khóa/chờ/ngủ)
+
+* Lỗi xử lý xác thực thông qua việc tiêm tín hiệu.
+	  Vẫn là chiến lược tốt nhất mà chúng tôi có để xác thực uAPI GEM
+          trường hợp góc.
+	  Phải được sử dụng quá mức trong IGT và chúng tôi cần kiểm tra
+	  rằng chúng tôi thực sự có phạm vi bao phủ đường dẫn đầy đủ cho tất cả các trường hợp lỗi.
+
+* -EDEADLK xử lý với ww_mutex
+
+Chi tiết triển khai quản lý BO GEM
+----------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_vma_types.h
+   :doc: Virtual Memory Address
+
+Trục xuất đối tượng bộ đệm
+----------------------
+
+Phần này ghi lại các chức năng giao diện để loại bỏ bộ đệm
+các đối tượng để tạo khoảng trống trong không gian địa chỉ gpu ảo. Lưu ý
+rằng điều này chủ yếu trực giao với việc thu hẹp bộ nhớ đệm của các đối tượng đệm, điều này
+có mục tiêu tạo bộ nhớ chính (được chia sẻ với gpu thông qua
+kiến trúc bộ nhớ hợp nhất) có sẵn.
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_gem_evict.c
+   :internal:
+
+Thu hẹp bộ nhớ đối tượng đệm
+------------------------------
+
+Phần này ghi lại chức năng giao diện để thu hẹp mức sử dụng bộ nhớ
+của bộ đệm đối tượng đệm. Thu nhỏ được sử dụng để làm bộ nhớ chính
+có sẵn. Lưu ý rằng điều này chủ yếu là trực giao với việc loại bỏ bộ đệm
+các đối tượng có mục tiêu tạo không gian trong không gian địa chỉ ảo gpu.
+
+.. kernel-doc:: drivers/gpu/drm/i915/gem/i915_gem_shrinker.c
+   :internal:
+
+Phân tích cú pháp bộ đệm hàng loạt
+-------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_cmd_parser.c
+   :doc: batch buffer command parser
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_cmd_parser.c
+   :internal:
+
+Thực thi bộ đệm hàng loạt của người dùng
+--------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/gem/i915_gem_context_types.h
+
+.. kernel-doc:: drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c
+   :doc: User command execution
+
+Lên lịch
+----------
+.. kernel-doc:: drivers/gpu/drm/i915/i915_scheduler_types.h
+   :functions: i915_sched_engine
+
+Vòng logic, bối cảnh vòng logic và các nhà thực thi
+--------------------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_execlists_submission.c
+   :doc: Logical Rings, Logical Ring Contexts and Execlists
+
+Lượt xem GTT toàn cầu
+----------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_vma_types.h
+   :doc: Global GTT views
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_gem_gtt.c
+   :internal:
+
+Hàng rào GTT và sự lộn xộn
+------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_ggtt_fencing.c
+   :internal:
+
+Xử lý hàng rào GTT toàn cầu
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_ggtt_fencing.c
+   :doc: fence register handling
+
+Chi tiết ốp lát và làm mờ phần cứng
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_ggtt_fencing.c
+   :doc: tiling swizzling details
+
+IOCTL xếp chồng đối tượng
+--------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/gem/i915_gem_tiling.c
+   :internal:
+
+.. kernel-doc:: drivers/gpu/drm/i915/gem/i915_gem_tiling.c
+   :doc: buffer object tiling
+
+Đối tượng được bảo vệ
+-----------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/pxp/intel_pxp.c
+   :doc: PXP
+
+.. kernel-doc:: drivers/gpu/drm/i915/pxp/intel_pxp_types.h
+
+Vi điều khiển
+================
+
+Bắt đầu từ gen9, ba bộ vi điều khiển có sẵn trên HW:
+vi điều khiển đồ họa (GuC), vi điều khiển HEVC/H.265 (HuC) và
+vi điều khiển hiển thị (DMC). Người lái xe chịu trách nhiệm bốc hàng
+phần sụn trên bộ vi điều khiển; phần mềm GuC và HuC được chuyển giao
+sang WOPCM bằng công cụ DMA, trong khi phần sụn DMC được viết thông qua MMIO.
+
+WOPCM
+-----
+
+Bố cục WOPCM
+~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/intel_wopcm.c
+   :doc: WOPCM Layout
+
+GuC
+---
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_guc.c
+   :doc: GuC
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_guc.h
+
+Bố cục phần mềm GuC
+~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_uc_fw_abi.h
+   :doc: Firmware Layout
+
+Quản lý bộ nhớ GuC
+~~~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_guc.c
+   :doc: GuC Memory Management
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_guc.c
+   :functions: intel_guc_allocate_vma
+
+
+Trình tải chương trình cơ sở dành riêng cho GuC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_guc_fw.c
+   :internal:
+
+Gửi lệnh dựa trên GuC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_guc_submission.c
+   :doc: GuC-based command submission
+
+GuC ABI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/abi/guc_messages_abi.h
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/abi/guc_communication_mmio_abi.h
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/abi/guc_communication_ctb_abi.h
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/abi/guc_actions_abi.h
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/abi/guc_klvs_abi.h
+
+HuC
+---
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_huc.c
+   :doc: HuC
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_huc.c
+   :functions: intel_huc_auth
+
+Quản lý bộ nhớ HuC
+~~~~~~~~~~~~~~~~~~~~~
+
+.. kernel-doc:: drivers/gpu/drm/i915/gt/uc/intel_huc.c
+   :doc: HuC Memory Management
+
+Bố cục phần mềm HuC
+~~~~~~~~~~~~~~~~~~~
+Bố cục của HuC FW giống với bố cục của GuC, xem ZZ0000ZZ
+
+DMC
+---
+Xem ZZ0000ZZ
+
+Truy tìm
+=======
+
+Phần này bao gồm tất cả những thứ liên quan đến các điểm theo dõi được triển khai
+trong trình điều khiển i915.
+
+i915_ppgtt_create và i915_ppgtt_release
+----------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_trace.h
+   :doc: i915_ppgtt_create and i915_ppgtt_release tracepoints
+
+i915_context_create và i915_context_free
+-----------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_trace.h
+   :doc: i915_context_create and i915_context_free tracepoints
+
+hoàn hảo
+====
+
+Tổng quan
+--------
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :doc: i915 Perf Overview
+
+So sánh với Core Perf
+-------------------------
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :doc: i915 Perf History and Comparison with Core Perf
+
+Điểm đầu vào của trình điều khiển i915
+------------------------
+
+Phần này bao gồm các điểm vào được xuất bên ngoài i915_perf.c sang
+tích hợp với drm/i915 và xử lý ZZ0000ZZ ioctl.
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_init
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_fini
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_register
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_unregister
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_open_ioctl
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_release
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_add_config_ioctl
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_remove_config_ioctl
+
+i915 Dòng hoàn hảo
+----------------
+
+Phần này bao gồm các cấu trúc và chức năng theo ngữ nghĩa bất khả tri
+để biểu diễn luồng hoàn hảo i915 FD và các thao tác tệp liên quan.
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf_types.h
+   :functions: i915_perf_stream
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf_types.h
+   :functions: i915_perf_stream_ops
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: read_properties_unlocked
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_open_ioctl_locked
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_destroy_locked
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_read
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_ioctl
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_enable_locked
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_disable_locked
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_poll
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_perf_poll_locked
+
+Dòng kiến ​​trúc quan sát i915 Perf
+-----------------------------------------
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf_types.h
+   :functions: i915_oa_ops
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_oa_stream_init
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_oa_read
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_oa_stream_enable
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_oa_stream_disable
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_oa_wait_unlocked
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :functions: i915_oa_poll_wait
+
+Các bộ phận bên trong i915 Perf khác
+-------------------------
+
+Phần này chỉ đơn giản bao gồm tất cả các nội dung hoàn thiện i915 hiện được ghi lại,
+không theo thứ tự cụ thể nào, nhưng có thể bao gồm một số tiện ích hoặc nền tảng nhỏ hơn
+chi tiết cụ thể hơn được tìm thấy trong các phần cấp cao hơn.
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_perf.c
+   :internal:
+   :no-identifiers:
+       i915_perf_init
+       i915_perf_fini
+       i915_perf_register
+       i915_perf_unregister
+       i915_perf_open_ioctl
+       i915_perf_release
+       i915_perf_add_config_ioctl
+       i915_perf_remove_config_ioctl
+       read_properties_unlocked
+       i915_perf_open_ioctl_locked
+       i915_perf_destroy_locked
+       i915_perf_read i915_perf_ioctl
+       i915_perf_enable_locked
+       i915_perf_disable_locked
+       i915_perf_poll i915_perf_poll_locked
+       i915_oa_stream_init i915_oa_read
+       i915_oa_stream_enable
+       i915_oa_stream_disable
+       i915_oa_wait_unlocked
+       i915_oa_poll_wait
+
+Phong cách
+=====
+
+Cơ sở mã trình điều khiển drm/i915 có một số quy tắc kiểu bên cạnh (và, trong một số
+trường hợp, đi chệch khỏi) phong cách mã hóa hạt nhân.
+
+Đăng ký kiểu định nghĩa macro
+-------------------------------
+
+Hướng dẫn về phong cách cho ZZ0000ZZ.
+
+.. kernel-doc:: drivers/gpu/drm/i915/i915_reg.h
+   :doc: The i915 register macro definition style guide
+
+.. _i915-usage-stats:
+
+Triển khai thống kê sử dụng máy khách i915 DRM
+==========================================
+
+Trình điều khiển drm/i915 triển khai thông số thống kê sử dụng máy khách DRM như
+được ghi lại trong ZZ0000ZZ.
+
+Ví dụ về đầu ra hiển thị các cặp giá trị khóa được triển khai và toàn bộ
+các tùy chọn định dạng hiện có thể có:
+
+::
+
+vị trí: 0
+      cờ: 0100002
+      mnt_id: 21
+      trình điều khiển drm: i915
+      drm-pdev: 0000:00:02.0
+      drm-client-id: 7
+      drm-engine-render: 9288864723 ns
+      bản sao động cơ drm: 2035071108 ns
+      drm-engine-video: 0 ns
+      drm-động cơ-công suất-video: 2
+      drm-engine-video-nâng cao: 0 ns
+
+Tên khóa ZZ0000ZZ có thể có là: ZZ0001ZZ, ZZ0002ZZ, ZZ0003ZZ và
+ZZ0004ZZ.

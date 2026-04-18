@@ -1,0 +1,87 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ina233.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ina233
+====================
+
+Chip được hỗ trợ:
+
+* TI INA233
+
+Tiền tố: 'ina233'
+
+* Bảng dữ liệu
+
+Có sẵn công khai tại trang web TI: ZZ0000ZZ
+
+Tác giả: Leo Yang <leo.yang.sy0@gmail.com>
+
+Ghi chú sử dụng
+-----------
+
+Giá trị điện trở shunt có thể được cấu hình bằng thuộc tính cây thiết bị;
+xem Tài liệu/devicetree/binds/hwmon/ti,ina2xx.yaml để biết chi tiết.
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho TI INA233.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp shunt:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho dòng điện đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho nguồn điện đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ

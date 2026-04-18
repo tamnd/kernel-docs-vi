@@ -1,0 +1,52 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/mcp3021.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân MCP3021
+=====================
+
+Chip được hỗ trợ:
+
+* Công nghệ vi mạch MCP3021
+
+Tiền tố: 'mcp3021'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Công nghệ vi mạch MCP3221
+
+Tiền tố: 'mcp3221'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+
+tác giả:
+
+- Hồ Minh Khải
+   - Sven Schuchmann <schuchmann@schleissheimer.de>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Microchip Technology MCP3021 và
+Chip MCP3221.
+
+Microchip Technology Inc. MCP3021 là A/D xấp xỉ liên tiếp
+bộ chuyển đổi (ADC) với độ phân giải 10 bit. MCP3221 có độ phân giải 12 bit.
+
+Các thiết bị này cung cấp một đầu vào duy nhất với mức tiêu thụ điện năng rất thấp.
+Giao tiếp với MCP3021/MCP3221 được thực hiện bằng I2C 2 dây
+giao diện tương thích. Các chế độ I2C tiêu chuẩn (100 kHz) và Nhanh (400 kHz) là
+có sẵn. Địa chỉ thiết bị I2C mặc định là 0x4d (liên hệ với Microchip
+nhà máy để có thêm tùy chọn địa chỉ).

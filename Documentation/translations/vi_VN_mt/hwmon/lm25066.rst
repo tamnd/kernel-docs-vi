@@ -1,0 +1,153 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/lm25066.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân lm25066
+=====================
+
+Chip được hỗ trợ:
+
+* TI LM25056
+
+Tiền tố: 'lm25056'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM25066
+
+Tiền tố: 'lm25066'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM5064
+
+Tiền tố: 'lm5064'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM5066
+
+Tiền tố: 'lm5066'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Dụng cụ Texas LM5066I
+
+Tiền tố: 'lm5066i'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho National Semiconductor / TI LM25056,
+LM25066, LM5064 và LM5066/LM5066I Quản lý, giám sát nguồn điện,
+IC điều khiển và bảo vệ.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+Giá trị điện trở shunt (giác quan) có thể được cấu hình bằng thuộc tính cây thiết bị;
+xem Documentation/devicetree/binds/hwmon/pmbus/ti,lm25066.yaml để biết chi tiết.
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
+thuộc tính chỉ đọc.
+
+====================================================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào.
+in1_average Điện áp đầu vào đo được trung bình.
+in1_min Điện áp đầu vào tối thiểu.
+in1_max Điện áp đầu vào tối đa.
+in1_min_alarm Báo động điện áp đầu vào thấp.
+in1_max_alarm Báo động điện áp đầu vào cao.
+
+in2_label "vmon"
+in2_input Đo điện áp trên chân VAUX
+in2_min Điện áp VAUX tối thiểu (chỉ LM25056).
+in2_max Điện áp VAUX tối đa (chỉ LM25056).
+báo động điện áp thấp in2_min_alarm VAUX (chỉ LM25056).
+báo động điện áp cao in2_max_alarm VAUX (chỉ LM25056).
+
+in3_label "vout1"
+			Không được hỗ trợ trên LM25056.
+in3_input Đo điện áp đầu ra.
+in3_average Điện áp đầu ra đo được trung bình.
+in3_min Điện áp đầu ra tối thiểu.
+in3_min_alarm Báo động điện áp đầu ra thấp.
+
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào.
+curr1_average Dòng điện đầu vào đo được trung bình.
+curr1_max Dòng điện đầu vào tối đa.
+curr1_max_alarm Nhập cảnh báo hiện tại ở mức cao.
+
+power1_label "pin"
+power1_input Đo công suất đầu vào.
+power1_average Công suất đầu vào đo được trung bình.
+power1_max Giới hạn công suất đầu vào tối đa.
+power1_alarm Báo động nguồn đầu vào
+power1_input_highest Công suất tối đa lịch sử.
+power1_reset_history Viết bất kỳ giá trị nào để thiết lập lại lịch sử công suất tối đa.
+
+temp1_input Đo nhiệt độ.
+temp1_max Nhiệt độ tối đa.
+temp1_crit Nhiệt độ cao tới hạn.
+temp1_max_alarm Báo động nhiệt độ chip cao.
+temp1_crit_alarm Báo động nhiệt độ chip tới hạn cao.
+====================================================================================

@@ -1,0 +1,215 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/adm9240.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân adm9240
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự ADM9240
+
+Tiền tố: 'adm9240'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Thiết bị Analog
+
+ZZ0000ZZ
+
+* Chất bán dẫn Dallas DS1780
+
+Tiền tố: 'ds1780'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web của Dallas Semiconductor (Maxim)
+
+ZZ0000ZZ
+
+* Nhà bán dẫn quốc gia LM81
+
+Tiền tố: 'lm81'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: Có sẵn công khai tại trang web National Semiconductor
+
+ZZ0000ZZ
+
+tác giả:
+    - Frodo Looijaard <frodol@dds.nl>,
+    - Philip Edelbrock <phil@netroedge.com>,
+    - Michiel Rook <michiel@grendelproject.nl>,
+    - Grant Coady <gcoady.lk@gmail.com> kèm theo hướng dẫn
+      từ Jean Delvare <jdelvare@suse.de>
+
+Giao diện
+---------
+Các địa chỉ I2C được liệt kê ở trên giả sử BIOS không thay đổi địa chỉ
+địa chỉ 5 bit của chip MSB. Mỗi chip báo cáo một nhà sản xuất duy nhất
+mã nhận dạng cũng như mức sửa đổi/bước bước của chip.
+
+Sự miêu tả
+-----------
+[Từ ADM9240] ADM9240 là màn hình phần cứng hệ thống hoàn chỉnh dành cho
+hệ thống dựa trên bộ vi xử lý, cung cấp phép đo và so sánh giới hạn
+tối đa bốn nguồn điện và hai điện áp lõi bộ xử lý, cộng thêm
+nhiệt độ, hai tốc độ quạt và sự xâm nhập của khung máy. Các giá trị đo được có thể
+được đọc thông qua Bus quản lý hệ thống nối tiếp tương thích I2C và các giá trị
+để so sánh giới hạn có thể được lập trình trên cùng một bus nối tiếp. các
+xấp xỉ liên tiếp tốc độ cao ADC cho phép lấy mẫu thường xuyên tất cả
+các kênh analog để đảm bảo đáp ứng ngắt nhanh với bất kỳ tín hiệu vượt quá giới hạn nào
+đo lường.
+
+ADM9240, DS1780 và LM81 tương thích với đăng ký, sau đây
+chi tiết là điểm chung của ba con chip. Sự khác biệt về chip được mô tả
+sau phần này.
+
+
+Số đo
+------------
+Chu kỳ đo
+
+Trình điều khiển adm9240 sẽ đọc số đo không quá một lần
+mỗi hai giây. Không gian người dùng có thể đọc giao diện sysfs nhanh hơn
+tốc độ cập nhật đo lường và sẽ nhận được dữ liệu được lưu trong bộ nhớ đệm từ hầu hết
+phép đo gần đây.
+
+ADM9240 có chu kỳ đo nhiệt độ và điện áp 320us rất nhanh
+với các chu kỳ đo tốc độ quạt độc lập đếm mức tăng xen kẽ
+các cạnh của đầu vào tacho quạt.
+
+Chu kỳ đo DS1780 là khoảng một lần mỗi giây bao gồm cả tốc độ quạt.
+
+Chu kỳ đo LM81 là khoảng một lần trên 400ms bao gồm cả tốc độ quạt.
+Chế độ đo nhiệt độ mở rộng 12 bit LM81 không được hỗ trợ.
+
+Nhiệt độ
+-----------
+Nhiệt độ trên chip được báo cáo là độ C dưới dạng dữ liệu được ký 9 bit
+với độ phân giải 0,5 độ C. Giới hạn nhiệt độ cao và thấp
+là dữ liệu được ký 8 bit với độ phân giải một độ C.
+
+Báo động nhiệt độ được xác nhận khi nhiệt độ vượt quá giới hạn cao,
+và bị xóa khi nhiệt độ giảm xuống dưới giá trị temp1_max_hyst.
+
+Tốc độ quạt
+---------
+Hai đầu vào tacho quạt được cung cấp, cổng ADM9240 có tần số 22,5kHz bên trong
+đồng hồ thông qua bộ chia đến bộ đếm 8 bit. Tốc độ quạt (rpm) được tính bằng:
+
+vòng/phút = (22500 * 60) / (đếm * dải phân cách)
+
+Bộ chia đồng hồ quạt tự động
+
+* Người dùng đặt giới hạn 0 đến fan_min
+
+- báo động tốc độ thấp bị vô hiệu hóa
+    - Bộ chia đồng hồ quạt không thay đổi
+    - bật bộ điều chỉnh đồng hồ quạt tự động để đọc tốc độ quạt hợp lệ
+
+* Người dùng đặt giới hạn fan_min quá thấp
+
+- kích hoạt báo động tốc độ thấp
+    - bộ chia đồng hồ quạt được đặt ở mức tối đa
+    - fan_min được đặt thành giá trị đăng ký 254 tương ứng
+      tới 664 vòng/phút trên adm9240
+    - báo động tốc độ thấp sẽ được xác nhận nếu tốc độ quạt
+      nhỏ hơn tốc độ đo được tối thiểu
+    - vô hiệu hóa điều chỉnh đồng hồ quạt tự động
+
+* Người dùng cài đặt tốc độ quạt hợp lý
+
+- kích hoạt báo động tốc độ thấp
+    - Bộ chia đồng hồ quạt phù hợp với fan_min
+    - bật bộ điều chỉnh đồng hồ quạt tự động: điều chỉnh fan_min
+
+* Người dùng đặt giới hạn tốc độ quạt cao thấp một cách vô lý
+
+- độ phân giải của giới hạn tốc độ thấp có thể bị giảm
+    - báo động sẽ được xác nhận
+    - bật bộ điều chỉnh đồng hồ quạt tự động: điều chỉnh fan_min
+
+* tốc độ quạt có thể được hiển thị bằng 0 cho đến khi bộ chia đồng hồ quạt tự động
+    bộ điều chỉnh đưa bộ chia đồng hồ tốc độ quạt trở lại phép đo chip
+    phạm vi, điều này sẽ xảy ra trong một vài chu kỳ đo.
+
+Đầu ra tương tự
+-------------
+Đầu ra analog cung cấp tín hiệu từ 0 đến 1,25 volt dành cho thiết bị bên ngoài
+mạch khuếch đại tốc độ quạt. Đầu ra analog được đặt ở giá trị tối đa trên
+bật nguồn hoặc thiết lập lại. Điều này không ảnh hưởng nhiều đến bài kiểm tra Intel SE440BX-2.
+
+Màn hình điện áp
+
+^^ ^^^ ^^ ^^ ^^ ^^ ^^ ^^
+
+Đo điện áp (IN) được chia tỷ lệ nội bộ:
+
+=== ====================== ========== ===========
+    độ phân giải tối đa danh nghĩa nhãn nr
+		      mV mV mV
+    === ====================== ========== ===========
+    0 +2.5V 2500 3320 13.0
+    1 Vccp1 2700 3600 14.1
+    2 +3.3V 3300 4380 17.2
+    3 +5V 5000 6640 26.0
+    4 +12V 12000 15940 62.5
+    5 Vccp2 2700 3600 14.1
+    === ====================== ========== ===========
+
+Giá trị đọc là giá trị 8 bit không dấu, đo điện áp danh định là
+được biểu thị bằng số đọc là 192, bằng 3/4 phạm vi đo.
+
+Một cảnh báo sẽ được xác nhận khi có bất kỳ điện áp nào vượt quá hoặc dưới giới hạn đã đặt.
+
+Trình điều khiển báo cáo và chấp nhận giới hạn điện áp được chia theo bảng trên.
+
+Màn hình VID
+-----------
+Con chip có năm đầu vào để đọc VID 5 bit và báo cáo giá trị mV
+dựa trên loại CPU được phát hiện.
+
+Xâm nhập khung gầm
+-----------------
+Một cảnh báo được xác nhận khi chân CI hoạt động ở mức cao. ADM9240
+Bảng dữ liệu có một ví dụ về hoạt động của cảm biến nhiệt độ bên ngoài
+cái chốt này. Trên Intel SE440BX-2, tiêu đề Chassis Intrusion là
+được nối với một công tắc thường mở.
+
+ADM9240 cung cấp một cống mở bên trong trên dòng này và có thể xuất ra
+xung thấp hoạt động 20 ms để thiết lập lại chốt Xâm nhập khung gầm bên ngoài.
+
+Xóa chốt CI bằng cách ghi giá trị 0 vào tệp sysfs intrusion0_alarm.
+
+Cờ báo động được báo cáo là từ 16 bit
+
+=== ==========================================
+    nhận xét nhãn bit
+    === ==========================================
+     0 +2,5 V_Error vượt quá giới hạn cao hoặc thấp
+     1 VCCP_Error vượt quá giới hạn cao hoặc thấp
+     2 +3.3 V_Error vượt quá giới hạn cao hoặc thấp
+     3 +5 V_Error vượt quá giới hạn cao hoặc thấp
+     4 Lỗi nhiệt độ Temp_Error
+     6 FAN1_Error vượt quá giới hạn thấp của quạt
+     7 FAN2_Error vượt quá giới hạn thấp của quạt
+     8 +12 V_Error vượt quá giới hạn cao hoặc thấp
+     9 VCCP2_Lỗi vượt quá giới hạn cao hoặc thấp
+    12 Chân CI Chassis_Error lên cao
+    === ==========================================
+
+Các bit còn lại được dành riêng và do đó không được xác định. Điều quan trọng cần lưu ý
+các bit cảnh báo có thể bị xóa khi đọc, vùng người dùng có thể chốt các cảnh báo và
+cung cấp cho người dùng cuối một phương pháp để xóa bộ nhớ cảnh báo.

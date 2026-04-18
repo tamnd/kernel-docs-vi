@@ -1,0 +1,87 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/asb100.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân asb100
+====================
+
+Chip được hỗ trợ:
+
+* Asus ASB100 và ASB100-A "Bạch"
+
+Tiền tố: 'asb100'
+
+Địa chỉ được quét: I2C 0x2d
+
+Bảng dữ liệu: không được phát hành
+
+Tác giả: Mark M. Hoffman <mhoffman@lightlink.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Asus ASB100 và ASB100-A "Bach".
+Đây là những ASIC tùy chỉnh chỉ có trên bo mạch chính của Asus. Asus từ chối
+cung cấp bảng dữ liệu cho các chip này. Cảm ơn nhiều người đã giúp đỡ
+điều tra phần cứng của họ, bao gồm:
+
+Vitaly V. Bursov
+Alexander van Kaam (tác giả của MBM cho Windows)
+Bertrik Sikken
+
+ASB100 thực hiện bảy cảm biến điện áp, ba tốc độ quay của quạt
+cảm biến, bốn cảm biến nhiệt độ, dòng VID và báo động. Ngoài ra
+này, ASB100-A cũng triển khai một bộ điều khiển PWM duy nhất cho quạt 2 và
+3 (tức là một cài đặt sẽ kiểm soát cả hai.) Nếu bạn có ASB100 đơn giản, PWM
+bộ điều khiển sẽ không hoạt động (hoặc có thể nó sẽ hoạt động đối với bạn... nó không hoạt động đối với
+tôi).
+
+Nhiệt độ được đo và báo cáo bằng độ C.
+
+Tốc độ quạt được báo cáo bằng RPM (vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị tính bằng vôn.
+
+Các dòng VID mã hóa giá trị điện áp lõi: mức điện áp của bạn
+bộ xử lý nên làm việc với. Điều này được mã hóa cứng bởi bo mạch chính và/hoặc
+chính bộ xử lý. Đó là một giá trị tính bằng volt.
+
+Cảnh báo: (Dấu hỏi TODO cho biết có thể hoạt động hoặc không)
+
+- 0x0001 => in0 (?)
+- 0x0002 => in1 (?)
+- 0x0004 => in2
+- 0x0008 => in3
+- 0x0010 => temp1 [1]_
+- 0x0020 => temp2
+- 0x0040 => fan1
+- 0x0080 => fan2
+- 0x0100 => in4
+- 0x0200 => in5 (?) [2]_
+- 0x0400 => in6 (?) [2]_
+- 0x0800 => fan3
+- 0x1000 => công tắc khung gầm
+- 0x2000 => temp3
+
+.. [1]	This alarm will only trigger if the hysteresis value is 127C.
+	I.e. it behaves the same as w83781d.
+
+.. [2]	The min and max registers for these values appear to
+	be read-only or otherwise stuck at 0x00.
+
+TODO:
+  * Thử nghiệm với ước số quạt > 8.
+  * Thử nghiệm với nhiệt độ. các loại cảm biến.
+  * Có thực sự có 13 đầu vào điện áp? Có lẽ là không...
+  * Dọn dẹp, không còn nghi ngờ gì nữa...

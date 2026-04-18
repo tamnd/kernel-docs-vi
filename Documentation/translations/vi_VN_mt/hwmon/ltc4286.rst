@@ -1,0 +1,107 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ltc4286.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ltc4286
+=====================
+
+Chip được hỗ trợ:
+
+* Thiết bị tương tự LTC4286
+
+Tiền tố: 'ltc4286'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Thiết bị tương tự LTC4287
+
+Tiền tố: 'ltc4287'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Delphine CC Chiu <Delphine_CC_Chiu@Wiwynn.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Thiết bị Analog LTC4286
+và Bộ điều khiển trao đổi nóng LTC4287 và Màn hình nguồn kỹ thuật số.
+
+LTC4286 và LTC4287 là bộ điều khiển trao đổi nóng cho phép bảng mạch
+để được gỡ bỏ hoặc chèn vào một bảng nối đa năng trực tiếp. Họ cũng có tính năng
+đọc lại dòng điện và điện áp thông qua bộ chuyển đổi tương tự sang kỹ thuật số 12 bit tích hợp
+bộ chuyển đổi (ADC), được truy cập bằng giao diện PMBus.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+Giá trị shunt tính bằng micro-ohms có thể được đặt thông qua cây thiết bị tại thời điểm biên dịch. làm ơn
+tham khảo Tài liệu/devicetree/binds/hwmon/lltc,ltc4286.yaml để biết các ràng buộc
+nếu cây thiết bị được sử dụng.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi, thiết lập lại lịch sử
+thuộc tính chỉ ghi, tất cả các thuộc tính khác chỉ đọc.
+
+====================================================================================
+in1_label "vin"
+in1_input Đo điện áp.
+in1_alarm Báo động điện áp đầu vào.
+in1_min Điện áp đầu vào tối thiểu.
+in1_max Điện áp đầu vào tối đa.
+
+in2_label "vout1"
+in2_input Đo điện áp.
+in2_alarm Cảnh báo điện áp đầu ra.
+in2_min Điện áp đầu ra tối thiểu.
+in2_max Điện áp đầu ra tối đa.
+
+curr1_label "iout1"
+curr1_input Đo dòng điện.
+curr1_alarm Xuất cảnh báo hiện tại.
+curr1_max Dòng điện tối đa.
+
+power1_label "pin"
+power1_input Nguồn điện đầu vào.
+power1_alarm Báo động nguồn đầu vào.
+power1_max Công suất tối đa.
+
+temp1_input Nhiệt độ chip.
+temp1_min Nhiệt độ chip tối thiểu.
+temp1_max Nhiệt độ chip tối đa.
+temp1_crit Nhiệt độ chip tới hạn.
+temp1_alarm Báo động nhiệt độ chip.
+====================================================================================
