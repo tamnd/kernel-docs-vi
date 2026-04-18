@@ -1,0 +1,210 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/7.AdvancedTopics.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_advancedtopics:
+
+Chủ đề nâng cao
+===============
+
+Tại thời điểm này, hy vọng bạn đã nắm được cách thức quá trình phát triển
+hoạt động.  Tuy nhiên, vẫn còn nhiều điều để học!  Phần này sẽ đề cập đến một
+số chủ đề có thể hữu ích cho các nhà phát triển muốn trở thành một
+một phần thường xuyên của quá trình phát triển nhân Linux.
+
+Quản lý các bản vá bằng git
+-------------------------
+
+Việc sử dụng kiểm soát phiên bản phân tán cho kernel bắt đầu vào đầu năm 2002,
+khi Linus lần đầu tiên bắt đầu chơi với BitKeeper độc quyền
+ứng dụng.  Trong khi BitKeeper còn gây tranh cãi thì cách tiếp cận phần mềm
+quản lý phiên bản mà nó thể hiện chắc chắn là không.  Phiên bản phân phối
+kiểm soát cho phép tăng tốc ngay lập tức quá trình phát triển hạt nhân
+dự án.  Trong thời đại hiện nay, có một số lựa chọn thay thế miễn phí cho
+BitKeeper.  Dù tốt hay xấu, dự án kernel đã giải quyết trên git
+như là công cụ lựa chọn của nó.
+
+Quản lý các bản vá bằng git có thể giúp nhà phát triển dễ dàng hơn nhiều,
+đặc biệt là khi số lượng các bản vá đó tăng lên.  Git cũng có cái khó của nó
+cạnh và gây ra những mối nguy hiểm nhất định; nó là một công cụ trẻ và mạnh mẽ
+vẫn được văn minh hóa bởi các nhà phát triển của nó.  Tài liệu này sẽ không cố gắng
+dạy người đọc cách sử dụng git; đó sẽ là đủ nguyên liệu cho một
+tài liệu dài theo đúng nghĩa của nó.  Thay vào đó, trọng tâm ở đây sẽ là cách git
+phù hợp với quá trình phát triển kernel nói riêng.  Các nhà phát triển
+muốn tăng tốc với git sẽ tìm thêm thông tin tại:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+và trên các hướng dẫn khác nhau được tìm thấy trên web.
+
+Việc đầu tiên cần làm là đọc các trang web trên và có được kiến thức vững chắc
+hiểu cách hoạt động của git trước khi thử sử dụng nó để tạo các bản vá
+có sẵn cho người khác.  Nhà phát triển sử dụng git sẽ có thể có được một bản sao
+của kho lưu trữ chính, khám phá lịch sử sửa đổi, cam kết thay đổi đối với
+cây, sử dụng cành, v.v. Hiểu biết về các công cụ của git dành cho
+viết lại lịch sử (chẳng hạn như rebase) cũng hữu ích.  Git đi kèm với nó
+thuật ngữ và khái niệm riêng; người dùng git mới nên biết về ref,
+các nhánh từ xa, chỉ mục, hợp nhất chuyển tiếp nhanh, đẩy và kéo, tách rời
+đầu, v.v. Lúc đầu có thể hơi đáng sợ, nhưng
+các khái niệm không quá khó để nắm bắt chỉ với một chút nghiên cứu.
+
+Sử dụng git để tạo các bản vá để gửi qua email có thể là một cách tốt
+tập thể dục trong khi tăng tốc.
+
+Khi bạn đã sẵn sàng bắt đầu dựng cây git để người khác xem xét, bạn
+tất nhiên sẽ cần một máy chủ có thể được lấy từ đó.  Thiết lập như vậy
+máy chủ có git-daemon tương đối đơn giản nếu bạn có hệ thống
+có thể truy cập được vào Internet.  Mặt khác, các trang web lưu trữ công cộng, miễn phí
+(ví dụ GitHub) đang bắt đầu xuất hiện trên mạng.  Thành lập
+các nhà phát triển có thể có một tài khoản trên kernel.org, nhưng không dễ để có được những tài khoản đó
+bởi ; xem ZZ0000ZZ để biết thêm thông tin.
+
+Quy trình làm việc git thông thường liên quan đến việc sử dụng rất nhiều nhánh.  Mỗi dòng
+của sự phát triển có thể được tách thành một "nhánh chủ đề" riêng biệt và
+được duy trì độc lập.  Các nhánh trong git rẻ, không có lý do gì để
+không sử dụng chúng miễn phí.  Và, trong mọi trường hợp, bạn không nên làm
+sự phát triển trong bất kỳ chi nhánh nào mà bạn định yêu cầu người khác tham gia.
+Các chi nhánh có sẵn công khai nên được tạo ra một cách cẩn thận; hợp nhất trong các bản vá
+từ các nhánh phát triển khi chúng ở dạng hoàn chỉnh và sẵn sàng hoạt động -
+không phải trước đây.
+
+Git cung cấp một số công cụ mạnh mẽ có thể cho phép bạn viết lại
+lịch sử phát triển.  Một miếng vá bất tiện (một miếng vá làm đứt đôi,
+hoặc có một số loại lỗi rõ ràng khác) có thể được sửa tại chỗ hoặc
+đã biến mất hoàn toàn khỏi lịch sử.  Một loạt bản vá có thể được
+được viết lại như thể nó được viết trên dòng chính của ngày hôm nay, mặc dù
+bạn đã làm việc với nó trong nhiều tháng.  Những thay đổi có thể được minh bạch
+chuyển từ nhánh này sang nhánh khác.  Và vân vân.  Sử dụng hợp lý git's
+khả năng sửa lại lịch sử có thể giúp tạo ra các bộ bản vá sạch với
+ít vấn đề hơn.
+
+Tuy nhiên, việc sử dụng quá mức khả năng này có thể dẫn đến các vấn đề khác, ngoài
+một nỗi ám ảnh đơn giản về việc tạo ra một lịch sử dự án hoàn hảo.
+Viết lại lịch sử sẽ viết lại những thay đổi có trong lịch sử đó,
+biến cây nhân đã được kiểm tra (hy vọng) thành cây chưa được kiểm tra.  Nhưng, ngoài
+rằng các nhà phát triển không thể dễ dàng cộng tác nếu họ không có chung
+xem lịch sử dự án; nếu bạn viết lại lịch sử mà các nhà phát triển khác
+đã kéo vào kho của họ, bạn sẽ khiến cuộc sống trở nên khó khăn hơn nhiều
+cho những nhà phát triển đó.  Vì vậy, một nguyên tắc đơn giản được áp dụng ở đây: lịch sử
+đã được xuất khẩu sang người khác nói chung nên được coi là bất biến
+sau đó.
+
+Vì vậy, khi bạn đẩy một tập hợp các thay đổi lên máy chủ khả dụng công khai của mình, những thay đổi đó
+những thay đổi không nên được viết lại.  Git sẽ cố gắng thực thi quy tắc này nếu
+bạn cố gắng đẩy những thay đổi không dẫn đến việc hợp nhất chuyển tiếp nhanh
+(tức là những thay đổi không có cùng lịch sử).  Có thể
+ghi đè kiểm tra này và có thể đôi khi cần phải viết lại
+cây xuất khẩu.  Di chuyển các thay đổi giữa các cây để tránh xung đột trong
+linux-next là một ví dụ.  Nhưng những hành động như vậy nên rất hiếm.  Đây là một
+về lý do tại sao việc phát triển nên được thực hiện ở các chi nhánh tư nhân (điều này
+có thể được viết lại nếu cần thiết) và chỉ được chuyển vào các nhánh công cộng khi
+nó đang ở trạng thái tương đối tiên tiến.
+
+Là dòng chính (hoặc cây khác dựa trên tập hợp các thay đổi)
+tiến bộ, việc hợp nhất với cây đó để giữ vị trí dẫn đầu là điều rất hấp dẫn
+cạnh.  Đối với một chi nhánh tư nhân, việc khởi động lại có thể là một cách dễ dàng để theo kịp
+một cây khác, nhưng việc khởi động lại không phải là một lựa chọn khi cây đã được xuất sang
+thế giới.  Một khi điều đó xảy ra, việc hợp nhất hoàn toàn phải được thực hiện.  Thỉnh thoảng hợp nhất
+có ý nghĩa, nhưng việc hợp nhất quá thường xuyên có thể làm lộn xộn lịch sử
+một cách không cần thiết.  Kỹ thuật được đề xuất trong trường hợp này là hợp nhất không thường xuyên và
+thường chỉ ở các điểm phát hành cụ thể (chẳng hạn như dòng chính -rc
+phát hành).  Nếu bạn lo lắng về những thay đổi cụ thể, bạn luôn có thể
+thực hiện việc hợp nhất thử nghiệm trong một nhánh riêng.  Công cụ git "rerere" có thể là
+hữu ích trong những tình huống như vậy; nó ghi nhớ cách giải quyết xung đột hợp nhất
+để bạn không phải làm cùng một công việc hai lần.
+
+Một trong những phàn nàn thường xuyên nhất về các công cụ như git là:
+việc di chuyển hàng loạt các bản vá từ kho này sang kho khác giúp dễ dàng
+đưa vào những thay đổi không đúng đắn đi vào dòng chính bên dưới phần đánh giá
+radar.  Các nhà phát triển hạt nhân có xu hướng không hài lòng khi họ thấy kiểu đó
+điều đang xảy ra; thiết lập một cây git với các bản vá lỗi chưa được xem xét hoặc lạc đề
+có thể ảnh hưởng đến khả năng nhổ cây của bạn trong tương lai.  Trích dẫn Linus:
+
+::
+
+Bạn có thể gửi cho tôi các bản vá, nhưng để tôi lấy bản vá git từ bạn, tôi
+	cần biết rằng bạn biết bạn đang làm gì và tôi cần có khả năng
+	tin tưởng vào mọi thứ ZZ0000ZZ sau đó phải đi kiểm tra mọi thứ
+	thay đổi cá nhân bằng tay.
+
+(ZZ0000ZZ
+
+Để tránh tình huống này, hãy đảm bảo rằng tất cả các bản vá trong một phạm vi nhất định
+nhánh bám sát chủ đề liên quan; nhánh "sửa trình điều khiển"
+không nên thực hiện thay đổi đối với mã quản lý bộ nhớ lõi.  Và, hầu hết
+quan trọng là không sử dụng cây git để bỏ qua quá trình xem xét.  Đăng một
+thỉnh thoảng tóm tắt cây vào danh sách liên quan và khi đến thời điểm
+đúng, yêu cầu đưa cây đó vào linux-next.
+
+Nếu và khi những người khác bắt đầu gửi các bản vá để đưa vào cây của bạn,
+đừng quên xem lại chúng.  Đồng thời đảm bảo rằng bạn duy trì chính xác
+thông tin tác giả; công cụ git "am" hoạt động tốt nhất trong vấn đề này, nhưng
+bạn có thể phải thêm dòng "Từ:" vào bản vá nếu nó đã được chuyển tiếp tới
+bạn thông qua một bên thứ ba.
+
+Khi yêu cầu rút tiền, hãy đảm bảo cung cấp tất cả thông tin liên quan: ở đâu
+cây của bạn là gì, nên nhổ cành nào và những thay đổi nào sẽ xảy ra từ việc
+kéo.  Lệnh git request-pull có thể hữu ích trong vấn đề này; nó sẽ
+định dạng yêu cầu như các nhà phát triển khác mong đợi và cũng sẽ kiểm tra xem
+chắc chắn rằng bạn đã nhớ đẩy những thay đổi đó lên máy chủ công cộng.
+
+.. _development_advancedtopics_reviews:
+
+Xem lại các bản vá
+-----------------
+
+Một số độc giả chắc chắn sẽ phản đối việc đặt phần này bằng "nâng cao
+chủ đề" với lý do ngay cả những nhà phát triển kernel mới vào nghề cũng nên
+xem xét các bản vá.  Chắc chắn đúng là không có cách nào tốt hơn để
+học cách lập trình trong môi trường kernel hơn là nhìn vào mã
+được đăng bởi người khác.  Ngoài ra, người đánh giá luôn luôn thiếu hụt; bởi
+nhìn vào mã bạn có thể đóng góp đáng kể cho quá trình này với tư cách là một
+toàn bộ.
+
+Việc xem lại mã có thể là một điều đáng sợ, đặc biệt đối với một hạt nhân mới
+nhà phát triển có thể cảm thấy lo lắng về việc đặt câu hỏi về mã - ở nơi công cộng -
+đã được đăng bởi những người có nhiều kinh nghiệm hơn.  Mã chẵn được viết bởi
+Tuy nhiên, những nhà phát triển giàu kinh nghiệm nhất có thể được cải thiện.  Có lẽ tốt nhất
+Lời khuyên dành cho người đánh giá (tất cả người đánh giá) là: đánh giá cụm từ
+bình luận dưới dạng câu hỏi hơn là phê bình.  Hỏi "khóa làm sao
+được thả ra theo con đường này?" sẽ luôn có tác dụng tốt hơn là nói "
+khóa ở đây là sai."
+
+Một kỹ thuật khác hữu ích trong trường hợp có bất đồng là nhờ người khác giúp đỡ.
+để tham gia. Nếu cuộc thảo luận đi đến bế tắc sau một vài lần trao đổi,
+sau đó kêu gọi ý kiến của những người đánh giá hoặc người bảo trì khác. Thường những người ở
+thỏa thuận với người đánh giá vẫn giữ im lặng trừ khi được yêu cầu.
+Ý kiến ​​của nhiều người có sức nặng hơn theo cấp số nhân.
+
+Các nhà phát triển khác nhau sẽ xem xét mã từ các quan điểm khác nhau.  Một số
+chủ yếu quan tâm đến phong cách viết mã và liệu các dòng mã có dấu
+khoảng trắng.  Những người khác sẽ tập trung chủ yếu vào việc liệu thay đổi có được thực hiện
+Bởi bản vá nói chung có phải là điều tốt cho kernel hay không.  Còn những người khác
+sẽ kiểm tra vấn đề khóa, sử dụng ngăn xếp quá mức, có thể
+vấn đề bảo mật, sao chép mã được tìm thấy ở nơi khác, đầy đủ
+tài liệu, ảnh hưởng bất lợi đến hiệu suất, thay đổi ABI trong không gian người dùng, v.v.
+Tất cả các loại đánh giá, nếu chúng dẫn đến mã tốt hơn khi đi vào kernel, đều được
+chào đón và đáng giá.
+
+Không có yêu cầu nghiêm ngặt về việc sử dụng các thẻ cụ thể như ZZ0000ZZ.
+Trên thực tế, các bài đánh giá bằng tiếng Anh đơn giản mang lại nhiều thông tin và khuyến khích hơn
+ngay cả khi thẻ được cung cấp, ví dụ: "Tôi đã xem xét các khía cạnh A, B và C của vấn đề này
+trình và nó có vẻ tốt với tôi."
+Một số dạng thông báo đánh giá hoặc trả lời rõ ràng là cần thiết nếu không
+những người bảo trì sẽ không biết rằng người đánh giá đã xem xét bản vá!
+
+Cuối cùng nhưng không kém phần quan trọng, việc xem xét bản vá có thể trở thành một quá trình tiêu cực, tập trung vào
+về việc chỉ ra vấn đề. Thỉnh thoảng hãy khen ngợi một lần,
+đặc biệt dành cho người mới!

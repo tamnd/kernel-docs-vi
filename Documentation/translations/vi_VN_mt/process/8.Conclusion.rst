@@ -1,0 +1,87 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/8.Conclusion.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_conclusion:
+
+Để biết thêm thông tin
+====================
+
+Có rất nhiều nguồn thông tin về phát triển nhân Linux và
+chủ đề liên quan.  Đầu tiên trong số đó sẽ luôn là Tài liệu
+thư mục được tìm thấy trong bản phân phối nguồn kernel.  Bắt đầu với
+ZZ0000ZZ cấp cao nhất; cũng đọc
+ZZ0001ZZ. Nhiều nội bộ
+API kernel được ghi lại bằng cơ chế kerneldoc; "tạo htmldocs"
+hoặc "tạo pdfdocs" có thể được sử dụng để tạo các tài liệu đó trong HTML hoặc PDF
+định dạng (mặc dù phiên bản TeX do một số bản phân phối cung cấp có
+giới hạn nội bộ và không xử lý hồ sơ đúng cách).
+
+Nhiều trang web khác nhau thảo luận về việc phát triển kernel ở mọi cấp độ chi tiết.  của bạn
+tác giả xin khiêm tốn đề xuất ZZ0000ZZ làm nguồn;
+thông tin về nhiều chủ đề kernel cụ thể có thể được tìm thấy thông qua kernel LWN
+chỉ mục tại:
+
+ZZ0000ZZ
+
+Ngoài ra, một nguồn tài nguyên quý giá dành cho các nhà phát triển kernel là:
+
+ZZ0000ZZ
+
+Và tất nhiên, người ta không nên quên ZZ0000ZZ dứt khoát
+vị trí cho thông tin phát hành kernel.
+
+Có một số sách về phát triển kernel:
+
+Trình điều khiển thiết bị Linux, Phiên bản thứ 3 (Jonathan Corbet, Alessandro
+	Rubini và Greg Kroah-Hartman).  Trực tuyến tại
+	ZZ0000ZZ
+
+Phát triển hạt nhân Linux (Robert Love).
+
+Tìm hiểu hạt nhân Linux (Daniel Bovet và Marco Cesati).
+
+Tuy nhiên, tất cả những cuốn sách này đều có một lỗi chung: chúng có xu hướng
+hơi lỗi thời vào thời điểm chúng lên kệ và chúng đã có mặt trên thị trường
+các kệ trong một thời gian bây giờ.  Tuy nhiên vẫn có khá nhiều điều tốt
+thông tin cần tìm ở đó.
+
+Tài liệu cho git có thể được tìm thấy tại:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+
+Phần kết luận
+==========
+
+Xin chúc mừng những ai đã vượt qua được chặng đường dài này
+tài liệu.  Hy vọng nó đã cung cấp những hiểu biết hữu ích về cách thức
+Nhân Linux được phát triển và cách bạn có thể tham gia vào quá trình đó.
+
+Cuối cùng, sự tham gia mới là vấn đề.  Bất kỳ phần mềm nguồn mở nào
+dự án không nhiều hơn tổng số tiền mà những người đóng góp đã bỏ vào đó.  các
+Nhân Linux đã phát triển nhanh chóng và tốt như vậy bởi vì nó có
+được giúp đỡ bởi một nhóm lớn các nhà phát triển đầy ấn tượng, tất cả họ đều
+làm việc để làm cho nó tốt hơn.  Hạt nhân là một ví dụ điển hình về những gì có thể
+được thực hiện khi hàng nghìn người cùng làm việc hướng tới một mục tiêu chung.
+
+Tuy nhiên, hạt nhân luôn có thể được hưởng lợi từ cơ sở nhà phát triển lớn hơn.  Ở đó
+luôn có nhiều việc phải làm hơn.  Nhưng, cũng quan trọng không kém, hầu hết những thứ khác
+những người tham gia vào hệ sinh thái Linux có thể được hưởng lợi thông qua việc đóng góp vào
+hạt nhân.  Đưa mã vào dòng chính là chìa khóa để có chất lượng mã cao hơn,
+chi phí bảo trì và phân phối thấp hơn, mức độ ảnh hưởng cao hơn đối với
+hướng phát triển hạt nhân, v.v.  Đó là một tình huống mà
+mọi người tham gia đều thắng.  Hãy khởi động trình soạn thảo của bạn và tham gia cùng chúng tôi; bạn sẽ là
+hơn cả sự chào đón

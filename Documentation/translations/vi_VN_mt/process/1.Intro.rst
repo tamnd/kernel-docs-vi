@@ -1,0 +1,282 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/1.Intro.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_process_intro:
+
+Giới thiệu
+============
+
+Tóm tắt điều hành
+-----------------
+
+Phần còn lại của phần này đề cập đến phạm vi của quá trình phát triển kernel
+và những nỗi thất vọng mà các nhà phát triển và người sử dụng lao động của họ có thể gặp phải
+gặp ở đó.  Có rất nhiều lý do tại sao mã hạt nhân phải được
+được sáp nhập vào hạt nhân chính thức ("mainline"), bao gồm cả tự động
+sẵn có cho người dùng, hỗ trợ cộng đồng dưới nhiều hình thức và khả năng
+ảnh hưởng đến hướng phát triển của hạt nhân.  Mã đã đóng góp cho
+Nhân Linux phải được cung cấp theo giấy phép tương thích GPL.
+
+ZZ0000ZZ giới thiệu quy trình phát triển, kernel
+chu kỳ phát hành và cơ chế của cửa sổ hợp nhất.  Các giai đoạn khác nhau trong
+chu trình phát triển, đánh giá và hợp nhất bản vá được đề cập.  Có một số
+thảo luận về các công cụ và danh sách gửi thư.  Các nhà phát triển muốn bắt đầu
+với việc phát triển kernel được khuyến khích theo dõi và sửa lỗi như một
+bài tập ban đầu.
+
+ZZ0000ZZ bao gồm việc lập kế hoạch dự án giai đoạn đầu, với
+nhấn mạnh vào việc thu hút sự tham gia của cộng đồng phát triển càng sớm càng tốt.
+
+ZZ0000ZZ nói về quá trình mã hóa; một số cạm bẫy
+đã gặp phải bởi các nhà phát triển khác sẽ được thảo luận.  Một số yêu cầu đối với
+các bản vá được đề cập và có phần giới thiệu về một số công cụ
+có thể giúp đảm bảo rằng các bản vá kernel là chính xác.
+
+ZZ0000ZZ nói về quá trình đăng bản vá cho
+xem xét. Để được cộng đồng phát triển xem xét nghiêm túc, các bản vá phải được
+được định dạng và mô tả đúng cách, đồng thời chúng phải được gửi đến đúng nơi.
+Làm theo lời khuyên trong phần này sẽ giúp đảm bảo điều tốt nhất
+sự tiếp nhận có thể cho công việc của bạn.
+
+ZZ0000ZZ đề cập đến những gì xảy ra sau khi đăng các bản vá; cái
+công việc còn lâu mới được thực hiện vào thời điểm đó.  Làm việc với người đánh giá là một phần quan trọng
+của quá trình phát triển; Phần này cung cấp một số lời khuyên về cách
+tránh những rắc rối ở giai đoạn quan trọng này.  Các nhà phát triển được cảnh báo chống lại
+giả định rằng công việc được hoàn thành khi một bản vá được hợp nhất vào dòng chính.
+
+ZZ0000ZZ giới thiệu một số chủ đề “nâng cao”:
+quản lý các bản vá bằng git và xem xét các bản vá do người khác đăng.
+
+ZZ0000ZZ kết thúc tài liệu bằng các con trỏ tới nguồn
+để biết thêm thông tin về phát triển hạt nhân.
+
+Tài liệu này nói về cái gì
+---------------------------
+
+Nhân Linux, có hơn 8 triệu dòng mã và hơn 1000
+người đóng góp cho mỗi bản phát hành, là một trong những bản phát hành miễn phí lớn nhất và tích cực nhất
+các dự án phần mềm đang tồn tại.  Kể từ khi bắt đầu khiêm tốn vào năm 1991,
+kernel đã phát triển thành một thành phần hệ điều hành tốt nhất
+chạy trên máy nghe nhạc kỹ thuật số bỏ túi, máy tính để bàn, máy tính lớn nhất
+siêu máy tính đang tồn tại và tất cả các loại hệ thống ở giữa.  Đó là một
+giải pháp mạnh mẽ, hiệu quả và có thể mở rộng cho hầu hết mọi tình huống.
+
+Với sự phát triển của Linux đã dẫn đến sự gia tăng số lượng nhà phát triển
+(và các công ty) mong muốn tham gia vào sự phát triển của nó.  Phần cứng
+các nhà cung cấp muốn đảm bảo rằng Linux hỗ trợ tốt cho sản phẩm của họ, khiến
+những sản phẩm đó hấp dẫn người dùng Linux.  Các nhà cung cấp hệ thống nhúng, những người
+sử dụng Linux như một thành phần trong một sản phẩm tích hợp, muốn Linux trở thành
+có năng lực và phù hợp nhất với nhiệm vụ được giao.  Nhà phân phối và
+các nhà cung cấp phần mềm khác xây dựng sản phẩm của họ trên Linux có quan điểm rõ ràng
+quan tâm đến khả năng, hiệu suất và độ tin cậy của Linux
+hạt nhân.  Và người dùng cuối cũng thường mong muốn thay đổi Linux để làm cho nó
+phù hợp hơn với nhu cầu của họ.
+
+Một trong những tính năng hấp dẫn nhất của Linux là nó có thể truy cập được
+những nhà phát triển này; bất kỳ ai có các kỹ năng cần thiết đều có thể cải thiện Linux và
+ảnh hưởng đến hướng phát triển của nó.  Sản phẩm độc quyền không thể
+cung cấp kiểu mở này, đó là một đặc điểm của phần mềm miễn phí
+quá trình.  Tuy nhiên, nếu có thì kernel thậm chí còn cởi mở hơn hầu hết các loại khác.
+dự án phần mềm miễn phí.  Chu kỳ phát triển hạt nhân ba tháng thông thường có thể
+có sự tham gia của hơn 1000 nhà phát triển làm việc cho hơn 100 công ty khác nhau
+(hoặc không có công ty nào cả).
+
+Làm việc với cộng đồng phát triển kernel không phải là điều đặc biệt khó khăn.  Nhưng,
+mặc dù vậy, nhiều người đóng góp tiềm năng đã trải qua
+khó khăn khi cố gắng làm công việc kernel.  Cộng đồng hạt nhân có
+đã phát triển những cách thức hoạt động riêng biệt cho phép nó hoạt động
+một cách trơn tru (và tạo ra sản phẩm chất lượng cao) trong môi trường mà
+hàng nghìn dòng mã đang được thay đổi mỗi ngày.  Vì vậy nó không phải
+ngạc nhiên là quá trình phát triển nhân Linux khác rất nhiều so với
+phương pháp phát triển độc quyền.
+
+Quá trình phát triển của hạt nhân có thể có vẻ lạ lùng và
+đáng sợ đối với các nhà phát triển mới, nhưng có những lý do chính đáng và vững chắc
+kinh nghiệm đằng sau nó.  Một nhà phát triển không hiểu kernel
+cách thức của cộng đồng (hoặc tệ hơn, những người cố gắng coi thường hoặc phá vỡ chúng) sẽ
+có một trải nghiệm khó chịu trong cửa hàng.  Cộng đồng phát triển, trong khi
+hữu ích cho những người đang cố gắng học hỏi, có ít thời gian cho những người
+ai sẽ không lắng nghe hoặc ai không quan tâm đến quá trình phát triển.
+
+Hy vọng rằng những người đọc tài liệu này sẽ có thể tránh được điều đó
+kinh nghiệm bực bội.  Có rất nhiều tài liệu ở đây, nhưng nỗ lực
+tham gia vào việc đọc nó sẽ được hoàn trả trong thời gian ngắn.  Sự phát triển
+cộng đồng luôn cần những nhà phát triển sẽ giúp tạo ra kernel
+tốt hơn; văn bản sau đây sẽ giúp ích cho bạn - hoặc những người làm việc cho bạn -
+tham gia cộng đồng của chúng tôi.
+
+Tín dụng
+-------
+
+Tài liệu này được viết bởi Jonathan Corbet, corbet@lwn.net.  Nó đã được
+được cải thiện nhờ nhận xét của Johannes Berg, James Berry, Alex Chiang, Roland
+Dreier, Randy Dunlap, Jake Edge, Jiri Kosina, Matt Mackall, Arthur Marsh,
+Amanda McPherson, Andrew Morton, Andrew Price, Tsugikazu Shibata, và
+Jochen Võ.
+
+Công việc này được hỗ trợ bởi Quỹ Linux; đặc biệt cảm ơn
+Amanda McPherson, người đã nhìn thấy giá trị của nỗ lực này và đã biến tất cả thành hiện thực.
+
+Tầm quan trọng của việc đưa mã vào dòng chính
+------------------------------------------------
+
+Một số công ty và nhà phát triển đôi khi thắc mắc tại sao họ phải bận tâm
+học cách làm việc với cộng đồng kernel và đưa mã của họ vào
+hạt nhân dòng chính ("dòng chính" là hạt nhân được Linus duy trì
+Torvalds và được các nhà phân phối Linux sử dụng làm cơ sở).  Trong ngắn hạn,
+việc đóng góp mã có thể giống như một khoản chi phí có thể tránh được; nó có vẻ dễ dàng hơn
+chỉ cần giữ mã riêng biệt và hỗ trợ người dùng trực tiếp.  Sự thật của
+vấn đề là việc giữ mã riêng biệt ("ngoài cây") là một nền kinh tế sai lầm.
+
+Để minh họa chi phí của mã ngoài cây, đây là một số ví dụ
+các khía cạnh liên quan của quá trình phát triển hạt nhân; hầu hết trong số này sẽ
+được thảo luận chi tiết hơn sau trong tài liệu này.  Coi như:
+
+- Mã đã được sáp nhập vào kernel dòng chính có sẵn cho tất cả mọi người
+  Người dùng Linux.  Nó sẽ tự động có mặt trên tất cả các bản phân phối
+  kích hoạt nó.  Không cần đĩa trình điều khiển, tải xuống hoặc rắc rối
+  hỗ trợ nhiều phiên bản của nhiều bản phân phối; tất cả chỉ là
+  hoạt động, cho nhà phát triển và cho người dùng.  Việc đưa vào
+  tuyến chính giải quyết một số lượng lớn các vấn đề về phân phối và hỗ trợ.
+
+- Trong khi các nhà phát triển kernel cố gắng duy trì giao diện ổn định cho người dùng
+  không gian, hạt nhân bên trong API luôn thay đổi.  Thiếu ổn định
+  giao diện bên trong là một quyết định thiết kế có chủ ý; nó cho phép cơ bản
+  những cải tiến được thực hiện bất cứ lúc nào và mang lại mã chất lượng cao hơn.
+  Nhưng một kết quả của chính sách đó là bất kỳ mã ngoài cây nào cũng yêu cầu
+  bảo trì liên tục nếu nó hoạt động với hạt nhân mới.  Bảo trì
+  mã ngoài cây đòi hỏi một lượng công việc đáng kể chỉ để duy trì điều đó
+  mã đang hoạt động.
+
+Thay vào đó, mã nằm trong dòng chính không yêu cầu công việc này vì
+  kết quả của một quy tắc đơn giản yêu cầu bất kỳ nhà phát triển nào thực hiện thay đổi API
+  cũng để sửa bất kỳ mã nào bị hỏng do thay đổi đó.  Vì vậy, mã
+  đã được sáp nhập vào dòng chính đã thấp hơn đáng kể
+  chi phí bảo trì.
+
+- Ngoài ra, mã nằm trong kernel thường sẽ được cải thiện bởi các phần mềm khác.
+  nhà phát triển.  Những kết quả đáng ngạc nhiên có thể đến từ việc trao quyền cho người dùng của bạn
+  cộng đồng và khách hàng để cải thiện sản phẩm của bạn.
+
+- Mã hạt nhân phải được xem xét cả trước và sau khi sáp nhập vào
+  đường dây chính.  Cho dù kỹ năng của nhà phát triển ban đầu có mạnh đến đâu,
+  quá trình xem xét này luôn luôn tìm ra cách mà mã có thể được
+  được cải thiện.  Đánh giá thường tìm thấy các lỗi nghiêm trọng và vấn đề bảo mật.  Đây là
+  đặc biệt đúng đối với mã đã được phát triển trong môi trường khép kín
+  môi trường; mã như vậy được hưởng lợi rất nhiều từ sự xem xét của bên ngoài
+  nhà phát triển.  Mã ngoài cây là mã có chất lượng thấp hơn.
+
+- Tham gia vào quá trình phát triển là cách bạn gây ảnh hưởng đến
+  hướng phát triển hạt nhân.  Người dùng phàn nàn từ bên lề
+  được lắng nghe nhưng các nhà phát triển tích cực có tiếng nói mạnh mẽ hơn - và khả năng
+  để thực hiện những thay đổi làm cho kernel hoạt động tốt hơn cho nhu cầu của họ.
+
+- Khi mã được duy trì riêng biệt, khả năng bên thứ ba
+  sẽ luôn đóng góp một cách triển khai khác cho một tính năng tương tự
+  tồn tại.  Nếu điều đó xảy ra, việc hợp nhất mã của bạn sẽ trở nên khó khăn hơn nhiều.
+  khó hơn - đến mức không thể.  Khi đó bạn sẽ phải đối mặt với
+  các lựa chọn thay thế khó chịu như (1) duy trì một tính năng không chuẩn
+  ra khỏi cây vô thời hạn hoặc (2) từ bỏ mã của bạn và di chuyển
+  người dùng chuyển sang phiên bản trong cây.
+
+- Đóng góp mã nguồn là hành động cơ bản tạo nên toàn bộ
+  quá trình làm việc.  Bằng cách đóng góp mã của mình, bạn có thể thêm chức năng mới vào
+  hạt nhân và cung cấp các khả năng cũng như các ví dụ được sử dụng để
+  nhà phát triển hạt nhân khác.  Nếu bạn đã phát triển mã cho Linux (hoặc đang
+  nghĩ về việc làm như vậy), bạn rõ ràng có hứng thú với việc tiếp tục
+  sự thành công của nền tảng này; đóng góp mã là một trong những cách tốt nhất để
+  giúp đảm bảo sự thành công đó.
+
+Tất cả các lý do trên đều áp dụng cho bất kỳ mã hạt nhân ngoài cây nào,
+bao gồm mã được phân phối ở dạng độc quyền, chỉ nhị phân.
+Tuy nhiên, có những yếu tố bổ sung cần được tính đến
+trước khi xem xét bất kỳ loại phân phối mã hạt nhân chỉ nhị phân nào.  Những cái này
+bao gồm:
+
+- Các vấn đề pháp lý xung quanh việc phân phối các mô-đun hạt nhân độc quyền
+  tốt nhất là nhiều mây; khá nhiều người giữ bản quyền hạt nhân tin rằng
+  hầu hết các mô-đun chỉ nhị phân là sản phẩm phái sinh của hạt nhân và, như
+  kết quả là việc phân phối chúng là vi phạm GNU General Public
+  Giấy phép (về điều gì sẽ được nói thêm bên dưới).  Tác giả của bạn không phải là một
+  luật sư, và không có gì trong tài liệu này có thể được coi là
+  tư vấn pháp luật.  Tình trạng pháp lý thực sự của các mô-đun nguồn đóng chỉ có thể được
+  do tòa án quyết định.  Nhưng sự không chắc chắn ám ảnh những mô-đun đó
+  dù sao cũng có ở đó.
+
+- Các mô-đun nhị phân làm tăng đáng kể độ khó của việc gỡ lỗi kernel
+  vấn đề, đến mức hầu hết các nhà phát triển kernel thậm chí sẽ không thử.  Vì vậy
+  việc phân phối các mô-đun chỉ nhị phân sẽ gây khó khăn hơn cho bạn
+  người dùng để nhận được sự hỗ trợ từ cộng đồng.
+
+- Việc hỗ trợ cũng khó khăn hơn đối với các nhà phân phối mô-đun chỉ nhị phân, những người phải
+  cung cấp một phiên bản của mô-đun cho mọi bản phân phối và mọi hạt nhân
+  phiên bản họ muốn hỗ trợ.  Hàng chục bản dựng của một mô-đun có thể
+  được yêu cầu cung cấp phạm vi bảo hiểm toàn diện hợp lý và người dùng của bạn
+  sẽ phải nâng cấp mô-đun của bạn một cách riêng biệt mỗi khi họ nâng cấp
+  hạt nhân.
+
+- Mọi điều đã nói ở trên về việc xem xét mã đều áp dụng gấp đôi cho
+  mã nguồn đóng.  Vì mã này hoàn toàn không có sẵn nên nó không thể
+  đã được cộng đồng xem xét và chắc chắn sẽ có ảnh hưởng nghiêm trọng
+  vấn đề.
+
+Đặc biệt, những người tạo ra các hệ thống nhúng có thể bị cám dỗ bỏ qua nhiều
+về những gì đã được nói trong phần này với niềm tin rằng họ đang vận chuyển
+một sản phẩm độc lập sử dụng phiên bản kernel đông lạnh và không yêu cầu
+phát triển hơn sau khi phát hành.  Đối số này bỏ lỡ giá trị của
+đánh giá mã rộng rãi và giá trị của việc cho phép người dùng của bạn thêm
+khả năng cho sản phẩm của bạn.  Nhưng những sản phẩm này cũng có hạn chế
+cuộc sống thương mại, sau đó phải phát hành phiên bản mới.  Lúc đó
+điểm, các nhà cung cấp có mã nằm trong dòng chính và được duy trì tốt sẽ
+ở vị trí tốt hơn nhiều để nhanh chóng đưa sản phẩm mới sẵn sàng ra thị trường.
+
+Cấp phép
+---------
+
+Mã được đóng góp cho nhân Linux theo một số giấy phép, nhưng tất cả
+mã phải tương thích với phiên bản 2 của Giấy phép Công cộng GNU
+(GPLv2), đây là giấy phép bao gồm toàn bộ việc phân phối hạt nhân.
+Trong thực tế, điều đó có nghĩa là tất cả các đóng góp mã đều được bao phủ bởi
+GPLv2 (với, tùy chọn, ngôn ngữ cho phép phân phối theo
+phiên bản GPL) hoặc giấy phép BSD ba điều khoản.  Mọi đóng góp
+không được cấp phép tương thích sẽ không được chấp nhận vào
+hạt nhân.
+
+Việc chuyển nhượng bản quyền không bắt buộc (hoặc được yêu cầu) đối với mã được đóng góp
+tới hạt nhân.  Tất cả mã được sáp nhập vào hạt nhân dòng chính vẫn giữ nguyên
+quyền sở hữu ban đầu; kết quả là kernel hiện có hàng nghìn chủ sở hữu.
+
+Một hàm ý của cấu trúc quyền sở hữu này là bất kỳ nỗ lực nào nhằm thay đổi
+việc cấp phép cho hạt nhân gần như chắc chắn sẽ thất bại.  có
+một số tình huống thực tế trong đó sự đồng ý của tất cả người nắm giữ bản quyền có thể
+được lấy (hoặc mã của chúng bị xóa khỏi kernel).  Vì vậy, đặc biệt,
+không có triển vọng chuyển sang phiên bản 3 của GPL trong
+tương lai có thể thấy trước.
+
+Điều bắt buộc là tất cả mã đóng góp cho kernel phải hợp pháp
+phần mềm miễn phí.  Vì lý do đó, mã từ những người đóng góp mà không biết
+những người đóng góp danh tính hoặc ẩn danh sẽ không được chấp nhận. Tất cả những người đóng góp đều
+được yêu cầu "đăng xuất" trên mã của họ, nói rằng mã có thể được phân phối
+với kernel dưới GPL.  Mã chưa được cấp phép miễn phí
+phần mềm của chủ sở hữu hoặc có nguy cơ tạo ra các vấn đề liên quan đến bản quyền cho
+hạt nhân (chẳng hạn như mã bắt nguồn từ những nỗ lực kỹ thuật đảo ngược thiếu
+biện pháp bảo vệ thích hợp) không thể được đóng góp.
+
+Các câu hỏi về vấn đề liên quan đến bản quyền thường gặp trong quá trình phát triển Linux
+danh sách gửi thư.  Những câu hỏi như vậy thường sẽ nhận được không ít
+câu trả lời, nhưng người ta nên nhớ rằng những người trả lời những câu hỏi đó
+câu hỏi không phải là luật sư và không thể cung cấp lời khuyên pháp lý.  Nếu bạn có
+các câu hỏi pháp lý liên quan đến mã nguồn Linux, không có sự thay thế nào cho
+nói chuyện với một luật sư am hiểu lĩnh vực này.  Dựa vào câu trả lời
+có được trong danh sách gửi thư kỹ thuật là một việc rủi ro.

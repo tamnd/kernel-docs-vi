@@ -1,0 +1,237 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/3.Early-stage.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_early_stage:
+
+Lập kế hoạch giai đoạn đầu
+====================
+
+Khi dự tính một dự án phát triển nhân Linux, nó có thể rất hấp dẫn.
+để nhảy ngay vào và bắt đầu viết mã.  Giống như bất kỳ dự án quan trọng nào,
+Tuy nhiên, phần lớn nền tảng cho sự thành công được đặt tốt nhất trước lần đầu tiên
+dòng mã được viết.  Một chút thời gian dành cho việc lập kế hoạch ban đầu và
+giao tiếp có thể tiết kiệm nhiều thời gian hơn sau này.
+
+
+Chỉ định vấn đề
+----------------------
+
+Giống như bất kỳ dự án kỹ thuật nào, việc nâng cấp kernel thành công bắt đầu bằng
+mô tả rõ ràng vấn đề cần giải quyết.  Trong một số trường hợp, bước này được
+dễ dàng: khi cần có trình điều khiển cho một phần cứng cụ thể, dành cho
+ví dụ.  Tuy nhiên, ở những người khác, người ta dễ nhầm lẫn vấn đề thực sự
+với giải pháp đề xuất và điều đó có thể dẫn đến khó khăn.
+
+Hãy xem xét một ví dụ: vài năm trước, các nhà phát triển làm việc với âm thanh Linux
+đã tìm cách chạy các ứng dụng mà không gây ra hiện tượng bỏ học hoặc các hiện tượng khác
+bởi độ trễ quá mức trong hệ thống.  Giải pháp mà họ đưa ra là
+mô-đun hạt nhân nhằm nối vào Mô-đun bảo mật Linux (LSM)
+khuôn khổ; mô-đun này có thể được cấu hình để cung cấp cho các ứng dụng cụ thể
+truy cập vào bộ lập lịch thời gian thực.  Mô-đun này đã được triển khai và gửi tới
+danh sách gửi thư nhân linux, nơi nó ngay lập tức gặp vấn đề.
+
+Đối với các nhà phát triển âm thanh, mô-đun bảo mật này đủ để giải quyết vấn đề của họ.
+vấn đề ngay lập tức.  Tuy nhiên, đối với cộng đồng hạt nhân rộng hơn, nó được coi là một
+lạm dụng khung LSM (không nhằm mục đích trao đặc quyền
+vào các quy trình mà họ sẽ không có) và rủi ro đối với hệ thống
+sự ổn định.  Các giải pháp ưa thích của họ liên quan đến việc truy cập lập kế hoạch theo thời gian thực
+thông qua cơ chế rlimit trong thời gian ngắn và giảm độ trễ liên tục
+làm việc lâu dài.
+
+Tuy nhiên, cộng đồng âm thanh không thể nhìn ra giải pháp cụ thể
+họ đã thực hiện; họ không sẵn lòng chấp nhận các lựa chọn thay thế.  các
+dẫn đến sự bất đồng khiến những nhà phát triển đó cảm thấy vỡ mộng với
+toàn bộ quá trình phát triển hạt nhân; một trong số họ đã quay lại danh sách âm thanh
+và đăng bài này:
+
+Có một số nhà phát triển nhân Linux rất giỏi, nhưng họ
+	có xu hướng bị một đám đông những kẻ ngu ngốc kiêu ngạo la hét. Đang cố gắng
+	truyền đạt các yêu cầu của người dùng tới những người này là một sự lãng phí
+	thời gian. Họ quá "thông minh" để lắng nghe những người phàm trần hơn.
+
+(ZZ0000ZZ
+
+Thực tế tình hình đã khác; các nhà phát triển hạt nhân đã ở rất xa
+quan tâm nhiều hơn đến sự ổn định của hệ thống, bảo trì dài hạn và tìm kiếm
+giải pháp phù hợp cho vấn đề hơn là sử dụng một mô-đun cụ thể.
+Ý nghĩa của câu chuyện là tập trung vào vấn đề chứ không phải một giải pháp cụ thể
+- và thảo luận với cộng đồng phát triển trước khi đầu tư vào
+việc tạo ra một khối mã.
+
+Vì vậy, khi dự tính một dự án phát triển hạt nhân, người ta nên có được
+câu trả lời cho một bộ câu hỏi ngắn:
+
+- Chính xác thì vấn đề cần giải quyết là gì?
+
+- Người dùng bị ảnh hưởng bởi vấn đề này là ai?  Những trường hợp sử dụng nào nên
+   địa chỉ giải pháp?
+
+- Hiện tại kernel chưa giải quyết được vấn đề đó như thế nào?
+
+Chỉ khi đó, việc bắt đầu xem xét các giải pháp khả thi mới có ý nghĩa.
+
+
+Thảo luận sớm
+----------------
+
+Khi lập kế hoạch cho một dự án phát triển hạt nhân, việc nắm giữ
+thảo luận với cộng đồng trước khi triển khai.  Sớm
+giao tiếp có thể tiết kiệm thời gian và rắc rối theo một số cách:
+
+- Rất có thể vấn đề được giải quyết bằng hạt nhân theo những cách
+   bạn đã không hiểu.  Nhân Linux lớn và có một số
+   các tính năng và khả năng không rõ ràng ngay lập tức.  Không phải tất cả
+   các khả năng của kernel được ghi lại đầy đủ như người ta có thể muốn, và đó là
+   dễ dàng bỏ lỡ mọi thứ.  Tác giả của bạn đã thấy bài đăng hoàn chỉnh
+   trình điều khiển sao chép trình điều khiển hiện có mà tác giả mới đã có
+   không biết về.  Mã phát minh lại các bánh xe hiện có không chỉ lãng phí;
+   nó cũng sẽ không được chấp nhận vào nhân dòng chính.
+
+- Có thể có những yếu tố của giải pháp được đề xuất sẽ không được áp dụng
+   chấp nhận được cho việc sáp nhập tuyến chính.  Tốt hơn là nên tìm hiểu về
+   những vấn đề như thế này trước khi viết mã.
+
+- Hoàn toàn có thể các nhà phát triển khác đã nghĩ đến
+   vấn đề; họ có thể có những ý tưởng cho một giải pháp tốt hơn và có thể sẵn sàng
+   để giúp tạo ra giải pháp đó.
+
+Nhiều năm kinh nghiệm với cộng đồng phát triển hạt nhân đã dạy một
+bài học rõ ràng: mã hạt nhân được thiết kế và phát triển đằng sau đóng
+cửa luôn có vấn đề mà chỉ được tiết lộ khi mã được
+được thả ra cộng đồng.  Đôi khi những vấn đề này rất nghiêm trọng,
+đòi hỏi nhiều tháng hoặc nhiều năm nỗ lực trước khi mã có thể được nâng cấp lên
+tiêu chuẩn của cộng đồng hạt nhân.  Một số ví dụ bao gồm:
+
+- Ngăn xếp mạng Devicescape được thiết kế và triển khai cho
+   các hệ thống xử lý đơn.  Nó không thể được sáp nhập vào dòng chính
+   cho đến khi nó được làm phù hợp với các hệ thống đa bộ xử lý.  trang bị thêm
+   khóa và nhập mã như vậy là một nhiệm vụ khó khăn; Kết quả là sự sáp nhập
+   mã này (bây giờ được gọi là mac80211) đã bị trì hoãn hơn một năm.
+
+- Hệ thống tập tin Reiser4 bao gồm một số khả năng, trong
+   ý kiến của các nhà phát triển hạt nhân cốt lõi, đáng lẽ phải được triển khai trong
+   thay vào đó là lớp hệ thống tập tin ảo.  Nó cũng bao gồm các tính năng có thể
+   không dễ dàng được thực hiện mà không để lộ hệ thống do người dùng gây ra
+   bế tắc.  Sự tiết lộ muộn màng về những vấn đề này - và việc từ chối
+   giải quyết một số vấn đề trong số đó - đã khiến Reiser4 đứng ngoài dòng chính
+   hạt nhân.
+
+- Mô-đun bảo mật AppArmor sử dụng hệ thống tệp ảo nội bộ
+   cấu trúc dữ liệu theo những cách được coi là không an toàn và
+   không đáng tin cậy.  Mối lo ngại này (trong số những mối lo ngại khác) đã khiến AppArmor không thể tham gia.
+   tuyến chính trong nhiều năm.
+
+Trong mỗi trường hợp này, có thể sẽ phải chịu rất nhiều đau đớn và phải làm thêm
+tránh được bằng một số cuộc thảo luận ban đầu với các nhà phát triển hạt nhân.
+
+
+Bạn nói chuyện với ai?
+-------------------
+
+Khi các nhà phát triển quyết định công khai kế hoạch của họ, câu hỏi tiếp theo sẽ
+là: chúng ta bắt đầu từ đâu?  Câu trả lời là tìm đúng danh sách gửi thư và
+người bảo trì phù hợp.  Đối với danh sách gửi thư, cách tiếp cận tốt nhất là xem xét
+tệp MAINTAINERS để tìm nơi thích hợp để đăng.  Nếu có một cách phù hợp
+danh sách hệ thống con, đăng ở đó thường tốt hơn là đăng lên
+hạt nhân linux; bạn có nhiều khả năng tiếp cận các nhà phát triển có kiến thức chuyên môn về
+hệ thống con liên quan và môi trường có thể hỗ trợ nhiều hơn.
+
+Tìm người bảo trì có thể khó hơn một chút.  Một lần nữa, tệp MAINTAINERS là
+nơi để bắt đầu  Tuy nhiên, tập tin đó có xu hướng không phải lúc nào cũng được cập nhật,
+và không phải tất cả các hệ thống con đều được đại diện ở đó.  Người có tên trong
+Trên thực tế, tệp MAINTAINERS có thể không phải là người thực sự hành động
+vai trò đó hiện nay.  Vì vậy, khi có nghi ngờ về việc phải liên hệ với ai,
+mẹo hữu ích là sử dụng git (và đặc biệt là "git log") để xem ai là
+hiện đang hoạt động trong hệ thống con quan tâm.  Nhìn xem ai đang viết
+các bản vá lỗi và ai, nếu có, đang đính kèm các dòng Đã ký tắt vào các bản vá đó
+các bản vá lỗi.  Đó là những người sẽ ở vị trí tốt nhất để giúp đỡ trong một tình huống mới.
+dự án phát triển.
+
+Nhiệm vụ tìm kiếm người bảo trì phù hợp đôi khi đủ thách thức
+rằng các nhà phát triển kernel đã thêm một tập lệnh để đơn giản hóa quá trình:
+
+::
+
+	.../scripts/get_maintainer.pl
+
+Tập lệnh này sẽ trả về (các) nhà bảo trì hiện tại cho một tệp nhất định hoặc
+thư mục khi được cung cấp tùy chọn "-f".  Nếu thông qua một bản vá trên
+dòng lệnh, nó sẽ liệt kê những người bảo trì có thể sẽ nhận được
+bản sao của bản vá.  Đây là cách ưa thích (không giống như tùy chọn "-f") để có được
+danh sách những người gửi Cc cho các bản vá lỗi của bạn.  Có một số tùy chọn
+quy định mức độ khó khăn mà get_maintainer.pl sẽ tìm kiếm người bảo trì; làm ơn
+cẩn thận về việc sử dụng các tùy chọn tích cực hơn vì cuối cùng bạn có thể bao gồm
+những nhà phát triển không thực sự quan tâm đến mã bạn đang sửa đổi.
+
+Nếu vẫn thất bại, nói chuyện với Andrew Morton có thể là một cách hiệu quả để
+theo dõi người bảo trì cho một đoạn mã cụ thể.
+
+
+Khi nào đăng bài?
+-------------
+
+Nếu có thể, việc đăng kế hoạch của bạn trong giai đoạn đầu chỉ có thể
+hữu ích.  Mô tả vấn đề đang được giải quyết và mọi kế hoạch đã được thực hiện
+về cách thực hiện sẽ được thực hiện như thế nào.  Mọi thông tin bạn có thể
+cung cấp có thể giúp cộng đồng phát triển cung cấp thông tin đầu vào hữu ích về
+dự án.
+
+Một điều nản lòng có thể xảy ra ở giai đoạn này không phải là thái độ thù địch
+phản ứng, nhưng thay vào đó, có rất ít hoặc không có phản ứng nào cả.  Sự thật đáng buồn của
+vấn đề là (1) các nhà phát triển kernel có xu hướng bận rộn, (2) không thiếu
+những người có kế hoạch lớn và ít mã (hoặc thậm chí có triển vọng về mã) để
+sao lưu chúng và (3) không ai có nghĩa vụ phải xem xét hoặc nhận xét về ý tưởng
+được đăng bởi người khác.  Ngoài ra, các thiết kế cấp cao thường che giấu các vấn đề
+điều này chỉ được tiết lộ khi ai đó thực sự cố gắng thực hiện những điều đó
+thiết kế; vì lý do đó, các nhà phát triển kernel muốn xem mã hơn.
+
+Nếu việc đăng yêu cầu bình luận mang lại ít lợi ích cho việc bình luận, hãy làm
+không cho rằng điều đó có nghĩa là không có sự quan tâm đến dự án.
+Thật không may, bạn cũng không thể cho rằng không có vấn đề gì với
+ý tưởng.  Điều tốt nhất nên làm trong tình huống này là tiếp tục, giữ nguyên
+cộng đồng được thông báo khi bạn đi.
+
+
+Nhận mua chính thức
+-----------------------
+
+Nếu công việc của bạn đang được thực hiện trong môi trường doanh nghiệp - như hầu hết Linux
+công việc của kernel là - rõ ràng là bạn phải có sự cho phép phù hợp
+người quản lý được trao quyền trước khi bạn có thể đăng các kế hoạch hoặc mã của công ty mình lên một
+danh sách gửi thư công cộng.  Việc đăng mã chưa được xóa cho
+phát hành theo giấy phép tương thích với GPL có thể đặc biệt có vấn đề; cái
+sớm hơn để ban quản lý và nhân viên pháp lý của công ty có thể thống nhất về việc đăng
+của một dự án phát triển hạt nhân thì mọi người tham gia sẽ càng được lợi.
+
+Một số độc giả có thể nghĩ ở thời điểm này rằng công việc cốt lõi của họ là
+nhằm mục đích hỗ trợ một sản phẩm chưa có chính thức
+thừa nhận sự tồn tại.  Tiết lộ kế hoạch của chủ lao động của họ trước công chúng
+danh sách gửi thư có thể không phải là một lựa chọn khả thi.  Trong những trường hợp như thế này, điều đáng
+xem xét bí mật đó có thực sự cần thiết hay không; thường không có sự thật
+cần phải giữ kế hoạch phát triển đằng sau cánh cửa đóng kín.
+
+Điều đó nói lên rằng, cũng có những trường hợp một công ty không thể hợp pháp
+tiết lộ kế hoạch của mình sớm trong quá trình phát triển.  Các công ty có
+các nhà phát triển hạt nhân có kinh nghiệm có thể chọn tiến hành theo cách vòng lặp mở
+với giả định rằng họ sẽ có thể tránh được sự hội nhập nghiêm trọng
+vấn đề sau này.  Đối với các công ty không có chuyên môn nội bộ như vậy,
+lựa chọn tốt nhất thường là thuê một nhà phát triển bên ngoài để xem xét các kế hoạch theo
+một thỏa thuận không tiết lộ.  Quỹ Linux vận hành chương trình NDA
+được thiết kế để giúp giải quyết tình huống này; thêm thông tin có thể được tìm thấy
+tại:
+
+ZZ0000ZZ
+
+Loại xem xét này thường đủ để tránh những vấn đề nghiêm trọng sau này
+mà không yêu cầu công bố công khai dự án.

@@ -1,0 +1,507 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/2.Process.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_process:
+
+Quá trình phát triển diễn ra như thế nào
+=================================
+
+Việc phát triển nhân Linux vào đầu những năm 1990 là một công việc khá lỏng lẻo,
+với số lượng tương đối nhỏ người dùng và nhà phát triển tham gia.  Với một
+cơ sở người dùng lên tới hàng triệu người và với khoảng 2.000 nhà phát triển tham gia vào
+trong vòng một năm, hạt nhân đã phải phát triển một số
+các quy trình để giữ cho sự phát triển diễn ra suôn sẻ.  Một sự hiểu biết vững chắc về
+cách thức hoạt động của quy trình là cần thiết để trở thành một phần hiệu quả của nó.
+
+Bức tranh lớn
+---------------
+
+Nhân Linux sử dụng phương pháp phát triển phát hành luân phiên, dựa trên thời gian một cách lỏng lẻo
+mô hình.  Một bản phát hành hạt nhân chính mới (ví dụ như chúng tôi sẽ gọi là 9.x)
+[1]_ diễn ra hai hoặc ba tháng một lần, đi kèm với các tính năng mới,
+những thay đổi nội bộ của API, v.v. Một bản phát hành điển hình có thể chứa khoảng 13.000
+các bộ thay đổi với những thay đổi tới vài trăm nghìn dòng mã. Gần đây
+bạn có thể tìm thấy các bản phát hành cùng với ngày tháng của chúng tại ZZ0000ZZ.
+
+.. [1] Strictly speaking, the Linux kernel does not use semantic versioning
+       number scheme, but rather the 9.x pair identifies major release
+       version as a whole number. For each release, x is incremented,
+       but 9 is incremented only if x is deemed large enough (e.g.
+       Linux 5.0 is released following Linux 4.20).
+
+Một kỷ luật tương đối đơn giản được tuân theo liên quan đến
+hợp nhất các bản vá cho mỗi bản phát hành.  Vào đầu mỗi sự phát triển
+chu kỳ, "cửa sổ hợp nhất" được cho là đang mở.  Vào thời điểm đó, mã đó là
+được coi là đủ ổn định (và được chấp nhận bởi sự phát triển
+cộng đồng) được hợp nhất vào hạt nhân dòng chính.  Phần lớn các thay đổi đối với một
+chu kỳ phát triển mới (và tất cả những thay đổi lớn) sẽ được hợp nhất trong
+lần này, với tốc độ gần 1.000 thay đổi ("bản vá" hoặc "bộ thay đổi")
+mỗi ngày.
+
+(Bên cạnh đó, cần lưu ý rằng những thay đổi được tích hợp trong quá trình
+cửa sổ hợp nhất không thoát ra khỏi không khí mỏng; chúng đã được thu thập, thử nghiệm,
+và dàn dựng trước thời hạn.  Quá trình đó hoạt động như thế nào sẽ được mô tả trong
+chi tiết sau).
+
+Thời gian hợp nhất kéo dài khoảng hai tuần.  Vào cuối này
+thời gian đó, Linus Torvalds sẽ thông báo rằng cửa sổ đã đóng và giải phóng
+đầu tiên của hạt nhân "rc".  Đối với kernel được định sẵn là 9.x,
+ví dụ: bản phát hành xảy ra ở cuối cửa sổ hợp nhất sẽ
+được gọi là 9.x-rc1.  Việc phát hành -rc1 là tín hiệu cho biết đã đến lúc
+việc hợp nhất các tính năng mới đã qua và đó là thời điểm ổn định tiếp theo
+hạt nhân đã bắt đầu.
+
+Trong sáu đến mười tuần tới, chỉ những bản vá khắc phục sự cố mới được tung ra.
+được đưa lên đường chính.  Đôi khi sẽ có một sự thay đổi quan trọng hơn
+được phép, nhưng những dịp như vậy rất hiếm; các nhà phát triển cố gắng hợp nhất mới
+các tính năng bên ngoài cửa sổ hợp nhất có xu hướng nhận được sự tiếp nhận không thân thiện.
+Theo nguyên tắc chung, nếu bạn bỏ lỡ cửa sổ hợp nhất cho một tính năng nhất định,
+điều tốt nhất nên làm là chờ đợi chu kỳ phát triển tiếp theo.  (Thỉnh thoảng
+ngoại lệ được thực hiện cho trình điều khiển cho phần cứng không được hỗ trợ trước đó; nếu họ
+không chạm vào mã trong cây, chúng không thể gây ra hồi quy và phải an toàn để
+thêm bất cứ lúc nào).
+
+Khi các bản sửa lỗi được đưa vào dòng chính, tốc độ vá lỗi sẽ chậm lại
+thời gian.  Linus phát hành hạt nhân -rc mới khoảng một lần một tuần; một loạt bình thường
+sẽ đạt đến mức nào đó giữa -rc6 và -rc9 trước khi kernel được
+được coi là đủ ổn định và bản phát hành cuối cùng được thực hiện.
+Tại thời điểm đó toàn bộ quá trình bắt đầu lại.
+
+Ví dụ: đây là chu trình phát triển 5.4 diễn ra như thế nào (tất cả các ngày trong
+2019):
+
+=================================================
+	Ngày 15 tháng 9 5.3 phát hành ổn định
+	Ngày 30 tháng 9 5.4-rc1, cửa sổ hợp nhất đóng lại
+	Ngày 6 tháng 10 5.4-rc2
+	Ngày 13 tháng 10 5.4-rc3
+	Ngày 20 tháng 10 5.4-rc4
+	Ngày 27 tháng 10 5.4-rc5
+	Ngày 3 tháng 11 5.4-rc6
+	Ngày 10 tháng 11 5.4-rc7
+	Ngày 17 tháng 11 5.4-rc8
+	Ngày 24 tháng 11 5.4 phát hành ổn định
+	=================================================
+
+Làm thế nào để các nhà phát triển quyết định khi nào kết thúc chu trình phát triển và tạo ra
+bản phát hành ổn định?  Số liệu quan trọng nhất được sử dụng là danh sách
+hồi quy từ các phiên bản trước.  Không có lỗi nào được chào đón, ngoại trừ những lỗi
+hệ thống phá vỡ đã hoạt động trong quá khứ được coi là đặc biệt
+nghiêm túc.  Vì lý do này, các bản vá gây ra sự hồi quy sẽ được xem xét
+không thuận lợi và rất có thể sẽ bị đảo ngược trong quá trình ổn định
+kỳ.
+
+Mục tiêu của các nhà phát triển là khắc phục tất cả các hồi quy đã biết trước khi ổn định
+việc phát hành được thực hiện.  Trong thế giới thực, sự hoàn hảo này khó có thể đạt được.
+đạt được; có quá nhiều biến số trong một dự án cỡ này.
+Sẽ có lúc việc trì hoãn bản phát hành cuối cùng sẽ gây ra vấn đề
+tệ hơn; đống thay đổi đang chờ cửa sổ hợp nhất tiếp theo sẽ tăng lên
+lớn hơn, thậm chí còn tạo ra nhiều hồi quy hơn vào lần tiếp theo.  Vì vậy hầu hết các hạt nhân
+tuy nhiên, hãy đưa ra một số hồi quy đã biết, hy vọng là không có hồi quy nào trong số đó
+đang nghiêm túc.
+
+Khi một bản phát hành ổn định được thực hiện, việc bảo trì liên tục của nó sẽ được chuyển cho
+"đội ổn định", hiện bao gồm Greg Kroah-Hartman và Sasha Levin. các
+nhóm ổn định sẽ phát hành các bản cập nhật không thường xuyên cho bản phát hành ổn định bằng cách sử dụng
+Sơ đồ đánh số 9.x.y.
+
+Để được xem xét phát hành bản cập nhật, bản vá phải (1) sửa một lỗi đáng kể
+lỗi và (2) đã được hợp nhất vào dòng chính cho lần phát triển tiếp theo
+hạt nhân. Hạt nhân thường sẽ nhận được các bản cập nhật ổn định lâu hơn một chút
+hơn một chu kỳ phát triển sau lần phát hành đầu tiên của chúng. Vì vậy, ví dụ,
+Lịch sử của kernel 5.2 trông như thế này (tất cả các ngày trong năm 2019):
+
+=================================================
+	7 tháng 7 5.2 phát hành ổn định
+	Ngày 14 tháng 7 5.2.1
+	Ngày 21 tháng 7 5.2.2
+	Ngày 26 tháng 7 5.2.3
+	Ngày 28 tháng 7 5.2.4
+	Ngày 31 tháng 7 5.2.5
+	...		...
+Ngày 11 tháng 10 5.2.21
+	=================================================
+
+5.2.21 là bản cập nhật ổn định cuối cùng của bản phát hành 5.2.
+
+Một số hạt nhân được coi là hạt nhân "dài hạn"; họ sẽ nhận được sự hỗ trợ
+trong một thời gian dài hơn.  Vui lòng tham khảo liên kết sau để biết danh sách hoạt động
+phiên bản kernel dài hạn và người bảo trì chúng:
+
+ZZ0000ZZ
+
+Việc lựa chọn một hạt nhân để hỗ trợ lâu dài hoàn toàn là vấn đề
+người bảo trì có nhu cầu và thời gian để duy trì bản phát hành đó.  Ở đó
+không có kế hoạch hỗ trợ lâu dài nào được biết đến cho bất kỳ hoạt động cụ thể nào sắp tới
+thả ra.
+
+
+Vòng đời của một bản vá
+------------------------
+
+Các bản vá không đi trực tiếp từ bàn phím của nhà phát triển vào dòng chính
+hạt nhân.  Thay vào đó, có một phần nào đó có liên quan (nếu hơi không chính thức)
+quy trình được thiết kế để đảm bảo rằng mỗi bản vá đều được xem xét về chất lượng và
+mỗi bản vá thực hiện một thay đổi mong muốn có trong dòng chính.
+Quá trình này có thể diễn ra nhanh chóng đối với các bản sửa lỗi nhỏ hoặc trong trường hợp có lỗi lớn.
+và những thay đổi gây tranh cãi, tiếp tục trong nhiều năm.  Nhiều nhà phát triển thất vọng
+xuất phát từ sự thiếu hiểu biết về quá trình này hoặc từ những nỗ lực để
+phá vỡ nó.
+
+Với hy vọng giảm bớt sự thất vọng đó, tài liệu này sẽ mô tả cách
+một bản vá được đưa vào kernel.  Phần tiếp theo dưới đây là phần giới thiệu
+mô tả quá trình theo một cách hơi lý tưởng hóa.  Chi tiết hơn nhiều
+điều trị sẽ đến trong phần sau.
+
+Các giai đoạn mà một bản vá trải qua nói chung là:
+
+- Thiết kế.  Đây là nơi đặt ra các yêu cầu thực sự đối với bản vá - và cách thức
+   những yêu cầu đó sẽ được đáp ứng - được đặt ra.  Công việc thiết kế thường xuyên
+   được thực hiện mà không có sự tham gia của cộng đồng, nhưng tốt hơn là nên làm công việc này
+   ở nơi thoáng đãng nếu có thể; nó có thể tiết kiệm rất nhiều thời gian thiết kế lại
+   chuyện sau này.
+
+- Xem xét sớm.  Các bản vá được đăng vào danh sách gửi thư có liên quan và
+   các nhà phát triển trong danh sách đó trả lời bất kỳ nhận xét nào họ có thể có.  Cái này
+   quá trình sẽ xuất hiện bất kỳ vấn đề lớn nào với một bản vá nếu mọi việc suôn sẻ
+   tốt.
+
+- Đánh giá rộng hơn.  Khi bản vá sắp sẵn sàng cho dòng chính
+   đưa vào, nó phải được chấp nhận bởi người bảo trì hệ thống con có liên quan -
+   mặc dù sự chấp nhận này không đảm bảo rằng bản vá sẽ làm cho nó
+   tất cả các con đường đến dòng chính.  Bản vá sẽ hiển thị trong phần của người bảo trì
+   cây hệ thống con và vào các cây -next (được mô tả bên dưới).  Khi
+   quá trình hoạt động, bước này dẫn đến việc xem xét kỹ lưỡng hơn về bản vá và
+   việc phát hiện ra bất kỳ vấn đề nào phát sinh từ việc tích hợp này
+   vá lỗi với công việc đang được thực hiện bởi người khác.
+
+- Xin lưu ý rằng hầu hết những người bảo trì cũng có công việc hàng ngày, vì vậy việc sáp nhập
+   bản vá của bạn có thể không phải là ưu tiên cao nhất của họ.  Nếu bản vá của bạn là
+   nhận được phản hồi về những thay đổi cần thiết, bạn nên
+   thực hiện những thay đổi đó hoặc giải thích lý do tại sao chúng không nên được thực hiện.  Nếu bạn
+   bản vá không có khiếu nại đánh giá nhưng không được hợp nhất bởi nó
+   hệ thống con hoặc trình bảo trì trình điều khiển thích hợp, bạn nên kiên trì
+   trong việc cập nhật bản vá cho kernel hiện tại để nó được áp dụng một cách rõ ràng
+   và tiếp tục gửi nó để xem xét và hợp nhất.
+
+- Sáp nhập vào dòng chính.  Cuối cùng, một bản vá thành công sẽ được
+   được sáp nhập vào kho lưu trữ chính do Linus Torvalds quản lý.  Thêm
+   những nhận xét và/hoặc vấn đề có thể xuất hiện vào lúc này; điều quan trọng là
+   nhà phát triển phải phản hồi những điều này và khắc phục mọi vấn đề phát sinh.
+
+- Phát hành ổn định.  Số lượng người dùng có khả năng bị ảnh hưởng bởi bản vá
+   hiện nay đã lớn nên một lần nữa những vấn đề mới có thể nảy sinh.
+
+- Bảo trì dài hạn.  Mặc dù điều đó chắc chắn là có thể đối với một nhà phát triển
+   quên mã sau khi hợp nhất nó, loại hành vi đó có xu hướng
+   để lại ấn tượng không tốt trong cộng đồng phát triển.  Mã hợp nhất
+   loại bỏ một số gánh nặng bảo trì, trong đó những gánh nặng khác sẽ khắc phục
+   vấn đề do thay đổi API gây ra.  Nhưng nhà phát triển ban đầu nên
+   tiếp tục chịu trách nhiệm về mã nếu nó vẫn hữu ích
+   trong thời gian dài hơn.
+
+Một trong những sai lầm lớn nhất của các nhà phát triển kernel (hoặc người sử dụng lao động của họ)
+là cố gắng cắt giảm quy trình xuống còn một "hòa nhập vào dòng chính"
+bước.  Cách tiếp cận này luôn dẫn đến sự thất vọng cho mọi người
+có liên quan.
+
+Làm thế nào các bản vá vào Kernel
+-------------------------------
+
+Chỉ có một người có thể hợp nhất các bản vá vào kernel chính
+kho lưu trữ: Linus Torvalds. Nhưng, ví dụ, trong số hơn 9.500 bản vá
+đã đi vào kernel 2.6.38, chỉ có 112 (khoảng 1,3%) được truy cập trực tiếp
+do chính Linus chọn. Dự án hạt nhân từ lâu đã phát triển đến quy mô
+nơi không một nhà phát triển nào có thể kiểm tra và chọn từng bản vá
+không được trợ giúp. Cách các nhà phát triển hạt nhân giải quyết sự tăng trưởng này là
+thông qua việc sử dụng hệ thống trung úy được xây dựng xung quanh chuỗi tin cậy.
+
+Cơ sở mã hạt nhân được chia nhỏ một cách hợp lý thành một tập hợp các hệ thống con:
+mạng, hỗ trợ kiến trúc cụ thể, quản lý bộ nhớ, video
+thiết bị, v.v. Hầu hết các hệ thống con đều có người bảo trì được chỉ định, nhà phát triển
+người chịu trách nhiệm chung về mã trong hệ thống con đó.  Những cái này
+những người bảo trì hệ thống con là những người gác cổng (một cách lỏng lẻo) cho phần
+của hạt nhân mà họ quản lý; họ là những người sẽ (thường) chấp nhận một
+bản vá để đưa vào kernel dòng chính.
+
+Mỗi người bảo trì hệ thống con quản lý phiên bản nguồn kernel của riêng họ
+cây, thường (nhưng chắc chắn không phải luôn luôn) bằng cách sử dụng quản lý nguồn git
+công cụ.  Các công cụ như git (và các công cụ liên quan như quilt hoặc Mercurial) cho phép
+người bảo trì để theo dõi danh sách các bản vá, bao gồm thông tin về quyền tác giả
+và siêu dữ liệu khác.  Tại bất kỳ thời điểm nào, người bảo trì có thể xác định
+các bản vá trong kho lưu trữ của anh ấy hoặc cô ấy không được tìm thấy trong dòng chính.
+
+Khi cửa sổ hợp nhất mở ra, những người bảo trì cấp cao nhất sẽ yêu cầu Linus "kéo"
+các bản vá họ đã chọn để hợp nhất từ kho lưu trữ của họ.  Nếu
+Linus đồng ý, dòng bản vá sẽ chảy vào kho lưu trữ của anh ấy,
+trở thành một phần của hạt nhân dòng chính.  Mức độ chú ý mà Linus
+trả tiền cho các bản vá cụ thể nhận được trong hoạt động kéo sẽ khác nhau.  Rõ ràng là
+rằng, đôi khi, anh ấy nhìn khá kỹ.  Nhưng, theo nguyên tắc chung, Linus
+tin tưởng những người bảo trì hệ thống con sẽ không gửi các bản vá lỗi ngược dòng.
+
+Ngược lại, những người bảo trì hệ thống con có thể lấy các bản vá từ những người bảo trì khác.
+Ví dụ: cây mạng được xây dựng từ các bản vá được tích lũy
+đầu tiên trong cây dành riêng cho trình điều khiển thiết bị mạng, mạng không dây,
+v.v. Chuỗi kho lưu trữ này có thể dài tùy ý, mặc dù hiếm khi
+vượt quá hai hoặc ba liên kết.  Vì mỗi người bảo trì trong chuỗi đều tin tưởng
+những người quản lý cây cấp thấp hơn, quá trình này được gọi là "chuỗi
+tin tưởng."
+
+Rõ ràng, trong một hệ thống như thế này, việc đưa các bản vá vào kernel phụ thuộc vào
+tìm người bảo trì phù hợp.  Việc gửi các bản vá trực tiếp tới Linus thì không
+thông thường là con đường đúng đắn để đi.
+
+
+Cây tiếp theo
+----------
+
+Chuỗi cây hệ thống con hướng dẫn dòng các bản vá vào kernel,
+nhưng nó cũng đặt ra một câu hỏi thú vị: nếu ai đó muốn nhìn
+ở tất cả các bản vá đang được chuẩn bị cho cửa sổ hợp nhất tiếp theo?
+Các nhà phát triển sẽ quan tâm đến những thay đổi khác đang chờ xem
+liệu có bất kỳ xung đột nào đáng lo ngại hay không; một bản vá thay đổi một
+Ví dụ, nguyên mẫu hàm nhân lõi sẽ xung đột với bất kỳ nguyên mẫu nào khác
+các bản vá sử dụng dạng cũ hơn của chức năng đó.  Người đánh giá và người thử nghiệm
+muốn truy cập vào những thay đổi ở dạng tích hợp của họ trước tất cả những thay đổi đó
+thay đổi đất trong hạt nhân chính tuyến.  Người ta có thể lấy những thay đổi từ tất cả
+những cây hệ thống con thú vị, nhưng đó sẽ là một vấn đề lớn và dễ xảy ra lỗi
+công việc.
+
+Câu trả lời nằm ở dạng -cây tiếp theo, nơi chứa các cây hệ thống con.
+được thu thập để thử nghiệm và xem xét.  Những cây già hơn trong số này được chăm sóc bởi
+Andrew Morton, được gọi là "-mm" (để quản lý bộ nhớ, đó là cách nó có được
+bắt đầu).  Cây -mm tích hợp các bản vá từ một danh sách dài các hệ thống con
+cây cối; nó cũng có một số bản vá nhằm giúp gỡ lỗi.
+
+Ngoài ra, -mm còn chứa một bộ sưu tập đáng kể các bản vá có
+được Andrew trực tiếp lựa chọn.  Những bản vá này có thể đã được đăng trên một
+danh sách gửi thư hoặc chúng có thể áp dụng cho một phần của kernel có
+không có cây hệ thống con được chỉ định.  Kết quả là, -mm hoạt động như một loại
+cây hệ thống con cuối cùng; nếu không có con đường rõ ràng nào khác cho một
+vá vào dòng chính, nó có thể kết thúc bằng -mm.  Linh tinh
+các bản vá tích lũy trong -mm cuối cùng sẽ được chuyển tiếp tới
+cây hệ thống con thích hợp hoặc được gửi trực tiếp đến Linus.  Trong một điển hình
+chu kỳ phát triển, khoảng 5-10% các bản vá sẽ được đưa vào
+đường dây chính đến đó qua -mm.
+
+Bản vá -mm hiện tại có sẵn trong "mmotm" (-mm tại thời điểm này)
+thư mục tại:
+
+ZZ0000ZZ
+
+Tuy nhiên, việc sử dụng cây MMOTM có thể là một trải nghiệm khó chịu;
+có khả năng chắc chắn là nó thậm chí sẽ không được biên dịch.
+
+Cây chính để hợp nhất bản vá chu kỳ tiếp theo là linux-next, được duy trì bởi
+Mark Brown.  Cây linux-next, theo thiết kế, là một ảnh chụp nhanh về những gì
+dòng chính dự kiến sẽ trông giống như sau khi cửa sổ hợp nhất tiếp theo đóng lại.
+Cây Linux-next được công bố trên thư linux-kernel và linux-next
+danh sách khi chúng được tập hợp; chúng có thể được tải xuống từ:
+
+ZZ0000ZZ
+
+Linux-next đã trở thành một phần không thể thiếu trong quá trình phát triển kernel;
+tất cả các bản vá được hợp nhất trong một cửa sổ hợp nhất nhất định thực sự đã được tìm thấy
+đường vào linux-next một thời gian trước khi cửa sổ hợp nhất mở ra.
+
+
+Cây dàn
+-------------
+
+Cây nguồn kernel chứa thư mục driver/staging/, trong đó
+nhiều thư mục con dành cho trình điều khiển hoặc hệ thống tập tin đang trên đường tới
+đang được thêm vào cây hạt nhân trực tiếp.  Họ vẫn ở trong trình điều khiển/dàn dựng trong khi
+họ vẫn cần làm việc nhiều hơn; Sau khi hoàn thành, chúng có thể được chuyển vào
+hạt nhân thích hợp.  Đây là một cách để theo dõi các trình điều khiển không
+theo tiêu chuẩn chất lượng hoặc mã hóa nhân Linux, nhưng mọi người có thể muốn sử dụng
+chúng và theo dõi sự phát triển.
+
+Greg Kroah-Hartman hiện đang duy trì cây dàn dựng.  Trình điều khiển đó
+vẫn cần công việc được gửi cho anh ta, mỗi tài xế đều có công việc riêng
+thư mục con trong driver/staging/.  Cùng với các tập tin nguồn trình điều khiển, một
+Tệp TODO cũng phải có trong thư mục.  Danh sách tệp TODO
+công việc đang chờ xử lý mà trình điều khiển cần để được chấp nhận vào kernel
+thích hợp, cũng như danh sách những người cần được Cc cho bất kỳ bản vá nào
+người lái xe.  Các quy định hiện hành yêu cầu các trình điều khiển phải đóng góp vào việc dàn dựng
+tối thiểu phải biên dịch đúng cách.
+
+Dàn dựng có thể là một cách tương đối dễ dàng để đưa các trình điều khiển mới vào tuyến chính
+nếu may mắn, chúng sẽ thu hút được sự chú ý của các nhà phát triển khác và
+cải thiện nhanh chóng.  Tuy nhiên, việc bắt đầu dàn dựng không phải là kết thúc của câu chuyện;
+mã đang được dàn dựng không thấy tiến triển thường xuyên cuối cùng sẽ bị
+bị loại bỏ.  Các nhà phân phối cũng có xu hướng tương đối miễn cưỡng trong việc cho phép
+dàn trình điều khiển.  Vì vậy, dàn dựng tốt nhất chỉ là một điểm dừng trên con đường hướng tới việc trở thành
+một trình điều khiển đường chính thích hợp.
+
+
+Công cụ
+-----
+
+Như có thể thấy từ văn bản trên, quá trình phát triển kernel phụ thuộc vào
+phụ thuộc nhiều vào khả năng tập hợp các bộ sưu tập các bản vá ở nhiều dạng khác nhau
+hướng dẫn.  Toàn bộ mọi thứ sẽ không hoạt động tốt như ở đâu đó
+không có công cụ mạnh mẽ phù hợp.  Hướng dẫn cách sử dụng các công cụ này
+nằm ngoài phạm vi của tài liệu này nhưng vẫn còn chỗ cho một số
+con trỏ.
+
+Cho đến nay, hệ thống quản lý mã nguồn thống trị được hạt nhân sử dụng
+cộng đồng là git.  Git là một trong số các công cụ kiểm soát phiên bản phân tán
+các hệ thống đang được phát triển trong cộng đồng phần mềm miễn phí.  Nó được điều chỉnh tốt
+để phát triển kernel, ở chỗ nó hoạt động khá tốt khi xử lý
+kho lưu trữ lớn và số lượng lớn các bản vá.  Nó cũng có danh tiếng
+vì khó học và sử dụng, mặc dù nó đã tốt hơn
+thời gian.  Một số loại quen thuộc với git gần như là một yêu cầu đối với kernel
+nhà phát triển; ngay cả khi họ không sử dụng nó cho công việc của mình, họ sẽ cần git
+để theo kịp những gì các nhà phát triển khác (và dòng chính) đang làm.
+
+Git hiện được đóng gói trong hầu hết các bản phân phối Linux.  Có một ngôi nhà
+trang tại:
+
+ZZ0000ZZ
+
+Trang đó có các con trỏ tới tài liệu và hướng dẫn.
+
+Trong số các nhà phát triển kernel không sử dụng git, lựa chọn phổ biến nhất là
+gần như chắc chắn là Thuỷ ngân:
+
+ZZ0000ZZ
+
+Mercurial chia sẻ nhiều tính năng với git nhưng nó cung cấp một giao diện
+nhiều người thấy dễ sử dụng hơn.
+
+Công cụ khác đáng biết là Quilt:
+
+ZZ0000ZZ
+
+Quilt là một hệ thống quản lý bản vá chứ không phải là quản lý mã nguồn
+hệ thống.  Nó không theo dõi lịch sử theo thời gian; thay vào đó nó được định hướng
+hướng tới việc theo dõi một tập hợp các thay đổi cụ thể dựa trên cơ sở mã đang phát triển.
+Một số nhà bảo trì hệ thống con lớn sử dụng quilt để quản lý các bản vá dự định sẽ được triển khai.
+thượng nguồn.  Để quản lý một số loại cây nhất định (ví dụ: -mm),
+chăn là công cụ tốt nhất cho công việc.
+
+
+Danh sách gửi thư
+-------------
+
+Rất nhiều công việc phát triển nhân Linux được thực hiện bằng cách gửi thư
+danh sách.  Thật khó để trở thành một thành viên đầy đủ chức năng của cộng đồng
+mà không cần tham gia ít nhất một danh sách ở đâu đó.  Nhưng danh sách gửi thư của Linux cũng
+đại diện cho một mối nguy hiểm tiềm ẩn đối với các nhà phát triển, những người có nguy cơ bị chôn vùi dưới một
+tải thư điện tử, vi phạm các quy ước được sử dụng trên Linux
+danh sách, hoặc cả hai.
+
+Hầu hết các danh sách gửi thư của kernel đều được lưu trữ tại kernel.org; danh sách chính có thể
+được tìm thấy tại:
+
+ZZ0000ZZ
+
+Có danh sách được lưu trữ ở nơi khác; vui lòng kiểm tra tệp MAINTAINERS để biết
+danh sách liên quan đến bất kỳ hệ thống con cụ thể nào.
+
+Tất nhiên, danh sách gửi thư cốt lõi để phát triển kernel là linux-kernel.
+Danh sách này là một nơi đáng sợ; khối lượng có thể đạt tới 500 tin nhắn mỗi
+ngày, lượng tiếng ồn cao, cuộc trò chuyện có thể trở nên căng thẳng
+kỹ thuật và những người tham gia không phải lúc nào cũng quan tâm đến việc thể hiện mức độ cao
+mức độ lịch sự.  Nhưng không có nơi nào khác có hạt nhân
+cộng đồng phát triển gắn kết với nhau như một tổng thể; những nhà phát triển tránh điều này
+danh sách sẽ bỏ lỡ thông tin quan trọng.
+
+Có một số gợi ý có thể giúp ích cho sự tồn tại của hạt nhân linux:
+
+- Gửi danh sách vào một thư mục riêng thay vì thư mục chính của bạn
+  hộp thư.  Người ta phải có khả năng bỏ qua luồng trong thời gian liên tục
+  thời gian.
+
+- Đừng cố gắng theo dõi mọi cuộc trò chuyện - không ai khác làm vậy.  Đó là
+  điều quan trọng là lọc cả chủ đề quan tâm (mặc dù lưu ý rằng
+  những cuộc trò chuyện kéo dài có thể trôi xa khỏi chủ đề ban đầu
+  mà không thay đổi dòng chủ đề email) và những người
+  tham gia.
+
+- Đừng cho lũ troll ăn.  Nếu ai đó đang cố gắng khơi dậy sự tức giận
+  phản ứng, bỏ qua chúng.
+
+- Khi trả lời email hạt nhân linux (hoặc email trong danh sách khác), hãy giữ nguyên
+  tiêu đề Cc: cho tất cả những người liên quan.  Trong trường hợp không có lý do chính đáng (như
+  như một yêu cầu rõ ràng), bạn không bao giờ nên xóa người nhận.  Luôn làm
+  chắc chắn rằng người bạn đang phản hồi có trong danh sách Cc:.  Cái này
+  quy ước cũng khiến việc yêu cầu sao chép một cách rõ ràng trên
+  trả lời các bài đăng của bạn.
+
+- Tìm kiếm danh sách lưu trữ (và toàn bộ mạng) trước khi hỏi
+  câu hỏi.  Một số nhà phát triển có thể mất kiên nhẫn với những người rõ ràng
+  chưa làm bài tập về nhà của họ.
+
+- Sử dụng các câu trả lời xen kẽ ("nội tuyến") để giúp bạn dễ dàng nhận được câu trả lời hơn
+  đọc. (tức là tránh đăng bài hàng đầu -- việc đặt câu trả lời của bạn lên trên
+  văn bản được trích dẫn mà bạn đang phản hồi.) Để biết thêm chi tiết, xem
+  ZZ0000ZZ.
+
+- Hỏi về danh sách gửi thư chính xác.  Hạt nhân Linux có thể là cuộc họp chung
+  điểm, nhưng đây không phải là nơi tốt nhất để tìm các nhà phát triển từ tất cả
+  các hệ thống con.
+
+Điểm cuối cùng - tìm danh sách gửi thư chính xác - là nơi chung cho
+các nhà phát triển mới bắt đầu mắc sai lầm.  Ai đó hỏi một vấn đề liên quan đến mạng
+câu hỏi về linux-kernel gần như chắc chắn sẽ nhận được sự gợi ý lịch sự
+thay vào đó hãy hỏi danh sách netdev, vì đó là danh sách được hầu hết mọi người thường xuyên lui tới.
+các nhà phát triển mạng.  Các danh sách khác tồn tại cho SCSI, video4linux, IDE,
+hệ thống tập tin, v.v. các hệ thống con.  Nơi tốt nhất để tìm danh sách gửi thư là
+trong tệp MAINTAINERS được đóng gói cùng với nguồn kernel.
+
+
+Bắt đầu phát triển Kernel
+---------------------------------------
+
+Các câu hỏi về cách bắt đầu quá trình phát triển kernel là
+chung - từ cả cá nhân và công ty.  Phổ biến không kém là những sai lầm
+điều này khiến cho việc bắt đầu mối quan hệ trở nên khó khăn hơn mức cần thiết.
+
+Các công ty thường tìm cách thuê các nhà phát triển nổi tiếng để phát triển
+nhóm bắt đầu.  Trên thực tế, đây có thể là một kỹ thuật hiệu quả.  Nhưng nó cũng
+có xu hướng tốn kém và không làm được gì nhiều để phát triển đội ngũ chuyên gia có kinh nghiệm
+nhà phát triển hạt nhân.  Có thể giúp các nhà phát triển nội bộ bắt kịp tốc độ
+về phát triển nhân Linux, với sự đầu tư một chút thời gian.  Lấy
+thời gian này có thể mang lại cho nhà tuyển dụng một nhóm các nhà phát triển hiểu được
+hạt nhân và cả công ty, đồng thời cũng là người có thể giúp đào tạo những người khác.
+Trong trung hạn, đây thường là cách tiếp cận có lợi hơn.
+
+Có thể hiểu được, các nhà phát triển cá nhân thường không có nơi để
+bắt đầu.  Bắt đầu với một dự án lớn có thể đáng sợ; người ta thường muốn
+để thử nghiệm vùng nước với thứ gì đó nhỏ hơn trước.  Đây là điểm mà
+một số nhà phát triển nhảy vào tạo ra các bản vá sửa lỗi chính tả hoặc
+các vấn đề nhỏ về phong cách mã hóa.  Thật không may, những bản vá như vậy tạo ra một mức độ
+tiếng ồn gây mất tập trung cho toàn bộ cộng đồng phát triển, vì vậy,
+họ ngày càng bị coi thường.  Các nhà phát triển mới mong muốn
+giới thiệu bản thân với cộng đồng sẽ không nhận được sự đón nhận
+họ mong muốn bằng những phương tiện này.
+
+Andrew Morton đưa ra lời khuyên này cho các nhà phát triển kernel đầy tham vọng
+
+::
+
+Dự án #1 dành cho tất cả người mới bắt đầu sử dụng kernel chắc chắn phải "đảm bảo
+	rằng kernel luôn chạy hoàn hảo trên tất cả các máy
+	bạn có thể đặt tay lên".  Thông thường cách để làm điều này là làm việc
+	với những người khác về việc sửa chữa mọi thứ (điều này có thể yêu cầu
+	kiên trì!) nhưng không sao - đó là một phần của quá trình phát triển hạt nhân.
+
+(ZZ0000ZZ
+
+Trong trường hợp không có vấn đề rõ ràng cần khắc phục, các nhà phát triển nên xem xét
+tại danh sách hồi quy hiện tại và các lỗi mở nói chung.  có
+không bao giờ thiếu các vấn đề cần khắc phục; bằng cách giải quyết những vấn đề này,
+các nhà phát triển sẽ có được kinh nghiệm với quy trình này, đồng thời,
+xây dựng sự tôn trọng với phần còn lại của cộng đồng phát triển.

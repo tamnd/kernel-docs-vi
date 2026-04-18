@@ -1,0 +1,233 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/6.Followthrough.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_followthrough:
+
+theo dõi
+=============
+
+Tại thời điểm này, bạn đã làm theo các hướng dẫn được đưa ra cho đến nay và với
+bổ sung các kỹ năng kỹ thuật của riêng bạn, đã đăng một loạt bài hoàn hảo
+các bản vá lỗi.  Một trong những sai lầm lớn nhất mà ngay cả kernel cũng gặp phải
+các nhà phát triển có thể đưa ra kết luận rằng công việc của họ hiện đã hoàn thành.  Sự thật là,
+đăng các bản vá cho thấy sự chuyển đổi sang giai đoạn tiếp theo của quy trình,
+có lẽ còn khá nhiều việc chưa hoàn thành.
+
+Đây là một bản vá hiếm hoi rất tốt ở lần đăng đầu tiên đến nỗi không có
+phòng để cải thiện.  Quá trình phát triển hạt nhân nhận ra thực tế này,
+và, kết quả là, được định hướng nhiều vào việc cải thiện các dịch vụ được đăng
+mã.  Bạn, với tư cách là tác giả của mã đó, sẽ phải làm việc với
+cộng đồng kernel để đảm bảo rằng mã của bạn đạt chất lượng của kernel
+tiêu chuẩn.  Việc không tham gia vào quá trình này rất có thể sẽ
+ngăn chặn việc đưa các bản vá của bạn vào dòng chính.
+
+
+Làm việc với người đánh giá
+----------------------
+
+Một bản vá có ý nghĩa bất kỳ sẽ dẫn đến một số nhận xét từ những người khác
+các nhà phát triển khi họ xem xét mã.  Làm việc với người đánh giá có thể là
+nhiều nhà phát triển, phần đáng sợ nhất của quá trình phát triển kernel
+quá trình.  Tuy nhiên, cuộc sống có thể trở nên dễ dàng hơn nhiều nếu bạn giữ một vài thứ trong mình.
+tâm trí:
+
+- Nếu bạn đã giải thích rõ về bản vá của mình, người đánh giá sẽ hiểu nó
+   giá trị và lý do tại sao bạn lại gặp khó khăn khi viết nó.  Nhưng giá trị đó
+   sẽ không ngăn họ hỏi một câu hỏi cơ bản: nó sẽ là gì
+   muốn duy trì một hạt nhân với mã này trong đó năm hay mười năm sau?
+   Nhiều thay đổi bạn có thể được yêu cầu thực hiện - từ các chỉnh sửa về phong cách mã hóa
+   đến những bản viết lại đáng kể - xuất phát từ sự hiểu biết rằng Linux sẽ
+   vẫn còn tồn tại và đang được phát triển trong một thập kỷ nữa.
+
+- Đánh giá mã là một công việc khó khăn và là một công việc tương đối bạc bẽo;
+   mọi người nhớ ai đã viết mã hạt nhân, nhưng có rất ít danh tiếng lâu dài
+   cho những người đã xem xét nó.  Vì vậy, người đánh giá có thể trở nên gắt gỏng, đặc biệt khi
+   họ thấy những sai lầm tương tự được lặp đi lặp lại.  Nếu bạn nhận được một
+   đánh giá có vẻ tức giận, xúc phạm hoặc xúc phạm hoàn toàn, hãy chống lại
+   xung lực để đáp lại bằng hiện vật.  Đánh giá mã là về mã, không phải về
+   mọi người và người đánh giá mã không tấn công cá nhân bạn.
+
+- Tương tự như vậy, những người đánh giá mã không cố gắng quảng bá cho người sử dụng lao động của họ.
+   chương trình nghị sự bằng chi phí của riêng bạn.  Các nhà phát triển hạt nhân thường mong đợi
+   đang làm việc trên hạt nhân từ nhiều năm nay, nhưng họ hiểu rằng
+   người sử dụng lao động có thể thay đổi.  Họ thực sự là như vậy, hầu như không có ngoại lệ,
+   nỗ lực tạo ra hạt nhân tốt nhất có thể; họ không phải
+   cố gắng tạo ra sự khó chịu cho các đối thủ cạnh tranh của người sử dụng lao động của họ.
+
+- Hãy chuẩn bị cho những yêu cầu có vẻ ngớ ngẩn về thay đổi phong cách mã hóa
+   và yêu cầu đưa một số mã của bạn vào các phần được chia sẻ của
+   hạt nhân. Một công việc mà người bảo trì làm là giữ cho mọi thứ luôn ổn định
+   giống nhau. Đôi khi điều này có nghĩa là cách hack thông minh trong trình điều khiển của bạn
+   để giải quyết một vấn đề thực sự cần phải trở thành một khái niệm tổng quát
+   tính năng kernel sẵn sàng cho lần tiếp theo.
+
+Tất cả những điều này có ý nghĩa là khi người đánh giá gửi cho bạn nhận xét,
+bạn cần chú ý đến những quan sát kỹ thuật mà chúng
+làm.  Đừng để hình thức biểu hiện của họ hay niềm kiêu hãnh của riêng bạn giữ điều đó
+khỏi xảy ra.  Khi bạn nhận được nhận xét đánh giá về một bản vá, hãy dành thời gian để
+hiểu người đánh giá đang muốn nói gì.  Nếu có thể, hãy sửa chữa mọi thứ
+mà người đánh giá đang yêu cầu bạn khắc phục.  Và trả lời lại người đánh giá:
+cảm ơn họ và mô tả cách bạn sẽ trả lời câu hỏi của họ.
+
+Lưu ý rằng bạn không nhất thiết phải đồng ý với mọi thay đổi được đề xuất bởi
+người đánh giá.  Nếu bạn cho rằng người đánh giá đã hiểu nhầm mã của bạn,
+giải thích những gì đang thực sự xảy ra  Nếu bạn phản đối về mặt kỹ thuật đối với một
+thay đổi được đề xuất, mô tả nó và biện minh cho giải pháp của bạn cho vấn đề.  Nếu
+lời giải thích của bạn có ý nghĩa, người đánh giá sẽ chấp nhận chúng.  Nếu bạn
+Tuy nhiên, lời giải thích không có tính thuyết phục, đặc biệt nếu người khác bắt đầu
+đồng ý với người đánh giá, hãy dành chút thời gian để suy nghĩ lại mọi việc.  Nó có thể
+dễ bị mù quáng bởi giải pháp của chính bạn cho một vấn đề
+rằng bạn không nhận ra rằng có điều gì đó sai về cơ bản hoặc có lẽ,
+bạn thậm chí còn không giải quyết đúng vấn đề.
+
+Andrew Morton đã gợi ý rằng mọi nhận xét đánh giá không mang lại kết quả
+thay đổi mã sẽ dẫn đến nhận xét mã bổ sung thay thế; đó
+có thể giúp những người đánh giá trong tương lai tránh được những câu hỏi xuất hiện lần đầu tiên
+xung quanh.
+
+Một sai lầm chết người là bỏ qua những nhận xét đánh giá với hy vọng rằng chúng sẽ
+đi đi.  Họ sẽ không biến mất.  Nếu bạn đăng lại mã mà không có
+đã trả lời những nhận xét bạn nhận được lúc trước, bạn có thể tìm thấy
+rằng các bản vá của bạn chẳng đi đến đâu.
+
+Nói về việc đăng lại mã: xin lưu ý rằng người đánh giá không
+sẽ nhớ tất cả các chi tiết của mã bạn đã đăng lần trước
+xung quanh.  Vì vậy, việc nhắc nhở người đánh giá về những điều trước đây luôn là một ý kiến hay.
+các vấn đề nảy sinh và cách bạn giải quyết chúng; nhật ký thay đổi bản vá là tốt
+nơi dành cho loại thông tin này.  Người đánh giá không cần phải tìm kiếm
+thông qua các kho lưu trữ danh sách để làm quen với những gì được nói lần trước
+thời gian; nếu bạn giúp họ khởi đầu tốt, họ sẽ có tâm trạng tốt hơn
+khi họ xem lại mã của bạn.
+
+Điều gì sẽ xảy ra nếu bạn đã cố gắng làm mọi việc đúng đắn nhưng mọi việc vẫn không diễn ra như ý muốn
+ở đâu không?  Hầu hết những bất đồng về mặt kỹ thuật có thể được giải quyết thông qua thảo luận,
+nhưng có những lúc ai đó phải đưa ra quyết định.  Nếu bạn
+thành thật tin rằng quyết định này là sai trái với bạn, bạn có thể
+luôn cố gắng kêu gọi một quyền lực cao hơn.  Theo văn bản này, cao hơn
+quyền lực có xu hướng là Andrew Morton.  Andrew có rất nhiều sự tôn trọng trong
+cộng đồng phát triển hạt nhân; anh ấy thường có thể giải quyết một tình huống dường như
+bị chặn lại một cách vô vọng.  Việc khiếu nại Andrew không nên được thực hiện một cách nhẹ nhàng,
+tuy nhiên, và không phải trước khi tất cả các lựa chọn thay thế khác đã được khám phá.  Và gấu
+tất nhiên, hãy nhớ rằng anh ấy cũng có thể không đồng ý với bạn.
+
+
+Điều gì xảy ra tiếp theo
+-----------------
+
+Nếu một bản vá được coi là tốt để thêm vào kernel, và một khi
+hầu hết các vấn đề xem xét đã được giải quyết, bước tiếp theo thường là
+nhập vào cây của người bảo trì hệ thống con.  Cách thức hoạt động khác nhau từ một
+hệ thống con tiếp theo; mỗi người bảo trì có cách làm riêng của mình
+mọi thứ.  Đặc biệt, có thể có nhiều hơn một cây - có lẽ một cây
+dành riêng cho các bản vá được lên kế hoạch cho cửa sổ hợp nhất tiếp theo và một bản khác dành cho
+công việc lâu dài hơn.
+
+Đối với các bản vá áp dụng cho các khu vực không có cây hệ thống con rõ ràng
+(ví dụ: các bản vá quản lý bộ nhớ), cây mặc định thường kết thúc
+là -mm.  Các bản vá ảnh hưởng đến nhiều hệ thống con cũng có thể bị lỗi.
+qua cây -mm.
+
+Việc đưa vào cây hệ thống con có thể mang lại mức độ hiển thị cao hơn cho
+vá.  Bây giờ các nhà phát triển khác làm việc với cây đó sẽ nhận được bản vá bằng cách
+mặc định.  Cây hệ thống con cũng thường cung cấp linux-next, làm cho chúng
+nội dung hiển thị cho toàn thể cộng đồng phát triển.  Tại thời điểm này,
+rất có thể bạn sẽ nhận được nhiều nhận xét hơn từ nhóm mới
+người đánh giá; những ý kiến ​​này cần được trả lời như ở vòng trước.
+
+Điều gì cũng có thể xảy ra vào thời điểm này, tùy thuộc vào bản chất của bản vá của bạn,
+là xung đột với công việc do người khác thực hiện sẽ xuất hiện.  Trong điều tồi tệ nhất
+trường hợp xung đột bản vá nặng nề có thể dẫn đến một số công việc bị trì hoãn
+đầu đốt để các miếng vá còn lại có thể được gia công thành hình và hợp nhất.
+Những lúc khác, giải quyết xung đột sẽ liên quan đến việc làm việc với người khác.
+các nhà phát triển và có thể di chuyển một số mảnh đất giữa các cây để đảm bảo rằng
+mọi thứ đều được áp dụng một cách sạch sẽ.  Công việc này có thể khó khăn, nhưng hãy đếm
+phước lành: trước khi cây linux-next ra đời, những xung đột này thường
+chỉ xuất hiện trong cửa sổ hợp nhất và phải được xử lý nhanh chóng.
+Bây giờ chúng có thể được giải quyết một cách thoải mái trước khi cửa sổ hợp nhất mở ra.
+
+Một ngày nào đó, nếu mọi việc suôn sẻ, bạn sẽ đăng nhập và thấy rằng bản vá của bạn đã được
+sáp nhập vào hạt nhân dòng chính.  Chúc mừng!  Một khi lễ kỷ niệm diễn ra
+hoàn thành (và bạn đã tự thêm mình vào tệp MAINTAINERS), tuy nhiên, nó
+đáng để ghi nhớ một sự thật nhỏ quan trọng: công việc vẫn chưa hoàn thành.
+Việc sáp nhập vào dòng chính mang lại những thách thức riêng.
+
+Đầu tiên, khả năng hiển thị bản vá của bạn đã tăng trở lại.  Ở đó
+có thể là một đợt nhận xét mới từ các nhà phát triển chưa biết đến
+bản vá trước đó.  Có thể bạn sẽ muốn bỏ qua chúng vì không có
+còn bất kỳ câu hỏi nào về mã của bạn được hợp nhất.  Hãy chống lại sự cám dỗ đó,
+mặc dù ; bạn vẫn cần phải phản hồi lại những nhà phát triển có thắc mắc hoặc
+gợi ý.
+
+Tuy nhiên, quan trọng hơn: việc đưa vào dòng chính sẽ đưa mã của bạn vào
+bàn tay của một nhóm người thử nghiệm lớn hơn nhiều.  Ngay cả khi bạn đã đóng góp
+một trình điều khiển cho phần cứng vẫn chưa có sẵn, bạn sẽ ngạc nhiên bởi
+có bao nhiêu người sẽ xây dựng mã của bạn vào nhân của họ.  Và tất nhiên,
+ở đâu có người thử nghiệm, ở đó sẽ có báo cáo lỗi.
+
+Loại báo cáo lỗi tồi tệ nhất là hồi quy.  Nếu bản vá của bạn gây ra
+hồi quy, bạn sẽ thấy có rất nhiều ánh mắt khó chịu đổ dồn vào mình;
+sự hồi quy cần phải được khắc phục càng sớm càng tốt.  Nếu bạn không muốn hoặc
+không thể sửa lỗi hồi quy (và không ai khác làm điều đó cho bạn), bản vá của bạn
+gần như chắc chắn sẽ bị loại bỏ trong thời gian ổn định.  Ngoài ra
+phủ nhận tất cả công việc bạn đã làm để đưa bản vá của bạn vào dòng chính,
+việc gỡ bỏ một bản vá do không khắc phục được sự hồi quy có thể
+cũng sẽ khiến bạn gặp khó khăn hơn trong việc hợp nhất công việc trong tương lai.
+
+Sau khi mọi sự hồi quy đã được xử lý, có thể có những vấn đề khác, thông thường
+lỗi cần giải quyết.  Giai đoạn ổn định là cơ hội tốt nhất để bạn
+sửa các lỗi này và đảm bảo rằng mã của bạn xuất hiện trong kernel dòng chính
+bản phát hành càng chắc chắn càng tốt.  Vì vậy, vui lòng trả lời các báo cáo lỗi và khắc phục
+những vấn đề nếu có thể.  Đó chính là thời kỳ ổn định
+vì ; bạn có thể bắt đầu tạo các bản vá mới thú vị khi có bất kỳ vấn đề nào với bản cũ
+những cái đã được chăm sóc.
+
+Và đừng quên rằng có những cột mốc quan trọng khác cũng có thể tạo ra lỗi
+báo cáo: bản phát hành ổn định cho dòng chính tiếp theo, khi các nhà phân phối nổi bật chọn
+tạo một phiên bản kernel chứa bản vá của bạn, v.v. Tiếp tục
+Trả lời những báo cáo này là vấn đề cơ bản về niềm tự hào trong công việc của bạn.  Nếu đó
+tuy nhiên, động lực là không đủ, cũng đáng để xem xét rằng
+cộng đồng phát triển ghi nhớ những nhà phát triển không còn hứng thú với mã của họ
+sau khi nó được sáp nhập.  Lần tới khi bạn đăng bản vá, họ sẽ đánh giá
+nó với giả định rằng bạn sẽ không ở bên cạnh để duy trì nó
+sau đó.
+
+
+Những điều khác có thể xảy ra
+-----------------------------
+
+Một ngày nào đó, bạn có thể mở ứng dụng thư của mình và thấy ai đó đã gửi thư cho bạn
+một bản vá cho mã của bạn.  Đó là một trong những lợi thế của việc có mã của bạn
+Rốt cuộc thì ở ngoài kia.  Nếu bạn đồng ý với bản vá, bạn có thể
+hoặc chuyển tiếp nó tới người bảo trì hệ thống con (đảm bảo bao gồm một
+thích hợp Từ: dòng để ghi công chính xác và thêm dấu hiệu của
+của riêng bạn) hoặc gửi phản hồi Acked-by: và để người đăng ban đầu
+gửi nó lên trên.
+
+Nếu bạn không đồng ý với bản vá, hãy gửi phản hồi lịch sự giải thích lý do.  Nếu
+có thể, hãy cho tác giả biết những thay đổi nào cần thực hiện để tạo bản vá
+chấp nhận được với bạn.  Có một sự phản đối nhất định đối với việc hợp nhất các bản vá
+bị tác giả và người duy trì mã phản đối, nhưng nó chỉ diễn ra như vậy
+xa.  Nếu bạn bị coi là cản trở công việc tốt một cách không cần thiết, những bản vá đó sẽ
+cuối cùng sẽ chảy xung quanh bạn và đi vào dòng chính.  Trong Linux
+kernel, không ai có quyền phủ quyết tuyệt đối đối với bất kỳ mã nào.  Có lẽ ngoại trừ Linus.
+
+Trong một số trường hợp rất hiếm hoi, bạn có thể thấy điều gì đó hoàn toàn khác: một điều khác
+nhà phát triển đăng một giải pháp khác cho vấn đề của bạn.  Vào thời điểm đó,
+rất có thể một trong hai bản vá sẽ không được hợp nhất và "của tôi đã
+đây trước tiên" không được coi là một lập luận kỹ thuật thuyết phục.  Nếu
+Bản vá của người khác thay thế bản vá của bạn và đi vào dòng chính, có
+thực sự chỉ có một cách để trả lời: hãy hài lòng vì vấn đề của bạn đã được giải quyết và
+tiếp tục công việc của bạn  Công việc của một người bị gạt sang một bên theo cách này có thể
+gây tổn thương và nản lòng, nhưng cộng đồng sẽ ghi nhớ phản ứng của bạn
+rất lâu sau đó họ đã quên mất bản vá của ai thực sự đã được hợp nhất.
