@@ -12,282 +12,282 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
- Qualcomm Cloud AI 100 (AIC100)
+==================================
+ Đám mây Qualcomm AI 100 (AIC100)
 ===============================
 
-Overview
+Tổng quan
 ========
 
-The Qualcomm Cloud AI 100/AIC100 family of products (including SA9000P - part of
-Snapdragon Ride) are PCIe adapter cards which contain a dedicated SoC ASIC for
-the purpose of efficiently running Artificial Intelligence (AI) Deep Learning
-inference workloads. They are AI accelerators.
+Dòng sản phẩm Qualcomm Cloud AI 100/AIC100 (bao gồm SA9000P - một phần của
+Snapdragon Ride) là thẻ bộ điều hợp PCIe chứa SoC ASIC chuyên dụng cho
+mục đích của việc vận hành Deep Learning trí tuệ nhân tạo (AI) một cách hiệu quả
+khối lượng công việc suy luận. Họ là những người tăng tốc AI.
 
-The PCIe interface of AIC100 is capable of PCIe Gen4 speeds over eight lanes
-(x8). An individual SoC on a card can have up to 16 NSPs for running workloads.
-Each SoC has an A53 management CPU. On card, there can be up to 32 GB of DDR.
+Giao diện PCIe của AIC100 có khả năng cung cấp tốc độ PCIe Gen4 trên tám làn
+(x8). Một SoC riêng lẻ trên thẻ có thể có tới 16 NSP để chạy khối lượng công việc.
+Mỗi SoC có một CPU quản lý A53. Trên thẻ có thể có tới 32 GB DDR.
 
-Multiple AIC100 cards can be hosted in a single system to scale overall
-performance. AIC100 cards are multi-user capable and able to execute workloads
-from multiple users in a concurrent manner.
+Nhiều thẻ AIC100 có thể được lưu trữ trong một hệ thống duy nhất để mở rộng quy mô tổng thể
+hiệu suất. Thẻ AIC100 có khả năng đa người dùng và có thể thực hiện khối lượng công việc
+từ nhiều người dùng một cách đồng thời.
 
-Hardware Description
+Mô tả phần cứng
 ====================
 
-An AIC100 card consists of an AIC100 SoC, on-card DDR, and a set of misc
-peripherals (PMICs, etc).
+Thẻ AIC100 bao gồm AIC100 SoC, DDR trên thẻ và một bộ linh tinh
+thiết bị ngoại vi (PMIC, v.v.).
 
-An AIC100 card can either be a PCIe HHHL form factor (a traditional PCIe card),
-or a Dual M.2 card. Both use PCIe to connect to the host system.
+Thẻ AIC100 có thể là hệ số dạng PCIe HHHL (thẻ PCIe truyền thống),
+hoặc thẻ Dual M.2. Cả hai đều sử dụng PCIe để kết nối với hệ thống máy chủ.
 
-As a PCIe endpoint/adapter, AIC100 uses the standard VendorID(VID)/
-DeviceID(DID) combination to uniquely identify itself to the host. AIC100
-uses the standard Qualcomm VID (0x17cb). All AIC100 SKUs use the same
+Là điểm cuối/bộ chuyển đổi PCIe, AIC100 sử dụng VendorID(VID)/ tiêu chuẩn
+Kết hợp DeviceID(DID) để nhận dạng duy nhất chính nó với máy chủ. AIC100
+sử dụng tiêu chuẩn Qualcomm VID (0x17cb). Tất cả các SKU AIC100 đều sử dụng giống nhau
 AIC100 DID (0xa100).
 
-AIC100 does not implement FLR (function level reset).
+AIC100 không triển khai FLR (đặt lại mức chức năng).
 
-AIC100 implements MSI but does not implement MSI-X. AIC100 prefers 17 MSIs to
-operate (1 for MHI, 16 for the DMA Bridge). Falling back to 1 MSI is possible in
-scenarios where reserving 32 MSIs isn't feasible.
+AIC100 triển khai MSI nhưng không triển khai MSI-X. AIC100 thích 17 MSI hơn
+hoạt động (1 cho MHI, 16 cho Cầu DMA). Có thể quay trở lại 1 MSI trong
+những tình huống mà việc đặt trước 32 MSI là không khả thi.
 
-As a PCIe device, AIC100 utilizes BARs to provide host interfaces to the device
-hardware. AIC100 provides 3, 64-bit BARs.
+Là một thiết bị PCIe, AIC100 sử dụng BAR để cung cấp giao diện máy chủ cho thiết bị
+phần cứng. AIC100 cung cấp BAR 3, 64 bit.
 
-* The first BAR is 4K in size, and exposes the MHI interface to the host.
+* BAR đầu tiên có kích thước 4K và hiển thị giao diện MHI cho máy chủ.
 
-* The second BAR is 2M in size, and exposes the DMA Bridge interface to the
-  host.
+* BAR thứ hai có kích thước 2M và hiển thị giao diện Cầu DMA cho
+  chủ nhà.
 
-* The third BAR is variable in size based on an individual AIC100's
-  configuration, but defaults to 64K. This BAR currently has no purpose.
+* BAR thứ ba có kích thước thay đổi dựa trên từng AIC100 riêng lẻ
+  cấu hình, nhưng mặc định là 64K. BAR này hiện không có mục đích.
 
-From the host perspective, AIC100 has several key hardware components -
+Từ góc độ máy chủ, AIC100 có một số thành phần phần cứng chính -
 
-* MHI (Modem Host Interface)
-* QSM (QAIC Service Manager)
-* NSPs (Neural Signal Processor)
-* DMA Bridge
+* MHI (Giao diện máy chủ Modem)
+* QSM (Trình quản lý dịch vụ QAIC)
+* NSP (Bộ xử lý tín hiệu thần kinh)
+* Cầu DMA
 * DDR
 
 MHI
 ---
 
-AIC100 has one MHI interface over PCIe. MHI itself is documented at
-Documentation/mhi/index.rst MHI is the mechanism the host uses to communicate
-with the QSM. Except for workload data via the DMA Bridge, all interaction with
-the device occurs via MHI.
+AIC100 có một giao diện MHI qua PCIe. Bản thân MHI được ghi lại tại
+Documentation/mhi/index.rst MHI là cơ chế mà máy chủ sử dụng để giao tiếp
+với QSM. Ngoại trừ dữ liệu khối lượng công việc qua Cầu DMA, tất cả tương tác với
+thiết bị xảy ra thông qua MHI.
 
 QSM
 ---
 
-QAIC Service Manager. This is an ARM A53 CPU that runs the primary
-firmware of the card and performs on-card management tasks. It also
-communicates with the host via MHI. Each AIC100 has one of
-these.
+Quản lý dịch vụ QAIC. Đây là ARM A53 CPU chạy hệ thống chính
+phần sụn của thẻ và thực hiện các nhiệm vụ quản lý trên thẻ. Nó cũng
+giao tiếp với máy chủ thông qua MHI. Mỗi AIC100 có một trong
+những cái này.
 
 NSP
 ---
 
-Neural Signal Processor. Each AIC100 has up to 16 of these. These are
-the processors that run the workloads on AIC100. Each NSP is a Qualcomm Hexagon
-(Q6) DSP with HVX and HMX. Each NSP can only run one workload at a time, but
-multiple NSPs may be assigned to a single workload. Since each NSP can only run
-one workload, AIC100 is limited to 16 concurrent workloads. Workload
-"scheduling" is under the purview of the host. AIC100 does not automatically
-timeslice.
+Bộ xử lý tín hiệu thần kinh. Mỗi chiếc AIC100 có tới 16 chiếc như vậy. Đây là
+bộ xử lý chạy khối lượng công việc trên AIC100. Mỗi NSP là một hình lục giác Qualcomm
+(Q6) DSP với HVX và HMX. Mỗi NSP chỉ có thể chạy một khối lượng công việc tại một thời điểm, nhưng
+nhiều NSP có thể được gán cho một khối lượng công việc duy nhất. Vì mỗi NSP chỉ có thể chạy
+một khối lượng công việc, AIC100 bị giới hạn ở 16 khối lượng công việc đồng thời. Khối lượng công việc
+"lập lịch" nằm trong tầm nhìn của máy chủ. AIC100 không tự động
+timelice.
 
-DMA Bridge
+Cầu DMA
 ----------
 
-The DMA Bridge is custom DMA engine that manages the flow of data
-in and out of workloads. AIC100 has one of these. The DMA Bridge has 16
-channels, each consisting of a set of request/response FIFOs. Each active
-workload is assigned a single DMA Bridge channel. The DMA Bridge exposes
-hardware registers to manage the FIFOs (head/tail pointers), but requires host
-memory to store the FIFOs.
+Cầu DMA là công cụ DMA tùy chỉnh để quản lý luồng dữ liệu
+trong và ngoài khối lượng công việc. AIC100 có một trong số này. Cầu DMA có 16
+các kênh, mỗi kênh bao gồm một tập hợp các FIFO yêu cầu/phản hồi. Mỗi hoạt động
+khối lượng công việc được chỉ định một kênh Cầu nối DMA duy nhất. Cầu DMA lộ diện
+các thanh ghi phần cứng để quản lý FIFO (con trỏ đầu/đuôi), nhưng yêu cầu máy chủ
+bộ nhớ để lưu trữ FIFO.
 
 DDR
 ---
 
-AIC100 has on-card DDR. In total, an AIC100 can have up to 32 GB of DDR.
-This DDR is used to store workloads, data for the workloads, and is used by the
-QSM for managing the device. NSPs are granted access to sections of the DDR by
-the QSM. The host does not have direct access to the DDR, and must make
-requests to the QSM to transfer data to the DDR.
+AIC100 có DDR trên thẻ. Tổng cộng, một chiếc AIC100 có thể có tới 32 GB DDR.
+DDR này được sử dụng để lưu trữ khối lượng công việc, dữ liệu cho khối lượng công việc và được sử dụng bởi
+QSM để quản lý thiết bị. NSP được cấp quyền truy cập vào các phần của DDR bằng cách
+QSM. Máy chủ không có quyền truy cập trực tiếp vào DDR và phải thực hiện
+yêu cầu QSM truyền dữ liệu tới DDR.
 
-High-level Use Flow
+Luồng sử dụng cấp cao
 ===================
 
-AIC100 is a multi-user, programmable accelerator typically used for running
-neural networks in inferencing mode to efficiently perform AI operations.
-AIC100 is not intended for training neural networks. AIC100 can be utilized
-for generic compute workloads.
+AIC100 là bộ tăng tốc có thể lập trình, nhiều người dùng, thường được sử dụng để chạy
+mạng lưới thần kinh ở chế độ suy luận để thực hiện các hoạt động AI một cách hiệu quả.
+AIC100 không dành cho việc đào tạo mạng lưới thần kinh. AIC100 có thể được sử dụng
+cho khối lượng công việc tính toán chung.
 
-Assuming a user wants to utilize AIC100, they would follow these steps:
+Giả sử người dùng muốn sử dụng AIC100, họ sẽ làm theo các bước sau:
 
-1. Compile the workload into an ELF targeting the NSP(s)
-2. Make requests to the QSM to load the workload and related artifacts into the
-   device DDR
-3. Make a request to the QSM to activate the workload onto a set of idle NSPs
-4. Make requests to the DMA Bridge to send input data to the workload to be
-   processed, and other requests to receive processed output data from the
-   workload.
-5. Once the workload is no longer required, make a request to the QSM to
-   deactivate the workload, thus putting the NSPs back into an idle state.
-6. Once the workload and related artifacts are no longer needed for future
-   sessions, make requests to the QSM to unload the data from DDR. This frees
-   the DDR to be used by other users.
+1. Biên dịch khối lượng công việc thành ELF nhắm mục tiêu (các) NSP
+2. Đưa ra yêu cầu tới QSM để tải khối lượng công việc và các tạo phẩm liên quan vào
+   thiết bị DDR
+3. Đưa ra yêu cầu tới QSM để kích hoạt khối lượng công việc trên một nhóm NSP nhàn rỗi
+4. Đưa ra yêu cầu tới DMA Bridge để gửi dữ liệu đầu vào tới khối lượng công việc cần xử lý
+   được xử lý và các yêu cầu khác để nhận dữ liệu đầu ra đã được xử lý từ
+   khối lượng công việc.
+5. Khi khối lượng công việc không còn cần thiết nữa, hãy yêu cầu QSM để
+   hủy kích hoạt khối lượng công việc, do đó đưa NSP trở lại trạng thái không hoạt động.
+6. Khi khối lượng công việc và các hiện vật liên quan không còn cần thiết cho tương lai
+   phiên, hãy đưa ra yêu cầu tới QSM để dỡ dữ liệu khỏi DDR. Điều này giải phóng
+   DDR để người dùng khác sử dụng.
 
 
-Boot Flow
+Luồng khởi động
 =========
 
-AIC100 uses a flashless boot flow, derived from Qualcomm MSMs.
+AIC100 sử dụng luồng khởi động không flash, có nguồn gốc từ MSM của Qualcomm.
 
-When AIC100 is first powered on, it begins executing PBL (Primary Bootloader)
-from ROM. PBL enumerates the PCIe link, and initializes the BHI (Boot Host
-Interface) component of MHI.
+Khi AIC100 được bật nguồn lần đầu tiên, nó sẽ bắt đầu thực thi PBL (Bộ tải khởi động chính)
+từ ROM. PBL liệt kê liên kết PCIe và khởi tạo BHI (Boot Host
+Giao diện) thành phần của MHI.
 
-Using BHI, the host points PBL to the location of the SBL (Secondary Bootloader)
-image. The PBL pulls the image from the host, validates it, and begins
-execution of SBL.
+Sử dụng BHI, máy chủ trỏ PBL đến vị trí của SBL (Bộ tải khởi động phụ)
+hình ảnh. PBL lấy hình ảnh từ máy chủ, xác thực nó và bắt đầu
+thực hiện SBL.
 
-SBL initializes MHI, and uses MHI to notify the host that the device has entered
-the SBL stage. SBL performs a number of operations:
+SBL khởi tạo MHI và sử dụng MHI để thông báo cho máy chủ rằng thiết bị đã nhập
+giai đoạn SBL. SBL thực hiện một số thao tác:
 
-* SBL initializes the majority of hardware (anything PBL left uninitialized),
-  including DDR.
-* SBL offloads the bootlog to the host.
-* SBL synchronizes timestamps with the host for future logging.
-* SBL uses the Sahara protocol to obtain the runtime firmware images from the
-  host.
+* SBL khởi tạo phần lớn phần cứng (mọi thứ PBL chưa được khởi tạo),
+  bao gồm DDR.
+* SBL giảm tải bootlog cho máy chủ.
+* SBL đồng bộ hóa dấu thời gian với máy chủ để ghi nhật ký trong tương lai.
+* SBL sử dụng giao thức Sahara để lấy hình ảnh chương trình cơ sở thời gian chạy từ
+  chủ nhà.
 
-Once SBL has obtained and validated the runtime firmware, it brings the NSPs out
-of reset, and jumps into the QSM.
+Khi SBL đã lấy và xác thực chương trình cơ sở thời gian chạy, nó sẽ đưa NSP ra ngoài
+thiết lập lại và nhảy vào QSM.
 
-The QSM uses MHI to notify the host that the device has entered the QSM stage
-(AMSS in MHI terms). At this point, the AIC100 device is fully functional, and
-ready to process workloads.
+QSM sử dụng MHI để thông báo cho máy chủ rằng thiết bị đã bước vào giai đoạn QSM
+(AMSS theo thuật ngữ MHI). Tại thời điểm này, thiết bị AIC100 đã có đầy đủ chức năng và
+sẵn sàng xử lý khối lượng công việc.
 
-Userspace components
+Thành phần không gian người dùng
 ====================
 
-Compiler
+Trình biên dịch
 --------
 
-An open compiler for AIC100 based on upstream LLVM can be found at:
-https://github.com/quic/software-kit-for-qualcomm-cloud-ai-100-cc
+Có thể tìm thấy trình biên dịch mở cho AIC100 dựa trên LLVM ngược dòng tại:
+ZZ0000ZZ
 
-Usermode Driver (UMD)
+Trình điều khiển chế độ người dùng (UMD)
 ---------------------
 
-An open UMD that interfaces with the qaic kernel driver can be found at:
-https://github.com/quic/software-kit-for-qualcomm-cloud-ai-100
+Bạn có thể tìm thấy UMD mở có giao diện với trình điều khiển kernel qaic tại:
+ZZ0000ZZ
 
-Sahara loader
+máy xúc sa mạc Sahara
 -------------
 
-An open implementation of the Sahara protocol called kickstart can be found at:
-https://github.com/andersson/qdl
+Bạn có thể tìm thấy triển khai mở của giao thức Sahara được gọi là kickstart tại:
+ZZ0000ZZ
 
-MHI Channels
+Kênh MHI
 ============
 
-AIC100 defines a number of MHI channels for different purposes. This is a list
-of the defined channels, and their uses.
+AIC100 xác định một số kênh MHI cho các mục đích khác nhau. Đây là một danh sách
+của các kênh được xác định và cách sử dụng của chúng.
 
-+----------------+---------+----------+----------------------------------------+
-| Channel name   | IDs     | EEs      | Purpose                                |
-+================+=========+==========+========================================+
-| QAIC_LOOPBACK  | 0 & 1   | AMSS     | Any data sent to the device on this    |
-|                |         |          | channel is sent back to the host.      |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_SAHARA    | 2 & 3   | SBL      | Used by SBL to obtain the runtime      |
-|                |         |          | firmware from the host.                |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_DIAG      | 4 & 5   | AMSS     | Used to communicate with QSM via the   |
-|                |         |          | DIAG protocol.                         |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_SSR       | 6 & 7   | AMSS     | Used to notify the host of subsystem   |
-|                |         |          | restart events, and to offload SSR     |
-|                |         |          | crashdumps.                            |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_QDSS      | 8 & 9   | AMSS     | Used for the Qualcomm Debug Subsystem. |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_CONTROL   | 10 & 11 | AMSS     | Used for the Neural Network Control    |
-|                |         |          | (NNC) protocol. This is the primary    |
-|                |         |          | channel between host and QSM for       |
-|                |         |          | managing workloads.                    |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_LOGGING   | 12 & 13 | SBL      | Used by the SBL to send the bootlog to |
-|                |         |          | the host.                              |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_STATUS    | 14 & 15 | AMSS     | Used to notify the host of Reliability,|
-|                |         |          | Accessibility, Serviceability (RAS)    |
-|                |         |          | events.                                |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_TELEMETRY | 16 & 17 | AMSS     | Used to get/set power/thermal/etc      |
-|                |         |          | attributes.                            |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_DEBUG     | 18 & 19 | AMSS     | Not used.                              |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_TIMESYNC  | 20 & 21 | SBL      | Used to synchronize timestamps in the  |
-|                |         |          | device side logs with the host time    |
-|                |         |          | source.                                |
-+----------------+---------+----------+----------------------------------------+
-| QAIC_TIMESYNC  | 22 & 23 | AMSS     | Used to periodically synchronize       |
-| _PERIODIC      |         |          | timestamps in the device side logs with|
-|                |         |          | the host time source.                  |
-+----------------+---------+----------+----------------------------------------+
-| IPCR           | 24 & 25 | AMSS     | AF_QIPCRTR clients and servers.        |
-+----------------+---------+----------+----------------------------------------+
+++------------------+----------+---------------------------------------+
+ID ZZ0000ZZ ZZ0001ZZ Mục đích |
++==============================================================================================================================
+ZZ0002ZZ 0 & 1 ZZ0003ZZ Mọi dữ liệu được gửi tới thiết bị trên này |
+Kênh ZZ0004ZZ ZZ0005ZZ được gửi trở lại máy chủ.      |
+++------------------+----------+---------------------------------------+
+ZZ0006ZZ 2 & 3 ZZ0007ZZ Được SBL sử dụng để lấy thời gian chạy |
+Phần mềm ZZ0008ZZ ZZ0009ZZ từ máy chủ.                |
+++------------------+----------+---------------------------------------+
+ZZ0010ZZ 4 & 5 ZZ0011ZZ Được sử dụng để liên lạc với QSM qua |
+Giao thức ZZ0012ZZ ZZ0013ZZ DIAG.                         |
+++------------------+----------+---------------------------------------+
+ZZ0014ZZ 6 & 7 ZZ0015ZZ Dùng để thông báo cho máy chủ của hệ thống con |
+Sự kiện khởi động lại ZZ0016ZZ ZZ0017ZZ và giảm tải SSR |
+ZZ0018ZZ ZZ0019ZZ gặp sự cố.                            |
+++------------------+----------+---------------------------------------+
+ZZ0020ZZ 8 & 9 ZZ0021ZZ Được sử dụng cho Hệ thống con gỡ lỗi Qualcomm. |
+++------------------+----------+---------------------------------------+
+ZZ0022ZZ 10 & 11 ZZ0023ZZ Được sử dụng để Điều khiển Mạng Nơ-ron |
+Giao thức ZZ0024ZZ ZZ0025ZZ (NNC). Đây là chính |
+Kênh ZZ0026ZZ ZZ0027ZZ giữa máy chủ và QSM cho |
+ZZ0028ZZ ZZ0029ZZ quản lý khối lượng công việc.                    |
+++------------------+----------+---------------------------------------+
+ZZ0030ZZ 12 & 13 ZZ0031ZZ Được sử dụng bởi SBL để gửi bootlog tới |
+ZZ0032ZZ ZZ0033ZZ máy chủ.                              |
+++------------------+----------+---------------------------------------+
+ZZ0034ZZ 14 & 15 ZZ0035ZZ Được sử dụng để thông báo cho máy chủ về Độ tin cậy,|
+ZZ0036ZZ ZZ0037ZZ Khả năng tiếp cận, khả năng bảo trì (RAS) |
+Sự kiện ZZ0038ZZ ZZ0039ZZ.                                |
+++------------------+----------+---------------------------------------+
+ZZ0040ZZ 16 & 17 ZZ0041ZZ Dùng để lấy/đặt nguồn/nhiệt/vv |
+Thuộc tính ZZ0042ZZ ZZ0043ZZ.                            |
+++------------------+----------+---------------------------------------+
+ZZ0044ZZ 18 & 19 ZZ0045ZZ Không được sử dụng.                              |
+++------------------+----------+---------------------------------------+
+ZZ0046ZZ 20 & 21 ZZ0047ZZ Được sử dụng để đồng bộ hóa dấu thời gian trong |
+ZZ0048ZZ ZZ0049ZZ nhật ký phía thiết bị với thời gian lưu trữ |
+Nguồn ZZ0050ZZ ZZ0051ZZ.                                |
+++------------------+----------+---------------------------------------+
+ZZ0052ZZ 22 & 23 ZZ0053ZZ Được sử dụng để đồng bộ hóa định kỳ |
+Dấu thời gian ZZ0054ZZ ZZ0055ZZ trong nhật ký phía thiết bị với|
+ZZ0056ZZ ZZ0057ZZ nguồn thời gian của máy chủ.                  |
+++------------------+----------+---------------------------------------+
+ZZ0058ZZ 24 & 25 ZZ0059ZZ AF_QIPCRTR máy khách và máy chủ.        |
+++------------------+----------+---------------------------------------+
 
-DMA Bridge
+Cầu DMA
 ==========
 
-Overview
+Tổng quan
 --------
 
-The DMA Bridge is one of the main interfaces to the host from the device
-(the other being MHI). As part of activating a workload to run on NSPs, the QSM
-assigns that network a DMA Bridge channel. A workload's DMA Bridge channel
-(DBC for short) is solely for the use of that workload and is not shared with
-other workloads.
+Cầu DMA là một trong những giao diện chính kết nối với máy chủ từ thiết bị
+(cái còn lại là MHI). Là một phần của việc kích hoạt khối lượng công việc để chạy trên NSP, QSM
+gán cho mạng đó một kênh Cầu DMA. Kênh cầu nối DMA của khối lượng công việc
+(viết tắt là DBC) chỉ dành cho việc sử dụng khối lượng công việc đó và không được chia sẻ với
+khối lượng công việc khác.
 
-Each DBC is a pair of FIFOs that manage data in and out of the workload. One
-FIFO is the request FIFO. The other FIFO is the response FIFO.
+Mỗi DBC là một cặp FIFO quản lý dữ liệu vào và ra khối lượng công việc. một
+FIFO là yêu cầu FIFO. FIFO khác là FIFO phản hồi.
 
-Each DBC contains 4 registers in hardware:
+Mỗi DBC chứa 4 thanh ghi trong phần cứng:
 
-* Request FIFO head pointer (offset 0x0). Read only by the host. Indicates the
-  latest item in the FIFO the device has consumed.
-* Request FIFO tail pointer (offset 0x4). Read/write by the host. Host
-  increments this register to add new items to the FIFO.
-* Response FIFO head pointer (offset 0x8). Read/write by the host. Indicates
-  the latest item in the FIFO the host has consumed.
-* Response FIFO tail pointer (offset 0xc). Read only by the host. Device
-  increments this register to add new items to the FIFO.
+* Yêu cầu con trỏ đầu FIFO (bù 0x0). Chỉ được đọc bởi máy chủ. Cho biết
+  mục mới nhất trong FIFO mà thiết bị đã sử dụng.
+* Yêu cầu con trỏ đuôi FIFO (offset 0x4). Đọc/ghi bởi máy chủ. Máy chủ
+  tăng thanh ghi này để thêm các mục mới vào FIFO.
+* Con trỏ đầu phản hồi FIFO (offset 0x8). Đọc/ghi bởi máy chủ. chỉ ra
+  vật phẩm mới nhất trong FIFO mà chủ nhà đã sử dụng.
+* Phản hồi con trỏ đuôi FIFO (offset 0xc). Chỉ được đọc bởi máy chủ. Thiết bị
+  tăng thanh ghi này để thêm các mục mới vào FIFO.
 
-The values in each register are indexes in the FIFO. To get the location of the
-FIFO element pointed to by the register: FIFO base address + register * element
-size.
+Các giá trị trong mỗi thanh ghi là các chỉ mục trong FIFO. Để có được vị trí của
+Phần tử FIFO được trỏ đến bởi thanh ghi: địa chỉ cơ sở FIFO + phần tử thanh ghi *
+kích thước.
 
-DBC registers are exposed to the host via the second BAR. Each DBC consumes
-4KB of space in the BAR.
+Các thanh ghi DBC được hiển thị với máy chủ thông qua BAR thứ hai. Mỗi DBC tiêu thụ
+4KB dung lượng trong BAR.
 
-The actual FIFOs are backed by host memory. When sending a request to the QSM
-to activate a network, the host must donate memory to be used for the FIFOs.
-Due to internal mapping limitations of the device, a single contiguous chunk of
-memory must be provided per DBC, which hosts both FIFOs. The request FIFO will
-consume the beginning of the memory chunk, and the response FIFO will consume
-the end of the memory chunk.
+FIFO thực tế được hỗ trợ bởi bộ nhớ máy chủ. Khi gửi yêu cầu tới QSM
+để kích hoạt mạng, máy chủ phải tặng bộ nhớ để sử dụng cho FIFO.
+Do những hạn chế về ánh xạ bên trong của thiết bị, một đoạn liền kề của
+bộ nhớ phải được cung cấp cho mỗi DBC, nơi lưu trữ cả hai FIFO. Yêu cầu FIFO sẽ
+tiêu thụ phần đầu của đoạn bộ nhớ và phản hồi FIFO sẽ tiêu thụ
+phần cuối của đoạn bộ nhớ.
 
-Request FIFO
+Yêu cầu FIFO
 ------------
 
-A request FIFO element has the following structure:
+Phần tử FIFO yêu cầu có cấu trúc sau:
 
 .. code-block:: c
 
@@ -311,100 +311,100 @@ A request FIFO element has the following structure:
 	u32 sem_cmd3;
   };
 
-Request field descriptions:
+Yêu cầu mô tả trường:
 
 req_id
-	request ID. A request FIFO element and a response FIFO element with
-	the same request ID refer to the same command.
+	ID yêu cầu. Phần tử FIFO yêu cầu và phần tử FIFO phản hồi có
+	cùng một ID yêu cầu tham chiếu đến cùng một lệnh.
 
 seq_id
-	sequence ID within a request. Ignored by the DMA Bridge.
+	ID trình tự trong một yêu cầu. Bị bỏ qua bởi cầu DMA.
 
 pcie_dma_cmd
-	describes the DMA element of this request.
+	mô tả phần tử DMA của yêu cầu này.
 
-	* Bit(7) is the force msi flag, which overrides the DMA Bridge MSI logic
-	  and generates a MSI when this request is complete, and QSM
-	  configures the DMA Bridge to look at this bit.
-	* Bits(6:5) are reserved.
-	* Bit(4) is the completion code flag, and indicates that the DMA Bridge
-	  shall generate a response FIFO element when this request is
-	  complete.
-	* Bit(3) indicates if this request is a linked list transfer(0) or a bulk
-	  transfer(1).
-	* Bit(2) is reserved.
-	* Bits(1:0) indicate the type of transfer. No transfer(0), to device(1),
-	  from device(2). Value 3 is illegal.
+* Bit(7) là cờ buộc msi, ghi đè logic DMA Bridge MSI
+	  và tạo MSI khi yêu cầu này hoàn tất và QSM
+	  cấu hình Cầu DMA để xem bit này.
+	* Bit (6:5) được bảo lưu.
+	* Bit(4) là cờ mã hoàn thành và cho biết Cầu DMA
+	  sẽ tạo ra phần tử FIFO phản hồi khi yêu cầu này được
+	  hoàn thành.
+	* Bit(3) cho biết yêu cầu này là chuyển danh sách liên kết(0) hay hàng loạt
+	  chuyển giao(1).
+	* Bit(2) được bảo lưu.
+	* Bits(1:0) cho biết loại chuyển giao. Không chuyển (0), sang thiết bị (1),
+	  từ thiết bị (2). Giá trị 3 là bất hợp pháp.
 
 pcie_dma_source_addr
-	source address for a bulk transfer, or the address of the linked list.
+	địa chỉ nguồn để chuyển số lượng lớn hoặc địa chỉ của danh sách liên kết.
 
 pcie_dma_dest_addr
-	destination address for a bulk transfer.
+	địa chỉ đích để chuyển số lượng lớn.
 
 pcie_dma_len
-	length of the bulk transfer. Note that the size of this field
-	limits transfers to 4G in size.
+	chiều dài của chuyển giao số lượng lớn. Lưu ý rằng kích thước của trường này
+	giới hạn chuyển sang kích thước 4G.
 
-doorbell_addr
-	address of the doorbell to ring when this request is complete.
+chuông cửa_addr
+	địa chỉ của chuông cửa sẽ đổ chuông khi yêu cầu này hoàn tất.
 
-doorbell_attr
-	doorbell attributes.
+chuông cửa_attr
+	thuộc tính chuông cửa.
 
-	* Bit(7) indicates if a write to a doorbell is to occur.
-	* Bits(6:2) are reserved.
-	* Bits(1:0) contain the encoding of the doorbell length. 0 is 32-bit,
-	  1 is 16-bit, 2 is 8-bit, 3 is reserved. The doorbell address
-	  must be naturally aligned to the specified length.
+* Bit(7) cho biết liệu có xảy ra việc ghi vào chuông cửa hay không.
+	* Bit (6:2) được bảo lưu.
+	* Bits(1:0) chứa mã hóa độ dài chuông cửa. 0 là 32-bit,
+	  1 là 16 bit, 2 là 8 bit, 3 là dành riêng. Địa chỉ chuông cửa
+	  phải được căn chỉnh tự nhiên theo chiều dài đã chỉ định.
 
-doorbell_data
-	data to write to the doorbell. Only the bits corresponding to
-	the doorbell length are valid.
+dữ liệu chuông cửa
+	dữ liệu để ghi vào chuông cửa. Chỉ các bit tương ứng với
+	chiều dài chuông cửa là hợp lệ.
 
 sem_cmdN
-	semaphore command.
+	lệnh ngữ nghĩa.
 
-	* Bit(31) indicates this semaphore command is enabled.
-	* Bit(30) is the to-device DMA fence. Block this request until all
-	  to-device DMA transfers are complete.
-	* Bit(29) is the from-device DMA fence. Block this request until all
-	  from-device DMA transfers are complete.
-	* Bits(28:27) are reserved.
-	* Bits(26:24) are the semaphore command. 0 is NOP. 1 is init with the
-	  specified value. 2 is increment. 3 is decrement. 4 is wait
-	  until the semaphore is equal to the specified value. 5 is wait
-	  until the semaphore is greater or equal to the specified value.
-	  6 is "P", wait until semaphore is greater than 0, then
-	  decrement by 1. 7 is reserved.
-	* Bit(23) is reserved.
-	* Bit(22) is the semaphore sync. 0 is post sync, which means that the
-	  semaphore operation is done after the DMA transfer. 1 is
-	  presync, which gates the DMA transfer. Only one presync is
-	  allowed per request.
-	* Bit(21) is reserved.
-	* Bits(20:16) is the index of the semaphore to operate on.
-	* Bits(15:12) are reserved.
-	* Bits(11:0) are the semaphore value to use in operations.
+* Bit(31) cho biết lệnh semaphore này đã được bật.
+	* Bit(30) là hàng rào DMA tới thiết bị. Chặn yêu cầu này cho đến khi tất cả
+	  Quá trình chuyển DMA sang thiết bị đã hoàn tất.
+	* Bit(29) là hàng rào DMA từ thiết bị. Chặn yêu cầu này cho đến khi tất cả
+	  Quá trình chuyển DMA từ thiết bị đã hoàn tất.
+	* Bit (28:27) được bảo lưu.
+	* Bits(26:24) là lệnh semaphore. 0 là NOP. 1 là init với
+	  giá trị quy định. 2 là tăng dần. 3 là giảm. 4 là chờ đợi
+	  cho đến khi semaphore bằng giá trị được chỉ định. 5 là chờ đợi
+	  cho đến khi semaphore lớn hơn hoặc bằng giá trị được chỉ định.
+	  6 là "P", đợi cho đến khi semaphore lớn hơn 0 thì
+	  giảm đi 1, 7 được bảo lưu.
+	* Bit(23) được bảo lưu.
+	* Bit(22) là sự đồng bộ hóa semaphore. 0 là đồng bộ hóa bài đăng, có nghĩa là
+	  Hoạt động semaphore được thực hiện sau khi chuyển DMA. 1 là
+	  presync, cổng chuyển DMA. Chỉ có một presync là
+	  được phép theo yêu cầu.
+	* Bit(21) được bảo lưu.
+	* Bits(20:16) là chỉ mục của semaphore để hoạt động.
+	* Bit (15:12) được bảo lưu.
+	* Bits(11:0) là giá trị semaphore được sử dụng trong các phép toán.
 
-Overall, a request is processed in 4 steps:
+Nhìn chung, một yêu cầu được xử lý theo 4 bước:
 
-1. If specified, the presync semaphore condition must be true
-2. If enabled, the DMA transfer occurs
-3. If specified, the postsync semaphore conditions must be true
-4. If enabled, the doorbell is written
+1. Nếu được chỉ định, điều kiện ngữ nghĩa trước khi đồng bộ hóa phải đúng
+2. Nếu được bật, quá trình chuyển DMA sẽ diễn ra
+3. Nếu được chỉ định, các điều kiện ngữ nghĩa sau đồng bộ hóa phải đúng
+4. Nếu được bật, chuông cửa sẽ được ghi
 
-By using the semaphores in conjunction with the workload running on the NSPs,
-the data pipeline can be synchronized such that the host can queue multiple
-requests of data for the workload to process, but the DMA Bridge will only copy
-the data into the memory of the workload when the workload is ready to process
-the next input.
+Bằng cách sử dụng các tín hiệu kết hợp với khối lượng công việc chạy trên NSP,
+đường ống dữ liệu có thể được đồng bộ hóa sao cho máy chủ có thể xếp hàng nhiều
+yêu cầu dữ liệu để khối lượng công việc xử lý, nhưng Cầu DMA sẽ chỉ sao chép
+dữ liệu vào bộ nhớ của khối lượng công việc khi khối lượng công việc đã sẵn sàng để xử lý
+đầu vào tiếp theo.
 
-Response FIFO
+Phản hồi FIFO
 -------------
 
-Once a request is fully processed, a response FIFO element is generated if
-specified in pcie_dma_cmd. The structure of a response FIFO element:
+Khi một yêu cầu được xử lý hoàn toàn, phần tử FIFO phản hồi sẽ được tạo nếu
+được chỉ định trong pcie_dma_cmd. Cấu trúc của phần tử FIFO phản hồi:
 
 .. code-block:: c
 
@@ -414,137 +414,137 @@ specified in pcie_dma_cmd. The structure of a response FIFO element:
   };
 
 req_id
-	matches the req_id of the request that generated this element.
+	khớp với req_id của yêu cầu đã tạo ra phần tử này.
 
-completion_code
-	status of this request. 0 is success. Non-zero is an error.
+mã hoàn thành
+	trạng thái của yêu cầu này. 0 là thành công. Khác không là một lỗi.
 
-The DMA Bridge will generate a MSI to the host as a reaction to activity in the
-response FIFO of a DBC. The DMA Bridge hardware has an IRQ storm mitigation
-algorithm, where it will only generate a MSI when the response FIFO transitions
-from empty to non-empty (unless force MSI is enabled and triggered). In
-response to this MSI, the host is expected to drain the response FIFO, and must
-take care to handle any race conditions between draining the FIFO, and the
-device inserting elements into the FIFO.
+Cầu DMA sẽ tạo MSI cho máy chủ như một phản ứng đối với hoạt động trong
+phản hồi FIFO của DBC. Phần cứng cầu DMA có tính năng giảm bão IRQ
+thuật toán, trong đó nó sẽ chỉ tạo MSI khi phản hồi FIFO chuyển đổi
+từ trống đến không trống (trừ khi buộc MSI được bật và kích hoạt). trong
+phản hồi cho MSI này, máy chủ dự kiến sẽ rút hết phản hồi FIFO và phải
+hãy cẩn thận để xử lý mọi điều kiện chạy đua giữa việc xả FIFO và
+thiết bị chèn các phần tử vào FIFO.
 
-Neural Network Control (NNC) Protocol
+Giao thức điều khiển mạng thần kinh (NNC)
 =====================================
 
-The NNC protocol is how the host makes requests to the QSM to manage workloads.
-It uses the QAIC_CONTROL MHI channel.
+Giao thức NNC là cách máy chủ đưa ra yêu cầu tới QSM để quản lý khối lượng công việc.
+Nó sử dụng kênh QAIC_CONTROL MHI.
 
-Each NNC request is packaged into a message. Each message is a series of
-transactions. A passthrough type transaction can contain elements known as
-commands.
+Mỗi yêu cầu NNC được đóng gói thành một tin nhắn. Mỗi tin nhắn là một chuỗi
+giao dịch. Một giao dịch loại chuyển tiếp có thể chứa các phần tử được gọi là
+lệnh.
 
-QSM requires NNC messages be little endian encoded and the fields be naturally
-aligned. Since there are 64-bit elements in some NNC messages, 64-bit alignment
-must be maintained.
+QSM yêu cầu các tin nhắn NNC phải được mã hóa endian nhỏ và các trường phải tự nhiên
+căn chỉnh. Vì có các phần tử 64 bit trong một số tin nhắn NNC, căn chỉnh 64 bit
+phải được duy trì.
 
-A message contains a header and then a series of transactions. A message may be
-at most 4K in size from QSM to the host. From the host to the QSM, a message
-can be at most 64K (maximum size of a single MHI packet), but there is a
-continuation feature where message N+1 can be marked as a continuation of
-message N. This is used for exceedingly large DMA xfer transactions.
+Một thông báo chứa tiêu đề và sau đó là một loạt các giao dịch. Một tin nhắn có thể
+kích thước tối đa là 4K từ QSM đến máy chủ. Từ máy chủ đến QSM, một tin nhắn
+có thể tối đa là 64K (kích thước tối đa của một gói MHI), nhưng có một
+tính năng tiếp tục trong đó tin nhắn N+1 có thể được đánh dấu là phần tiếp theo của
+thông báo N. Thông báo này được sử dụng cho các giao dịch xfer DMA cực lớn.
 
-Transaction descriptions
+Mô tả giao dịch
 ------------------------
 
-passthrough
-	Allows userspace to send an opaque payload directly to the QSM.
-	This is used for NNC commands. Userspace is responsible for managing
-	the QSM message requirements in the payload.
+sự đi qua
+	Cho phép không gian người dùng gửi tải trọng không rõ ràng trực tiếp đến QSM.
+	Điều này được sử dụng cho các lệnh NNC. Không gian người dùng chịu trách nhiệm quản lý
+	các yêu cầu về tin nhắn QSM trong tải trọng.
 
 dma_xfer
-	DMA transfer. Describes an object that the QSM should DMA into the
-	device via address and size tuples.
+	Chuyển DMA. Mô tả một đối tượng mà QSM nên đưa DMA vào
+	thiết bị thông qua bộ dữ liệu địa chỉ và kích thước.
 
-activate
-	Activate a workload onto NSPs. The host must provide memory to be
-	used by the DBC.
+kích hoạt
+	Kích hoạt khối lượng công việc lên NSP. Máy chủ phải cung cấp bộ nhớ để
+	được sử dụng bởi DBC.
 
-deactivate
-	Deactivate an active workload and return the NSPs to idle.
+vô hiệu hóa
+	Vô hiệu hóa khối lượng công việc đang hoạt động và đưa NSP về chế độ chờ.
 
-status
-	Query the QSM about it's NNC implementation. Returns the NNC version,
-	and if CRC is used.
+trạng thái
+	Truy vấn QSM về việc triển khai NNC. Trả về phiên bản NNC,
+	và nếu CRC được sử dụng.
 
-terminate
-	Release a user's resources.
+chấm dứt
+	Giải phóng tài nguyên của người dùng.
 
 dma_xfer_cont
-	Continuation of a previous DMA transfer. If a DMA transfer
-	cannot be specified in a single message (highly fragmented), this
-	transaction can be used to specify more ranges.
+	Tiếp tục chuyển DMA trước đó. Nếu chuyển DMA
+	không thể được chỉ định trong một tin nhắn (bị phân mảnh cao), điều này
+	giao dịch có thể được sử dụng để chỉ định nhiều phạm vi hơn.
 
-validate_partition
-	Query to QSM to determine if a partition identifier is valid.
+xác thực_phân vùng
+	Truy vấn QSM để xác định xem mã định danh phân vùng có hợp lệ hay không.
 
-Each message is tagged with a user id, and a partition id. The user id allows
-QSM to track resources, and release them when the user goes away (eg the process
-crashes). A partition id identifies the resource partition that QSM manages,
-which this message applies to.
+Mỗi tin nhắn được gắn thẻ id người dùng và id phân vùng. Id người dùng cho phép
+QSM để theo dõi tài nguyên và giải phóng chúng khi người dùng rời đi (ví dụ: quy trình
+gặp sự cố). Id phân vùng xác định phân vùng tài nguyên mà QSM quản lý,
+mà thông báo này áp dụng cho.
 
-Messages may have CRCs. Messages should have CRCs applied until the QSM
-reports via the status transaction that CRCs are not needed. The QSM on the
-SA9000P requires CRCs for black channel safing.
+Tin nhắn có thể có CRC. Tin nhắn phải được áp dụng CRC cho đến QSM
+báo cáo thông qua giao dịch trạng thái rằng CRC không cần thiết. QSM trên
+SA9000P yêu cầu CRC để đảm bảo an toàn cho kênh đen.
 
-Subsystem Restart (SSR)
+Khởi động lại hệ thống con (SSR)
 =======================
 
-SSR is the concept of limiting the impact of an error. An AIC100 device may
-have multiple users, each with their own workload running. If the workload of
-one user crashes, the fallout of that should be limited to that workload and not
-impact other workloads. SSR accomplishes this.
+SSR là khái niệm hạn chế tác động của lỗi. Một thiết bị AIC100 có thể
+có nhiều người dùng, mỗi người có khối lượng công việc riêng đang chạy. Nếu khối lượng công việc của
+một người dùng gặp sự cố, hậu quả của việc đó sẽ chỉ giới hạn ở khối lượng công việc đó chứ không phải
+ảnh hưởng đến khối lượng công việc khác. SSR thực hiện được điều này.
 
-If a particular workload crashes, QSM notifies the host via the QAIC_SSR MHI
-channel. This notification identifies the workload by its assigned DBC. A
-multi-stage recovery process is then used to cleanup both sides, and gets the
-DBC/NSPs into a working state.
+Nếu một khối lượng công việc cụ thể gặp sự cố, QSM sẽ thông báo cho máy chủ qua QAIC_SSR MHI
+kênh. Thông báo này xác định khối lượng công việc theo DBC được chỉ định. A
+Sau đó, quy trình khôi phục nhiều giai đoạn được sử dụng để dọn dẹp cả hai bên và nhận được
+DBC/NSP chuyển sang trạng thái hoạt động.
 
-When SSR occurs, any state in the workload is lost. Any inputs that were in
-process, or queued by not yet serviced, are lost. The loaded artifacts will
-remain in on-card DDR, but the host will need to re-activate the workload if
-it desires to recover the workload.
+Khi SSR xảy ra, mọi trạng thái trong khối lượng công việc đều bị mất. Bất kỳ đầu vào nào có trong
+quá trình hoặc được xếp hàng đợi chưa được phục vụ sẽ bị mất. Các hiện vật được tải sẽ
+vẫn ở trên thẻ DDR, nhưng máy chủ sẽ cần kích hoạt lại khối lượng công việc nếu
+nó mong muốn phục hồi khối lượng công việc.
 
-When SSR occurs for a specific NSP, the assigned DBC goes through the
-following state transactions in order:
+Khi SSR xuất hiện đối với một NSP cụ thể, DBC được chỉ định sẽ đi qua
+các giao dịch trạng thái sau đây theo thứ tự:
 
 DBC_STATE_BEFORE_SHUTDOWN
-	Indicates that the affected NSP was found in an unrecoverable error
-	condition.
+	Cho biết rằng NSP bị ảnh hưởng đã được tìm thấy do lỗi không thể khôi phục
+	điều kiện.
 DBC_STATE_AFTER_SHUTDOWN
-	Indicates that the NSP is under reset.
+	Cho biết NSP đang được đặt lại.
 DBC_STATE_BEFORE_POWER_UP
-	Indicates that the NSP's debug information has been collected, and is
-	ready to be collected by the host (if desired). At that stage the NSP
-	is restarted by QSM.
+	Cho biết thông tin gỡ lỗi của NSP đã được thu thập và được
+	sẵn sàng để được chủ nhà thu thập (nếu muốn). Ở giai đoạn đó NSP
+	được khởi động lại bởi QSM.
 DBC_STATE_AFTER_POWER_UP
-	Indicates that the NSP has been restarted, fully operational and is
-	in idle state.
+	Cho biết NSP đã được khởi động lại, hoạt động đầy đủ và đang
+	ở trạng thái nhàn rỗi.
 
-SSR also has an optional crashdump collection feature. If enabled, the host can
-collect the memory dump for the crashed NSP and dump it to the user space via
-the dev_coredump subsystem. The host can also decline the crashdump collection
-request from the device.
+SSR cũng có tính năng thu thập sự cố tùy chọn. Nếu được bật, máy chủ có thể
+thu thập kết xuất bộ nhớ cho NSP bị lỗi và chuyển nó vào không gian người dùng thông qua
+hệ thống con dev_coredump. Máy chủ cũng có thể từ chối thu thập sự cố
+yêu cầu từ thiết bị.
 
-Reliability, Accessibility, Serviceability (RAS)
+Độ tin cậy, Khả năng tiếp cận, Khả năng phục vụ (RAS)
 ================================================
 
-AIC100 is expected to be deployed in server systems where RAS ideology is
-applied. Simply put, RAS is the concept of detecting, classifying, and
-reporting errors. While PCIe has AER (Advanced Error Reporting) which factors
-into RAS, AER does not allow for a device to report details about internal
-errors. Therefore, AIC100 implements a custom RAS mechanism. When a RAS event
-occurs, QSM will report the event with appropriate details via the QAIC_STATUS
-MHI channel. A sysadmin may determine that a particular device needs
-additional service based on RAS reports.
+AIC100 dự kiến sẽ được triển khai trong các hệ thống máy chủ có hệ tư tưởng RAS
+áp dụng. Nói một cách đơn giản, RAS là khái niệm phát hiện, phân loại và
+báo cáo lỗi. Trong khi PCIe có AER (Báo cáo lỗi nâng cao) có yếu tố nào
+vào RAS, AER không cho phép thiết bị báo cáo chi tiết về nội bộ
+lỗi. Do đó, AIC100 triển khai cơ chế RAS tùy chỉnh. Khi có sự kiện RAS
+xảy ra, QSM sẽ báo cáo sự kiện với các chi tiết phù hợp thông qua QAIC_STATUS
+Kênh MHI. Quản trị viên hệ thống có thể xác định rằng một thiết bị cụ thể cần
+dịch vụ bổ sung dựa trên báo cáo RAS.
 
-Telemetry
+Đo từ xa
 =========
 
-QSM has the ability to report various physical attributes of the device, and in
-some cases, to allow the host to control them. Examples include thermal limits,
-thermal readings, and power readings. These items are communicated via the
-QAIC_TELEMETRY MHI channel.
+QSM có khả năng báo cáo các thuộc tính vật lý khác nhau của thiết bị và
+trong một số trường hợp, để cho phép chủ nhà kiểm soát chúng. Ví dụ bao gồm giới hạn nhiệt,
+chỉ số nhiệt và chỉ số công suất. Những mục này được truyền đạt thông qua
+Kênh QAIC_TELEMETRY MHI.

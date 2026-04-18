@@ -80,6 +80,16 @@ TOKEN_RE = re.compile(r"ZZ\d{4}ZZ")
 
 HEADING_CHARS = set("=-~^\"*+#`:._'")
 
+# Directive names whose body prose should be translated
+TRANSLATABLE_DIRECTIVES = {
+    "note", "warning", "hint", "tip", "important", "caution", "danger",
+    "deprecated", "versionadded", "versionchanged", "versionremoved",
+    "seealso", "admonition", "topic", "rubric",
+}
+
+# Toctree entry: optional label text followed by <path>
+TOCTREE_ENTRY_RE = re.compile(r'^(\s{3,})([A-Za-z][^\n<]+?)\s+(<[^>]+>)\s*$')
+
 
 def get_upstream_sha() -> str:
     try:
@@ -244,12 +254,77 @@ def translate_prose(translator: GoogleTranslator, lines: list[str]) -> list[str]
     return out
 
 
+def translate_directive_block(lines: list[str], translator: GoogleTranslator) -> list[str]:
+    """Translate body of translatable directives and toctree labels."""
+    if not lines:
+        return lines
+    first = lines[0].lstrip()
+    m = re.match(r'\.\.\s+([\w-]+)::', first)
+    if not m:
+        return lines
+    name = m.group(1).lower()
+
+    if name == "toctree":
+        # Collect all English labels, translate in one batched request
+        entries = []
+        for i, line in enumerate(lines):
+            em = TOCTREE_ENTRY_RE.match(line)
+            if em:
+                entries.append((i, em.group(1), em.group(2).strip(), em.group(3)))
+        if entries:
+            batch = "\n".join(e[2] for e in entries)
+            translated_batch = translate_with_retry(translator, batch)
+            if translated_batch:
+                translated_labels = translated_batch.splitlines()
+                if len(translated_labels) == len(entries):
+                    lines = list(lines)
+                    for (idx, indent, _label, path), tl in zip(entries, translated_labels):
+                        lines[idx] = f"{indent}{tl.strip()} {path}"
+        return lines
+
+    if name not in TRANSLATABLE_DIRECTIVES:
+        return lines
+
+    # Find body indent level (first non-blank, non-option line after directive)
+    result = [lines[0]]
+    i = 1
+    body_indent = None
+    while i < len(lines):
+        l = lines[i]
+        stripped = l.strip()
+        if not stripped:
+            result.append(l)
+            i += 1
+            continue
+        cur_indent = len(l) - len(l.lstrip())
+        if body_indent is None:
+            # options (e.g. :class: foo) vs body text
+            if stripped.startswith(':') and re.match(r'\s+:\w[\w-]*:', l):
+                result.append(l)
+                i += 1
+                continue
+            body_indent = cur_indent
+        break
+
+    if i >= len(lines):
+        return result
+
+    body_lines = lines[i:]
+    pad = ' ' * (body_indent or 3)
+    dedented = [l[(body_indent or 0):] if l.strip() else l for l in body_lines]
+    translated = translate_prose(translator, dedented)
+    result.extend([pad + l if l.strip() else l for l in translated])
+    return result
+
+
 def translate_rst(text: str, translator: GoogleTranslator) -> str:
     blocks = split_blocks(text)
     rendered: list[str] = []
     for kind, lines in blocks:
         if kind == "prose":
             rendered.extend(translate_prose(translator, lines))
+        elif kind == "directive":
+            rendered.extend(translate_directive_block(lines, translator))
         else:
             rendered.extend(lines)
     return "\n".join(rendered) + ("\n" if text.endswith("\n") else "")

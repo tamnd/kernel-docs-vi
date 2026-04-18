@@ -187,23 +187,22 @@ là STEP 6 (Lỗi vĩnh viễn).
 
 .. note::
 
-   The current powerpc implementation assumes that a device driver will
-   *not* schedule or semaphore in this routine; the current powerpc
-   implementation uses one kernel thread to notify all devices;
-   thus, if one device sleeps/schedules, all devices are affected.
-   Doing better requires complex multi-threaded logic in the error
-   recovery implementation (e.g. waiting for all notification threads
-   to "join" before proceeding with recovery.)  This seems excessively
-   complex and not worth implementing.
+   Việc triển khai powerpc hiện tại giả định rằng trình điều khiển thiết bị sẽ
+   Lịch trình ZZ0000ZZ hoặc semaphore trong quy trình này; máy tính hiện tại
+   việc triển khai sử dụng một luồng nhân để thông báo cho tất cả các thiết bị;
+   do đó, nếu một thiết bị ngủ/lập lịch thì tất cả các thiết bị đều bị ảnh hưởng.
+   Làm tốt hơn đòi hỏi logic đa luồng phức tạp trong lỗi
+   triển khai khôi phục (ví dụ: chờ tất cả các chuỗi thông báo
+   để "tham gia" trước khi tiến hành khôi phục.) Điều này có vẻ quá đáng
+   phức tạp và không đáng thực hiện.
 
-   The current powerpc implementation doesn't much care if the device
-   attempts I/O at this point, or not.  I/Os will fail, returning
-   a value of 0xff on read, and writes will be dropped. If more than
-   EEH_MAX_FAILS I/Os are attempted to a frozen adapter, EEH
-   assumes that the device driver has gone into an infinite loop
-   and prints an error to syslog.  A reboot is then required to
-   get the device working again.
-
+   Việc triển khai powerpc hiện tại không quan tâm nhiều đến việc thiết bị có
+   thử I/O vào thời điểm này hay không.  I/O sẽ thất bại, quay trở lại
+   giá trị 0xff khi đọc và ghi sẽ bị loại bỏ. Nếu nhiều hơn
+   I/O EEH_MAX_FAILS được thử với bộ chuyển đổi bị đóng băng, EEH
+   giả định rằng trình điều khiển thiết bị đã đi vào một vòng lặp vô hạn
+   và in một lỗi vào syslog.  Sau đó cần phải khởi động lại để
+   làm cho thiết bị hoạt động trở lại.
 STEP 2: Đã bật MMIO
 --------------------
 Nền tảng kích hoạt lại MMIO cho thiết bị (nhưng thường không phải
@@ -222,34 +221,32 @@ thay vào đó sẽ chuyển thẳng đến STEP 3 (Đặt lại liên kết) ho
 
 .. note::
 
-   On platforms supporting Advanced Error Reporting (PCIe r7.0 sec 6.2),
-   the faulting device may already be accessible in STEP 1 (Notification).
-   Drivers should nevertheless defer accesses to STEP 2 (MMIO Enabled)
-   to be compatible with EEH on powerpc and with s390 (where devices are
-   inaccessible until STEP 2).
+   Trên nền tảng hỗ trợ Báo cáo lỗi nâng cao (PCIe r7.0 giây 6.2),
+   thiết bị bị lỗi có thể đã truy cập được trong STEP 1 (Thông báo).
+   Tuy nhiên, trình điều khiển nên trì hoãn quyền truy cập vào STEP 2 (Đã bật MMIO)
+   để tương thích với EEH trên powerpc và với s390 (nơi có thiết bị
+   không thể truy cập được cho đến STEP 2).
 
-   On platforms supporting Downstream Port Containment, the link to the
-   sub-hierarchy with the faulting device is re-enabled in STEP 3 (Link
-   Reset). Hence devices in the sub-hierarchy are inaccessible until
-   STEP 4 (Slot Reset).
+   Trên các nền tảng hỗ trợ Ngăn chặn cổng hạ lưu, liên kết đến
+   hệ thống phân cấp phụ với thiết bị bị lỗi được kích hoạt lại trong STEP 3 (Liên kết
+   Đặt lại). Do đó, các thiết bị trong hệ thống phân cấp phụ không thể truy cập được cho đến khi
+   STEP 4 (Đặt lại khe cắm).
 
-   For errors such as Surprise Down (PCIe r7.0 sec 6.2.7), the device
-   may not even be accessible in STEP 4 (Slot Reset). Drivers can detect
-   accessibility by checking whether reads from the device return all 1's
+   Đối với các lỗi như Ngạc nhiên (PCIe r7.0 giây 6.2.7), thiết bị
+   thậm chí có thể không truy cập được trong STEP 4 (Đặt lại vị trí). Trình điều khiển có thể phát hiện
+   khả năng truy cập bằng cách kiểm tra xem các lần đọc từ thiết bị có trả về tất cả 1 hay không
    (PCI_POSSIBLE_ERROR()).
-
 .. note::
 
-   The following is proposed; no platform implements this yet:
-   Proposal: All I/Os should be done _synchronously_ from within
-   this callback, errors triggered by them will be returned via
-   the normal pci_check_whatever() API, no new error_detected()
-   callback will be issued due to an error happening here. However,
-   such an error might cause IOs to be re-blocked for the whole
-   segment, and thus invalidate the recovery that other devices
-   on the same segment might have done, forcing the whole segment
-   into one of the next states, that is, link reset or slot reset.
-
+   Sau đây được đề xuất; chưa có nền tảng nào thực hiện điều này:
+   Đề xuất: Tất cả thao tác I/O phải được thực hiện _đồng bộ_ từ bên trong
+   cuộc gọi lại này, các lỗi do chúng gây ra sẽ được trả về thông qua
+   pci_check_whatever() API bình thường, không có error_ detected() mới
+   cuộc gọi lại sẽ được đưa ra do có lỗi xảy ra ở đây. Tuy nhiên,
+   lỗi như vậy có thể khiến IO bị chặn lại toàn bộ
+   phân đoạn và do đó làm mất hiệu lực quá trình khôi phục mà các thiết bị khác
+   trên cùng một phân khúc có thể đã làm, buộc toàn bộ phân khúc
+   sang một trong các trạng thái tiếp theo, tức là thiết lập lại liên kết hoặc thiết lập lại vị trí.
 Trình điều khiển phải trả về một trong các mã kết quả sau:
   -PCI_ERS_RESULT_RECOVERED
       Trình điều khiển trả về thông tin này nếu cho rằng thiết bị đã được cài đặt đầy đủ
@@ -380,11 +377,9 @@ Thất bại).
 
 .. note::
 
-   The current powerpc implementation does not try a power-cycle
-   reset if the driver returned PCI_ERS_RESULT_DISCONNECT.
-   However, it probably should.
-
-
+   Việc triển khai powerpc hiện tại không thử chu trình nguồn
+   đặt lại nếu trình điều khiển trả về PCI_ERS_RESULT_DISCONNECT.
+   Tuy nhiên, có lẽ nên như vậy.
 STEP 5: Tiếp tục hoạt động
 -------------------------
 Nền tảng sẽ gọi lại hàm gọi lại Resume() trên tất cả các thiết bị bị ảnh hưởng
@@ -455,29 +450,28 @@ Nghĩa là, việc khôi phục API chỉ yêu cầu:
 
 .. note::
 
-   Implementation details for the powerpc platform are discussed in
-   the file Documentation/arch/powerpc/eeh-pci-error-recovery.rst
+   Chi tiết triển khai cho nền tảng powerpc được thảo luận trong
+   tệp Tài liệu/arch/powerpc/eeh-pci-error-recovery.rst
 
-   As of this writing, there is a growing list of device drivers with
-   patches implementing error recovery. Not all of these patches are in
-   mainline yet. These may be used as "examples":
+   Tính đến thời điểm viết bài này, danh sách các trình điều khiển thiết bị có
+   các bản vá thực hiện phục hồi lỗi. Không phải tất cả các bản vá này đều có trong
+   tuyến chính chưa. Đây có thể được sử dụng làm "ví dụ":
 
-   - drivers/scsi/ipr
-   - drivers/scsi/sym53c8xx_2
-   - drivers/scsi/qla2xxx
-   - drivers/scsi/lpfc
-   - drivers/next/bnx2.c
-   - drivers/next/e100.c
-   - drivers/net/e1000
-   - drivers/net/e1000e
-   - drivers/net/ixgbe
-   - drivers/net/cxgb3
+   - trình điều khiển/scsi/ipr
+   - trình điều khiển/scsi/sym53c8xx_2
+   - trình điều khiển/scsi/qla2xxx
+   - trình điều khiển/scsi/lpfc
+   - trình điều khiển/tiếp theo/bnx2.c
+   - trình điều khiển/tiếp theo/e100.c
+   - trình điều khiển/mạng/e1000
+   - trình điều khiển/mạng/e1000e
+   - trình điều khiển/mạng/ixgbe
+   - trình điều khiển/mạng/cxgb3
 
-   The cor_error_detected() callback is invoked in handle_error_source() when
-   the error severity is "correctable". The callback is optional and allows
-   additional logging to be done if desired. See example:
+   Lệnh gọi lại cor_error_ detected() được gọi trong hàm hand_error_source() khi
+   mức độ nghiêm trọng của lỗi là "có thể sửa được". Cuộc gọi lại là tùy chọn và cho phép
+   việc ghi nhật ký bổ sung sẽ được thực hiện nếu muốn. Xem ví dụ:
 
-   - drivers/cxl/pci.c
-
+   - trình điều khiển/cxl/pci.c
 Sự kết thúc
 -------

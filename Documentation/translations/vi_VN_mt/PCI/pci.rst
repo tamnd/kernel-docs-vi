@@ -216,20 +216,17 @@ thiết bị PCI bằng cách gọi pci_enable_device(). Điều này sẽ:
   - phân bổ IRQ (nếu BIOS không có).
 
 .. note::
-   pci_enable_device() can fail! Check the return value.
-
+   pci_enable_device() có thể thất bại! Kiểm tra giá trị trả về.
 .. warning::
-   OS BUG: we don't check resource allocations before enabling those
-   resources. The sequence would make more sense if we called
-   pci_request_resources() before calling pci_enable_device().
-   Currently, the device drivers can't detect the bug when two
-   devices have been allocated the same range. This is not a common
-   problem and unlikely to get fixed soon.
+   OS BUG: chúng tôi không kiểm tra việc phân bổ tài nguyên trước khi kích hoạt chúng
+   tài nguyên. Trình tự sẽ có ý nghĩa hơn nếu chúng ta gọi
+   pci_request_resources() trước khi gọi pci_enable_device().
+   Hiện tại, trình điều khiển thiết bị không thể phát hiện lỗi khi hai
+   các thiết bị đã được phân bổ cùng một phạm vi. Đây không phải là điều phổ biến
+   vấn đề và khó có thể được khắc phục sớm.
 
-   This has been discussed before but not changed as of 2.6.19:
-   https://lore.kernel.org/r/20060302180025.GC28895@flint.arm.linux.org.uk/
-
-
+   Điều này đã được thảo luận trước đây nhưng không thay đổi kể từ phiên bản 2.6.19:
+   ZZ0000ZZ
 pci_set_master() sẽ kích hoạt DMA bằng cách đặt bit chính của bus
 trong thanh ghi PCI_COMMAND. Nó cũng sửa giá trị bộ đếm thời gian trễ nếu
 nó được đặt thành thứ gì đó không có thật bởi BIOS.  pci_clear_master() sẽ
@@ -262,10 +259,9 @@ Ngược lại, trình điều khiển nên gọi pci_release_khu vực() AFTER
 Ý tưởng là ngăn chặn hai thiết bị xung đột trên cùng một dải địa chỉ.
 
 .. tip::
-   See OS BUG comment above. Currently (2.6.19), The driver can only
-   determine MMIO and IO Port resource availability _after_ calling
+   Xem nhận xét về OS BUG ở trên. Hiện tại (2.6.19), Người lái xe chỉ có thể
+   xác định tính khả dụng của tài nguyên Cổng MMIO và IO _sau khi gọi
    pci_enable_device().
-
 Hương vị chung của pci_request_khu vực() là request_mem_khu vực()
 (đối với phạm vi MMIO) và request_khu vực() (đối với phạm vi Cổng IO).
 Sử dụng chúng cho các tài nguyên địa chỉ không được mô tả bởi PCI "bình thường"
@@ -277,11 +273,10 @@ BAR.
 Đặt kích thước mặt nạ DMA
 ---------------------
 .. note::
-   If anything below doesn't make sense, please refer to
-   Documentation/core-api/dma-api.rst. This section is just a reminder that
-   drivers need to indicate DMA capabilities of the device and is not
-   an authoritative source for DMA interfaces.
-
+   Nếu bất cứ điều gì dưới đây không có ý nghĩa, vui lòng tham khảo
+   Tài liệu/core-api/dma-api.rst. Phần này chỉ là một lời nhắc nhở rằng
+   trình điều khiển cần chỉ ra khả năng DMA của thiết bị và không
+   một nguồn có thẩm quyền cho các giao diện DMA.
 Mặc dù tất cả các trình điều khiển phải chỉ rõ khả năng của DMA
 (ví dụ: 32 hoặc 64 bit) của bus chính PCI, các thiết bị có nhiều hơn
 Khả năng chính của bus 32-bit để truyền dữ liệu cần có trình điều khiển

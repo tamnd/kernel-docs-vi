@@ -30,7 +30,7 @@ khám phá và sử dụng các tính năng khác nhau của libbpf để phát 
    :maxdepth: 1
 
    libbpf_overview
-   API Documentation <https://libbpf.readthedocs.io/en/latest/api.html>
+   Tài liệu API <https://libbpf.readthedocs.io/en/latest/api.html>
    program_types
    libbpf_naming_convention
    libbpf_build

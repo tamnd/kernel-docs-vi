@@ -107,7 +107,7 @@ unset_nmi_callback();
 
 Điều này hoạt động vì (kể từ v4.20) chặn sync_rcu() cho đến khi tất cả
 CPU hoàn thành mọi đoạn mã bị vô hiệu hóa quyền ưu tiên mà chúng đã có
-thực thi.
+thực hiện.
 Vì trình xử lý NMI vô hiệu hóa quyền ưu tiên, nên sync_rcu() được đảm bảo
 không quay lại cho đến khi tất cả các trình xử lý NMI đang diễn ra đều thoát.  Vì thế nó an toàn
 để giải phóng dữ liệu của trình xử lý ngay khi sync_rcu() trả về.

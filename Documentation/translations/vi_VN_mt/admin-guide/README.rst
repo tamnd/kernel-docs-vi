@@ -162,7 +162,7 @@ Xin lưu ý: Nếu tùy chọn ZZ0000ZZ được sử dụng thì nó phải
 Cấu hình hạt nhân
 ----------------------
 
-Do not skip this step even if you are only upgrading one minor
+Đừng bỏ qua bước này ngay cả khi bạn chỉ nâng cấp một phần nhỏ
    phiên bản.  Các tùy chọn cấu hình mới được thêm vào trong mỗi bản phát hành và
    các vấn đề kỳ lạ sẽ xuất hiện nếu các tập tin cấu hình không được thiết lập
    như mong đợi.  Nếu bạn muốn chuyển cấu hình hiện có của mình sang một

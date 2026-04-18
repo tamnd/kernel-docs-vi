@@ -63,13 +63,13 @@ Các hoạt động sau đây có thể được thực hiện trên chip:
 .. toctree::
    :titlesonly:
 
-   Get Line Handle <gpio-get-linehandle-ioctl>
-   Get Line Event <gpio-get-lineevent-ioctl>
-   Get Chip Info <gpio-get-chipinfo-ioctl>
-   Get Line Info <gpio-get-lineinfo-ioctl>
-   Watch Line Info <gpio-get-lineinfo-watch-ioctl>
-   Unwatch Line Info <gpio-get-lineinfo-unwatch-ioctl>
-   Read Line Info Changed Events <gpio-lineinfo-changed-read>
+   Nhận xử lý dòng <gpio-get-linehandle-ioctl>
+   Nhận sự kiện dòng <gpio-get-lineevent-ioctl>
+   Nhận thông tin chip <gpio-get-chipinfo-ioctl>
+   Nhận thông tin dòng <gpio-get-lineinfo-ioctl>
+   Thông tin dòng xem <gpio-get-lineinfo-watch-ioctl>
+   Thông tin dòng bỏ xem <gpio-get-lineinfo-unwatch-ioctl>
+   Đọc thông tin dòng Sự kiện đã thay đổi <gpio-lineinfo-changed-read>
 
 .. _gpio-v1-line-handle:
 
@@ -92,9 +92,9 @@ Các thao tác sau đây có thể được thực hiện trên bộ điều khi
 .. toctree::
    :titlesonly:
 
-   Get Line Values <gpio-handle-get-line-values-ioctl>
-   Set Line Values <gpio-handle-set-line-values-ioctl>
-   Reconfigure Lines <gpio-handle-set-config-ioctl>
+   Nhận giá trị dòng <gpio-handle-get-line-values-ioctl>
+   Đặt giá trị dòng <gpio-handle-set-line-values-ioctl>
+   Cấu hình lại dòng <gpio-handle-set-config-ioctl>
 
 .. _gpio-v1-line-event:
 
@@ -117,8 +117,8 @@ Các thao tác sau có thể được thực hiện trên sự kiện dòng:
 .. toctree::
    :titlesonly:
 
-   Get Line Value <gpio-handle-get-line-values-ioctl>
-   Read Line Edge Events <gpio-lineevent-data-read>
+   Nhận giá trị dòng <gpio-handle-get-line-values-ioctl>
+   Đọc sự kiện cạnh dòng <gpio-lineevent-data-read>
 
 Các loại
 =====

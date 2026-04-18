@@ -800,21 +800,20 @@ hoãn lại.
 
 .. important::
 
-   It is the ``->len`` field that determines whether or
-   not there are callbacks associated with this ``rcu_segcblist``
-   structure, *not* the ``->head`` pointer. The reason for this is that all
-   the ready-to-invoke callbacks (that is, those in the ``RCU_DONE_TAIL``
-   segment) are extracted all at once at callback-invocation time
-   (``rcu_do_batch``), due to which ``->head`` may be set to NULL if there
-   are no not-done callbacks remaining in the ``rcu_segcblist``. If
-   callback invocation must be postponed, for example, because a
-   high-priority process just woke up on this CPU, then the remaining
-   callbacks are placed back on the ``RCU_DONE_TAIL`` segment and
-   ``->head`` once again points to the start of the segment. In short, the
-   head field can briefly be ``NULL`` even though the CPU has callbacks
-   present the entire time. Therefore, it is not appropriate to test the
-   ``->head`` pointer for ``NULL``.
-
+   Trường ZZ0000ZZ xác định xem có hay không
+   không có cuộc gọi lại nào được liên kết với ZZ0001ZZ này
+   cấu trúc, ZZ0012ZZ con trỏ ZZ0002ZZ. Lý do cho điều này là tất cả
+   các lệnh gọi lại sẵn sàng gọi (nghĩa là các lệnh gọi trong ZZ0003ZZ
+   phân đoạn) được trích xuất cùng một lúc tại thời điểm gọi lại
+   (ZZ0004ZZ), do đó ZZ0005ZZ có thể được đặt thành NULL nếu có
+   không có lệnh gọi lại nào chưa được thực hiện còn lại trong ZZ0006ZZ. Nếu
+   việc gọi lại phải được hoãn lại, ví dụ, bởi vì một
+   quy trình có mức độ ưu tiên cao vừa được kích hoạt trên CPU này, sau đó các quy trình còn lại
+   các cuộc gọi lại được đặt trở lại trên phân đoạn ZZ0007ZZ và
+   ZZ0008ZZ một lần nữa chỉ điểm bắt đầu của phân đoạn. Tóm lại,
+   trường đầu có thể ngắn gọn là ZZ0009ZZ mặc dù CPU có lệnh gọi lại
+   trình bày suốt thời gian qua. Vì vậy, việc kiểm tra các
+   Con trỏ ZZ0010ZZ cho ZZ0011ZZ.
 Ngược lại, số lượng ZZ0000ZZ và ZZ0001ZZ chỉ được điều chỉnh
 sau khi các cuộc gọi lại tương ứng đã được gọi. Điều này có nghĩa là
 Số lượng ZZ0002ZZ chỉ bằng 0 nếu cấu trúc ZZ0003ZZ thực sự
