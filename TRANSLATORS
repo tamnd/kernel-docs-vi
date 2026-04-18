@@ -1,13 +1,8 @@
 This file lists people who have contributed Vietnamese translations to
-Documentation/translations/vi_VN/. Format follows the kernel's CREDITS file
-conventions, simplified.
+Documentation/translations/vi_VN/. Format follows the kernel's CREDITS
+file conventions, simplified.
 
-Name: Full Name
-Email: email@example.com
-GitHub: @handle
-Translated:
-  - Documentation/translations/vi_VN/...
-
----
-
-(No contributors yet — you could be the first. See CONTRIBUTING.md.)
+Name: Duc-Tam Nguyen
+Email: tamnd87@gmail.com
+GitHub: @tamnd
+Role: Maintainer, initial setup
