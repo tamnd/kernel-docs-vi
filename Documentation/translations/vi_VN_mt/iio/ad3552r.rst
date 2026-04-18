@@ -1,0 +1,85 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad3552r.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+================
+Trình điều khiển AD3552R
+==============
+
+Trình điều khiển thiết bị cho dòng DAC AD35XXR của Analog Devices Inc. Tên mô-đun
+là ZZ0000ZZ.
+Với cùng tên mô-đun, có sẵn hai biến thể trình điều khiển khác nhau,
+Biến thể ZZ0001ZZ, được sử dụng với mọi bộ điều khiển SPI cổ điển và
+Biến thể ZZ0002ZZ (tốc độ cao), dành cho bộ điều khiển dựa trên ADI ZZ0003ZZ (lõi IP)
+cho phép đạt được tốc độ mẫu tối đa được hỗ trợ từ DAC, sử dụng
+Chuyển DMA và tất cả các dòng SPI có sẵn (D/QDSPI)..
+Biến thể trình điều khiển tốc độ cao dự định sẽ được sử dụng với ZZ0004ZZ
+hỗ trợ phụ trợ được bật, tính năng này được bật theo mặc định khi trình điều khiển được chọn.
+
+Thiết bị được hỗ trợ
+=================
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+
+Kết nối dây
+==================
+
+Chung SPI
+-----------
+Sử dụng kết nối SPI S_CLK/CS/SDO/SDI cổ điển.
+
+Tốc độ cao (sử dụng phụ trợ axi-dac)
+----------------------------------
+
+::
+
+.----------------.                -------.
+    ZZ0000ZZ--- D/QSPI ------ZZ0001ZZ
+    ZZ0002ZZ--- SPI S_CLK --ZZ0003ZZ
+    ZZ0004ZZ--- SPI CS -----ZZ0005ZZ
+    ZZ0006ZZ--- LDAC -------ZZ0007ZZ
+    ZZ0008ZZ--- RESET ------ZZ0009ZZ
+    ZZ0010ZZ ZZ0011ZZ
+
+
+Tính năng tốc độ cao
+===================
+
+Thuộc tính thiết bị
+-----------------
+
+Bảng sau đây hiển thị các tệp gỡ lỗi thiết bị liên quan đến ad35xxr, được tìm thấy trong
+đường dẫn gỡ lỗi cụ thể ZZ0000ZZ.
+
++-----------------------+------------------------------------------------------+
+ZZ0002ZZ Mô tả |
++-----------------------+------------------------------------------------------+
+ZZ0003ZZ Nguồn dữ liệu được sử dụng, dưới dạng |
+ZZ0004ZZ ZZ0000ZZ, ZZ0001ZZ, v.v. |
++-----------------------+------------------------------------------------------+
+ZZ0005ZZ Các nguồn dữ liệu có sẵn.                          |
++-----------------------+------------------------------------------------------+
+
+Ví dụ sử dụng
+--------------
+
+.. code-block:: bash
+
+	root:/sys/bus/iio/devices/iio:device0# cat data_source
+	normal
+	root:/sys/bus/iio/devices/iio:device0# echo -n ramp-16bit > data_source
+	root:/sys/bus/iio/devices/iio:device0# cat data_source
+	ramp-16bit

@@ -1,0 +1,232 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad4000.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD4000
+=============
+
+Trình điều khiển thiết bị cho dòng ADC của Analog Devices Inc. AD4000 và các thiết bị tương tự.
+
+Thiết bị được hỗ trợ
+=================
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+* ZZ0004ZZ
+* ZZ0005ZZ
+* ZZ0006ZZ
+* ZZ0007ZZ
+* ZZ0008ZZ
+* ZZ0009ZZ
+* ZZ0010ZZ
+* ZZ0011ZZ
+* ZZ0012ZZ
+* ZZ0013ZZ
+* ZZ0014ZZ
+* ZZ0015ZZ
+* ZZ0016ZZ
+* ZZ0017ZZ
+* ZZ0018ZZ
+* ZZ0019ZZ
+* ZZ0020ZZ
+* ZZ0021ZZ
+* ZZ0022ZZ
+* ZZ0023ZZ
+* ZZ0024ZZ
+* ZZ0025ZZ
+* ZZ0026ZZ
+* ZZ0027ZZ
+* ZZ0028ZZ
+* ZZ0029ZZ
+* ZZ0030ZZ
+
+Kết nối dây
+------------------
+
+Các thiết bị thuộc dòng AD4000 có thể được kết nối với bộ điều khiển máy chủ SPI theo cách
+vài chế độ khác nhau.
+
+Chế độ CS, chế độ turbo 3 dây
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Chế độ "3 dây" của biểu dữ liệu là chế độ giống nhất với kết nối SPI tiêu chuẩn,
+đối với các thiết bị này, bao gồm việc kết nối dòng CS của bộ điều khiển với thiết bị CNV
+pin và các dòng SPI khác như bình thường. Cấu hình này được gọi (một cách sai lầm)
+Kết nối "Chế độ CS, Chế độ Turbo 3 dây" trong bảng dữ liệu.
+NOTE: Định nghĩa bảng dữ liệu về chế độ 3 dây cho dòng AD4000 là NOT
+giống với chế độ spi-3wire tiêu chuẩn.
+Đây là chế độ kết nối duy nhất cho phép truy cập thanh ghi cấu hình nhưng
+nó yêu cầu bộ điều khiển SPI để hỗ trợ tính năng ZZ0000ZZ.
+
+Bỏ qua thuộc tính ZZ0000ZZ trong cây thiết bị để chọn chế độ này.
+
+::
+
++-------------+
+     + ----------------------------------ZZ0000ZZ
+     ZZ0001ZZ |
+     ZZ0002ZZ CS |
+     ZZ0003ZZ |
+     ZZ0004ZZ HOST |
+     ZZ0005ZZ CNV ZZ0006ZZ |
+     +--->ZZ0007ZZ------->ZZ0008ZZ
+          ZZ0009ZZ ZZ0010ZZ
+          +-------------------+ ZZ0011ZZ
+                    ^ ZZ0012ZZ
+                    +-------------------ZZ0013ZZ
+                                         +-------------+
+
+Chế độ CS, 3 dây, không có đèn báo bận
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Một cấu hình nối dây khác được hỗ trợ ở chế độ "3 dây" có chân SDI
+nối cứng với nguồn cung cấp giao diện đầu vào/đầu ra kỹ thuật số (VIO). Trong thiết lập này,
+bộ điều khiển không bắt buộc phải hỗ trợ ZZ0000ZZ nhưng đăng ký quyền truy cập
+là không thể. Chế độ kết nối này tiết kiệm một dây và hoạt động với mọi SPI
+bộ điều khiển.
+
+Đặt thuộc tính cây thiết bị ZZ0000ZZ thành ZZ0001ZZ để chọn chế độ này.
+
+::
+
++-------------+
+                    +-------------------ZZ0000ZZ
+                    v ZZ0001ZZ
+    VIO +----------------------+ ZZ0002ZZ
+     ZZ0003ZZ CNV ZZ0004ZZ |
+     +--->ZZ0005ZZ------->ZZ0006ZZ
+          ZZ0007ZZ ZZ0008ZZ
+          +-------------------+ ZZ0009ZZ
+                    ^ ZZ0010ZZ
+                    +-------------------ZZ0011ZZ
+                                         +-------------+
+
+Ngoài ra, GPIO có thể được kết nối với chân CNV của thiết bị. Điều này tương tự như
+cấu hình nối dây trước đó nhưng tiết kiệm việc sử dụng đường dây CS.
+
+::
+
++-------------+
+                    +-------------------ZZ0000ZZ
+                    v ZZ0001ZZ
+    VIO +----------------------+ ZZ0002ZZ
+     ZZ0003ZZ CNV ZZ0004ZZ |
+     +--->ZZ0005ZZ------->ZZ0006ZZ
+          ZZ0007ZZ ZZ0008ZZ
+          +-------------------+ ZZ0009ZZ
+                    ^ ZZ0010ZZ
+                    +-------------------ZZ0011ZZ
+                                         +-------------+
+
+Chế độ CS, 4 dây không có đèn báo bận
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ở chế độ "4 dây" của biểu dữ liệu, dòng CS của bộ điều khiển được kết nối với ADC SDI
+pin và GPIO được kết nối với pin ADC CNV. Chế độ kết nối này có thể tốt hơn
+phù hợp với các tình huống trong đó nhiều ADC có thể chia sẻ một bộ kích hoạt CNV.
+
+Đặt ZZ0000ZZ thành ZZ0001ZZ để chọn chế độ này.
+
+
+::
+
++-------------+
+     + ----------------------------------ZZ0000ZZ
+     ZZ0001ZZ |
+     ZZ0002ZZ GPIO |
+     ZZ0003ZZ |
+     ZZ0004ZZ HOST |
+     ZZ0005ZZ CNV ZZ0006ZZ |
+     +--->ZZ0007ZZ------->ZZ0008ZZ
+          ZZ0009ZZ ZZ0010ZZ
+          +-------------------+ ZZ0011ZZ
+                    ^ ZZ0012ZZ
+                    +-------------------ZZ0013ZZ
+                                         +-------------+
+
+Đặc điểm thiết bị IIO
+==========================
+
+Trình điều khiển dòng AD4000 hỗ trợ ADC vi sai và giả vi sai.
+
+Tính năng nén nhịp có sẵn trong các thiết bị dòng AD4000 có thể
+được bật/tắt bằng cách thay đổi thuộc tính ZZ0000ZZ của điện áp
+kênh. Lưu ý rằng cấu hình nén nhịp yêu cầu ghi vào AD4000
+thanh ghi cấu hình, điều này chỉ có thể thực hiện được khi ADC được nối dây 3 dây
+chế độ turbo và bộ điều khiển SPI có khả năng ZZ0001ZZ. Nếu những
+điều kiện không được đáp ứng, không có thuộc tính ZZ0002ZZ nào được cung cấp.
+
+Ngoài ra còn có các kênh điện áp vi sai và giả vi sai
+giao diện sysfs hơi khác nhau.
+
+ADC giả vi phân
+------------------------
+
+Các thuộc tính kênh điện áp điển hình của thiết bị dòng AD4000 giả vi sai:
+
++---------------------------------------------------+------------------------------------------+
+ZZ0004ZZ Mô tả |
++============================================================================================================================================
+ZZ0005ZZ Mã đầu ra ADC thô.                     |
++---------------------------------------------------+------------------------------------------+
+ZZ0006ZZ Offset để chuyển đổi giá trị thô thành mV.       |
++---------------------------------------------------+------------------------------------------+
+ZZ0007ZZ Hệ số tỷ lệ để chuyển đổi giá trị thô thành mV. |
++---------------------------------------------------+------------------------------------------+
+ZZ0008ZZ Chuyển đổi nén nhịp đầu vào |
++---------------------------------------------------+------------------------------------------+
+
+ADC vi sai
+-----------------
+
+Các thuộc tính kênh điện áp điển hình của thiết bị dòng AD4000 vi sai:
+
++---------------------------------------------------+------------------------------------------+
+ZZ0003ZZ Mô tả |
++============================================================================================================================================
+ZZ0004ZZ Mã đầu ra ADC thô.                     |
++---------------------------------------------------+------------------------------------------+
+ZZ0005ZZ Hệ số tỷ lệ để chuyển đổi giá trị thô thành mV. |
++---------------------------------------------------+------------------------------------------+
+ZZ0006ZZ Chuyển đổi nén nhịp đầu vào |
++---------------------------------------------------+------------------------------------------+
+
+Hỗ trợ giảm tải SPI
+-------------------
+
+Để có thể đạt tốc độ lấy mẫu tối đa, có thể sử dụng driver với SPI
+động cơ giảm tải như động cơ thường có trong ZZ0000ZZ, để cung cấp
+Hỗ trợ giảm tải SPI.
+
+.. _AXI SPI Engine: http://analogdevicesinc.github.io/hdl/projects/pulsar_adc/index.html
+
+Để theo kịp tốc độ truyền tải giảm tải của SPI, ADC phải được kết nối
+ở chế độ turbo 3 dây hoặc ở chế độ 3 dây không có đèn báo bận và có SPI
+Dòng CS của bộ điều khiển được kết nối với chân CNV.
+
+Khi được đặt hỗ trợ giảm tải SPI, thiết bị IIO sẽ cung cấp các tùy chọn khác nhau
+giao diện.
+
+* ZZ0000ZZ hoặc
+  Tệp ZZ0001ZZ được cung cấp để cho phép cài đặt
+  tỷ lệ mẫu.
+* Không cung cấp thiết bị kích hoạt IIO (không có thư mục ZZ0002ZZ).
+* Kênh ZZ0003ZZ không được cung cấp.
+
+Ngoài ra, do đầu ra ADC có độ trễ (độ trễ) một mẫu khi thiết bị
+được nối dây ở chế độ "3 dây" và chỉ thực hiện một lần truyền cho mỗi mẫu khi sử dụng SPI
+giảm tải, mẫu dữ liệu đầu tiên trong bộ đệm không hợp lệ vì nó chứa
+đầu ra của kết quả chuyển đổi trước đó.

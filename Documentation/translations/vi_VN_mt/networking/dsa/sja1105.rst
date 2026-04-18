@@ -1,0 +1,459 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/dsa/sja1105.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===========================
+Trình điều khiển chuyển đổi NXP SJA1105
+=========================
+
+Tổng quan
+========
+
+NXP SJA1105 là dòng gồm 10 thiết bị chuyển mạch ô tô được quản lý bởi SPI:
+
+- SJA1105E: Thế hệ đầu tiên, không có TTEthernet
+- SJA1105T: Thế hệ đầu tiên, TTEthernet
+- SJA1105P: Thế hệ thứ hai, không có TTEthernet, không có SGMII
+- SJA1105Q: Thế hệ thứ hai, TTEthernet, không có SGMII
+- SJA1105R: Thế hệ thứ hai, không có TTEthernet, SGMII
+- SJA1105S: Thế hệ thứ hai, TTEthernet, SGMII
+- SJA1110A: Thế hệ thứ ba, TTEthernet, SGMII, tích hợp 100base-T1 và
+  PHY 100base-TX
+- SJA1110B: Thế hệ thứ ba, TTEthernet, SGMII, 100base-T1, 100base-TX
+- SJA1110C: Thế hệ thứ ba, TTEthernet, SGMII, 100base-T1, 100base-TX
+- SJA1110D: Thế hệ thứ ba, TTEthernet, SGMII, 100base-T1
+
+Là phụ tùng ô tô, giao diện cấu hình của chúng hướng tới
+sử dụng cài đặt và quên, với tương tác động tối thiểu trong thời gian chạy. Họ
+yêu cầu một cấu hình tĩnh được soạn thảo bởi phần mềm và đóng gói
+với CRC và các tiêu đề bảng và gửi qua SPI.
+
+Cấu hình tĩnh bao gồm một số bảng cấu hình. Mỗi
+bảng có một số mục. Một số bảng cấu hình có thể (một phần)
+được cấu hình lại khi chạy, một số thì không. Một số bảng là bắt buộc, một số thì không:
+
+================================================= =================================
+Bảng Bắt buộc Có thể cấu hình lại
+================================================= =================================
+Lên lịch không không
+Lên lịch điểm vào nếu Lập lịch không
+Tra cứu VL không không
+Chính sách VL nếu Tra cứu VL không
+Chuyển tiếp VL nếu tra cứu VL không
+Tra cứu L2 không không
+L2 Chính sách có không
+Tra cứu VLAN có có
+L2 Chuyển tiếp có một phần (hoàn toàn trên P/Q/R/S)
+Cấu hình MAC có một phần (hoàn toàn trên P/Q/R/S)
+Lên lịch các thông số nếu Lập lịch không
+Lên lịch các thông số điểm đầu vào nếu lập lịch không
+Thông số chuyển tiếp VL nếu chuyển tiếp VL không
+Tham số tra cứu L2 không một phần (hoàn toàn trên P/Q/R/S)
+Thông số chuyển tiếp L2 có không
+Thông số đồng bộ hóa đồng hồ không không
+AVB Thông số không không
+Thông số chung có một phần
+Gắn thẻ lại không có
+Thông số xMII có không
+SGMII không có
+================================================= =================================
+
+
+Ngoài ra, cấu hình chỉ ghi (phần mềm không thể đọc lại từ
+chuyển đổi ngoại trừ rất ít trường hợp ngoại lệ).
+
+Trình điều khiển tạo cấu hình tĩnh tại thời điểm thăm dò và giữ nó ở mức
+mọi lúc trong bộ nhớ, như một cái bóng cho trạng thái phần cứng. Khi được yêu cầu
+thay đổi cài đặt phần cứng, cấu hình tĩnh cũng được cập nhật.
+Nếu cài đặt đã thay đổi đó có thể được truyền tới công tắc thông qua chức năng động
+giao diện cấu hình lại, đó là; nếu không thì công tắc sẽ được đặt lại và
+được lập trình lại với cấu hình tĩnh được cập nhật.
+
+Chuyển đổi tính năng
+==================
+
+Trình điều khiển hỗ trợ cấu hình các quy tắc chuyển tiếp L2 trong phần cứng cho
+cầu cảng. Miền chuyển tiếp, quảng bá và tràn ngập giữa các cổng có thể
+bị hạn chế thông qua hai phương pháp: hoặc ở mức chuyển tiếp L2 (cách ly
+cổng của cầu này với cổng của cầu khác) hoặc ở cấp thành viên cổng VLAN
+(cách ly các cổng trong cùng một cây cầu). Quyết định chuyển tiếp cuối cùng được đưa ra bởi
+phần cứng là AND logic của hai bộ quy tắc này.
+
+Phần cứng gắn thẻ tất cả lưu lượng truy cập nội bộ bằng VLAN (pvid) dựa trên cổng hoặc nó
+giải mã thông tin VLAN từ thẻ 802.1Q. Phân loại VLAN nâng cao
+là không thể. Sau khi được gán thẻ VLAN, các khung sẽ được kiểm tra dựa trên
+quy tắc thành viên của cổng và bị loại bỏ khi xâm nhập nếu chúng không khớp với bất kỳ VLAN nào.
+Hành vi này khả dụng khi các cổng chuyển đổi tham gia một cây cầu với
+ZZ0000ZZ.
+
+Thông thường phần cứng không thể cấu hình được theo nhận thức VLAN, nhưng
+bằng cách thay đổi nội dung TPID mà switch tìm kiếm trong thẻ 802.1Q, ngữ nghĩa của một
+cầu với ZZ0000ZZ có thể được giữ lại (chấp nhận tất cả lưu lượng truy cập, được gắn thẻ hoặc
+không được gắn thẻ) và do đó chế độ này cũng được hỗ trợ.
+
+Việc tách các cổng chuyển đổi trong nhiều cầu nối được hỗ trợ (ví dụ: 2 + 2), nhưng
+tất cả các cây cầu phải có cùng mức độ nhận biết VLAN (cả hai đều có
+ZZ0000ZZ 0 hoặc cả hai 1).
+
+Hỗ trợ cấu trúc liên kết và phát hiện vòng lặp thông qua STP.
+
+Giảm tải
+========
+
+Lập kế hoạch nhận biết thời gian
+---------------------
+
+Công tắc hỗ trợ nhiều cải tiến khác nhau cho lưu lượng truy cập theo lịch trình
+được chỉ định trong IEEE 802.1Q-2018 (trước đây là 802.1Qbv). Điều này có nghĩa là nó có thể được sử dụng để
+đảm bảo độ trễ xác định cho lưu lượng ưu tiên được gửi trong băng tần với
+sự kiện mở cổng trong lịch trình mạng.
+
+Khả năng này có thể được quản lý thông qua giảm tải tc-taprio ('cờ 2'). các
+Sự khác biệt so với việc triển khai phần mềm của taprio là phần sau
+sẽ chỉ có thể định hình lưu lượng truy cập bắt nguồn từ CPU chứ không thể
+các luồng được chuyển tiếp tự động.
+
+Thiết bị có 8 lớp lưu lượng và ánh xạ các khung hình đến một trong số chúng dựa trên
+trên các bit VLAN PCP (nếu không có VLAN, mặc định dựa trên cổng sẽ được sử dụng).
+Như đã mô tả ở phần trước, tùy thuộc vào giá trị của
+ZZ0000ZZ, EtherType được switch công nhận là VLAN có thể
+có thể là 0x8100 điển hình hoặc giá trị tùy chỉnh được trình điều khiển sử dụng nội bộ
+để gắn thẻ. Do đó, công tắc sẽ bỏ qua VLAN PCP nếu được sử dụng độc lập
+hoặc chế độ cầu nối với ZZ0001ZZ, vì nó sẽ không nhận ra 0x8100
+EtherType. Trong các chế độ này, việc đưa vào một hàng đợi TX cụ thể chỉ có thể được thực hiện
+được thực hiện bởi các thiết bị mạng DSA, nằm trong trường PCP của tiêu đề gắn thẻ
+trên lối ra. Sử dụng ZZ0002ZZ, hành vi ngược lại:
+Các luồng đã giảm tải có thể được điều hướng đến hàng đợi TX dựa trên VLAN PCP, nhưng DSA
+các thiết bị mạng không còn có thể làm điều đó nữa. Để đưa khung hình vào TX phần cứng
+hàng đợi với nhận thức VLAN đang hoạt động, cần phải tạo VLAN
+giao diện phụ trên cổng ống dẫn DSA và gửi thông thường (0x8100) được gắn thẻ VLAN
+về phía công tắc, với các bit VLAN PCP được đặt thích hợp.
+
+Lưu lượng quản lý (có DMAC 01-80-C2-xx-xx-xx hoặc 01-19-1B-xx-xx-xx) là
+ngoại lệ đáng chú ý: switch luôn xử lý nó với mức độ ưu tiên cố định và
+bỏ qua mọi bit VLAN PCP ngay cả khi có. Lớp lưu lượng dành cho quản lý
+lưu lượng truy cập có giá trị là 7 (mức độ ưu tiên cao nhất) vào lúc này, không phải là
+có thể cấu hình trong trình điều khiển.
+
+Dưới đây là ví dụ về cách định cấu hình lịch trình tuần hoàn 500 us trên cổng đầu ra
+ZZ0000ZZ. Cổng phân loại giao thông để quản lý giao thông (7) mở cho 100 chúng tôi,
+và cổng cho tất cả các hạng giao thông khác đều mở cho 400 chúng tôi::
+
+#!/bin/bash
+
+đặt -e -u -o pipefail
+
+NSEC_PER_SEC="1000000000"
+
+cổng khẩu() {
+          tc_list địa phương="$1"
+          mặt nạ cục bộ=0
+
+cho tc trong ${tc_list}; làm
+                  mặt nạ=$((${mask} | (1 << ${tc})))
+          xong
+
+printf "%02x" ${mask}
+  }
+
+nếu như ! systemctl đang hoạt động --quiet ptp4l; sau đó
+          echo "Xin vui lòng khởi động dịch vụ ptp4l"
+          lối ra
+  fi
+
+now=$(phc_ctl /dev/ptp1 get | gawk '/clock time is/ { print $5; }')
+  # Phase-align thời gian cơ bản tính đến thời điểm bắt đầu của giây tiếp theo.
+  sec=$(echo "${now}" | gawk -F. '{ print $1; }')
+  base_time="$(((${sec} + 1) * ${NSEC_PER_SEC}))"
+
+tc qdisc thêm bộ điều khiển gốc gốc dev swp5 100 taprio \
+          số_tc 8 \
+          bản đồ 0 1 2 3 5 6 7 \
+          hàng đợi 1@0 1@1 1@2 1@3 1@4 1@5 1@6 1@7 \
+          thời gian cơ sở ${base_time} \
+          mục nhập lịch trình S $(gatemask 7) 100000 \
+          mục nhập lịch trình S $(gatemask "0 1 2 3 4 5 6") 400000 \
+          cờ 2
+
+Có thể áp dụng giảm tải tc-taprio trên nhiều cổng đầu ra. Ở đó
+là những hạn chế về phần cứng liên quan đến thực tế là không có sự kiện cổng nào có thể kích hoạt
+đồng thời trên hai cổng. Người lái xe kiểm tra tính nhất quán của lịch trình
+chống lại hạn chế này và khắc phục lỗi khi thích hợp. Phân tích lịch trình là
+cần thiết để tránh điều này, vốn nằm ngoài phạm vi của tài liệu.
+
+Hành động định tuyến (chuyển hướng, bẫy, thả)
+--------------------------------------
+
+Bộ chuyển mạch có thể giảm tải việc chuyển hướng các gói dựa trên luồng sang một tập hợp các gói
+cổng đích do người dùng chỉ định. Trong nội bộ, điều này được thực hiện bởi
+sử dụng Liên kết ảo, một khái niệm TTEthernet.
+
+Driver hỗ trợ 2 loại key cho Virtual Link:
+
+- Các liên kết ảo nhận biết VLAN: các liên kết này khớp với địa chỉ MAC đích, ID VLAN và
+  VLAN PCP.
+- Liên kết ảo VLAN không nhận biết: các liên kết này chỉ khớp với địa chỉ MAC đích.
+
+Không thể thay đổi trạng thái nhận thức VLAN của cầu nối (vlan_filtering) trong khi
+có cài đặt quy tắc liên kết ảo.
+
+Hỗ trợ soạn nhiều hành động trong cùng một quy tắc. Khi chỉ định tuyến
+được yêu cầu, trình điều khiển sẽ tạo một liên kết ảo "không quan trọng". Khi nào
+danh sách hành động cũng chứa tc-gate (xem thêm chi tiết bên dưới), liên kết ảo
+trở nên "quan trọng về thời gian" (lấy bộ đệm khung từ phân vùng bộ nhớ dành riêng,
+v.v.).
+
+3 hành động định tuyến được hỗ trợ là "bẫy", "thả" và "chuyển hướng".
+
+Ví dụ 1: gửi các khung nhận được trên swp2 với DA là 42:be:24:9b:76:20 tới
+CPU và tới swp3. Loại key này (chỉ DA) khi nhận biết được cổng VLAN của port
+trạng thái tắt::
+
+tc qdisc thêm dev swp2 clsact
+  bộ lọc tc thêm dev swp2 ingress hoa Skip_sw dst_mac 42:be:24:9b:76:20 \
+          hành động chuyển hướng đi ra được nhân đôi dev swp3 \
+          bẫy hành động
+
+Ví dụ 2: thả các khung hình nhận được trên swp2 với DA là 42:be:24:9b:76:20, VID
+là 100 và PCP là 0::
+
+bộ lọc tc thêm giao thức xâm nhập dev swp2 802.1Q hoa Skip_sw \
+          dst_mac 42:be:24:9b:76:20 vlan_id 100 vlan_prio 0 thả hành động
+
+Kiểm soát xâm nhập dựa trên thời gian
+---------------------------
+
+Khả năng phần cứng TTEthernet của bộ chuyển mạch có thể bị hạn chế hoạt động
+tương tự như mệnh đề Lọc và kiểm soát mỗi luồng (PSFP) được chỉ định trong
+IEEE 802.1Q-2018 (trước đây là 802.1Qci). Điều này có nghĩa là nó có thể được sử dụng để thực hiện
+kiểm soát nhập học dựa trên thời gian chặt chẽ cho tối đa 1024 luồng (được xác định bởi một
+bộ dữ liệu bao gồm địa chỉ MAC đích, ID VLAN và VLAN PCP). Các gói tin
+được nhận bên ngoài cửa sổ tiếp nhận dự kiến của họ sẽ bị loại bỏ.
+
+Khả năng này có thể được quản lý thông qua việc giảm tải của hành động tc-gate. Như
+hành động định tuyến là nội tại của các liên kết ảo trong TTEthernet (thực hiện
+định tuyến rõ ràng lưu lượng truy cập quan trọng về thời gian và không để điều đó trong tay
+của FDB, lũ lụt, v.v.), hành động cổng tc có thể không bao giờ xuất hiện một mình khi
+yêu cầu sja1105 giảm tải nó. Một (hoặc nhiều) hành động chuyển hướng hoặc bẫy cũng phải
+đi theo.
+
+Ví dụ: tạo lịch trình tc-taprio được căn chỉnh theo pha với cổng tc
+lịch trình (đồng hồ phải được đồng bộ hóa bởi ngăn xếp ứng dụng 1588, được
+nằm ngoài phạm vi của tài liệu này). Không có gói nào do người gửi gửi sẽ được
+bị rơi. Lưu ý cửa sổ tiếp nhận lớn hơn cửa sổ truyền
+(và nhiều hơn thế nữa, trong ví dụ này) để bù đắp cho việc truyền gói
+độ trễ của liên kết (có thể được xác định bởi ngăn xếp ứng dụng 1588).
+
+Người nhận (sja1105)::
+
+tc qdisc thêm dev swp2 clsact
+  now=$(phc_ctl /dev/ptp1 get | awk '/clock time is/ {print $5}') && \
+          sec=$(echo $now | awk -F. '{print $1}') && \
+          base_time="$(((giây + 2) * 1000000000))" && \
+          echo "thời gian cơ bản ${base_time}"
+  bộ lọc tc thêm dev swp2 ingress hoa Skip_sw \
+          dst_mac 42:be:24:9b:76:20 \
+          thời gian cơ sở của cổng hành động ${base_time} \
+          mục nhập lịch trình OPEN 60000 -1 -1 \
+          mục nhập lịch trình CLOSE 40000 -1 -1 \
+          bẫy hành động
+
+Người gửi::
+
+now=$(phc_ctl /dev/ptp0 get | awk '/clock time is/ {print $5}') && \
+          sec=$(echo $now | awk -F. '{print $1}') && \
+          base_time="$(((giây + 2) * 1000000000))" && \
+          echo "thời gian cơ bản ${base_time}"
+  tc qdisc thêm dev eno0 gốc cha mẹ taprio \
+          số_tc 8 \
+          bản đồ 0 1 2 3 4 5 6 7 \
+          hàng đợi 1@0 1@1 1@2 1@3 1@4 1@5 1@6 1@7 \
+          thời gian cơ sở ${base_time} \
+          mục nhập lịch trình S 01 50000 \
+          mục nhập lịch trình S 00 50000 \
+          cờ 2
+
+Động cơ được sử dụng để lên lịch hoạt động của cổng vào giống như động cơ
+một cái được sử dụng để giảm tải tc-taprio. Vì vậy, những hạn chế liên quan đến
+thực tế là không có hành động nào của hai cổng (cổng tc-gate hoặc cổng tc-taprio) có thể bắn vào
+cùng thời gian (trong cùng một khe 200 ns) vẫn được áp dụng.
+
+Để thuận tiện, có thể chia sẻ các liên kết ảo được kích hoạt theo thời gian trên
+nhiều hơn 1 cổng vào, thông qua các khối luồng. Trong trường hợp này, hạn chế của
+việc bắn cùng lúc không được áp dụng vì có một lịch trình duy nhất trong
+hệ thống của liên kết ảo được chia sẻ::
+
+tc qdisc thêm dev swp2 ingress_block 1 clsact
+  tc qdisc thêm dev swp3 ingress_block 1 clsact
+  tc lọc thêm khối 1 hoa Skip_sw dst_mac 42:be:24:9b:76:20 \
+          chỉ số cổng hành động 2 \
+          thời gian cơ sở 0 \
+          mục nhập lịch trình OPEN 50000000 -1 -1 \
+          mục nhập lịch trình CLOSE 50000000 -1 -1 \
+          bẫy hành động
+
+Thống kê phần cứng cho từng luồng cũng có sẵn ("pkts" đếm số lượng
+số khung hình bị rớt, là tổng số khung hình bị rớt do vi phạm thời gian,
+thiếu cổng đích và kiểm tra thực thi MTU). Bộ đếm mức byte là
+không có sẵn.
+
+Hạn chế
+===========
+
+Họ switch SJA1105 luôn thực hiện xử lý VLAN. Khi được cấu hình là
+VLAN-không biết, các khung mang một thẻ VLAN khác bên trong, tùy thuộc vào
+cổng này độc lập hay nằm dưới cầu nối không xác định VLAN.
+
+Các phím liên kết ảo luôn được cố định tại {MAC DA, VLAN ID, VLAN PCP}, nhưng
+trình điều khiển yêu cầu ID VLAN và VLAN PCP khi cổng ở trạng thái nhận biết VLAN
+cầu. Nếu không, nó sẽ tự động điền ID VLAN và PCP, dựa trên
+cho dù cổng này độc lập hay nằm trong cầu nối không xác định VLAN và chỉ chấp nhận
+Phím hoa tc "VLAN-không biết" (MAC DA).
+
+Các phím tc-flower hiện có được giảm tải bằng liên kết ảo không có
+hoạt động lâu hơn sau khi một trong những điều sau đây xảy ra:
+
+- cổng độc lập và kết nối với một cây cầu (VLAN-nhận biết hoặc VLAN-không nhận biết)
+- cổng là một phần của cây cầu có trạng thái nhận thức VLAN thay đổi
+- cổng là một phần của cây cầu và trở nên độc lập
+- cổng là độc lập, nhưng một cổng khác tham gia cầu nối nhận biết VLAN và cổng này
+  thay đổi trạng thái nhận thức VLAN toàn cầu của cây cầu
+
+Trình điều khiển không thể phủ quyết tất cả các thao tác này và không thể cập nhật/xóa
+bộ lọc tc-flower hiện có. Vì vậy, để hoạt động đúng cách, tc-flower
+chỉ nên cài đặt bộ lọc sau khi cấu hình chuyển tiếp cổng
+đã được tạo và xóa bởi không gian người dùng trước khi thực hiện bất kỳ thay đổi nào đối với nó.
+
+Thiết kế bìa cây và thiết kế bảng
+=====================================
+
+Phần này tham khảo ZZ0000ZZ
+và nhằm mục đích giới thiệu một số cảnh báo chuyển đổi tiềm năng.
+
+RMII PHY vai trò và tín hiệu ngoài băng tần
+---------------------------------------
+
+Trong thông số RMII, tín hiệu xung nhịp 50 MHz được điều khiển bởi MAC hoặc bởi
+một bộ dao động bên ngoài (nhưng không phải bởi PHY).
+Nhưng thông số kỹ thuật khá lỏng lẻo và các thiết bị nằm ngoài nó theo nhiều cách.
+Một số PHY đi ngược lại thông số kỹ thuật và có thể cung cấp chân đầu ra nơi chúng lấy nguồn
+đồng hồ 50 MHz, nhằm mục đích hữu ích.
+Mặt khác, SJA1105 chỉ có thể cấu hình nhị phân - khi ở RMII
+Vai trò của MAC nó cũng sẽ cố gắng điều khiển tín hiệu đồng hồ. Để ngăn chặn điều này
+xảy ra nó phải được đặt trong vai trò RMII PHY.
+Nhưng làm như vậy sẽ gây ra một số hậu quả không lường trước được.
+Trong thông số RMII, PHY có thể truyền thêm tín hiệu ngoài băng thông qua RXD[1:0].
+Trên thực tế, đây là một số từ mã bổ sung (/J/ và /K/) được gửi trước
+lời mở đầu của mỗi khung hình. MAC không có tín hiệu ngoài băng tần này
+cơ chế được xác định bởi thông số RMII.
+Vì vậy khi cổng SJA1105 được đặt vào vai trò PHY để tránh việc có 2 driver trên
+tín hiệu đồng hồ, chắc chắn một kết nối RMII PHY-to-PHY được tạo ra. SJA1105
+mô phỏng đầy đủ giao diện PHY và tạo các ký hiệu /J/ và /K/ trước
+lời mở đầu của khung, điều mà PHY thực sự không thể hiểu được. Vì vậy PHY
+chỉ cần mã hóa các ký hiệu bổ sung nhận được từ SJA1105-as-PHY vào
+Dây 100Base-Tx.
+Ở đầu dây bên kia, một số đối tác liên kết có thể loại bỏ những thông tin bổ sung này.
+các ký hiệu, trong khi những ký hiệu khác có thể làm nghẹt chúng và loại bỏ toàn bộ Ethernet
+các khung theo sau. Điều này có vẻ giống như mất gói với một số đối tác liên kết
+nhưng không phải với người khác.
+Điều đáng chú ý là ở chế độ RMII, SJA1105 phải được phép điều khiển
+đồng hồ tham chiếu nếu được kết nối với PHY.
+
+RGMII liên kết cố định và độ trễ bên trong
+------------------------------------
+
+Như đã đề cập trong tài liệu ràng buộc, thế hệ thiết bị thứ hai có
+các đường trễ có thể điều chỉnh được như một phần của MAC, có thể được sử dụng để thiết lập
+ngân sách thời gian RGMII chính xác.
+Khi được cấp nguồn, chúng có thể dịch chuyển đồng hồ Rx và Tx với độ lệch pha
+trong khoảng từ 73,8 đến 101,7 độ.
+Điều đáng chú ý là các đường trễ cần khóa vào tín hiệu đồng hồ bằng một
+tần số ổn định. Điều này có nghĩa là phải có ít nhất 2 micro giây
+sự im lặng giữa đồng hồ ở tần số cũ và ở tần số mới. Nếu không thì
+khóa bị mất và các đường trễ phải được đặt lại (tắt nguồn và sao lưu).
+Trong RGMII, tần số xung nhịp thay đổi theo tốc độ liên kết (125 MHz ở tốc độ 1000 Mbps, 25
+MHz ở tốc độ 100 Mbps và 2,5 MHz ở tốc độ 10 Mbps) và tốc độ liên kết có thể thay đổi trong quá trình
+MỘT quá trình.
+Trong trường hợp cổng chuyển đổi được kết nối thông qua liên kết cố định RGMII
+cho một đối tác liên kết có vòng đời trạng thái liên kết nằm ngoài tầm kiểm soát của Linux
+(chẳng hạn như một SoC khác), thì các đường trễ sẽ vẫn được mở khóa (và
+không hoạt động) cho đến khi có sự can thiệp thủ công (ifdown/ifup trên cổng switch).
+Điều đáng chú ý là ở chế độ RGMII, độ trễ bên trong của công tắc chỉ
+đáng tin cậy nếu đối tác liên kết không bao giờ thay đổi tốc độ liên kết hoặc nếu có thì nó sẽ thay đổi
+do đó, theo cách được phối hợp với cổng chuyển mạch (trên thực tế, cả hai đầu của
+liên kết cố định nằm dưới sự kiểm soát của cùng một hệ thống Linux).
+Về lý do tại sao giao diện liên kết cố định lại thay đổi tốc độ liên kết: có
+Bộ điều khiển Ethernet hiện có được thiết lập lại ở chế độ 100 Mbps và
+trình điều khiển của họ chắc chắn cần phải thay đổi tốc độ và tần số đồng hồ nếu nó
+cần thiết để làm việc ở gigabit.
+
+Quản lý xe buýt MDIO và PHY
+---------------------------
+
+SJA1105 không có bus MDIO và cũng không hoạt động AN trong băng tần.
+Do đó không có thông báo trạng thái liên kết nào đến từ thiết bị chuyển mạch.
+Một bảng sẽ cần kết nối các PHY được kết nối với công tắc với bất kỳ thiết bị nào khác
+Bus MDIO có sẵn cho Linux trong hệ thống (ví dụ: với MDIO của ống dẫn DSA
+xe buýt). Quản lý trạng thái liên kết sau đó hoạt động bằng trình điều khiển được đồng bộ hóa theo cách thủ công
+(qua các lệnh SPI) tốc độ liên kết MAC với các cài đặt được PHY thương lượng.
+
+Để so sánh, SJA1110 hỗ trợ điểm truy cập nô lệ MDIO.
+PHY 100base-T1 nội bộ có thể được truy cập từ máy chủ. Tuy nhiên đây không phải là
+được trình điều khiển sử dụng, thay vào đó các PHY 100base-T1 và 100base-TX bên trong được
+được truy cập thông qua các lệnh SPI, được mô hình hóa trong Linux dưới dạng bus MDIO ảo.
+
+Bộ vi điều khiển gắn vào cổng SJA1110 0 cũng có bộ điều khiển MDIO
+hoạt động ở chế độ chính, tuy nhiên trình điều khiển cũng không hỗ trợ chế độ này,
+vì bộ vi điều khiển bị vô hiệu hóa khi trình điều khiển Linux hoạt động.
+Các PHY rời rạc được kết nối với các cổng chuyển mạch phải có giao diện MDIO
+được gắn vào bộ điều khiển MDIO từ hệ thống máy chủ chứ không phải vào công tắc,
+tương tự như SJA1105.
+
+Ma trận tương thích cổng
+-------------------------
+
+Ma trận tương thích cổng SJA1105 là:
+
+===== ============================= ================
+Cổng SJA1105E/T SJA1105P/Q SJA1105R/S
+===== ============================= ================
+0 xMII xMII xMII
+1 xMII xMII xMII
+2 xMII xMII xMII
+3 xMII xMII xMII
+4 xMII xMII SGMII
+===== ============================= ================
+
+
+Ma trận tương thích cổng SJA1110 là:
+
+===== =========================================== ================
+Cổng SJA1110A SJA1110B SJA1110C SJA1110D
+===== =========================================== ================
+0 RevMII (uC) RevMII (uC) RevMII (uC) RevMII (uC)
+1 100base-TX 100base-TX 100base-TX
+       hoặc SGMII SGMII
+2 xMII xMII xMII xMII
+       hoặc SGMII hoặc SGMII
+3 xMII xMII xMII
+       hoặc SGMII hoặc SGMII SGMII
+       hoặc 2500base-X hoặc 2500base-X hoặc 2500base-X
+4 SGMII SGMII SGMII SGMII
+       hoặc 2500base-X hoặc 2500base-X hoặc 2500base-X hoặc 2500base-X
+5 100base-T1 100base-T1 100base-T1 100base-T1
+6 100base-T1 100base-T1 100base-T1 100base-T1
+7 100base-T1 100base-T1 100base-T1 100base-T1
+8 100base-T1 100base-T1 n/a n/a
+9 100base-T1 100base-T1 n/a n/a
+10 100base-T1 n/a n/a n/a
+===== =========================================== ================

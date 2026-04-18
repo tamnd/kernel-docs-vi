@@ -1,0 +1,213 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83792d.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83792d
+=====================
+
+Chip được hỗ trợ:
+
+* Winbond W83792D
+
+Tiền tố: 'w83792d'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Shane Huang (Winbond)
+Đã cập nhật: Roger Lucas
+
+
+Thông số mô-đun
+-----------------
+
+* init int
+    (mặc định 1)
+
+Sử dụng 'init=0' để bỏ qua việc khởi tạo chip.
+    Hãy thử điều này nếu máy tính của bạn gặp sự cố khi bạn tải mô-đun.
+
+* Force_subclients=bus,caddr,saddr,saddr
+    Điều này được sử dụng để buộc các địa chỉ i2c cho các máy khách phụ của
+    một con chip nhất định. Ví dụ sử dụng là ZZ0000ZZ
+    để buộc các máy khách con của chip 0x2f trên địa chỉ bus 0 đến i2c
+    0x4a và 0x4b.
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Winbond W83792AD/D.
+
+Việc phát hiện chip đôi khi có thể bị cản trở vì nó có thể ở trong một
+trạng thái nội bộ không cho phép truy cập rõ ràng (Ngân hàng có đăng ký ID không
+hiện đang được chọn). Nếu biết địa chỉ của chip, hãy dùng “lực”
+tham số; điều này trước tiên sẽ đưa nó vào trạng thái hoạt động tốt hơn.
+
+Người lái thực hiện ba cảm biến nhiệt độ, bảy tốc độ quay của quạt
+cảm biến, chín cảm biến điện áp và hai cảm biến điều chỉnh quạt tự động
+chiến lược được gọi là: Quạt thông minh I (Chế độ hành trình nhiệt) và Quạt thông minh II.
+
+Trình điều khiển cũng triển khai tối đa bảy đầu ra điều khiển quạt: pwm1-7.  Pwm1-7
+có thể được cấu hình thành đầu ra PWM hoặc đầu ra Analog DC thông qua chúng được liên kết
+pwmX_mode. Đầu ra pwm4 đến pwm7 có thể có hoặc không có tùy thuộc vào
+W83792AD/D được cấu hình như thế nào bởi BIOS.
+
+Chế độ điều khiển quạt tự động chỉ có thể áp dụng cho fan1-fan3.
+
+Đối với tất cả các đầu ra pwmX, giá trị 0 có nghĩa là tốc độ quạt tối thiểu và giá trị là
+255 có nghĩa là tốc độ quạt tối đa.
+
+Nhiệt độ được đo bằng độ C và độ phân giải đo là 1
+degC cho temp1 và 0,5 độC cho temp2 và temp3. Báo động sẽ được kích hoạt khi
+nhiệt độ cao hơn giá trị Tắt quá nhiệt; nó ở lại
+bật cho đến khi nhiệt độ giảm xuống dưới giá trị Độ trễ.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia bằng một bộ chia có thể lập trình (1, 2, 4, 8, 16, 32, 64 hoặc
+128) để cung cấp cho các bài đọc phạm vi hoặc độ chính xác cao hơn.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng tính bằng milivolt.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa.
+
+Cảnh báo được cung cấp dưới dạng đầu ra từ "thanh ghi trạng thái thời gian thực". Các bit sau
+được định nghĩa:
+
+==== ===========
+báo động bit đang bật
+==== ===========
+0 trong0
+1 trong 1
+2 nhiệt độ1
+3 nhiệt độ2
+4 nhiệt độ3
+5 quạt1
+6 quạt2
+7 người hâm mộ3
+8 trong2
+9 trong 3
+10 trong4
+11 inch5
+12 trong6
+13 VID thay đổi
+14 khung gầm
+15 người hâm mộ7
+16 bánh tart1
+17 bánh tart2
+18 bánh tart3
+19 inch7
+20 in8
+21 người hâm mộ4
+22 người hâm mộ5
+23 người hâm mộ6
+==== ===========
+
+Tart sẽ được xác nhận khi không thể đạt được nhiệt độ mục tiêu sau 3 phút
+tốc độ quay tối đa của quạt tương ứng.
+
+Ngoài các cảnh báo được mô tả ở trên, còn có cảnh báo CHAS trên chip
+điều này sẽ kích hoạt nếu vỏ máy tính của bạn đang mở (Cái này được chốt, trái lại
+đến cảnh báo thời gian thực).
+
+Các chip chỉ cập nhật giá trị 3 giây một lần; đọc chúng thường xuyên hơn sẽ
+không gây hại gì nhưng sẽ trả về giá trị 'cũ'.
+
+
+W83792D PROBLEMS
+----------------
+Các vấn đề đã biết:
+	- Driver này chỉ dành cho máy Winbond W83792D phiên bản C thôi nhé
+	  cũng có một số bo mạch chủ có thiết bị W83792D phiên bản B. các
+	  phương pháp tính toán in6-in7(giá trị đo, giới hạn) hơi
+	  khác nhau giữa phiên bản C và B. Phiên bản C hoặc B có thể được xác định
+	  bởi CR[0x49h].
+	- Chức năng vid và vrm vẫn chưa xong, vì mình là NOT
+	  rất quen thuộc với họ. Thêm hỗ trợ được chào đón.
+	- Chức năng phát hiện mở khung gầm cần thử nghiệm thêm.
+	- Nếu bạn không tìm thấy bo mạch và chip máy chủ ASUS: Sau đó, bạn sẽ
+	  cần nâng cấp lên BIOS mới nhất (hoặc beta). Nếu nó không giúp được xin vui lòng
+	  liên hệ với chúng tôi.
+
+Điều khiển quạt
+-----------
+
+Chế độ thủ công
+-----------
+
+Hoạt động như mong đợi. Bạn chỉ cần chỉ định giá trị PWM/DC mong muốn (tốc độ quạt)
+trong pwm# file thích hợp.
+
+Hành trình nhiệt
+--------------
+
+Ở chế độ này, W83792D cung cấp hệ thống Smart Fan để tự động điều khiển
+tốc độ quạt để giữ nhiệt độ của CPU và hệ thống trong phạm vi cụ thể
+phạm vi. Lúc đầu, phải đặt nhiệt độ và khoảng thời gian mong muốn. Việc này được thực hiện
+thông qua Thermal_cruise# file. Dung sai# file dùng để tạo ra dung sai T+-
+khoảng. Tốc độ quạt sẽ được giảm xuống miễn là nhiệt độ hiện tại
+vẫn ở dưới mức nhiệt_cruise# +- dung sai# value. Một khi nhiệt độ
+vượt quá giới hạn cao (dung sai T+), quạt sẽ được bật bằng tín hiệu
+tốc độ cụ thể do pwm# and đặt tự động kiểm soát chu kỳ nhiệm vụ PWM của nó
+với nhiệt độ khác nhau. Ba điều kiện có thể xảy ra:
+
+(1) Nếu nhiệt độ vẫn vượt quá giới hạn cao, nhiệm vụ PWM
+chu kỳ sẽ tăng chậm.
+
+(2) Nếu nhiệt độ xuống dưới giới hạn cao nhưng vẫn cao hơn giới hạn thấp
+giới hạn (T-tolerance), tốc độ quạt sẽ được cố định ở tốc độ hiện tại vì
+nhiệt độ nằm trong phạm vi mục tiêu.
+
+(3) Nếu nhiệt độ xuống dưới giới hạn thấp, chu kỳ hoạt động của PWM sẽ giảm
+từ từ về 0 hoặc giá trị dừng đặt trước cho đến khi nhiệt độ vượt quá mức thấp
+giới hạn. (Việc xử lý giá trị dừng đặt trước chưa được triển khai trong trình điều khiển)
+
+Quạt thông minh II
+------------
+
+W83792D còn cung cấp chế độ đặc biệt cho quạt. Bốn điểm nhiệt độ là
+có sẵn. Khi cảm biến nhiệt độ liên quan phát hiện nhiệt độ trong cài đặt trước
+vùng nhiệt độ (sf2_point@_fan# +- dung sai#) nó sẽ khiến quạt chạy
+trên giá trị được lập trình từ sf2_level@_fan#. Bạn cần đặt bốn nhiệt độ
+cho mỗi người hâm mộ.
+
+
+tập tin /sys
+----------
+
+pwm[1-7]
+	- tệp này lưu trữ chu kỳ nhiệm vụ PWM hoặc giá trị DC (tốc độ quạt) trong phạm vi:
+
+0 (dừng) đến 255 (đầy đủ)
+pwm[1-3]_enable
+	- file này điều khiển chế độ điều khiển quạt/nhiệt độ:
+
+* 0 Bị vô hiệu hóa
+	    * 1 chế độ thủ công
+	    * 2 Quạt thông minh II
+	    * 3 Du thuyền nhiệt
+pwm[1-7]_mode
+	- Chọn chế độ PWM hoặc DC
+
+* 0 DC
+	    * 1 PWM
+nhiệt_cruise[1-3]
+	- Chọn nhiệt độ mong muốn cho hành trình (degC)
+khoan dung[1-3]
+	- Giá trị tính bằng độ C (degC) cho + - T
+sf2_point[1-4]_fan[1-3]
+	- bốn điểm nhiệt độ cho mỗi quạt dành cho Smart Fan II
+sf2_level[1-3]_fan[1-3]
+	- ba cấp độ PWM/DC cho mỗi quạt dành cho Smart Fan II

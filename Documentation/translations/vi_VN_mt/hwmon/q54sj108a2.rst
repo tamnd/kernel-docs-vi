@@ -1,0 +1,66 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/q54sj108a2.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân q54sj108a2
+========================
+
+Chip được hỗ trợ:
+
+* DELTA Q54SJ108A2NCAH, Q54SJ108A2NCDH, Q54SJ108A2NCPG, Q54SJ108A2NCPH
+
+Tiền tố: 'q54sj108a2'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+    Xiao.ma <xiao.mx.ma@deltaww.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho DELTA Q54SJ108A2NCAH, Q54SJ108A2NCDH,
+Q54SJ108A2NCPG và Q54SJ108A2NCPH 1/4 Mô-đun nguồn điều chỉnh DC/DC bằng gạch
+với sự hỗ trợ của PMBus.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi.
+Vui lòng xem Tài liệu/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Mục nhập hệ thống
+-------------
+
+=================================================================================
+curr1_alarm RO Cảnh báo dòng điện đầu ra
+curr1_input RO Dòng điện đầu ra
+curr1_label RO 'iout1'
+in1_alarm RO Báo động điện áp đầu vào
+in1_input RO Điện áp đầu vào
+in1_label RO 'vin'
+in2_alarm RO Cảnh báo điện áp đầu ra
+in2_input RO Điện áp đầu ra
+in2_label RO 'vout1'
+temp1_alarm RO Báo động nhiệt độ
+nhiệt độ chip RO temp1_input
+=================================================================================

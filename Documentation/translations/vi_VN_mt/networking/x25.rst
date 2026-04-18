@@ -1,0 +1,58 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/networking/x25.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+====================
+Dự án Linux X.25
+==================
+
+Khi làm luận án năm thứ ba tại trường Đại học, tôi đã tự mình thực hiện
+viết triển khai X.25 cho Linux. Mục tiêu của tôi là cung cấp X.25 hoàn chỉnh
+Lớp gói và mô-đun LAPB để cho phép chạy X.25 "bình thường" bằng cách sử dụng
+Linux. Có sẵn hai loại thẻ X.25, loại thẻ thông minh
+triển khai LAPB trên chính thẻ đó và những thẻ không thông minh chỉ đơn giản làm
+đóng khung, nhồi bit và kiểm tra tổng. Cả hai việc này đều cần được xử lý bởi
+hệ thống.
+
+Do đó tôi quyết định viết phần triển khai sao cho phù hợp nhất
+Liên quan đến Lớp gói, lớp liên kết đang được thực hiện bởi một cấp độ thấp hơn
+lớp nhân Linux và do đó nó không quan tâm đến
+triển khai LAPB. Do đó, các mô-đun LAPB sẽ được gọi bởi
+trình điều khiển thẻ X.25 không thông minh chứ không phải bởi trình điều khiển thẻ thông minh, điều này sẽ
+cung cấp giao diện trình điều khiển thiết bị thống nhất và đơn giản hóa cấu hình.
+
+Để gây nhầm lẫn một chút, cũng có thể triển khai 802.2 LLC
+có thể cho phép X.25 chạy qua Ethernet (hoặc Token Ring) và
+phù hợp với "Sách hồng" JNT, nó sẽ có giao diện khác với
+Lớp gói nhưng sẽ không có sự nhầm lẫn vì loại thiết bị
+được phục vụ bởi LLC sẽ hoàn toàn tách biệt với LAPB.
+
+Ngay khi bạn nghĩ rằng nó không thể trở nên khó hiểu hơn nữa, một điều khác
+tùy chọn xuất hiện, XOT. Điều này cho phép các khung Lớp gói X.25 hoạt động trên
+Internet sử dụng TCP/IP làm lớp liên kết đáng tin cậy. RFC1613 chỉ định
+dạng và hành vi của giao thức. Nếu thời gian cho phép, tùy chọn này cũng sẽ
+được tích cực xem xét.
+
+Danh sách gửi thư linux-x25 đã được tạo tại vger.kernel.org để hỗ trợ
+phát triển và sử dụng Linux X.25. Vẫn còn sớm, nhưng quan tâm
+các bên đều được chào đón để đăng ký nó. Chỉ cần gửi tin nhắn đến
+Majordomo@vger.kernel.org với nội dung sau trong nội dung thư:
+
+đăng ký linux-x25
+kết thúc
+
+Nội dung của dòng Chủ đề sẽ bị bỏ qua.
+
+Jonathan
+
+g4klx@g4klx.demon.co.uk

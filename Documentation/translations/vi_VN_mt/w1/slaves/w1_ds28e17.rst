@@ -1,0 +1,86 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/slaves/w1_ds28e17.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===========================
+Trình điều khiển hạt nhân w1_ds28e17
+========================
+
+Chip được hỗ trợ:
+
+* Cầu chính Maxim DS28E17 1 dây tới I2C
+
+mã gia đình được hỗ trợ:
+
+=================== ====
+	W1_FAMILY_DS28E17 0x19
+        =================== ====
+
+Tác giả: Jan Kandziora <jjj@gmx.de>
+
+
+Sự miêu tả
+-----------
+DS28E17 là thiết bị phụ Onewire hoạt động như một bus chủ I2C.
+
+Trình điều khiển này tạo bus I2C mới cho mọi thiết bị DS28E17 được phát hiện. Xe buýt I2C
+đến và đi khi các thiết bị DS28E17 đến và đi. Các thiết bị phụ I2C được kết nối với
+DS28E17 có thể được truy cập bằng kernel hoặc các công cụ không gian người dùng như thể chúng
+được kết nối với bus chủ I2C "bản địa".
+
+
+Một quy tắc udev như sau ::
+
+SUBSYSTEM=="i2c-dev", KERNEL=="i2c-[0-9]ZZ0000ZZ", \
+          SYMLINK+="i2c-$attr{name}"
+
+có thể được sử dụng để tạo các mục /dev/i2c- ổn định dựa trên id duy nhất của
+Chip DS28E17.
+
+
+Các thông số của trình điều khiển là:
+
+tốc độ:
+	Điều này thiết lập tốc độ I2C mặc định mà DS28E17 sẽ sớm được định cấu hình
+	nó được kết nối. Mặc định bật nguồn của DS28E17 là 400kBaud, nhưng
+	các chip có thể đến và đi trên bus Onewire mà không bị ngắt điện và
+	ngay khi trình điều khiển "w1_ds28e17" nhận thấy có kết nối mới, hoặc
+	đã kết nối lại thiết bị DS28E17 trên bus Onewire, nó sẽ áp dụng lại điều này
+	thiết lập.
+
+Các giá trị hợp lệ là 100, 400, 900 [kBaud]. Bất kỳ giá trị nào khác có nghĩa là rời đi
+	riêng cài đặt DS28E17 hiện tại được phát hiện. Giá trị mặc định là 100.
+
+kéo dài:
+	Điều này thiết lập giá trị kéo dài mặc định được sử dụng cho kết nối mới
+	Thiết bị DS28E17. Nó là một hệ số nhân được sử dụng để tính toán thời gian bận
+	thời gian chờ chuyển I2C. Đây là tài khoản cho các thiết bị phụ I2C
+	sử dụng nhiều tính năng kéo dài đồng hồ I2C và do đó,
+	thời gian chờ cần thiết không thể được tính toán trước một cách chính xác. Như w1_ds28e17
+	trình điều khiển kiểm tra cờ bận của DS28E17 trong một vòng lặp sau khi được tính toán trước
+	thời gian chờ đợi, hầu như không cần thiết phải điều chỉnh cài đặt này.
+
+Để nó ở mức 1 trừ khi bạn gặp lỗi ETIMEDOUT và "w1_slave_driver
+	19-00000002dbd8: hết thời gian bận" trong nhật ký kernel.
+
+Các giá trị hợp lệ là từ 1 đến 9. Giá trị mặc định là 1.
+
+
+Trình điều khiển tạo các tệp sysfs /sys/bus/w1/devices/19-<id>/speed và
+/sys/bus/w1/devices/19-<id>/stretch cho mỗi thiết bị, được tải sẵn mặc định
+cài đặt từ các thông số trình điều khiển. Chúng có thể được thay đổi bất cứ lúc nào. Ngoài ra một
+thư mục /sys/bus/w1/devices/19-<id>/i2c-<nnn> dành cho hệ thống chính của bus I2C
+cấu trúc được tạo ra.
+
+
+Xem ZZ0000ZZ để biết thêm thông tin.

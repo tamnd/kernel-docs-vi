@@ -1,0 +1,82 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/i2c/busses/i2c-sis5595.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===========================
+Trình điều khiển hạt nhân i2c-sis5595
+=========================
+
+tác giả:
+	- Frodo Looijaard <frodol@dds.nl>,
+        - Mark D. Studebaker <mdsxyz123@yahoo.com>,
+	- Philip Edelbrock <phil@netroedge.com>
+
+Bộ điều hợp được hỗ trợ:
+  * Tập đoàn Hệ thống Tích hợp Silicon SiS5595 Southbridge
+    Bảng dữ liệu: Có sẵn công khai tại trang web của Tập đoàn Hệ thống Tích hợp Silicon.
+
+Lưu ý: tất cả đều có mfr. Mã số 0x1039.
+
+========== ======
+   ID SUPPORTED PCI
+   ========== ======
+        5595 0008
+   ========== ======
+
+Lưu ý: những con chip này chứa thiết bị 0008 không tương thích với
+         5595. Chúng tôi nhận ra những điều này nhờ sự hiện diện của các công ty được liệt kê
+         "danh sách đen" ID PCI và từ chối tải.
+
+=================== ==================
+   NOT SUPPORTED PCI ID BLACKLIST PCI ID
+   =================== ==================
+         540 0008 0540
+         550 0008 0550
+        5513 0008 5511
+        5581 0008 5597
+        5582 0008 5597
+        5597 0008 5597
+        5598 0008 5597/5598
+         630 0008 0630
+         645 0008 0645
+         646 0008 0646
+         648 0008 0648
+         650 0008 0650
+         651 0008 0651
+         730 0008 0730
+         735 0008 0735
+         745 0008 0745
+         746 0008 0746
+   =================== ==================
+
+Thông số mô-đun
+-----------------
+
+=============================================================================
+Force_addr=0xaddr Đặt địa chỉ cơ sở I/O. Hữu ích cho bảng
+			không đặt địa chỉ trong BIOS. Không làm một
+			lực PCI; thiết bị vẫn phải có trong lspci.
+			Đừng sử dụng điều này trừ khi người lái xe phàn nàn rằng
+			địa chỉ cơ sở không được thiết lập.
+=============================================================================
+
+Sự miêu tả
+-----------
+
+i2c-sis5595 là trình điều khiển máy chủ SMBus thực sự dành cho bo mạch chủ có SiS5595
+cầu nam.
+
+WARNING: Nếu bạn đang cố truy cập các cảm biến tích hợp trên SiS5595
+chip, bạn muốn có trình điều khiển sis5595 cho những thứ đó chứ không phải trình điều khiển này. Người lái xe này
+là trình điều khiển BUS, không phải trình điều khiển CHIP. Trình điều khiển BUS được sử dụng bởi CHIP khác
+tài xế truy cập chip trên xe buýt.

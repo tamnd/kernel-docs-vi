@@ -1,0 +1,390 @@
+.. SPDX-License-Identifier: GPL-2.0+
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/ethernet/intel/e1000e.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==========================================================
+Trình điều khiển Linux cho kết nối mạng Ethernet Intel(R)
+=====================================================
+
+Trình điều khiển Intel Gigabit Linux.
+Bản quyền(c) 2008-2018 Tập đoàn Intel.
+
+Nội dung
+========
+
+- Xác định bộ chuyển đổi của bạn
+- Tham số dòng lệnh
+- Cấu hình bổ sung
+- Hỗ trợ
+
+
+Xác định bộ điều hợp của bạn
+========================
+Để biết thông tin về cách xác định bộ điều hợp của bạn và để có phiên bản Intel mới nhất
+trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel:
+ZZ0000ZZ
+
+
+Tham số dòng lệnh
+=======================
+Nếu trình điều khiển được xây dựng dưới dạng mô-đun, các tham số tùy chọn sau sẽ được sử dụng
+bằng cách nhập chúng vào dòng lệnh bằng lệnh modprobe bằng cách sử dụng lệnh này
+cú pháp::
+
+modprobe e1000e [<option>=<VAL1>,<VAL2>,...]
+
+Cần phải có <VAL#> cho mỗi cổng mạng trong hệ thống được hỗ trợ bởi
+người lái xe này. Các giá trị sẽ được áp dụng cho từng phiên bản, theo thứ tự hàm.
+Ví dụ::
+
+modprobe e1000e InterruptThrottleRate=16000,16000
+
+Trong trường hợp này, có hai cổng mạng được e1000e hỗ trợ trong hệ thống.
+Giá trị mặc định cho từng tham số thường là cài đặt được đề xuất,
+trừ khi có ghi chú khác.
+
+NOTE: Bộ mô tả mô tả bộ đệm dữ liệu và các thuộc tính liên quan đến dữ liệu
+bộ đệm. Thông tin này được truy cập bởi phần cứng.
+
+Gián đoạn ThrottleRate
+---------------------
+:Phạm vi hợp lệ: 0,1,3,4,100-100000
+: Giá trị mặc định: 3
+
+Tốc độ điều chỉnh ngắt kiểm soát số lần ngắt mỗi lần ngắt
+vector có thể tạo ra mỗi giây. Tăng ITR làm giảm độ trễ với chi phí
+tăng mức sử dụng CPU, mặc dù nó có thể giúp thông lượng trong một số trường hợp.
+
+Đặt InterruptThrottleRate thành giá trị lớn hơn hoặc bằng 100
+sẽ lập trình cho bộ điều hợp gửi tối đa số lần ngắt đó
+mỗi giây, ngay cả khi có nhiều gói đến hơn. Điều này làm giảm tình trạng gián đoạn
+tải trên hệ thống và có thể giảm mức sử dụng CPU khi tải nặng,
+nhưng sẽ tăng độ trễ vì các gói không được xử lý nhanh chóng.
+
+Hành vi mặc định của trình điều khiển trước đó giả định ở trạng thái tĩnh
+Giá trị InterruptThrottleRate là 8000, cung cấp giá trị dự phòng tốt cho
+tất cả các loại lưu lượng nhưng thiếu hiệu suất và độ trễ gói nhỏ.
+Tuy nhiên, phần cứng có thể xử lý nhiều gói nhỏ hơn mỗi giây và
+vì lý do này, một thuật toán điều tiết ngắt thích ứng đã được triển khai.
+
+Trình điều khiển có hai chế độ thích ứng (cài đặt 1 hoặc 3), trong đó
+nó tự động điều chỉnh giá trị InterruptThrottleRate dựa trên lưu lượng truy cập
+mà nó nhận được. Sau khi xác định loại lưu lượng truy cập vào cuối cùng
+khung thời gian, nó sẽ điều chỉnh InterruptThrottleRate thành một giá trị phù hợp
+cho lưu lượng truy cập đó.
+
+Thuật toán phân loại lưu lượng truy cập vào mỗi khoảng thời gian thành
+các lớp học.  Khi lớp được xác định, giá trị InterruptThrottleRate là
+được điều chỉnh để phù hợp nhất với loại lưu lượng truy cập đó. Có ba lớp được định nghĩa:
+"Lưu lượng lớn", dành cho số lượng lớn gói có kích thước bình thường; "Độ trễ thấp",
+cho một lượng nhỏ lưu lượng truy cập và/hoặc một tỷ lệ phần trăm đáng kể của lưu lượng truy cập nhỏ
+gói tin; và "Độ trễ thấp nhất", đối với các gói gần như hoàn toàn nhỏ hoặc
+giao thông tối thiểu.
+
+- 0: Tắt
+      Tắt mọi kiểm duyệt gián đoạn và có thể cải thiện độ trễ gói nhỏ.
+      Tuy nhiên, điều này thường không phù hợp với lưu lượng thông lượng lớn do
+      đến việc tăng cường sử dụng CPU với tốc độ ngắt cao hơn.
+ - 1: Chế độ động
+      Chế độ này cố gắng kiểm duyệt các ngắt trên mỗi vectơ trong khi vẫn duy trì
+      độ trễ rất thấp. Điều này đôi khi có thể gây ra việc sử dụng thêm CPU. Nếu
+      lập kế hoạch triển khai e1000e trong môi trường nhạy cảm với độ trễ, điều này
+      tham số cần được xem xét.
+ - 3: Chế độ Bảo thủ động (mặc định)
+      Trong chế độ bảo thủ động, giá trị InterruptThrottleRate được đặt thành
+      4000 cho lưu lượng truy cập thuộc loại "Lưu lượng truy cập số lượng lớn". Nếu lưu lượng truy cập giảm
+      lớp "Độ trễ thấp" hoặc "Độ trễ thấp nhất", InterruptThrottleRate là
+      tăng dần lên 20000. Chế độ mặc định này phù hợp với hầu hết
+      ứng dụng.
+ - 4: Chế độ Cân bằng đơn giản
+      Trong chế độ đơn giản hóa, tốc độ ngắt dựa trên tỷ lệ giữa TX và
+      Lưu lượng RX.  Nếu tốc độ byte trên giây xấp xỉ bằng nhau thì
+      tốc độ ngắt sẽ giảm xuống mức 2000 lần ngắt mỗi giây.  Nếu
+      lưu lượng chủ yếu là truyền hoặc chủ yếu là nhận, tốc độ gián đoạn có thể
+      có thể lên tới 8000.
+ - 100-100000:
+      Đặt InterruptThrottleRate thành giá trị lớn hơn hoặc bằng 100
+      sẽ lập trình cho bộ điều hợp gửi tối đa số lần ngắt mỗi giây,
+      ngay cả khi có nhiều gói đến hơn. Điều này làm giảm tải gián đoạn trên
+      hệ thống và có thể giảm mức sử dụng CPU khi tải nặng, nhưng sẽ tăng
+      độ trễ vì các gói không được xử lý nhanh chóng.
+
+NOTE: InterruptThrottleRate được ưu tiên hơn TxAbsIntDelay và
+Tham số RxAbsIntDelay. Nói cách khác, giảm thiểu việc nhận và/hoặc
+truyền độ trễ tuyệt đối không buộc bộ điều khiển tạo ra nhiều
+ngắt hơn mức mà Tốc độ điều chỉnh ngắt cho phép.
+
+RxIntDelay
+----------
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 0
+
+Giá trị này trì hoãn việc tạo ra các ngắt nhận theo đơn vị 1,024
+micro giây. Giảm ngắt nhận có thể cải thiện hiệu quả của CPU nếu
+được điều chỉnh phù hợp cho lưu lượng mạng cụ thể. Việc tăng giá trị này sẽ bổ sung thêm
+độ trễ khi nhận khung và cuối cùng có thể làm giảm thông lượng của TCP
+giao thông. Nếu hệ thống báo cáo việc nhận bị mất, giá trị này có thể được đặt
+quá cao, khiến trình điều khiển hết bộ mô tả nhận có sẵn.
+
+CAUTION: Khi đặt RxIntDelay thành giá trị khác 0, bộ điều hợp có thể bị treo
+(dừng truyền) trong các điều kiện mạng nhất định. Nếu điều này xảy ra thì NETDEV
+Thông báo WATCHDOG được ghi vào nhật ký sự kiện hệ thống. Ngoài ra,
+bộ điều khiển được tự động thiết lập lại, khôi phục kết nối mạng. Đến
+loại bỏ khả năng bị treo, đảm bảo rằng RxIntDelay được đặt thành 0.
+
+RxAbsIntDelay
+-------------
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 8
+
+Giá trị này, tính bằng đơn vị 1,024 micro giây, giới hạn độ trễ trong đó
+nhận ngắt được tạo ra. Giá trị này đảm bảo rằng một ngắt được
+được tạo sau khi nhận được gói đầu tiên trong khoảng thời gian đã đặt,
+điều này chỉ hữu ích nếu RxIntDelay khác 0. Điều chỉnh hợp lý cùng với
+RxIntDelay, có thể cải thiện lưu lượng truy cập trong các điều kiện mạng cụ thể.
+
+TxIntDelay
+----------
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 8
+
+Giá trị này trì hoãn việc tạo ra các ngắt truyền theo đơn vị 1,024
+micro giây. Giảm gián đoạn truyền có thể cải thiện hiệu quả của CPU nếu
+được điều chỉnh phù hợp cho lưu lượng mạng cụ thể. Nếu hệ thống đang báo cáo
+truyền bị rớt, giá trị này có thể được đặt quá cao khiến trình điều khiển chạy
+trong số các bộ mô tả truyền có sẵn.
+
+TxAbsIntDelay
+-------------
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 32
+
+Giá trị này, tính bằng đơn vị 1,024 micro giây, giới hạn độ trễ trong đó
+ngắt truyền được tạo ra. Nó chỉ hữu ích nếu TxIntDelay khác 0.
+Nó đảm bảo rằng một ngắt được tạo ra sau khi Gói đầu tiên được gửi đi
+dây trong khoảng thời gian nhất định. Điều chỉnh phù hợp, cùng với TxIntDelay,
+có thể cải thiện thông lượng lưu lượng trong điều kiện mạng cụ thể.
+
+sao chép
+---------
+:Phạm vi hợp lệ: 0-xxxxxxx (0=tắt)
+: Giá trị mặc định: 256
+
+Trình điều khiển sao chép tất cả các gói bên dưới hoặc bằng kích thước này thành gói nhận mới
+đệm trước khi đưa nó lên ngăn xếp.
+Tham số này khác với các tham số khác vì nó là một tham số đơn (không phải 1,1,1).
+v.v.) được áp dụng cho tất cả các phiên bản trình điều khiển và nó cũng có sẵn
+trong thời gian chạy tại /sys/module/e1000e/parameters/copybreak.
+
+Để sử dụng tính năng ngắt sao chép, hãy nhập::
+
+modprobe e1000e.ko copybreak=128
+
+SmartPowerDownEnable
+--------------------
+:Phạm vi hợp lệ: 0,1
+: Giá trị mặc định: 0 (bị tắt)
+
+Cho phép PHY tắt ở trạng thái năng lượng thấp hơn. Người dùng có thể tắt tính năng này
+tham số trong chipset được hỗ trợ.
+
+KumeranKhóaMất
+---------------
+:Phạm vi hợp lệ: 0,1
+: Giá trị mặc định: 1 (đã bật)
+
+Cách giải quyết này bỏ qua việc đặt lại PHY khi tắt máy đối với silicon ban đầu
+phát hành hệ thống ICH8.
+
+IntMode
+-------
+:Phạm vi hợp lệ: 0-2
+: Giá trị mặc định: 0
+
++-------+----------------+
+   Chế độ ngắt ZZ0000ZZ |
+   +========+==================+
+   ZZ0001ZZ Di sản |
+   +-------+----------------+
+   ZZ0002ZZ MSI |
+   +-------+----------------+
+   ZZ0003ZZ MSI-X |
+   +-------+----------------+
+
+IntMode cho phép kiểm soát thời gian tải đối với loại ngắt được đăng ký bởi
+người lái xe. Cần có MSI-X để hỗ trợ nhiều hàng đợi và một số hạt nhân và
+sự kết hợp của các tùy chọn kernel .config sẽ buộc mức độ gián đoạn thấp hơn
+hỗ trợ.
+
+Lệnh này sẽ hiển thị các giá trị khác nhau cho từng loại ngắt::
+
+mèo /proc/ngắt
+
+CrcTước
+------------
+:Phạm vi hợp lệ: 0,1
+: Giá trị mặc định: 1 (đã bật)
+
+Loại bỏ CRC khỏi các gói đã nhận trước khi gửi ngăn xếp mạng lên. Nếu
+bạn có một máy đã bật BMC nhưng không thể nhận lưu lượng truy cập IPMI sau
+đang tải hoặc kích hoạt trình điều khiển, hãy thử tắt tính năng này.
+
+ViếtBảo vệNVM
+---------------
+:Phạm vi hợp lệ: 0,1
+: Giá trị mặc định: 1 (đã bật)
+
+Nếu được đặt thành 1, hãy định cấu hình phần cứng để bỏ qua tất cả các chu kỳ ghi/xóa đối với
+Vùng GbE trong ICHx NVM (để ngăn ngừa tình trạng hư hỏng ngẫu nhiên của
+NVM). Tính năng này có thể bị tắt bằng cách đặt tham số về 0 trong quá trình cài đặt ban đầu.
+tải trình điều khiển.
+
+NOTE: Máy phải được cấp nguồn (tắt/bật hoàn toàn) khi bật ghi NVM
+thông qua việc thiết lập tham số về 0. Khi NVM đã bị khóa (thông qua
+tham số ở mức 1 khi trình điều khiển tải) nó không thể được mở khóa ngoại trừ thông qua nguồn điện
+chu kỳ.
+
+Gỡ lỗi
+-----
+:Phạm vi hợp lệ: 0-16 (0=none,...,16=all)
+: Giá trị mặc định: 0
+
+Tham số này điều chỉnh mức độ thông báo gỡ lỗi được hiển thị trong nhật ký hệ thống.
+
+
+Các tính năng và cấu hình bổ sung
+======================================
+
+Khung Jumbo
+------------
+Hỗ trợ Khung Jumbo được bật bằng cách thay đổi Đơn vị truyền tối đa (MTU)
+đến giá trị lớn hơn giá trị mặc định là 1500.
+
+Sử dụng lệnh ifconfig để tăng kích thước MTU. Ví dụ: nhập
+sau đây trong đó <x> là số giao diện::
+
+ifconfig eth<x> mtu 9000 trở lên
+
+Ngoài ra, bạn có thể sử dụng lệnh ip như sau ::
+
+bộ liên kết ip mtu 9000 dev eth<x>
+    liên kết ip thiết lập dev eth<x>
+
+Cài đặt này không được lưu trong các lần khởi động lại. Việc thay đổi cài đặt có thể được thực hiện
+vĩnh viễn bằng cách thêm 'MTU=9000' vào tệp:
+
+- Đối với RHEL: /etc/sysconfig/network-scripts/ifcfg-eth<x>
+- Đối với SLES: /etc/sysconfig/network/<config_file>
+
+NOTE: Cài đặt MTU tối đa cho Khung Jumbo là 8996. Giá trị này trùng khớp
+với kích thước Khung Jumbo tối đa là 9018 byte.
+
+NOTE: Việc sử dụng khung Jumbo ở tốc độ 10 hoặc 100 Mbps không được hỗ trợ và có thể dẫn đến
+hiệu suất kém hoặc mất liên kết.
+
+NOTE: Các bộ điều hợp sau giới hạn các gói có kích thước Khung Jumbo ở mức tối đa
+4088 byte:
+
+- Kết nối mạng Gigabit Intel(R) 82578DM
+  - Kết nối mạng Gigabit Intel(R) 82577LM
+
+Các bộ điều hợp sau không hỗ trợ Khung Jumbo:
+
+- Bộ điều hợp máy chủ Intel(R) PRO/1000 Gigabit
+  - Kết nối mạng Intel(R) PRO/1000 PM
+  - Kết nối mạng Intel(R) 82562G 10/100
+  - Kết nối mạng Intel(R) 82562G-2 10/100
+  - Kết nối mạng Intel(R) 82562GT 10/100
+  - Kết nối mạng Intel(R) 82562GT-2 10/100
+  - Kết nối mạng Intel(R) 82562V 10/100
+  - Kết nối mạng Intel(R) 82562V-2 10/100
+  - Kết nối mạng Gigabit Intel(R) 82566DC
+  - Kết nối mạng Gigabit Intel(R) 82566DC-2
+  - Kết nối mạng Gigabit Intel(R) 82566DM
+  - Kết nối mạng Gigabit Intel(R) 82566MC
+  - Kết nối mạng Gigabit Intel(R) 82566MM
+  - Kết nối mạng Gigabit Intel(R) 82567V-3
+  - Kết nối mạng Gigabit Intel(R) 82577LC
+  - Kết nối mạng Gigabit Intel(R) 82578DC
+
+NOTE: Không thể định cấu hình Khung Jumbo trên thiết bị Mạng dựa trên 82579 nếu
+MACSec được kích hoạt trên hệ thống.
+
+
+công cụ đạo đức
+-------
+Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
+chẩn đoán cũng như hiển thị thông tin thống kê. Công cụ đạo đức mới nhất
+Phiên bản này là cần thiết cho chức năng này. Tải xuống tại:
+
+ZZ0000ZZ
+
+NOTE: Khi xác thực các thử nghiệm bật/tắt trên một số bộ phận (ví dụ: 82578),
+cần thêm vài giây giữa các lần kiểm tra khi làm việc với ethtool.
+
+
+Cấu hình tốc độ và song công
+------------------------------
+Khi giải quyết các vấn đề về tốc độ và cấu hình song công, bạn cần phân biệt
+giữa bộ điều hợp dựa trên đồng và bộ điều hợp dựa trên sợi quang.
+
+Ở chế độ mặc định, Bộ điều hợp mạng Ethernet Intel(R) sử dụng cáp đồng
+các kết nối sẽ cố gắng tự động đàm phán với đối tác liên kết của mình để xác định
+thiết lập tốt nhất. Nếu bộ điều hợp không thể thiết lập liên kết với đối tác liên kết
+bằng cách sử dụng tính năng tự động đàm phán, bạn có thể cần phải định cấu hình bộ điều hợp và liên kết theo cách thủ công
+hợp tác với các cài đặt giống hệt nhau để thiết lập các gói liên kết và truyền. Điều này nên
+chỉ cần thiết khi cố gắng liên kết với một switch cũ hơn không
+hỗ trợ tự động đàm phán hoặc một tốc độ cụ thể hoặc
+chế độ song công. Đối tác liên kết của bạn phải phù hợp với cài đặt bạn chọn. Tốc độ 1 Gbps
+và cao hơn không thể bị ép buộc. Sử dụng cài đặt quảng cáo tự động thương lượng để
+đặt thủ công các thiết bị ở tốc độ 1 Gbps trở lên.
+
+Quảng cáo tốc độ, song công và tự động thương lượng được định cấu hình thông qua
+tiện ích ethtool.
+
+Thận trọng: Chỉ những quản trị viên mạng có kinh nghiệm mới nên buộc tốc độ và song công
+hoặc thay đổi quảng cáo tự động đàm phán theo cách thủ công. Các cài đặt ở công tắc phải
+luôn phù hợp với cài đặt bộ chuyển đổi. Hiệu suất của bộ điều hợp có thể bị ảnh hưởng hoặc
+bộ chuyển đổi có thể không hoạt động nếu bạn định cấu hình bộ chuyển đổi khác với
+chuyển đổi.
+
+Tuy nhiên, Bộ điều hợp mạng Ethernet Intel(R) sử dụng các kết nối dựa trên sợi quang,
+sẽ không cố gắng tự động thương lượng với đối tác liên kết của mình vì những bộ điều hợp đó
+chỉ hoạt động ở chế độ song công hoàn toàn và chỉ ở tốc độ gốc.
+
+
+Kích hoạt Wake trên LAN (WoL)
+--------------------------
+WoL được cấu hình thông qua tiện ích ethtool.
+
+WoL sẽ được kích hoạt trên hệ thống trong lần tắt hoặc khởi động lại tiếp theo. cho
+phiên bản trình điều khiển này, để kích hoạt WoL, phải tải trình điều khiển e1000e
+trước khi tắt hoặc tạm dừng hệ thống.
+
+NOTE: Wake on LAN chỉ được hỗ trợ trên cổng A cho các thiết bị sau:
+- Kết nối mạng cổng kép Intel(R) PRO/1000 PT
+- Kết nối máy chủ cổng kép Intel(R) PRO/1000 PT
+- Bộ điều hợp máy chủ cổng kép Intel(R) PRO/1000 PT
+- Bộ điều hợp máy chủ cổng kép Intel(R) PRO/1000 PF
+- Bộ điều hợp máy chủ bốn cổng Intel(R) PRO/1000 PT
+- Mô-đun ExpressModule máy chủ bốn cổng Intel(R) Gigabit PT
+
+
+Ủng hộ
+=======
+Để biết thông tin chung, hãy truy cập trang web hỗ trợ của Intel tại:
+ZZ0000ZZ
+
+Nếu xác định được sự cố với mã nguồn đã phát hành trên hạt nhân được hỗ trợ
+với bộ điều hợp được hỗ trợ, hãy gửi email thông tin cụ thể liên quan đến sự cố
+tới intel-wired-lan@lists.osuosl.org.

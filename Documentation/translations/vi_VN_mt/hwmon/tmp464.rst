@@ -1,0 +1,85 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tmp464.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tmp464
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas TMP464
+
+Tiền tố: 'tmp464'
+
+Địa chỉ được quét: I2C 0x48, 0x49, 0x4a và 0x4b
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP468
+
+Tiền tố: 'tmp468'
+
+Địa chỉ được quét: I2C 0x48, 0x49, 0x4a và 0x4b
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+
+Cổng Agedit <agathe.porte@nokia.com>
+	Guenter Roeck <linux@roeck-us.net>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Texas Instruments TMP464 và TMP468
+chip cảm biến nhiệt độ. TMP464 cung cấp một cục bộ và bốn điều khiển từ xa
+cảm biến. TMP468 cung cấp một cảm biến cục bộ và tám cảm biến từ xa.
+Nhiệt độ được đo bằng độ C. Các con chip được nối dây
+I2C/SMBus và được chỉ định trong phạm vi nhiệt độ từ -40 đến +125 độ
+độ C. Độ phân giải cho cả kênh cục bộ và từ xa là 0,0625
+độ C
+
+Các chip chỉ hỗ trợ đo nhiệt độ. Trình điều khiển xuất khẩu
+giá trị nhiệt độ, giới hạn và cảnh báo thông qua các tệp sysfs sau:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Mỗi cảm biến có thể bị vô hiệu hóa riêng lẻ thông qua Devicetree hoặc từ sysfs
+thông qua:
+
+ZZ0000ZZ
+
+Nếu nhãn được chỉ định trong Devicetree, các tệp sysfs bổ sung sẽ
+có mặt:
+
+ZZ0000ZZ
+
+Khoảng thời gian cập nhật có thể được cấu hình bằng thuộc tính sysfs sau.
+
+ZZ0000ZZ

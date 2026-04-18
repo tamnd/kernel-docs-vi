@@ -1,0 +1,153 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/input/devices/cma3000_d0x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Gia tốc kế CMA3000-D0x
+=========================
+
+Chip được hỗ trợ:
+* VTI CMA3000-D0x
+
+Bảng dữ liệu:
+  Đặc điểm kỹ thuật dòng sản phẩm CMA3000-D0X 8281000A.02.pdf
+  <ZZ0000ZZ
+
+:Tác giả: Hemanth V <hemanthv@ti.com>
+
+
+Sự miêu tả
+-----------
+
+Gia tốc kế ba trục CMA3000 hỗ trợ phát hiện chuyển động, đo lường và
+Chế độ rơi tự do.
+
+Chế độ phát hiện chuyển động:
+    Đây là chế độ năng lượng thấp, nơi chỉ tạo ra các ngắt
+    khi chuyển động vượt quá ngưỡng xác định.
+
+Chế độ đo:
+    Chế độ này dùng để đọc dữ liệu gia tốc trên X,Y,Z
+    trục và hỗ trợ tần số mẫu 400, 100, 40 Hz.
+
+Chế độ rơi tự do:
+    Chế độ này nhằm mục đích tiết kiệm tài nguyên hệ thống.
+
+Giá trị ngưỡng:
+    Chip hỗ trợ xác định giá trị ngưỡng cho các chế độ trên
+    bao gồm thời gian và giá trị g. Tham khảo thông số kỹ thuật sản phẩm để biết
+    biết thêm chi tiết.
+
+Chip CMA3000 hỗ trợ các giao diện I2C và SPI loại trừ lẫn nhau cho
+giao tiếp, hiện tại trình điều khiển chỉ hỗ trợ giao tiếp dựa trên I2C.
+Cấu hình ban đầu cho chế độ bus được đặt trong bộ nhớ không thay đổi và sau đó có thể
+được sửa đổi thông qua lệnh giao diện bus.
+
+Trình điều khiển báo cáo dữ liệu tăng tốc thông qua hệ thống con đầu vào. Nó tạo ra ABS_MISC
+sự kiện có giá trị 1 khi phát hiện sự rơi tự do.
+
+Dữ liệu nền tảng cần được cấu hình cho các giá trị mặc định ban đầu.
+
+Dữ liệu nền tảng
+-------------
+
+lông tơ_x:
+    Tiếng ồn trên trục X
+
+fuzz_y:
+    Tiếng ồn trên trục Y
+
+lông tơ_z:
+    Tiếng ồn trên trục Z
+
+g_range:
+    Phạm vi G tính bằng milli g tức là 2000 hoặc 8000
+
+chế độ:
+    Chế độ vận hành mặc định
+
+mdth:
+    Giá trị ngưỡng phạm vi g phát hiện chuyển động
+
+mdfftmr:
+    Giá trị ngưỡng thời gian phát hiện chuyển động và rơi tự do
+
+ffth:
+    Giá trị ngưỡng phạm vi g rơi tự do
+
+Giao diện đầu vào
+---------------
+
+Phiên bản trình điều khiển đầu vào là 1.0.0
+ID thiết bị đầu vào: bus 0x18 nhà cung cấp 0x0 sản phẩm 0x0 phiên bản 0x0
+Tên thiết bị đầu vào: "cma3000-accelerometer"
+
+Các sự kiện được hỗ trợ::
+
+Loại sự kiện 0 (Đồng bộ)
+  Loại sự kiện 3 (Tuyệt đối)
+    Mã sự kiện 0 (X)
+      Giá trị 47
+      Tối thiểu -8000
+      Tối đa 8000
+      Lông tơ 200
+    Mã sự kiện 1 (Y)
+      Giá trị -28
+      Tối thiểu -8000
+      Tối đa 8000
+      Lông tơ 200
+    Mã sự kiện 2 (Z)
+      Giá trị 905
+      Tối thiểu -8000
+      Tối đa 8000
+      Lông tơ 200
+    Mã sự kiện 40 (Khác)
+      Giá trị 0
+      Tối thiểu 0
+      Tối đa 1
+  Loại sự kiện 4 (Khác)
+
+
+Đăng ký/tham số nền tảng Mô tả
+----------------------------------------
+
+cách thức::
+
+0: chế độ tắt nguồn
+	Chế độ đo 1: 100 Hz
+	2: 400 Hz Chế độ đo
+	3: 40 Hz Chế độ đo
+	4: Chế độ phát hiện chuyển động (mặc định)
+	5: 100 Hz Chế độ rơi tự do
+	6: 40 Hz Chế độ rơi tự do
+	7: Chế độ tắt nguồn
+
+bà già::
+
+2000: 2000 mg hoặc Phạm vi 2G
+	8000: Phạm vi 8000 mg hoặc 8G
+
+mdth::
+
+X: X * 71mg (Phạm vi 8G)
+	X: X * 18mg (Phạm vi 2G)
+
+mdfftmr::
+
+X: (X & 0x70) * 100 ms (MDTMR)
+	   (X & 0x0F) * 2,5 ms (FFTMR 400 Hz)
+	   (X & 0x0F) * 10 ms (FFTMR 100 Hz)
+
+ffth::
+
+X: (X >> 2) * 18mg (Phạm vi 2G)
+       X: (X & 0x0F) * 71 mg (Phạm vi 8G)

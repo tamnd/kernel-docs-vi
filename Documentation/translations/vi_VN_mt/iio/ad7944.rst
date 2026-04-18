@@ -1,0 +1,190 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad7944.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD7944
+=============
+
+Trình điều khiển ADC cho Analog Devices Inc. AD7944 và các thiết bị tương tự. Tên mô-đun
+là ZZ0000ZZ.
+
+
+Thiết bị được hỗ trợ
+=================
+
+Các chip sau được hỗ trợ bởi trình điều khiển này:
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+
+
+Các tính năng được hỗ trợ
+==================
+
+Chế độ nối dây SPI
+----------------
+
+Trình điều khiển hiện hỗ trợ ba trong số nhiều cấu hình nối dây SPI có thể có.
+
+Chế độ CS, 3 dây, không có đèn báo bận
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+                                         +-------------+
+                    +--------------------| CS          |
+                    v                    |             |
+    VIO   +--------------------+         |     HOST    |
+     |    |        CNV         |         |             |
+     +--->| SDI   AD7944   SDO |-------->| SDI         |
+          |        SCK         |         |             |
+          +--------------------+         |             |
+                    ^                    |             |
+                    +--------------------| SCLK        |
+                                         +-------------+
+
+Để chọn chế độ này trong cây thiết bị, hãy đặt thuộc tính ZZ0000ZZ thành
+ZZ0001ZZ và bỏ qua thuộc tính ZZ0002ZZ.
+
+Đây là cấu hình nối dây duy nhất được hỗ trợ khi sử dụng ZZ0000ZZ.
+
+Chế độ CS, 4 dây, không có đèn báo bận
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+                                         +-------------+
+     +-----------------------------------| CS          |
+     |                                   |             |
+     |              +--------------------| GPIO        |
+     |              v                    |             |
+     |    +--------------------+         |     HOST    |
+     |    |        CNV         |         |             |
+     +--->| SDI   AD7944   SDO |-------->| SDI         |
+          |        SCK         |         |             |
+          +--------------------+         |             |
+                    ^                    |             |
+                    +--------------------| SCLK        |
+                                         +-------------+
+
+Để chọn chế độ này trong cây thiết bị, hãy bỏ qua thuộc tính ZZ0000ZZ và
+cung cấp thuộc tính ZZ0001ZZ.
+
+Chế độ chuỗi, không có chỉ báo bận
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+                                                                 +-------------+
+                  +-------------------------+--------------------| CS          |
+                  v                         v                    |             |
+        +--------------------+    +--------------------+         |     HOST    |
+        |        CNV         |    |        CNV         |         |             |
+   +--->| SDI   AD7944   SDO |--->| SDI   AD7944   SDO |-------->| SDI         |
+   |    |        SCK         |    |        SCK         |         |             |
+  GND   +--------------------+    +--------------------+         |             |
+                  ^                         ^                    |             |
+                  +-------------------------+--------------------| SCLK        |
+                                                                 +-------------+
+
+Để chọn chế độ này trong cây thiết bị, hãy đặt thuộc tính ZZ0000ZZ thành
+ZZ0001ZZ, thêm cờ ZZ0002ZZ, thêm ZZ0003ZZ
+thuộc tính và bỏ qua thuộc tính ZZ0004ZZ.
+
+Điện áp tham chiếu
+-----------------
+
+Tất cả 3 nguồn điện áp tham chiếu có thể được hỗ trợ:
+
+- Tài liệu tham khảo nội bộ
+- Tham chiếu ngoài 1.2V và bộ đệm bên trong
+- Tham chiếu bên ngoài
+
+Nguồn được xác định bởi cây thiết bị. Nếu ZZ0000ZZ có mặt thì
+tham chiếu bên ngoài được sử dụng. Nếu có ZZ0001ZZ thì nội bộ
+bộ đệm được sử dụng. Nếu không có thì tham chiếu nội bộ sẽ được sử dụng.
+
+Các tính năng chưa được triển khai
+----------------------
+
+- Chỉ báo ZZ0000ZZ
+
+
+Thuộc tính thiết bị
+=================
+
+Có hai loại ADC trong họ này, giả vi phân và đầy đủ
+sự khác biệt. Tên kênh khác nhau tùy thuộc vào loại ADC.
+
+ADC giả vi phân
+------------------------
+
+AD7944 và AD7985 là các ADC giả vi phân và có các thuộc tính sau:
+
++---------------------------------------+-----------------------------------------------------------------------+
+ZZ0003ZZ Mô tả |
++========================================================================================================================================
+ZZ0004ZZ Giá trị điện áp ADC thô (ZZ0002ZZ được tham chiếu đến mặt đất).    |
++---------------------------------------+-----------------------------------------------------------------------+
+ZZ0005ZZ Hệ số tỷ lệ để chuyển đổi giá trị thô thành mV.                     |
++---------------------------------------+-----------------------------------------------------------------------+
+
+Ở chế độ "chuỗi", các chip bổ sung sẽ xuất hiện dưới dạng đầu vào điện áp bổ sung
+các kênh, ví dụ: ZZ0000ZZ.
+
+ADC hoàn toàn khác biệt
+-----------------------
+
+AD7986 là ADC hoàn toàn khác biệt và có các thuộc tính sau:
+
++---------------------------------------+-----------------------------------------------------------------------+
+ZZ0004ZZ Mô tả |
++========================================================================================================================================
+ZZ0005ZZ Giá trị điện áp ADC thô (ZZ0002ZZ - ZZ0003ZZ).                       |
++---------------------------------------+-----------------------------------------------------------------------+
+ZZ0006ZZ Hệ số tỷ lệ để chuyển đổi giá trị thô thành mV.                     |
++---------------------------------------+-----------------------------------------------------------------------+
+
+Ở chế độ "chuỗi", các chip bổ sung sẽ xuất hiện dưới dạng đầu vào điện áp bổ sung
+các kênh, ví dụ: ZZ0000ZZ.
+
+Hỗ trợ giảm tải SPI
+===================
+
+Để có thể đạt được tốc độ lấy mẫu tối đa, trình điều khiển có thể được sử dụng với
+ZZ0000ZZ để cung cấp hỗ trợ giảm tải SPI.
+
+.. _AXI SPI Engine: http://analogdevicesinc.github.io/hdl/projects/pulsar_adc/index.html
+
+Khi giảm tải SPI đang được sử dụng, một số thuộc tính sẽ khác.
+
+* Thư mục ZZ0000ZZ đã bị xóa.
+* Thuộc tính ZZ0001ZZ được thêm vào để cài đặt mẫu
+  tỷ lệ.
+* Thuộc tính ZZ0002ZZ được thêm vào để truy vấn
+  tốc độ lấy mẫu tối đa
+* Kênh ZZ0003ZZ bị xóa.
+* Định dạng dữ liệu bộ đệm có thể khác so với khi không sử dụng giảm tải,
+  ví dụ: thuộc tính ZZ0004ZZ.
+
+Nếu thuộc tính ZZ0000ZZ có trong cây thiết bị, trình điều khiển sẽ
+bật TURBO trong khi đọc vào bộ đệm và tắt nó nếu không.
+
+Bộ đệm thiết bị
+==============
+
+Trình điều khiển này hỗ trợ bộ đệm kích hoạt IIO.
+
+Xem ZZ0000ZZ để biết thêm thông tin.

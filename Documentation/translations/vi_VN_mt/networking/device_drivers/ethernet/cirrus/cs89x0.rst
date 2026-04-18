@@ -1,0 +1,659 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/ethernet/cirrus/cs89x0.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+====================================================
+Bộ điều hợp Ethernet Cirrus Logic LAN CS8900/CS8920
+================================================
+
+.. note::
+
+   This document was contributed by Cirrus Logic for kernel 2.2.5.  This version
+   has been updated for 2.3.48 by Andrew Morton.
+
+   Still, this is too outdated! A major cleanup is needed here.
+
+Cirrus cung cấp một bản sao của trình điều khiển này trên trang web của họ, như
+được mô tả dưới đây.  Nói chung, bạn nên sử dụng phiên bản trình điều khiển
+đi kèm với bản phân phối Linux của bạn.
+
+
+Trình điều khiển giao diện mạng Linux ver. 2,00 <hạt nhân 2.3.48>
+
+
+.. TABLE OF CONTENTS
+
+   1.0 CIRRUS LOGIC LAN CS8900/CS8920 ETHERNET ADAPTERS
+	1.1 Product Overview
+	1.2 Driver Description
+	    1.2.1 Driver Name
+	    1.2.2 File in the Driver Package
+	1.3 System Requirements
+	1.4 Licensing Information
+
+   2.0 ADAPTER INSTALLATION and CONFIGURATION
+	2.1 CS8900-based Adapter Configuration
+	2.2 CS8920-based Adapter Configuration
+
+   3.0 LOADING THE DRIVER AS A MODULE
+
+   4.0 COMPILING THE DRIVER
+	4.1 Compiling the Driver as a Loadable Module
+	4.2 Compiling the driver to support memory mode
+	4.3 Compiling the driver to support Rx DMA
+
+   5.0 TESTING AND TROUBLESHOOTING
+	5.1 Known Defects and Limitations
+	5.2 Testing the Adapter
+	    5.2.1 Diagnostic Self-Test
+	    5.2.2 Diagnostic Network Test
+	5.3 Using the Adapter's LEDs
+	5.4 Resolving I/O Conflicts
+
+   6.0 TECHNICAL SUPPORT
+	6.1 Contacting Cirrus Logic's Technical Support
+	6.2 Information Required Before Contacting Technical Support
+	6.3 Obtaining the Latest Driver Version
+	6.4 Current maintainer
+	6.5 Kernel boot parameters
+
+
+1. Bộ điều hợp Ethernet Cirrus Logic LAN CS8900/CS8920
+===================================================
+
+
+1.1. Tổng quan về sản phẩm
+=====================
+
+Bộ điều hợp Ethernet ISA dựa trên CS8900 của Cirrus Logic theo sau
+Tiêu chuẩn IEEE 802.3 và hỗ trợ hoạt động song công một nửa hoặc hoàn toàn trên bus ISA
+máy tính trên mạng Ethernet 10 Mbps.  Các bộ điều hợp được thiết kế để hoạt động
+trong các khe cắm mở rộng bus 16-bit ISA hoặc EISA và có sẵn ở
+Cấu hình chỉ 10BaseT hoặc 3 phương tiện (10BaseT, 10Base2 và AUI cho 10Base-5
+hoặc mạng cáp quang).
+
+Bộ điều hợp dựa trên CS8920 tương tự như bộ điều hợp dựa trên CS8900 với bổ sung
+các tính năng hỗ trợ Plug and Play (PnP) và nhận dạng Wakeup Frame.  Như
+như vậy, quy trình cấu hình có phần khác nhau giữa hai loại
+bộ điều hợp.  Tham khảo phần "Cấu hình bộ chuyển đổi" để biết chi tiết về
+cấu hình cả hai loại bộ điều hợp.
+
+
+1.2. Mô tả trình điều khiển
+=======================
+
+Trình điều khiển Bộ điều hợp Ethernet CS8900/CS8920 dành cho Linux hỗ trợ Linux
+v2.3.48 hoặc kernel cao hơn.  Nó có thể được biên dịch trực tiếp vào kernel
+hoặc được tải vào thời gian chạy dưới dạng mô-đun trình điều khiển thiết bị.
+
+1.2.1 Tên trình điều khiển: cs89x0
+
+1.2.2 Tệp trong Kho lưu trữ trình điều khiển:
+
+Các file trong driver tại website của Cirrus bao gồm:
+
+=============================================================================
+  readme.txt tập tin này
+  xây dựng tập tin batch để biên dịch cs89x0.c.
+  mã C trình điều khiển cs89x0.c
+  tệp tiêu đề trình điều khiển cs89x0.h
+  mô-đun được biên dịch sẵn cs89x0.o (dành cho kernel v2.2.5)
+  config/Config.in tệp mẫu để bao gồm trình điều khiển cs89x0 trong kernel.
+  config/Makefile để bao gồm trình điều khiển cs89x0 trong kernel.
+  config/Space.c để bao gồm trình điều khiển cs89x0 trong kernel.
+  =============================================================================
+
+
+
+1.3. Yêu cầu hệ thống
+------------------------
+
+Cần có phần cứng sau:
+
+* Bộ chuyển đổi Ethernet ISA Cirrus Logic LAN (CS8900/20-based)
+
+* PC tương thích IBM hoặc IBM với:
+     * Bộ xử lý 80386 hoặc cao hơn
+     * 16 byte không gian IO liền kề có sẵn trong khoảng 210h - 370h
+     * Một IRQ có sẵn (5,10,11 hoặc 12 cho CS8900, 3-7,9-15 cho CS8920).
+
+* Cáp phù hợp (và đầu nối cho AUI, 10BASE-2) cho mạng của bạn
+     cấu trúc liên kết.
+
+Cần có phần mềm sau:
+
+* Hạt nhân LINUX phiên bản 2.3.48 trở lên
+
+* Tiện ích cài đặt CS8900/20 (dựa trên DOS)
+
+* Nguồn kernel LINUX cho kernel của bạn (nếu biên dịch thành kernel)
+
+* GNU Toolkit (gcc và make) v2.6 trở lên (nếu biên dịch vào kernel
+     hoặc một mô-đun)
+
+
+
+1.4. Thông tin cấp phép
+--------------------------
+
+Chương trình này là phần mềm miễn phí; bạn có thể phân phối lại nó và/hoặc sửa đổi nó theo
+các điều khoản của Giấy phép Công cộng GNU do Phần mềm Tự do xuất bản
+Nền tảng, phiên bản 1.
+
+Chương trình này được phân phối với hy vọng nó sẽ hữu ích, nhưng WITHOUT
+ANY WARRANTY; thậm chí không có sự bảo đảm ngụ ý của MERCHANTABILITY hoặc
+FITNESS FOR A PARTICULAR PURPOSE.  Xem Giấy phép Công cộng GNU để biết
+biết thêm chi tiết.
+
+Để có bản sao đầy đủ của Giấy phép Công cộng GNU, hãy viết thư cho Phần mềm Tự do
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+
+2. Cài đặt và cấu hình bộ chuyển đổi
+=========================================
+
+Cả hai bộ điều hợp dựa trên CS8900 và CS8920 đều có thể được cấu hình bằng các tham số
+được lưu trữ trong EEPROM trên bo mạch. Bạn phải sử dụng Cài đặt CS8900/20 dựa trên DOS
+Tiện ích nếu bạn muốn thay đổi cấu hình của adapter trong EEPROM.
+
+Khi tải trình điều khiển dưới dạng mô-đun, bạn có thể chỉ định nhiều chức năng của bộ điều hợp
+tham số cấu hình trên dòng lệnh để ghi đè cài đặt của EEPROM
+hoặc để cấu hình giao diện khi không sử dụng EEPROM. (Dựa trên CS8920
+bộ điều hợp phải sử dụng EEPROM.) Xem Phần 3.0 LOADING THE DRIVER AS A MODULE.
+
+Vì Tiện ích Cài đặt CS8900/20 là một ứng dụng dựa trên DOS nên bạn phải cài đặt
+và định cấu hình bộ điều hợp trong hệ thống dựa trên DOS bằng cách sử dụng Cài đặt CS8900/20
+Tiện ích trước khi cài đặt vào hệ thống LINUX mục tiêu.  (Không bắt buộc nếu
+cài đặt bộ điều hợp dựa trên CS8900 và cấu hình mặc định có thể chấp nhận được.)
+
+
+2.1. Cấu hình bộ điều hợp dựa trên CS8900
+---------------------------------------
+
+Bộ điều hợp dựa trên CS8900 được vận chuyển từ Cirrus Logic đã được định cấu hình
+với các cài đặt "mặc định" sau::
+
+Chế độ hoạt động: Chế độ bộ nhớ
+  IRQ: 10
+  Địa chỉ I/O cơ sở: 300
+  Địa chỉ cơ sở bộ nhớ: D0000
+  Tối ưu hóa: Máy khách DOS
+  Chế độ truyền: Bán song công
+  BootProm: Không có
+  Loại phương tiện: Tự động phát hiện (3 thẻ nhớ) hoặc
+		       10BASE-T (bộ chuyển đổi chỉ 10BASE-T)
+
+Bạn chỉ nên thay đổi cài đặt cấu hình mặc định nếu xung đột với
+một bộ chuyển đổi khác tồn tại. Để thay đổi cấu hình của bộ chuyển đổi, hãy chạy chương trình
+Tiện ích cài đặt CS8900/20.
+
+
+2.2. Cấu hình bộ điều hợp dựa trên CS8920
+---------------------------------------
+
+Bộ điều hợp dựa trên CS8920 được vận chuyển từ Cirrus Logic được định cấu hình là Plug
+và bật Play (PnP).  Tuy nhiên, vì trình điều khiển cs89x0 thực hiện NOT
+hỗ trợ PnP, bạn phải cài đặt bộ điều hợp CS8920 trong PC dựa trên DOS và
+chạy Tiện ích cài đặt CS8900/20 để tắt PnP và định cấu hình
+adapter trước khi cài đặt vào hệ thống Linux mục tiêu.  Không làm được
+điều này sẽ khiến bộ điều hợp không hoạt động và trình điều khiển sẽ không thể
+giao tiếp với bộ chuyển đổi.
+
+::
+
+*******************************************************************
+	* CS8920-BASED ADAPTERS: *
+	* *
+	* CS8920-BASED ADAPTERS ARE PLUG và PLAY ENABLED BỞI DEFAULT.  *
+	* THE CS89X0 DRIVER DOES NOT SUPPORT PnP. THEREFORE, YOU MUST *
+	* RUN THE CS8900/20 SETUP UTILITY ĐẾN DISABLE PnP SUPPORT AND *
+	* ĐẾN ACTIVATE THE ADAPTER.                                     *
+	*******************************************************************
+
+
+
+
+3. Tải Trình điều khiển dưới dạng Mô-đun
+=================================
+
+Nếu trình điều khiển được biên dịch dưới dạng mô-đun có thể tải, bạn có thể tải mô-đun trình điều khiển
+bằng lệnh 'modprobe'.  Nhiều tham số cấu hình của bộ chuyển đổi có thể
+được chỉ định làm đối số dòng lệnh cho lệnh tải.  Cơ sở này
+cung cấp phương tiện để ghi đè cài đặt của EEPROM hoặc cho giao diện
+cấu hình khi không sử dụng EEPROM.
+
+Ví dụ::
+
+insmod cs89x0.o io=0x200 irq=0xA media=aui
+
+Ví dụ này tải mô-đun và định cấu hình bộ điều hợp để sử dụng đế cổng IO
+địa chỉ 200h, ngắt 10 và sử dụng kết nối phương tiện AUI.  Sau đây
+tùy chọn cấu hình có sẵn trên dòng lệnh ::
+
+io=###               - chỉ định địa chỉ IO (200h-360h)
+  irq=##               - chỉ định mức ngắt
+  use_dma=1 - Kích hoạt DMA
+  dma=#                - chỉ định kênh dma (Trình điều khiển được biên dịch để hỗ trợ
+			 Chỉ Rx DMA)
+  dmasize=# (16 hoặc 64) - DMA kích thước 16K hoặc 64K.  Giá trị mặc định được đặt thành 16.
+  media=rj45 - chỉ định loại phương tiện
+   hoặc media=bnc
+   hoặc media=aui
+   hoặc media=auto
+  duplex=full - chỉ định song công một nửa/toàn bộ/tự động thương lượng bắt buộc
+   hoặc song công = một nửa
+   hoặc song công=tự động
+  debug=Mức gỡ lỗi #              - (chỉ khả dụng nếu trình điều khiển được biên dịch
+			 để gỡ lỗi)
+
+ZZ0000ZZ
+
+a) Nếu có EEPROM, mọi tham số dòng lệnh được chỉ định
+   sẽ ghi đè giá trị cấu hình tương ứng được lưu trữ trong
+   EEPROM.
+
+b) Tham số "io" phải được chỉ định trên dòng lệnh.
+
+c) Quy trình thăm dò phần cứng của trình điều khiển được thiết kế để tránh
+   ghi vào không gian I/O cho đến khi nó biết rằng có cs89x0
+   thẻ tại các địa chỉ bằng văn bản.  Điều này có thể gây ra vấn đề
+   với việc thăm dò thiết bị.  Để tránh hành vi này, hãy thêm một
+   đến tham số mô-đun ZZ0000ZZ.  Điều này thực tế không thay đổi
+   địa chỉ I/O, nhưng đó là cờ để thông báo cho trình điều khiển
+   để khởi tạo một phần phần cứng trước khi thử
+   xác định thẻ.  Điều này có thể nguy hiểm nếu bạn
+   không chắc chắn rằng có thẻ cs89x0 tại địa chỉ được cung cấp.
+
+Ví dụ: để quét bộ điều hợp nằm ở cơ sở IO 0x300,
+   chỉ định địa chỉ IO là 0x301.
+
+d) Tham số "duplex=auto" chỉ được hỗ trợ cho CS8920.
+
+e) Cấu hình dòng lệnh tối thiểu được yêu cầu nếu EEPROM
+   không có mặt là:
+
+io
+   không ổn
+   loại phương tiện (không tự động phát hiện)
+
+f) Các tham số bổ sung sau đây là mặc định của CS89XX (giá trị
+   được sử dụng không có EEPROM hoặc đối số dòng lệnh).
+
+* DMA Burst = đã bật
+   * Đã bật IOCHRDY = đã bật
+   * UseSA = đã bật
+   * CS8900 mặc định ở chế độ bán song công nếu không được chỉ định trên dòng lệnh
+   * CS8920 mặc định là autoneg nếu không được chỉ định trên dòng lệnh
+   * Sử dụng mặc định đặt lại cho các tham số cấu hình khác
+   * dma_mode = 0
+
+g) Bạn có thể sử dụng ifconfig để đặt địa chỉ Ethernet của bộ điều hợp.
+
+h) Nhiều bản phân phối Linux sử dụng lệnh 'modprobe' để tải
+   mô-đun.  Chương trình này sử dụng tệp '/etc/conf.modules' để
+   xác định thông tin cấu hình được chuyển đến trình điều khiển
+   mô-đun khi nó được tải.  Tất cả các tùy chọn cấu hình được
+   được mô tả ở trên có thể được đặt trong /etc/conf.modules.
+
+Ví dụ::
+
+> mèo /etc/conf.modules
+     ...
+bí danh eth0 cs89x0
+     tùy chọn cs89x0 io=0x0200 dma=5 use_dma=1
+     ...
+
+Trong ví dụ này, chúng tôi đang nói với hệ thống mô-đun rằng
+   driver ethernet cho máy này nên dùng driver cs89x0.  Chúng tôi
+   đang yêu cầu 'modprobe' chuyển 'io', 'dma' và 'use_dma'
+   đối số cho trình điều khiển khi nó được tải.
+
+i) Cirrus khuyến nghị cs89x0 sử dụng ISA DMA kênh 5, 6 hoặc
+   7. Bạn có thể sẽ thấy rằng các kênh DMA khác sẽ không hoạt động.
+
+j) CS89x0 chỉ hỗ trợ DMA để nhận.  Chế độ DMA là
+   hiệu quả hơn đáng kể.  Làm ngập máy Celeron 400 MHz
+   với các gói ping lớn sẽ tiêu tốn 82% dung lượng CPU của nó trong không phải DMA
+   chế độ.  Với DMA, tỷ lệ này giảm xuống còn 45%.
+
+k) Nếu nhân Linux của bạn được biên dịch bằng plug-and-play sẵn có
+   hỗ trợ bạn sẽ có thể tìm thấy thông tin về thẻ cs89x0
+   bằng lệnh::
+
+mèo /proc/isapnp
+
+l) Nếu trong quá trình vận hành DMA, bạn thấy dữ liệu mạng hoặc hoạt động không ổn định
+   bị hỏng, bạn nên sử dụng BIOS của PC để làm chậm đồng hồ bus EISA.
+
+m) Nếu trình điều khiển cs89x0 được biên dịch trực tiếp vào kernel
+   (không mô-đun) thì địa chỉ I/O của nó được xác định tự động bởi
+   Thăm dò xe buýt ISA.  Số IRQ, tùy chọn phương tiện, v.v. được xác định
+   từ EEPROM của thẻ.
+
+n) Nếu trình điều khiển cs89x0 được biên dịch trực tiếp vào kernel, DMA
+   chế độ có thể được chọn bằng cách cung cấp cho kernel một tùy chọn khởi động
+   'cs89x0_dma=N' trong đó 'N' là số kênh DMA mong muốn (5, 6 hoặc 7).
+
+Tùy chọn khởi động hạt nhân có thể được cung cấp trên dòng lệnh LILO ::
+
+Khởi động LILO: linux cs89x0_dma=5
+
+hoặc chúng có thể được đặt trong /etc/lilo.conf::
+
+hình ảnh=/boot/bzImage-2.3.48
+	  nối thêm="cs89x0_dma=5"
+	  nhãn=linux
+	  root=/dev/hda5
+	  chỉ đọc
+
+Kích thước bộ đệm DMA Rx được gắn cứng tới 16 kbyte ở chế độ này.
+   (Chế độ 64k không khả dụng).
+
+
+4. Biên dịch trình điều khiển
+=======================
+
+Trình điều khiển cs89x0 có thể được biên dịch trực tiếp vào kernel hoặc được biên dịch thành
+một mô-đun trình điều khiển thiết bị có thể tải được.
+
+Chỉ cần sử dụng cách tiêu chuẩn để định cấu hình trình điều khiển và biên dịch Kernel.
+
+
+4.1. Biên dịch Driver hỗ trợ Rx DMA
+-------------------------------------------
+
+Tùy chọn thời gian biên dịch cho DMA đã bị xóa trong kernel 2.3
+loạt.  Hỗ trợ DMA hiện là một phần vô điều kiện của trình điều khiển.  Đó là
+được bật bởi tùy chọn mô-đun 'use_dma=1'.
+
+
+5. Kiểm tra và khắc phục sự cố
+==============================
+
+5.1. Khiếm khuyết và hạn chế đã biết
+----------------------------------
+
+Tham khảo tệp RELEASE.TXT được phân phối như một phần của kho lưu trữ này để biết danh sách
+các lỗi đã biết, các hạn chế của trình điều khiển và cách khắc phục.
+
+
+5.2. Kiểm tra bộ chuyển đổi
+------------------------
+
+Khi bộ điều hợp đã được cài đặt và định cấu hình, tùy chọn chẩn đoán của
+Tiện ích Cài đặt CS8900/20 có thể được sử dụng để kiểm tra chức năng của
+adapter và kết nối mạng của nó.  Sử dụng tùy chọn 'Tự kiểm tra' chẩn đoán để
+kiểm tra chức năng của bộ điều hợp với cấu hình phần cứng bạn có
+được giao. Bạn có thể sử dụng 'Kiểm tra mạng' chẩn đoán để kiểm tra khả năng của
+bộ điều hợp để giao tiếp qua Ethernet với một PC khác được trang bị
+Thẻ bộ chuyển đổi dựa trên CS8900/20 (nó cũng phải chạy Cài đặt CS8900/20
+Tiện ích).
+
+.. note::
+
+	 The Setup Utility's diagnostics are designed to run in a
+	 DOS-only operating system environment.  DO NOT run the diagnostics
+	 from a DOS or command prompt session under Windows 95, Windows NT,
+	 OS/2, or other operating system.
+
+Để chạy kiểm tra chẩn đoán trên bộ chuyển đổi CS8900/20:
+
+1. Khởi động DOS trên PC và khởi động Tiện ích cài đặt CS8900/20.
+
+2. Cấu hình hiện tại của bộ điều hợp được hiển thị.  Nhấn phím ENTER để
+       vào menu chính.
+
+4. Chọn 'Chẩn đoán' (ALT-G) từ menu chính.
+       * Chọn 'Tự kiểm tra' để kiểm tra chức năng cơ bản của bộ điều hợp.
+       * Chọn 'Kiểm tra mạng' để kiểm tra kết nối mạng và cáp.
+
+
+5.2.1. Tự kiểm tra chẩn đoán
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Quá trình tự kiểm tra chẩn đoán sẽ kiểm tra chức năng cơ bản của bộ chuyển đổi cũng như
+khả năng giao tiếp trên bus ISA dựa trên tài nguyên hệ thống
+được gán trong quá trình cấu hình phần cứng.  Các thử nghiệm sau đây được thực hiện:
+
+* Kiểm tra đọc/ghi đăng ký IO
+
+Kiểm tra Đọc/Ghi Đăng ký IO đảm bảo rằng CS8900/20 có thể
+     được truy cập ở chế độ IO và địa chỉ cơ sở IO là chính xác.
+
+* Kiểm tra bộ nhớ dùng chung
+
+Kiểm tra Bộ nhớ dùng chung đảm bảo CS8900/20 có thể được truy cập trong bộ nhớ
+     chế độ và phạm vi địa chỉ bộ nhớ được chỉ định không xung đột
+     với các thiết bị khác trong hệ thống.
+
+* Kiểm tra ngắt
+
+Kiểm tra ngắt đảm bảo không có xung đột với IRQ được chỉ định
+     tín hiệu.
+
+* Kiểm tra EEPROM
+
+Thử nghiệm EEPROM đảm bảo EEPROM có thể đọc được.
+
+* Kiểm tra chip RAM
+
+Thử nghiệm Chip RAM đảm bảo 4K bộ nhớ trong của CS8900/20 là
+     làm việc đúng cách
+
+* Kiểm tra vòng lặp nội bộ
+
+Kiểm tra Internal Loop Back đảm bảo bộ phát của bộ chuyển đổi và
+     máy thu đang hoạt động bình thường.  Nếu thử nghiệm này thất bại, hãy đảm bảo
+     cáp của bộ điều hợp được kết nối với mạng (kiểm tra hoạt động của LED để biết
+     ví dụ).
+
+* Khởi động thử nghiệm PROM
+
+Kiểm tra Boot PROM đảm bảo Boot PROM hiện diện và có thể đọc được.
+     Lỗi cho biết Boot PROM không được đọc thành công do một
+     vấn đề về phần cứng hoặc do xung đột về địa chỉ Boot PROM
+     nhiệm vụ. (Kiểm tra chỉ áp dụng nếu bộ chuyển đổi được cấu hình để sử dụng
+     Tùy chọn khởi động PROM.)
+
+Lỗi của một hạng mục kiểm thử cho thấy có thể có xung đột tài nguyên hệ thống với
+một thiết bị khác trên bus ISA.  Trong trường hợp này bạn nên sử dụng Manual Setup
+tùy chọn cấu hình lại bộ điều hợp bằng cách chọn một giá trị khác cho hệ thống
+tài nguyên bị lỗi.
+
+
+5.2.2. Kiểm tra mạng chẩn đoán
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Kiểm tra mạng chẩn đoán xác minh kết nối mạng đang hoạt động bằng cách
+truyền dữ liệu giữa hai bộ điều hợp CS8900/20 được cài đặt trong các PC khác nhau
+trên cùng một mạng. (Lưu ý: không nên chạy kiểm tra mạng chẩn đoán
+giữa hai nút trên một bộ định tuyến.)
+
+Thử nghiệm này yêu cầu mỗi PC trong số hai PC phải có bộ chuyển đổi dựa trên CS8900/20
+đã cài đặt và chạy Tiện ích cài đặt CS8900/20.  Chiếc PC đầu tiên là
+được định cấu hình là Phản hồi và PC khác được định cấu hình là Người khởi tạo.
+Khi Initiator được khởi động, nó sẽ gửi các khung dữ liệu đến Replyer để
+trả lại các khung cho Initiator.
+
+Tổng số khung hình đã nhận và truyền được hiển thị trên
+Màn hình của bộ khởi tạo, cùng với số lượng khung hình nhận được và
+được truyền đi tốt hoặc có lỗi.  Người dùng có thể chấm dứt thử nghiệm bất cứ lúc nào tại
+hoặc PC.
+
+Để thiết lập Kiểm tra mạng chẩn đoán:
+
+1. Chọn một PC có bộ điều hợp dựa trên CS8900/20 và mạng hoạt động đã biết
+	kết nối để đóng vai trò là Người phản hồi.  Chạy tiện ích cài đặt CS8900/20
+	và chọn 'Chẩn đoán -> Kiểm tra mạng -> Phản hồi' từ màn hình chính
+	thực đơn.  Nhấn ENTER để khởi động Phản hồi.
+
+2. Quay lại PC với bộ điều hợp dựa trên CS8900/20 mà bạn muốn kiểm tra và
+	khởi động Tiện ích cài đặt CS8900/20.
+
+3. Từ menu chính, chọn 'Chẩn đoán -> Kiểm tra mạng -> Bộ khởi tạo'.
+	Nhấn ENTER để bắt đầu kiểm tra.
+
+Bạn có thể dừng bài kiểm tra trên Người khởi xướng bất cứ lúc nào trong khi cho phép Người phản hồi
+để tiếp tục chạy.  Bằng cách này, bạn có thể chuyển sang các PC bổ sung và kiểm tra
+chúng bằng cách khởi động Initiator trên một PC khác mà không cần phải dừng/khởi động
+Người trả lời.
+
+
+
+5.3. Sử dụng đèn LED của Bộ chuyển đổi
+-----------------------------
+
+Bộ điều hợp 2 và 3 phương tiện có hai đèn LED hiển thị ở mặt sau của bo mạch
+nằm gần đầu nối 10Base-T.
+
+Tính toàn vẹn của liên kết LED: BẬT "ổn định" của LED màu xanh lục cho biết 10Base-T hợp lệ
+kết nối.  (Chỉ áp dụng cho 10Base-T. LED màu xanh lá cây không có ý nghĩa gì đối với
+kết nối 10Base-2 hoặc AUI.)
+
+TX/RX LED: LED màu vàng sáng nhanh mỗi lần bộ chuyển đổi truyền hoặc
+nhận dữ liệu. (LED màu vàng sẽ xuất hiện "nhấp nháy" trên mạng thông thường.)
+
+
+5.4. Giải quyết xung đột I/O
+----------------------------
+
+Xung đột IO xảy ra khi hai hoặc nhiều bộ điều hợp sử dụng cùng một tài nguyên ISA (IO
+địa chỉ, địa chỉ bộ nhớ hoặc IRQ).  Bạn thường có thể phát hiện xung đột IO trong một
+trong bốn cách sau khi cài đặt và định cấu hình bộ điều hợp dựa trên CS8900/20:
+
+1. Hệ thống không khởi động đúng cách (hoặc không khởi động được).
+
+2. Trình điều khiển không thể giao tiếp với bộ chuyển đổi, báo cáo lỗi "Bộ chuyển đổi
+	thông báo lỗi không tìm thấy".
+
+3. Bạn không thể kết nối mạng hoặc trình điều khiển sẽ không tải.
+
+4. Nếu bạn đã cấu hình bộ điều hợp để chạy ở chế độ bộ nhớ nhưng trình điều khiển
+	báo cáo rằng nó đang sử dụng chế độ IO khi tải, đây là dấu hiệu của
+	xung đột địa chỉ bộ nhớ
+
+Nếu xảy ra xung đột IO, hãy chạy Tiện ích cài đặt CS8900/20 và thực hiện thao tác
+tự kiểm tra chẩn đoán.  Thông thường, tài nguyên ISA bị xung đột sẽ không thực hiện được
+tự kiểm tra.  Nếu vậy, hãy cấu hình lại bộ điều hợp bằng cách chọn một lựa chọn khác cho
+tài nguyên xung đột.  Chạy lại chẩn đoán để kiểm tra thêm IO
+xung đột.
+
+Trong một số trường hợp, chẳng hạn như khi PC không khởi động được, có thể cần phải xóa
+bộ điều hợp và cấu hình lại nó bằng cách cài đặt nó vào một PC khác để chạy
+Tiện ích cài đặt CS8900/20.  Sau khi được cài đặt lại trong hệ thống đích, hãy chạy
+tự kiểm tra chẩn đoán để đảm bảo cấu hình mới không bị xung đột
+trước khi tải lại trình điều khiển.
+
+Khi định cấu hình bộ chuyển đổi theo cách thủ công, hãy ghi nhớ hệ thống ISA điển hình
+việc sử dụng tài nguyên như được chỉ ra trong bảng dưới đây.
+
+::
+
+Thiết bị địa chỉ I/O Thiết bị IRQ
+  ----------- -------- --- --------
+     Bộ điều hợp I/O trò chơi 200-20F 3 COM2, Chuột Bus
+     Chuột xe buýt 230-23F 4 COM1
+     270-27F LPT3: cổng song song thứ ba 5 LPT2
+     2F0-2FF COM2: cổng nối tiếp thứ hai 6 Bộ điều khiển đĩa mềm
+     320-32F Bộ điều khiển đĩa cố định 7 LPT1
+							 8 Đồng hồ thời gian thực
+						     9 Bộ chuyển đổi màn hình EGA/VGA
+						    12 Chuột (PS/2)
+  Địa chỉ bộ nhớ Thiết bị 13 Bộ đồng xử lý toán học
+  -------------- --------------------- 14 Bộ điều khiển đĩa cứng
+  Bộ điều hợp đồ họa A000-BFFF EGA
+  Bộ điều hợp đồ họa A000-C7FF VGA
+  Bộ điều hợp đồ họa đơn sắc B000-BFFF
+  Bộ điều hợp đồ họa màu B800-BFFF
+  E000-FFFF TẠI BIOS
+
+
+
+
+6. Hỗ trợ kỹ thuật
+====================
+
+6.1. Liên hệ với bộ phận hỗ trợ kỹ thuật của Cirrus Logic
+------------------------------------------------
+
+Bạn có thể liên hệ với bộ phận Hỗ trợ Ứng dụng Kỹ thuật CS89XX của Cirrus Logic tại::
+
+Điện thoại :(800) 888-5016 (từ Hoa Kỳ và Canada)
+	     :(512) 442-7555 (từ bên ngoài Hoa Kỳ và Canada)
+  Fax(512) 912-3871
+  Email: ethernet@crystal.cirrus.com
+  WWW :ZZ0000ZZ
+
+
+6.2. Thông tin cần thiết trước khi liên hệ với bộ phận hỗ trợ kỹ thuật
+-------------------------------------------------------------
+
+Trước khi liên hệ với Cirrus Logic để được hỗ trợ kỹ thuật, hãy chuẩn bị cung cấp
+Càng nhiều thông tin sau càng tốt.
+
+1.) Loại bộ chuyển đổi (CRD8900, CDB8900, CDB8920, v.v.)
+
+2.) Cấu hình bộ điều hợp
+
+* IO Base, Memory Base, IO hoặc chế độ bộ nhớ được bật, kênh IRQ, DMA
+    * Đã bật/tắt tính năng Cắm và Chạy (chỉ các bộ điều hợp dựa trên CS8920)
+    * Được định cấu hình để tự động phát hiện phương tiện hoặc loại phương tiện cụ thể (loại nào).
+
+3.) Cấu hình hệ thống PC
+
+* Hệ thống Plug and Play (có/không)
+    * BIOS (thực hiện và phiên bản)
+    * Cấu tạo và mô hình hệ thống
+    * CPU (loại và tốc độ)
+    * Hệ thống RAM
+    * Bộ chuyển đổi SCSI
+
+4.) Phần mềm
+
+* Trình điều khiển và phiên bản CS89XX
+    * Phiên bản và hệ điều hành mạng của bạn
+    * Phiên bản hệ điều hành của hệ thống của bạn
+    * Phiên bản của tất cả các tệp hỗ trợ giao thức
+
+5.) Bất kỳ Thông báo Lỗi nào được hiển thị.
+
+
+
+6.3 Lấy phiên bản trình điều khiển mới nhất
+---------------------------------------
+
+Bạn có thể tải trình điều khiển và phần mềm hỗ trợ CS89XX mới nhất từ Cirrus Logic's
+Trang web.  Bạn cũng có thể liên hệ với bộ phận Hỗ trợ Kỹ thuật của Cirrus Logic (email:
+ethernet@crystal.cirrus.com) và yêu cầu bạn đăng ký tự động
+thông báo cập nhật phần mềm.
+
+Cirrus Logic duy trì một trang web tại ZZ0000ZZ với
+trình điều khiển mới nhất và các ấn phẩm kỹ thuật.
+
+
+6.4. Người bảo trì hiện tại
+-----------------------
+
+Vào tháng 2 năm 2000, việc bảo trì trình điều khiển này do Andrew đảm nhận
+Morton.
+
+6.5 Tham số mô-đun hạt nhân
+----------------------------
+
+Để sử dụng trong môi trường nhúng không có cs89x0 EEPROM, kernel boot
+tham số ZZ0000ZZ đã được triển khai.  Cách sử dụng là::
+
+cs89x0_media=rj45 hoặc
+	cs89x0_media=aui hoặc
+	cs89x0_media=bnc

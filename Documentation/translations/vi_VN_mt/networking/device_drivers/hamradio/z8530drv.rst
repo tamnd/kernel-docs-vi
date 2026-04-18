@@ -1,0 +1,699 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/hamradio/z8530drv.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+==============================================================
+SCC.C - Trình điều khiển Linux cho thẻ HDLC dựa trên Z8530 cho AX.25
+=========================================================
+
+
+Đây là một tập hợp con của tài liệu. Để sử dụng trình điều khiển này, MUST bạn có
+trọn gói từ:
+
+Internet:
+
+1. ftp://ftp.ccac.rwth-aachen.de/pub/jr/z8530drv-utils_3.0-3.tar.gz
+
+2. ftp://ftp.pspt.fi/pub/ham/linux/ax25/z8530drv-utils_3.0-3.tar.gz
+
+Xin lưu ý rằng thông tin trong tài liệu này có thể đã lỗi thời.
+Phiên bản mới của tài liệu, cùng với các liên kết tới các tài liệu quan trọng khác
+Tài liệu và chương trình Linux Kernel AX.25, có sẵn trên
+ZZ0000ZZ
+
+Bản quyền ZZ0000ZZ 1993,2000 của Joerg Reuter DL1BKE <jreuter@yaina.de>
+
+phần Bản quyền ZZ0000ZZ 1993 Guido ten Dolle PE1NNZ
+
+để biết thông báo bản quyền đầy đủ, hãy xem >> Copying.Z8530DRV <<
+
+1. Khởi tạo trình điều khiển
+===============================
+
+Để sử dụng trình điều khiển, phải thực hiện 3 bước:
+
+1. nếu được biên dịch dưới dạng mô-đun: tải mô-đun
+     2. Cài đặt thông số phần cứng, MODEM và KISS bằng sccinit
+     3. Đính kèm từng kênh vào nhân Linux AX.25 bằng "ifconfig"
+
+Không giống như các phiên bản dưới 2.4, trình điều khiển này là một thiết bị mạng thực sự
+người lái xe. Nếu bạn muốn chạy xNOS thay vì kernel tốt AX.25 của chúng tôi
+sử dụng phiên bản 2.x (có sẵn từ các trang trên) hoặc đọc
+AX.25-HOWTO về cách mô phỏng KISS TNC trên trình điều khiển thiết bị mạng.
+
+
+1.1 Đang tải mô-đun
+======================
+
+(Nếu bạn định biên dịch trình điều khiển như một phần của ảnh hạt nhân,
+ bỏ qua chương này và tiếp tục với 1.2)
+
+Trước khi bạn có thể sử dụng một mô-đun, bạn sẽ phải tải nó bằng::
+
+insmod scc.o
+
+vui lòng đọc 'man insmod' đi kèm với các công cụ khởi tạo mô-đun.
+
+Bạn nên đưa insmod vào một trong các tệp /etc/rc.d/rc.*,
+và đừng quên chèn lệnh gọi sccinit sau đó. Nó
+sẽ đọc /etc/z8530drv.conf của bạn.
+
+1.2. /etc/z8530drv.conf
+=======================
+
+Để thiết lập tất cả các tham số, bạn phải chạy /sbin/sccinit từ một
+của các tập tin RC.*-của bạn. Việc này phải được thực hiện BEFORE bạn có thể
+"ifconfig" một giao diện. Sccinit đọc tệp /etc/z8530drv.conf
+và thiết lập các thông số phần cứng, MODEM và KISS. Một tập tin mẫu là
+được giao kèm theo gói này. Thay đổi nó theo nhu cầu của bạn.
+
+Bản thân tập tin bao gồm hai phần chính.
+
+1.2.1 cấu hình thông số phần cứng
+==========================================
+
+Phần thiết lập phần cứng xác định các tham số sau cho mỗi
+Z8530::
+
+chip 1
+    data_a 0x300 # data cổng A
+    ctrl_a 0x304 # control cổng A
+    data_b 0x301 # data cổng B
+    ctrl_b 0x305 # control cổng B
+    irq 5 # ZZ0000ZZ số 5
+    pclock 4915200 # clock
+    bảng BAYCOM # hardware loại
+    escc không có chip # enhanced SCC? (8580/85180/85280)
+    vectơ 0 # latch cho vectơ ngắt
+    số đặc biệt # address của thanh ghi chức năng đặc biệt
+    tùy chọn 0 # option để đặt qua sfr
+
+
+chip
+	- đây chỉ là dấu phân cách để làm cho sccinit đơn giản hơn một chút
+	  chương trình. Một tham số không có tác dụng.
+
+dữ liệu_a
+	- địa chỉ của cổng dữ liệu A của Z8530 này (cần thiết)
+ctrl_a
+	- địa chỉ của cổng điều khiển A (cần thiết)
+dữ liệu_b
+	- địa chỉ của cổng dữ liệu B (cần thiết)
+ctrl_b
+	- địa chỉ của cổng điều khiển B (cần thiết)
+
+không ổn
+	- IRQ đã sử dụng cho chip này. Các chip khác nhau có thể sử dụng khác nhau
+	  IRQ hoặc tương tự. Nếu họ chia sẻ một ngắt, nó cần phải được
+	  chỉ được chỉ định trong một định nghĩa chip.
+
+pclock - đồng hồ ở chân PCLK của Z8530 (tùy chọn, 4915200 là
+	  mặc định), được đo bằng Hertz
+
+bảng
+	- "loại" của bảng:
+
+=================================
+	   Giá trị loại SCC
+	   =================================
+	   PA0HZP SCC thẻ PA0HZP
+	   Thẻ EAGLE EAGLE
+	   Thẻ PC100 PC100
+	   Thẻ PRIMUS-PC (DG9BL) PRIMUS
+	   Thẻ BayCom (U)SCC BAYCOM
+	   =================================
+
+thoát khỏi
+	- nếu bạn muốn hỗ trợ cho chip ESCC (8580, 85180, 85280), hãy đặt
+	  cái này thành "có" (tùy chọn, mặc định là "không")
+
+vectơ
+	- địa chỉ của chốt vectơ (còn gọi là "cổng intack") cho PA0HZP
+	  thẻ. Chỉ có thể có một chốt vectơ cho tất cả các chip!
+	  (tùy chọn, mặc định là 0)
+
+đặc biệt
+	- địa chỉ của thanh ghi chức năng đặc biệt trên một số thẻ.
+	  (tùy chọn, mặc định là 0)
+
+option - Giá trị bạn ghi vào thanh ghi đó (tùy chọn, mặc định là 0)
+
+Bạn có thể chỉ định tối đa bốn chip (8 kênh). Nếu điều này là không đủ,
+chỉ cần thay đổi::
+
+#define MAXSCC 4
+
+tới giá trị cao hơn.
+
+Ví dụ cho BAYCOM USCC:
+----------------------------
+
+::
+
+chip 1
+	data_a 0x300 # data cổng A
+	ctrl_a 0x304 # control cổng A
+	data_b 0x301 # data cổng B
+	ctrl_b 0x305 # control cổng B
+	irq 5 # ZZ0000ZZ Số 5 (#)
+	bo mạch BAYCOM # hardware loại (*)
+	#
+	# ZZ0002ZZ chip 2
+	#
+	chip 2
+	dữ liệu_a 0x302
+	ctrl_a 0x306
+	dữ liệu_b 0x303
+	ctrl_b 0x307
+	bảng BAYCOM
+
+Một ví dụ về thẻ PA0HZP:
+-----------------------------
+
+::
+
+chip 1
+	dữ liệu_a 0x153
+	dữ liệu_b 0x151
+	ctrl_a 0x152
+	ctrl_b 0x150
+	iq 9
+	đồng hồ 4915200
+	bảng PA0HZP
+	vectơ 0x168
+	thoát khỏi
+	#
+	#
+	#
+	chip 2
+	dữ liệu_a 0x157
+	dữ liệu_b 0x155
+	ctrl_a 0x156
+	ctrl_b 0x154
+	iq 9
+	đồng hồ 4915200
+	bảng PA0HZP
+	vectơ 0x168
+	thoát khỏi
+
+DRSI có lẽ sẽ hoạt động với điều này:
+--------------------------------------------
+(thực ra là: hai thẻ DRSI...)
+
+::
+
+chip 1
+	dữ liệu_a 0x303
+	dữ liệu_b 0x301
+	ctrl_a 0x302
+	ctrl_b 0x300
+	iq 7
+	đồng hồ 4915200
+	bảng DRSI
+	thoát khỏi
+	#
+	#
+	#
+	chip 2
+	dữ liệu_a 0x313
+	dữ liệu_b 0x311
+	ctrl_a 0x312
+	ctrl_b 0x310
+	iq 7
+	đồng hồ 4915200
+	bảng DRSI
+	thoát khỏi
+
+Lưu ý rằng bạn không thể sử dụng bộ tạo baudrate tích hợp trên DRSI
+thẻ. Sử dụng "chế độ dpll" cho nguồn đồng hồ (xem bên dưới).
+
+Điều này dựa trên thông tin được cung cấp bởi Mike Bilow (và đã được xác minh
+của Paul Helay)
+
+Tiện ích "gencfg"
+--------------------
+
+Nếu bạn chỉ biết thông số driver PE1CHL cho DOS,
+chạy gencfg. Nó sẽ tạo ra các địa chỉ cổng chính xác (tôi hy vọng).
+Các thông số của nó hoàn toàn giống với những thông số bạn sử dụng với
+lệnh "đính kèm scc" trong mạng, ngoại trừ chuỗi "init" phải
+không xuất hiện. Ví dụ::
+
+gencfg 2 0x150 4 2 0 1 0x168 9 4915200
+
+sẽ in một khung z8530drv.conf để OptoSCC xuất ra.
+
+::
+
+gencfg 2 0x300 2 4 5 -4 0 7 4915200 0x10
+
+thực hiện tương tự với thẻ BAYCOM USCC. Theo tôi thì nó dễ dàng hơn nhiều
+để chỉnh sửa scc_config.h...
+
+
+Cấu hình kênh 1.2.2
+===========================
+
+Định nghĩa kênh được chia thành ba phần phụ cho mỗi phần
+kênh:
+
+Một ví dụ cho scc0::
+
+# ZZ0000ZZ
+
+thiết bị scc0 # the cho các thông số sau
+
+# ZZ0000ZZ / BUFFERS
+
+tốc độ 1200 # the baudrate mặc định
+	nguồn đồng hồ dpll # clock:
+				# 	dpll = hoạt động bán song công bình thường
+				# 	external = MODEM cung cấp đồng hồ Rx/Tx riêng
+				#	divider = sử dụng bộ chia song công hoàn toàn nếu
+				#		   installed (1)
+	chế độ mã hóa nrzi # ZZ0001ZZ
+				#	nrzi = 1k2 MODEM, G3RUH 9k6 MODEM
+				#	nrz = DF9IC 9k6 MODEM
+				#
+	bufsize 384 # size của bộ đệm. Lưu ý rằng điều này phải bao gồm
+				Tiêu đề # the AX.25, không chỉ trường dữ liệu!
+				# (tùy chọn, mặc định là 384)
+
+# ZZ0000ZZ (Lớp 1)
+
+txdelay 36# (xem chương 1.4)
+	kiên trì 64
+	khe 8
+	đuôi 8
+	đầy đủ 0
+	đợi 12
+	phút 3
+	phím tối đa 7
+	nhàn rỗi 3
+	tối đa 120
+	nhóm 0
+	tắt máy
+	bật softdcd
+	trượt đi
+
+Thứ tự WITHIN các phần này không quan trọng. Thứ tự của những điều này
+phần LÀ quan trọng. Các thông số MODEM được thiết lập với thông số đầu tiên
+tham số KISS được công nhận...
+
+Xin lưu ý rằng bạn chỉ có thể khởi tạo bảng một lần sau khi khởi động
+(hoặc insmod). Bạn có thể thay đổi tất cả các tham số ngoại trừ "chế độ" và "đồng hồ"
+sau đó bằng chương trình Sccparam hoặc thông qua KISS. Chỉ để tránh
+lỗ hổng bảo mật...
+
+(1) Bộ chia này thường được gắn trên SCC-PBC (PA0HZP) hay không
+    có mặt ở tất cả (BayCom). Nó phản hồi đầu ra của DPLL
+    (pll kỹ thuật số) như đồng hồ truyền tải. Sử dụng chế độ này mà không có dải phân cách
+    được cài đặt thông thường sẽ dẫn đến việc khóa bộ thu phát cho đến khi
+    maxkey hết hạn --- tất nhiên là không gửi bất cứ thứ gì (hữu ích).
+
+2. Đính kèm kênh bằng phần mềm AX.25 của bạn
+=================================================
+
+2.1 Hạt nhân AX.25
+================
+
+Để thiết lập thiết bị AX.25, bạn chỉ cần gõ::
+
+ifconfig scc0 44.128.1.1 hw ax25 dl0tha-7
+
+Điều này sẽ tạo giao diện mạng với số IP 44.128.20.107
+và tên gọi "dl0tha". Nếu bạn chưa có bất kỳ số IP nào, bạn
+có thể sử dụng bất kỳ mạng 44.128.0.0 nào. Lưu ý rằng bạn không cần
+axattach. Mục đích của axattach (như slattach) là tạo KISS
+thiết bị mạng được liên kết với TTY. Hãy đọc tài liệu của
+ax25-utils và AX.25-HOWTO để tìm hiểu cách đặt tham số của
+hạt nhân AX.25.
+
+2.2 NOS, NET và TFKISS
+=======================
+
+Vì trình điều khiển TTY (còn gọi là mô phỏng KISS TNC) không còn nữa nên bạn cần
+bắt chước hành vi cũ. Chi phí sử dụng các chương trình này là
+rằng bạn có thể cần phải biên dịch hạt nhân AX.25, bất kể
+bạn có thực sự sử dụng nó hay không. Trước tiên hãy thiết lập/etc/ax25/axports của bạn,
+ví dụ::
+
+Cổng 9k6 dl0tha-9 9600 255 4 9600 baud (scc3)
+	axlink dl0tha-15 38400 255 4 Liên kết tới NOS
+
+Bây giờ "ifconfig" thiết bị scc ::
+
+ifconfig scc3 44.128.1.1 hw ax25 dl0tha-9
+
+Bây giờ bạn có thể đính kèm giả TTY::
+
+axattach/dev/ptys0 liên kết axattach
+
+và khởi động NOS của bạn và đính kèm /dev/ptys0 vào đó. Vấn đề là ở chỗ đó
+NOS chỉ có thể truy cập được thông qua việc xử lý thông qua kernel AX.25
+(thảm họa trên kênh được điều khiển DAMA). Để giải quyết vấn đề này,
+định cấu hình "rxecho" để lặp lại các khung hình đến từ "9k6" đến "axlink"
+và các khung gửi đi từ "axlink" đến "9k6" và bắt đầu::
+
+rxecho
+
+Hoặc đơn giản là sử dụng "kissbridge" đi kèm với z8530drv-utils::
+
+ifconfig scc3 hw ax25 dl0tha-9
+	nụ hôn scc3/dev/ptys0
+
+
+3. Điều chỉnh và hiển thị các thông số
+=======================================
+
+3.1 Hiển thị thông số SCC:
+==============================
+
+Khi kênh SCC đã được gắn vào, cài đặt thông số và
+một số thông tin thống kê có thể được hiển thị bằng chương trình param ::
+
+dl1bke-u:~$ sccstat scc0
+
+Thông số:
+
+tốc độ: 1200 baud
+	txdelay : 36
+	tồn tại: 255
+	thời gian trống : 0
+	đuôi văn bản : 8
+	đầy đủ : 1
+	thời gian chờ: 12
+	thời gian tối thiểu: 3 giây
+	maxkeyup: 7 giây
+	thời gian rảnh: 3 giây
+	maxdefer : 120 giây
+	nhóm: 0x00
+	txoff : tắt
+	softdcd : đang bật
+	SLIP: tắt
+
+Trạng thái:
+
+HDLC Z8530 Bộ đệm ngắt
+	-----------------------------------------------------------------------
+	Đã gửi : 273 RxOver : 0 RxInts : 125074 Kích thước : 384
+	Đã nhận : 1095 TxUnder: 0 TxInts : 4684 NoSpace : 0
+	RxErrors: 1591 ExInts: 11776
+	TxErrors : 0 SpInt : 1503
+	Trạng thái Tx: nhàn rỗi
+
+
+Thông tin trạng thái được hiển thị là:
+
+==================================================================================
+Đã gửi số khung được truyền
+Đã nhận được số lượng khung hình nhận được
+Số lỗi nhận RxErrors (CRC, ABORT)
+TxErrors số khung Tx bị loại bỏ (vì nhiều lý do)
+Trạng thái trạng thái Tx của trình xử lý ngắt Tx: nhàn rỗi/bận/hoạt động/đuôi (2)
+Số lượng máy thu RxOver vượt quá
+TxUnder số lượng máy phát bị lỗi
+RxInts số lần ngắt máy thu
+TxInts số lần ngắt máy phát
+Số lượng EpInt của các ngắt điều kiện đặc biệt của máy thu
+SpInt số lượng ngắt bên ngoài/trạng thái
+Kích thước Kích thước tối đa của khung AX.25 (tiêu đề ZZ0000ZZ AX.25!)
+NoSpace số lần bộ đệm không thể được phân bổ
+==================================================================================
+
+Một sự vượt qua là bất thường. Nếu nhiều điều này xảy ra, sản phẩm của
+tốc độ baud và số lượng giao diện quá cao để xử lý
+sức mạnh của máy tính của bạn. Lỗi NoSpace khó có thể xảy ra do
+trình điều khiển hoặc hạt nhân AX.25.
+
+
+3.2 Cài đặt thông số
+======================
+
+
+Việc cài đặt các tham số của KISS TNC mô phỏng được thực hiện trong
+cách tương tự trong trình điều khiển SCC. Bạn có thể thay đổi tham số bằng cách sử dụng
+chương trình kissparms từ gói ax25-utils hoặc sử dụng chương trình
+"sccparam"::
+
+sccparam <thiết bị> <paramname> <giá trị thập phân-|giá trị thập lục phân>
+
+Bạn có thể thay đổi các thông số sau:
+
+============ =====
+giá trị tham số
+============ =====
+tốc độ 1200
+txdelay 36
+kiên trì 255
+thời gian rãnh 0
+đuôi txt 8
+đầy đủ 1
+thời gian chờ 12
+thời gian tối thiểu 3
+maxkeyup 7
+nhàn rỗi 3
+maxdefer 120
+nhóm 0x00
+tắt máy
+bật softdcd
+SLIP tắt
+============ =====
+
+
+Các thông số có ý nghĩa như sau:
+
+tốc độ:
+     Tốc độ truyền trên kênh này tính bằng bit/giây
+
+Ví dụ: sccparam /dev/scc3 tốc độ 9600
+
+txdelay:
+     Độ trễ (tính bằng đơn vị 10 ms) sau khi gõ phím
+     máy phát cho đến khi byte đầu tiên được gửi đi. Đây thường là
+     được gọi là "TXDELAY" trong TNC.  Khi 0 được chỉ định, trình điều khiển
+     sẽ chỉ đợi cho đến khi tín hiệu CTS được xác nhận. Cái này
+     giả định sự hiện diện của bộ hẹn giờ hoặc mạch điện khác trong
+     MODEM và/hoặc bộ phát, xác nhận CTS khi
+     máy phát đã sẵn sàng cho dữ liệu.
+     Giá trị bình thường của tham số này là 30-36.
+
+Ví dụ: sccparam /dev/scc0 txd 20
+
+kiên trì:
+     Đây là xác suất mà máy phát sẽ bị khóa
+     khi kênh được phát hiện là miễn phí.  Đó là một giá trị từ 0
+     đến 255 và xác suất là (giá trị +1)/256.  giá trị
+     nên ở mức gần 50-60 và nên giảm xuống khi
+     kênh được sử dụng nhiều hơn.
+
+Ví dụ: sccparam /dev/scc2 tồn tại 20
+
+thời gian trống:
+     Đây là thời gian giữa các mẫu của kênh. Đó là
+     được biểu thị bằng đơn vị 10 ms.  Khoảng 200-300 ms (giá trị 20-30)
+     có vẻ là một giá trị tốt.
+
+Ví dụ: sccparam /dev/scc0 slot 20
+
+đuôi:
+     Thời gian máy phát sẽ vẫn được khóa sau lần cuối cùng
+     byte của gói đã được chuyển đến SCC. Đây là
+     cần thiết vì CRC và cờ vẫn phải rời khỏi
+     SCC trước khi nhấn phím phát. Giá trị phụ thuộc
+     trên tốc độ baudrate đã chọn.  Một vài lần ký tự nên được
+     đủ, ví dụ: 40ms ở tốc độ 1200 baud. (giá trị 4)
+     Giá trị của tham số này được tính bằng đơn vị 10 ms.
+
+Ví dụ: sccparam /dev/scc2 4
+
+đầy đủ:
+     Công tắc chế độ song công hoàn toàn. Đây có thể là một trong những điều sau đây
+     giá trị:
+
+0: Giao diện sẽ hoạt động ở chế độ CSMA (bình thường
+	  hoạt động vô tuyến gói bán song công)
+     1: Chế độ Fullduplex, tức là máy phát sẽ được khóa ở chế độ
+	  bất kỳ lúc nào mà không cần kiểm tra nhà cung cấp dịch vụ đã nhận.  Nó
+	  sẽ được mở khóa khi không có gói nào được gửi đi.
+     2: Giống như 1, nhưng bộ phát cũng sẽ vẫn được khóa
+	  khi không có gói nào được gửi đi.  Những lá cờ sẽ được
+	  được gửi trong trường hợp đó, cho đến khi hết thời gian chờ (tham số 10)
+	  xảy ra.
+
+Ví dụ: tắt sccparam /dev/scc0 fulldup
+
+chờ đã:
+     Thời gian chờ ban đầu trước khi thực hiện bất kỳ nỗ lực truyền nào, sau
+     khung đã được xếp hàng để truyền.  Đây là chiều dài của
+     khe đầu tiên ở chế độ CSMA.  Ở chế độ song công hoàn toàn, nó là
+     đặt thành 0 để có hiệu suất tối đa.
+     Giá trị của tham số này được tính bằng đơn vị 10 ms.
+
+Ví dụ: sccparam /dev/scc1 đợi 4
+
+phím tối đa:
+     Thời gian tối đa máy phát sẽ được khóa để gửi
+     gói, tính bằng giây.  Điều này có thể hữu ích trên CSMA bận rộn
+     kênh, để tránh "bị mang tiếng xấu" khi bạn
+     tạo ra rất nhiều lưu lượng truy cập.  Sau thời gian quy định có
+     trôi qua, không có khung mới nào được bắt đầu. Thay vào đó, việc chuyển
+     mitter sẽ được tắt trong một thời gian nhất định (tham số
+     min), sau đó thuật toán được chọn để khóa sẽ là
+     bắt đầu lại.
+     Giá trị 0 cũng như "tắt" sẽ tắt tính năng này,
+     và cho phép thời gian truyền vô hạn.
+
+Ví dụ: sccparam /dev/scc0 maxk 20
+
+phút:
+     Đây là thời điểm máy phát sẽ được tắt khi
+     vượt quá thời gian truyền tối đa.
+
+Ví dụ: sccparam /dev/scc3 phút 10
+
+nhàn rỗi:
+     Tham số này chỉ định thời gian nhàn rỗi tối đa ở chế độ song công hoàn toàn
+     2 chế độ, tính bằng giây.  Khi không có khung nào được gửi cho việc này
+     thời gian, máy phát sẽ được khóa xuống.  Giá trị 0 là
+     có kết quả tương tự như chế độ fullduplex 1. Tham số này
+     có thể bị vô hiệu hóa.
+
+Ví dụ: sccparam /dev/scc2 không hoạt động, tắt # transmit vĩnh viễn
+
+maxdefer
+     Đây là thời gian tối đa (tính bằng giây) để chờ kênh miễn phí
+     để gửi. Khi bộ đếm thời gian này hết hạn, máy phát sẽ được khóa
+     IMMEDIATELY. Nếu bạn thích gặp rắc rối với những người dùng khác, bạn
+     nên đặt giá trị này ở giá trị rất thấp ;-)
+
+Ví dụ: sccparam /dev/scc0 maxdefer 240 # 2 phút
+
+
+xin lỗi:
+     Khi tham số này có giá trị 0, việc truyền gói tin
+     được kích hoạt. Nếu không nó sẽ bị vô hiệu hóa.
+
+Ví dụ: bật sccparam /dev/scc2 txoff
+
+nhóm:
+     Có thể chế tạo thiết bị vô tuyến đặc biệt để sử dụng nhiều hơn
+     một tần số trên cùng một băng tần, ví dụ: sử dụng một số máy thu và
+     chỉ có một máy phát có thể được chuyển đổi giữa các tần số.
+     Ngoài ra, bạn có thể kết nối nhiều đài đang hoạt động trên cùng một
+     ban nhạc.  Trong những trường hợp này, không thể hoặc không phải là một ý tưởng hay để
+     truyền trên nhiều tần số.  Trình điều khiển SCC cung cấp một
+     phương pháp khóa máy phát trên các giao diện khác nhau, sử dụng
+     Lệnh "param <giao diện> nhóm <x>".  Điều này sẽ chỉ hoạt động khi
+     bạn đang sử dụng chế độ CSMA (tham số đầy đủ = 0).
+
+Số <x> phải bằng 0 nếu bạn không muốn hạn chế nhóm và
+     có thể được tính như sau để tạo các nhóm hạn chế:
+     <x> là tổng của một số số OCTAL:
+
+
+=== ============================================================
+     200 Bộ phát này sẽ chỉ được khóa khi tất cả các thiết bị khác
+	  máy phát trong nhóm đã tắt.
+     100 Máy phát này sẽ chỉ được khóa khi nhà cung cấp dịch vụ
+	  phát hiện tất cả các giao diện khác trong nhóm bị tắt.
+     0xx Một byte có thể được sử dụng để xác định các nhóm khác nhau.
+	  Các giao diện nằm trong cùng một nhóm, khi AND logic
+	  giữa các giá trị xx của chúng khác 0.
+     === ============================================================
+
+Ví dụ:
+
+Khi 2 giao diện sử dụng nhóm 201, bộ phát của chúng sẽ không bao giờ
+     được khóa cùng một lúc.
+
+Khi 2 giao diện sử dụng nhóm 101 thì bộ phát sẽ chỉ bấm
+     khi cả hai kênh đều rõ ràng cùng một lúc.  Khi nhóm 301,
+     các máy phát sẽ không được khóa cùng một lúc.
+
+Đừng quên chuyển đổi số bát phân thành số thập phân trước
+     bạn đặt tham số.
+
+Ví dụ: (được viết)
+
+phần mềm:
+     sử dụng dcd phần mềm thay vì dcd thật... Rất hữu ích
+     tiếng kêu chậm rãi.
+
+Ví dụ: bật phần mềm sccparam /dev/scc0
+
+
+4. Vấn đề
+===========
+
+Nếu bạn gặp vấn đề với thẻ BayCom USCC của mình, vui lòng kiểm tra
+nhà sản xuất 8530. Các chip SGS có một chút
+thời điểm khác nhau. Hãy thử Zilog... Một giải pháp là viết vào register 8
+thay vào đó là cổng dữ liệu, nhưng điều này sẽ không hoạt động với chip ESCC.
+ZZ0000ZZ
+
+Một vấn đề rất hay gặp là PTT bị khóa cho đến khi hết thời gian maxkeyup
+hết hạn, mặc dù các ngắt và nguồn đồng hồ là chính xác. Trong hầu hết
+các trường hợp biên dịch trình điều khiển bằng CONFIG_SCC_DELAY (được đặt bằng
+make config) giải quyết được vấn đề. Để biết thêm gợi ý, hãy đọc (giả) FAQ
+và tài liệu đi kèm với z8530drv-utils.
+
+Tôi nhận được báo cáo rằng trình điều khiển có vấn đề trên một số hệ thống dựa trên 386.
+(tức là Amstrad) Những hệ thống đó có thời gian bus AT giả sẽ
+dẫn đến câu trả lời bị trì hoãn khi bị gián đoạn. Bạn có thể nhận ra những điều này
+vấn đề bằng cách xem xét kết quả đầu ra của Sccstat để tìm ra nghi ngờ
+cổng. Nếu nó hiển thị dưới mức và vượt mức thì bạn sở hữu một hệ thống như vậy.
+
+Trì hoãn xử lý dữ liệu nhận được: Điều này phụ thuộc vào
+
+- phiên bản hạt nhân
+
+- hồ sơ hạt nhân được biên dịch hay không
+
+- tải ngắt cao
+
+- máy chịu tải cao --- chạy X, Xmorph, XV và Povray,
+  trong khi biên dịch kernel... hmm ... thậm chí với 32 MB RAM ... ;-)
+  Hoặc chạy tên miền được đặt tên cho toàn bộ miền .ampr.org trên 8 MB
+  hộp...
+
+- sử dụng thông tin từ rxecho hoặc kissbridge.
+
+Sự hoảng loạn của hạt nhân: vui lòng đọc /linux/README và tìm hiểu xem nó có
+thực sự xảy ra trong trình điều khiển scc.
+
+Nếu bạn không thể giải quyết vấn đề, hãy gửi cho tôi
+
+- mô tả vấn đề,
+- thông tin về phần cứng của bạn (hệ thống máy tính, bo mạch scc, modem)
+- phiên bản hạt nhân của bạn
+- đầu ra của cat /proc/net/z8530
+
+4. Thor RLC100
+==============
+
+Điều kỳ lạ là bảng này dường như không hoạt động với trình điều khiển. Bất cứ ai
+đã thiết lập và chạy nó chưa?
+
+
+Rất cám ơn Linus Torvalds và Alan Cox đã bao gồm cả người lái xe
+trong bản phân phối tiêu chuẩn Linux và sự hỗ trợ của chúng.
+
+::
+
+Joerg Reuter ampr-net: dl1bke@db0pra.ampr.org
+			AX-25 : DL1BKE @ DB0ABH.#ZZ0003ZZ.DEU.EU
+			Internet: jreuter@yaina.de
+			WWW : ZZ0000ZZ

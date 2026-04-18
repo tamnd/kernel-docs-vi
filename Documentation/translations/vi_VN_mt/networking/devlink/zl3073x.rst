@@ -1,0 +1,77 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/devlink/zl3073x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==========================
+hỗ trợ liên kết phát triển zl3073x
+=======================
+
+Tài liệu này mô tả các tính năng của devlink được ZZ0000ZZ triển khai
+trình điều khiển thiết bị.
+
+Thông số
+==========
+
+.. list-table:: Generic parameters implemented
+   :widths: 5 5 90
+
+   * - Name
+     - Mode
+     - Notes
+   * - ``clock_id``
+     - driverinit
+     - Set the clock ID that is used by the driver for registering DPLL devices
+       and pins.
+
+Phiên bản thông tin
+=============
+
+Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
+
+.. list-table:: devlink info versions implemented
+    :widths: 5 5 5 90
+
+    * - Name
+      - Type
+      - Example
+      - Description
+    * - ``asic.id``
+      - fixed
+      - 1E94
+      - Chip identification number
+    * - ``asic.rev``
+      - fixed
+      - 300
+      - Chip revision number
+    * - ``fw``
+      - running
+      - 7006
+      - Firmware version number
+    * - ``custom_cfg``
+      - running
+      - 1.3.0.1
+      - Device configuration version customized by OEM
+
+Cập nhật nhanh
+============
+
+Trình điều khiển ZZ0000ZZ triển khai hỗ trợ cập nhật flash bằng cách sử dụng
+Giao diện ZZ0001ZZ. Nó hỗ trợ cập nhật flash thiết bị bằng cách sử dụng
+hình ảnh flash kết hợp ("gói") có chứa nhiều thành phần (chương trình cơ sở
+các bộ phận và cấu hình).
+
+Trong quá trình flash, giao diện phần sụn tiêu chuẩn không khả dụng,
+vì vậy trình điều khiển hủy đăng ký tất cả DPLL và các chân liên quan rồi đăng ký lại chúng
+khi quá trình flash hoàn tất.
+
+Trình điều khiển không hỗ trợ bất kỳ cờ mặt nạ ghi đè nào.

@@ -1,0 +1,127 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83793.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83793
+====================
+
+Chip được hỗ trợ:
+
+* Winbond W83793G/W83793R
+
+Tiền tố: 'w83793'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: Vẫn chưa được công bố
+
+tác giả:
+    - Yuan Mu (Điện tử Winbond)
+    - Rudolf Marek <r.marek@assembler.cz>
+
+
+Thông số mô-đun
+-----------------
+
+* đặt lại int
+    (mặc định 0)
+
+Thông số này không được khuyến khích, nó sẽ làm mất đặc tính bo mạch chủ
+    cài đặt. Sử dụng 'reset=1' để đặt lại chip khi tải mô-đun này.
+
+* Force_subclients=bus,caddr,saddr1,saddr2
+    Điều này được sử dụng để buộc các địa chỉ i2c cho các máy khách phụ của
+    một con chip nhất định. Cách sử dụng điển hình là ZZ0000ZZ
+    để buộc các máy khách con của chip 0x2f trên địa chỉ bus 0 đến i2c
+    0x4a và 0x4b.
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip Winbond W83793G/W83793R.
+
+* Tính năng đã xuất
+    Trình điều khiển này xuất 10 cảm biến điện áp, tối đa 12 đầu vào máy đo tốc độ quạt,
+    6 nhiệt độ từ xa, tối đa 8 bộ điều khiển quạt PWM, SmartFan
+    (điều khiển tốc độ quạt tự động) trên tất cả các kết hợp nhiệt độ/PWM, 2
+    bộ đầu vào CPU VID 6 chân.
+
+* Độ phân giải cảm biến
+    Nếu nhà sản xuất bo mạch chủ của bạn sử dụng thiết kế tham chiếu, độ phân giải của
+    điện áp0-2 là 2mV, độ phân giải của điện áp3/4/5 là 16mV, 8mV cho điện áp6,
+    24mV cho điện áp7/8. Temp1-4 có độ phân giải 0,25 độ C,
+    temp5-6 có độ phân giải 1 độ C.
+
+* Các loại cảm biến nhiệt độ
+    Temp1-4 có 2 loại có thể. Nó có thể được đọc từ (và ghi vào)
+    nhiệt độ [1-4]_type.
+
+- Nếu giá trị là 3, nó bắt đầu giám sát bằng diode đầu cuối từ xa
+      (mặc định).
+    - Nếu giá trị là 6, nó bắt đầu giám sát bằng cảm biến nhiệt độ
+      trong Intel CPU và nhận kết quả bằng PECI.
+
+Temp5-6 có thể được kết nối với nhiệt điện trở bên ngoài (giá trị của
+    temp[5-6]_type là 4).
+
+* Cơ chế báo động
+    Đối với cảm biến điện áp, cảnh báo sẽ kích hoạt nếu giá trị đo được dưới mức
+    giới hạn điện áp thấp hoặc vượt quá giới hạn điện áp cao.
+    Đối với cảm biến nhiệt độ, cảnh báo sẽ kích hoạt nếu giá trị đo được vượt quá
+    trên giới hạn nhiệt độ cao và chỉ biến mất sau khi đo
+    giá trị giảm xuống dưới giá trị trễ.
+    Đối với cảm biến quạt, cảnh báo sẽ kích hoạt nếu giá trị đo được dưới mức
+    giới hạn tốc độ thấp.
+
+* Điều khiển SmartFan/PWM
+    Nếu bạn muốn đặt quạt pwm ở chế độ thủ công, bạn chỉ cần đảm bảo rằng
+    không được kiểm soát bởi bất kỳ kênh tạm thời nào, ví dụ: bạn muốn đặt fan1
+    sang chế độ thủ công, bạn cần kiểm tra giá trị của temp[1-6]_fan_map, thực hiện
+    chắc chắn bit 0 sẽ bị xóa trong 6 giá trị. Và sau đó đặt giá trị pwm1 thành
+    điều khiển quạt.
+
+Mỗi kênh nhiệt độ có thể điều khiển tất cả 8 đầu ra PWM (bằng cách cài đặt
+    bit tương ứng trong tempX_fan_map), bạn có thể đặt kênh nhiệt độ
+    chế độ sử dụng temp[1-6]_pwm_enable, 2 là chế độ Thermal Cruise và 3
+    là chế độ SmartFanII. Các kênh nhiệt độ sẽ cố gắng tăng tốc hoặc
+    làm chậm tất cả các quạt được điều khiển, điều này có nghĩa là một quạt có thể nhận được tín hiệu khác nhau
+    Yêu cầu giá trị PWM từ các kênh nhiệt độ khác nhau, nhưng chip
+    sẽ luôn chọn giá trị PWM (tối đa) an toàn nhất cho mỗi quạt.
+
+Ở chế độ Thermal Cruise, chip cố gắng giữ nhiệt độ ở mức
+    giá trị được xác định trước, trong phạm vi dung sai. Vì vậy nếu tempX_input >
+    Thermal_cruiseX + Dung saiX, chip sẽ tăng giá trị PWM,
+    nếu tempX_input < Thermal_cruiseX - Dung saiX thì chip sẽ giảm
+    giá trị PWM. Nếu nhiệt độ nằm trong phạm vi dung sai, PWM
+    giá trị được giữ nguyên không thay đổi.
+
+SmartFanII hoạt động khác, bạn phải xác định tới 7 PWM, nhiệt độ
+    điểm ngắt, xác định đường cong PWM/nhiệt độ mà chip sẽ tuân theo.
+    Mặc dù về cơ bản không khác biệt với chế độ Du lịch bằng nhiệt, nhưng
+    việc triển khai khá khác nhau, mang lại cho bạn khả năng kiểm soát chi tiết hơn.
+
+* Khung xe
+    Nếu kích hoạt cảnh báo mở trường hợp, nó sẽ ở trạng thái này trừ khi được xóa
+    bằng cách ghi 0 vào tệp sysfs "intrusion0_alarm".
+
+* VID và VRM
+    Phiên bản VRM được phát hiện tự động, không sửa đổi nó trừ khi bạn
+    ZZ0000ZZ biết phiên bản CPU VRM và nó không được phát hiện đúng cách.
+
+
+Ghi chú
+-----
+
+Chỉ Fan1-5 và PWM1-3 được đảm bảo luôn tồn tại, các đầu vào quạt khác và
+  Đầu ra PWM có thể tồn tại hoặc không tồn tại tùy thuộc vào cấu hình chân chip.

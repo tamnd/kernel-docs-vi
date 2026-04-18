@@ -1,0 +1,115 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tmp513.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tmp513
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas TMP512
+
+Tiền tố: 'tmp512'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP513
+
+Tiền tố: 'tmp513'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+
+Eric Tremblay <etremblay@distech-controls.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Texas Instruments TMP512 và TMP513.
+TMP512 (kênh đôi) và TMP513 (kênh ba) là màn hình hệ thống
+bao gồm cảm biến từ xa, cảm biến nhiệt độ cục bộ và dòng điện phía cao
+màn hình shunt. Những màn hình hệ thống này có khả năng đo từ xa
+nhiệt độ, nhiệt độ trên chip và điện áp/nguồn/dòng điện hệ thống
+tiêu thụ.
+
+Nhiệt độ được đo bằng độ C với khoảng nhiệt độ
+-40 đến +125 độ với độ phân giải 0,0625 độ C.
+
+Đối với giá trị trễ, chỉ kênh đầu tiên có thể ghi được. Viết cho nó
+sẽ ảnh hưởng đến tất cả các giá trị khác vì mỗi kênh đều có chung
+giá trị trễ. Độ trễ được tính bằng độ C với phạm vi
+0 đến 127,5 độ với độ phân giải 0,5 độ.
+
+Trình điều khiển xuất các giá trị nhiệt độ qua các tệp sysfs sau:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển đọc điện áp shunt từ chip và chuyển đổi nó thành dòng điện.
+Phạm vi có thể đọc được phụ thuộc vào thuộc tính "ti,pga-gain" (mặc định là 8) và
+giá trị điện trở shunt. Độ phân giải giá trị sẽ bằng 10uV/Rshunt.
+
+Trình điều khiển xuất các giá trị dòng điện song song qua các tệp sysFs sau:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Dải điện áp bus được đọc từ chip với độ phân giải 4mV. Con chip
+có thể được cấu hình ở hai phạm vi khác nhau (32V hoặc 16V) bằng cách sử dụng
+thuộc tính ti,bus-range-microvolt trong cây thiết bị.
+
+Trình điều khiển xuất các giá trị điện áp bus thông qua các tệp sysFs sau:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Phạm vi và độ phân giải của dòng điện và dòng điện bus phụ thuộc vào việc hiệu chuẩn
+giá trị đăng ký. Những giá trị đó được tính toán bằng phần cứng bằng cách sử dụng những giá trị đó
+công thức:
+
+Hiện tại = (ShuntVoltage * CalibrationRegister) / 4096
+Công suất = (Hiện tại * Điện áp Bus) / 5000
+
+Trình điều khiển xuất các giá trị dòng điện và công suất bus thông qua các mục sau
+tập tin sysFs:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Quá trình hiệu chuẩn theo đúng quy trình của datasheet (không tràn)
+và phụ thuộc vào giá trị điện trở shunt và giá trị pga_gain.

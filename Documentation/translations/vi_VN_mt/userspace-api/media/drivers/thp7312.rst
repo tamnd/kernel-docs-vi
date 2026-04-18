@@ -1,0 +1,51 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/userspace-api/media/drivers/thp7312.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển THP7312 ISP của bạn
+========================
+
+Trình điều khiển THP7312 thực hiện các điều khiển dành riêng cho trình điều khiển sau:
+
+ZZ0000ZZ
+    Bật/Tắt tính năng tự động điều chỉnh khung hình dựa trên điều kiện ánh sáng
+    tốc độ khi bật chế độ tự động phơi sáng.
+
+ZZ0000ZZ
+    Đặt phương pháp lấy nét tự động. Chỉ có hiệu lực khi bật tính năng tự động lấy nét.
+
+    .. flat-table::
+        :header-rows:  0
+        :stub-columns: 0
+        :widths:       1 4
+
+        * - ``0``
+          - Contrast-based auto-focus
+        * - ``1``
+          - PDAF
+        * - ``2``
+          - Hybrid of contrast-based and PDAF
+
+Các giá trị được hỗ trợ cho điều khiển tùy thuộc vào mô-đun cảm biến máy ảnh
+    được kết nối với THP7312. Nếu mô-đun không có bộ truyền động thấu kính lấy nét,
+    trình điều khiển THP7312 sẽ không hiển thị điều khiển này. Nếu mô-đun có
+    ống kính lấy nét có thể điều khiển được nhưng cảm biến không hỗ trợ PDAF, chỉ có
+    giá trị lấy nét tự động dựa trên độ tương phản sẽ hợp lệ. Ngược lại tất cả các giá trị cho
+    điều khiển sẽ được hỗ trợ.
+
+ZZ0000ZZ
+    Bật/Tắt chức năng giảm tiếng ồn tự động.
+
+ZZ0000ZZ
+    Đặt cường độ giảm nhiễu, trong đó 0 là yếu nhất và 10 là
+    mạnh nhất.

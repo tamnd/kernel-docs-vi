@@ -1,0 +1,160 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad4062.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD4062
+=============
+
+Trình điều khiển ADC cho các thiết bị Analog Devices Inc. AD4060/AD4062. Tên mô-đun là
+ZZ0000ZZ.
+
+Thiết bị được hỗ trợ
+=================
+
+Các chip sau được hỗ trợ bởi trình điều khiển này:
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+
+Chế độ nối dây
+============
+
+ADC được giao tiếp thông qua bus I3C và chứa hai GPIO có thể lập trình.
+
+Quá trình bắt đầu chuyển đổi ADC xảy ra ở cạnh tăng SDA của bit dừng (P) I3C
+ở cuối lệnh đọc.
+
+Hai GPIOS có thể lập trình là tùy chọn và có vai trò được chỉ định nếu có trong
+thuộc tính devicetree ZZ0000ZZ:
+
+- GP0: Được giao vai trò tín hiệu Ngưỡng Hoặc.
+- GP1: Được giao vai trò tín hiệu Data Ready.
+
+Nếu thuộc tính ZZ0000ZZ có trong cây thiết bị thì GPO
+không có trong ZZ0001ZZ được hiển thị dưới dạng GPO.
+
+Thuộc tính thiết bị
+=================
+
+ADC chỉ chứa một kênh có các thuộc tính sau:
+
+.. list-table:: Channel attributes
+   :header-rows: 1
+
+   * - Attribute
+     - Description
+   * - ``in_voltage_calibscale``
+     - Sets the gain scaling factor that the hardware applies to the sample,
+       to compensate for system gain error.
+   * - ``in_voltage_oversampling_ratio``
+     - Sets device's burst averaging mode to over sample using the
+       internal sample rate. Value 1 disable the burst averaging mode.
+   * - ``in_voltage_oversampling_ratio_available``
+     - List of available oversampling values.
+   * - ``in_voltage_raw``
+     - Returns the raw ADC voltage value.
+   * - ``in_voltage_scale``
+     - Returns the channel scale in reference to the reference voltage
+       ``ref-supply`` or ``vdd-supply`` if the former not present.
+
+Cũng chứa các thuộc tính thiết bị sau:
+
+.. list-table:: Device attributes
+   :header-rows: 1
+
+   * - Attribute
+     - Description
+   * - ``sampling_frequency``
+     - Sets the duration of a single scan, used in the burst averaging mode.
+       The duration is described by ``(n_avg - 1) / fosc + tconv``, where
+       ``n_avg`` is the oversampling ratio, ``fosc`` is the internal sample
+       rate and ``tconv`` is the ADC conversion time.
+   * - ``sampling_frequency_available``
+     - Lists the available sampling frequencies, computed on the current
+       oversampling ratio. If the ratio is 1, the frequency is ``1/tconv``.
+
+Ngắt
+==========
+
+Các ngắt được ánh xạ thông qua ZZ0000ZZ và ZZ0001ZZ
+tài sản.
+
+Mục nhập ZZ0000ZZ ZZ0001ZZ đặt vai trò của tín hiệu Ngưỡng và
+mục ZZ0002ZZ vai trò của tín hiệu Dữ liệu sẵn sàng.
+
+Nếu mỗi cái không xuất hiện, trình điều khiển dự phòng sẽ kích hoạt vai trò tương tự như một
+I3C IBI.
+
+Chế độ năng lượng thấp
+==============
+
+Thiết bị chuyển sang chế độ năng lượng thấp khi không hoạt động để tiết kiệm điện. Kích hoạt một sự kiện đặt
+thiết bị hết năng lượng vì ADC tự động lấy mẫu để khẳng định
+điều kiện sự kiện.
+
+Hỗ trợ kích hoạt IIO
+===================
+
+Trình kích hoạt IIO ZZ0000ZZ được trình điều khiển đăng ký để sử dụng bởi
+cùng một thiết bị, để chụp mẫu vào bộ đệm phần mềm. Cần phải đính kèm
+kích hoạt thiết bị bằng cách cài đặt ZZ0001ZZ trước khi bật
+và đọc bộ đệm.
+
+Việc thu thập diễn ra tuần tự và bị giới hạn bởi thời gian của giao thức, phần mềm
+độ trễ và thời gian nội bộ, tốc độ mẫu không thể cấu hình được. Vụ nổ
+chế độ lấy trung bình có ảnh hưởng đến tốc độ lấy mẫu hiệu quả vì nó làm tăng
+thời gian nội bộ để xuất ra một mẫu duy nhất.
+
+Ngưỡng sự kiện
+================
+
+ADC hỗ trợ chế độ giám sát để nâng cao các sự kiện ngưỡng. Người lái xe
+hỗ trợ một ngắt duy nhất cho cả số đọc tăng và giảm.
+
+Tính năng này được bật/tắt bằng cách cài đặt ZZ0000ZZ. Trong quá trình theo dõi
+chế độ, thiết bị hoạt động liên tục ở chế độ tự động. Mọi quyền truy cập đăng ký
+đưa thiết bị trở lại chế độ cấu hình, do đó, mọi quyền truy cập sẽ bị vô hiệu hóa
+chế độ giám sát.
+
+Các thuộc tính sự kiện sau đây có sẵn:
+
+.. list-table:: Event attributes
+   :header-rows: 1
+
+   * - Attribute
+     - Description
+   * - ``sampling_frequency``
+     - Frequency used in the monitoring mode, sets the device internal sample
+       rate when the mode is activated.
+   * - ``sampling_frequency_available``
+     - List of available sample rates.
+   * - ``thresh_either_en``
+     - Enable monitoring mode.
+   * - ``thresh_falling_hysteresis``
+     - Set the hysteresis value for the minimum threshold.
+   * - ``thresh_falling_value``
+     - Set the minimum threshold value.
+   * - ``thresh_rising_hysteresis``
+     - Set the hysteresis value for the maximum threshold.
+   * - ``thresh_rising_value``
+     - Set the maximum threshold value.
+
+Hỗ trợ bộ điều khiển GPO
+======================
+
+Thiết bị hỗ trợ sử dụng GP0 và GP1 làm GPO. Nếu cây thiết bị chứa
+nút ZZ0000ZZ`, thiết bị được đánh dấu là bộ điều khiển GPIO và
+Các GP không được liệt kê trong ZZ0001ZZ sẽ được hiển thị dưới dạng GPO. Chỉ số GPIO
+khớp với tên pin, vì vậy nếu GP0 không bị lộ nhưng GP1 thì lộ ra, chỉ số 0 sẽ bị che
+out và chỉ có thể đặt chỉ mục 1.

@@ -1,0 +1,106 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/scsi/g_NCR5380.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+==================
+trình điều khiển g_NCR5380
+================
+
+Bản quyền ZZ0000ZZ 1993 Drew Eckhard
+
+Tiện ích mở rộng NCR53c400 Bản quyền ZZ0000ZZ 1994,1995,1996 Kevin Lentin
+
+Tệp này ghi lại các phần mở rộng NCR53c400 của Kevin Lentin và một số
+cải tiến cho lõi NCR5380.
+
+Trình điều khiển này hỗ trợ NCR5380 và NCR53c400 và các thẻ tương thích ở cổng hoặc
+chế độ ánh xạ bộ nhớ.
+
+Nên sử dụng ngắt nếu được bo mạch hỗ trợ vì điều này sẽ
+cho phép các mục tiêu ngắt kết nối và từ đó cải thiện việc sử dụng bus SCSI.
+
+Nếu tham số irq là 254 hoặc bị bỏ qua hoàn toàn, trình điều khiển sẽ thăm dò
+tự động tìm đúng dòng IRQ. Nếu tham số irq là 0 hoặc 255
+thì IRQ sẽ không được sử dụng.
+
+NCR53c400 không hỗ trợ DMA nhưng nó có Pseudo-DMA
+được tài xế hỗ trợ.
+
+Trình điều khiển này cung cấp một số thông tin về những gì nó đã phát hiện được trong
+/proc/scsi/g_NCR5380/x trong đó x là số thẻ scsi được phát hiện khi khởi động
+thời gian. Thêm thông tin sẽ đến trong tương lai.
+
+Trình điều khiển này hoạt động như một mô-đun.
+Khi được đưa vào dưới dạng một mô-đun, các tham số có thể được truyền trên insmod/modprobe
+dòng lệnh:
+
+============== =====================================================================
+  irq=xx[,...] các ngắt
+  base=xx[,...] cổng hoặc địa chỉ cơ sở (đối với cổng hoặc bộ nhớ được ánh xạ, tương ứng)
+  card=xx[,...] loại thẻ:
+
+===========================================
+		0 NCR5380,
+		1 NCR53C400,
+		2 NCR53C400A,
+		3 Tập đoàn Công nghệ Domex 3181E (DTC3181E)
+		4 Hewlett Packard C2502
+		===========================================
+  ============== =====================================================================
+
+Các tham số kiểu cũ này chỉ có thể hỗ trợ một thẻ:
+
+====================================================================
+  ncr_irq=xx ngắt
+  ncr_addr=xx địa chỉ cổng hoặc cơ sở (đối với cổng hoặc bộ nhớ
+                được ánh xạ, tương ứng.)
+  ncr_5380=1 để thiết lập cho bảng NCR5380
+  ncr_53c400=1 để thiết lập cho bảng NCR53C400
+  ncr_53c400a=1 để thiết lập cho bảng NCR53C400A
+  dtc_3181e=1 để thiết lập cho bo mạch Domex Technology Corp 3181E
+  hp_c2502=1 để thiết lập cho bo mạch Hewlett Packard C2502
+  ====================================================================
+
+Ví dụ. Trantor T130B ở cấu hình mặc định::
+
+modprobe g_NCR5380 irq=5 cơ sở=0x350 thẻ=1
+
+hoặc cách khác, sử dụng cú pháp cũ ::
+
+modprobe g_NCR5380 ncr_irq=5 ncr_addr=0x350 ncr_53c400=1
+
+Ví dụ. một cổng được ánh xạ bảng NCR5380, trình điều khiển để thăm dò IRQ::
+
+modprobe g_NCR5380 cơ sở=0x350 thẻ=0
+
+hoặc cách khác::
+
+modprobe g_NCR5380 ncr_addr=0x350 ncr_5380=1
+
+Ví dụ. bảng NCR53C400 được ánh xạ bộ nhớ không có IRQ::
+
+modprobe g_NCR5380 irq=255 cơ sở=0xc8000 thẻ=1
+
+hoặc cách khác::
+
+modprobe g_NCR5380 ncr_irq=255 ncr_addr=0xc8000 ncr_53c400=1
+
+Ví dụ. hai thẻ, DTC3181 (ở chế độ không PnP) ở 0x240 không có IRQ
+và HP C2502 ở 0x300 với IRQ 7::
+
+modprobe g_NCR5380 irq=0,7 cơ sở=0x240,0x300 thẻ=3,4
+
+Kevin Lentin
+K.Lentin@cs.monash.edu.au

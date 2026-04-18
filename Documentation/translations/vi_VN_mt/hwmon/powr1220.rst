@@ -1,0 +1,67 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/powr1220.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân power1220
+======================
+
+Chip được hỗ trợ:
+
+* Lưới POWR1220AT8
+
+Tiền tố: 'powr1220'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Lattice
+
+ZZ0000ZZ
+
+Tác giả: Scott Kanowitz <scott.kanowitz@gmail.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ chip Lattice POWR1220AT8. POWR1220
+bao gồm giám sát điện áp cho 14 đầu vào cũng như cài đặt cắt
+cho điện áp đầu ra và GPIO. Trình điều khiển này thực hiện điện áp
+phần giám sát của chip.
+
+Điện áp được lấy mẫu bằng ADC 12 bit với kích thước bước là 2 mV.
+Bộ suy giảm nội tuyến cho phép đo từ 0 đến 6 V.
+bộ suy giảm được bật hoặc tắt tùy thuộc vào cài đặt của
+giá trị tối đa của đầu vào. Trình điều khiển sẽ kích hoạt bộ suy giảm cho bất kỳ
+giá trị trên phạm vi đo thấp tối đa là 2 V.
+
+Quy ước đặt tên đầu vào như sau:
+
+=============== ========
+tên pin tên tài xế
+=============== ========
+in0 VMON1
+in1 VMON2
+in2 VMON3
+in2 VMON4
+in4 VMON5
+in5 VMON6
+in6 VMON7
+in7 VMON8
+in8 VMON9
+in9 VMON10
+in10 VMON11
+in11 VMON12
+in12 VCCA
+in13 VCCINP
+=============== ========
+
+Số đọc ADC được cập nhật theo yêu cầu với thời gian tối thiểu là 1 giây.

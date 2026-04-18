@@ -1,0 +1,90 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tmp421.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tmp421
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas TMP421
+
+Tiền tố: 'tmp421'
+
+Địa chỉ được quét: I2C 0x2a, 0x4c, 0x4d, 0x4e và 0x4f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP422
+
+Tiền tố: 'tmp422'
+
+Địa chỉ được quét: I2C 0x4c, 0x4d, 0x4e và 0x4f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP423
+
+Tiền tố: 'tmp423'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP441
+
+Tiền tố: 'tmp441'
+
+Địa chỉ được quét: I2C 0x2a, 0x4c, 0x4d, 0x4e và 0x4f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP442
+
+Tiền tố: 'tmp442'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+
+Andre Prendel <andre.prendel@gmx.de>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Texas Instruments TMP421, TMP422,
+Chip cảm biến nhiệt độ TMP423, TMP441 và TMP442. Những con chip này
+triển khai một cục bộ và tối đa một (TMP421, TMP441), tối đa hai (TMP422,
+TMP442) hoặc tối đa ba cảm biến từ xa (TMP423). Nhiệt độ được đo
+tính bằng độ C. Các chip được nối dây qua I2C/SMBus và được chỉ định
+trong khoảng nhiệt độ từ -40 đến +125 độ C. Độ phân giải
+đối với cả kênh cục bộ và kênh từ xa là 0,0625 độ C.
+
+Các chip chỉ hỗ trợ đo nhiệt độ. Trình điều khiển xuất khẩu
+các giá trị nhiệt độ thông qua các tệp sysfs sau:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Mỗi cảm biến có thể bị vô hiệu hóa riêng lẻ thông qua Devicetree hoặc từ sysfs
+thông qua:
+
+ZZ0000ZZ
+
+Nếu nhãn được chỉ định trong Devicetree, các tệp sysfs bổ sung sẽ
+có mặt:
+
+ZZ0000ZZ

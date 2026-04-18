@@ -1,0 +1,59 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/i2c/busses/i2c-ali1535.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===========================
+Trình điều khiển hạt nhân i2c-ali1535
+=========================
+
+Bộ điều hợp được hỗ trợ:
+  * Acer Labs, Inc. ALI 1535 (cầu phía nam)
+
+Bảng dữ liệu: Hiện thuộc NDA
+	ZZ0000ZZ
+
+tác giả:
+	- Frodo Looijaard <frodol@dds.nl>,
+	- Philip Edelbrock <phil@netroedge.com>,
+	- Mark D. Studebaker <mdsxyz123@yahoo.com>,
+	- Dan Eaton <dan.eaton@rocketlogix.com>,
+	- Stephen Rousset<stephen.rousset@rocketlogix.com>
+
+Sự miêu tả
+-----------
+
+Đây là trình điều khiển cho Bộ điều khiển máy chủ SMB trên Acer Labs Inc. (ALI)
+Cầu Nam M1535.
+
+M1535 là cầu nối phía Nam dành cho các hệ thống di động. Nó rất giống với
+Cầu Nam M15x3 cũng do Acer Labs Inc. sản xuất. Một số thanh ghi
+trong phần đó đã được di chuyển và một số phần đã được xác định lại một chút.
+Ngoài ra, trình tự của các giao dịch SMBus đã được sửa đổi thành
+phù hợp hơn với trình tự do nhà sản xuất khuyến nghị và
+quan sát được thông qua thử nghiệm.  Những thay đổi này được phản ánh trong trình điều khiển này và
+có thể được xác định bằng cách so sánh trình điều khiển này với trình điều khiển i2c-ali15x3. cho
+tổng quan về các chip này, xem ZZ0000ZZ
+
+Bộ điều khiển SMB là một phần của thiết bị M7101, tương thích với ACPI
+Bộ quản lý nguồn (PMU).
+
+Toàn bộ thiết bị M7101 phải được kích hoạt để SMB hoạt động. bạn không thể
+chỉ cần kích hoạt SMB thôi. SMB và ACPI có không gian I/O riêng biệt.
+Chúng tôi đảm bảo rằng SMB đã được bật. Chúng tôi để ACPI yên.
+
+
+Đặc trưng
+--------
+
+Trình điều khiển này chỉ điều khiển Máy chủ SMB. Trình điều khiển này không sử dụng
+ngắt quãng.

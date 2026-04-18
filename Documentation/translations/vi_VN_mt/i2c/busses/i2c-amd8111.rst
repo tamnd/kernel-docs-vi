@@ -1,0 +1,57 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/i2c/busses/i2c-amd8111.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===========================
+Trình điều khiển hạt nhân i2c-adm8111
+=========================
+
+Bộ điều hợp được hỗ trợ:
+    * Giao diện AMD-8111 SMBus 2.0 PCI
+
+Bảng dữ liệu:
+	Bảng dữ liệu AMD chưa có nhưng hầu hết mọi thứ đều có thể tìm thấy
+	trong thông số kỹ thuật ACPI 2.0 có sẵn công khai, mà bộ chuyển đổi
+	theo sau.
+
+Tác giả: Vojtech Pavlik <vojtech@suse.cz>
+
+Sự miêu tả
+-----------
+
+Nếu bạn thấy một cái gì đó như thế này ::
+
+00:07.2 SMBus: Thiết bị vi mô nâng cao [AMD] AMD-8111 SMBus 2.0 (rev 02)
+          Hệ thống con: Thiết bị vi mô nâng cao [AMD] AMD-8111 SMBus 2.0
+          Cờ: devsel trung bình, IRQ 19
+          Cổng I/O ở d400 [size=32]
+
+trong ZZ0000ZZ của bạn thì trình điều khiển này dành cho chipset của bạn.
+
+Hỗ trợ cuộc gọi quy trình
+--------------------
+
+Được hỗ trợ.
+
+Hỗ trợ SMBus 2.0
+-----------------
+
+Được hỗ trợ. Cả PEC và hỗ trợ cuộc gọi quy trình khối đều được triển khai. nô lệ
+chế độ hoặc thông báo máy chủ chưa được triển khai.
+
+Ghi chú
+-----
+
+Lưu ý rằng đối với 8111, có hai bộ điều hợp SMBus. Bộ chuyển đổi SMBus 2.0
+được hỗ trợ bởi trình điều khiển này và bộ điều hợp SMBus 1.0 được hỗ trợ bởi
+trình điều khiển i2c-amd756.

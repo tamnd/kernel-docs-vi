@@ -1,0 +1,146 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/scsi/53c700.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==========================
+Ghi chú về Trình điều khiển 53c700
+=======================
+
+Mô tả chung
+===================
+
+Trình điều khiển này hỗ trợ chip 53c700 và 53c700-66.  Nó cũng hỗ trợ
+53c710 nhưng chỉ ở chế độ mô phỏng 53c700.  Nó có đầy đủ tính năng và
+không đồng bộ hóa (chỉ -66 và 710), ngắt kết nối và xếp hàng lệnh thẻ.
+
+Vì 53c700 phải được giao tiếp với bus nên bạn cần phải bọc nó
+máy dò thẻ xung quanh trình điều khiển này.  Để biết ví dụ, hãy xem
+Các tệp NCR_D700.[ch] hoặc lasi700.[ch].
+
+Các nhận xét trong tệp 53c700.[ch] cho bạn biết bạn cần phải thực hiện những phần nào
+điền vào để tài xế làm việc.
+
+
+Biên dịch cờ thời gian
+==================
+
+Cờ thời gian biên dịch là::
+
+CONFIG_53C700_LE_ON_BE
+
+xác định xem chipset có phải được hỗ trợ ở chế độ endian nhỏ trên thiết bị lớn hay không
+kiến trúc endian (được sử dụng cho 700 trên Parisc).
+
+
+Sử dụng trình điều khiển lõi chip
+==========================
+
+Để đưa trình điều khiển lõi chip 53c700 vào SCSI đang hoạt động
+lái xe, bạn cần biết ba điều về cách kết nối chip
+vào hệ thống của bạn (hoặc thẻ mở rộng).
+
+1. Tốc độ xung nhịp của lõi SCSI
+2. Đường ngắt được sử dụng
+3. Vị trí bộ nhớ (hoặc không gian io) của các thanh ghi 53c700.
+
+Tùy chọn, bạn cũng có thể cần biết những thứ khác, như cách đọc
+Id SCSI từ bios của thẻ hoặc chip có được nối dây hay không
+hoạt động khác biệt.
+
+Thông thường bạn có thể tìm thấy mục 2. và 3. từ thông số kỹ thuật chung. tài liệu hoặc
+thậm chí bằng cách kiểm tra cấu hình của trình điều khiển đang hoạt động dưới một trình điều khiển khác
+hệ điều hành.
+
+Tốc độ đồng hồ thường được chôn sâu trong tài liệu kỹ thuật.
+Nó là cần thiết vì nó được sử dụng để thiết lập cả hệ thống đồng bộ và
+bộ chia không đồng bộ cho chip.  Theo nguyên tắc chung,
+nhà sản xuất cài đặt tốc độ xung nhịp ở mức thấp nhất có thể
+phù hợp với hoạt động tốt nhất của chip (mặc dù một số chọn
+để lái nó ra khỏi CPU hoặc đồng hồ xe buýt thay vì tốn kém
+của một chip đồng hồ bổ sung).  Tốc độ xung nhịp hoạt động tốt nhất là:
+
+========== =====
+53c700 25 MHz
+53c700-66 50 MHz
+53c710 40 MHz
+========== =====
+
+Viết trình điều khiển keo của bạn
+========================
+
+Đây sẽ là trình điều khiển SCSI tiêu chuẩn (Tôi không biết tài liệu nào hay
+mô tả điều này, chỉ cần sao chép từ một số trình điều khiển khác) với ít nhất một
+phát hiện và giải phóng mục nhập.
+
+Trong quy trình phát hiện, bạn cần phân bổ một cấu trúc
+NCR_700_Host_Parameters định cỡ vùng nhớ và xóa nó (để
+giá trị mặc định cho mọi thứ là 0).  Sau đó bạn phải điền vào
+các thông số quan trọng đối với bạn (xem bên dưới), hãy tìm NCR_700_intr
+thường lệ vào dòng ngắt và gọi NCR_700_ detect với máy chủ
+mẫu và các tham số mới làm đối số.  Bạn cũng nên gọi
+chức năng request_*_zone có liên quan và đặt cơ sở đăng ký
+địa chỉ vào con trỏ 'cơ sở' của các tham số máy chủ.
+
+Trong quy trình phát hành, bạn phải giải phóng NCR_700_Host_Parameters
+bạn đã phân bổ, hãy gọi bản phát hành_*_khu vực tương ứng và giải phóng
+ngắt lời.
+
+Xử lý ngắt
+-------------------
+
+Nói chung, bạn chỉ nên nối đường ngắt của thẻ với
+
+request_irq(irq, NCR_700_intr, <irq flags>, <tên trình điều khiển>, máy chủ);
+
+trong đó máy chủ là kết quả trả về từ quy trình NCR_700_Detect() có liên quan.
+
+Bạn cũng có thể viết thủ tục xử lý ngắt của riêng mình để gọi
+NCR_700_intr() trực tiếp.  Tuy nhiên, bạn chỉ thực sự nên làm điều này nếu
+bạn có một thẻ có nhiều hơn một chip trên đó và bạn có thể đọc một
+đăng ký để cho biết bộ chip nào muốn ngắt.
+
+NCR_700_Host_Parameters có thể cài đặt
+--------------------------------
+
+Sau đây là danh sách các tham số có thể cài đặt của người dùng:
+
+đồng hồ: (MANDATORY)
+  Đặt tốc độ xung nhịp của chip tính bằng MHz.
+
+cơ sở: (MANDATORY)
+  Đặt thành cơ sở của vùng io hoặc mem cho bộ thanh ghi. Trên 64
+  kiến trúc bit này chỉ rộng 32 bit, vì vậy các thanh ghi phải
+  ánh xạ vào 32 bit thấp của bộ nhớ.
+
+pci_dev: (OPTIONAL)
+  Đặt thành thiết bị bảng PCI.  Để lại NULL cho bo mạch không phải pci.  Đây là
+  được sử dụng cho các hàm pci_alloc_consistent() và pci_map_*().
+
+dmode_extra: (chỉ OPTIONAL, 53c710)
+  Cờ bổ sung cho thanh ghi DMODE.  Chúng được sử dụng để điều khiển xe buýt
+  các chân đầu ra trên 710. Các cài đặt phải là sự kết hợp của
+  DMODE_FC1 và DMODE_FC2.  Những gì những chiếc ghim này thực sự làm hoàn toàn phụ thuộc vào
+  cho người thiết kế bảng.  Thông thường, việc bỏ qua cài đặt này là an toàn.
+
+vi sai: (OPTIONAL)
+  Đặt thành 1 nếu chip điều khiển bus vi sai.
+
+Force_le_on_be: (OPTIONAL, chỉ khi CONFIG_53C700_LE_ON_BE được đặt)
+  Đặt thành 1 nếu chip đang hoạt động ở chế độ endian nhỏ trên chip lớn
+  kiến trúc endian
+
+chip710: (OPTIONAL)
+  Đặt thành 1 nếu chip là 53c710.
+
+burst_disable: (chỉ OPTIONAL, 53c710)
+  Tắt tính năng truyền 8 byte đối với chuyển DMA.

@@ -1,0 +1,131 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad7191.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD7191
+=============
+
+Trình điều khiển thiết bị cho Thiết bị Analog AD7191 ADC.
+
+Thiết bị được hỗ trợ
+=================
+
+* ZZ0000ZZ
+
+AD7191 có độ chính xác cao, độ ồn thấp, 24-bit Σ-Δ ADC được tích hợp PGA.
+Nó có hai kênh đầu vào vi sai, một cảm biến nhiệt độ bên trong và
+tốc độ lấy mẫu có thể cấu hình
+
+cây thiết bị
+==========
+
+Cấu hình chân
+-----------------
+
+Trình điều khiển hỗ trợ cả cấu hình được điều khiển bằng chốt và GPIO cho ODR
+Cài đặt (Tốc độ dữ liệu đầu ra) và PGA (Bộ khuếch đại khuếch đại có thể lập trình). Những cái này
+các cấu hình loại trừ lẫn nhau - bạn phải sử dụng dây buộc pin hoặc GPIO
+kiểm soát cho từng cài đặt, không phải cả hai.
+
+Cấu hình ODR
+^^^^^^^^^^^^^^^^^
+
+ODR có thể được cấu hình thông qua điều khiển GPIO hoặc đóng đai pin:
+
+- Khi sử dụng điều khiển GPIO, hãy chỉ định thuộc tính "odr-gpios" trong cây thiết bị
+- Đối với cấu hình được ghim, hãy chỉ định thuộc tính "adi,odr-value" trong
+  cây thiết bị
+
+Cài đặt ODR có sẵn:
+
+- 120 Hz (ODR1=0, ODR2=0)
+  - 60 Hz (ODR1=0, ODR2=1)
+  - 50 Hz (ODR1=1, ODR2=0)
+  - 10 Hz (ODR1=1, ODR2=1)
+
+Cấu hình PGA
+^^^^^^^^^^^^^^^^^
+
+PGA có thể được cấu hình thông qua điều khiển GPIO hoặc đóng đai pin:
+
+- Khi sử dụng điều khiển GPIO, hãy chỉ định thuộc tính "pga-gpios" trong cây thiết bị
+- Đối với cấu hình được gắn dây ghim, hãy chỉ định thuộc tính "adi,pga-value" trong
+  cây thiết bị
+
+Cài đặt khuếch đại PGA có sẵn:
+
+- 1x (PGA1=0, PGA2=0)
+  - 8x (PGA1=0, PGA2=1)
+  - 64x (PGA1=1, PGA2=0)
+  - 128x (PGA1=1, PGA2=1)
+
+Cấu hình đồng hồ
+-------------------
+
+AD7191 hỗ trợ cả nguồn xung nhịp bên trong và bên ngoài:
+
+- Khi chân CLKSEL được buộc LOW: Sử dụng xung nhịp 4,92 MHz bên trong (không có thuộc tính xung nhịp
+  cần thiết)
+- Khi chân CLKSEL được buộc HIGH: Yêu cầu nguồn xung nhịp bên ngoài
+  - Có thể là tinh thể giữa các chân MCLK1 và MCLK2
+  - Hoặc đồng hồ tương thích CMOS điều khiển chân MCLK2
+  - Phải chỉ định thuộc tính "đồng hồ" trong cây thiết bị khi sử dụng đồng hồ bên ngoài
+
+Yêu cầu giao diện SPI
+--------------------------
+
+AD7191 có các yêu cầu giao diện SPI cụ thể:
+
+- Đầu ra DOUT/RDY có mục đích kép và yêu cầu khóa bus SPI
+- DOUT/RDY phải được kết nối với GPIO có khả năng ngắt
+- Bộ chọn chip của bộ điều khiển SPI phải được kết nối với chân PDOWN của ADC
+- Khi CS (PDOWN) ở mức cao, thiết bị sẽ tắt nguồn và reset mạch bên trong
+- Cần phải vận hành SPI chế độ 3 (CPOL=1, CPHA=1)
+
+Yêu cầu cung cấp điện
+-------------------------
+
+Thiết bị yêu cầu các nguồn điện sau:
+
+- AVdd: Nguồn điện analog
+- DVDd: Bộ nguồn kỹ thuật số
+- Vref: Nguồn điện áp tham chiếu (bên ngoài)
+
+Tất cả các nguồn cung cấp năng lượng phải được chỉ định trong cây thiết bị.
+
+Cấu hình kênh
+=====================
+
+Thiết bị này cung cấp ba kênh:
+
+1. Cảm biến nhiệt độ
+   - 24-bit không dấu
+   - Đo nhiệt độ bên trong
+   - Nhiệt độ tính bằng mili độ C
+
+2. Đầu vào vi sai (AIN1-AIN2)
+   - 24-bit không dấu
+   - Đo điện áp chênh lệch
+   - Có thể định cấu hình mức tăng thông qua PGA
+
+3. Đầu vào vi sai (AIN3-AIN4)
+   - 24-bit không dấu
+   - Đo điện áp chênh lệch
+   - Có thể định cấu hình mức tăng thông qua PGA
+
+Hỗ trợ bộ đệm
+==============
+
+Trình điều khiển này hỗ trợ bộ đệm kích hoạt IIO. Xem Tài liệu/iio/iio_devbuf.rst
+để biết thêm thông tin về bộ đệm được kích hoạt IIO.

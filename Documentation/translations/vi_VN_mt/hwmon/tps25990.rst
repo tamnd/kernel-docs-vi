@@ -1,0 +1,159 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tps25990.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tps25990
+======================
+
+Chip được hỗ trợ:
+
+* TI TPS25990
+
+Tiền tố: 'tps25990'
+
+* Bảng dữ liệu
+
+Có sẵn công khai tại trang web Texas Instruments: ZZ0000ZZ
+
+Tác giả:
+
+Jerome Brunet <jbrunet@baylibre.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho TI TPS25990 eFuse.
+Đây là một mạch bảo vệ và cấp nguồn tích hợp, dòng điện cao.
+thiết bị quản lý với giao diện PMBUS
+
+Thiết bị tương thích với:
+
+- Giao diện PMBus rev 1.3.
+
+Thiết bị hỗ trợ định dạng trực tiếp để đọc điện áp đầu vào,
+điện áp đầu ra, dòng điện đầu vào, công suất đầu vào và nhiệt độ.
+
+Do đặc thù của chip, tất cả các thuộc tính thiết lập lại lịch sử
+được gắn kết với nhau. Đặt lại lịch sử của cảm biến, đặt lại
+lịch sử của tất cả các cảm biến.
+
+Trình điều khiển xuất các thuộc tính sau qua tệp 'sysfs'
+đối với dòng điện đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp đầu vào chính:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp đầu vào phụ:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho điện áp đầu ra:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho nguồn điện đầu vào:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau cho nhiệt độ:
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+ZZ0000ZZ
+
+Trình điều khiển cung cấp các thuộc tính sau để lấy mẫu:
+
+ZZ0000ZZ

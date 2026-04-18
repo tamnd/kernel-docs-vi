@@ -1,0 +1,44 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/wm8350.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân wm8350-hwmon
+==========================
+
+Chip được hỗ trợ:
+
+* PMIC vi điện tử Wolfson WM835x
+
+Tiền tố: 'wm8350'
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+	-ZZ0001ZZ
+	-ZZ0002ZZ
+
+Tác giả: Mark Brown <broonie@opensource.wolfsonmicro.com>
+
+Sự miêu tả
+-----------
+
+Dòng PMIC WM835x bao gồm AUXADC có thể được sử dụng để
+giám sát một loạt các thông số vận hành hệ thống, bao gồm cả điện áp
+của các nguồn cung cấp chính trong hệ thống.  Hiện nay tài xế cung cấp
+truy cập đơn giản vào các nguồn cung cấp chính này.
+
+Giám sát điện áp
+------------------
+
+Điện áp được lấy mẫu bằng ADC 12 bit.  Đối với nguồn cung cấp nội bộ, ADC
+được tham chiếu đến hệ thống VRTC.

@@ -1,0 +1,303 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/nct6775.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân NCT6775
+=====================
+
+.. note::
+
+    This driver supersedes the NCT6775F and NCT6776F support in the W83627EHF
+    driver.
+
+Chip được hỗ trợ:
+
+* Nuvoton NCT6102D/NCT6104D/NCT6106D
+
+Tiền tố: 'nct6106'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ trang web Nuvoton
+
+* Nuvoton NCT5572D/NCT6771F/NCT6772F/NCT6775F/W83677HG-I
+
+Tiền tố: 'nct6775'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT5573D/NCT5577D/NCT6776D/NCT6776F
+
+Tiền tố: 'nct6776'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT5532D/NCT6779D
+
+Tiền tố: 'nct6779'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6791D
+
+Tiền tố: 'nct6791'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6792D
+
+Tiền tố: 'nct6792'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6793D
+
+Tiền tố: 'nct6793'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6795D
+
+Tiền tố: 'nct6795'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6796D
+
+Tiền tố: 'nct6796'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6796D-S/NCT6799D-R
+
+Tiền tố: 'nct6799'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+tác giả:
+
+Guenter Roeck <linux@roeck-us.net>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Nuvoton NCT6775F, NCT6776F và NCT6779D
+và các chip siêu I/O tương thích.
+
+Các chip hỗ trợ tới 25 nguồn theo dõi nhiệt độ. Có tới 6 trong số đó là
+đầu vào cảm biến nhiệt độ trực tiếp, các đầu vào khác là các nguồn đặc biệt như PECI,
+PCH và SMBUS. Tùy thuộc vào loại chip, 2 đến 6 nguồn nhiệt độ
+có thể được theo dõi và so sánh với mức tối thiểu, tối đa và quan trọng
+nhiệt độ. Trình điều khiển báo cáo tới 10 nhiệt độ cho người dùng.
+Có 4 đến 5 cảm biến tốc độ quay của quạt, 8 đến 15 cảm biến điện áp analog,
+một VID, cảnh báo có cảnh báo tiếng bíp (điều khiển chưa được thực hiện) và một số cảnh báo tự động
+chiến lược điều chỉnh quạt (cộng với chế độ điều khiển quạt thủ công).
+
+Các nguồn cảm biến nhiệt độ trên tất cả các chip đều có thể cấu hình được. Đã cấu hình
+nguồn cho từng cảm biến nhiệt độ được cung cấp trong tempX_label.
+
+Nhiệt độ được đo bằng độ C và độ phân giải đo là
+1 độ C hoặc 0,5 độ C, tùy thuộc vào nguồn nhiệt độ và
+cấu hình. Cảnh báo sẽ được kích hoạt khi nhiệt độ tăng cao hơn
+giới hạn cao; nó vẫn tiếp tục cho đến khi nhiệt độ giảm xuống dưới độ trễ
+giá trị. Cảnh báo chỉ được hỗ trợ cho temp1 đến temp6, tùy thuộc vào loại chip.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. Bật
+NCT6775F, số đọc của quạt có thể được chia bằng bộ chia có thể lập trình (1, 2, 4, 8,
+16, 32, 64 hoặc 128) để cung cấp phạm vi đo hoặc độ chính xác cao hơn; những con chip khác
+không có bộ chia tốc độ quạt. Driver cài đặt ước số quạt phù hợp nhất
+chính nó; cụ thể là nó tăng giá trị chia mỗi lần tốc độ quạt tăng lên.
+việc đọc trả về một giá trị không hợp lệ và nó sẽ giảm giá trị đó nếu tốc độ đọc của quạt
+thấp hơn mức tối ưu. Một số người hâm mộ có thể không có mặt vì họ dùng chung ghim
+với các chức năng khác.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng tính bằng milivolt.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa.
+
+Người lái hỗ trợ chế độ điều khiển quạt tự động có tên Thermal Cruise.
+Ở chế độ này, chip cố gắng giữ nhiệt độ đo được ở mức
+phạm vi nhiệt độ được xác định trước. Nếu nhiệt độ vượt quá phạm vi cho phép, quạt
+được điều khiển chậm hơn/nhanh hơn để đạt lại phạm vi được xác định trước.
+
+Chế độ hoạt động cho fan1-fan5.
+
+thuộc tính sysfs
+----------------
+
+pwm[1-7]
+    - tệp này lưu trữ chu kỳ nhiệm vụ PWM hoặc giá trị DC (tốc độ quạt) trong phạm vi:
+
+0 (tốc độ thấp nhất) đến 255 (đầy đủ)
+
+pwm[1-7]_enable
+    - file này điều khiển chế độ điều khiển quạt/nhiệt độ:
+
+* 0 Điều khiển quạt bị tắt (quạt được đặt ở tốc độ tối đa)
+	* 1 Chế độ thủ công, ghi vào pwm[0-5] bất kỳ giá trị nào 0-255
+	* 2 chế độ “Hành trình nhiệt”
+	* 3 chế độ "Hành trình tốc độ quạt"
+	* 4 chế độ "Quạt thông minh III" (chỉ NCT6775F)
+	* 5 chế độ "Quạt thông minh IV"
+
+pwm[1-7]_mode
+    - kiểm soát nếu đầu ra ở mức PWM hoặc DC
+
+* 0 đầu ra DC
+	* 1 đầu ra PWM
+
+Thuộc tính điều khiển quạt phổ biến
+-----------------------------
+
+pwm[1-7]_temp_sel
+			Nguồn nhiệt độ. Giá trị là chỉ số cảm biến nhiệt độ.
+			Ví dụ: chọn '1' cho temp1_input.
+
+pwm[1-7]_weight_temp_sel
+			Nguồn nhiệt độ thứ cấp. Giá trị là nhiệt độ
+			chỉ số cảm biến Ví dụ: chọn '1' cho temp1_input.
+			Đặt thành 0 để tắt điều khiển nhiệt độ thứ cấp.
+
+Nếu chức năng nhiệt độ thứ cấp được bật, nó sẽ được điều khiển bằng
+các thuộc tính sau.
+
+pwm[1-7]_weight_duty_step
+			Kích thước bước nhiệm vụ.
+
+pwm[1-7]_weight_temp_step
+			Kích thước bước nhiệt độ. Với mỗi bước đi qua
+			temp_step_base, giá trị của Weight_duty_step được thêm vào
+			đến giá trị pwm hiện tại.
+
+pwm[1-7]_weight_temp_step_base
+			Nhiệt độ tại đó bộ điều khiển nhiệt độ thứ cấp bắt đầu hoạt động
+			trong.
+
+pwm[1-7]_weight_temp_step_tol
+			Dung sai bước nhiệt độ.
+
+Chế độ Du thuyền Nhiệt (2)
+-----------------------
+
+Nếu nhiệt độ nằm trong khoảng được xác định bởi:
+
+pwm[1-7]_target_temp
+			Nhiệt độ mục tiêu, đơn vị mili độ C
+			(phạm vi 0 - 127000)
+
+pwm[1-7]_temp_tolerance
+			Dung sai nhiệt độ mục tiêu, đơn vị mili độ C
+
+Không có thay đổi về tốc độ quạt. Khi nhiệt độ rời khỏi khoảng thời gian, quạt
+tốc độ tăng (nếu nhiệt độ cao hơn mong muốn) hoặc giảm (nếu
+nhiệt độ thấp hơn mong muốn), sử dụng các giới hạn và thời gian sau
+khoảng thời gian.
+
+pwm[1-7]_start
+			Giá trị bắt đầu pwm của quạt (phạm vi 1 - 255), để khởi động quạt
+			khi nhiệt độ vượt quá phạm vi xác định.
+
+pwm[1-7]_floor
+			pwm quạt thấp nhất (phạm vi 0 - 255) nếu nhiệt độ thấp hơn
+			phạm vi đã xác định. Nếu được đặt thành 0, quạt dự kiến sẽ
+			dừng lại nếu nhiệt độ dưới phạm vi xác định.
+
+pwm[1-7]_step_up_time
+			mili giây trước khi tốc độ quạt tăng lên
+
+pwm[1-7]_step_down_time
+			mili giây trước khi tốc độ quạt giảm
+
+pwm[1-7]_stop_time
+			phải trôi qua bao nhiêu mili giây để chuyển đổi
+			tắt quạt tương ứng (khi nhiệt độ thấp hơn
+			phạm vi xác định).
+
+Chế độ hành trình tốc độ (3)
+---------------------
+
+Chế độ này cố gắng giữ tốc độ quạt không đổi.
+
+người hâm mộ[1-7]_target
+			Tốc độ quạt mục tiêu
+
+quạt[1-7]_tolerance
+			Dung sai tốc độ mục tiêu
+
+
+Chưa được kiểm tra; sử dụng có nguy cơ của riêng bạn.
+
+Chế độ Quạt thông minh IV (5)
+---------------------
+
+Chế độ này cung cấp nhiều độ dốc để kiểm soát tốc độ quạt. Các sườn dốc có thể
+được kiểm soát bằng cách thiết lập các thuộc tính pwm và nhiệt độ. Khi nhiệt độ
+tăng lên, chip sẽ tính toán đầu ra DC/PWM dựa trên độ dốc hiện tại.
+Có tới bảy điểm dữ liệu tùy thuộc vào loại chip. Dữ liệu tiếp theo
+điểm nên được đặt ở nhiệt độ cao hơn và giá trị pwm cao hơn để đạt được
+tốc độ quạt cao hơn với nhiệt độ ngày càng tăng. Điểm dữ liệu cuối cùng phản ánh
+chế độ nhiệt độ tới hạn, trong đó quạt sẽ chạy ở tốc độ tối đa.
+
+pwm[1-7]_auto_point[1-7]_pwm
+			giá trị pwm được đặt nếu nhiệt độ đạt đến mức phù hợp
+			phạm vi nhiệt độ.
+
+pwm[1-7]_auto_point[1-7]_temp
+			Nhiệt độ mà pwm phù hợp được kích hoạt.
+
+pwm[1-7]_temp_tolerance
+			Dung sai nhiệt độ, đơn vị mili độ C
+
+pwm[1-7]_crit_temp_tolerance
+			Dung sai nhiệt độ cho nhiệt độ tới hạn,
+			đơn vị mili độ C
+
+pwm[1-7]_step_up_time
+			mili giây trước khi tốc độ quạt tăng lên
+
+pwm[1-7]_step_down_time
+			mili giây trước khi tốc độ quạt giảm
+
+Ghi chú sử dụng
+-----------
+
+Trên các bo mạch ASUS khác nhau có NCT6776F, có vẻ như CPUTIN không thực sự
+được kết nối với bất cứ thứ gì và nổi, hoặc nó được kết nối với một số thứ không chuẩn
+thiết bị đo nhiệt độ. Kết quả là nhiệt độ được báo cáo trên CPUTIN
+sẽ không phản ánh giá trị có thể sử dụng được. Nó thường báo cáo cao một cách vô lý
+nhiệt độ, và trong một số trường hợp, nhiệt độ được báo cáo giảm nếu nhiệt độ thực tế
+nhiệt độ tăng (tương tự như giá trị nhiệt độ PECI thô - xem PECI
+đặc điểm kỹ thuật để biết chi tiết). Do đó, CPUTIN nên được bỏ qua trên ASUS
+bảng. Nhiệt độ CPU trên bo mạch ASUS được báo cáo từ PECI 0 hoặc TSI 0.
+
+Các chip NCT6796D-S và NCT6799D-R rất giống nhau và chip_id của chúng biểu thị
+chúng là những phiên bản khác nhau. Người lái xe này đối xử với họ theo cách tương tự.

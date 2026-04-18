@@ -1,0 +1,260 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/ethernet/3com/3c509.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+====================================================================================
+Linux và Ethercard dòng 3Com EtherLink III (trình điều khiển v1.18c trở lên)
+=============================================================================
+
+Tệp này chứa các hướng dẫn và cảnh báo cho phiên bản v1.18c và cao hơn
+của trình điều khiển 3c509. Bạn không nên sử dụng trình điều khiển mà không đọc tập tin này.
+
+phát hành 1.0
+
+28 tháng 2 năm 2002
+
+Người bảo trì hiện tại (sửa đổi):
+  David Ruggiero <jdr@farfalle.com>
+
+Giới thiệu
+============
+
+Sau đây là những lưu ý và thông tin sử dụng dòng 3Com EtherLink III
+thẻ ether trong Linux. Những thẻ này thường được biết đến bởi những người sử dụng rộng rãi nhất
+số kiểu 3Com của thẻ, 3c509. Tất cả chúng đều là thẻ bus ISA 10mb/s và không nên
+bị (nhưng đôi khi) bị nhầm lẫn với PCI-bus có số tương tự "3c905"
+(còn gọi là dòng "Vortex" hoặc "Boomerang").  Hỗ trợ hạt nhân cho họ 3c509 là
+được cung cấp bởi mô-đun 3c509.c, có mã để hỗ trợ tất cả những điều sau đây
+mô hình:
+
+- 3c509 (thẻ ISA gốc)
+ - 3c509B (bản sửa đổi sau của thẻ ISA; hỗ trợ song công hoàn toàn)
+ - 3c589 (PCMCIA)
+ - 3c589B (bản sửa đổi sau này của 3c589; hỗ trợ song công hoàn toàn)
+ - 3c579 (EISA)
+
+Phần lớn tài liệu này được mượn rất nhiều từ hướng dẫn
+tác giả ban đầu của trình điều khiển 3c509, Donald Becker đã viết. chủ nhân
+bản sao của tài liệu đó, trong đó có ghi chú về các phiên bản trình điều khiển cũ hơn,
+hiện đang cư trú trên máy chủ web Scyld: ZZ0000ZZ
+
+
+Tính năng trình điều khiển đặc biệt
+=======================
+
+Ghi đè cài đặt thẻ
+
+Trình điều khiển cho phép ghi đè thời gian khởi động hoặc tải của IOADDR được phát hiện trên thẻ,
+IRQ và cài đặt bộ thu phát, mặc dù khả năng này thường không được thực hiện
+cần thiết ngoại trừ việc bật chế độ song công hoàn toàn (xem bên dưới). Một ví dụ về cú pháp
+cho các tham số LILO để thực hiện việc này::
+
+ether=10,0x310,3,0x3c509,eth0
+
+Thao tác này sẽ định cấu hình thẻ 3c509 được tìm thấy đầu tiên cho IRQ 10, I/O cơ sở 0x310 và
+bộ thu phát loại 3 (10base2). Cờ "0x3c509" phải được đặt để tránh xung đột
+với các loại thẻ khác khi ghi đè địa chỉ I/O. Khi người lái xe đang
+được tải dưới dạng mô-đun, chỉ IRQ mới có thể bị ghi đè. Ví dụ,
+việc cài đặt hai thẻ thành IRQ10 và IRQ11 được thực hiện bằng cách sử dụng mô-đun irq
+tùy chọn::
+
+tùy chọn 3c509 irq=10,11
+
+
+Chế độ song công hoàn toàn
+================
+
+Trình điều khiển v1.18c đã bổ sung hỗ trợ cho khả năng song công hoàn toàn của 3c509B.
+Để kích hoạt và sử dụng thành công chế độ song công hoàn toàn, có ba điều kiện
+phải được đáp ứng:
+
+(a) Bạn phải có mẫu thẻ Etherlink III có phần cứng hỗ trợ đầy đủ
+hoạt động song công. Hiện tại, thành viên duy nhất của gia đình 3c509
+tích cực hỗ trợ song công hoàn toàn là 3c509B (bus ISA) và 3c589B
+(PCMCIA) thẻ. Thẻ không có ký hiệu kiểu "B" hỗ trợ ZZ0000ZZ
+chế độ song công hoàn toàn; chúng bao gồm 3c509 gốc (không có "B"), bản gốc
+3c589, 3c529 (xe buýt MCA) và 3c579 (xe buýt EISA).
+
+(b) Bạn phải sử dụng bộ thu phát 10baseT của thẻ (tức là RJ-45
+đầu nối), không phải giao diện AUI (lưới dày) hoặc 10base2 (mạng mỏng/đồng trục).
+Cáp mạng AUI và 10base2 về mặt vật lý không có khả năng song công hoàn toàn
+hoạt động.
+
+(c) Quan trọng nhất, 3c509B của bạn phải được kết nối với đối tác liên kết
+bản thân nó có khả năng song công hoàn toàn. Đây gần như chắc chắn là một trong hai điều: một
+Bộ chuyển mạch Ethernet có khả năng song công (ZZ0000ZZ một hub) hoặc NIC có khả năng song công hoàn toàn trên
+một hệ thống khác được kết nối trực tiếp với 3c509B thông qua cáp chéo.
+
+Chế độ song công hoàn toàn có thể được bật bằng cách sử dụng 'ethtool'.
+
+.. warning::
+
+  Extremely important caution concerning full-duplex mode
+
+  Understand that the 3c509B's hardware's full-duplex support is much more
+  limited than that provide by more modern network interface cards. Although
+  at the physical layer of the network it fully supports full-duplex operation,
+  the card was designed before the current Ethernet auto-negotiation (N-way)
+  spec was written. This means that the 3c509B family ***cannot and will not
+  auto-negotiate a full-duplex connection with its link partner under any
+  circumstances, no matter how it is initialized***. If the full-duplex mode
+  of the 3c509B is enabled, its link partner will very likely need to be
+  independently _forced_ into full-duplex mode as well; otherwise various nasty
+  failures will occur - at the very least, you'll see massive numbers of packet
+  collisions. This is one of very rare circumstances where disabling auto-
+  negotiation and forcing the duplex mode of a network interface card or switch
+  would ever be necessary or desirable.
+
+
+Các loại máy thu phát có sẵn
+===========================
+
+Đối với các phiên bản trình điều khiển v1.18c trở lên, các loại bộ thu phát có sẵn là:
+
+== ================================================================================
+0 loại bộ thu phát từ cấu hình EEPROM (thông thường là 10baseT); buộc bán song công
+1 AUI (đầu nối lưới dày / DB15)
+2 (không xác định)
+3 10base2 (mạng mỏng == đầu nối dỗ / BNC)
+4 10baseT (đầu nối RJ-45); buộc chế độ bán song công
+8 loại bộ thu phát và chế độ song công được lấy từ cài đặt cấu hình EEPROM của thẻ
+12 10baseT (đầu nối RJ-45); buộc chế độ song công hoàn toàn
+== ================================================================================
+
+Trước phiên bản trình điều khiển 1.18c, chỉ hỗ trợ mã thu phát 0-4. Lưu ý
+rằng mã bộ thu phát mới 8 và 12 là mã ZZ0000ZZ sẽ cho phép
+chế độ song công hoàn toàn, bất kể cài đặt EEPROM được phát hiện của thẻ có thể là gì.
+Điều này đảm bảo rằng chỉ cần nâng cấp trình điều khiển từ phiên bản cũ hơn sẽ
+không bao giờ tự động bật chế độ song công hoàn toàn trong bản cài đặt hiện có;
+nó phải luôn được kích hoạt rõ ràng thông qua một trong các mã này để có thể
+được kích hoạt.
+
+Loại bộ thu phát có thể được thay đổi bằng cách sử dụng 'ethtool'.
+
+
+Giải thích các thông báo lỗi và các vấn đề thường gặp
+----------------------------------------------------
+
+Thông báo lỗi
+^^^^^^^^^^^^^^
+
+eth0: Vòng lặp vô hạn bị gián đoạn, trạng thái 2011.
+Đây là thông báo "hầu hết vô hại" cho biết người lái xe đã uống quá nhiều
+làm việc trong chu kỳ ngắt đó. Với trạng thái 0x2011 bạn đang nhận được
+các gói nhanh hơn mức chúng có thể bị xóa khỏi thẻ. Điều này có lẽ hiếm
+hoặc không thể thực hiện được trong hoạt động bình thường. Nguyên nhân có thể của báo cáo lỗi này là:
+
+- bật chế độ "xanh" để làm chậm bộ xử lý khi không có
+     hoạt động bàn phím.
+
+- một số thiết bị hoặc trình điều khiển thiết bị khác đang cản trở xe buýt hoặc vô hiệu hóa các ngắt.
+     Kiểm tra /proc/interrupts để biết số lần ngắt quá mức. Đồng hồ bấm giờ
+     ngắt phải luôn tăng nhanh hơn các ngắt khác.
+
+Không nhận được gói nào
+^^^^^^^^^^^^^^^^^^^
+
+Nếu 3c509, 3c562 hoặc 3c589 có thể truyền gói thành công nhưng không bao giờ
+nhận được các gói (như được báo cáo bởi /proc/net/dev hoặc 'ifconfig'), bạn có thể
+có vấn đề về đường ngắt. Kiểm tra /proc/interrupts để xác minh rằng
+thẻ thực sự đang tạo ra các ngắt. Nếu số lượng ngắt không
+ngày càng có nhiều khả năng bạn gặp xung đột vật lý với hai thiết bị đang cố gắng
+sử dụng cùng dòng ISA IRQ. Xung đột thường gặp là với sound card trên IRQ10
+hoặc IRQ5 và giải pháp đơn giản nhất là di chuyển 3c509 sang một nơi khác
+đường ngắt. Nếu thiết bị đang nhận gói nhưng 'ping' không hoạt động,
+bạn gặp vấn đề về định tuyến.
+
+Lỗi nhà cung cấp dịch vụ Tx được báo cáo trong /proc/net/dev
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Nếu EtherLink III xuất hiện để truyền gói tin nhưng "lỗi sóng mang Tx"
+trường trong /proc/net/dev tăng nhanh như số lượng gói Tx, bạn
+có thể có mạng bị hủy hoặc bộ thu phát phương tiện được chọn không chính xác.
+
+Không phát hiện được thẻ 3c509B trên các máy có ISA PnP BIOS.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Mặc dù trình điều khiển cập nhật hoạt động với hầu hết các chương trình PnP BIOS nhưng nó không hoạt động
+với tất cả. Điều này có thể được khắc phục bằng cách tắt hỗ trợ PnP bằng cách sử dụng 3Com cung cấp
+chương trình thiết lập.
+
+Không tìm thấy thẻ 3c509 trên máy ép xung
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tăng thời gian trễ trong id_read_eeprom() từ giá trị hiện tại, 500,
+đến một giá trị cao vô lý, chẳng hạn như 5000.
+
+
+Giải mã trạng thái và thông báo lỗi
+----------------------------------
+
+
+Các bit trong thanh ghi trạng thái chính là:
+
+===============================================
+mô tả giá trị
+===============================================
+0x01 Chốt ngắt
+0x02 Tx tràn hoặc thiếu Rx
+0x04 Tx hoàn thành
+Còn phòng 0x08 Tx FIFO
+0x10 Gói Rx hoàn chỉnh đã đến
+0x20 Gói Rx đã bắt đầu đến
+0x40 Trình điều khiển đã yêu cầu ngắt
+Bộ đếm thống kê 0x80 gần đầy
+===============================================
+
+Các bit trong từ trạng thái truyền (Tx) là:
+
+===== =================================================
+mô tả giá trị
+===== =================================================
+0x02 Va chạm ngoài cửa sổ.
+0x04 Tràn ngăn xếp trạng thái (thông thường là không thể).
+0x08 16 va chạm.
+Chạy chậm 0x10 Tx (không đủ băng thông bus PCI).
+0x20 Tx ồn ào.
+Đã yêu cầu ngắt 0x40 Tx.
+Trạng thái 0x80 là hợp lệ (điều này phải luôn được đặt).
+===== =================================================
+
+
+Khi xảy ra lỗi truyền, trình điều khiển sẽ tạo ra một thông báo trạng thái như::
+
+eth0: Lỗi truyền, thanh ghi trạng thái Tx 82
+
+Hai giá trị thường thấy ở đây là:
+
+0x82
+^^^^
+
+Va chạm ngoài cửa sổ. Điều này thường xảy ra khi một số Ethernet khác
+máy chủ được đặt không chính xác thành song công hoàn toàn trên mạng bán song công.
+
+0x88
+^^^^
+
+16 vụ va chạm Điều này thường xảy ra khi mạng đặc biệt bận
+hoặc khi một máy chủ khác không lùi lại đúng cách sau một vụ va chạm. Nếu điều này
+lỗi trộn lẫn với lỗi 0x82, đó là kết quả của việc đặt máy chủ không chính xác
+sang song công hoàn toàn (xem ở trên).
+
+Cả hai lỗi này đều là kết quả của sự cố mạng cần được khắc phục.
+đã sửa. Chúng không đại diện cho sự cố của trình điều khiển.
+
+
+Lịch sử sửa đổi (tệp này)
+============================
+
+28/0202 v1.0 DR Mới; các phần chính dựa trên tài liệu 3c509 gốc của Becker

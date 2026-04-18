@@ -1,0 +1,212 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/pc87360.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân pc87360
+=====================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia PC87360, PC87363, PC87364, PC87365 và PC87366
+
+Tiền tố: 'pc87360', 'pc87363', 'pc87364', 'pc87365', 'pc87366'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Không còn có sẵn
+
+Tác giả: Jean Delvare <jdelvare@suse.de>
+
+Cảm ơn Sandeep Mehta, Tonko de Rooy và Daniel Ceregatti đã thử nghiệm.
+
+Cảm ơn Rudolf Marek đã giúp tôi điều tra các vấn đề về chuyển đổi.
+
+
+Thông số mô-đun
+-----------------
+
+* init int
+    Mức độ khởi tạo chip:
+
+- 0: Không có
+    - ZZ0000ZZ: Kích hoạt cưỡng bức các kênh điện áp và nhiệt độ bên trong,
+      ngoại trừ in9
+    - 2: Buộc kích hoạt tất cả các kênh điện áp và nhiệt độ, ngoại trừ in9
+    - 3: Buộc kích hoạt tất cả các kênh điện áp và nhiệt độ, bao gồm cả in9
+
+Lưu ý rằng tham số này không có tác dụng đối với PC87360, PC87363 và PC87364
+chip.
+
+Cũng lưu ý rằng đối với PC87366, cấp độ khởi tạo 2 và 3 không bật
+tất cả các kênh nhiệt độ, bởi vì một số trong chúng có chung các chân cắm với nhau,
+nên chúng không thể được sử dụng cùng một lúc.
+
+
+Sự miêu tả
+-----------
+
+Chip Super I/O PC87360 của National Semiconductor chứa chức năng giám sát và
+Mạch điều khiển PWM cho 2 quạt. Chip PC87363 cũng tương tự, và
+Chip PC87364 có chức năng giám sát và điều khiển PWM cho quạt thứ ba.
+
+Các chip Super I/O của National Semiconductor PC87365 và PC87366 đã hoàn thiện
+chipset giám sát phần cứng, không chỉ kiểm soát và giám sát ba quạt,
+mà còn giám sát 11 đầu vào điện áp và 2 đầu vào (PC87365) hoặc tối đa 4 đầu vào
+(PC87366) nhiệt độ.
+
+================================ ======= =====
+  Chip #vin #fan #pwm #temp khác
+  ================================ ======= =====
+  PC87360 - 2 2 - 0xE1
+  PC87363 - 2 2 - 0xE8
+  PC87364 - 3 3 - 0xE4
+  PC87365 11 3 3 2 0xE5
+  PC87366 11 3 3 3-4 0xE9
+  ================================ ======= =====
+
+Trình điều khiển giả định rằng không có nhiều hơn một con chip hiện diện và một trong số đó
+địa chỉ Super I/O tiêu chuẩn được sử dụng (0x2E/0x2F hoặc 0x4E/0x4F)
+
+Giám sát quạt
+--------------
+
+Tốc độ quay của quạt được báo cáo bằng RPM (vòng quay mỗi phút). Một báo động
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình.
+Một cảnh báo khác sẽ được kích hoạt nếu tốc độ quạt quá thấp để đo được.
+
+Chỉ số của quạt bị ảnh hưởng bởi bộ chia đồng hồ có thể lập trình, mang lại
+bài đọc có phạm vi hoặc độ chính xác cao hơn. Thông thường, người dùng phải tìm hiểu cách thức hoạt động của nó,
+nhưng trình điều khiển này thực hiện lựa chọn bộ chia đồng hồ động, vì vậy bạn không
+không cần quan tâm nữa.
+
+Để tham khảo, đây là một số giá trị về bộ chia đồng hồ:
+
+=========== =============================== ============
+		độ chính xác chậm nhất cao nhất
+		đo được khoảng 3000 chính xác
+    tốc độ chia (RPM) tốc độ RPM (RPM) (RPM)
+    =========== =============================== ============
+	 1 1882 18 6928
+	 2 941 37 4898
+	 4 470 74 3464
+	 8 235 150 2449
+    =========== =============================== ============
+
+Đối với những người tò mò, đây là cách tính các giá trị trên:
+
+* tốc độ chậm nhất có thể đo được: đồng hồ/(dải chia 255*)
+ * độ chính xác khoảng 3000 RPM: 3000^2/đồng hồ
+ * tốc độ chính xác cao nhất: sqrt(clock*100)
+
+Tốc độ xung nhịp của dòng PC87360 là 480 kHz. Tôi tùy ý chọn 100
+RPM là độ chính xác thấp nhất có thể chấp nhận được.
+
+Như đã đề cập ở trên, bạn không cần phải quan tâm đến điều này nữa.
+
+Lưu ý rằng không phải tất cả các giá trị RPM đều có thể được biểu diễn, ngay cả khi đồng hồ tốt nhất
+bộ chia được chọn. Điều này không chỉ đúng với tốc độ đo được mà còn
+cũng như đối với các giới hạn thấp có thể lập trình được, vì vậy đừng ngạc nhiên nếu bạn cố gắng
+đặt, giả sử, fan1_min thành 2900 và cuối cùng nó đọc là 2909.
+
+
+Điều khiển quạt
+-----------
+
+Các giá trị PWM (điều chế độ rộng xung) nằm trong khoảng từ 0 đến 255, với 0 nghĩa
+rằng quạt đã dừng và 255 có nghĩa là quạt chạy ở tốc độ tối đa.
+
+Hãy cực kỳ cẩn thận khi thay đổi giá trị PWM. Giá trị PWM thấp, thậm chí
+khác không, có thể làm quạt ngừng hoạt động, điều này có thể gây ra hư hỏng không thể phục hồi cho thiết bị của bạn
+phần cứng nếu nhiệt độ tăng quá nhiều. Khi thay đổi giá trị PWM, hãy đi
+từng bước một và theo dõi nhiệt độ.
+
+Một người dùng đã báo cáo sự cố với PWM. Thay đổi giá trị PWM sẽ làm hỏng quạt
+tốc độ đọc. Không có lời giải thích cũng như cách khắc phục nào có thể được tìm thấy.
+
+
+Giám sát nhiệt độ
+----------------------
+
+Nhiệt độ được báo cáo bằng độ C. Mỗi nhiệt độ đo được có
+các giới hạn nhiệt độ thấp, cao và quá nhiệt liên quan, mỗi giới hạn này gây ra một
+báo động khi vượt qua.
+
+Hai kênh nhiệt độ đầu tiên là bên ngoài. Cái thứ ba (PC87366
+chỉ) là nội bộ.
+
+PC87366 có ba kênh nhiệt độ bổ sung, dựa trên
+nhiệt điện trở (trái ngược với điốt nhiệt trong ba nhiệt độ đầu tiên
+kênh). Vì lý do kỹ thuật, các kênh này do VLM nắm giữ
+(màn hình mức điện áp), không phải thiết bị logic TMS (nhiệt độ
+đo lường) một. Kết quả là, những nhiệt độ này được xuất khẩu dưới dạng
+điện áp và chuyển đổi thành nhiệt độ trong không gian người dùng.
+
+Lưu ý rằng ba kênh bổ sung này chia sẻ chân của chúng với
+các kênh diode nhiệt bên ngoài, vì vậy bạn (về mặt vật lý) không thể sử dụng tất cả chúng
+cùng một lúc. Mặc dù có thể kết hợp hai loại cảm biến,
+các tài liệu từ National Semiconductor gợi ý rằng bo mạch chủ
+các nhà sản xuất nên chọn một loại và bám vào nó. Vì vậy bạn sẽ nhiều hơn
+có thể có kênh 1 đến 3 (điốt nhiệt) hoặc 3 đến 6 (bên trong
+diode nhiệt và điện trở nhiệt).
+
+
+Giám sát điện áp
+------------------
+
+Điện áp được báo cáo tương đối với điện áp tham chiếu, bên trong hoặc
+bên ngoài. Một số trong số chúng (in7:Vsb, in8:Vdd và in10:AVdd) được chia cho hai
+trong nội bộ, bạn sẽ phải bù lại trong cảm biến.conf. Khác (in0 đến in6)
+có khả năng bị chia rẽ bên ngoài. Ý nghĩa của từng đầu vào này là
+cũng như giá trị của các điện trở dùng để chia được để lại cho
+nhà sản xuất bo mạch chủ, vì vậy bạn sẽ phải tự ghi lại và chỉnh sửa
+cảm biến.conf tương ứng. National Semiconductor có một tài liệu với
+giá trị điện trở được khuyến nghị cho một số điện áp, nhưng điều này vẫn còn nhiều
+Thật không may, có chỗ cho từng đặc điểm riêng của bo mạch chủ. Tệ hơn nữa,
+các nhà sản xuất bo mạch chủ dường như không quan tâm đến National Semiconductor
+khuyến nghị.
+
+Mỗi điện áp đo được có các giới hạn thấp và cao liên quan, mỗi giới hạn đó
+kích hoạt báo động khi vượt qua.
+
+Khi khả dụng, đầu vào VID được sử dụng để cung cấp điện áp lõi CPU danh nghĩa.
+Trình điều khiển sẽ mặc định là VRM 9.0, nhưng điều này có thể được thay đổi từ không gian người dùng.
+Các chipset có thể xử lý hai bộ đầu vào VID (trên hệ thống CPU kép), nhưng
+trình điều khiển sẽ chỉ xuất một cái bây giờ. Điều này có thể thay đổi sau này nếu có
+một nhu cầu.
+
+
+Nhận xét chung
+---------------
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể đã
+đã biến mất! Lưu ý rằng tất cả các thanh ghi phần cứng đều được đọc bất cứ khi nào
+dữ liệu được đọc (trừ khi chưa đến 2 giây kể từ lần cập nhật cuối cùng, trong
+thay vào đó, giá trị được lưu trong bộ nhớ cache sẽ được trả về). Kết quả là, khi
+báo thức chỉ kích hoạt một lần, có thể mất 2 giây để báo thức hiển thị và 2
+thêm vài giây nữa để nó biến mất.
+
+Giám sát in9 không được kích hoạt ở mức init thấp hơn (<3) vì điều đó
+kênh đo điện áp pin (Vbat). Một thực tế được biết là
+liên tục lấy mẫu điện áp pin sẽ làm giảm tuổi thọ của pin. Quốc gia
+Chất bán dẫn đã thiết kế chipset của họ một cách thông minh để chỉ lấy mẫu in9
+cứ sau 1024 chu kỳ lấy mẫu (theo mặc định là 34 phút một lần)
+tốc độ lấy mẫu), do đó hiệu ứng bị suy giảm nhưng vẫn còn.
+
+
+Hạn chế
+-----------
+
+Bảng dữ liệu gợi ý rằng một số giá trị (số phút của quạt, bộ chia quạt)
+không nên thay đổi khi quá trình giám sát đã bắt đầu nhưng chúng tôi bỏ qua điều đó
+khuyến nghị. Chúng tôi sẽ xem xét lại nếu nó thực sự gây rắc rối.

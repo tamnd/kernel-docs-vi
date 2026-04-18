@@ -1,0 +1,396 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/adis16475.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==================
+Trình điều khiển ADIS16475
+================
+
+Trình điều khiển này hỗ trợ IMU của Thiết bị Analog trên bus SPI.
+
+1. Thiết bị được hỗ trợ
+====================
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+* ZZ0004ZZ
+* ZZ0005ZZ
+* ZZ0006ZZ
+* ZZ0007ZZ
+
+Mỗi thiết bị được hỗ trợ là một hệ thống vi cơ điện tử thu nhỏ, chính xác
+(MEMS) đơn vị đo quán tính (IMU) bao gồm một con quay hồi chuyển ba trục và một
+gia tốc kế ba trục. Mỗi cảm biến quán tính trong thiết bị IMU kết hợp với
+điều hòa tín hiệu giúp tối ưu hóa hiệu suất động. Hiệu chuẩn nhà máy
+mô tả từng cảm biến về độ nhạy, độ lệch, căn chỉnh, gia tốc tuyến tính
+(độ lệch của con quay hồi chuyển) và điểm gõ (vị trí của gia tốc kế). Kết quả là,
+mỗi cảm biến có công thức bù động cung cấp cảm biến chính xác
+phép đo trên một tập hợp rộng các điều kiện.
+
+2. Thuộc tính thiết bị
+====================
+
+Gia tốc kế, đo con quay hồi chuyển luôn được cung cấp. Hơn nữa,
+trình điều khiển cung cấp khả năng truy xuất góc delta và vận tốc delta
+các phép đo được tính toán bởi thiết bị.
+
+Các phép đo góc delta thể hiện phép tính chuyển vị góc
+giữa mỗi lần cập nhật mẫu, trong khi các phép đo vận tốc delta biểu thị một
+tính toán sự thay đổi vận tốc tuyến tính giữa mỗi lần cập nhật mẫu.
+
+Cuối cùng, dữ liệu nhiệt độ được cung cấp cho thấy số đo thô của
+nhiệt độ bên trong thiết bị IMU. Dữ liệu này hữu ích nhất cho
+theo dõi những thay đổi tương đối trong môi trường nhiệt.
+
+Chuỗi tín hiệu của từng cảm biến quán tính (gia tốc kế và con quay hồi chuyển)
+bao gồm việc áp dụng các công thức hiệu chỉnh duy nhất bắt nguồn từ
+đặc tính rộng rãi của độ lệch, độ nhạy, sự liên kết, phản ứng với tuyến tính
+gia tốc (con quay hồi chuyển) và điểm gõ (vị trí gia tốc kế)
+trong phạm vi nhiệt độ từ −40°C đến +85°C cho mỗi thiết bị ADIS. Những cái này
+công thức sửa lỗi không thể truy cập được, nhưng người dùng có cơ hội
+điều chỉnh độ lệch cho từng cảm biến riêng lẻ thông qua thuộc tính calibbias.
+
+Mỗi thiết bị IIO, có một thư mục thiết bị trong ZZ0000ZZ,
+trong đó X là chỉ số IIO của thiết bị. Dưới các thư mục này chứa một bộ
+tập tin thiết bị, tùy thuộc vào đặc điểm và tính năng của phần cứng
+thiết bị trong câu hỏi. Các tập tin này được khái quát hóa và ghi lại một cách nhất quán trong
+tài liệu IIO ABI.
+
+Các bảng sau hiển thị các tệp thiết bị liên quan đến adis16475, được tìm thấy trong
+đường dẫn thư mục thiết bị cụ thể ZZ0000ZZ.
+
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0001ZZ Thang đo cho các kênh gia tốc.                    |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0002ZZ Hiệu chỉnh bù cho kênh gia tốc kế trục X. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0003ZZ Giá trị kênh gia tốc kế trục X thô.                  |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0004ZZ Hiệu chỉnh bù cho kênh gia tốc kế trục Y. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0005ZZ Giá trị kênh gia tốc kế trục Y thô.                  |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0006ZZ Hiệu chỉnh bù cho kênh gia tốc kế trục Z. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0007ZZ Giá trị kênh gia tốc kế trục Z thô.                  |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0008ZZ Thang đo cho các kênh vận tốc delta.                       |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0009ZZ Giá trị kênh vận tốc delta trục X thô.                 |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0010ZZ Giá trị kênh vận tốc delta trục Y thô.                 |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0011ZZ Giá trị kênh vận tốc delta trục Z thô.                 |
++---------------------------------------------------+----------------------------------------------------------+
+
++---------------------------------------+------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++---------------------------------------+------------------------------------------------------+
+ZZ0001ZZ Thang đo cho các kênh con quay hồi chuyển.                    |
++---------------------------------------+------------------------------------------------------+
+ZZ0002ZZ Hiệu chỉnh bù cho kênh con quay hồi chuyển trục X. |
++---------------------------------------+------------------------------------------------------+
+ZZ0003ZZ Giá trị kênh con quay hồi chuyển trục X thô.                  |
++---------------------------------------+------------------------------------------------------+
+ZZ0004ZZ Hiệu chỉnh bù cho kênh con quay hồi chuyển trục Y. |
++---------------------------------------+------------------------------------------------------+
+ZZ0005ZZ Giá trị kênh con quay hồi chuyển trục Y thô.                  |
++---------------------------------------+------------------------------------------------------+
+ZZ0006ZZ Hiệu chỉnh bù cho kênh con quay hồi chuyển trục Z. |
++---------------------------------------+------------------------------------------------------+
+ZZ0007ZZ Giá trị kênh con quay hồi chuyển trục Z thô.                  |
++---------------------------------------+------------------------------------------------------+
+ZZ0008ZZ Thang đo cho các kênh góc delta.                      |
++---------------------------------------+------------------------------------------------------+
+ZZ0009ZZ Giá trị kênh góc delta trục X thô.                |
++---------------------------------------+------------------------------------------------------+
+ZZ0010ZZ Giá trị kênh góc delta trục Y thô.                |
++---------------------------------------+------------------------------------------------------+
+ZZ0011ZZ Giá trị kênh góc delta trục Z thô.                |
++---------------------------------------+------------------------------------------------------+
+
++-----------------------------------+----------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++-----------------------------------+----------------------------------------------------------+
+ZZ0001ZZ Giá trị kênh nhiệt độ thô.            |
++-----------------------------------+----------------------------------------------------------+
+ZZ0002ZZ Cân cho kênh cảm biến nhiệt độ. |
++-----------------------------------+----------------------------------------------------------+
+
++------------------------------+-------------------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++------------------------------+-------------------------------------------------------------------+
+ZZ0001ZZ Tên của thiết bị IIO.                                 |
++------------------------------+-------------------------------------------------------------------+
+ZZ0002ZZ Tỷ lệ mẫu hiện được chọn.                         |
++------------------------------+-------------------------------------------------------------------+
+ZZ0003ZZ Băng thông cho các kênh gia tốc kế và con quay hồi chuyển. |
++------------------------------+-------------------------------------------------------------------+
+
+Bảng sau hiển thị các tệp gỡ lỗi thiết bị liên quan đến adis16475, được tìm thấy trong
+đường dẫn thư mục gỡ lỗi thiết bị cụ thể ZZ0000ZZ.
+
++----------------------+-----------------------------------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++----------------------+-----------------------------------------------------------------------------------+
+ZZ0001ZZ Số sê-ri của chip ở định dạng thập lục phân.                    |
++----------------------+-----------------------------------------------------------------------------------+
+ZZ0002ZZ Id sản phẩm cụ thể của chip (ví dụ: 16475, 16500, 16505, v.v.).              |
++----------------------+-----------------------------------------------------------------------------------+
+ZZ0003ZZ Số lần ghi flash được thực hiện trên thiết bị.                     |
++----------------------+-----------------------------------------------------------------------------------+
+Chuỗi ZZ0004ZZ chứa bản sửa đổi chương trình cơ sở ở định dạng sau ##.##.  |
++----------------------+-----------------------------------------------------------------------------------+
+Chuỗi ZZ0005ZZ chứa ngày chương trình cơ sở ở định dạng sau mm-dd-yyyy. |
++----------------------+-----------------------------------------------------------------------------------+
+
+Các giá trị được xử lý của kênh
+-------------------------
+
+Giá trị kênh có thể được đọc từ thuộc tính _raw của nó. Giá trị trả về là
+giá trị thô như được báo cáo bởi các thiết bị. Để có được giá trị được xử lý của kênh,
+áp dụng công thức sau:
+
+.. code-block:: bash
+
+        processed value = (_raw + _offset) * _scale
+
+Trong đó _offset và _scale là thuộc tính của thiết bị. Nếu không có thuộc tính _offset
+hiện tại, chỉ cần giả sử giá trị của nó là 0.
+
+Trình điều khiển adis16475 cung cấp dữ liệu cho 5 loại kênh, bảng bên dưới hiển thị
+đơn vị đo lường cho giá trị được xử lý, được xác định bởi IIO
+khuôn khổ:
+
++--------------------------------------+-----------------------------+
+ZZ0000ZZ Đơn vị đo lường |
++--------------------------------------+-----------------------------+
+ZZ0001ZZ Mét trên giây bình phương |
++--------------------------------------+-----------------------------+
+ZZ0002ZZ Radian mỗi giây |
++--------------------------------------+-----------------------------+
+ZZ0003ZZ Mét trên giây |
++--------------------------------------+-----------------------------+
+ZZ0004ZZ Radian |
++--------------------------------------+-----------------------------+
+ZZ0005ZZ Millidegrees C |
++--------------------------------------+-----------------------------+
+
+Ví dụ sử dụng
+--------------
+
+Hiển thị tên thiết bị:
+
+.. code-block:: bash
+
+	root:/sys/bus/iio/devices/iio:device0> cat name
+        adis16505-2
+
+Hiển thị giá trị kênh gia tốc:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat in_accel_x_raw
+        -275924
+        root:/sys/bus/iio/devices/iio:device0> cat in_accel_y_raw
+        -30142222
+        root:/sys/bus/iio/devices/iio:device0> cat in_accel_z_raw
+        261265769
+        root:/sys/bus/iio/devices/iio:device0> cat in_accel_scale
+        0.000000037
+
+- Gia tốc trục X = in_accel_x_raw * in_accel_scale = −0,010209188 m/s^2
+- Gia tốc trục Y = in_accel_y_raw * in_accel_scale = −1,115262214 m/s^2
+- Gia tốc trục Z = in_accel_z_raw * in_accel_scale = 9,666833453 m/s^2
+
+Hiển thị giá trị kênh con quay hồi chuyển:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat in_anglvel_x_raw
+        -3324626
+        root:/sys/bus/iio/devices/iio:device0> cat in_anglvel_y_raw
+        1336980
+        root:/sys/bus/iio/devices/iio:device0> cat in_anglvel_z_raw
+        -602983
+        root:/sys/bus/iio/devices/iio:device0> cat in_anglvel_scale
+        0.000000006
+
+- Vận tốc góc trục X = in_anglvel_x_raw * in_anglvel_scale = −0,019947756 rad/s
+- Vận tốc góc trục Y = in_anglvel_y_raw * in_anglvel_scale = 0,00802188 rad/s
+- Vận tốc góc trục Z = in_anglvel_z_raw * in_anglvel_scale = −0,003617898 rad/s
+
+Đặt độ lệch hiệu chuẩn cho các kênh gia tốc:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat in_accel_x_calibbias
+        0
+
+        root:/sys/bus/iio/devices/iio:device0> echo 5000 > in_accel_x_calibbias
+        root:/sys/bus/iio/devices/iio:device0> cat in_accel_x_calibbias
+        5000
+
+Đặt độ lệch hiệu chuẩn cho các kênh con quay hồi chuyển:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat in_anglvel_y_calibbias
+        0
+
+        root:/sys/bus/iio/devices/iio:device0> echo -5000 > in_anglvel_y_calibbias
+        root:/sys/bus/iio/devices/iio:device0> cat in_anglvel_y_calibbias
+        -5000
+
+Đặt tần số lấy mẫu:
+
+.. code-block:: bash
+
+	root:/sys/bus/iio/devices/iio:device0> cat sampling_frequency
+        2000.000000
+
+        root:/sys/bus/iio/devices/iio:device0> echo 1000 > sampling_frequency
+        1000.000000
+
+Đặt băng thông cho gia tốc kế và con quay hồi chuyển:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat filter_low_pass_3db_frequency
+        720
+
+        root:/sys/bus/iio/devices/iio:device0> echo 360 > filter_low_pass_3db_frequency
+        root:/sys/bus/iio/devices/iio:device0> cat filter_low_pass_3db_frequency
+        360
+
+Hiển thị số sê-ri:
+
+.. code-block:: bash
+
+        root:/sys/kernel/debug/iio/iio:device0> cat serial_number
+        0x04f9
+
+Hiển thị id sản phẩm:
+
+.. code-block:: bash
+
+        root:/sys/kernel/debug/iio/iio:device0> cat product_id
+        16505
+
+Hiển thị số lượng flash:
+
+.. code-block:: bash
+
+        root:/sys/kernel/debug/iio/iio:device0> cat flash_count
+        150
+
+Hiển thị bản sửa đổi phần sụn:
+
+.. code-block:: bash
+
+        root:/sys/kernel/debug/iio/iio:device0> cat firmware_revision
+        1.6
+
+Hiển thị ngày chương trình cơ sở:
+
+.. code-block:: bash
+
+        root:/sys/kernel/debug/iio/iio:device0> cat firmware_date
+        06-27-2019
+
+3. Bộ đệm thiết bị
+=================
+
+Trình điều khiển này hỗ trợ bộ đệm IIO.
+
+Tất cả các thiết bị đều hỗ trợ truy xuất gia tốc thô, con quay hồi chuyển và nhiệt độ
+phép đo sử dụng bộ đệm.
+
+Các họ thiết bị sau đây cũng hỗ trợ truy xuất vận tốc delta, delta
+đo góc và nhiệt độ bằng bộ đệm:
+
+-ADIS16477
+-ADIS16500
+-ADIS16505
+-ADIS16507
+
+Tuy nhiên, khi truy xuất dữ liệu gia tốc hoặc con quay hồi chuyển bằng bộ đệm, delta
+bài đọc sẽ không có sẵn và ngược lại.
+
+Ví dụ sử dụng
+--------------
+
+Đặt trình kích hoạt thiết bị trong current_trigger, nếu chưa được đặt:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat trigger/current_trigger
+
+        root:/sys/bus/iio/devices/iio:device0> echo adis16505-2-dev0 > trigger/current_trigger
+        root:/sys/bus/iio/devices/iio:device0> cat trigger/current_trigger
+        adis16505-2-dev0
+
+Chọn kênh để đọc bộ đệm:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > scan_elements/in_deltavelocity_x_en
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > scan_elements/in_deltavelocity_y_en
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > scan_elements/in_deltavelocity_z_en
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > scan_elements/in_temp0_en
+
+Đặt số lượng mẫu sẽ được lưu trong bộ đệm:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> echo 10 > buffer/length
+
+Kích hoạt tính năng đọc bộ đệm:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > buffer/enable
+
+Lấy dữ liệu đệm:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> hexdump -C /dev/iio\:device0
+        ...
+        00001680  01 1f 00 00 ff ff fe ef  00 00 47 bf 00 03 35 55  |..........G...5U|
+        00001690  01 1f 00 00 ff ff ff d9  00 00 46 f1 00 03 35 35  |..........F...55|
+        000016a0  01 1f 00 00 ff ff fe fc  00 00 46 cb 00 03 35 7b  |..........F...5{|
+        000016b0  01 1f 00 00 ff ff fe 41  00 00 47 0d 00 03 35 8b  |.......A..G...5.|
+        000016c0  01 1f 00 00 ff ff fe 37  00 00 46 b4 00 03 35 90  |.......7..F...5.|
+        000016d0  01 1d 00 00 ff ff fe 5a  00 00 45 d7 00 03 36 08  |.......Z..E...6.|
+        000016e0  01 1b 00 00 ff ff fe fb  00 00 45 e7 00 03 36 60  |..........E...6`|
+        000016f0  01 1a 00 00 ff ff ff 17  00 00 46 bc 00 03 36 de  |..........F...6.|
+        00001700  01 1a 00 00 ff ff fe 59  00 00 46 d7 00 03 37 b8  |.......Y..F...7.|
+        00001710  01 1a 00 00 ff ff fe ae  00 00 46 95 00 03 37 ba  |..........F...7.|
+        00001720  01 1a 00 00 ff ff fe c5  00 00 46 63 00 03 37 9f  |..........Fc..7.|
+        00001730  01 1a 00 00 ff ff fe 55  00 00 46 89 00 03 37 c1  |.......U..F...7.|
+        00001740  01 1a 00 00 ff ff fe 31  00 00 46 aa 00 03 37 f7  |.......1..F...7.|
+        ...
+
+Xem Documentation/iio/iio_devbuf.rst để biết thêm thông tin về cách lưu vào bộ đệm
+dữ liệu được cấu trúc.
+
+4. Công cụ giao tiếp IIO
+========================
+
+Xem Documentation/iio/iio_tools.rst để biết mô tả về IIO có sẵn
+các công cụ giao tiếp.

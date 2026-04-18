@@ -1,0 +1,86 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/masters/ds2490.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+======================
+Trình điều khiển hạt nhân ds2490
+====================
+
+Chip được hỗ trợ:
+
+* Dựa trên Maxim DS2490
+
+Tác giả: Evgeniy Polykov <johnpol@2ka.mipt.ru>
+
+
+Sự miêu tả
+-----------
+
+Chất bán dẫn Maxim/Dallas DS2490 là một con chip
+cho phép xây dựng cầu USB <-> W1.
+
+DS9490(R) là thiết bị chính bus USB <-> W1
+có chip tích hợp ID gia đình 0x81 và DS2490
+chip hoạt động cấp thấp.
+
+Lưu ý và hạn chế.
+
+- Dòng pullup yếu tối thiểu là 0,9mA và tối đa là 6,0mA.
+- Điện áp kéo lên mạnh 5V được hỗ trợ tối thiểu 5,9mA và
+  tối đa 30,4 mA.  (Từ DS2490.pdf)
+- Phần cứng sẽ phát hiện khi thiết bị được gắn vào bus trên
+  hoạt động bus tiếp theo (đặt lại?), tuy nhiên chỉ có một thông báo được in dưới dạng
+  mã w1 lõi không sử dụng thông tin.  Đang kết nối
+  một thiết bị có xu hướng đưa ra nhiều thông báo thiết bị mới.
+- Số lượng giao dịch bus USB có thể giảm nếu w1_reset_send
+  đã được thêm vào API.  Cái tên chỉ là gợi ý.  Nó sẽ mất
+  bộ đệm ghi và bộ đệm đọc (cùng với kích thước) làm đối số.
+  Lệnh I/O khối ds2490 hỗ trợ reset, ghi bộ đệm, đọc
+  bộ đệm và pullup mạnh mẽ, tất cả chỉ trong một lệnh, thay vì lệnh hiện tại
+  1 reset bus, 2 ghi lệnh match rom và id rom phụ, 3 block
+  ghi và đọc dữ liệu.  Bộ đệm ghi cần phải có rom phù hợp
+  id lệnh và rom nô lệ được thêm vào phía trước của yêu cầu
+  bộ đệm ghi, cả hai đều được trình điều khiển biết.
+- Phần cứng hỗ trợ bus thông thường, linh hoạt và tăng tốc
+  tốc độ truyền thông, nhưng chỉ hỗ trợ bình thường.
+- Các hàm w1_bus_master đã đăng ký không xác định lỗi
+  điều kiện.  Nếu quá trình tìm kiếm xe buýt đang được tiến hành và ds2490
+  bị loại bỏ, nó có thể tạo ra một lượng lỗi đầu ra lớn trước xe buýt
+  tìm kiếm kết thúc.
+- Phần cứng hỗ trợ phát hiện một số tình trạng lỗi như
+  sự hiện diện ngắn, đáng báo động khi đặt lại và không có sự hiện diện khi đặt lại, nhưng
+  trình điều khiển không truy vấn các giá trị đó.
+- Đặc tả DS2490 không bao gồm số lượng lớn các lần đọc trong
+  chi tiết, nhưng quan sát của tôi là nếu yêu cầu ít byte hơn
+  khả dụng, việc đọc hàng loạt sẽ trả về lỗi và phần cứng sẽ
+  xóa toàn bộ số lượng lớn trong bộ đệm.  Sẽ có thể đọc được
+  kích thước bộ đệm tối đa để không gặp phải tình trạng lỗi này, chỉ bổ sung
+  byte trong bộ đệm là lỗi logic trong trình điều khiển.  Mã nên
+  khớp đọc và ghi cũng như kích thước dữ liệu.  Đọc và
+  ghi được tuần tự hóa và trạng thái xác minh rằng chip không hoạt động
+  (và dữ liệu có sẵn) trước khi quá trình đọc được thực hiện, vì vậy cần
+  không xảy ra.
+- Đang chạy x86_64 2.6.24 UHCI theo qemu 0.9.0 theo x86_64 2.6.22-rc6
+  với bộ điều khiển OHCI, ds2490 chạy trong máy khách sẽ hoạt động
+  thông thường lần đầu tiên mô-đun được tải sau khi gắn qemu
+  phần cứng ds2490, nhưng nếu mô-đun đã được dỡ tải thì hãy tải lại
+  hầu hết thời gian một trong số lượng lớn ra hoặc vào, và thường là số lượng lớn trong
+  sẽ thất bại.  qemu đặt thời gian chờ là 50ms và phần lớn sẽ hết thời gian chờ
+  ngay cả khi trạng thái hiển thị dữ liệu có sẵn.  Viết số lượng lớn sẽ
+  hiển thị hoàn thành thành công, nhưng thanh ghi trạng thái ds2490 sẽ
+  hiển thị 0 byte được viết.  Tách qemu khỏi phần cứng ds2490 và
+  gắn lại sẽ giải quyết vấn đề.  đầu ra usbmon trong máy khách và
+  máy chủ đã không giải thích vấn đề.  Tôi đoán là có lỗi trong qemu
+  hoặc Hệ điều hành máy chủ và nhiều khả năng là Hệ điều hành máy chủ.
+
+06-03-2008 David Fries <David@Fries.net>

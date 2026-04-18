@@ -1,0 +1,57 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/input/devices/cs461x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Cần điều khiển Crystal SoundFusion CS4610/CS4612/CS461
+================================================
+
+Đây là trình điều khiển cấp thấp mới để hỗ trợ cần điều khiển analog được gắn vào
+Crystal SoundFusion CS4610/CS4612/CS4615. Mã này dựa trên
+Trình điều khiển Vortex/Solo là một ví dụ về phong cách trang trí và ALSA
+Trình điều khiển hạt nhân 0.5.8a làm tài liệu và mẫu chipset.
+
+Phiên bản này không hỗ trợ chế độ nấu chín; mã cơ bản
+có mặt ở đây, nhưng chưa được kiểm tra hoàn toàn. Phân tích nút
+được hoàn thành ở chế độ này, nhưng chuyển động của trục thì không.
+
+Chế độ thô hoạt động tốt với trình điều khiển giao diện người dùng cần điều khiển tương tự và cs461x
+trình điều khiển làm phụ trợ. Tôi đã thử trình điều khiển này với CS4610, 4 trục và
+cần điều khiển 4 nút; Ý tôi là tiện ích jstest. Ngoài ra tôi đã cố gắng
+chơi trong trò chơi xracer bằng phím điều khiển và kết quả tốt hơn
+chế độ chỉ bàn phím.
+
+Độ nhạy và chất lượng hiệu chuẩn chưa được kiểm tra; hai
+lý do được đưa ra: cùng một phần cứng không thể hoạt động trong Win95 (màu xanh
+màn hình trong VJOYD); Tôi không có tài liệu nào về chip của mình; và hiện có
+hành vi trong trường hợp của tôi không được nâng cao yêu cầu hiệu chỉnh cần điều khiển.
+Vì vậy driver không có mã để thực hiện hiệu chỉnh liên quan đến phần cứng.
+
+Trình điều khiển này chỉ hỗ trợ cơ bản cho các thiết bị PCI; không có
+Hỗ trợ thẻ ISA hoặc PnP ISA.
+
+Trình điều khiển hoạt động đồng thời với trình điều khiển ALSA. Ví dụ: xracer
+sử dụng cần điều khiển làm thiết bị đầu vào và thiết bị PCM làm đầu ra âm thanh cùng một lúc.
+Không phát hiện thấy xung đột âm thanh hoặc đầu vào. Mã nguồn có
+nhận xét về họ; nhưng tôi nhận thấy cần điều khiển có thể được khởi tạo
+riêng biệt của các mô-đun ALSA. Vì vậy, bạn chỉ có thể sử dụng một trình điều khiển cần điều khiển
+không có trình điều khiển ALSA. Không cần trình điều khiển ALSA để biên dịch hoặc
+chạy trình điều khiển này.
+
+Không có bản in thông tin gỡ lỗi nào được đặt trong nguồn và không có
+các tùy chọn cụ thể cần thiết để làm việc với trình điều khiển này. Các thông số chipset được tìm thấy
+được in qua printk(KERN_INFO "..."), hãy xem /var/log/messages tới
+kiểm tra cs461x: tin nhắn có tiền tố để xác định khả năng phát hiện thẻ
+lỗi.
+
+Trân trọng,
+Viktor

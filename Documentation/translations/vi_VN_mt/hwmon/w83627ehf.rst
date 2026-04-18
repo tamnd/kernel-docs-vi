@@ -1,0 +1,262 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83627ehf.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83627ehf
+=======================
+
+Chip được hỗ trợ:
+
+* Winbond W83627EHF/EHG (ISA truy cập ONLY)
+
+Tiền tố: 'w83627ehf'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: không có sẵn
+
+* Winbond W83627DHG
+
+Tiền tố: 'w83627dhg'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: không có sẵn
+
+* Winbond W83627DHG-P
+
+Tiền tố: 'w83627dhg'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: không có sẵn
+
+* Winbond W83627UHG
+
+Tiền tố: 'w83627uhg'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: có sẵn từ www.nuvoton.com
+
+* Winbond W83667HG
+
+Tiền tố: 'w83667hg'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: không có sẵn
+
+* Winbond W83667HG-B
+
+Tiền tố: 'w83667hg'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6775F/W83667HG-I
+
+Tiền tố: 'nct6775'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+* Nuvoton NCT6776F
+
+Tiền tố: 'nct6776'
+
+Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+
+Bảng dữ liệu: Có sẵn từ Nuvoton theo yêu cầu
+
+
+tác giả:
+
+- Jean Delvare <jdelvare@suse.de>
+	- Nguyên Mộ (Winbond)
+	- Rudolf Marek <r.marek@assembler.cz>
+	- David Hubbard <david.c.hubbard@gmail.com>
+	- Gong Jun <JGong@nuvoton.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Winbond W83627EHF, W83627EHG,
+W83627DHG, W83627DHG-P, W83627UHG, W83667HG, W83667HG-B, W83667HG-I
+(NCT6775F) và chip siêu I/O NCT6776F. Chúng ta sẽ gọi chung chúng
+như chip Winbond.
+
+Các chip triển khai 3 đến 4 cảm biến nhiệt độ (9 cho NCT6775F và NCT6776F),
+2 đến 5 cảm biến tốc độ quay của quạt, 8 đến 10 cảm biến điện áp analog, một VID
+(ngoại trừ 627UHG), báo động có cảnh báo tiếng bíp (điều khiển chưa được thực hiện),
+và một số chiến lược điều chỉnh quạt tự động (cộng với chế độ điều khiển quạt thủ công).
+
+Các nguồn cảm biến nhiệt độ trên W82677HG-B, NCT6775F và NCT6776F là
+có thể cấu hình được. thuộc tính temp4 và cao hơn chỉ được báo cáo nếu nhiệt độ của nó
+nguồn khác với các nguồn nhiệt độ của nhiệt độ đã được báo cáo
+cảm biến. Nguồn được cấu hình cho từng cảm biến nhiệt độ được cung cấp
+trong tempX_label.
+
+Nhiệt độ được đo bằng độ C và độ phân giải đo là 1
+degC cho temp1 và 0,5 độC cho temp2 và temp3. Đối với temp4 trở lên,
+độ phân giải là 1 độ C đối với W83667HG-B và 0,0 độ C đối với NCT6775F và NCT6776F.
+Báo động được kích hoạt khi nhiệt độ cao hơn giới hạn cao;
+nó vẫn tiếp tục cho đến khi nhiệt độ giảm xuống dưới giá trị trễ.
+Báo thức chỉ được hỗ trợ cho temp1, temp2 và temp3.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia bằng một bộ chia có thể lập trình (1, 2, 4, 8, 16, 32, 64 hoặc
+128) để cung cấp cho các bài đọc phạm vi hoặc độ chính xác cao hơn. Người lái xe cài đặt nhiều nhất
+chính bộ chia quạt phù hợp. Một số người hâm mộ có thể không có mặt vì họ
+chia sẻ chân với các chức năng khác.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng tính bằng milivolt.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa.
+
+Người lái hỗ trợ chế độ điều khiển quạt tự động có tên Thermal Cruise.
+Ở chế độ này, chip cố gắng giữ nhiệt độ đo được ở mức
+phạm vi nhiệt độ được xác định trước. Nếu nhiệt độ vượt quá phạm vi cho phép, quạt
+được điều khiển chậm hơn/nhanh hơn để đạt lại phạm vi được xác định trước.
+
+Chế độ hoạt động cho fan1-fan4. Ánh xạ nhiệt độ tới đầu ra pwm là như
+sau::
+
+nhiệt độ1 -> pwm1
+  temp2 -> pwm2
+  temp3 -> pwm3 (không có trên 627UHG)
+  prog -> pwm4 (không có trên 667HG và 667HG-B; cài đặt có thể lập trình không
+		 được hỗ trợ bởi người lái xe)
+
+tập tin /sys
+----------
+
+tên
+	đây là mục nhập thiết bị hwmon tiêu chuẩn, nó chứa tên của
+	thiết bị (xem tiền tố trong danh sách các thiết bị được hỗ trợ tại
+	đầu tập tin này)
+
+pwm[1-4]
+	tệp này lưu trữ chu kỳ nhiệm vụ PWM hoặc giá trị DC (tốc độ quạt) trong phạm vi:
+
+0 (dừng) đến 255 (đầy đủ)
+
+pwm[1-4]_enable
+	tập tin này kiểm soát chế độ kiểm soát quạt/nhiệt độ:
+
+* 1 Chế độ thủ công, ghi vào tệp pwm bất kỳ giá trị nào 0-255 (tốc độ tối đa)
+	* 2 chế độ “Hành trình nhiệt”
+	* 3 chế độ "Hành trình tốc độ quạt"
+	* 4 chế độ "Quạt thông minh III"
+	* 5 chế độ "Quạt thông minh IV"
+
+Chế độ SmartFan III không được hỗ trợ trên NCT6776F.
+
+Chế độ SmartFan IV chỉ có thể cấu hình được nếu nó được cấu hình tại hệ thống
+	khởi động và chỉ được hỗ trợ cho W83677HG-B, NCT6775F và NCT6776F.
+	Không thể cấu hình các thông số vận hành của SmartFan IV tại thời điểm này,
+	và các thuộc tính pwm khác nhau không được sử dụng trong chế độ SmartFan IV.
+	Các thuộc tính có thể được ghi vào, điều này rất hữu ích nếu bạn định
+	cấu hình hệ thống cho một chế độ pwm khác. Tuy nhiên, thông tin
+	được trả về khi đọc thuộc tính pwm không liên quan đến SmartFan IV
+	hoạt động.
+
+pwm[1-4]_mode
+	điều khiển nếu đầu ra ở mức PWM hoặc DC
+
+* 0 đầu ra DC (0 - 12v)
+	* 1 đầu ra PWM
+
+Chế độ du thuyền nhiệt
+-------------------
+
+Nếu nhiệt độ nằm trong khoảng được xác định bởi:
+
+pwm[1-4]_target
+		   đặt nhiệt độ mục tiêu, đơn vị mili độ C
+		   (phạm vi 0 - 127000)
+pwm[1-4]_tolerance
+		   dung sai, đơn vị mili độ C (phạm vi 0 - 15000)
+
+không có thay đổi về tốc độ quạt. Một khi nhiệt độ rời khỏi khoảng thời gian,
+tốc độ quạt tăng (nhiệt độ cao hơn) hoặc giảm nếu thấp hơn mong muốn.
+Có các bước và thời gian xác định nhưng chưa được trình điều khiển xuất ra.
+
+pwm[1-4]_min_output
+		   tốc độ quạt tối thiểu (phạm vi 1 - 255), khi nhiệt độ
+		   nằm dưới phạm vi xác định.
+pwm[1-4]_stop_time
+		   phải trôi qua bao nhiêu mili giây [ms] để chuyển đổi
+		   quạt tương ứng tắt. (khi nhiệt độ xuống dưới
+		   phạm vi xác định).
+pwm[1-4]_start_output
+		   tốc độ quạt tối thiểu (phạm vi 1 - 255) khi quay lên
+pwm[1-4]_step_output
+		   tốc độ thay đổi tốc độ quạt (1 - 255)
+pwm[1-4]_stop_output
+		   tốc độ quạt tối thiểu (phạm vi 1 - 255) khi quay xuống
+pwm[1-4]_max_output
+		   tốc độ quạt tối đa (phạm vi 1 - 255), khi nhiệt độ
+		   nằm trên phạm vi xác định.
+
+Lưu ý: sáu chức năng cuối cùng bị ảnh hưởng bởi các bit điều khiển khác, chưa được xuất
+      bởi người lái xe, do đó sự thay đổi có thể không có tác dụng gì.
+
+Chi tiết triển khai
+----------------------
+
+Việc phát triển trình điều khiển trong tương lai cần lưu ý rằng các sổ đăng ký sau đây có
+các chức năng khác nhau trên 627EHF và 627DHG. Một số thanh ghi cũng có
+các giá trị mặc định bật nguồn khác nhau, nhưng BIOS đã được tải
+mặc định thích hợp. Lưu ý rằng việc lựa chọn ngân hàng phải được thực hiện như hiện tại
+được thực hiện trong trình điều khiển cho tất cả các địa chỉ đăng ký.
+
+====================================================================================
+(Các) thanh ghi Ý nghĩa
+====================================================================================
+0x49 chỉ trên DHG, chọn nguồn nhiệt độ cho quạt AUX,
+			  Quạt CPU0
+0x4a không được ghi lại đầy đủ cho EHF và DHG
+			  tài liệu gán hành vi khác nhau cho bit 7
+			  và 6, bao gồm cả việc mở rộng đầu vào nhiệt độ
+			  lựa chọn SmartFan I, không chỉ SmartFan III.
+			  Thử nghiệm trên EHF sẽ tiết lộ liệu chúng có
+			  tương thích hay không.
+ID chip 0x58: 0xa1=EHF 0xc1=DHG
+0x5e chỉ trên DHG, có các bit để bật "chế độ hiện tại"
+			  phát hiện nhiệt độ và nhiệt độ tới hạn
+			  bảo vệ
+0x45b chỉ trên EHF, bit 3, cảnh báo vin4 (EHF hỗ trợ 10
+			  đầu vào, chỉ có 9 trên DHG)
+0x552 chỉ trên EHF, vin4
+0x558 chỉ trên EHF, giới hạn cao vin4
+0x559 chỉ trên EHF, giới hạn thấp vin4
+0x6b chỉ trên DHG, nhiệt độ tới hạn của quạt SYS
+0x6c chỉ trên DHG, CPU fan0 nhiệt độ tới hạn
+0x6d chỉ trên DHG, nhiệt độ tới hạn của quạt AUX
+0x6e chỉ trên DHG, CPU fan1 nhiệt độ tới hạn
+0x50-0x55 và 0x650-0x657 được đánh dấu là:
+
+- "Đăng ký thử nghiệm" cho EHF
+			    - "Đăng ký dành riêng" cho DHG
+====================================================================================
+
+DHG cũng hỗ trợ PECI, trong đó DHG truy vấn nhiệt độ Intel CPU và
+cầu nam ICH8 nhận dữ liệu đó qua PECI từ DHG, do đó
+Southbridge thúc đẩy người hâm mộ. Và DHG hỗ trợ SST, bus nối tiếp một dây.
+
+DHG-P có thêm chế độ điều khiển tốc độ quạt tự động mang tên Smart Fan
+(TM) III+. Chế độ này chưa được trình điều khiển hỗ trợ.

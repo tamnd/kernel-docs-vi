@@ -1,0 +1,87 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tps40422.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tps40422
+======================
+
+Chip được hỗ trợ:
+
+* TI TPS40422
+
+Tiền tố: 'tps40422'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Zhu Laiwen <richard.zhu@nsn.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ TI TPS40422 Đầu ra kép hoặc Buck đồng bộ hai pha
+Bộ điều khiển với PMBus
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi.
+Vui lòng xem Tài liệu/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ.
+
+====================================================================================
+trong[1-2]_label "vout[1-2]"
+in[1-2]_input Đo điện áp. Từ đăng ký READ_VOUT.
+in[1-2]_alarm báo động điện áp.
+
+curr[1-2]_input Đo dòng điện. Từ đăng ký READ_IOUT.
+Curr[1-2]_label "iout[1-2]"
+curr1_max Dòng điện tối đa. Từ đăng ký IOUT_OC_WARN_LIMIT.
+Curr1_crit Dòng tối đa tới hạn. Từ IOUT_OC_FAULT_LIMIT
+			đăng ký.
+curr1_max_alarm Báo động cao hiện tại. Từ trạng thái IOUT_OC_WARN_LIMIT.
+curr1_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao. Từ trạng thái IOUT_OC_FAULT.
+curr2_alarm Báo động cao hiện tại. Từ trạng thái IOUT_OC_WARNING.
+
+temp1_input Đo nhiệt độ. Từ READ_TEMPERATURE_2 đăng ký
+			ở trang 0.
+temp1_max Nhiệt độ tối đa. Từ đăng ký OT_WARN_LIMIT.
+temp1_crit Nhiệt độ cao tới hạn. Từ đăng ký OT_FAULT_LIMIT.
+temp1_max_alarm Báo động nhiệt độ chip cao. Đặt bằng cách so sánh
+			READ_TEMPERATURE_2 trên trang 0 với OT_WARN_LIMIT nếu
+			Trạng thái TEMP_OT_WARNING được đặt.
+temp1_crit_alarm Báo động nhiệt độ chip tới hạn cao. Đặt bằng cách so sánh
+			READ_TEMPERATURE_2 trên trang 0 với OT_FAULT_LIMIT nếu
+			Trạng thái TEMP_OT_FAULT được đặt.
+temp2_input Đo nhiệt độ. Từ READ_TEMPERATURE_2 đăng ký
+			ở trang 1.
+temp2_alarm Cảnh báo nhiệt độ chip trên trang 1.
+====================================================================================

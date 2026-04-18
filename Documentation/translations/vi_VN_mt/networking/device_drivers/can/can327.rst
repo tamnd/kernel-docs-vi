@@ -1,0 +1,343 @@
+.. SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/can/can327.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+can327: Trình điều khiển ELM327 cho Linux SocketCAN
+==========================================
+
+tác giả
+--------
+
+Max Staudt <max@enpas.org>
+
+
+
+Động lực
+-----------
+
+Trình điều khiển này nhằm mục đích giảm chi phí ban đầu cho các hacker quan tâm đến
+làm việc với xe buýt CAN.
+
+Bộ điều hợp CAN đắt tiền, ít và xa.
+Giao diện ELM327 rẻ và phong phú.
+Hãy sử dụng ELM327 làm bộ điều hợp CAN.
+
+
+
+Giới thiệu
+-------------
+
+Trình điều khiển này là một nỗ lực để biến các giao diện OBD dựa trên ELM327 phong phú
+vào các giao diện CAN chính thức (càng nhiều càng tốt).
+
+Vì ELM327 chưa bao giờ được coi là bộ điều khiển CAN độc lập,
+người lái xe phải chuyển đổi giữa các chế độ càng nhanh càng tốt trong
+để giả mạo hoạt động song công hoàn toàn.
+
+Như vậy, can327 là một trình điều khiển nỗ lực tốt nhất. Tuy nhiên, điều này còn hơn
+đủ để triển khai các giao thức đáp ứng yêu cầu đơn giản (chẳng hạn như OBD II),
+và để giám sát các tin nhắn quảng bá trên xe buýt (chẳng hạn như trên ô tô).
+
+Hầu hết ELM327 đều có dạng thiết bị nối tiếp không có đặc tính rõ ràng, được gắn qua USB hoặc
+Bluetooth. Người lái xe không thể tự nhận ra chúng và do đó
+người dùng có quyền đính kèm nó dưới dạng dòng TTY
+(tương tự PPP, SLIP, slcan,...).
+
+Trình điều khiển này dành cho ELM327 phiên bản 1.4b trở lên, xem bên dưới để biết
+những hạn chế đã biết trong các bộ điều khiển và bản sao cũ hơn.
+
+
+
+Bảng dữ liệu
+-----------
+
+Bạn có thể tìm thấy bảng dữ liệu chính thức tại trang chủ của thiết bị điện tử ELM:
+
+ZZ0000ZZ
+
+
+
+Cách gắn kỷ luật dòng
+----------------------------------
+
+Mỗi chip ELM327 đều được lập trình tại nhà máy để hoạt động ở cài đặt nối tiếp
+tốc độ 38400 baud/s, 8 bit dữ liệu, không có chẵn lẻ, 1 stopbit.
+
+Nếu bạn đã giữ cấu hình mặc định này, kỷ luật đường dây có thể
+được đính kèm trên dấu nhắc lệnh như sau::
+
+sudo ldattach \
+           --gỡ lỗi \
+           --tốc độ 38400 \
+           --tám bit \
+           --không có tính chẵn lẻ \
+           --onestopbit \
+           --iflag -ICRNL,INLCR,-IXOFF \
+           30 \
+           /dev/ttyUSB0
+
+Để thay đổi cài đặt nối tiếp của ELM327, vui lòng tham khảo dữ liệu của nó
+tờ. Điều này cần phải được thực hiện trước khi gắn kỷ luật dòng.
+
+Khi ldisc được gắn vào, giao diện CAN sẽ khởi động ở trạng thái chưa được định cấu hình.
+Đặt tốc độ trước khi bắt đầu::
+
+Giao diện # The cần down để thay đổi thông số
+    liên kết ip sudo đặt can0 xuống
+    Bộ liên kết ip sudo can0 loại có thể bitrate 500000
+    liên kết ip sudo được thiết lập can0 lên
+
+500000 bit/s là tốc độ phổ biến cho chẩn đoán OBD-II.
+Nếu bạn đang kết nối thẳng với cổng OBD của ô tô thì đây là tốc độ
+mà hầu hết ô tô (nhưng không phải tất cả!) mong đợi.
+
+Sau đó, bạn có thể bắt đầu như bình thường với candump, cansniffer, v.v.
+
+
+
+Cách kiểm tra phiên bản bộ điều khiển
+------------------------------------
+
+Sử dụng chương trình đầu cuối để gắn vào bộ điều khiển.
+
+Sau khi đưa ra lệnh "ZZ0000ZZ", bộ điều khiển sẽ phản hồi bằng
+phiên bản của nó::
+
+> TẠI WS
+
+
+ELM327 v1.4b
+
+    >
+
+Lưu ý rằng người sao chép có thể tự nhận là bất kỳ phiên bản nào họ thích.
+Nó không phải là dấu hiệu của bộ tính năng thực tế của họ.
+
+
+
+
+Ví dụ về giao tiếp
+----------------------
+
+Đây là phần giới thiệu ngắn gọn và chưa đầy đủ về cách nói chuyện với ELM327.
+Nó ở đây để hướng dẫn sự hiểu biết về bộ điều khiển và người lái xe
+giới hạn (được liệt kê bên dưới) cũng như kiểm tra thủ công.
+
+
+ELM327 có hai chế độ:
+
+- Chế độ lệnh
+- Chế độ tiếp nhận
+
+Trong chế độ lệnh, nó mong đợi một lệnh trên mỗi dòng, được kết thúc bởi CR.
+Theo mặc định, lời nhắc là "ZZ0000ZZ", sau đó lệnh có thể được thực hiện
+đã nhập::
+
+>ATE1
+    được rồi
+    >
+
+Tập lệnh init trong trình điều khiển sẽ tắt một số tùy chọn cấu hình
+chỉ có ý nghĩa trong kịch bản OBD ban đầu, ý nghĩa của chip là
+cho và thực sự là một trở ngại cho can327.
+
+
+Khi một lệnh không được nhận dạng, chẳng hạn như phiên bản cũ hơn của
+ELM327, dấu chấm hỏi được in dưới dạng phản hồi thay vì OK::
+
+>ATUNKNOWN
+    ?
+    >
+
+Hiện tại, can327 không đánh giá phản hồi này. Xem phần
+bên dưới về những hạn chế đã biết để biết chi tiết.
+
+
+Khi khung CAN được gửi đi, địa chỉ đích sẽ được định cấu hình, sau
+khung được gửi dưới dạng lệnh bao gồm hex của dữ liệu
+đổ::
+
+>ATSH123
+    được rồi
+    >DEADBEEF12345678
+    được rồi
+    >
+
+Tương tác trên sẽ gửi khung SFF "ZZ0000ZZ"
+với (11 bit) CAN ID ZZ0001ZZ.
+Để chức năng này hoạt động, bộ điều khiển phải được cấu hình để gửi SFF
+chế độ (sử dụng "ZZ0002ZZ", xem mã hoặc biểu dữ liệu).
+
+
+Khi một khung đã được gửi và chế độ chờ trả lời được bật (ZZ0000ZZ,
+được định cấu hình trên ZZ0001ZZ) hoặc khi hết thời gian chờ trả lời
+và trình điều khiển đặt bộ điều khiển ở chế độ giám sát (ZZ0002ZZ),
+ELM327 sẽ gửi một dòng cho mỗi khung CAN nhận được, bao gồm
+của CAN ID, DLC và dữ liệu::
+
+123 8 DEADBEEF12345678
+
+Đối với các khung EFF (29 bit) CAN, định dạng địa chỉ hơi khác một chút,
+can327 sử dụng cái nào để phân biệt hai cái này::
+
+12 34 56 78 8 DEADBEEF12345678
+
+ELM327 sẽ nhận được cả khung SFF và EFF - CAN hiện tại
+config (ZZ0000ZZ) không thành vấn đề.
+
+
+Nếu bộ đệm gửi UART bên trong của ELM327 chạy đầy, nó sẽ hủy bỏ
+chế độ giám sát, in "BUFFER FULL" và quay lại lệnh
+chế độ. Lưu ý rằng trong trường hợp này, không giống như các thông báo lỗi khác,
+thông báo lỗi có thể xuất hiện trên cùng dòng với dòng cuối cùng (thường
+không đầy đủ) khung dữ liệu::
+
+12 34 56 78 8 DEADBEEF123 BUFFER FULL
+
+
+
+Những hạn chế đã biết của bộ điều khiển
+------------------------------------
+
+- Thiết bị sao chép ("v1.5" và các thiết bị khác)
+
+Việc gửi khung RTR không được hỗ trợ và sẽ bị hủy một cách âm thầm.
+
+Nhận RTR bằng DLC 8 sẽ xuất hiện dưới dạng khung thông thường với
+  DLC và tải trọng của khung nhận được cuối cùng.
+
+"ZZ0000ZZ" (CAN Giám sát im lặng, tức là không gửi ACK CAN) là
+  không được hỗ trợ và được mã hóa cứng thành BẬT. Do đó, các khung không được ACK
+  trong khi nghe: "ZZ0001ZZ" (Monitor All) sẽ luôn "im lặng".
+  Tuy nhiên, ngay sau khi gửi khung, ELM327 sẽ ở trạng thái
+  Chế độ "nhận trả lời", trong đó ZZ0003ZZ ACK bất kỳ khung nào đã nhận được.
+  Khi xe buýt im lặng hoặc xảy ra lỗi (chẳng hạn như BUFFER FULL),
+  hoặc hết thời gian chờ trả lời nhận, ELM327 sẽ kết thúc trả lời
+  chế độ tiếp nhận riêng và can327 sẽ quay trở lại "ZZ0002ZZ"
+  để tiếp tục theo dõi xe buýt.
+
+Các hạn chế khác có thể được áp dụng, tùy thuộc vào bản sao và chất lượng
+  phần sụn của nó.
+
+
+- Tất cả các phiên bản
+
+Không có hoạt động song công hoàn toàn được hỗ trợ. Người lái xe sẽ chuyển
+  giữa chế độ đầu vào/đầu ra càng nhanh càng tốt.
+
+Không thể đặt độ dài của khung RTR gửi đi. Trên thực tế, một số
+  các bản sao (được thử nghiệm với một bản được xác định là "ZZ0000ZZ") không thể
+  gửi tất cả các khung RTR.
+
+Chúng tôi không có cách nào để nhận thông báo theo thời gian thực về lỗi CAN.
+  Mặc dù có lệnh (ZZ0000ZZ) để truy xuất một số số liệu thống kê cơ bản,
+  chúng tôi không thăm dò nó vì nó sẽ buộc chúng tôi phải làm gián đoạn chế độ tiếp nhận.
+
+
+- Các phiên bản trước 1.4b
+
+Các phiên bản này không gửi ACK CAN khi ở chế độ giám sát (AT MA).
+  Tuy nhiên, họ gửi ACK trong khi chờ phản hồi ngay lập tức
+  sau khi gửi một khung. Người lái xe tối đa hóa thời gian này để thực hiện
+  bộ điều khiển hữu ích nhất có thể.
+
+Bắt đầu với phiên bản 1.4b, ELM327 hỗ trợ "ZZ0000ZZ"
+  lệnh và tùy chọn CAN "chỉ nghe" sẽ có hiệu lực.
+
+
+- Phiên bản trước 1.4
+
+Những chip này không hỗ trợ lệnh "ZZ0000ZZ" và do đó không thể
+  thay đổi tốc độ bit hoặc chế độ SFF/EFF một cách nhanh chóng. Điều này sẽ phải được
+  được người dùng lập trình trước khi gắn kỷ luật dòng. Xem
+  bảng dữ liệu để biết chi tiết.
+
+
+- Phiên bản trước 1.3
+
+Những con chip này hoàn toàn không thể được sử dụng với can327. Họ không hỗ trợ
+  lệnh "ZZ0000ZZ", cần thiết để tránh xung đột phân tích cú pháp
+  trên dữ liệu đến cũng như sự phân biệt độ dài khung RTR.
+
+Cụ thể, điều này cho phép dễ dàng phân biệt SFF và EFF
+  các khung và kiểm tra xem các khung có đầy đủ hay không. Trong khi có thể
+  để suy ra loại và độ dài từ độ dài của dòng ELM327
+  gửi cho chúng tôi, phương pháp này không thành công khi bộ đệm đầu ra UART của ELM327
+  vượt quá. Nó có thể hủy bỏ việc gửi ở giữa dòng, điều này sẽ
+  rồi bị nhầm lẫn với thứ khác.
+
+
+
+Những hạn chế đã biết của người lái xe
+--------------------------------
+
+- Không tính thời gian 8/7.
+
+ELM327 chỉ có thể đặt tốc độ bit CAN có dạng 500000/n, trong đó
+  n là ước số nguyên.
+  Tuy nhiên có một ngoại lệ: Với một cờ riêng biệt, nó có thể đặt
+  tốc độ bằng 8/7 tốc độ được chỉ định bởi số chia.
+  Chế độ này hiện không được triển khai.
+
+- Không đánh giá được các phản hồi của lệnh.
+
+ELM327 sẽ trả lời bằng OK khi hiểu lệnh và với ?
+  khi nó không. Trình điều khiển hiện không kiểm tra điều này và chỉ đơn giản là
+  giả định rằng chip hiểu mọi lệnh.
+  Trình điều khiển được xây dựng sao cho chức năng xuống cấp một cách duyên dáng
+  tuy nhiên. Xem phần về những hạn chế đã biết của bộ điều khiển.
+
+- Không sử dụng bộ lọc ID CAN phần cứng
+
+Bộ đệm gửi UART của ELM327 sẽ dễ dàng tràn trên bus CAN nặng
+  tải, dẫn đến thông báo "ZZ0000ZZ". Sử dụng phần cứng
+  các bộ lọc có sẵn thông qua "ZZ0001ZZ" và "ZZ0002ZZ" sẽ là
+  hữu ích ở đây, tuy nhiên SocketCAN hiện không cung cấp phương tiện
+  để sử dụng các tính năng phần cứng như vậy.
+
+
+
+Cơ sở lý luận đằng sau cấu hình đã chọn
+------------------------------------------
+
+ZZ0000ZZ
+  Bật tiếng vang
+
+Chúng tôi cần điều này để có thể nhận được lời nhắc một cách đáng tin cậy.
+
+ZZ0000ZZ
+  Dấu cách đang bật
+
+Chúng tôi cần điều này để phân biệt các địa chỉ CAN 11/29 bit đã nhận được.
+
+Lưu ý:
+  Chúng ta thường có thể làm điều này bằng cách sử dụng độ dài dòng (lẻ/chẵn),
+  nhưng điều này không thành công nếu đường truyền không được truyền đầy đủ tới
+  máy chủ (BUFFER FULL).
+
+ZZ0000ZZ
+  DLC bật
+
+Chúng tôi cần điều này để biết "độ dài" của khung RTR.
+
+
+
+Lưu ý về việc chấm dứt xe buýt CAN
+------------------------------
+
+Bộ chuyển đổi của bạn có thể có các điện trở được hàn vào nhằm mục đích kết thúc
+xe buýt. Điều này đúng khi nó được cắm vào ổ cắm OBD-II, nhưng
+không hữu ích khi cố gắng chạm vào giữa xe buýt CAN hiện có.
+
+Nếu liên lạc không hoạt động với bộ chuyển đổi được kết nối, hãy kiểm tra
+điện trở kết cuối trên PCB của nó và thử tháo chúng ra.

@@ -1,0 +1,79 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tmp102.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tmp102
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas TMP102
+
+Tiền tố: 'tmp102'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP110
+
+Tiền tố: 'tmp110'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP113
+
+Tiền tố: 'tmp113'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả:
+
+Steven King <sfking@fdwdc.com>
+
+Sự miêu tả
+-----------
+
+Texas Instruments TMP102 có một cảm biến nhiệt độ.  Giới hạn có thể
+được thiết lập thông qua thanh ghi Tắt nhiệt độ quá cao và thanh ghi Độ trễ.  các
+cảm biến chính xác đến 0,5 độ trong phạm vi từ -25 đến +85 C và đến 1,0
+độ từ -40 đến +125 C. Độ phân giải của cảm biến là 0,0625 độ.  các
+nhiệt độ hoạt động tối thiểu là -55 C và tối đa là +150 C.
+
+TMP102 có tốc độ cập nhật có thể lập trình có thể chọn trong khoảng 8, 4, 1 và
+0,25Hz.
+
+TMP110 và TMP113 là phần mềm tương thích với TMP102, nhưng có các phần mềm khác nhau.
+thông số kỹ thuật về độ chính xác (lỗi tối đa). TMP110 có độ chính xác (lỗi tối đa)
+là 1,0 độ, TMP113 có độ chính xác (sai số tối đa) là 0,3 độ, trong khi TMP102
+có độ chính xác (sai số tối đa) là 2,0 độ.
+
+giao diện sysfs
+---------------
+
+Danh sách sau đây bao gồm các thuộc tính sysfs mà trình điều khiển cung cấp, các thuộc tính của chúng
+quyền và mô tả ngắn gọn:
+
+================================ ========================================================
+Tên Perm Mô tả
+================================ ========================================================
+temp1_input: Đầu vào nhiệt độ RO
+temp1_label: RO Tên mô tả của cảm biến
+temp1_max: RW Nhiệt độ tối đa
+temp1_max_hyst: RW Nhiệt độ trễ tối đa
+update_interval RW Cập nhật khoảng thời gian chuyển đổi tính bằng mili giây
+================================ ========================================================

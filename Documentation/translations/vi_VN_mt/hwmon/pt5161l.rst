@@ -1,0 +1,54 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/pt5161l.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân pt5161l
+=====================
+
+Chip được hỗ trợ:
+
+* Phòng thí nghiệm Astera PT5161L
+
+Tiền tố: 'pt5161l'
+
+Địa chỉ được quét: I2C 0x20 - 0x27
+
+Bảng dữ liệu: Không có sẵn công khai.
+
+Tác giả: Cosmo Chou <cosmo.chou@quantatw.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này thực hiện hỗ trợ theo dõi nhiệt độ của Astera Labs
+Chip hẹn giờ PCIe dòng PT5161L.
+
+Việc triển khai trình điều khiển này bắt nguồn từ CSDK có sẵn tại
+ZZ0000ZZ
+Giao thức truyền thông được sử dụng dựa trên tiêu chuẩn I2C/SMBus.
+
+Mục nhập hệ thống
+----------------
+
+====================================================================
+temp1_input Nhiệt độ đo được (tính bằng mili độ C)
+====================================================================
+
+Mục gỡ lỗi
+----------------
+
+===================================================
+fw_load_status Trạng thái tải chương trình cơ sở
+fw_ver Phiên bản phần sụn của bộ đếm thời gian
+nhịp tim_status Trạng thái nhịp tim
+===================================================

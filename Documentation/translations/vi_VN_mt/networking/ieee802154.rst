@@ -1,0 +1,198 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/networking/ieee802154.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==================================
+Hướng dẫn dành cho nhà phát triển IEEE 802.15.4
+===============================
+
+Giới thiệu
+============
+Nhóm làm việc IEEE 802.15.4 tập trung vào việc tiêu chuẩn hóa phần đáy
+hai lớp: Kiểm soát truy cập trung bình (MAC) và Truy cập vật lý (PHY). Và ở đó
+chủ yếu có hai tùy chọn có sẵn cho các lớp trên:
+
+- ZigBee - giao thức độc quyền của ZigBee Alliance
+- 6LoWPAN - Mạng IPv6 qua mạng khu vực cá nhân tốc độ thấp
+
+Mục tiêu của Linux-wpan là cung cấp một triển khai hoàn chỉnh
+của giao thức IEEE 802.15.4 và 6LoWPAN. IEEE 802.15.4 là một ngăn xếp
+của các giao thức tổ chức Mạng khu vực cá nhân không dây tốc độ thấp.
+
+Ngăn xếp bao gồm ba phần chính:
+
+- Lớp IEEE 802.15.4;  Chúng tôi đã chọn sử dụng ổ cắm Berkeley API đơn giản,
+  ngăn xếp mạng Linux chung để truyền dữ liệu IEEE 802.15.4
+  tin nhắn và một giao thức đặc biệt qua liên kết mạng để cấu hình/quản lý
+- MAC - cung cấp quyền truy cập vào kênh chia sẻ và phân phối dữ liệu đáng tin cậy
+- PHY - đại diện cho trình điều khiển thiết bị
+
+Ổ cắm API
+==========
+
+::
+
+int sd = ổ cắm (PF_IEEE802154, SOCK_DGRAM, 0);
+
+Họ địa chỉ, địa chỉ ổ cắm, v.v. được xác định trong
+tiêu đề include/net/af_ieee802154.h hoặc trong tiêu đề đặc biệt
+trong gói không gian người dùng (xem ZZ0000ZZ
+hoặc cây git tại ZZ0001ZZ
+
+Triển khai Linux 6LoWPAN
+============================
+
+Tiêu chuẩn IEEE 802.15.4 chỉ định MTU có 127 byte, mang lại khoảng 80
+octet của tải trọng MAC thực tế khi bảo mật được bật, trên liên kết không dây
+với thông lượng liên kết từ 250 kbps trở xuống.  Định dạng thích ứng 6LoWPAN
+[RFC4944] được chỉ định để mang các gói dữ liệu IPv6 qua các liên kết bị ràng buộc như vậy,
+có tính đến các nguồn tài nguyên băng thông, bộ nhớ hoặc năng lượng hạn chế
+được mong đợi trong các ứng dụng như Mạng cảm biến không dây.  [RFC4944] định nghĩa
+tiêu đề Địa chỉ lưới để hỗ trợ chuyển tiếp IP phụ, tiêu đề Phân mảnh
+để hỗ trợ yêu cầu MTU tối thiểu của IPv6 [RFC2460] và tiêu đề không trạng thái
+nén các gói dữ liệu IPv6 (LOWPAN_HC1 và LOWPAN_HC2) để giảm
+các tiêu đề IPv6 và UDP tương đối lớn xuống tới (trong trường hợp tốt nhất) vài byte.
+
+Vào tháng 9 năm 2011, bản cập nhật tiêu chuẩn đã được xuất bản - [RFC6282].
+Nó không dùng tính năng nén HC1 và HC2 và xác định định dạng mã hóa IPHC.
+được sử dụng trong triển khai Linux này.
+
+Tất cả mã liên quan đến 6lowpan bạn có thể tìm thấy trong các tệp: net/6lowpan/*
+và net/ieee802154/6lowpan/*
+
+Để thiết lập giao diện 6LoWPAN bạn cần:
+1. Thêm giao diện IEEE802.15.4 và đặt kênh và ID PAN;
+2. Thêm giao diện 6lowpan bằng lệnh như:
+Liên kết # ip thêm liên kết wpan0 tên lowpan0 loại lowpan
+3. Xuất hiện giao diện “lowpan0”
+
+Trình điều khiển
+=======
+
+Giống như WiFi, có một số loại thiết bị triển khai IEEE 802.15.4.
+1) 'HardMAC'. Lớp MAC được triển khai trong chính thiết bị, thiết bị
+xuất quản lý (ví dụ MLME) và dữ liệu API.
+2) 'SoftMAC' hoặc chỉ là đài phát thanh. Những loại thiết bị này chỉ là thiết bị thu phát sóng vô tuyến
+có thể với một số loại tăng tốc như tính toán CRC tự động và
+so sánh, xử lý ACK tự động, khớp địa chỉ, v.v.
+
+Mỗi loại thiết bị yêu cầu một cách tiếp cận khác nhau để kết nối với Linux
+hạt nhân.
+
+HardMAC
+-------
+
+Xem tiêu đề include/net/ieee802154_netdev.h. Bạn phải triển khai Linux
+net_device, với .type = ARPHRD_IEEE802154. Dữ liệu được trao đổi với họ socket
+mã thông qua sk_buffs đơn giản. Khi tiếp nhận skb skb->cb phải chứa bổ sung
+info as described in the struct ieee802154_mac_cb. Trong quá trình truyền gói
+skb->cb được sử dụng để cung cấp dữ liệu bổ sung cho thiết bị
+header_ops->tạo hàm. Xin lưu ý rằng dữ liệu này có thể bị ghi đè sau này
+(when socket code submits skb to qdisc), so if you need something from that cb
+later, you should store info in the skb->data on your own.
+
+Để kết nối giao diện MLME, bạn phải điền vào trường ml_priv của
+net_device với một con trỏ tới cấu trúc cá thể ieee802154_mlme_ops. những cánh đồng
+assoc_req, assoc_resp, disassoc_req, start_req và scan_req là tùy chọn.
+Tất cả các trường khác là bắt buộc.
+
+SoftMAC
+-------
+
+MAC là lớp giữa trong ngăn xếp Linux IEEE 802.15.4. Vào lúc này, nó
+cung cấp giao diện đăng ký trình điều khiển và quản lý nô lệ
+giao diện.
+
+NOTE: Hiện tại loại thiết bị màn hình duy nhất được hỗ trợ - đó là IEEE 802.15.4
+giao diện ngăn xếp cho trình thám thính mạng (ví dụ: WireShark).
+
+Lớp này sẽ sớm được mở rộng.
+
+Xem tiêu đề include/net/mac802154.h và một số trình điều khiển trong
+trình điều khiển/net/ieee802154/.
+
+Trình điều khiển giả
+------------
+
+Ngoài ra còn có sẵn trình điều khiển mô phỏng một thiết bị thực với
+Giao diện SoftMAC (fakelb - IEEE 802.15.4 loopback driver). Tùy chọn này
+cung cấp khả năng kiểm tra và gỡ lỗi ngăn xếp mà không cần sử dụng phần cứng thực.
+
+Trình điều khiển thiết bị API
+==================
+
+include/net/mac802154.h xác định các hàm sau:
+
+.. c:function:: struct ieee802154_dev *ieee802154_alloc_device (size_t priv_size, struct ieee802154_ops *ops)
+
+Phân bổ thiết bị tương thích IEEE 802.15.4.
+
+.. c:function:: void ieee802154_free_device(struct ieee802154_dev *dev)
+
+Giải phóng thiết bị được cấp phát.
+
+.. c:function:: int ieee802154_register_device(struct ieee802154_dev *dev)
+
+Đăng ký PHY trong hệ thống.
+
+.. c:function:: void ieee802154_unregister_device(struct ieee802154_dev *dev)
+
+Giải phóng PHY đã đăng ký.
+
+.. c:function:: void ieee802154_rx_irqsafe(struct ieee802154_hw *hw, struct sk_buff *skb, u8 lqi)
+
+Nói với mô-đun 802.15.4 rằng có một khung mới nhận được trong skb với
+Chỉ báo chất lượng liên kết RF (LQI) từ thiết bị phần cứng.
+
+.. c:function:: void ieee802154_xmit_complete(struct ieee802154_hw *hw, struct sk_buff *skb, bool ifs_handling)
+
+Cho mô-đun 802.15.4 biết khung trong skb đang hoặc sắp được
+truyền qua thiết bị phần cứng
+
+Trình điều khiển thiết bị phải triển khai các lệnh gọi lại sau trong IEEE 802.15.4
+cơ cấu hoạt động ít nhất::
+
+cấu trúc ieee802154_ops {
+        ...
+int (*start)(struct ieee802154_hw *hw);
+        khoảng trống (*stop)(struct ieee802154_hw *hw);
+        ...
+int (*xmit_async)(struct ieee802154_hw *hw, struct sk_buff *skb);
+        int (ZZ0001Zhw, u8 *cấp độ);
+        int (*set_channel)(struct ieee802154_hw *hw, trang u8, kênh u8);
+        ...
+   };
+
+.. c:function:: int start(struct ieee802154_hw *hw)
+
+Trình xử lý mô-đun 802.15.4 yêu cầu khởi tạo thiết bị phần cứng.
+
+.. c:function:: void stop(struct ieee802154_hw *hw)
+
+Trình xử lý mô-đun 802.15.4 yêu cầu dọn dẹp thiết bị phần cứng.
+
+.. c:function:: int xmit_async(struct ieee802154_hw *hw, struct sk_buff *skb)
+
+Trình xử lý mà mô-đun 802.15.4 gọi cho từng khung trong skb sẽ được thực hiện
+được truyền qua thiết bị phần cứng.
+
+.. c:function:: int ed(struct ieee802154_hw *hw, u8 *level)
+
+Trình xử lý mô-đun 802.15.4 yêu cầu Phát hiện năng lượng từ phần cứng
+thiết bị.
+
+.. c:function:: int set_channel(struct ieee802154_hw *hw, u8 page, u8 channel)
+
+Đặt radio để nghe trên kênh cụ thể của thiết bị phần cứng.
+
+Hơn nữa, cấu trúc hoạt động của thiết bị IEEE 802.15.4 phải được điền đầy đủ.

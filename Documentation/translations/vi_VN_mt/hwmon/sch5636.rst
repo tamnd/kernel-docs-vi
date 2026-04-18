@@ -1,0 +1,51 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/sch5636.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân sch5636
+=====================
+
+Chip được hỗ trợ:
+
+* SMSC SCH5636
+
+Tiền tố: 'sch5636'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Tác giả: Hans de Goede <hdegoede@redhat.com>
+
+
+Sự miêu tả
+-----------
+
+SMSC SCH5636 Super I/O chip bao gồm một bộ vi điều khiển nhúng cho
+giải pháp giám sát phần cứng, cho phép các nhà sản xuất bo mạch chủ tạo ra
+giải pháp hwmon tùy chỉnh của riêng họ dựa trên SCH5636.
+
+Hiện tại trình điều khiển sch5636 chỉ hỗ trợ dựa trên Fujitsu Theseus SCH5636
+giải pháp hwmon. Trình điều khiển sch5636 chạy kiểm tra độ chính xác khi tải để đảm bảo
+nó đang xử lý một chiếc Fujitsu Theseus chứ không phải với một chiếc SCH5636 tùy chỉnh khác
+giải pháp hwmon.
+
+Fujitsu Theseus có thể giám sát tới 5 điện áp, 8 quạt và 16
+nhiệt độ. Lưu ý rằng trình điều khiển phát hiện có bao nhiêu đầu cắm quạt /
+cảm biến nhiệt độ thực sự được triển khai trên bo mạch chủ, vì vậy bạn sẽ
+có thể thấy đầu vào nhiệt độ và quạt ít hơn.
+
+Giải pháp hwmon của Fujitsu Theseus cũng có cơ quan giám sát tích hợp.
+Cơ quan giám sát này được hỗ trợ đầy đủ bởi trình điều khiển sch5636.
+
+Một ghi chú ứng dụng mô tả sổ đăng ký của Theseus, cũng như một
+ghi chú ứng dụng mô tả giao thức để liên lạc với
+vi điều khiển có sẵn theo yêu cầu. Hãy gửi thư cho tôi nếu bạn muốn có một bản sao.

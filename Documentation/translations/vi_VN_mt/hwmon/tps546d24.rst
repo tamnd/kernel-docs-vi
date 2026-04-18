@@ -1,0 +1,47 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tps546d24.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tps546d24
+=======================
+
+Chip được hỗ trợ:
+
+* TI TPS546D24
+
+Tiền tố: 'tps546d24'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Công tước Du <dukedu83@gmail.com>
+
+
+Sự miêu tả
+-----------
+
+TPS546D24A là bộ chuyển đổi DC/DC không cách ly, tích hợp cao, có khả năng
+hoạt động tần số cao và dòng điện đầu ra 40-A từ 7 mm x 5 mm
+gói.
+
+Hai, ba và bốn thiết bị TPS546D24A có thể được kết nối với nhau
+để cung cấp tới 160 A trên một đầu ra. Thiết bị có một tùy chọn để
+tăng tốc 5-V LDO bên trong với nguồn 5-V bên ngoài thông qua VDD5
+pin để nâng cao hiệu suất và giảm tiêu tán năng lượng của bộ chuyển đổi.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.

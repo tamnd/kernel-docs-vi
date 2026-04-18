@@ -1,0 +1,94 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tmp401.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tmp401
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas TMP401
+
+Tiền tố: 'tmp401'
+
+Địa chỉ được quét: I2C 0x4c
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP411
+
+Tiền tố: 'tmp411'
+
+Địa chỉ được quét: I2C 0x4c, 0x4d, 0x4e
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP431
+
+Tiền tố: 'tmp431'
+
+Địa chỉ được quét: I2C 0x4c, 0x4d
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP432
+
+Tiền tố: 'tmp432'
+
+Địa chỉ được quét: I2C 0x4c, 0x4d
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP435
+
+Tiền tố: 'tmp435'
+
+Địa chỉ được quét: I2C 0x48 - 0x4f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+
+tác giả:
+
+- Hans de Goede <hdegoede@redhat.com>
+	- Andre Prendel <andre.prendel@gmx.de>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Texas Instruments TMP401, TMP411,
+Các chip TMP431, TMP432 và TMP435. Những con chip này thực hiện một hoặc hai
+cảm biến nhiệt độ từ xa và một cục bộ. Nhiệt độ được đo bằng độ
+độ C. Độ phân giải của cảm biến từ xa là 0,0625 độ. Địa phương
+độ phân giải cảm biến có thể được đặt thành 0,5, 0,25, 0,125 hoặc 0,0625 độ (không phải
+được trình điều khiển hỗ trợ cho đến nay, vì vậy sử dụng độ phân giải mặc định là 0,5
+bằng cấp).
+
+Trình điều khiển cung cấp giao diện sysfs chung cho nhiệt độ (xem
+Documentation/hwmon/sysfs-interface.rst trong phần Nhiệt độ).
+
+Các chip TMP411 và TMP431 tương thích với TMP401. TMP411 cung cấp
+một số tính năng bổ sung.
+
+* Nhiệt độ tối thiểu và tối đa được đo kể từ khi bật nguồn, đặt lại chip
+
+Được xuất qua thuộc tính sysfs tempX_lowest và tempX_highest.
+
+* Đặt lại các phép đo nhiệt độ tối thiểu/tối đa lịch sử
+
+Đã xuất qua thuộc tính sysfs temp_reset_history. Viết 1 cái này
+  tập tin kích hoạt thiết lập lại.
+
+TMP432 tương thích với TMP401 và TMP431. Nó hỗ trợ hai bên ngoài
+cảm biến nhiệt độ.

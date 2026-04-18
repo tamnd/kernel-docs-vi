@@ -1,0 +1,138 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ucd9200.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ucd9200
+=====================
+
+Chip được hỗ trợ:
+
+* TI UCD9220, UCD9222, UCD9224, UCD9240, UCD9244, UCD9246, và UCD9248
+
+Tiền tố: 'ucd9220', 'ucd9222', 'ucd9224', 'ucd9240', 'ucd9244', 'ucd9246',
+    'ucd9248'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+	-ZZ0001ZZ
+	-ZZ0002ZZ
+	-ZZ0003ZZ
+	-ZZ0004ZZ
+	-ZZ0005ZZ
+	-ZZ0006ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+[Từ bảng dữ liệu] UCD9220, UCD9222, UCD9224, UCD9240, UCD9244, UCD9246 và
+UCD9248 là bộ điều khiển PWM kỹ thuật số đa đường ray, nhiều pha
+được thiết kế cho các ứng dụng nguồn DC/DC không cách ly. Các thiết bị tích hợp
+mạch chuyên dụng để quản lý vòng lặp DC/DC với bộ nhớ flash và cổng nối tiếp
+giao diện hỗ trợ cấu hình, giám sát và quản lý.
+
+Trình điều khiển này là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
+thuộc tính chỉ đọc.
+
+=====================================================================================
+in1_label "vin".
+in1_input Đo điện áp. Từ đăng ký READ_VIN.
+in1_min Điện áp tối thiểu. Từ đăng ký VIN_UV_WARN_LIMIT.
+in1_max Điện áp tối đa. Từ đăng ký VIN_OV_WARN_LIMIT.
+in1_lcrit Điện áp tối thiểu tới hạn. Đăng ký VIN_UV_FAULT_LIMIT.
+in1_crit Điện áp tối đa tới hạn. Từ VIN_OV_FAULT_LIMIT
+			đăng ký.
+in1_min_alarm Báo động điện áp thấp. Từ trạng thái VIN_UV_WARNING.
+in1_max_alarm Báo động điện áp cao. Từ trạng thái VIN_OV_WARNING.
+in1_lcrit_alarm Báo động điện áp thấp tới mức nghiêm trọng. Từ trạng thái VIN_UV_FAULT.
+in1_crit_alarm Báo động điện áp cao tới hạn. Từ trạng thái VIN_OV_FAULT.
+
+trong[2-5]_label "vout[1-4]".
+in[2-5]_input Đo điện áp. Từ đăng ký READ_VOUT.
+in[2-5]_min Điện áp tối thiểu. Từ đăng ký VOUT_UV_WARN_LIMIT.
+in[2-5]_max Điện áp tối đa. Từ đăng ký VOUT_OV_WARN_LIMIT.
+in[2-5]_lcrit Điện áp tối thiểu tới hạn. Đăng ký VOUT_UV_FAULT_LIMIT.
+in[2-5]_crit Điện áp tối đa tới hạn. Từ VOUT_OV_FAULT_LIMIT
+			đăng ký.
+in[2-5]_min_alarm Báo động điện áp thấp. Từ trạng thái VOLTAGE_UV_WARNING.
+in[2-5]_max_alarm Báo động điện áp cao. Từ trạng thái VOLTAGE_OV_WARNING.
+in[2-5]_lcrit_alarm Báo động điện áp thấp tới hạn. Từ VOLTAGE_UV_FAULT
+			trạng thái.
+in[2-5]_crit_alarm Báo động điện áp tới hạn cao. Từ VOLTAGE_OV_FAULT
+			trạng thái.
+
+curr1_label "iin".
+curr1_input Đo dòng điện. Từ đăng ký READ_IIN.
+
+Curr[2-5]_label "iout[1-4]".
+curr[2-5]_input Đo dòng điện. Từ đăng ký READ_IOUT.
+Curr[2-5]_max Dòng điện tối đa. Từ đăng ký IOUT_OC_WARN_LIMIT.
+curr[2-5]_lcrit Dòng điện đầu ra tối thiểu tới hạn. Từ
+			Đăng ký IOUT_UC_FAULT_LIMIT.
+Curr[2-5]_crit Dòng tối đa tới hạn. Từ IOUT_OC_FAULT_LIMIT
+			đăng ký.
+curr[2-5]_max_alarm Báo động hiện tại ở mức cao. Từ trạng thái IOUT_OC_WARNING.
+curr[2-5]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao. Từ trạng thái IOUT_OC_FAULT.
+
+power1_input Đo công suất đầu vào. Từ đăng ký READ_PIN.
+power1_label "pin"
+
+power[2-5]_input Đo công suất đầu ra. Từ đăng ký READ_POUT.
+power[2-5]_label "bĩu môi[1-4]"
+
+Số lượng điện áp đầu ra, dòng điện và công suất
+			bộ thuộc tính được xác định bởi số lượng kích hoạt
+			đường ray. Xem bảng dữ liệu chip để biết chi tiết.
+
+temp[1-5]_input Đo nhiệt độ. Từ READ_TEMPERATURE_1 và
+			Thanh ghi READ_TEMPERATURE_2.
+			temp1 là nhiệt độ bên trong chip. nhiệt độ [2-5] là
+			nhiệt độ đường sắt.  thuộc tính temp[2-5] chỉ
+			được tạo cho đường ray được kích hoạt. Xem bảng dữ liệu chip để biết
+			chi tiết.
+temp[1-5]_max Nhiệt độ tối đa. Từ đăng ký OT_WARN_LIMIT.
+temp[1-5]_crit Nhiệt độ cao tới hạn. Từ đăng ký OT_FAULT_LIMIT.
+temp[1-5]_max_alarm Báo động nhiệt độ cao.
+temp[1-5]_crit_alarm Báo động nhiệt độ cao tới mức tới hạn.
+
+fan1_input Quạt RPM. chỉ có ucd9240 thôi.
+fan1_alarm Cảnh báo quạt. chỉ có ucd9240 thôi.
+fan1_fault Lỗi quạt. chỉ có ucd9240 thôi.
+=====================================================================================

@@ -1,0 +1,36 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/scsi/wd719x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=====================================================================
+Trình điều khiển cho thẻ Western Digital WD7193, WD7197 và WD7296 SCSI
+===============================================================
+
+Thẻ yêu cầu chương trình cơ sở có thể được cắt ra khỏi trình điều khiển Windows NT
+có thể được tải xuống từ WD tại:
+ZZ0000ZZ
+
+Không có giấy phép ở bất kỳ đâu trong tệp hoặc trên trang - vì vậy phần sụn
+có lẽ không thể thêm vào linux-firmware.
+
+Tập lệnh này tải xuống và giải nén phần sụn, tạo wd719x-risc.bin và
+tập tin d719x-wcs.bin. Đặt chúng vào /lib/firmware/::
+
+#!/bin/sh
+	quên ZZ0000ZZ
+	lha xi pciscsi.exe pci-scsi.exe
+	lha xi pci-scsi.exe nt/wd7296a.sys
+	rm pci-scsi.exe
+	dd if=wd7296a.sys of=wd719x-risc.bin bs=1 Skip=5760 count=14336
+	dd if=wd7296a.sys of=wd719x-wcs.bin bs=1 Skip=20096 count=514
+	rm wd7296a.sys

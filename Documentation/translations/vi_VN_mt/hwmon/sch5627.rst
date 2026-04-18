@@ -1,0 +1,59 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/sch5627.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân sch5627
+=====================
+
+Chip được hỗ trợ:
+
+* SMSC SCH5627
+
+Tiền tố: 'sch5627'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Ghi chú ứng dụng có sẵn theo yêu cầu
+
+Tác giả: Hans de Goede <hdegoede@redhat.com>
+
+
+Sự miêu tả
+-----------
+
+SMSC SCH5627 Super I/O chip bao gồm giám sát phần cứng hoàn chỉnh
+khả năng. Họ có thể theo dõi tới 5 điện áp, 4 quạt và 8 nhiệt độ.
+
+Ngoài ra, SCH5627 xuất dữ liệu mô tả cảm biến nhiệt độ nào
+ảnh hưởng đến tốc độ của từng quạt. Đặt pwmX_auto_channels_temp thành 0 lực
+quạt tương ứng ở tốc độ tối đa cho đến khi một giá trị khác được ghi.
+
+Phần giám sát phần cứng SMSC SCH5627 cũng chứa một phần mềm tích hợp
+cơ quan giám sát. Để cơ quan giám sát này hoạt động một số bo mạch chủ cụ thể
+việc khởi tạo hầu hết được thực hiện bởi BIOS, vì vậy nếu cơ quan giám sát không được bật
+bởi BIOS, trình điều khiển sch5627 sẽ không đăng ký thiết bị giám sát.
+
+Phần giám sát phần cứng của SMSC SCH5627 được truy cập bằng cách nói chuyện
+thông qua một vi điều khiển nhúng. Một ghi chú ứng dụng mô tả
+giao thức để giao tiếp với vi điều khiển có sẵn trên
+yêu cầu. Hãy gửi thư cho tôi nếu bạn muốn có một bản sao.
+
+
+Kiểm soát tốc độ quạt
+---------------------
+
+SCH5627 cho phép kiểm soát một phần tốc độ quạt. Nếu một nhiệt độ
+kênh vượt quá tempX_max, tất cả quạt buộc phải đạt tốc độ tối đa. Điều tương tự không phải là
+đúng với tempX_crit, có lẽ một số biện pháp khác để hạ nhiệt hệ thống là
+nhận trường hợp này.
+Hiện tại, giá trị của fanX_min ảnh hưởng đến tốc độ quạt như thế nào vẫn chưa được biết.

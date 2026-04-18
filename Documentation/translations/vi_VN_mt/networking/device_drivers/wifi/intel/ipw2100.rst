@@ -1,0 +1,335 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/wifi/intel/ipw2100.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+===============================================
+Trình điều khiển Intel(R) PRO/Wireless 2100 cho Linux
+===========================================
+
+Hỗ trợ cho:
+
+- Kết nối mạng Intel(R) PRO/Không dây 2100
+
+Bản quyền ZZ0000ZZ 2003-2006, Tập đoàn Intel
+
+README.ipw2100
+
+:Phiên bản: git-1.1.5
+:Ngày: 25 tháng 1 năm 2006
+
+.. Index
+
+    0. IMPORTANT INFORMATION BEFORE USING THIS DRIVER
+    1. Introduction
+    2. Release git-1.1.5 Current Features
+    3. Command Line Parameters
+    4. Sysfs Helper Files
+    5. Radio Kill Switch
+    6. Dynamic Firmware
+    7. Power Management
+    8. Support
+    9. License
+
+
+0. IMPORTANT INFORMATION BEFORE USING THIS DRIVER
+=================================================
+
+Thông báo quan trọng FOR ALL USERS HOẶC DISTRIBUTORS!!!!
+
+Bộ điều hợp LAN không dây của Intel được thiết kế, sản xuất, thử nghiệm và
+được kiểm tra chất lượng để đảm bảo rằng chúng đáp ứng tất cả các yêu cầu cần thiết của địa phương và
+yêu cầu của cơ quan quản lý chính phủ đối với các khu vực mà họ
+được chỉ định và/hoặc đánh dấu để vận chuyển vào. Vì mạng LAN không dây là
+nói chung là các thiết bị không được cấp phép chia sẻ phổ tần với radar,
+vệ tinh và các thiết bị được cấp phép và không được cấp phép khác, đôi khi
+cần thiết để tự động phát hiện, tránh và hạn chế việc sử dụng để tránh
+nhiễu với các thiết bị này. Trong nhiều trường hợp Intel được yêu cầu phải
+cung cấp dữ liệu thử nghiệm để chứng minh sự tuân thủ của khu vực và địa phương đối với các quy định của khu vực và
+quy định của chính phủ trước khi chứng nhận hoặc chấp thuận sử dụng
+sản phẩm được cấp. EEPROM không dây của Intel LAN, chương trình cơ sở và
+trình điều khiển phần mềm được thiết kế để kiểm soát cẩn thận các thông số ảnh hưởng đến
+hoạt động vô tuyến và đảm bảo tuân thủ điện từ (EMC). Những cái này
+các thông số bao gồm, không giới hạn, công suất RF, mức sử dụng phổ tần,
+quét kênh và tiếp xúc với con người.
+
+Vì những lý do này, Intel không thể cho phép bất kỳ sự thao túng nào của bên thứ ba
+của phần mềm được cung cấp ở định dạng nhị phân với WLAN không dây
+bộ điều hợp (ví dụ: EEPROM và phần sụn). Hơn nữa, nếu bạn sử dụng bất kỳ
+các bản vá, tiện ích hoặc mã bằng bộ điều hợp LAN không dây của Intel
+đã bị thao túng bởi một bên trái phép (ví dụ: các bản vá,
+các tiện ích hoặc mã (bao gồm các sửa đổi mã nguồn mở) có
+chưa được Intel xác thực), (i) bạn sẽ hoàn toàn chịu trách nhiệm về
+đảm bảo sự tuân thủ quy định của sản phẩm, (ii) Intel sẽ chịu trách nhiệm
+không có trách nhiệm pháp lý, theo bất kỳ lý thuyết trách nhiệm pháp lý nào đối với mọi vấn đề liên quan
+với các sản phẩm được sửa đổi, bao gồm nhưng không giới hạn, các khiếu nại theo
+bảo hành và/hoặc các vấn đề phát sinh từ việc không tuân thủ quy định, và
+(iii) Intel sẽ không cung cấp hoặc không bị yêu cầu hỗ trợ việc cung cấp
+hỗ trợ cho bất kỳ bên thứ ba nào đối với các sản phẩm được sửa đổi đó.
+
+Lưu ý: Nhiều cơ quan quản lý coi bộ điều hợp LAN không dây là
+mô-đun và theo đó, có điều kiện phê duyệt theo quy định ở cấp hệ thống
+khi nhận và xem xét dữ liệu thử nghiệm ghi lại rằng ăng-ten và
+cấu hình hệ thống không làm cho EMC và hoạt động vô tuyến bị ảnh hưởng
+không tuân thủ.
+
+Các trình điều khiển có sẵn để tải xuống từ SourceForge được cung cấp dưới dạng
+một phần của dự án phát triển.  Sự phù hợp với quy định của địa phương
+yêu cầu là trách nhiệm của cá nhân nhà phát triển.  Như
+chẳng hạn, nếu bạn quan tâm đến việc triển khai hoặc vận chuyển trình điều khiển như một phần của
+giải pháp dự định sẽ được sử dụng cho các mục đích khác ngoài mục đích phát triển, vui lòng
+lấy trình điều khiển đã được thử nghiệm từ bộ phận Hỗ trợ Khách hàng của Intel tại:
+
+ZZ0000ZZ
+
+1. Giới thiệu
+===============
+
+Tài liệu này cung cấp một cái nhìn tổng quan ngắn gọn về các tính năng được hỗ trợ bởi
+Dự án trình điều khiển IPW2100.  Trang web chính của dự án, nơi cập nhật thông tin mới nhất
+phiên bản phát triển của trình điều khiển có thể được tìm thấy là:
+
+ZZ0000ZZ
+
+Ở đó bạn có thể tìm thấy không chỉ các bản phát hành mới nhất mà còn cả thông tin về
+các bản sửa lỗi và bản vá tiềm năng cũng như các liên kết đến danh sách gửi thư phát triển
+cho dự án lái xe.
+
+
+2. Phát hành git-1.1.5 Các tính năng được hỗ trợ hiện tại
+===============================================
+
+- Được quản lý (BSS) và Ad-Hoc (IBSS)
+- WEP (khóa chung và mở)
+- Hỗ trợ công cụ không dây
+- 802.1x (đã thử nghiệm với XSupplicant 1.0.1)
+
+Các tính năng đã bật (nhưng không được hỗ trợ):
+- Chế độ giám sát/RFMon
+-WPA/WPA2
+
+Sự khác biệt giữa được hỗ trợ chính thức và được kích hoạt là sự phản ánh
+về số lượng xác nhận và thử nghiệm khả năng tương tác đã được
+được thực hiện trên một tính năng nhất định.
+
+
+3. Tham số dòng lệnh
+==========================
+
+Nếu trình điều khiển được xây dựng dưới dạng mô-đun, các tham số tùy chọn sau sẽ được sử dụng
+bằng cách nhập chúng vào dòng lệnh bằng lệnh modprobe bằng cách sử dụng lệnh này
+cú pháp::
+
+modprobe ipw2100 [<option>=<VAL1><,VAL2>...]
+
+Ví dụ: để tắt radio khi tải trình điều khiển, hãy nhập:
+
+modprobe ipw2100 vô hiệu hóa = 1
+
+Trình điều khiển ipw2100 hỗ trợ các tham số mô-đun sau:
+
+======================== ===============================================
+Tên Giá trị Ví dụ Ý nghĩa
+======================== ===============================================
+gỡ lỗi 0x0-0xffffffff debug=1024 Mức gỡ lỗi được đặt thành 1024
+chế độ 0,1,2 chế độ=1 AdHoc
+kênh int kênh=3 Chỉ hợp lệ trong AdHoc hoặc Màn hình
+liên kết boolean liên kết = 0 Thực hiện liên kết tự động NOT
+vô hiệu hóa boolean vô hiệu hóa = 1 Không cấp nguồn cho CTNH
+======================== ===============================================
+
+
+4. Tệp trợ giúp Sysfs
+=====================
+
+Có một số cách để kiểm soát hành vi của người lái xe.  Nhiều trong số
+các khả năng chung được thể hiện thông qua Công cụ không dây (iwconfig).  Ở đó
+là một số khả năng được thể hiện thông qua các mục trong Linux Sysfs.
+
+
+ZZ0000ZZ
+
+Đối với các tệp cấp trình điều khiển, hãy tìm trong /sys/bus/pci/drivers/ipw2100/
+
+cấp độ gỡ lỗi
+	Điều này kiểm soát toàn cầu giống như tham số mô-đun 'gỡ lỗi'.  cho
+	thông tin về các cấp độ gỡ lỗi khác nhau có sẵn, hãy chạy 'dvals'
+	tập lệnh được tìm thấy trong thư mục nguồn trình điều khiển.
+
+	.. note::
+
+	      'debug_level' is only enabled if CONFIG_IPW2100_DEBUG is turn on.
+
+ZZ0000ZZ
+
+Đối với các tệp cấp thiết bị, hãy tìm trong ::
+
+/sys/bus/pci/drivers/ipw2100/{PCI-ID}/
+
+Ví dụ::
+
+/sys/bus/pci/drivers/ipw2100/0000:02:01.0
+
+Để biết các tệp cấp thiết bị, hãy xem /sys/bus/pci/drivers/ipw2100:
+
+rf_kill
+	đọc
+
+==============================================
+	0 Tính năng tiêu diệt RF không được bật (bật radio)
+	1 hoạt động tiêu diệt RF dựa trên SW (tắt radio)
+	2 chức năng tiêu diệt RF dựa trên HW đang hoạt động (tắt radio)
+	3 Cả HW và SW RF đều tắt hoạt động (tắt radio)
+	==============================================
+
+viết
+
+========================================================
+	0 Nếu chức năng diệt RF dựa trên SW hoạt động, hãy bật lại radio
+	1 Nếu radio đang bật, hãy kích hoạt tiêu diệt RF dựa trên SW
+	========================================================
+
+	.. note::
+
+	   If you enable the SW based RF kill and then toggle the HW
+	   based RF kill from ON -> OFF -> ON, the radio will NOT come back on
+
+
+5. Công tắc tiêu diệt vô tuyến
+====================
+
+Hầu hết các máy tính xách tay đều cung cấp khả năng cho người dùng vô hiệu hóa radio.
+Một số nhà cung cấp đã triển khai tính năng này như một công tắc vật lý không yêu cầu
+phần mềm tắt mở radio.  Tuy nhiên, trên các máy tính xách tay khác, công tắc
+được điều khiển thông qua một nút được nhấn và trình điều khiển phần mềm sau đó thực hiện
+cuộc gọi để tắt và bật radio.  Điều này được gọi là "phần mềm dựa trên
+Công tắc tiêu diệt RF"
+
+Xem tệp trợ giúp Sysfs 'rf_kill' để xác định trạng thái của công tắc RF
+trên hệ thống của bạn.
+
+
+6. Phần mềm động
+===================
+
+Vì phần sụn được cấp phép theo giấy phép sử dụng hạn chế nên nó không thể được
+được bao gồm trong các nguồn kernel.  Để kích hoạt IPW2100, bạn sẽ cần một
+hình ảnh chương trình cơ sở để tải vào bộ xử lý của NIC không dây.
+
+Bạn có thể lấy những hình ảnh này từ <ZZ0000ZZ
+
+Xem INSTALL để biết hướng dẫn cài đặt chương trình cơ sở.
+
+
+7. Quản lý nguồn điện
+===================
+
+IPW2100 hỗ trợ cấu hình Giao thức tiết kiệm năng lượng
+thông qua một giao diện mở rộng không dây riêng.  IPW2100 hỗ trợ
+các chế độ khác nhau sau đây:
+
+=== =================================================================
+	tắt Không quản lý nguồn điện.  Đài phát thanh luôn bật.
+	về Quản lý nguồn điện tự động
+	1-5 Các cấp độ quản lý năng lượng khác nhau.  càng cao thì
+		số lượng tiết kiệm điện càng lớn, nhưng có tác động đến
+		độ trễ gói.
+	=== =================================================================
+
+Quản lý năng lượng hoạt động bằng cách tắt nguồn radio sau một khoảng thời gian nhất định.
+khoảng thời gian đã trôi qua mà không có gói nào được truyền qua
+đài phát thanh.  Sau khi tắt nguồn, đài vẫn ở trạng thái đó trong một thời gian nhất định
+khoảng thời gian.  Để tiết kiệm điện năng cao hơn, khoảng thời gian giữa
+gói được xử lý để ngủ ngắn hơn và thời gian ngủ dài hơn.
+
+Khi radio ở chế độ ngủ, điểm truy cập gửi dữ liệu đến trạm
+phải đệm các gói tin tại AP cho đến khi trạm thức dậy và yêu cầu
+bất kỳ gói đệm nào.  Nếu bạn có một AP không hỗ trợ chính xác
+giao thức PSP, bạn có thể bị mất gói hoặc hiệu suất rất kém
+trong khi quản lý năng lượng được kích hoạt.  Nếu rơi vào trường hợp này, bạn sẽ cần
+để thử tìm bản cập nhật chương trình cơ sở cho AP của bạn hoặc tắt nguồn
+quản lý (thông qua ZZ0000ZZ)
+
+Để định cấu hình mức năng lượng trên IPW2100, bạn sử dụng kết hợp
+iwconfig và iwpriv.  iwconfig được sử dụng để bật, tắt quản lý nguồn,
+và đặt nó ở chế độ tự động.
+
+==================================================================
+	iwconfig eth1 power off Tắt tắt nguồn radio
+	iwconfig eth1 power on Cho phép quản lý nguồn điện vô tuyến để
+				   mức cài đặt cuối cùng (mặc định là AUTO)
+	iwpriv eth1 set_power 0 Đặt mức năng lượng thành AUTO và bật
+				   quản lý năng lượng nếu không trước đó
+				   đã bật.
+	iwpriv eth1 set_power 1-5 Đặt mức năng lượng theo chỉ định,
+				   cho phép quản lý năng lượng nếu không
+				   đã kích hoạt trước đó.
+	==================================================================
+
+Bạn có thể xem cài đặt mức năng lượng hiện tại thông qua::
+
+iwpriv eth1 get_power
+
+Nó sẽ trả về khoảng thời gian hiện tại hoặc thời gian chờ được định cấu hình dưới dạng chuỗi
+ở dạng xxxx/yyyy (z) trong đó xxxx là khoảng thời gian chờ (lượng
+thời gian sau khi xử lý gói), yyyy là khoảng thời gian ngủ (lượng thời gian để
+đợi trước khi cấp nguồn cho radio và truy vấn điểm truy cập để tìm vùng đệm
+gói tin) và z là 'mức công suất'.  Nếu chức năng quản lý nguồn bị tắt
+xxxx/yyyy sẽ được thay thế bằng 'tắt' -- mức được báo cáo sẽ là mức hoạt động
+cấp độ nếu ZZ0000ZZ được gọi.
+
+
+8. Hỗ trợ
+==========
+
+Để biết thông tin và hỗ trợ phát triển chung,
+đi đến:
+
+ZZ0000ZZ
+
+Có thể tải xuống trình điều khiển và chương trình cơ sở ipw2100 1.1.0 từ:
+
+ZZ0000ZZ
+
+Để được hỗ trợ cài đặt trên trình điều khiển ipw2100 1.1.0 trên nhân Linux
+2.6.8 trở lên, hỗ trợ qua email có sẵn từ:
+
+ZZ0000ZZ
+
+9. Giấy phép
+==========
+
+Bản quyền ZZ0000ZZ 2003 - 2006 Tập đoàn Intel. Mọi quyền được bảo lưu.
+
+Chương trình này là phần mềm miễn phí; bạn có thể phân phối lại nó và/hoặc sửa đổi nó
+  theo các điều khoản của Giấy phép Công cộng GNU (phiên bản 2) như
+  được xuất bản bởi Tổ chức Phần mềm Tự do.
+
+Chương trình này được phân phối với hy vọng nó sẽ hữu ích, nhưng WITHOUT
+  ANY WARRANTY; thậm chí không có sự bảo đảm ngụ ý của MERCHANTABILITY hoặc
+  FITNESS FOR A PARTICULAR PURPOSE.  Xem Giấy phép Công cộng GNU để biết
+  biết thêm chi tiết.
+
+Bạn hẳn đã nhận được một bản sao Giấy phép Công cộng GNU cùng với
+  chương trình này; nếu không, hãy viết thư cho Free Software Foundation, Inc., 59
+  Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+Giấy phép Công cộng Chung GNU đầy đủ được bao gồm trong bản phân phối này trong
+  tập tin có tên LICENSE.
+
+Thông tin liên hệ về giấy phép:
+
+James P. Ketrenos <ipw2100-admin@linux.intel.com>
+
+Tập đoàn Intel, 5200 N.E. Đường Elam Young Parkway, Hillsboro, OR 97124-6497

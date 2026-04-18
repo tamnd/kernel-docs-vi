@@ -1,0 +1,317 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/sound/codecs/cs35l56.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============================================================================
+Trình điều khiển âm thanh cho Bộ khuếch đại thông minh tăng cường Cirrus Logic CS35L54/56/57/63
+========================================================================
+:Bản quyền: 2025 Cirrus Logic, Inc. và
+                 Công ty TNHH bán dẫn quốc tế Cirrus Logic
+
+Liên hệ: Patch@opensource.cirrus.com
+
+Bản tóm tắt
+=======
+
+Bản tóm tắt cấp cao của tài liệu này là:
+
+**Nếu bạn có máy tính xách tay sử dụng bộ khuếch đại CS35L54/56/57/63 nhưng âm thanh thì không
+đang làm việc, LÀM NOT ATTEMPT ĐẾN USE FIRMWARE AND SETTINGS FROM ANOTHER LAPTOP,
+EVEN NẾU THAT LAPTOP SEEMS SIMILAR.**
+
+Bộ khuếch đại CS35L54/56/57/63 phải được cấu hình chính xác cho nguồn điện
+điện áp cung cấp, trở kháng loa, điện áp/dòng điện tối đa của loa và
+kết nối phần cứng bên ngoài khác.
+
+Bộ khuếch đại có công nghệ tăng cường tiên tiến giúp tăng điện áp
+được sử dụng để điều khiển loa, trong khi các thuật toán bảo vệ loa độc quyền
+cho phép các bộ khuếch đại tăng cường này đẩy giới hạn của loa mà không cần
+gây hư hỏng. Những ZZ0000ZZ này được cấu hình chính xác.
+
+Bộ khuếch đại Cirrus Logic được hỗ trợ
+---------------------------------
+
+Hỗ trợ trình điều khiển cs35l56:
+
+* CS35L54
+* CS35L56
+* CS35L57
+* CS35L63
+
+Có hai trình điều khiển trong kernel
+
+ZZ0000ZZ: sound/soc/codecs/cs35l56.c và các tệp liên quan
+
+ZZ0000ZZ: âm thanh/pci/hda/cs35l56_hda.c
+
+Phần sụn
+========
+
+Bộ khuếch đại được điều khiển và quản lý bởi phần sụn chạy bên trong
+DSP. Các tập tin phần sụn là cần thiết để kích hoạt đầy đủ khả năng của
+bộ khuếch đại.
+
+Phần sụn được phân phối trong kho phần mềm linux:
+ZZ0000ZZ
+
+Trên hầu hết các hệ thống SoundWire, bộ khuếch đại có khả năng tối thiểu mặc định để
+tạo ra âm thanh. Tuy nhiên điều này sẽ
+
+* ở mức âm lượng thấp, để bảo vệ loa, vì thông số kỹ thuật của loa
+  và điện áp nguồn điện chưa được biết.
+* sự kết hợp đơn sắc của các kênh trái và phải.
+
+Trên một số hệ thống SoundWire có cả CS42L43 và CS35L56/57, CS35L56/57
+nhận âm thanh của họ từ CS42L43 thay vì trực tiếp từ máy chủ
+Giao diện SoundWire. Các hệ thống này có thể được xác định bằng CS42L43 hiển thị
+trong dmesg là thiết bị SoundWire, nhưng CS35L56/57 là SPI. Trên các hệ thống này
+phần sụn là ZZ0000ZZ để cho phép nhận âm thanh từ CS42L43.
+
+Trên hệ thống HDA, phần sụn là ZZ0000ZZ để bật chế độ cầu nối HDA. Ở đó
+sẽ không có bất kỳ âm thanh nào từ bộ khuếch đại nếu không có phần sụn.
+
+Tệp chương trình cơ sở Cirrus Logic
+---------------------------
+
+Mỗi bộ khuếch đại yêu cầu hai tệp chương trình cơ sở. Một tệp có hậu tố .wmfw,
+cái khác có hậu tố .bin.
+
+Firmware được OEM tùy chỉnh để phù hợp với phần cứng của từng laptop,
+và phần sụn dành riêng cho máy tính xách tay đó. Bởi vì điều này, có rất nhiều
+tập tin chương trình cơ sở trong chương trình cơ sở linux cho các bộ khuếch đại này. Các tập tin phần sụn được
+ZZ0000ZZ.
+
+Cirrus Logic gửi các tệp cho máy tính xách tay đã biết tới phần mềm linux ngược dòng
+kho lưu trữ. Cung cấp Cirrus Logic nhận biết được một máy tính xách tay cụ thể và có
+sự cho phép của nhà sản xuất để xuất bản phần sụn, nó sẽ bị đẩy
+vào phần mềm linux. Bạn có thể cần phải nâng cấp lên phiên bản mới hơn của
+linux-firmware để lấy phần sụn cho máy tính xách tay của bạn.
+
+ZZ0000ZZ Makefile cho linux-firmware tạo các liên kết tượng trưng được liệt kê
+trong tệp WHENCE. Cần có các liên kết tượng trưng này để trình điều khiển CS35L56 có thể hoạt động
+có thể tải firmware.
+
+Làm cách nào để biết tôi nên có tập tin phần sụn nào?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tất cả tên tệp chương trình cơ sở đều đủ điều kiện với một "ID hệ thống" duy nhất. Bình thường
+PC x86 có âm thanh PCI, đây là ID hệ thống con nhà cung cấp (SSID) của máy chủ
+Giao diện âm thanh PCI.
+
+Có thể xem SSID bằng công cụ lspci ::
+
+lspci -v -nn | grep -A2 -i âm thanh
+  0000:00:1f.3 Thiết bị âm thanh [0403]: Bộ điều khiển âm thanh HD Meteor Lake-P của Tập đoàn Intel [8086:7e28]
+  Hệ thống con: Bộ điều khiển âm thanh HD Dell Meteor Lake-P [1028: 0c63]
+
+Trong ví dụ này SSID là 10280c63.
+
+Định dạng của tên tệp chương trình cơ sở là:
+
+SoundWire:
+    cs35lxx-b0-dsp1-misc-SSID[-spkidX]-l?u?
+
+Firmware SoundWire CS35L56 Rev B0 được phát hành trước phiên bản kernel 6.16:
+    cs35lxx-b0-dsp1-misc-SSID[-spkidX]-ampN
+
+Không có SoundWire (HDA và I2S):
+    cs35lxx-b0-dsp1-misc-SSID[-spkidX]-ampN
+
+Ở đâu:
+
+* cs35lxx-b0 là model khuếch đại và sửa đổi silicon. Thông tin này
+    được trình điều khiển ghi lại trong quá trình khởi tạo.
+  * SSID là giá trị SSID thập lục phân gồm 8 chữ số.
+  *l?u? là địa chỉ vật lý trên bus SoundWire của bộ khuếch đại này
+    tập tin áp dụng cho.
+  * ampN là số khuếch đại (ví dụ amp1). Điều này cũng giống như
+    tiền tố trên tên điều khiển ALSA ngoại trừ việc nó luôn là chữ thường
+    trong tên tập tin.
+  * spkidX là phần tùy chọn, dùng cho laptop có firmware
+    cấu hình cho các kiểu dáng và kiểu dáng khác nhau của loa bên trong.
+
+Phần mềm cơ sở ban đầu cho CS35L56 Rev B0 đã sử dụng tiền tố ALSA (ampN) làm
+vòng loại tên tập tin. Hỗ trợ cho l?u? vòng loại đã được thêm vào kernel 6.16.
+
+Sound Open Firmware và các tập tin cấu trúc liên kết ALSA
+-------------------------------------------
+
+Tất cả các hệ thống SoundWire sẽ yêu cầu Firmware mở âm thanh (SOF) cho
+lưu trữ âm thanh CPU DSP, cùng với tệp cấu trúc liên kết ALSA (.tplg).
+
+Firmware SOF thường sẽ được nhà sản xuất máy chủ cung cấp
+CPU (tức là Intel hoặc AMD). Tệp .tplg thường là một phần của chương trình cơ sở SOF
+thả ra.
+
+Bản dựng nhị phân SOF có sẵn từ: ZZ0000ZZ
+
+Nguồn SOF chính có tại đây: ZZ0000ZZ
+
+Cấu hình ALSA-ucm
+-----------------------
+Thông thường cần có tệp cấu hình ALSA-ucm thích hợp cho
+trình quản lý ca sử dụng và máy chủ âm thanh như PipeWire.
+
+Các tệp cấu hình có sẵn từ kho lưu trữ alsa-ucm-conf:
+ZZ0000ZZ
+
+Thông báo nhật ký hạt nhân
+===================
+
+SoundWire
+---------
+Khởi tạo thành công sẽ trông như thế này (điều này sẽ được lặp lại cho
+mỗi bộ khuếch đại)::
+
+[ 7.568374] cs35l56 sdw:0:0:01fa:3556:01:0: không tìm thấy nguồn cung cấp VDD_P, sử dụng bộ điều chỉnh giả
+  [ 7.605208] cs35l56 sdw:0:0:01fa:3556:01:0: không tìm thấy nguồn cung cấp VDD_IO, sử dụng bộ điều chỉnh giả
+  [ 7.605313] cs35l56 sdw:0:0:01fa:3556:01:0: không tìm thấy nguồn cung cấp VDD_A, sử dụng bộ điều chỉnh giả
+  [ 7.939279] cs35l56 sdw:0:0:01fa:3556:01:0: Cirrus Logic CS35L56 Rev B0 OTP3 fw:3.4.4 (đã vá=0)
+  [ 7.947844] cs35l56 sdw:0:0:01fa:3556:01:0: Kiểm tra trạng thái nô lệ 41: UNATTACHED, trạng thái là 1
+  [ 8.740280] cs35l56 sdw:0:0:01fa:3556:01:0: không tìm thấy nguồn cung cấp VDD_B, sử dụng bộ điều chỉnh giả
+  [ 8.740552] cs35l56 sdw:0:0:01fa:3556:01:0: không tìm thấy nguồn cung cấp VDD_AMP, sử dụng bộ điều chỉnh giả
+  [ 9.242164] cs35l56 sdw:0:0:01fa:3556:01:0: DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxxx.wmfw: định dạng 3 dấu thời gian 0x66b2b872
+  [ 9.242173] cs35l56 sdw:0:0:01fa:3556:01:0: DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxxx.wmfw: Thứ ba ngày 05 tháng 12 năm 2023 21:37:21 GMT Giờ chuẩn
+  [ 9.991709] cs35l56 sdw:0:0:01fa:3556:01:0: DSP1: Firmware: 1a00d6 nhà cung cấp: 0x2 v3.11.23, 41 thuật toán
+  [10.039098] cs35l56 sdw:0:0:01fa:3556:01:0: DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxxx-amp1.bin: v3.11.23
+  [10.879235] cs35l56 sdw:0:0:01fa:3556:01:0: Kiểm tra trạng thái nô lệ 41: UNATTACHED, trạng thái là 1
+  [11.401536] cs35l56 sdw:0:0:01fa:3556:01:0: Đã áp dụng hiệu chuẩn
+
+HDA
+---
+Khởi tạo thành công sẽ trông như thế này (điều này sẽ được lặp lại cho
+mỗi bộ khuếch đại)::
+
+[ 6.306475] cs35l56-hda i2c-CSC3556:00-cs35l56-hda.0: Cirrus Logic CS35L56 Rev B0 OTP3 fw:3.4.4 (đã vá=0)
+  [ 6.613892] cs35l56-hda i2c-CSC3556:00-cs35l56-hda.0: DSP tên hệ thống: 'xxxxxxxx', tên amp: 'AMP1'
+  [ 8.266660] snd_hda_codec_cs8409 ehdaudio0D0: ràng buộc i2c-CSC3556:00-cs35l56-hda.0 (ops cs35l56_hda_comp_ops [snd_hda_scodec_cs35l56])
+  [ 8.287525] cs35l56-hda i2c-CSC3556:00-cs35l56-hda.0: DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxxx.wmfw: định dạng 3 dấu thời gian 0x66b2b872
+  [ 8.287528] cs35l56-hda i2c-CSC3556:00-cs35l56-hda.0: DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxxx.wmfw: Thứ ba ngày 05 tháng 12 năm 2023 21:37:21 GMT Tiêu chuẩn thời gian
+  [ 9.984335] cs35l56-hda i2c-CSC3556:00-cs35l56-hda.0: DSP1: Firmware: nhà cung cấp 1a00d6: 0x2 v3.11.23, 41 thuật toán
+  [10.085797] cs35l56-hda i2c-CSC3556:00-cs35l56-hda.0: DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxxx-amp1.bin: v3.11.23
+  [10.655237] cs35l56-hda i2c-CSC3556:00-cs35l56-hda.0: Đã áp dụng hiệu chuẩn
+
+Tin nhắn quan trọng
+~~~~~~~~~~~~~~~~~~
+Cirrus Logic CS35L56 Rev B0 OTP3 fw:3.4.4 (đã vá=0)
+  Cho biết trình điều khiển đã có thể đọc các thanh ghi ID thiết bị từ
+  bộ khuếch đại.
+
+* Loại bộ khuếch đại thực tế và bản sửa đổi silicon (CS35L56 B0 trong phần này
+      ví dụ) được hiển thị, như được đọc từ các thanh ghi nhận dạng bộ khuếch đại.
+    * (đã vá=0) là bình thường và cho biết bộ khuếch đại đã bị cứng
+      reset và đang chạy firmware ROM mặc định.
+    * (đã vá=1) có nghĩa là có thứ gì đó đã tải xuống chương trình cơ sở trước đó
+      tới bộ khuếch đại và trình điều khiển không có quyền điều khiển RESET
+      tín hiệu để có thể thay thế firmware được tải sẵn này. Điều này là bình thường
+      dành cho các hệ thống trong đó BIOS tải chương trình cơ sở xuống bộ khuếch đại
+      trước khi khởi động hệ điều hành.
+      Trạng thái này cũng có thể được nhìn thấy nếu mô-đun hạt nhân cs35l56 không được tải
+      và tải lại trên hệ thống mà người lái xe không có quyền kiểm soát
+      RESET. Hệ thống SoundWire thường không cung cấp cho người lái quyền kiểm soát
+      RESET và chỉ khởi động BIOS (tái) mới có thể đặt lại bộ khuếch đại.
+
+DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxxx.wmfw
+  Cho biết rằng tệp chương trình cơ sở .wmfw đã được tìm thấy và tải xuống.
+
+DSP1: cirrus/cs35l56-b0-dsp1-misc-xxxxxxx-amp1.bin
+  Cho biết rằng tệp chương trình cơ sở .bin đã được tìm thấy và tải xuống.
+
+Đã áp dụng hiệu chuẩn
+  Dữ liệu hiệu chuẩn gốc trong EFI đã được ghi vào bộ khuếch đại.
+
+Thông báo lỗi
+==============
+Phần này giải thích một số thông báo lỗi mà trình điều khiển có thể ghi lại.
+
+Phiên bản hệ số thuật toán %d.%d.%d nhưng được mong đợi %d.%d.%d
+  Phiên bản của nội dung tệp .bin không khớp với phần sụn đã tải.
+  Nguyên nhân là do tệp .wmfw và .bin không khớp hoặc tìm thấy tệp .bin nhưng
+  .wmfw thì không.
+
+Không có %s cho thuật toán %x
+  Phiên bản của nội dung tệp .bin không khớp với phần sụn đã tải.
+  Nguyên nhân là do tệp .wmfw và .bin không khớp hoặc tìm thấy tệp .bin nhưng
+  .wmfw thì không.
+
+Cần có tệp .bin nhưng không tìm thấy
+  Trình điều khiển HDA không tìm thấy tệp .bin phù hợp với phần cứng này.
+
+Hiệu chỉnh bị vô hiệu hóa do thiếu điều khiển phần sụn
+  Trình điều khiển không thể ghi dữ liệu hiệu chuẩn EFI vào sổ đăng ký chương trình cơ sở.
+  Điều này thường có nghĩa là:
+
+* Trình điều khiển không tìm thấy wmfw phù hợp cho phần cứng này, hoặc
+    * Bộ khuếch đại đã được vá bằng phần mềm điều khiển nào đó
+      trước đó và trình điều khiển không có quyền điều khiển dòng RESET cứng
+      để có thể đặt lại bộ khuếch đại và tải xuống các tập tin chương trình cơ sở
+      được tìm thấy. Tình trạng này được biểu thị bằng việc nhận dạng thiết bị
+      chuỗi trong nhật ký kernel hiển thị "(patched=1)"
+
+Không thể ghi hiệu chuẩn
+  Ý nghĩa và nguyên nhân tương tự như "Hiệu chỉnh bị vô hiệu hóa do thiếu phần sụn
+  điều khiển"
+
+Không thể đọc dữ liệu hiệu chuẩn từ EFI
+  Dữ liệu hiệu chuẩn gốc trong EFI bị thiếu, trống hoặc bị hỏng.
+  Điều này rất có thể là do vô tình xóa tập tin khỏi
+  hệ thống tập tin EFI.
+
+Không hiệu chuẩn cho ID silicon
+  Dữ liệu hiệu chuẩn gốc trong EFI không khớp với phần cứng này.
+  Nguyên nhân rất có thể là bộ khuếch đại đã được thay thế trên
+  bo mạch chủ mà không cần trải qua quá trình hiệu chuẩn của nhà sản xuất để
+  tạo dữ liệu hiệu chuẩn cho bộ khuếch đại mới.
+
+Không tìm thấy xe buýt nào cho CSCxxxx
+  Chỉ có trên hệ thống HDA. Trình điều khiển codec HDA đã tìm thấy mục nhập ACPI cho
+  Bộ khuếch đại đồng hành Cirrus Logic, nhưng không thể liệt kê các mục ACPI cho
+  xe buýt I2C/SPI. Nguyên nhân rất có thể của việc này là:
+
+* Trình điều khiển bus liên quan (I2C hoặc SPI) không phải là một phần của kernel.
+    * Trình điều khiển codec HDA được tích hợp sẵn trong kernel nhưng I2C/SPI
+      trình điều khiển bus là một mô-đun và do đó trình điều khiển codec HDA không thể gọi
+      chức năng điều khiển xe buýt.
+
+init_completion đã hết thời gian chờ
+  Bộ điều khiển bus SoundWire (đầu máy chủ) không liệt kê bộ khuếch đại.
+  Nói cách khác, ACPI ghi là có ampli nhưng vì lý do nào đó
+  nó không được phát hiện trên xe buýt.
+
+Không có nút AF01
+  Cho biết có lỗi trong ACPI. Hệ thống SoundWire phải có Device()
+  nút có tên "AF01" nhưng không tìm thấy.
+
+Không lấy được spk-id-gpios
+  ACPI nói rằng tài xế nên yêu cầu GPIO nhưng tài xế lại không yêu cầu
+  có thể có được GPIO đó. Nguyên nhân rất có thể là do kernel không
+  bao gồm trình điều khiển GPIO hoặc PINCTRL chính xác cho hệ thống này.
+
+Không đọc được spk-id
+  ACPI nói rằng tài xế nên yêu cầu GPIO nhưng tài xế lại không yêu cầu
+  có thể đọc được GPIO đó.
+
+Số phần tử spk-id không mong đợi
+  AF01 chứa nhiều mục nhập ID loa GPIO hơn mức mà trình điều khiển hỗ trợ
+
+Lỗi quá nhiệt
+  Tính năng bảo vệ quá nhiệt của bộ khuếch đại đã được kích hoạt và bộ khuếch đại đã tắt
+  để tự bảo vệ mình.
+
+Lỗi chập amp
+  Bộ khuếch đại phát hiện đoản mạch trên các chân đầu ra của loa và tắt
+  xuống để bảo vệ. Điều này thường cho thấy loa bị hỏng.
+
+Chế độ ngủ đông không thành công
+  Người lái xe đã cố gắng đánh thức bộ khuếch đại khỏi trạng thái tiết kiệm điện nhưng
+  không thấy phản hồi mong đợi từ bộ khuếch đại. Điều này có thể được gây ra
+  bằng cách sử dụng phần mềm không phù hợp với phần cứng.

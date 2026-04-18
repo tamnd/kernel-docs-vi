@@ -1,0 +1,240 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/vt1211.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân vt1211
+====================
+
+Chip được hỗ trợ:
+
+* VIA VT1211
+
+Tiền tố: 'vt1211'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super-I/O
+
+Bảng dữ liệu: Được cung cấp bởi VIA theo yêu cầu và theo NDA
+
+Tác giả: Juerg Haefliger <juergh@gmail.com>
+
+Trình điều khiển này dựa trên trình điều khiển cho kernel 2.4 của Mark D. Studebaker và
+cổng của nó tới kernel 2.6 bởi Lars Ekman.
+
+Cảm ơn Joseph Chan và Fiona Gatt từ VIA đã cung cấp tài liệu và
+hỗ trợ kỹ thuật.
+
+
+Thông số mô-đun
+-----------------
+
+
+* uch_config: int
+			Ghi đè kênh phổ quát mặc định BIOS (UCH)
+			cấu hình cho các kênh 1-5.
+			Giá trị pháp lý nằm trong khoảng từ 0-31. Bit 0 ánh xạ tới
+			UCH1, bit 1 ánh xạ tới UCH2, v.v. Đặt một chút thành 1
+			cho phép đầu vào nhiệt của UCH cụ thể đó và
+			thiết lập một chút về 0 sẽ cho phép đầu vào điện áp.
+
+* int_mode: int
+			Ghi đè chế độ ngắt nhiệt độ mặc định BIOS.
+			Giá trị duy nhất có thể là 0 buộc phải ngắt
+			chế độ 0. Ở chế độ này, mọi ngắt đang chờ xử lý sẽ bị xóa
+			khi thanh ghi trạng thái được đọc nhưng được tạo lại dưới dạng
+			miễn là nhiệt độ vẫn cao hơn độ trễ
+			giới hạn.
+
+Xin lưu ý rằng việc ghi đè mặc định BIOS có thể gây ra một số tác dụng phụ không mong muốn!
+
+
+Sự miêu tả
+-----------
+
+Chip VIA VT1211 Super-I/O bao gồm giám sát phần cứng hoàn chỉnh
+khả năng. Nó giám sát 2 đầu vào cảm biến nhiệt độ chuyên dụng (temp1 và
+temp2), 1 điện áp chuyên dụng (in5) và 2 quạt. Ngoài ra, chip
+thực hiện 5 kênh đầu vào phổ quát (UCH1-5) có thể riêng lẻ
+được lập trình để theo dõi điện áp hoặc nhiệt độ.
+
+Con chip này cũng cung cấp khả năng điều khiển tốc độ quạt bằng tay và tự động (theo
+vào bảng dữ liệu). Trình điều khiển chỉ hỗ trợ điều khiển tự động vì có hướng dẫn sử dụng
+chế độ dường như không hoạt động như được quảng cáo trong biểu dữ liệu. Thực tế là tôi không thể
+để chế độ thủ công hoạt động! Xin lưu ý rằng chế độ tự động chưa được
+đã thử nghiệm rất tốt (vì EPIA M10000 của tôi không có quạt
+được kết nối với đầu ra PWM của VT1211 :-().
+
+Bảng sau đây cho thấy mối quan hệ giữa đầu vào vt1211 và
+các nút sysfs.
+
+================ ========================= ====================================
+Cảm biến Chế độ điện áp Chế độ nhiệt độ Sử dụng mặc định (từ biểu dữ liệu)
+================ ========================= ====================================
+Đọc 1 temp1 Diode nhiệt Intel
+Đọc 3 temp2 Diode nhiệt bên trong
+UCH1/Reading2 in0 temp3 NTC loại nhiệt điện trở
+UCH2 in1 temp4 +2.5V
+UCH3 in2 temp5 VccP (lõi xử lý)
+UCH4 in3 nhiệt độ6 +5V
+UCH5 in4 nhiệt độ7 +12V
++3,3V in5 Nội bộ VCC (+3,3V)
+================ ========================= ====================================
+
+
+Giám sát điện áp
+------------------
+
+Điện áp được lấy mẫu bằng ADC 8 bit với LSB ~ 10mV. Đầu vào được hỗ trợ
+do đó phạm vi là từ 0 đến 2,60V. Giá trị điện áp ngoài phạm vi này cần
+điện trở tỉ lệ bên ngoài. Việc mở rộng quy mô bên ngoài này cần được bù đắp cho
+thông qua các dòng tính toán trong cảm biến.conf, như:
+
+tính toán inx @*(1+R1/R2), @/(1+R1/R2)
+
+Các điện trở chia tỷ lệ bảng theo khuyến nghị của VIA là như
+theo sau. Và điều này tất nhiên là hoàn toàn phụ thuộc vào bảng thực tế
+triển khai :-) Bạn sẽ phải tìm tài liệu cho riêng mình
+bo mạch chủ và chỉnh sửa cảm biến.conf cho phù hợp.
+
+================================== =============
+				      Dự kiến
+Giá trị thô của bộ chia điện áp R1 R2
+================================== =============
++2,5V 2K 10K 1,2 2083 mV
+VccP --- --- 1,0 1400 mV [1]_
++5V 14K 10K 2.4 2083 mV
++12V 47K 10K 5,7 2105 mV
++3,3V (int) 2K 3,4K 1,588 3300 mV [2]_
++3,3V (máy lẻ) 6,8K 10K 1,68 1964 mV
+================================== =============
+
+.. [1] Depending on the CPU (1.4V is for a VIA C3 Nehemiah).
+
+.. [2] R1 and R2 for 3.3V (int) are internal to the VT1211 chip and the driver
+       performs the scaling and returns the properly scaled voltage value.
+
+Mỗi điện áp đo được có giới hạn thấp và cao liên quan, điều này sẽ kích hoạt
+báo động khi vượt qua.
+
+
+Giám sát nhiệt độ
+----------------------
+
+Nhiệt độ được báo cáo bằng mili độ C. Mỗi nhiệt độ đo được
+có giới hạn cao sẽ kích hoạt báo động nếu vượt qua. Có một sự liên quan
+giá trị trễ với mỗi nhiệt độ mà nhiệt độ phải giảm xuống dưới mức đó
+trước khi cảnh báo bị xóa (điều này chỉ đúng với chế độ ngắt 0). các
+chế độ ngắt có thể bị buộc về 0 trong trường hợp BIOS không thực hiện được
+tự động. Xem phần 'Tham số mô-đun' để biết chi tiết.
+
+Tất cả các kênh nhiệt độ ngoại trừ temp2 đều ở bên ngoài. Temp2 là VT1211
+diode nhiệt bên trong và trình điều khiển thực hiện tất cả việc chia tỷ lệ cho temp2 và
+trả về nhiệt độ tính bằng mili độ C. Đối với các kênh bên ngoài
+temp1 và temp3-temp7, việc mở rộng quy mô tùy thuộc vào việc triển khai và nhu cầu của bảng
+được thực hiện trong không gian người dùng thông qua cảm biến.conf.
+
+Temp1 là một diode nhiệt loại Intel yêu cầu công thức sau để
+chuyển đổi giữa các bài đọc sysfs và nhiệt độ thực:
+
+tính toán temp1 (@-Offset)/Gain, (@*Gain)+Offset
+
+Theo hướng dẫn chuyển VIA VT1211 BIOS, mức tăng và bù sau đây
+nên sử dụng các giá trị:
+
+======================== ============
+Độ lợi bù đắp loại điốt
+======================== ============
+Intel CPU 88.638 0.9528
+		65.000 0.9686 [3]_
+VIA C3 Ezra 83.869 0.9528
+VIA C3 Ezra-T 73.869 0.9528
+======================== ============
+
+.. [3] This is the formula from the lm_sensors 2.10.0 sensors.conf file. I don't
+       know where it comes from or how it was derived, it's just listed here for
+       completeness.
+
+Temp3-temp7 hỗ trợ nhiệt điện trở NTC. Đối với các kênh này, trình điều khiển quay lại
+các điện áp như được thấy ở các chân riêng lẻ của UCH1-UCH5. Điện áp tại
+chân (Vpin) được hình thành bởi một bộ chia điện áp được tạo thành từ nhiệt điện trở (Rth) và một
+Điện trở chia tỉ lệ (Rs)::
+
+Vpin = 2200 * Rth / (Rs + Rth) (2200 là giới hạn tối đa ADC là 2200 mV)
+
+Phương trình của nhiệt điện trở như sau (google nó nếu bạn muốn biết
+thêm về nó)::
+
+Rth = Ro * exp(B * (1 / T - 1 / To)) (To là 298,15K (25C) và Ro là
+					  điện trở danh nghĩa ở 25C)
+
+Trộn hai phương trình trên và giả sử Rs = Ro và B = 3435 mang lại kết quả
+công thức sau đây cho cảm biến.conf::
+
+tính toán tempx 1 / (1 / 298,15 - (` (2200 / @ - 1)) / 3435) - 273,15,
+		2200 / (1 + (^ (3435 / 298.15 - 3435 / (273.15 + @))))
+
+
+Kiểm soát tốc độ quạt
+-----------------
+
+VT1211 cung cấp 2 đầu ra PWM có thể lập trình để điều khiển tốc độ của 2
+người hâm mộ. Viết số 2 vào bất kỳ nút nào trong số hai nút pwm[1-2]_enable sysfs sẽ đặt
+Bộ điều khiển PWM ở chế độ tự động. Chỉ có một bộ điều khiển duy nhất
+điều khiển cả hai đầu ra PWM nhưng mỗi đầu ra PWM có thể được bật riêng lẻ và
+bị vô hiệu hóa.
+
+Mỗi PWM có 4 chu kỳ nhiệm vụ đầu ra riêng biệt liên quan: đầy đủ, cao, thấp và
+tắt. Đầy đủ và tắt được nối cứng bên trong tới 255 (100%) và 0 (0%),
+tương ứng. Cao và thấp có thể được lập trình thông qua
+pwm[1-2]_auto_point[2-3]_pwm. Mỗi đầu ra PWM có thể được liên kết với một
+đầu vào nhiệt khác nhau nhưng - và đây là phần kỳ lạ - chỉ có một bộ
+tồn tại các ngưỡng nhiệt để kiểm soát cả chu kỳ nhiệm vụ đầu ra của cả hai xung. các
+ngưỡng nhiệt có thể truy cập được thông qua pwm[1-2]_auto_point[1-4]_temp. Lưu ý
+rằng mặc dù có 2 bộ 4 điểm tự động, nhưng chúng ánh xạ tới cùng một
+đăng ký trong VT1211 và lập trình một bộ là đủ (thực tế chỉ
+tập đầu tiên pwm1_auto_point[1-4]_temp có thể ghi, tập thứ hai là
+chỉ đọc).
+
+========================================================================
+PWM Auto Point PWM Chu kỳ hoạt động đầu ra
+========================================================================
+pwm[1-2]_auto_point4_pwm chu kỳ nhiệm vụ tốc độ tối đa (có dây cứng tới 255)
+pwm[1-2]_auto_point3_pwm chu kỳ nhiệm vụ tốc độ cao
+pwm[1-2]_auto_point2_pwm chu kỳ nhiệm vụ tốc độ thấp
+pwm[1-2]_auto_point1_pwm tắt chu kỳ nhiệm vụ (có dây cứng về 0)
+========================================================================
+
+===============================================
+Ngưỡng nhiệt điểm tự động nhiệt độ
+===============================================
+pwm[1-2]_auto_point4_temp nhiệt độ tốc độ tối đa
+pwm[1-2]_auto_point3_temp nhiệt độ tốc độ cao
+pwm[1-2]_auto_point2_temp nhiệt độ tốc độ thấp
+pwm[1-2]_auto_point1_temp tắt tạm thời
+===============================================
+
+Tóm lại, bộ điều khiển thực hiện thuật toán sau để thiết lập
+Chu kỳ nhiệm vụ đầu ra PWM dựa trên nhiệt độ đầu vào:
+
+=======================================================================
+Ngưỡng nhiệt Chu kỳ làm việc đầu ra Chu kỳ làm việc đầu ra
+		    (Nhiệt độ tăng) (Nhiệt độ giảm)
+=======================================================================
+- chu kỳ nhiệm vụ tốc độ đầy đủ chu kỳ nhiệm vụ tốc độ đầy đủ
+nhiệt độ tốc độ tối đa
+- chu kỳ làm việc tốc độ cao, chu kỳ làm việc tốc độ cao
+nhiệt độ tốc độ cao
+- chu kỳ làm việc tốc độ thấp, chu kỳ làm việc tốc độ cao
+nhiệt độ tốc độ thấp
+- ngoài chu kỳ làm việc, chu kỳ làm việc ở tốc độ thấp
+tắt nhiệt độ
+=======================================================================

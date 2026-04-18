@@ -1,0 +1,44 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/pm6764tr.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân pm6764tr
+======================
+
+Chip được hỗ trợ:
+
+*ST PM6764TR
+
+Tiền tố: 'pm6764tr'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+	<hsu.yungteng@gmail.com>
+
+Sự miêu tả:
+------------
+
+Trình điều khiển này hỗ trợ chip STMicroelectronics PM6764TR. PM6764TR cao
+bộ điều khiển kỹ thuật số hiệu suất được thiết kế để cung cấp năng lượng cho bộ xử lý và bộ nhớ VR12.5 của Intel.
+
+Thiết bị sử dụng công nghệ số để thực hiện mọi hoạt động điều khiển và quản lý điện năng
+chức năng để cung cấp sự linh hoạt và hiệu suất tối đa. NVM được nhúng để lưu trữ
+cấu hình tùy chỉnh. Thiết bị PM6764TR có tính năng lập trình lên tới 4 pha.
+
+PM6764TR hỗ trợ chuyển đổi trạng thái nguồn có VFDE và DPM có thể lập trình
+duy trì hiệu quả tốt nhất trong mọi điều kiện tải mà không ảnh hưởng đến tạm thời
+phản hồi. Thiết bị đảm bảo bảo vệ nhanh chóng và độc lập chống quá dòng tải,
+ngắt kết nối dưới/quá điện áp và phản hồi.

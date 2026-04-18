@@ -1,0 +1,49 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83773g.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83773g
+=====================
+
+Chip được hỗ trợ:
+
+* Nuvoton W83773G
+
+Tiền tố: 'w83773g'
+
+Địa chỉ được quét: I2C 0x4c và 0x4d
+
+Bảng dữ liệu: ZZ0000ZZ
+
+tác giả:
+
+Lôi YU <mine260309@gmail.com>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho cảm biến nhiệt độ Nuvoton W83773G
+chip. Con chip này thực hiện một cảm biến cục bộ và hai cảm biến từ xa.
+Con chip này cũng có tính năng bù đắp cho hai cảm biến từ xa được thêm vào
+các bài đọc đầu vào. Con chip tự thực hiện tất cả việc chia tỷ lệ và trình điều khiển
+do đó báo cáo nhiệt độ thực mà không cần bất kỳ điều chỉnh nào trong không gian người dùng.
+Nhiệt độ được đo bằng độ C.
+Con chip này được nối dây qua I2C/SMBus và được chỉ định theo nhiệt độ
+phạm vi từ -40 đến +125 độ C (đối với cảm biến cục bộ) và -40 đến +127
+độ C (đối với cảm biến từ xa).
+Độ phân giải cho cả kênh cục bộ và từ xa là 0,125 độ C.
+
+Chip chỉ hỗ trợ đo nhiệt độ. Trình điều khiển xuất khẩu
+các giá trị nhiệt độ thông qua các tệp sysfs sau:
+
+ZZ0000ZZ

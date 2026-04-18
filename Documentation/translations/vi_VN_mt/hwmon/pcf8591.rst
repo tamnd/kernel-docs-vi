@@ -1,0 +1,112 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/pcf8591.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân pcf8591
+=====================
+
+Chip được hỗ trợ:
+
+* Philips/NXP PCF8591
+
+Tiền tố: 'pcf8591'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: Có sẵn công khai tại trang web NXP
+
+ZZ0000ZZ
+
+tác giả:
+      - Aurelien Jarno <aurelien@aurel32.net>
+      - những đóng góp quý báu của Jan M. Sendler <sendler@sendler.de>,
+      - Jean Delvare <jdelvare@suse.de>
+
+
+Sự miêu tả
+-----------
+
+PCF8591 là bộ chuyển đổi A/D và D/A 8 bit (4 đầu vào analog và một
+đầu ra analog) cho bus I2C do Philips Semiconductors (nay là NXP) sản xuất.
+Nó được thiết kế để cung cấp giao diện byte I2C cho tối đa 4 thiết bị riêng biệt.
+
+PCF8591 có 4 đầu vào tương tự có thể lập trình dưới dạng một đầu hoặc
+đầu vào khác biệt:
+
+- chế độ 0: bốn đầu vào kết thúc đơn
+	Các chân AIN0 đến AIN3 là các đầu vào một đầu cho các kênh 0 đến 3
+
+- chế độ 1: ba đầu vào vi sai
+	Chân AIN3 là đầu vào vi sai âm phổ biến
+	Các chân AIN0 đến AIN2 là các đầu vào vi sai dương cho các kênh 0 đến 2
+
+- Chế độ 2: Kết hợp đơn và vi sai
+	Các chân AIN0 và AIN1 là các đầu vào một đầu cho các kênh 0 và 1
+	Chân AIN2 là đầu vào vi sai dương cho kênh 3
+	Chân AIN3 là đầu vào vi sai âm cho kênh 3
+
+- chế độ 3: hai đầu vào vi sai
+	Chân AIN0 là đầu vào vi sai dương cho kênh 0
+	Chân AIN1 là đầu vào vi sai âm cho kênh 0
+	Chân AIN2 là đầu vào vi sai dương cho kênh 1
+	Chân AIN3 là đầu vào vi sai âm cho kênh 1
+
+Xem bảng dữ liệu để biết chi tiết.
+
+Thông số mô-đun
+-----------------
+
+* input_mode int
+
+Chế độ đầu vào tương tự:
+
+- 0 = bốn đầu vào kết thúc đơn
+	 - 1 = ba đầu vào vi sai
+	 - 2 = một đầu và vi sai hỗn hợp
+	 - 3 = hai đầu vào vi sai
+
+
+Truy cập PCF8591 qua giao diện /sys
+-------------------------------------
+
+PCF8591 rõ ràng là không thể phát hiện được! Vì thế người lái xe thậm chí sẽ không
+thử. Bạn phải khởi tạo thiết bị một cách rõ ràng ở thời điểm thích hợp
+địa chỉ (trong khoảng [0x48..0x4f]) thông qua dữ liệu nền tảng hoặc
+sử dụng giao diện sysfs. Xem Tài liệu/i2c/instantiating-devices.rst
+để biết chi tiết.
+
+Các thư mục đang được tạo cho mỗi PCF8591 được khởi tạo:
+
+/sys/bus/i2c/devices/<0>-<1>/
+   trong đó <0> là bus mà chip được kết nối (ví dụ: i2c-0)
+   và <1> địa chỉ chip ([48..4f])
+
+Bên trong các thư mục này có các tệp như vậy:
+
+in0_input, in1_input, in2_input, in3_input, out0_enable, out0_output, tên
+
+Tên chứa tên chip.
+
+Các file in0_input, in1_input, in2_input và in3_input đều là RO. Đọc sách mang lại
+giá trị của kênh tương ứng. Tùy thuộc vào đầu vào analog hiện tại
+cấu hình, tệp in2_input và in3_input có thể không tồn tại. Phạm vi giá trị
+từ 0 đến 255 đối với đầu vào một đầu và -128 đến +127 đối với đầu vào vi sai
+(ADC 8 bit).
+
+Tệp out0_enable là RW. Việc đọc cho ra "1" cho đầu ra analog được bật và
+"0" cho đầu ra analog bị tắt. Viết chấp nhận "0" và "1" tương ứng.
+
+Tệp out0_output là RW. Viết một số từ 0 đến 255 (DAC 8 bit), gửi
+giá trị cho bộ chuyển đổi kỹ thuật số sang tương tự. Lưu ý rằng điện áp sẽ
+chỉ xuất hiện trên chân AOUT nếu aout0_enable bằng 1. Việc đọc trả về kết quả cuối cùng
+giá trị được viết.

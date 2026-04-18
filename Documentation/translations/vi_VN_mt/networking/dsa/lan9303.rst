@@ -1,0 +1,51 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/dsa/lan9303.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=================================
+Trình điều khiển chuyển mạch Ethernet LAN9303
+==============================
+
+LAN9303 là bộ chuyển mạch ethernet ba cổng 10/100 Mbps với vật lý tích hợp cho
+hai cổng ethernet bên ngoài. Cổng thứ ba là giao diện RMII/MII với
+giao diện mạng ống dẫn máy chủ (ví dụ: liên kết cố định).
+
+
+Chi tiết tài xế
+==============
+
+Trình điều khiển được triển khai dưới dạng trình điều khiển DSA, xem ZZ0000ZZ.
+
+Xem ZZ0000ZZ để biết cây thiết bị
+ràng buộc.
+
+LAN9303 có thể được quản lý cả thông qua MDIO và I2C, cả hai đều được trình điều khiển này hỗ trợ.
+
+Khi khởi động, trình điều khiển sẽ cấu hình thiết bị để cung cấp hai mạng riêng biệt
+giao diện (là trạng thái mặc định của thiết bị DSA). Do những hạn chế của CTNH,
+không có quá trình học HW MAC nào diễn ra ở chế độ này.
+
+Khi cả hai cổng người dùng được nối vào cùng một cầu nối, việc học HW MAC bình thường sẽ
+được kích hoạt. Điều này có nghĩa là lưu lượng unicast được chuyển tiếp trong HW. Phát sóng và
+multicast bị ngập trong CTNH. STP cũng được hỗ trợ ở chế độ này. Người lái xe
+cũng hỗ trợ các hoạt động fdb/mdb, nghĩa là tính năng theo dõi IGMP được hỗ trợ.
+
+Nếu một trong các cổng người dùng rời khỏi cầu nối, các cổng đó sẽ quay trở lại cổng ban đầu
+hoạt động tách biệt.
+
+
+Hạn chế của trình điều khiển
+==================
+
+- Hỗ trợ lọc VLAN không được triển khai
+ - CTNH không hỗ trợ các mục fdb dành riêng cho VLAN

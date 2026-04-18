@@ -1,0 +1,151 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/ucd9000.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân ucd9000
+=====================
+
+Chip được hỗ trợ:
+
+* TI UCD90120, UCD90124, UCD90160, UCD90320, UCD9090 và UCD90910
+
+Tiền tố: 'ucd90120', 'ucd90124', 'ucd90160', 'ucd90320', 'ucd9090',
+              'ucd90910'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+	-ZZ0001ZZ
+	-ZZ0002ZZ
+	-ZZ0003ZZ
+	-ZZ0004ZZ
+	-ZZ0005ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Từ bảng dữ liệu:
+
+Trình theo dõi tình trạng hệ thống và trình theo dõi nguồn điện UCD90120 theo dõi và
+trình tự lên tới 12 đường ray điện áp độc lập. Thiết bị tích hợp 12-bit
+ADC với tham chiếu bên trong 2,5V để theo dõi điện áp nguồn lên đến 13,
+đầu vào hiện tại hoặc nhiệt độ.
+
+UCD90124 là bộ sắp xếp thứ tự nguồn điện có địa chỉ PMBus/I2C 12 ray và
+màn hình sức khỏe hệ thống. Thiết bị tích hợp ADC 12 bit để giám sát tối đa
+13 đầu vào điện áp, dòng điện hoặc nhiệt độ nguồn điện. Hai mươi sáu chân GPIO
+có thể được sử dụng để kích hoạt nguồn điện, tín hiệu đặt lại bật nguồn, bên ngoài
+ngắt, xếp tầng hoặc các chức năng hệ thống khác. Mười hai chân này cung cấp PWM
+chức năng. Sử dụng các chân này, UCD90124 cung cấp hỗ trợ điều khiển quạt,
+lề và các hàm PWM có mục đích chung.
+
+UCD90160 là bộ sắp xếp thứ tự nguồn điện có địa chỉ PMBus/I2C 16 ray và
+màn hình. Thiết bị tích hợp ADC 12 bit để giám sát tới 16 nguồn điện
+đầu vào điện áp. Hai mươi sáu chân GPIO có thể được sử dụng để kích hoạt nguồn điện,
+tín hiệu đặt lại bật nguồn, ngắt bên ngoài, xếp tầng hoặc hệ thống khác
+chức năng. Mười hai chân này cung cấp chức năng PWM. Sử dụng các chân này,
+UCD90160 cung cấp hỗ trợ cho các chức năng lề và PWM có mục đích chung.
+
+UCD90320 là bộ sắp xếp thứ tự nguồn điện có địa chỉ PMBus/I2C 32-rail và
+màn hình. 24 kênh ADC (AMONx) tích hợp giám sát việc cung cấp điện
+điện áp, dòng điện và nhiệt độ. Trong số 84 chân GPIO, 8 chân có thể được sử dụng làm
+màn hình kỹ thuật số (DMONx), 32 để cấp nguồn (ENx), 24 cho lề
+(MARx), 16 cho GPO logic và 32 GPI cho xếp tầng và chức năng hệ thống.
+
+UCD9090 là bộ sắp xếp thứ tự nguồn điện có địa chỉ PMBus/I2C 10 ray và
+màn hình. Thiết bị tích hợp ADC 12 bit để giám sát tối đa 10 nguồn điện
+đầu vào điện áp. Hai mươi ba chân GPIO có thể được sử dụng để kích hoạt nguồn điện,
+tín hiệu đặt lại bật nguồn, ngắt bên ngoài, xếp tầng hoặc hệ thống khác
+chức năng. Mười trong số các chân này cung cấp chức năng PWM. Sử dụng các chân này,
+UCD9090 cung cấp hỗ trợ cho các chức năng lề và PWM có mục đích chung.
+
+UCD90910 là bộ sắp xếp thứ tự nguồn điện có địa chỉ I2C / PMBus mười đường ray và
+màn hình sức khỏe hệ thống. Thiết bị tích hợp ADC 12 bit để giám sát tối đa
+13 đầu vào điện áp, dòng điện hoặc nhiệt độ nguồn điện.
+
+Trình điều khiển này là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst để biết chi tiết.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
+thuộc tính chỉ đọc.
+
+=====================================================================================
+trong[1-12]_label "vout[1-12]".
+in[1-12]_input Đo điện áp. Từ đăng ký READ_VOUT.
+in[1-12]_min Điện áp tối thiểu. Từ đăng ký VOUT_UV_WARN_LIMIT.
+in[1-12]_max Điện áp tối đa. Từ đăng ký VOUT_OV_WARN_LIMIT.
+in[1-12]_lcrit Điện áp tối thiểu tới hạn. Đăng ký VOUT_UV_FAULT_LIMIT.
+in[1-12]_crit Điện áp tối đa tới hạn. Từ VOUT_OV_FAULT_LIMIT
+			đăng ký.
+in[1-12]_min_alarm Báo động điện áp thấp. Từ trạng thái VOLTAGE_UV_WARNING.
+in[1-12]_max_alarm Báo động điện áp cao. Từ trạng thái VOLTAGE_OV_WARNING.
+in[1-12]_lcrit_alarm Báo động điện áp thấp tới hạn. Từ VOLTAGE_UV_FAULT
+			trạng thái.
+in[1-12]_crit_alarm Báo động điện áp tới hạn cao. Từ VOLTAGE_OV_FAULT
+			trạng thái.
+
+Curr[1-12]_label "iout[1-12]".
+curr[1-12]_input Đo dòng điện. Từ đăng ký READ_IOUT.
+Curr[1-12]_max Dòng điện tối đa. Từ đăng ký IOUT_OC_WARN_LIMIT.
+curr[1-12]_lcrit Dòng điện đầu ra tối thiểu quan trọng. Từ
+			Đăng ký IOUT_UC_FAULT_LIMIT.
+Curr[1-12]_crit Dòng tối đa tới hạn. Từ IOUT_OC_FAULT_LIMIT
+			đăng ký.
+curr[1-12]_max_alarm Báo động hiện tại ở mức cao. Từ trạng thái IOUT_OC_WARNING.
+curr[1-12]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao. Từ trạng thái IOUT_OC_FAULT.
+
+Đối với mỗi chỉ số thuộc tính, điện áp hoặc dòng điện là
+			được báo cáo, nhưng không phải cả hai. Nếu điện áp hoặc dòng điện
+			được báo cáo phụ thuộc vào cấu hình chip.
+
+temp[1-2]_input Đo nhiệt độ. Từ READ_TEMPERATURE_1 và
+			Thanh ghi READ_TEMPERATURE_2.
+temp[1-2]_max Nhiệt độ tối đa. Từ đăng ký OT_WARN_LIMIT.
+temp[1-2]_crit Nhiệt độ cao tới hạn. Từ đăng ký OT_FAULT_LIMIT.
+temp[1-2]_max_alarm Báo động nhiệt độ cao.
+temp[1-2]_crit_alarm Báo động nhiệt độ cao tới mức tới hạn.
+
+quạt[1-4]_đầu vào Quạt RPM.
+fan[1-4]_alarm Cảnh báo quạt.
+fan[1-4]_fault Lỗi quạt.
+
+Thuộc tính người hâm mộ chỉ có trên các chip hỗ trợ
+			điều khiển quạt (UCD90124, UCD90910). Các tập tin thuộc tính được
+			chỉ được tạo cho người hâm mộ được kích hoạt.
+			Lưu ý rằng mặc dù UCD90910 hỗ trợ tối đa 10 quạt,
+			hiện chỉ có tối đa bốn người hâm mộ được hỗ trợ.
+=====================================================================================

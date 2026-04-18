@@ -1,0 +1,54 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/wm831x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân wm831x-hwmon
+==========================
+
+Chip được hỗ trợ:
+  * PMIC vi điện tử Wolfson WM831x
+
+Tiền tố: 'wm831x'
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+	-ZZ0001ZZ
+	-ZZ0002ZZ
+
+Tác giả: Mark Brown <broonie@opensource.wolfsonmicro.com>
+
+Sự miêu tả
+-----------
+
+Dòng PMIC WM831x bao gồm AUXADC có thể được sử dụng để
+giám sát một loạt các thông số vận hành hệ thống, bao gồm cả điện áp
+của các nguồn cung cấp chính trong hệ thống.  Hiện nay tài xế cung cấp
+báo cáo tất cả các giá trị đầu vào nhưng không cung cấp bất kỳ cảnh báo nào.
+
+Giám sát điện áp
+------------------
+
+Điện áp được lấy mẫu bằng ADC 12 bit.  Điện áp tính bằng milivolt là 1,465
+lần giá trị ADC.
+
+Giám sát nhiệt độ
+----------------------
+
+Nhiệt độ được lấy mẫu bằng ADC 12 bit.  Nhiệt độ chip và pin
+có sẵn.  Nhiệt độ chip được tính như sau:
+
+Độ C = (512,18 - dữ liệu) / 1,0983
+
+trong khi việc tính toán nhiệt độ pin sẽ phụ thuộc vào NTC
+thành phần nhiệt điện trở.

@@ -1,0 +1,41 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/slaves/w1_ds2406.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==========================
+trình điều khiển hạt nhân w1_ds2406
+=======================
+
+Chip được hỗ trợ:
+
+* Công tắc địa chỉ Maxim DS2406 (và dòng 0x12 khác)
+
+Tác giả: Scott Alfter <scott@alfter.us>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển w1_ds2406 cho phép bật và tắt các thiết bị được kết nối.
+Các chip này cũng cung cấp 128 byte OTP EPROM, nhưng việc đọc/ghi nó
+không được hỗ trợ.  Ở dạng TSOC-6, DS2406 cung cấp hai đầu ra chuyển đổi và
+có thể được cung cấp nguồn điện trên một đầu vào chuyên dụng.  Ở dạng TO-92, nó cung cấp
+một đầu ra và chỉ sử dụng năng lượng ký sinh.
+
+Trình điều khiển cung cấp hai tệp sysfs.  trạng thái có thể đọc được; nó mang lại cho
+trạng thái hiện tại của mỗi công tắc, với PIO A ở bit 0 và PIO B ở bit 1.
+trình điều khiển HOẶC trạng thái này bằng 0x30, vì vậy các tập lệnh shell nhận được ASCII 0/1/2/3 để
+làm việc với.  đầu ra có thể ghi được; bit 0 và 1 điều khiển PIO A và B,
+tương ứng.  Các bit 2-7 bị bỏ qua nên việc ghi dữ liệu ASCII là an toàn.
+
+CRC được kiểm tra khi đọc và ghi.  Việc kiểm tra không thành công gây ra lỗi I/O
+đã quay trở lại.  Khi ghi không thành công, trạng thái chuyển đổi không thay đổi.

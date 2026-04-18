@@ -1,0 +1,527 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83781d.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83781d
+=====================
+
+Chip được hỗ trợ:
+
+* Winbond W83781D
+
+Tiền tố: 'w83781d'
+
+Địa chỉ được quét: I2C 0x28 - 0x2f, ISA 0x290 (8 cổng I/O)
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Winbond W83782D
+
+Tiền tố: 'w83782d'
+
+Địa chỉ được quét: I2C 0x28 - 0x2f, ISA 0x290 (8 cổng I/O)
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Winbond W83783S
+
+Tiền tố: 'w83783s'
+
+Địa chỉ được quét: I2C 0x2d
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Asus AS99127F
+
+Tiền tố: 'as99127f'
+
+Địa chỉ được quét: I2C 0x28 - 0x2f
+
+Bảng dữ liệu: Không có sẵn từ Asus
+
+
+
+tác giả:
+
+- Frodo Looijaard <frodol@dds.nl>,
+      - Philip Edelbrock <phil@netroedge.com>,
+      - Mark Studebaker <mdsxyz123@yahoo.com>
+
+Thông số mô-đun
+-----------------
+
+* init int
+    (mặc định 1)
+
+Sử dụng 'init=0' để bỏ qua việc khởi tạo chip.
+    Hãy thử điều này nếu máy tính của bạn gặp sự cố khi bạn tải mô-đun.
+
+* đặt lại int
+    (mặc định 0)
+    Trình điều khiển đã từng thiết lập lại chip khi tải nhưng không làm được nữa. sử dụng
+    'reset=1' để khôi phục hành vi cũ. Báo cáo nếu bạn cần làm điều này.
+
+Force_subclients=bus,caddr,saddr,saddr
+  Điều này được sử dụng để buộc các địa chỉ i2c cho các máy khách phụ của
+  một con chip nhất định. Cách sử dụng điển hình là ZZ0000ZZ
+  để buộc các máy khách con của chip 0x2d trên các địa chỉ bus 0 đến i2c
+  0x4a và 0x4b. Tham số này hữu ích cho một số bảng Tyan nhất định.
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho Winbond W83781D, W83782D, W83783S
+chip và chip Asus AS99127F. Chúng ta sẽ gọi chung chúng là
+Chip W8378*.
+
+Có khá nhiều sự khác biệt giữa các con chip này, nhưng chúng giống nhau
+đủ để hợp lý khi đặt chúng lại với nhau trong một trình điều khiển.
+Các chip của Asus tương tự như W83782D chỉ có I2C.
+
++----------+----------+--------+-------+-------+----------+-------+------+------+
+ZZ0000ZZ #vin ZZ0001ZZ #pwm ZZ0002ZZ wchipid ZZ0003ZZ i2c ZZ0004ZZ
++----------+----------+--------+-------+-------+----------+-------+------+------+
+ZZ0005ZZ 7 ZZ0006ZZ 0 ZZ0007ZZ 0x31 ZZ0008ZZ có ZZ0009ZZ
++----------+----------+--------+-------+-------+----------+-------+------+------+
+ZZ0010ZZ 0x31 ZZ0011ZZ có ZZ0012ZZ
++----------+----------+--------+-------+-------+----------+-------+------+------+
+ZZ0013ZZ 7 ZZ0014ZZ 0 ZZ0015ZZ 0x10-1 ZZ0016ZZ có ZZ0017ZZ
++----------+----------+--------+-------+-------+----------+-------+------+------+
+ZZ0018ZZ 9 ZZ0019ZZ 2-4 ZZ0020ZZ 0x30 ZZ0021ZZ có ZZ0022ZZ
++----------+----------+--------+-------+-------+----------+-------+------+------+
+ZZ0023ZZ 5-6 ZZ0024ZZ 2 ZZ0025ZZ 0x40 ZZ0026ZZ có ZZ0027ZZ
++----------+----------+--------+-------+-------+----------+-------+------+------+
+
+Việc phát hiện những con chip này đôi khi có thể bị thất bại vì chúng có thể nằm trong
+một trạng thái nội bộ cho phép không có quyền truy cập sạch. Nếu bạn biết địa chỉ
+của chip, sử dụng tham số 'lực'; điều này sẽ đưa họ vào tình trạng nhiều hơn
+trạng thái cư xử tốt đầu tiên.
+
+W8378* triển khai các cảm biến nhiệt độ (ba trên W83781D và W83782D,
+hai trên W83783S), ba cảm biến tốc độ quay của quạt, cảm biến điện áp
+(bảy trên W83781D, chín trên W83782D và sáu trên W83783S), VID
+dòng, báo động có cảnh báo bằng tiếng bíp và một số nội dung linh tinh.
+
+Nhiệt độ được đo bằng độ C. Luôn có một cái chính
+cảm biến nhiệt độ và một (W83783S) hoặc hai (W83781D và W83782D) khác
+cảm biến. Một cảnh báo sẽ được kích hoạt cho cảm biến chính một lần khi
+Giới hạn tắt máy quá nhiệt bị vượt qua; nó được kích hoạt lại ngay khi
+nó giảm xuống dưới giá trị Độ trễ. Một hành vi hữu ích hơn
+có thể được tìm thấy bằng cách đặt giá trị Độ trễ thành +127 độ C; trong
+trường hợp này, cảnh báo sẽ được đưa ra trong suốt thời gian khi nhiệt độ thực tế
+cao hơn giá trị Tắt máy khi quá nhiệt. Người lái xe thiết lập
+giá trị trễ cho temp1 đến 127 khi khởi tạo.
+
+Đối với (các) cảm biến nhiệt độ khác, cảnh báo sẽ được kích hoạt khi
+nhiệt độ cao hơn giá trị Tắt quá nhiệt; nó ở lại
+bật cho đến khi nhiệt độ giảm xuống dưới giá trị Độ trễ. Nhưng trên
+W83781D, chỉ có một cảnh báo hoạt động cho cả hai cảm biến còn lại!
+Nhiệt độ được đảm bảo trong phạm vi từ -55 đến +125 độ. các
+cảm biến nhiệt độ chính có độ phân giải 1 độ; (các) cảm biến khác
+là 0,5 độ.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia cho một bộ chia có thể lập trình (1, 2, 4 hoặc 8 cho
+W83781D; 1, 2, 4, 8, 16, 32, 64 hoặc 128 cho những người còn lại) để đưa ra
+các bài đọc có phạm vi rộng hơn hoặc chính xác hơn. Không phải tất cả các giá trị RPM đều có thể chính xác
+được biểu diễn nên việc làm tròn được thực hiện. Với số chia là 2, thấp nhất
+giá trị đại diện là khoảng 2600 RPM.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng bằng vôn.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa. Lưu ý rằng mức tối thiểu trong trường hợp này luôn có nghĩa là 'gần nhất với
+không'; điều này rất quan trọng đối với các phép đo điện áp âm. Tất cả điện áp
+đầu vào có thể đo điện áp trong khoảng từ 0 đến 4,08 volt, với độ phân giải
+là 0,016 vôn.
+
+Các dòng VID mã hóa giá trị điện áp lõi: mức điện áp bộ xử lý của bạn
+nên làm việc với. Điều này được mã hóa cứng bởi bo mạch chính và/hoặc chính bộ xử lý.
+Đó là một giá trị tính bằng volt. Khi nó bị ngắt kết nối, bạn thường sẽ tìm thấy
+giá trị 3,50 V ở đây.
+
+Máy chuyển đổi nhiệt độ W83782D và W83783S hiểu về
+một số loại đầu dò nhiệt độ Bạn có thể lập trình cái gọi là
+giá trị beta trong các tập tin cảm biến. '1' là diode PII/Celeron, '2' là
+Bóng bán dẫn TN3904 và 3435 giá trị nhiệt điện trở mặc định. Các giá trị khác
+được (chưa) hỗ trợ.
+
+Ngoài các cảnh báo được mô tả ở trên, còn có cảnh báo CHAS trên
+chip sẽ kích hoạt nếu vỏ máy tính của bạn đang mở.
+
+Khi báo thức kêu, bạn có thể được cảnh báo bằng tín hiệu bíp thông qua
+loa máy tính của bạn. Có thể kích hoạt tất cả tiếng bíp trên toàn cầu,
+hoặc chỉ có tiếng bíp của một số báo thức.
+
+Các bit báo động và tiếng bíp riêng lẻ:
+
+======== =============================
+0x000001 trong0
+0x000002 trong1
+0x000004 trong2
+0x000008 trong3
+0x000010 tạm thời1
+0x000020 temp2 (+temp3 trên W83781D)
+0x000040 quạt1
+0x000080 fan2
+0x000100 in4
+0x000200 in5
+0x000400 in6
+0x000800 fan3
+khung gầm 0x001000
+0x002000 temp3 (chỉ W83782D)
+0x010000 in7 (chỉ W83782D)
+0x020000 in8 (chỉ W83782D)
+======== =============================
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể
+đã biến mất rồi! Lưu ý rằng trong quá trình triển khai hiện tại, tất cả
+các thanh ghi phần cứng được đọc bất cứ khi nào có dữ liệu được đọc (trừ khi nó ít hơn
+hơn 1,5 giây kể từ lần cập nhật cuối cùng). Điều này có nghĩa là bạn có thể dễ dàng
+bỏ lỡ các báo thức chỉ một lần.
+
+Các chip chỉ cập nhật giá trị mỗi 1,5 giây; đọc chúng thường xuyên hơn
+sẽ không gây hại gì nhưng sẽ trả về giá trị 'cũ'.
+
+AS99127F PROBLEMS
+-----------------
+Hỗ trợ as99127f được phát triển mà không có bảng dữ liệu.
+Trong hầu hết các trường hợp, nó được coi là w83781d (mặc dù phiên bản 2 của
+AS99127F trông giống w83782d hơn).
+Hỗ trợ này sẽ là BETA cho đến khi bảng dữ liệu được phát hành.
+Một người dùng đã báo cáo vấn đề quạt ngừng hoạt động
+thỉnh thoảng.
+
+Lưu ý rằng các bit bíp riêng lẻ được đảo ngược từ các chip khác.
+Trình điều khiển bây giờ sẽ đảm nhiệm việc này để các ứng dụng trong không gian người dùng
+không cần phải biết về nó.
+
+Các vấn đề đã biết:
+	- Sự cố với cài đặt diode/nhiệt điện trở (được hỗ trợ?)
+	- Một người dùng báo cáo rằng quạt dừng do tải máy chủ cao.
+	- Revision 2 hình như có 2 thanh ghi PWM nhưng chúng ta không biết
+	  làm thế nào để xử lý chúng. Thêm chi tiết dưới đây.
+
+Những điều này sẽ không được sửa trừ khi chúng tôi nhận được bảng dữ liệu.
+Nếu bạn gặp vấn đề, vui lòng vận động Asus phát hành bảng dữ liệu.
+Thật không may, một số người khác đã không thành công.
+Vui lòng không gửi thư cho chúng tôi yêu cầu hỗ trợ as99127f tốt hơn.
+Chúng tôi đã làm tốt nhất có thể mà không cần bảng dữ liệu.
+Vui lòng không gửi thư cho tác giả hoặc nhóm cảm biến yêu cầu
+một bảng dữ liệu hoặc những ý tưởng về cách thuyết phục Asus. Chúng tôi không thể giúp đỡ.
+
+
+NOTES
+-----
+783s không có in1 nên in[2-6] tương thích với 781d/782d.
+
+Chân 783s có thể lập trình ở mức -5V hoặc temp1; mặc định là -5V,
+  không có điều khiển trong trình điều khiển nên temp1 không hoạt động.
+
+Bảng dữ liệu 782d và 783s khác nhau về pwm1 và pwm2.
+  Chúng tôi đã chọn đi theo 782d.
+
+Chân 782d và 783s có thể lập trình cho đầu vào fan3 hoặc đầu ra pwm2;
+  mặc định là đầu vào fan3.
+  Nếu pwm2 được bật (với echo 255 1 > pwm2), thì
+  fan3 sẽ báo cáo 0.
+
+782d có pwm1-2 cho ISA, pwm1-4 cho i2c. (pwm3-4 chia sẻ chân với
+  các chân ISA)
+
+Cập nhật bảng dữ liệu
+------------------
+- Thanh ghi đồng hồ PWM:
+		* 000: chủ/512
+		*001: chủ/1024
+		* 010: chủ/2048
+		* 011: chủ/4096
+		* 100: chủ/8192
+
+
+Câu trả lời từ bộ phận hỗ trợ kỹ thuật Winbond
+---------------------------------
+
+::
+
+>
+  > 1) Trong bảng dữ liệu W83781D phần 7.2 đoạn cuối, nó nói về
+  > lập trình lại bảng R-T nếu Beta của nhiệt điện trở không
+  > 3435K. Bảng R-T được mô tả ngắn gọn trong phần 8.20.
+  > Tôi sử dụng công thức nào để lập trình bảng R-T mới cho bản Beta nhất định?
+  >
+
+Chúng tôi rất tiếc vì việc tính toán giá trị bảng R-T là
+  bí mật. Nếu bạn có giá trị Beta khác của nhiệt điện trở, chúng tôi có thể trợ giúp
+  để tính bảng R-T cho bạn. Nhưng bạn nên cho chúng tôi R-T thực sự
+  Bảng có thể được mua bởi nhà cung cấp nhiệt điện trở. Vì vậy chúng ta sẽ tính toán
+  chúng và lấy dữ liệu 32 byte và bạn có thể điền dữ liệu 32 byte vào
+  đăng ký vào Bank0.CR51 của W83781D.
+
+
+> 2) Trong bảng dữ liệu W83782D có đề cập rằng các chân 38, 39 và 40 là
+  > có thể lập trình thành đầu vào nhiệt điện trở hoặc điốt Pentium II.
+  > Làm cách nào để lập trình chúng cho đầu vào diode? Tôi không thể tìm thấy bất kỳ đăng ký nào
+  > để lập trình chúng thành đầu vào diode.
+
+Bạn có thể lập trình các thanh ghi Bank0 CR[5Dh] và CR[59h].
+
+=============================================== =============== =============
+	CR[5Dh] bit 1(VTIN1) bit 2(VTIN2) bit 3(VTIN3)
+
+nhiệt điện trở 0 0 0
+	điốt 1 1 1
+
+
+(lỗi) CR[59h] bit 4(VTIN1) bit 2(VTIN2) bit 3(VTIN3)
+  (phải) CR[59h] bit 4(VTIN1) bit 5(VTIN2) bit 6(VTIN3)
+
+Diode nhiệt PII 1 1 1
+	Điốt 2N3904 0 0 0
+  =============================================== =============== =============
+
+
+Asus nhái
+-----------
+
+Chúng tôi không có bảng dữ liệu nào cho các bản sao Asus (AS99127F và ASB100 Bach).
+Dưới đây là một số thông tin rất hữu ích được Alex Van cung cấp cho chúng tôi
+Kaam về cách phát hiện những con chip này và cách đọc giá trị của chúng. Anh ấy
+cũng đưa ra lời khuyên cho một chipset khác của Asus, Mozart-2 (mà chúng tôi
+chưa hỗ trợ). Cảm ơn Alex!
+
+Tôi đã sửa lại một số phần và thêm ý kiến ​​cá nhân.
+
+Phát hiện
+^^^^^^^^^
+
+AS99127F phiên bản 1, AS99127F phiên bản 2 và ASB100:
+- Dải địa chỉ I2C: 0x29 - 0x2F
+- Nếu thanh ghi 0x58 giữ 0x31 thì chúng ta có Asus (ASB100 hoặc AS99127F)
+- Cái nào phụ thuộc vào thanh ghi 0x4F (ID nhà sản xuất):
+
+- 0x06 hoặc 0x94: ASB100
+  - 0x12 hoặc 0xC3: AS99127F rev.1
+  - 0x5C hoặc 0xA3: AS99127F rev.2
+
+Lưu ý rằng 0x5CA3 là ID của Winbond (WEC), điều này khiến chúng tôi nghĩ Asus có được
+  AS99127F rev.2 trực tiếp từ Winbond. Các mã khác có nghĩa là ATT và DVC,
+  tương ứng. ATT có thể đại diện cho một cái gì đó của Asustek (mặc dù nó có thể là
+  IMHO được chọn rất tệ), tôi không biết DVC có thể đại diện cho cái gì. Có lẽ
+  những mã này đơn giản là không được giải mã theo cách đó.
+
+Mozart-2:
+- Địa chỉ I2C: 0x77
+- Nếu thanh ghi 0x58 giữ 0x56 hoặc 0x10 thì chúng ta có Mozart-2
+- Trong Mozart có 3 loại:
+
+- 0x58=0x56, 0x4E=0x94, 0x4F=0x36: Asus ASM58 Mozart-2
+  - 0x58=0x56, 0x4E=0x94, 0x4F=0x06: Asus AS2K129R Mozart-2
+  - 0x58=0x10, 0x4E=0x5C, 0x4F=0xA3: Asus ??? Mozart-2
+
+Bạn có thể xử lý cả 3 cách giống hệt nhau :)
+
+Cảm biến nhiệt độ
+^^^^^^^^^^^^^^^^^^^
+
+ASB100:
+  - cảm biến 1: đăng ký 0x27
+  - cảm biến 2 & 3 là 2 LM75 trên SMBus
+  - cảm biến 4: đăng ký 0x17
+
+Nhận xét:
+
+Tôi nhận thấy rằng trên bo mạch Intel, cảm biến 2 được sử dụng cho CPU
+  và 4 bị bỏ qua/kẹt, trên bo mạch AMD, cảm biến 4 là CPU và cảm biến 2 là
+  hoặc bị bỏ qua hoặc nhiệt độ ổ cắm.
+
+AS99127F (rev.1 và 2 giống nhau):
+  - cảm biến 1: đăng ký 0x27
+  - cảm biến 2 & 3 là 2 LM75 trên SMBus
+
+Nhận xét:
+
+Thanh ghi 0x5b bị nghi ngờ là bộ chọn loại nhiệt độ. Bit 1
+  sẽ kiểm soát temp1, bit 3 temp2 và bit 5 temp3.
+
+Mozart-2:
+  - cảm biến 1: đăng ký 0x27
+  - cảm biến 2: đăng ký 0x13
+
+Cảm biến quạt
+^^^^^^^^^^^
+
+ASB100, AS99127F (rev.1 và 2 giống nhau):
+  - 3 quạt giống hệt W83781D
+
+Mozart-2:
+  - Chỉ 2 quạt, 1350000/RPM/div
+  - quạt 1: thanh ghi 0x28, số chia trên thanh ghi 0xA1 (bit 4-5)
+  - fan 2: thanh ghi 0x29, số chia trên thanh ghi 0xA1 (bit 6-7)
+
+Điện áp
+^^^^^^^^
+
+Đây là điểm khác biệt giữa AS99127F rev.1 và 2.
+
+Nhận xét:
+
+Sự khác biệt cũng tương tự như sự khác biệt giữa
+  W83781D và W83782D.
+
+ASB100:
+  - in0=r(0x20)*0,016
+  - in1=r(0x21)*0,016
+  - in2=r(0x22)*0,016
+  - in3=r(0x23)ZZ0000ZZ1.68
+  - in4=r(0x24)ZZ0001ZZ3.8
+  - in5=r(0x25)ZZ0002ZZ3.97
+  - in6=r(0x26)ZZ0003ZZ1.666
+
+AS99127F rev.1:
+  - in0=r(0x20)*0,016
+  - in1=r(0x21)*0,016
+  - in2=r(0x22)*0,016
+  - in3=r(0x23)ZZ0000ZZ1.68
+  - in4=r(0x24)ZZ0001ZZ3.8
+  - in5=r(0x25)ZZ0002ZZ3.97
+  - in6=r(0x26)ZZ0003ZZ1.503
+
+AS99127F rev.2:
+  - in0=r(0x20)*0,016
+  - in1=r(0x21)*0,016
+  - in2=r(0x22)*0,016
+  - in3=r(0x23)ZZ0000ZZ1.68
+  - in4=r(0x24)ZZ0001ZZ3.8
+  - in5=(r(0x25)ZZ0002ZZ5.14+3.6
+  - in6=(r(0x26)ZZ0003ZZ3.14+3.6
+
+Mozart-2:
+  - in0=r(0x20)*0,016
+  - in1=255
+  - in2=r(0x22)*0,016
+  - in3=r(0x23)ZZ0000ZZ1.68
+  - in4=r(0x24)ZZ0001ZZ4
+  - in5=255
+  - in6=255
+
+
+PWM
+^^^
+
+* Thông tin bổ sung về PWM trên AS99127F (có thể áp dụng cho các máy Asus khác
+  chip nữa) của Jean Delvare vào ngày 09-04-2004:
+
+AS99127F phiên bản 2 dường như có hai thanh ghi PWM ở 0x59 và 0x5A,
+và bộ chọn loại cảm biến nhiệt độ ở mức 0x5B (về cơ bản có nghĩa là
+rằng họ đã hoán đổi các thanh ghi 0x59 và 0x5B khi bạn so sánh với Winbond
+chip).
+Phiên bản 1 của chip cũng có bộ chọn loại cảm biến nhiệt độ ở
+0x5B, nhưng các thanh ghi PWM không có hiệu lực.
+
+Chúng tôi không biết chính xác cách thức hoạt động của việc lựa chọn loại cảm biến nhiệt độ.
+Có vẻ như các bit 1-0 dành cho temp1, bit 3-2 dành cho temp2 và bit 5-4 dành cho temp2
+temp3, mặc dù có thể chỉ có bit quan trọng nhất mới quan trọng
+mỗi lần. Cho đến nay, các giá trị khác 0 luôn phá vỡ kết quả đo.
+
+Các thanh ghi PWM dường như được chia thành hai phần: bit 7 là bộ chọn chế độ,
+trong khi các bit khác dường như xác định một giá trị hoặc ngưỡng.
+
+Khi bit 7 trống, bit 6-0 dường như giữ giá trị ngưỡng. Nếu giá trị
+dưới mức giới hạn nhất định, quạt chạy ở tốc độ thấp. Nếu giá trị ở trên
+giới hạn, quạt chạy ở tốc độ tối đa. Chúng tôi không biết giới hạn là gì
+đại diện. Lưu ý rằng dường như có một số quán tính ở chế độ này, tốc độ
+những thay đổi có thể cần một thời gian để kích hoạt. Ngoài ra, một cơ chế trễ là
+bị nghi ngờ kể từ khi ngày càng đi qua tất cả các giá trị
+giảm dần dẫn đến các giới hạn hơi khác nhau.
+
+Khi bit 7 được thiết lập, các bit 3-0 dường như giữ giá trị ngưỡng, trong khi các bit 6-4
+sẽ không đáng kể. Nếu giá trị dưới mức giới hạn nhất định, quạt sẽ chạy
+ở tốc độ tối đa, trong khi nếu vượt quá giới hạn thì nó chạy ở tốc độ thấp (vì vậy điều này
+theo một cách nào đó thì ngược lại với chế độ kia). Ở đây một lần nữa, chúng tôi không biết
+giới hạn đó được cho là đại diện cho điều gì.
+
+Một điều đáng chú ý là người hâm mộ sẽ chỉ có hai hoặc ba
+tốc độ khác nhau (các trạng thái chuyển tiếp được tách riêng), không phải toàn bộ phạm vi như
+bạn thường nhận được với PWM.
+
+Tóm lại, bạn có thể ghi 0x00 hoặc 0x8F vào thanh ghi PWM để thực hiện
+quạt chạy ở tốc độ thấp và 0x7F hoặc 0x80 để khiến chúng chạy ở tốc độ tối đa.
+
+Vui lòng liên hệ với chúng tôi nếu bạn có thể tìm ra cách nó hoạt động. Như
+miễn là chúng tôi không biết thêm, trình điều khiển w83781d không xử lý PWM trên
+Chip AS99127F nào cả.
+
+* Thông tin bổ sung về PWM trên AS99127F rev.1 của Hector Martin:
+
+Tôi đang loay hoay với thanh ghi 0x59 nổi tiếng (trong) và
+phát hiện ra các giá trị sau hoạt động như một dạng pwm thô:
+
+0x80
+ - có vẻ như quạt sẽ tắt sau một thời gian (1-2 phút)... có thể là vậy
+   một số hình thức điều khiển quạt tự động dựa trên nhiệt độ? hmm (Qfan? mobo này là một
+   ASUS cũ, nó không được bán trên thị trường với tên Qfan. Có thể thử một số phiên bản beta tại Qfan
+   đã bị rơi tại BIOS)
+0x81
+ - tắt
+0x82
+ - hơi "bật" hơn là tắt, nhưng người hâm mộ của tôi không thể di chuyển. tôi có thể
+   nghe thấy âm thanh PWM the thé mà động cơ phát ra ở pwm quá thấp.
+0x83
+ - bây giờ họ đã di chuyển. Ước tính tốc độ khoảng 70% hoặc hơn.
+0x84-0x8f
+ - đầy đủ
+
+Thay đổi nibble cao dường như không có tác dụng gì nhiều ngoại trừ bit cao
+(0x80) phải được đặt để PWM hoạt động, nếu không thì pwm hiện tại dường như không hoạt động
+thay đổi.
+
+Mobo của tôi là ASUS A7V266-E. Hành vi này tương tự như những gì tôi nhận được
+với speedfan trong Windows, trong đó 0-15% sẽ tắt, 15-2x% (không thể
+nhớ giá trị chính xác) sẽ là 70% và cao hơn sẽ đầy.
+
+* Thông tin bổ sung về PWM trên AS99127F rev.1 từ cảm biến lm
+  vé #2350:
+
+Tôi tiến hành một số thử nghiệm trên bo mạch chủ Asus P3B-F với AS99127F
+(Phiên bản 1).
+
+Tôi xác nhận rằng thanh ghi 0x59 kiểm soát Tiêu đề CPU_Fan trên này
+bo mạch chủ và điều khiển thanh ghi 0x5a PWR_Fan.
+
+Để giảm sự phụ thuộc của từng quạt cụ thể, phép đo được thực hiện
+được tiến hành với phạm vi kỹ thuật số mà không cần kết nối quạt. Tôi phát hiện ra rằng
+P3B-F thực sự xuất ra điện áp DC thay đổi trên chân trung tâm đầu quạt,
+có vẻ như PWM đã được lọc trên bo mạch chủ này.
+
+Dưới đây là một số phép đo:
+
+==== ==========
+0x80 20 mV
+0x81 20 mV
+0x82 232 mV
+0x83 1,2 V
+0x84 2,31 V
+0x85 3,44 V
+0x86 4,62 V
+0x87 5,81 V
+0x88 7,01 V
+9x89 8,22V
+0x8a 9,42 V
+0x8b 10,6 V
+0x8c 11,9 V
+0x8d 12,4 V
+0x8e 12,4 V
+0x8f 12,4 V
+==== ==========

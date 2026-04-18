@@ -1,0 +1,73 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/slaves/w1_ds2413.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==========================
+Trình điều khiển hạt nhân w1_ds2413
+=======================
+
+Chip được hỗ trợ:
+
+* Công tắc địa chỉ kênh đôi 1 dây Maxim DS2413
+
+mã gia đình được hỗ trợ:
+
+================= ====
+        W1_FAMILY_DS2413 0x3A
+        ================= ====
+
+Tác giả: Mariusz Bialonczyk <manio@skyboo.net>
+
+Sự miêu tả
+-----------
+
+Chip DS2413 có hai đầu ra thoát nước mở (PIO A và PIO B).
+Hỗ trợ được cung cấp thông qua các tệp sysfs "đầu ra" và "trạng thái".
+
+Trạng thái đọc
+-------------
+Tệp "trạng thái" cung cấp giá trị một byte có cùng định dạng như đối với
+lệnh chip PIO_ACCESS_READ (tham khảo bảng dữ liệu để biết chi tiết):
+
+===========================================================================
+Bit 0: Trạng thái chân PIOA
+Bit 1: Trạng thái chốt đầu ra PIOA
+Bit 2: Trạng thái chân PIOB
+Bit 3: Trạng thái chốt đầu ra PIOB
+Bit 4-7: Phần bù của Bit 3 đến Bit 0 (được xác minh bởi mô-đun hạt nhân)
+===========================================================================
+
+Tập tin này là chỉ đọc.
+
+Viết đầu ra
+--------------
+Bạn có thể đặt các chân PIO bằng tệp "đầu ra".
+Nó có thể ghi được, bạn có thể ghi giá trị một byte vào tệp sysfs này.
+Tương tự, định dạng byte giống như đối với lệnh PIO_ACCESS_WRITE:
+
+==================================================
+Bit 0: PIOA
+Bit 1: PIOB
+Bit 2-7: Không thành vấn đề (trình điều khiển sẽ đặt thành "1")
+==================================================
+
+
+Con chip này có một số loại bảo vệ cơ bản chống lại các lỗi truyền tải.
+Khi đọc trạng thái, có bốn bit bổ sung.
+Driver đang kiểm tra phần bù này, khi nào nó sai thì nó
+trả về lỗi I/O.
+
+Khi ghi đầu ra, bản gốc phải lặp lại byte Dữ liệu đầu ra PIO trong
+dạng đảo ngược của nó và nó đang chờ xác nhận.
+Nếu ghi không thành công ba lần, ghi cũng trả về
+Lỗi vào/ra.

@@ -1,0 +1,211 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/smsc47b397.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân smsc47b397
+========================
+
+Chip được hỗ trợ:
+
+* SMSC LPC47B397-NC
+
+* SMSC SCH5307-NS
+
+* SMSC SCH5317
+
+Tiền tố: 'smsc47b397'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Trong tập tin này
+
+tác giả:
+
+- Mark M. Hoffman <mhoffman@lightlink.com>
+       - Hệ thống Utilitek, Inc.
+
+Ngày 23 tháng 11 năm 2004
+
+Thông số kỹ thuật sau đây mô tả chip cảm biến SMSC LPC47B397-NC [1]_
+(không có bảng dữ liệu công khai). Tài liệu này đã được
+được cung cấp bởi Craig Kelly (Mạng phát sóng tại cửa hàng) và được chỉnh sửa/sửa chữa
+của Mark M. Hoffman <mhoffman@lightlink.com>.
+
+.. [1] And SMSC SCH5307-NS and SCH5317, which have different device IDs but are
+       otherwise compatible.
+
+-------------------------------------------------------------------------
+
+Phương pháp phát hiện HP SIO và đọc dữ liệu nhiệt trên dc7100
+-------------------------------------------------------------------------
+
+Thông tin nhiệt trên dc7100 có trong Màn hình phần cứng SIO
+(HWM). Thông tin được truy cập thông qua cặp chỉ mục/dữ liệu. Chỉ số/dữ liệu
+cặp được đặt tại Địa chỉ cơ sở HWM + 0 và Địa chỉ cơ sở HWM + 1.
+HWM Địa chỉ cơ sở có thể được lấy từ Thiết bị logic 8, thanh ghi 0x60 (MSB)
+và 0x61 (LSB). Hiện tại chúng tôi đang sử dụng 0x480 cho Địa chỉ cơ sở HWM và
+0x480 và 0x481 cho cặp chỉ mục/dữ liệu.
+
+Đọc thông tin nhiệt độ.
+Thông tin nhiệt độ được đặt trong các thanh ghi sau:
+
+====================== =============================================================
+Temp1 0x25 (Hiện tại, điều này phản ánh nhiệt độ CPU trên tất cả các hệ thống).
+Nhiệt độ2 0x26
+Nhiệt độ3 0x27
+Nhiệt độ4 0x80
+====================== =============================================================
+
+Ví dụ lập trình
+Sau đây là ví dụ về cách đọc các thanh ghi nhiệt độ HWM::
+
+MOV DX,480H
+	MOV AX,25H
+	OUT DX,AL
+	MOV DX,481H
+	TẠI AL,DX
+
+AL chứa dữ liệu ở dạng hex, nhiệt độ tính bằng độ C là số thập phân
+tương đương.
+
+Ví dụ: Nếu AL chứa 0x2A thì nhiệt độ là 42 độ C.
+
+Đọc thông tin tach.
+Thông tin tốc độ quạt được đặt trong các thanh ghi sau:
+
+====================== ============================================
+		LSB MSB
+Tach1 0x28 0x29 (Hiện tại, điều này phản ánh CPU
+				tốc độ quạt trên tất cả các hệ thống).
+Tach2 0x2A 0x2B
+Tach3 0x2C 0x2D
+Tach4 0x2E 0x2F
+====================== ============================================
+
+.. Important::
+
+	Reading the tach LSB locks the tach MSB.
+	The LSB Must be read first.
+
+Cách chuyển đổi số đo tach sang RPM
+--------------------------------------
+
+Giá trị đo tốc độ (TCount) được tính bằng: (Tach MSB * 256) + (Tach LSB)
+SIO đếm số xung 90kHz (11.111us) trên mỗi vòng quay.
+RPM = 60/(TCount * 11.111us)
+
+Ví dụ::
+
+Reg 0x28 = 0x9B
+	Reg 0x29 = 0x08
+
+TCount = 0x89B = 2203
+
+RPM = 60 / (2203 * 11.11111 E-6) = 2451 RPM
+
+Đang lấy phiên bản SIO.
+
+Trình tự cấu hình
+----------------------
+
+Để lập trình các thanh ghi cấu hình, phải tuân theo trình tự sau:
+1. Vào Chế độ cấu hình
+2. Cấu hình các thanh ghi cấu hình
+3. Thoát Chế độ cấu hình.
+
+Vào chế độ cấu hình
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Để đặt chip vào Trạng thái cấu hình Khóa cấu hình (0x55) được ghi
+đến CONFIG PORT (0x2E).
+
+Chế độ cấu hình
+^^^^^^^^^^^^^^^^^^
+
+Trong chế độ cấu hình, INDEX PORT được đặt tại địa chỉ CONFIG PORT và
+DATA PORT ở địa chỉ INDEX PORT + 1.
+
+Các thanh ghi cấu hình mong muốn được truy cập theo hai bước:
+
+Một.	Viết chỉ mục của Thanh ghi cấu hình số thiết bị logic
+	(tức là 0x07) vào INDEX PORT và sau đó ghi số của
+	thiết bị logic mong muốn vào DATA PORT.
+
+b.	Viết địa chỉ của thanh ghi cấu hình mong muốn trong
+	thiết bị logic vào INDEX PORT rồi ghi hoặc đọc cấu hình-
+	thanh ghi điều chỉnh thông qua DATA PORT.
+
+Lưu ý:
+	Nếu truy cập vào Thanh ghi cấu hình toàn cầu, bước (a) là không bắt buộc.
+
+Thoát chế độ cấu hình
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Để thoát khỏi Trạng thái cấu hình, hãy ghi 0xAA vào CONFIG PORT (0x2E).
+Con chip trở về trạng thái RUN.  (Điều này quan trọng).
+
+Ví dụ lập trình
+^^^^^^^^^^^^^^^^^^^
+
+Sau đây là ví dụ về cách đọc ID thiết bị SIO ở 0x20:
+
+; ENTER CONFIGURATION MODE
+	MOV DX,02EH
+	MOV AX,055H
+	OUT DX,AL
+	; GLOBAL CONFIGURATION REGISTER
+	MOV DX,02EH
+	MOV AL,20H
+	OUT DX,AL
+	; READ THE DATA
+	MOV DX,02FH
+	TẠI AL,DX
+	; EXIT CONFIGURATION MODE
+	MOV DX,02EH
+	MOV AX,0AAH
+	OUT DX,AL
+
+Các thanh ghi quan tâm để xác định SIO trên dc7100 là ID thiết bị
+(0x20) và Số vòng quay thiết bị (0x21).
+
+ID thiết bị sẽ đọc 0x6F (0x81 cho SCH5307-NS và 0x85 cho SCH5317)
+Device Rev hiện đọc 0x01
+
+Lấy địa chỉ cơ sở HWM
+------------------------------
+
+Sau đây là ví dụ về cách đọc Địa chỉ cơ sở HWM nằm trong
+Thiết bị logic 8::
+
+; ENTER CONFIGURATION MODE
+	MOV DX,02EH
+	MOV AX,055H
+	OUT DX,AL
+	; CONFIGURE REGISTER CRE0,
+	; LOGICAL DEVICE 8
+	MOV DX,02EH
+	MOV AL,07H
+	OUT DX,AL ;Trỏ tới LD# Config Reg
+	MOV DX,02FH
+	MOV AL, 08H
+	OUT DX,AL;Trỏ tới thiết bị logic 8
+	;
+	MOV DX,02EH
+	MOV AL,60H
+	OUT DX,AL ; Trỏ tới HWM Base Addr MSB
+	MOV DX,02FH
+	TRONG AL,DX ; Nhận MSB của HWM Base Addr
+	; EXIT CONFIGURATION MODE
+	MOV DX,02EH
+	MOV AX,0AAH
+	OUT DX,AL

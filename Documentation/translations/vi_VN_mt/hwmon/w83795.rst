@@ -1,0 +1,156 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83795.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83795
+====================
+
+Chip được hỗ trợ:
+
+* Winbond/Nuvoton W83795G
+
+Tiền tố: 'w83795g'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: Có sẵn để tải xuống trên nuvoton.com
+
+* Winbond/Nuvoton W83795ADG
+
+Tiền tố: 'w83795adg'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: Có sẵn để tải xuống trên nuvoton.com
+
+tác giả:
+    - Vệ Song (Nuvoton)
+    - Jean Delvare <jdelvare@suse.de>
+
+
+Ánh xạ ghim
+-----------
+
+Dưới đây là bản tóm tắt về ánh xạ chân cho W83795G và W83795ADG.
+Điều này có thể hữu ích để chuyển đổi dữ liệu được cung cấp bởi các nhà sản xuất bo mạch
+vào các câu lệnh cấu hình libsensors đang hoạt động.
+
+
+-W83795G
+
+================================= ================ ===================
+Tên Pin Đăng ký thuộc tính Sysfs
+================================= ================ ===================
+   13 VSEN1 (VCORE1) 10 giờ trong 0
+   14 VSEN2 (VCORE2) 11 giờ trong 1
+   15 VSEN3 (VCORE3) 12 giờ trong 2
+   16 VSEN4 13h trong 3
+   17 VSEN5 14h trong 4
+   18 VSEN6 15h trong 5
+   19 VSEN7 16h trong6
+   20 VSEN8 17h trong7
+   21 VSEN9 18h trong 8
+   22 VSEN10 19h trong9
+   23 VSEN11 1Ah trong10
+   28 VTT 1Bh in11
+   24 3VDD 1Ch in12
+   25 3VSB 1Dh in13
+   26 VBAT 1Eh in14
+    3 VSEN12/TR5 1Fh in15/temp5
+    4 VSEN13/TR5 20h trong 16/temp6
+  5/ 6 VDSEN14/TR1/TD1 21h in17/temp1
+  7/ 8 VDSEN15/TR2/TD2 22h in18/temp2
+  9/ 10 VDSEN16/TR3/TD3 23h in19/temp3
+ 11/ 12 VDSEN17/TR4/TD4 24h in20/temp4
+   40 FANIN1 2Eh quạt1
+   42 FANIN2 2Fh quạt2
+   44 FANIN3 quạt 30h3
+   46 FANIN4 quạt 31h4
+   48 FANIN5 quạt 32h5
+   50 FANIN6 quạt 33h6
+   52 FANIN7 quạt 34h7
+   54 FANIN8 Quạt 35h8
+   57 FANIN9 quạt 36h9
+   58 FANIN10 37h fan10
+   59 FANIN11 quạt 38h11
+   60 FANIN12 quạt 39h12
+   31 FANIN13 3Ah quạt13
+   35 FANIN14 Quạt 3Bh14
+   41 FANCTL1 10h (ngân hàng 2) pwm1
+   43 FANCTL2 11h (ngân hàng 2) pwm2
+   45 FANCTL3 12h (ngân hàng 2) pwm3
+   47 FANCTL4 13h (ngân hàng 2) pwm4
+   49 FANCTL5 14h (ngân hàng 2) pwm5
+   51 FANCTL6 15h (ngân hàng 2) pwm6
+   53 FANCTL7 16h (ngân hàng 2) pwm7
+   55 FANCTL8 17h (ngân hàng 2) pwm8
+ 29/30 PECI/TSI (DTS1) nhiệt độ 26h7
+ 29/30 PECI/TSI (DTS2) nhiệt độ 27h8
+ 29/30 PECI/TSI (DTS3) nhiệt độ 28h9
+ 29/ 30 PECI/TSI (DTS4) nhiệt độ 29h10
+ 29/30 PECI/TSI (DTS5) 2Ah nhiệt độ11
+ 29/30 PECI/TSI (DTS6) nhiệt độ 2Bh12
+ 29/ 30 PECI/TSI (DTS7) nhiệt độ 2Ch13
+ 29/30 PECI/TSI (DTS8) nhiệt độ 2Dh14
+   27 CASEOPEN#		  46h xâm nhập0
+================================= ================ ===================
+
+-W83795ADG
+
+================================= ================ ===================
+Tên Pin Đăng ký thuộc tính Sysfs
+================================= ================ ===================
+   10 VSEN1 (VCORE1) 10 giờ trong 0
+   11 VSEN2 (VCORE2) 11 giờ trong 1
+   12 VSEN3 (VCORE3) 12 giờ trong 2
+   13 VSEN4 13h trong 3
+   14 VSEN5 14h trong 4
+   15 VSEN6 15h trong 5
+   16 VSEN7 16h trong6
+   17 VSEN8 17h trong7
+   22 VTT 1Bh in11
+   18 3VDD 1Ch in12
+   19 3VSB 1Dh in13
+   20 VBAT 1Eh in14
+   48 VSEN12/TR5 1Fh in15/temp5
+    1 VSEN13/TR5 20h trong 16/temp6
+  2/ 3 VDSEN14/TR1/TD1 21h trong 17/temp1
+  4/ 5 VDSEN15/TR2/TD2 22h in18/temp2
+  6/ 7 VDSEN16/TR3/TD3 23h in19/temp3
+  8/ 9 VDSEN17/TR4/TD4 24h in20/temp4
+   32 FANIN1 2Eh fan1
+   34 FANIN2 2Fh quạt2
+   36 FANIN3 quạt 30h3
+   37 FANIN4 31h fan4
+   38 FANIN5 quạt 32h5
+   39 FANIN6 quạt 33h6
+   40 FANIN7 quạt 34h7
+   41 FANIN8 quạt 35h8
+   43 FANIN9 quạt 36h9
+   44 FANIN10 37h fan10
+   45 FANIN11 quạt 38h11
+   46 FANIN12 quạt 39h12
+   24 FANIN13 3Ah quạt13
+   28 FANIN14 3Bh quạt14
+   33 FANCTL1 10h (ngân hàng 2) pwm1
+   35 FANCTL2 11h (ngân hàng 2) pwm2
+   23 PECI (DTS1) nhiệt độ 26h7
+   23 PECI (DTS2) nhiệt độ 27h8
+   23 PECI (DTS3) nhiệt độ 28h9
+   23 PECI (DTS4) nhiệt độ 29h10
+   23 PECI (DTS5) 2Ah nhiệt độ11
+   23 PECI (DTS6) nhiệt độ 2Bh12
+   23 PECI (DTS7) nhiệt độ 2Ch13
+   23 PECI (DTS8) nhiệt độ 2Dh14
+   21 CASEOPEN#		  46h xâm nhập0
+================================= ================ ===================

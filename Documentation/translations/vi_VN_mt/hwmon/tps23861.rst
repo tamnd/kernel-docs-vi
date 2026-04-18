@@ -1,0 +1,53 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tps23861.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tps23861
+======================
+
+Chip được hỗ trợ:
+  * Dụng cụ Texas TPS23861
+
+Tiền tố: 'tps23861'
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Robert Marko <robert.marko@sartura.hr>
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Texas Instruments TPS23861 PoE PSE.
+
+TPS23861 là bộ điều khiển IEEE802.3at PSE bốn cổng với điều khiển I2C tùy chọn
+và khả năng giám sát.
+
+TPS23861 cung cấp ba chế độ hoạt động: Tự động, Bán tự động và Thủ công.
+
+Trình điều khiển này chỉ hỗ trợ chế độ hoạt động Tự động cung cấp khả năng giám sát
+cũng như bật/tắt bốn cổng.
+
+Mục nhập hệ thống
+-------------
+
+===================================================================================================
+in[0-3]_Điện áp đầu vào trên các cổng [1-4]
+trong[0-3]_label "Cổng[1-4]"
+điện áp đầu vào IC in4_input
+in4_label "Đầu vào"
+nhiệt độ khuôn IC temp1_input
+temp1_label "Chết"
+curr[1-4]_input Dòng điện trên các cổng [1-4]
+trong[1-4]_label "Cổng[1-4]"
+in[0-3]_enable Bật/tắt cổng [1-4]
+===================================================================================================

@@ -1,0 +1,150 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/misc-devices/max6875.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=======================
+Trình điều khiển hạt nhân max6875
+=====================
+
+Chip được hỗ trợ:
+
+* Tối đa MAX6874, MAX6875
+
+Tiền tố: 'max6875'
+
+Địa chỉ được quét: Không có (xem bên dưới)
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Ben Gardner <bgardner@wabtec.com>
+
+
+Sự miêu tả
+-----------
+
+Maxim MAX6875 là bộ giám sát/trình tự sắp xếp nguồn điện có thể lập trình EEPROM.
+Nó cung cấp các đầu ra theo thời gian có thể được sử dụng như một cơ quan giám sát nếu được nối dây đúng cách.
+Nó cũng cung cấp 512 byte của người dùng EEPROM.
+
+Khi thiết lập lại, MAX6875 đọc cấu hình EEPROM vào cấu hình của nó
+sổ đăng ký.  Con chip sau đó bắt đầu hoạt động theo các giá trị trong
+sổ đăng ký.
+
+Maxim MAX6874 là một thiết bị tương tự, hầu hết đều tương thích, có nhiều đầu vào hơn
+và kết quả đầu ra:
+
+=========== === === ====
+- vin gpi vout
+=========== === === ====
+MAX6874 6 4 8
+MAX6875 4 3 5
+=========== === === ====
+
+Xem bảng dữ liệu để biết thêm thông tin.
+
+
+Mục nhập hệ thống
+-------------
+
+eeprom - 512 byte không gian EEPROM do người dùng xác định.
+
+
+Nhận xét chung
+---------------
+
+Địa chỉ hợp lệ cho MAX6875 là 0x50 và 0x52.
+
+Địa chỉ hợp lệ cho MAX6874 là 0x50, 0x52, 0x54 và 0x56.
+
+Trình điều khiển không thăm dò bất kỳ địa chỉ nào, do đó bạn khởi tạo rõ ràng địa chỉ
+thiết bị.
+
+Ví dụ::
+
+$ modprobe max6875
+  $ echo max6875 0x50 > /sys/bus/i2c/devices/i2c-0/new_device
+
+MAX6874/MAX6875 bỏ qua bit địa chỉ 0, do đó trình điều khiển này gắn vào nhiều
+địa chỉ.  Ví dụ: đối với địa chỉ 0x50, nó cũng dự trữ 0x51.
+Phiên bản địa chỉ chẵn được gọi là 'max6875', phiên bản lẻ là 'giả'.
+
+
+Lập trình chip bằng i2c-dev
+----------------------------------
+
+Sử dụng giao diện i2c-dev để truy cập và lập trình chip.
+
+Việc đọc và ghi được thực hiện khác nhau tùy thuộc vào dải địa chỉ.
+
+Các thanh ghi cấu hình có địa chỉ 0x00 - 0x45.
+
+Sử dụng i2c_smbus_write_byte_data() để viết một thanh ghi và
+i2c_smbus_read_byte_data() để đọc sổ đăng ký.
+
+Lệnh là số đăng ký.
+
+Ví dụ:
+
+Để viết số 1 để đăng ký 0x45::
+
+i2c_smbus_write_byte_data(fd, 0x45, 1);
+
+Để đọc đăng ký 0x45::
+
+giá trị = i2c_smbus_read_byte_data(fd, 0x45);
+
+
+Cấu hình EEPROM có địa chỉ 0x8000 - 0x8045.
+
+Người dùng EEPROM có địa chỉ 0x8100 - 0x82ff.
+
+Sử dụng i2c_smbus_write_word_data() để ghi một byte vào EEPROM.
+
+Lệnh là byte trên của địa chỉ: 0x80, 0x81 hoặc 0x82.
+Từ dữ liệu là phần dưới của địa chỉ hoặc có dữ liệu << 8::
+
+cmd = địa chỉ >> 8;
+  val = (địa chỉ & 0xff) | (dữ liệu << 8);
+
+Ví dụ:
+
+Để viết 0x5a vào địa chỉ 0x8003::
+
+i2c_smbus_write_word_data(fd, 0x80, 0x5a03);
+
+
+Việc đọc dữ liệu từ EEPROM phức tạp hơn một chút.
+
+Sử dụng i2c_smbus_write_byte_data() để đặt địa chỉ đọc và sau đó
+i2c_smbus_read_byte() hoặc i2c_smbus_read_i2c_block_data() để đọc dữ liệu.
+
+Ví dụ:
+
+Để đọc dữ liệu bắt đầu ở offset 0x8100, trước tiên hãy đặt địa chỉ ::
+
+i2c_smbus_write_byte_data(fd, 0x81, 0x00);
+
+Và sau đó đọc dữ liệu::
+
+giá trị = i2c_smbus_read_byte(fd);
+
+hoặc::
+
+đếm = i2c_smbus_read_i2c_block_data(fd, 0x84, 16, bộ đệm);
+
+Khối đọc nên đọc 16 byte.
+
+0x84 là lệnh đọc khối.
+
+Xem bảng dữ liệu để biết thêm chi tiết.
+

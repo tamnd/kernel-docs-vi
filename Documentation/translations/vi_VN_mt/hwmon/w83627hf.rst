@@ -1,0 +1,138 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83627hf.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83627hf
+======================
+
+Chip được hỗ trợ:
+  * Winbond W83627HF (ISA truy cập ONLY)
+    Tiền tố: 'w83627hf'
+    Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+  * Winbond W83627THF
+    Tiền tố: 'w83627thf'
+    Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+  * Winbond W83697HF
+    Tiền tố: 'w83697hf'
+    Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+  * Winbond W83637HF
+    Tiền tố: 'w83637hf'
+    Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+  * Winbond W83687THF
+    Tiền tố: 'w83687thf'
+    Địa chỉ được quét: Địa chỉ ISA được lấy từ các thanh ghi Super I/O
+    Bảng dữ liệu: Được cung cấp bởi Winbond theo yêu cầu (ZZ0000ZZ
+
+tác giả:
+	Frodo Looijaard <frodol@dds.nl>,
+	Philip Edelbrock <phil@netroedge.com>,
+	Mark Studebaker <mdsxyz123@yahoo.com>,
+	Bernhard C. Schrenk <clemy@clemy.org>
+
+Thông số mô-đun
+-----------------
+
+* Force_i2c: int
+  Khởi tạo địa chỉ I2C của cảm biến
+* init: int
+  (mặc định là 1)
+  Sử dụng 'init=0' để bỏ qua việc khởi tạo chip.
+  Hãy thử điều này nếu máy tính của bạn gặp sự cố khi bạn tải mô-đun.
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho ISA truy cập ZZ0000ZZ cho
+các chip Super I/O Winbond W83627HF, W83627THF, W83697HF và W83637HF.
+Chúng tôi sẽ gọi chung chúng là chip Winbond.
+
+Trình điều khiển này hỗ trợ truy cập ISA, đáng tin cậy hơn
+hơn truy cập i2c. Ngoài ra, đối với bảng Tyan chứa cả
+Chip Super I/O và chip Winbond thứ hai chỉ có i2c (thường là W83782D),
+sử dụng trình điều khiển này sẽ tránh xung đột địa chỉ i2c và các vấn đề phức tạp
+khởi tạo được yêu cầu trong trình điều khiển w83781d.
+
+Nếu bạn thực sự muốn truy cập i2c cho các chip Super I/O này,
+sử dụng trình điều khiển w83781d. Tuy nhiên đây không phải là phương pháp ưa thích
+bây giờ trình điều khiển ISA này đã được phát triển.
+
+ZZ0000ZZ sử dụng các chân 110-106 là VID0-VID4. ZZ0001ZZ sử dụng
+các chân tương tự như GPIO[0:4]. Về mặt kỹ thuật, ZZ0002ZZ không hỗ trợ
+Đọc VID. Tuy nhiên, hai con chip này có gói 128 pin giống hệt nhau. Vì vậy,
+có thể hoặc thậm chí có khả năng w83627thf có tín hiệu VID được định tuyến
+vào những chân này mặc dù chúng không được dán nhãn cho mục đích đó. Vì vậy,
+trình điều khiển w83627thf diễn giải chúng là VID. Nếu VID trên bo mạch của bạn
+không hoạt động, trước tiên hãy xem doc/vid trong gói lm_sensors[1]. Nếu điều đó vẫn còn
+không giúp ích gì, bạn có thể bỏ qua việc đọc VID không có thật mà không gây hại gì.
+
+Để biết thêm thông tin về trình điều khiển này, hãy xem tài liệu trình điều khiển w83781d.
+
+[1] ZZ0000ZZ
+
+Buộc địa chỉ
+-------------------
+
+Trình điều khiển từng có một tham số mô-đun có tên là Force_addr, có thể
+được sử dụng để buộc địa chỉ I/O cơ sở của khối giám sát phần cứng.
+Điều này nhằm mục đích giải quyết các bo mạch chính có BIOS bị hỏng. Cái này
+tham số mô-đun không còn nữa vì lý do kỹ thuật. Nếu bạn cần tính năng này,
+bạn có thể đạt được kết quả tương tự bằng cách sử dụng công cụ isaset (một phần của
+lm-sensors) trước khi tải trình điều khiển:
+
+# Enter không gian cấu hình Super I/O::
+
+isaset -y -f 0x2e 0x87
+	isaset -y -f 0x2e 0x87
+
+# Select thiết bị logic hwmon::
+
+isaset -y 0x2e 0x2f 0x07 0x0b
+
+# Set địa chỉ I/O cơ sở (đến 0x290 trong ví dụ này)::
+
+isaset -y 0x2e 0x2f 0x60 0x02
+	isaset -y 0x2e 0x2f 0x61 0x90
+
+# Exit không gian cấu hình Super-I/O::
+
+isaset -y -f 0x2e 0xaa
+
+Trình tự trên giả định không gian cấu hình Super-I/O ở mức 0x2e/0x2f, nhưng
+0x4e/0x4f cũng có thể.
+
+Ánh xạ chân điện áp
+-------------------
+
+Dưới đây là bản tóm tắt về ánh xạ chân điện áp cho W83627THF. Cái này
+có thể hữu ích để chuyển đổi dữ liệu do nhà sản xuất bo mạch cung cấp thành
+báo cáo cấu hình libsensors đang hoạt động:
+
+
+-W83627THF
+
+
+======== ================ ================ =================
+  Tên Pin Đăng ký thuộc tính Sysfs
+  ======== ================ ================ =================
+    100 CPUVCORE 20h trong0
+     99 VIN0 21h trong 1
+     98 VIN1 22h trong2
+     97 VIN2 24h trong 4
+    114 AVCC 23h trong 3
+     61 5VSB 50h (ngân hàng 5) in7
+     74 VBAT 51h (ngân hàng 5) in8
+  ======== ================ ================ =================
+
+Đối với các thiết bị được hỗ trợ khác, bạn sẽ phải chọn con đường khó khăn và
+Hãy tự tra cứu thông tin trong datasheet (sau đó thêm vào
+xin vui lòng cho tài liệu này.)

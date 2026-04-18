@@ -1,0 +1,103 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad7625.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+======================
+Trình điều khiển AD7625
+====================
+
+Trình điều khiển ADC cho Analog Devices Inc. AD7625, AD7626, AD7960 và AD7961
+thiết bị. Tên mô-đun là ZZ0000ZZ.
+
+Thiết bị được hỗ trợ
+=================
+
+Các chip sau được hỗ trợ bởi trình điều khiển này:
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+
+Trình điều khiển yêu cầu sử dụng dự án Pulsar LVDS HDL:
+
+* ZZ0000ZZ
+
+Để kích hoạt chuyển đổi và cho phép truyền dữ liệu tiếp theo, thiết bị
+yêu cầu các tín hiệu PWM được ghép nối với độ lệch pha.
+
+Các tính năng được hỗ trợ
+==================
+
+Chế độ điều khiển chuyển đổi
+------------------------
+
+Trình điều khiển hiện hỗ trợ một trong hai phương pháp điều khiển chuyển đổi LVDS có thể có.
+
+Chế độ giao diện Echoed-Clock
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+                                                +----------------+
+                     +xxxxxxxxxxxxxxxxxxxxxxxxxx| CNV            |
+                     X                          |                |
+                     v                          |    HOST        |
+          +----------------------------+        |                |
+          |      CNV+/CNV-   DCO+/DCO- |xxxxxxx>| CLK_IN         |
+          |                            |        |                |
+          |                            |        |                |
+          |       AD7625         D+/D- |xxxxxxx>| DATA_IN        |
+          |                            |        |                |
+          |                            |        |                |
+          |                  CLK+/CLK- |<xxxxxxx| CLK & CLK_GATE |
+          +----------------------------+        |                |
+                                                +----------------+
+
+Điện áp tham chiếu
+-----------------
+
+Ba nguồn điện áp tham chiếu có thể được hỗ trợ:
+
+- Tham chiếu nội bộ (chỉ có trên AD7625 và AD7626)
+- Tham chiếu bên ngoài và bộ đệm bên trong
+- Tham chiếu bên ngoài
+
+Nguồn được xác định bởi cây thiết bị. Nếu ZZ0000ZZ có mặt thì
+tham chiếu bên ngoài được sử dụng. Nếu có ZZ0001ZZ thì nội bộ
+bộ đệm được sử dụng. Nếu không có thì tham chiếu nội bộ sẽ được sử dụng.
+
+Các tính năng chưa được triển khai
+----------------------
+
+- Chế độ tự bấm giờ
+
+
+Thuộc tính thiết bị
+=================
+
+AD762x là ADC hoàn toàn khác biệt và có các thuộc tính sau:
+
++---------------------------------------+-----------------------------------------------------------------------+
+ZZ0001ZZ Mô tả |
++========================================================================================================================================
+ZZ0002ZZ Hệ số tỷ lệ để chuyển đổi giá trị thô từ các lần đọc được lưu vào bộ đệm thành mV. |
++---------------------------------------+-----------------------------------------------------------------------+
+
+
+Bộ đệm thiết bị
+==============
+
+Trình điều khiển này hỗ trợ bộ đệm kích hoạt IIO.
+
+Xem ZZ0000ZZ để biết thêm thông tin.

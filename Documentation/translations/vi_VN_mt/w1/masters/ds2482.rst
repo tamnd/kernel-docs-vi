@@ -1,0 +1,53 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/masters/ds2482.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+======================
+Trình điều khiển hạt nhân ds2482
+====================
+
+Chip được hỗ trợ:
+
+* Maxim DS2482-100, Maxim DS2482-800
+
+Tiền tố: 'ds2482'
+
+Địa chỉ được quét: Không có
+
+Bảng dữ liệu:
+
+-ZZ0000ZZ
+        -ZZ0001ZZ
+
+Tác giả: Ben Gardner <bgardner@wabtec.com>
+
+
+Sự miêu tả
+-----------
+
+Chất bán dẫn Maxim/Dallas DS2482 là thiết bị I2C cung cấp
+một (DS2482-100) hoặc tám (DS2482-800) xe buýt 1 dây.
+
+
+Nhận xét chung
+---------------
+
+Địa chỉ hợp lệ là 0x18, 0x19, 0x1a và 0x1b.
+
+Tuy nhiên, không thể phát hiện thiết bị nếu không ghi vào bus i2c, vì vậy không
+việc phát hiện được thực hiện. Bạn nên khởi tạo thiết bị một cách rõ ràng.
+
+::
+
+$ modprobe ds2482
+  $ echo ds2482 0x18 > /sys/bus/i2c/devices/i2c-0/new_device

@@ -1,0 +1,137 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/sis5595.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân sis5595
+=====================
+
+Chip được hỗ trợ:
+
+* Silicon Integrated Systems Corp. SiS5595 Giám sát phần cứng Southbridge
+
+Tiền tố: 'sis5595'
+
+Địa chỉ được quét: ISA trong địa chỉ được mã hóa khoảng trắng PCI
+
+Bảng dữ liệu: Có sẵn công khai tại trang web của Tập đoàn Hệ thống Tích hợp Silicon.
+
+
+
+tác giả:
+
+- Kyösti Mälkki <kmalkki@cc.hut.fi>,
+      - Mark D. Studebaker <mdsxyz123@yahoo.com>,
+      - Aurelien Jarno <aurelien@aurel32.net> cổng 2.6
+
+Southbridge SiS có chip giống LM78 được tích hợp trên cùng một IC.
+   Trình điều khiển này là bản sao tùy chỉnh của lm78.c
+
+Hỗ trợ các sửa đổi sau:
+
+===============================================
+       Phiên bản PCI ID PCI Bản sửa đổi
+       ===============================================
+       1 1039/0008 AF trở xuống
+       2 1039/0008 B0 hoặc cao hơn
+       ===============================================
+
+Lưu ý: những con chip này chứa thiết bị 0008 không tương thích với
+	5595. Chúng tôi nhận ra những điều này nhờ sự hiện diện của các công ty được liệt kê
+	"danh sách đen" ID PCI và từ chối tải.
+
+=====================================================
+   NOT SUPPORTED PCI ID BLACKLIST PCI ID
+   =====================================================
+	540 0008 0540
+	550 0008 0550
+       5513 0008 5511
+       5581 0008 5597
+       5582 0008 5597
+       5597 0008 5597
+	630 0008 0630
+	645 0008 0645
+	730 0008 0730
+	735 0008 0735
+   =====================================================
+
+
+Thông số mô-đun
+-----------------
+
+=================================================================================
+Force_addr=0xaddr Đặt địa chỉ cơ sở I/O. Hữu ích cho bảng
+			không đặt địa chỉ trong BIOS. Không làm một
+			lực PCI; thiết bị vẫn phải có trong lspci.
+			Đừng sử dụng điều này trừ khi người lái xe phàn nàn rằng
+			địa chỉ cơ sở không được thiết lập.
+
+Ví dụ: 'modprobe sis5595 Force_addr=0x290'
+=================================================================================
+
+
+Sự miêu tả
+-----------
+
+Southbridge SiS5595 có chức năng giám sát phần cứng tích hợp. Nó cũng
+có bus I2C, nhưng trình điều khiển này chỉ hỗ trợ màn hình phần cứng. Đối với
+Trình điều khiển xe buýt I2C xem i2c-sis5595.
+
+SiS5595 thực hiện cảm biến nhiệt độ bằng 0 hoặc một, hai tốc độ quạt
+cảm biến, bốn hoặc năm cảm biến điện áp và báo động.
+
+Trên phiên bản đầu tiên của chip, có bốn cảm biến điện áp và một cảm biến
+cảm biến nhiệt độ.
+
+Trên phiên bản thứ hai của chip, cảm biến nhiệt độ (temp) và
+cảm biến điện áp thứ năm (in4) chia sẻ một chân có thể cấu hình được, nhưng không
+thông qua người lái xe. Lấy làm tiếc. Người lái xe cảm nhận được cấu hình của chân cắm,
+điều này hy vọng đã được thiết lập bởi BIOS.
+
+Nhiệt độ được đo bằng độ C. Báo động được kích hoạt một lần
+khi vượt qua mức tối đa; nó cũng được kích hoạt khi nó giảm xuống dưới mức tối thiểu
+giá trị. Các phép đo được đảm bảo trong khoảng từ -55 đến +125 độ, với
+độ phân giải 1 độ
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia cho một bộ chia có thể lập trình (1, 2, 4 hoặc 8) để đưa ra
+các bài đọc có phạm vi rộng hơn hoặc chính xác hơn. Không phải tất cả các giá trị RPM đều có thể được xác định chính xác
+được đại diện, do đó một số làm tròn được thực hiện. Với số chia là 2, thấp nhất
+giá trị đại diện là khoảng 2600 RPM.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng bằng vôn. Một
+báo động được kích hoạt nếu điện áp đã vượt quá mức tối thiểu có thể lập trình hoặc
+giới hạn tối đa. Lưu ý rằng mức tối thiểu trong trường hợp này luôn có nghĩa là 'gần nhất với
+không'; điều này rất quan trọng đối với các phép đo điện áp âm. Tất cả điện áp
+đầu vào có thể đo điện áp trong khoảng từ 0 đến 4,08 volt, với độ phân giải là
+0,016 vôn.
+
+Ngoài các cảnh báo được mô tả ở trên, còn có cảnh báo BTI, được nhận
+được kích hoạt khi một con chip bên ngoài đã vượt quá giới hạn của nó. Thông thường, đây là
+được kết nối với một số chip giống LM75; nếu ít nhất một cái vượt qua giới hạn của nó thì điều này
+bit được thiết lập.
+
+Nếu cảnh báo kích hoạt, nó sẽ vẫn được kích hoạt cho đến khi phần cứng đăng ký
+được đọc ít nhất một lần. Điều này có nghĩa là nguyên nhân gây ra báo động có thể đã
+đã biến mất! Lưu ý rằng trong quá trình triển khai hiện tại, tất cả phần cứng
+các thanh ghi được đọc bất cứ khi nào dữ liệu được đọc (trừ khi nó nhỏ hơn 1,5
+giây kể từ lần cập nhật cuối cùng). Điều này có nghĩa là bạn có thể dễ dàng bỏ lỡ
+báo động chỉ một lần.
+
+SiS5595 chỉ cập nhật giá trị của nó sau mỗi 1,5 giây; đọc nó thường xuyên hơn
+sẽ không gây hại gì nhưng sẽ trả về giá trị 'cũ'.
+
+Vấn đề
+--------
+Một số chip từ chối được kích hoạt. Chúng tôi không biết tại sao.
+Trình điều khiển sẽ nhận ra điều này và in một thông báo trong dmesg.

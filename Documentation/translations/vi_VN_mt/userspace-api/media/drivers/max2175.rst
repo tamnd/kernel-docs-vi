@@ -1,0 +1,76 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/userspace-api/media/drivers/max2175.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển bộ điều chỉnh bit MAX2175 RF tích hợp Maxim
+================================================
+
+Trình điều khiển MAX2175 thực hiện các điều khiển dành riêng cho trình điều khiển sau:
+
+ZZ0000ZZ
+-------------------------------
+Bật/Tắt đầu ra I2S của bộ chỉnh tần. Đây là sự kiểm soát riêng tư
+    chỉ có thể được truy cập bằng giao diện subdev.
+    Tham khảo Tài liệu/driver-api/media/v4l2-controls.rst để biết thêm chi tiết.
+
+.. flat-table::
+    :header-rows:  0
+    :stub-columns: 0
+    :widths:       1 4
+
+    * - ``(0)``
+      - I2S output is disabled.
+    * - ``(1)``
+      - I2S output is enabled.
+
+ZZ0000ZZ
+-------------------------
+Điều khiển phía cao/phía thấp (HSLS) của bộ chỉnh tần cho một băng tần nhất định.
+
+.. flat-table::
+    :header-rows:  0
+    :stub-columns: 0
+    :widths:       1 4
+
+    * - ``(0)``
+      - The LO frequency position is below the desired frequency.
+    * - ``(1)``
+      - The LO frequency position is above the desired frequency.
+
+ZZ0000ZZ
+-----------------------------------
+Chế độ Rx điều khiển một số thông số đặt trước của bộ điều chỉnh như
+    đồng hồ mẫu (sck), tốc độ lấy mẫu, v.v. Nhiều cài đặt này là
+    được cung cấp dưới một nhãn duy nhất gọi là chế độ Rx trong biểu dữ liệu. các
+    danh sách bên dưới hiển thị các chế độ được hỗ trợ kèm theo mô tả ngắn gọn.
+
+.. flat-table::
+    :header-rows:  0
+    :stub-columns: 0
+    :widths:       1 4
+
+    * - ``"Europe modes"``
+    * - ``"FM 1.2" (0)``
+      - This configures FM band with a sample rate of 0.512 million
+        samples/sec with a 10.24 MHz sck.
+    * - ``"DAB 1.2" (1)``
+      - This configures VHF band with a sample rate of 2.048 million
+        samples/sec with a 32.768 MHz sck.
+
+    * - ``"North America modes"``
+    * - ``"FM 1.0" (0)``
+      - This configures FM band with a sample rate of 0.7441875 million
+        samples/sec with a 14.88375 MHz sck.
+    * - ``"DAB 1.2" (1)``
+      - This configures FM band with a sample rate of 0.372 million
+        samples/sec with a 7.441875 MHz sck.

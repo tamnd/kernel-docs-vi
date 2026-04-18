@@ -1,0 +1,192 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad4030.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD4030
+=============
+
+Trình điều khiển ADC cho Analog Devices Inc. AD4030 và các thiết bị tương tự. Tên mô-đun
+là ZZ0000ZZ.
+
+
+Thiết bị được hỗ trợ
+=================
+
+Các chip sau được hỗ trợ bởi trình điều khiển này:
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+* ZZ0004ZZ
+* ZZ0005ZZ
+
+kênh IIO
+============
+
+Mỗi kênh "phần cứng" như được mô tả trong biểu dữ liệu được chia thành 2 IIO
+kênh:
+
+- Một kênh cho dữ liệu khác biệt
+- Một kênh cho byte chung.
+
+Các kênh IIO có thể có tùy thuộc vào số lượng kênh "phần cứng" là:
+
++-----------------------------------+--------------------------------------+
+ZZ0000ZZ 2 kênh ADC |
++=================================================================================+
+ZZ0001ZZ - điện áp0-điện áp1 (vi sai) |
+ZZ0002ZZ - điện áp2-điện áp3 (vi sai) |
+ZZ0003ZZ - điện áp4 (chế độ chung) |
+ZZ0004ZZ - điện áp5 (chế độ chung) |
++-----------------------------------+--------------------------------------+
+
+Nhãn
+------
+
+Để dễ sử dụng, các kênh IIO cung cấp nhãn. Đối với kênh vi sai,
+nhãn là ZZ0000ZZ trong đó ZZ0001ZZ là id kênh "phần cứng". Đối với một
+kênh chế độ chung, nhãn là ZZ0002ZZ trong đó ZZ0003ZZ là
+id kênh "phần cứng".
+
+Các nhãn có thể là:
+
++-----------------+-------------------+
+ZZ0000ZZ 2 kênh ADC |
++=======================================+
+ZZ0001ZZ - vi sai0 |
+ZZ0002ZZ - vi sai1 |
+ZZ0003ZZ - chế độ chung0 |
+ZZ0004ZZ - chế độ chung1 |
++-----------------+-------------------+
+
+Các tính năng được hỗ trợ
+==================
+
+Chế độ nối dây SPI
+----------------
+
+Trình điều khiển hiện hỗ trợ các cấu hình nối dây SPI sau:
+
+Chế độ một làn
+^^^^^^^^^^^^^
+
+Ở chế độ này, mỗi kênh có dòng SDO riêng để gửi kết quả chuyển đổi.
+Hiện tại, chế độ này chỉ có thể được sử dụng trên AD4030 có một kênh nên chỉ có
+một dòng SDO được sử dụng.
+
+.. code-block::
+
+    +-------------+         +-------------+
+    |     ADC     |         |     HOST    |
+    |             |         |             |
+    |         CNV |<--------| CNV         |
+    |          CS |<--------| CS          |
+    |         SDI |<--------| SDO         |
+    |        SDO0 |-------->| SDI         |
+    |        SCLK |<--------| SCLK        |
+    +-------------+         +-------------+
+
+Chế độ xen kẽ
+^^^^^^^^^^^^^^^^
+
+Ở chế độ này, cả hai kết quả chuyển đổi kênh đều được xen kẽ một dòng SDO.
+Do đó, hệ thống dây điện giống như ZZ0000ZZ.
+
+Chế độ đồng hồ SPI
+--------------
+
+Chỉ hỗ trợ chế độ xung nhịp SPI.
+
+Chế độ đầu ra
+------------
+
+Có nhiều kênh IIO được hiển thị hơn các kênh như mô tả trong thiết bị
+bảng dữ liệu. Điều này là do mã hóa ZZ0000ZZ
+2 loại thông tin trong một kết quả chuyển đổi. Như một kênh "thiết bị"
+cung cấp 2 kênh IIO, một cho dữ liệu vi sai và một cho dữ liệu chung
+byte.
+
+Dữ liệu khác biệt
+^^^^^^^^^^^^^^^^^
+
+Chế độ này được chọn khi:
+
+- Chỉ các kênh vi sai được kích hoạt trong chế độ đọc được lưu vào bộ đệm
+- Thuộc tính lấy mẫu quá mức được đặt thành 1
+
+Dữ liệu vi sai + chế độ chung
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Chế độ này được chọn khi:
+
+- Các kênh chế độ chung và vi sai được bật ở chế độ đọc được lưu vào bộ đệm
+- Thuộc tính lấy mẫu quá mức được đặt thành 1
+
+Đối với chip 24 bit, chế độ này cũng có sẵn với vi sai 16 bit.
+dữ liệu nhưng chưa thể chọn được.
+
+Dữ liệu chênh lệch trung bình
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Chế độ này được chọn khi:
+
+- Chỉ các kênh khác biệt được chọn mới được bật trong chế độ đọc được lưu vào bộ đệm
+- Thuộc tính lấy mẫu lớn hơn 1
+
+Tăng và bù kỹ thuật số
+-----------------------
+
+Mỗi kênh dữ liệu vi sai có phần cứng cấu hình không dấu 16 bit
+lợi ích được áp dụng cho nó. Theo mặc định, nó bằng 1. Lưu ý rằng việc áp dụng mức tăng có thể
+gây ra bão hòa số.
+
+Mỗi kênh dữ liệu khác biệt có phần bù phần cứng có thể định cấu hình đã ký.
+Đối với các ADC kết thúc bằng ZZ0000ZZ, mức tăng được mã hóa trên 24 bit.
+Tương tự như vậy, các ADC kết thúc bằng ZZ0001ZZ có mức tăng được mã hóa trên 16 bit. Lưu ý rằng
+áp dụng phần bù có thể gây ra bão hòa số.
+
+Dữ liệu vi sai cuối cùng được ADC trả về được tính toán bằng cách áp dụng lần đầu tiên
+phần lãi, sau đó là phần bù.
+
+Độ lợi được điều khiển bởi thuộc tính ZZ0000ZZ IIO trong khi độ lệch là
+được điều khiển bởi thuộc tính ZZ0001ZZ.
+
+Điện áp tham chiếu
+-----------------
+
+Chip hỗ trợ điện áp tham chiếu bên ngoài thông qua đầu vào ZZ0000ZZ hoặc
+điện áp tham chiếu được đệm bên trong thông qua đầu vào ZZ0001ZZ. Người lái xe trông
+tại cây thiết bị để xác định thiết bị nào đang được sử dụng. Nếu ZZ0002ZZ là
+hiện tại thì điện áp tham chiếu bên ngoài được sử dụng và bộ đệm bên trong được
+bị vô hiệu hóa. Nếu có ZZ0003ZZ thì tham chiếu được đệm bên trong
+điện áp được sử dụng.
+
+Cài lại
+-----
+
+Cả thiết lập lại phần cứng và phần mềm đều được hỗ trợ. Người lái xe nhìn đầu tiên vào
+cây thiết bị để xem ZZ0000ZZ có được điền hay không.
+Nếu không có, trình điều khiển sẽ chuyển sang thiết lập lại phần mềm bằng cách nối dây với
+các thanh ghi của thiết bị.
+
+Các tính năng chưa được triển khai
+----------------------
+
+- Chỉ báo ZZ0000ZZ
+- Chế độ nối dây bổ sung
+- Chế độ đồng hồ bổ sung
+- Dữ liệu vi sai 16 bit + chế độ chung cho chip 24 bit
+- Sự kiện quá mức
+- Mẫu thử nghiệm

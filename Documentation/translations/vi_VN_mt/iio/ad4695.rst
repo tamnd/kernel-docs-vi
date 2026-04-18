@@ -1,0 +1,281 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad4695.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD4695
+=============
+
+Trình điều khiển ADC cho Analog Devices Inc. AD4695 và các thiết bị tương tự. Tên mô-đun
+là ZZ0000ZZ.
+
+
+Thiết bị được hỗ trợ
+=================
+
+Các chip sau được hỗ trợ bởi trình điều khiển này:
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+
+
+Các tính năng được hỗ trợ
+==================
+
+Chế độ nối dây SPI
+----------------
+
+Trình điều khiển hiện hỗ trợ cấu hình nối dây SPI sau:
+
+Chế độ 4 dây
+^^^^^^^^^^^
+
+Ở chế độ này, CNV và CS được gắn với nhau và có một dòng SDO duy nhất.
+
+.. code-block::
+
+    +-------------+         +-------------+
+    |          CS |<-+------| CS          |
+    |         CNV |<-+      |             |
+    |     ADC     |         |     HOST    |
+    |             |         |             |
+    |         SDI |<--------| SDO         |
+    |         SDO |-------->| SDI         |
+    |        SCLK |<--------| SCLK        |
+    +-------------+         +-------------+
+
+Để sử dụng chế độ này, trong cây thiết bị, hãy bỏ qua ZZ0000ZZ và
+Thuộc tính ZZ0001ZZ.
+
+Hệ thống dây giảm tải SPI
+^^^^^^^^^^^^^^^^^^
+
+Khi được sử dụng với bộ giảm tải SPI, cấu hình nối dây được hỗ trợ là:
+
+.. code-block::
+
+    +-------------+         +-------------+
+    |    GP0/BUSY |-------->| TRIGGER     |
+    |          CS |<--------| CS          |
+    |             |         |             |
+    |     ADC     |         |     SPI     |
+    |             |         |             |
+    |         SDI |<--------| SDO         |
+    |         SDO |-------->| SDI         |
+    |        SCLK |<--------| SCLK        |
+    |             |         |             |
+    |             |         +-------------+
+    |         CNV |<-----+--| PWM         |
+    |             |      +--| GPIO        |
+    +-------------+         +-------------+
+
+Trong trường hợp này, cả hai thuộc tính ZZ0000ZZ và ZZ0001ZZ đều được yêu cầu.
+Thuộc tính ZZ0002ZZ cũng được yêu cầu để kết nối lại
+để giảm tải SPI. Việc giảm tải SPI sẽ có thuộc tính ZZ0003ZZ
+với các ô để biểu thị tín hiệu bận và chân GPx nào được sử dụng, ví dụ:
+ZZ0004ZZ.
+
+.. seealso:: `SPI offload support`_
+
+Cấu hình kênh
+---------------------
+
+Vì chip hỗ trợ nhiều cách để định cấu hình từng kênh nên điều này phải
+được mô tả trong cây thiết bị dựa trên những gì thực sự được kết nối với đầu vào.
+
+Có ba cấu hình điển hình:
+
+Chân ZZ0000ZZ được sử dụng làm đầu vào dương với ZZ0001ZZ, ZZ0002ZZ hoặc
+chân ZZ0003ZZ tiếp theo làm đầu vào âm.
+
+Ghép nối với REFGND
+^^^^^^^^^^^^^^^^^^^
+
+Mỗi chân ZZ0000ZZ có thể được sử dụng làm đầu vào vi sai giả kết hợp với
+chân ZZ0001ZZ. Cây thiết bị sẽ trông như thế này:
+
+.. code-block::
+
+    channel@0 {
+        reg = <0>; /* IN0 */
+    };
+
+Nếu không cần thuộc tính kênh nào khác (ví dụ ZZ0000ZZ), kênh
+nút có thể được bỏ qua hoàn toàn.
+
+Điều này sẽ xuất hiện trên bus IIO dưới dạng kênh ZZ0000ZZ. Giá trị được xử lý
+(ZZ0004ZZ) sẽ là điện áp hiện diện trên chân ZZ0001ZZ so với
+ZZ0002ZZ. (Độ lệch luôn bằng 0 khi ghép nối với ZZ0003ZZ.)
+
+Ghép nối với COM
+^^^^^^^^^^^^^^^^
+
+Mỗi chân ZZ0000ZZ có thể được sử dụng làm đầu vào vi sai giả kết hợp với
+chân ZZ0001ZZ. Cây thiết bị sẽ trông như thế này:
+
+.. code-block::
+
+    com-supply = <&vref_div_2>;
+
+    channel@1 {
+        reg = <1>; /* IN1 */
+        common-mode-channel = <AD4695_COMMON_MODE_COM>;
+        bipolar;
+    };
+
+Điều này sẽ xuất hiện trên bus IIO dưới dạng kênh ZZ0000ZZ. Giá trị được xử lý
+(ZZ0004ZZ) sẽ là điện áp đo được trên chân ZZ0001ZZ
+so với ZZ0002ZZ. (Độ lệch được xác định bởi điện áp ZZ0003ZZ.)
+
+Vĩ mô đến từ:
+
+.. code-block::
+
+    #include <dt-bindings/iio/adc/adi,ad4695.h>
+
+Ghép nối hai chân INx
+^^^^^^^^^^^^^^^^^^^^
+
+Chân ZZ0000ZZ được đánh số chẵn và chân ZZ0001ZZ được đánh số lẻ sau đây có thể được
+được sử dụng làm đầu vào giả vi phân. Cây thiết bị để sử dụng ZZ0002ZZ làm
+đầu vào dương và ZZ0003ZZ làm đầu vào âm sẽ trông như thế này:
+
+.. code-block::
+
+    in3-supply = <&vref_div_2>;
+
+    channel@2 {
+        reg = <2>; /* IN2 */
+        common-mode-channel = <3>; /* IN3 */
+        bipolar;
+    };
+
+Điều này sẽ xuất hiện trên bus IIO dưới dạng kênh ZZ0000ZZ. Giá trị được xử lý
+(ZZ0004ZZ) sẽ là điện áp đo được trên chân ZZ0001ZZ
+so với ZZ0002ZZ. (Độ lệch được xác định bởi điện áp ZZ0003ZZ.)
+
+Cung cấp VCC
+----------
+
+Con chip này hỗ trợ được cấp nguồn bởi LDO bên ngoài thông qua đầu vào ZZ0000ZZ hoặc một
+LDO bên trong thông qua đầu vào ZZ0001ZZ. Người lái xe nhìn vào cây thiết bị để
+xác định cái nào đang được sử dụng. Nếu ZZ0002ZZ hiện diện thì nội bộ
+LDO được sử dụng. Nếu có ZZ0003ZZ thì LDO bên ngoài sẽ được sử dụng và
+LDO bên trong bị vô hiệu hóa.
+
+Điện áp tham chiếu
+-----------------
+
+Chip hỗ trợ điện áp tham chiếu bên ngoài thông qua đầu vào ZZ0000ZZ hoặc
+điện áp tham chiếu được đệm bên trong thông qua đầu vào ZZ0001ZZ. Người lái xe trông
+tại cây thiết bị để xác định thiết bị nào đang được sử dụng. Nếu ZZ0002ZZ là
+hiện tại thì điện áp tham chiếu bên ngoài được sử dụng và bộ đệm bên trong được
+bị vô hiệu hóa. Nếu có ZZ0003ZZ thì tham chiếu được đệm bên trong
+điện áp được sử dụng.
+
+Hiệu chuẩn tăng/bù
+-----------------------
+
+Hiệu chuẩn hệ thống được hỗ trợ bằng cách sử dụng các thanh ghi khuếch đại và bù kênh thông qua
+các thuộc tính ZZ0000ZZ và ZZ0001ZZ tương ứng.
+
+Lấy mẫu quá mức
+------------
+
+Con chip này hỗ trợ lấy mẫu quá mức trên mỗi kênh khi sử dụng giảm tải SPI, với
+tỷ lệ lấy mẫu quá mức có sẵn (OSR) là 1 (mặc định), 4, 16 và 64. Kích hoạt
+lấy mẫu quá mức trên một kênh sẽ làm tăng số bit hiệu quả của dữ liệu được lấy mẫu lên
+lần lượt là 17 (OSR == 4), 18 (16) hoặc 19 (64). Điều này có thể được thiết lập thông qua
+Thuộc tính ZZ0000ZZ.
+
+Việc đặt tỷ lệ lấy mẫu quá mức cho một kênh cũng sẽ thay đổi tốc độ lấy mẫu cho
+kênh đó vì nó yêu cầu nhiều chuyển đổi trên 1 mẫu. Cụ thể,
+tần số lấy mẫu mới là tần số lấy mẫu PWM chia cho
+đặc biệt là OSR. Điều này được trình điều khiển tự động thiết lập khi cài đặt
+Thuộc tính ZZ0000ZZ. Ví dụ: nếu hiện tại của thiết bị
+ZZ0001ZZ là 10000 và OSR là 4 được đặt trên kênh ZZ0002ZZ,
+tốc độ lấy mẫu được báo cáo mới cho kênh đó sẽ là 2500 (bỏ qua PWM API
+làm tròn), trong khi tất cả những cái khác sẽ giữ nguyên ở mức 10000. Sau đó, hãy đặt
+tần số lấy mẫu lên giá trị cao hơn trên kênh đó sẽ điều chỉnh bộ kích hoạt CNV
+khoảng thời gian cho tất cả các kênh, ví dụ: nếu tần số lấy mẫu của ZZ0003ZZ được điều chỉnh
+từ 2500 (với OSR là 4) đến 10000, giá trị được báo cáo bởi
+ZZ0004ZZ sẽ là 10000, nhưng tất cả các kênh khác sẽ
+bây giờ báo cáo 40000.
+
+Để đơn giản, nên đặt tần số lấy mẫu của thiết bị (xem xét
+giá trị OSR mong muốn cao nhất sẽ được sử dụng) trước khi định cấu hình lấy mẫu quá mức
+cho các kênh cụ thể.
+
+Các tính năng chưa được triển khai
+----------------------
+
+- Chế độ nối dây bổ sung
+- Ngưỡng sự kiện
+- Hỗ trợ GPIO
+- Hỗ trợ CRC
+
+Hỗ trợ giảm tải SPI
+===================
+
+Để có thể đạt được tốc độ lấy mẫu tối đa, trình điều khiển có thể được sử dụng với
+ZZ0000ZZ để cung cấp hỗ trợ giảm tải SPI.
+
+.. _AXI SPI Engine: http://analogdevicesinc.github.io/hdl/projects/ad469x_fmc/index.html
+
+.. seealso:: `SPI offload wiring`_
+
+Khi giảm tải SPI đang được sử dụng, một số thuộc tính sẽ khác.
+
+* Thư mục ZZ0000ZZ đã bị xóa.
+* Thuộc tính ZZ0001ZZ được thêm vào để cài đặt mẫu
+  tỷ lệ.
+* Thuộc tính ZZ0002ZZ được thêm vào để truy vấn
+  tốc độ lấy mẫu tối đa
+* Kênh ZZ0003ZZ bị xóa.
+* Định dạng dữ liệu bộ đệm có thể khác so với khi không sử dụng giảm tải,
+  ví dụ: thuộc tính ZZ0004ZZ.
+
+Bộ đệm thiết bị
+==============
+
+Trình điều khiển này hỗ trợ bộ đệm được kích hoạt bằng phần cứng. Điều này sử dụng "nâng cao
+tính năng sắp xếp chuỗi" của chip để kích hoạt một loạt các chuyển đổi.
+
+Đồng thời xem ZZ0000ZZ để biết thêm thông tin tổng quát.
+
+Tốc độ mẫu hiệu quả cho các lần đọc được lưu vào bộ đệm
+----------------------------------------
+
+Khi không sử dụng giảm tải SPI, tốc độ mẫu được xác định bởi bộ kích hoạt
+được cấu hình thủ công trong không gian người dùng. Tất cả các kênh đã bật sẽ được đọc trong một
+nổ khi nhận được kích hoạt.
+
+Khi sử dụng giảm tải SPI, tốc độ mẫu được định cấu hình cho mỗi kênh. Tất cả
+các kênh sẽ có cùng tốc độ nên chỉ có một kênh ZZ0000ZZ
+thuộc tính cần được thiết lập. Vì tốc độ này xác định độ trễ giữa mỗi lần
+chuyển đổi riêng lẻ, tốc độ mẫu hiệu quả cho mỗi mẫu thực tế là
+tổng thời gian của từng kênh được kích hoạt trong quá trình đọc vào bộ đệm. Ở nơi khác
+nói cách khác, đó là giá trị của thuộc tính ZZ0001ZZ
+chia cho số kênh được kích hoạt. Vì vậy, nếu 4 kênh được kích hoạt, với
+thuộc tính ZZ0002ZZ được đặt thành 1 MHz, hiệu quả
+tốc độ mẫu là 250 kHz.
+
+Khi bật tính năng lấy mẫu quá mức, tốc độ lấy mẫu hiệu quả cũng phụ thuộc vào OSR
+được gán cho mỗi kênh. Ví dụ: nếu một trong 4 kênh được đề cập trong
+trường hợp trước được cấu hình với OSR là 4, tốc độ mẫu hiệu quả cho trường hợp đó
+kênh trở thành (1 MHz / 4 ) = 250 kHz. Tỷ lệ mẫu hiệu quả cho tất cả
+bốn kênh thì 1 / ( (3 / 1 MHz) + ( 1 / 250 kHz) ) ~= 142,9 kHz. Lưu ý
+trong trường hợp này "mẫu" đề cập đến một lần đọc tất cả các kênh đã bật (tức là một
+toàn bộ chu trình thông qua bộ sắp xếp thứ tự tự động).

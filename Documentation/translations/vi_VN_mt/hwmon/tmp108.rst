@@ -1,0 +1,80 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tmp108.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tmp108
+====================
+
+Chip được hỗ trợ:
+
+* NXP P3T1035
+
+Tiền tố: 'p3t1035'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+
+* NXP P3T1085
+
+Tiền tố: 'p3t1085'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* NXP P3T2030
+
+Tiền tố: 'p3t2030'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Dụng cụ Texas TMP108
+
+Tiền tố: 'tmp108'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả:
+
+John Muir <john@jmuir.com>
+
+Sự miêu tả
+-----------
+
+Texas Instruments TMP108 có một cảm biến nhiệt độ. Một chốt cảnh báo
+có thể được đặt khi nhiệt độ vượt quá giá trị tối thiểu hoặc tối đa cộng hoặc trừ một
+giá trị trễ. (Trình điều khiển này không hỗ trợ ngắt cho chốt cảnh báo,
+và thiết bị chạy ở chế độ so sánh.)
+
+Cảm biến có độ chính xác đến 0,75C trong phạm vi từ -25 đến +85 C và đến 1,0
+độ từ -40 đến +125 C. Độ phân giải của cảm biến là 0,0625 độ. các
+nhiệt độ hoạt động tối thiểu là -55 C và tối đa là +150 C.
+Giá trị trễ có thể được đặt thành 0, 1, 2 hoặc 4C.
+
+TMP108 có tốc độ cập nhật có thể lập trình có thể chọn trong khoảng 8, 4, 1 và
+0,5Hz.
+
+Theo mặc định, TMP108 đọc nhiệt độ liên tục. Để tiết kiệm điện năng,
+TMP108 có chế độ một lần trong đó thiết bị thường tắt. Khi một
+một lần chụp được yêu cầu đọc nhiệt độ, kết quả có thể được lấy ra,
+và sau đó thiết bị sẽ tự động tắt. (Trình điều khiển này chỉ hỗ trợ
+chế độ liên tục.)
+
+Trình điều khiển cung cấp giao diện sysfs chung cho nhiệt độ (xem
+Documentation/hwmon/sysfs-interface.rst trong phần Nhiệt độ).

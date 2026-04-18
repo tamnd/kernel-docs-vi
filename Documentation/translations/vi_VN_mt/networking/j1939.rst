@@ -1,0 +1,1146 @@
+.. SPDX-License-Identifier: (GPL-2.0 OR MIT)
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/networking/j1939.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=====================
+Tài liệu J1939
+===================
+
+Tổng quan / J1939 là gì
+========================
+
+SAE J1939 xác định giao thức lớp cao hơn trên CAN. Nó thực hiện nhiều hơn
+lược đồ địa chỉ phức tạp và mở rộng kích thước gói tối đa trên 8
+byte. Một số thông số kỹ thuật dẫn xuất tồn tại, khác với bản gốc
+J1939 ở cấp độ ứng dụng, như MilCAN A, NMEA2000, và đặc biệt là
+ISO-11783 (ISOBUS). Cái cuối cùng này chỉ định cái gọi là ETP (Mở rộng
+Transport Protocol), đã được đưa vào triển khai này. Cái này
+dẫn đến kích thước gói tối đa là ((2 ^ 24) - 1) * 7 byte == 111 MiB.
+
+Thông số kỹ thuật được sử dụng
+-------------------
+
+* SAE J1939-21 : lớp liên kết dữ liệu
+* SAE J1939-81 : quản lý mạng
+* ISO 11783-6 : Thiết bị đầu cuối ảo (Giao thức truyền tải mở rộng)
+
+.. _j1939-motivation:
+
+Động lực
+==========
+
+Thực tế là có thứ gì đó giống như SocketCAN với API tương tự BSD
+socket, chúng tôi đã tìm thấy một số lý do để biện minh cho việc triển khai kernel cho
+phương pháp đánh địa chỉ và vận chuyển được sử dụng bởi J1939.
+
+* ZZ0000ZZ khi một tiến trình trên ECU giao tiếp qua J1939, nó sẽ
+  không nhất thiết phải biết địa chỉ nguồn của nó. Mặc dù, ít nhất một quy trình cho mỗi
+  ECU nên biết địa chỉ nguồn. Các quy trình khác sẽ có thể tái sử dụng
+  địa chỉ đó. Bằng cách này, các tham số địa chỉ cho các quy trình khác nhau
+  hợp tác cho cùng một ECU, không bị trùng lặp. Cách làm việc này là
+  liên quan chặt chẽ đến khái niệm UNIX, trong đó các chương trình chỉ làm một việc và làm
+  nó tốt.
+
+* Xác nhận địa chỉ ZZ0000ZZ trong J1939 là rất quan trọng về mặt thời gian.
+  Hơn nữa, việc vận chuyển dữ liệu phải được xử lý đúng cách trong thời gian địa chỉ
+  đàm phán. Việc đưa chức năng này vào kernel sẽ loại bỏ nó như một
+  yêu cầu đối với _mọi_ quy trình không gian người dùng giao tiếp qua J1939. Cái này
+  dẫn đến một bus J1939 nhất quán với địa chỉ thích hợp.
+
+* ZZ0000ZZ cả TP & ETP đều sử dụng lại một số PGN để chuyển tiếp các gói lớn qua chúng.
+  Do đó, các quy trình khác nhau có thể sử dụng cùng PGN TP & ETP mà không thực sự
+  biết điều đó. Các phiên TP & ETP riêng lẻ _phải_ được tuần tự hóa
+  (được đồng bộ hóa) giữa các quy trình khác nhau. Hạt nhân giải quyết vấn đề này
+  đúng cách và loại bỏ việc tuần tự hóa (đồng bộ hóa) như một yêu cầu
+  dành cho _mọi_ quy trình không gian người dùng giao tiếp qua J1939.
+
+J1939 xác định một số tính năng khác (chuyển tiếp, cổng, vận chuyển gói nhanh,
+...). In-kernel code for these would not contribute to protocol stability.
+Do đó, những phần này được để lại cho không gian người dùng.
+
+Ổ cắm J1939 hoạt động trên các thiết bị mạng CAN (xem SocketCAN). Bất kỳ J1939 nào
+thư viện không gian người dùng hoạt động trên ổ cắm thô CAN vẫn sẽ hoạt động bình thường.
+Vì thư viện như vậy không giao tiếp với việc triển khai trong kernel, nên hãy cẩn thận
+phải đảm bảo rằng hai điều này không can thiệp. Trong thực tế, điều này có nghĩa là họ
+không thể chia sẻ địa chỉ ECU. Một địa chỉ ECU (hoặc ECU ảo) duy nhất được sử dụng bởi
+dành riêng cho thư viện hoặc bằng hệ thống trong kernel.
+
+Khái niệm J1939
+==============
+
+Dữ liệu được gửi đến ngăn xếp J1939
+----------------------------
+
+Bộ đệm dữ liệu được gửi đến ngăn xếp J1939 từ không gian người dùng không phải là khung CAN
+chính họ. Thay vào đó, chúng là các tải trọng mà ngăn xếp J1939 chuyển đổi thành
+khung CAN thích hợp dựa trên kích thước của bộ đệm và kiểu truyền. các
+kích thước của bộ đệm ảnh hưởng đến cách ngăn xếp xử lý dữ liệu và xác định
+đường dẫn mã nội bộ được sử dụng để chuyển.
+
+ZZ0000ZZ
+
+-ZZ0000ZZ
+
+- Chúng được xử lý dưới dạng các phiên đơn giản trong nội bộ ngăn xếp.
+
+- Ngăn xếp chuyển đổi bộ đệm trực tiếp thành một khung CAN duy nhất mà không cần
+    sự phân mảnh.
+
+- Kiểu truyền này không yêu cầu khách hàng (người nhận) thực tế trên
+    bên nhận.
+
+-ZZ0000ZZ
+
+- Chúng được xử lý tự động dưới dạng chuyển giao Giao thức truyền tải (TP) J1939.
+
+- Bên trong, ngăn xếp chia bộ đệm thành nhiều khung CAN 8 byte.
+
+- Chuyển TP có thể là unicast hoặc quảng bá.
+
+- ZZ0000ZZ Không yêu cầu bộ thu ở phía bên kia và có thể
+    được sử dụng trong các kịch bản phát sóng.
+
+- ZZ0000ZZ Yêu cầu bộ thu (máy khách) hoạt động ở phía bên kia để
+    xác nhận việc chuyển giao.
+
+-ZZ0000ZZ
+
+- Chúng được xử lý dưới dạng chuyển giao Giao thức truyền tải mở rộng ISO 11783 (ETP).
+
+- Chuyển ETP được sử dụng cho tải trọng lớn hơn và được chia thành nhiều CAN
+    khung bên trong.
+
+- ZZ0000ZZ Yêu cầu bộ thu ở phía bên kia
+    xử lý dữ liệu đến và xác nhận từng bước truyền.
+
+- Chuyển ETP không thể được phát sóng như chuyển TP và luôn yêu cầu
+    máy thu để vận hành.
+
+ZZ0001ZZ
+
+Ngăn xếp J1939 hỗ trợ hoạt động không chặn khi được sử dụng kết hợp với
+cờ ZZ0000ZZ. Trong chế độ này, ngăn xếp cố gắng lấy càng nhiều dữ liệu
+khi bộ nhớ khả dụng cho ổ cắm cho phép. Nó trả về lượng dữ liệu
+đã được thực hiện thành công và trách nhiệm của không gian người dùng là
+theo dõi giá trị này và xử lý chuyển khoản một phần.
+
+- Nếu ngăn xếp không thể lấy toàn bộ bộ đệm thì trả về số byte
+  được thực hiện thành công và không gian người dùng sẽ xử lý phần còn lại.
+
+- ZZ0001ZZ Khi sử dụng ZZ0000ZZ, người dùng phải dựa vào
+  hàng đợi lỗi để phát hiện lỗi truyền. Xem phần ZZ0002ZZ
+  để biết chi tiết về cách đăng ký nhận thông báo lỗi. Không có lỗi
+  xếp hàng, không có cách nào khác để không gian người dùng được thông báo về lỗi chuyển
+  trong quá trình hoạt động không bị chặn.
+
+ZZ0000ZZ
+
+- ZZ0000ZZ Không yêu cầu đầu thu bên kia
+  bên cạnh, giúp chúng dễ dàng gửi đi mà không cần xác nhận địa chỉ hoặc
+  phối hợp với một điểm đến.
+
+- ZZ0000ZZ Yêu cầu bộ thu ở phía bên kia để hoàn thành
+  chuyển nhượng. Người nhận phải xác nhận việc chuyển phiên tới
+  tiến hành thành công.
+
+- ZZ0000ZZ Cho phép gửi dữ liệu mà không cần bộ thu mà chỉ hoạt động với
+  chuyển TP. ETP không thể phát sóng và luôn cần một máy khách nhận.
+
+Những hành vi khác nhau này phụ thuộc rất nhiều vào kích thước của bộ đệm được cung cấp cho
+ngăn xếp và cơ chế vận chuyển thích hợp (TP hoặc ETP) được chọn
+dựa trên kích thước tải trọng. Ngăn xếp tự động quản lý việc phân mảnh
+và lắp ráp lại các tải trọng lớn và đảm bảo rằng các khung CAN chính xác được
+được tạo và truyền cho mỗi phiên.
+
+PGN
+---
+
+Giao thức J1939 sử dụng mã định danh CAN 29 bit với cấu trúc sau:
+
+=================================================
+  CAN-ID 29 bit
+  --------------------------------------------------
+  Vị trí bit trong CAN-ID
+  --------------------------------------------------
+  28 ... 26 25 ... 8 7 ... 0
+  =================================================
+  Ưu tiên PGN SA (Địa chỉ nguồn)
+  =================================================
+
+PGN (Số nhóm tham số) là một số để xác định gói. PGN
+được sáng tác như sau:
+
+============ ====================================================
+  PGN
+  ------------------------------------------------------------------
+  Vị trí bit trong CAN-ID
+  ------------------------------------------------------------------
+  25 24 23 ... 16 15 ... 8
+  ============ ====================================================
+  R (Dành riêng) DP (Trang dữ liệu) PF (Định dạng PDU) PS (Cụ thể cho PDU)
+  ============ ====================================================
+
+Trong J1939-21, sự khác biệt được tạo ra giữa định dạng PDU1 (trong đó PF < 240) và PDU2
+định dạng (trong đó PF >= 240). Hơn nữa, khi sử dụng định dạng PDU2, trường PS
+chứa cái gọi là Tiện ích mở rộng nhóm, là một phần của PGN. Khi sử dụng PDU2
+định dạng, Phần mở rộng nhóm được đặt trong trường PS.
+
+=========================================
+  Định dạng PDU1 (cụ thể) (ngang hàng)
+  ----------------------------------------
+  Vị trí bit trong CAN-ID
+  ----------------------------------------
+  23 ... 16 15 ... 8
+  =========================================
+  00h...EFh DA (Địa chỉ đích)
+  =========================================
+
+=========================================
+  Định dạng PDU2 (toàn cầu) (phát sóng)
+  ----------------------------------------
+  Vị trí bit trong CAN-ID
+  ----------------------------------------
+  23 ... 16 15 ... 8
+  =========================================
+  F0h ... FFh GE (Mở rộng nhóm)
+  =========================================
+
+Mặt khác, khi sử dụng định dạng PDU1, trường PS chứa cái gọi là
+Địa chỉ đích, _not_ là một phần của PGN. Khi giao tiếp với PGN
+từ không gian người dùng đến kernel (hoặc ngược lại) và định dạng PDU1 được sử dụng, trường PS
+của PGN sẽ được đặt về 0. Địa chỉ đích sẽ được đặt
+ở nơi khác.
+
+Về việc ánh xạ PGN tới mã định danh CAN 29 bit, Địa chỉ đích sẽ
+được hạt nhân lấy/đặt từ/đến các bit thích hợp của mã định danh.
+
+
+Địa chỉ
+----------
+
+Cả hai phương pháp đánh địa chỉ tĩnh và động đều có thể được sử dụng.
+
+Đối với các địa chỉ tĩnh, kernel không thực hiện kiểm tra bổ sung và được cung cấp
+địa chỉ được coi là đúng. Trách nhiệm này thuộc về OEM hoặc hệ thống
+nhà tích hợp.
+
+Đối với địa chỉ động, còn gọi là Xác nhận quyền sở hữu địa chỉ, sẽ có hỗ trợ bổ sung
+trong hạt nhân. Trong J1939, bất kỳ ECU nào cũng được biết đến với tên gọi NAME 64-bit. Tại thời điểm
+yêu cầu địa chỉ thành công, kernel sẽ theo dõi cả NAME và nguồn
+địa chỉ đang được yêu cầu. Điều này phục vụ như là một cơ sở cho các sơ đồ lọc. Theo mặc định,
+các gói có đích không cục bộ sẽ bị từ chối.
+
+Các gói chế độ hỗn hợp (từ địa chỉ tĩnh đến địa chỉ động hoặc ngược lại) được
+được phép. Ổ cắm BSD xác định các lệnh gọi API riêng biệt để nhận/thiết lập
+địa chỉ cục bộ & từ xa và được áp dụng cho ổ cắm J1939.
+
+Lọc
+---------
+
+J1939 xác định các bộ lọc danh sách trắng cho mỗi ổ cắm mà người dùng có thể đặt để
+nhận một tập hợp con của lưu lượng J1939. Việc lọc có thể dựa trên:
+
+* SA
+* SOURCE_NAME
+* PGN
+
+Khi có nhiều bộ lọc cho một ổ cắm và có một gói đi vào
+phù hợp với một số bộ lọc đó, gói chỉ được nhận một lần trong
+ổ cắm đó.
+
+Cách sử dụng J1939
+================
+
+Cuộc gọi API
+---------
+
+Trên CAN, trước tiên bạn cần mở ổ cắm để liên lạc qua mạng CAN.
+Để sử dụng J1939, ZZ0000ZZ. Từ đó, ZZ0001ZZ sẽ
+bao gồm cả. Để mở một ổ cắm, sử dụng:
+
+.. code-block:: C
+
+    s = socket(PF_CAN, SOCK_DGRAM, CAN_J1939);
+
+J1939 sử dụng ổ cắm ZZ0000ZZ. Trong đặc tả J1939, các kết nối được
+được đề cập trong bối cảnh của các phiên giao thức truyền tải. Những thứ này vẫn mang lại
+gói đến đầu bên kia (sử dụng một số gói CAN). ZZ0001ZZ thì không
+được hỗ trợ.
+
+Sau khi tạo ổ cắm thành công, thông thường bạn sẽ sử dụng ZZ0000ZZ
+và/hoặc lệnh gọi hệ thống ZZ0001ZZ để liên kết ổ cắm với giao diện CAN. Sau
+ràng buộc và/hoặc kết nối ổ cắm, bạn có thể ZZ0002ZZ và ZZ0003ZZ từ/đến
+ổ cắm hoặc sử dụng ZZ0004ZZ, ZZ0005ZZ, ZZ0006ZZ và bản sao ZZ0007ZZ
+các thao tác trên socket như bình thường. Ngoài ra còn có các tùy chọn ổ cắm cụ thể J1939
+được mô tả dưới đây.
+
+Để gửi dữ liệu, ZZ0000ZZ phải thành công. ZZ0001ZZ chỉ định một
+địa chỉ cục bộ vào một ổ cắm.
+
+Khác với CAN ở chỗ dữ liệu tải trọng chỉ là dữ liệu được gửi,
+không có thông tin tiêu đề của nó. Thông tin tiêu đề được lấy từ sockaddr được cung cấp
+tới ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ và ZZ0003ZZ. Một chiếc ZZ0004ZZ với kích thước 4 sẽ
+dẫn đến một gói có 4 byte.
+
+Cấu trúc sockaddr có các phần mở rộng để sử dụng với J1939 như được chỉ định bên dưới:
+
+.. code-block:: C
+
+      struct sockaddr_can {
+         sa_family_t can_family;
+         int         can_ifindex;
+         union {
+            struct {
+               __u64 name;
+                        /* pgn:
+                         * 8 bit: PS in PDU2 case, else 0
+                         * 8 bit: PF
+                         * 1 bit: DP
+                         * 1 bit: reserved
+                         */
+               __u32 pgn;
+               __u8  addr;
+            } j1939;
+         } can_addr;
+      }
+
+ZZ0000ZZ & ZZ0001ZZ phục vụ mục đích tương tự như các ổ cắm SocketCAN khác.
+
+ZZ0000ZZ chỉ định PGN (tối đa 0x3ffff). Các bit riêng lẻ được
+được chỉ định ở trên.
+
+ZZ0000ZZ chứa J1939 NAME 64-bit.
+
+ZZ0000ZZ chứa địa chỉ.
+
+Cuộc gọi hệ thống ZZ0000ZZ gán địa chỉ cục bộ, tức là địa chỉ nguồn khi
+gửi gói. Nếu PGN trong ZZ0001ZZ được đặt, nó sẽ được sử dụng làm bộ lọc RX.
+tức là chỉ những gói có PGN phù hợp mới được nhận. Nếu ADDR hoặc NAME được đặt
+nó cũng được sử dụng như một bộ lọc nhận. Nó sẽ khớp với điểm đến NAME hoặc ADDR
+của gói tin đến. Bộ lọc NAME sẽ chỉ hoạt động nếu Địa chỉ phù hợp
+Việc xác nhận tên này đã được thực hiện trên xe buýt CAN và được đăng ký/lưu vào bộ nhớ đệm bởi
+hạt nhân.
+
+Mặt khác ZZ0000ZZ chỉ định địa chỉ từ xa, tức là đích
+địa chỉ. PGN từ ZZ0001ZZ được sử dụng làm PGN mặc định khi gửi
+gói. Nếu ADDR hoặc NAME được đặt, nó sẽ được sử dụng làm đích mặc định ADDR
+hoặc NAME. Hơn nữa, bộ ADDR hoặc NAME trong ZZ0002ZZ được sử dụng làm bộ nhận
+bộ lọc. Nó sẽ khớp với nguồn NAME hoặc ADDR của gói đến.
+
+Cả ZZ0000ZZ và ZZ0001ZZ sẽ gửi một gói có địa chỉ cục bộ từ ZZ0002ZZ và
+địa chỉ từ xa từ ZZ0003ZZ. Sử dụng ZZ0004ZZ để ghi đè đích
+địa chỉ.
+
+Nếu ZZ0000ZZ được đặt (!= 0), NAME được kernel tra cứu và
+ADDR tương ứng được sử dụng. Nếu ZZ0001ZZ không được đặt (== 0),
+ZZ0002ZZ được sử dụng.
+
+Khi tạo ổ cắm, các giá trị mặc định hợp lý sẽ được đặt. Một số tùy chọn có thể
+được sửa đổi với ZZ0000ZZ & ZZ0001ZZ.
+
+Các tùy chọn liên quan đến đường dẫn RX:
+
+- ZZ0000ZZ - cấu hình mảng bộ lọc
+- ZZ0001ZZ - tắt các bộ lọc được đặt bởi ZZ0002ZZ và ZZ0003ZZ
+
+Theo mặc định, không có gói quảng bá nào có thể được gửi hoặc nhận. Để cho phép gửi hoặc
+nhận gói quảng bá sử dụng tùy chọn ổ cắm ZZ0000ZZ:
+
+.. code-block:: C
+
+     int value = 1;
+     setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &value, sizeof(value));
+
+Sơ đồ sau minh họa đường dẫn RX:
+
+.. code::
+
+                    +--------------------+
+                    |  incoming packet   |
+                    +--------------------+
+                              |
+                              V
+                    +--------------------+
+                    | SO_J1939_PROMISC?  |
+                    +--------------------+
+                             |  |
+                         no  |  | yes
+                             |  |
+                   .---------'  `---------.
+                   |                      |
+     +---------------------------+        |
+     | bind() + connect() +      |        |
+     | SOCK_BROADCAST filter     |        |
+     +---------------------------+        |
+                   |                      |
+                   |<---------------------'
+                   V
+     +---------------------------+
+     |      SO_J1939_FILTER      |
+     +---------------------------+
+                   |
+                   V
+     +---------------------------+
+     |        socket recv()      |
+     +---------------------------+
+
+Các tùy chọn liên quan đến đường dẫn TX:
+ZZ0000ZZ - thay đổi mức độ ưu tiên gửi mặc định cho ổ cắm
+
+Cờ tin nhắn trong khi gửi() và các cuộc gọi hệ thống liên quan
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ZZ0000ZZ, ZZ0001ZZ và ZZ0002ZZ đưa ra đối số 'cờ'. Hiện tại
+cờ được hỗ trợ là:
+
+* ZZ0000ZZ, tức là hoạt động không bị chặn.
+
+recvmsg(2)
+^^^^^^^^^^
+
+Trong hầu hết các trường hợp, ZZ0000ZZ là cần thiết nếu bạn muốn trích xuất nhiều thông tin hơn
+ZZ0001ZZ có thể cung cấp. Ví dụ mức độ ưu tiên của gói và dấu thời gian. các
+Địa chỉ đích, tên và mức độ ưu tiên của gói (nếu có) được đính kèm với
+msghdr trong cuộc gọi ZZ0002ZZ. Chúng có thể được trích xuất bằng macro ZZ0003ZZ,
+với ZZ0004ZZ,
+ZZ0005ZZ hoặc ZZ0006ZZ. Dữ liệu được trả về là ZZ0007ZZ cho
+ZZ0008ZZ và ZZ0009ZZ và ZZ0010ZZ cho ZZ0011ZZ.
+
+.. code-block:: C
+
+	uint8_t priority, dst_addr;
+	uint64_t dst_name;
+
+	for (cmsg = CMSG_FIRSTHDR(&msg); cmsg; cmsg = CMSG_NXTHDR(&msg, cmsg)) {
+		switch (cmsg->cmsg_level) {
+		case SOL_CAN_J1939:
+			if (cmsg->cmsg_type == SCM_J1939_DEST_ADDR)
+				dst_addr = *CMSG_DATA(cmsg);
+			else if (cmsg->cmsg_type == SCM_J1939_DEST_NAME)
+				memcpy(&dst_name, CMSG_DATA(cmsg), cmsg->cmsg_len - CMSG_LEN(0));
+			else if (cmsg->cmsg_type == SCM_J1939_PRIO)
+				priority = *CMSG_DATA(cmsg);
+			break;
+		}
+	}
+
+setockopt(2)
+^^^^^^^^^^^^^
+
+Chức năng ZZ0000ZZ được sử dụng để định cấu hình các cấp độ ổ cắm khác nhau
+tùy chọn cho giao tiếp J1939. Các tùy chọn sau được hỗ trợ:
+
+ZZ0000ZZ
+~~~~~~~~~~~~~~~~~~~
+
+Tùy chọn ZZ0000ZZ là cần thiết khi hành vi mặc định của
+ZZ0001ZZ và ZZ0002ZZ không đủ cho các trường hợp sử dụng cụ thể. Bởi
+mặc định, ZZ0003ZZ và ZZ0004ZZ cho phép một ổ cắm được liên kết với một
+địa chỉ unicast hoặc quảng bá. Tuy nhiên, có những tình huống tốt hơn
+cần phải kiểm soát các tin nhắn đến, chẳng hạn như lọc theo Tham số
+Số nhóm (PGN) thay vì theo địa chỉ.
+
+Ví dụ: trong một hệ thống có nhiều loại thông báo J1939 đang được
+được truyền đi, một tiến trình có thể chỉ quan tâm đến một tập hợp con của các thông báo đó,
+chẳng hạn như các PGN cụ thể và không muốn nhận tất cả các tin nhắn dành cho nó.
+địa chỉ hoặc quảng bá tới xe buýt.
+
+Bằng cách áp dụng tùy chọn ZZ0000ZZ, bạn có thể lọc tin nhắn dựa trên:
+
+- ZZ0000ZZ: Lọc tin nhắn đến từ nguồn cụ thể
+  địa chỉ.
+
+- ZZ0000ZZ: Lọc tin nhắn đến từ ECU với NAME cụ thể
+  số nhận dạng.
+
+- ZZ0000ZZ: Tập trung vào việc nhận tin nhắn cụ thể
+  PGN, lọc ra những cái không liên quan.
+
+Cơ chế lọc này đặc biệt hữu ích khi:
+
+- Bạn muốn nhận một tập hợp con các tin nhắn dựa trên PGN của chúng, ngay cả khi
+  địa chỉ giống nhau.
+
+- Bạn cần xử lý cả tin nhắn quảng bá và tin nhắn unicast nhưng chỉ quan tâm đến
+  một số loại thông báo hoặc thông số nhất định.
+
+- Các chức năng ZZ0000ZZ và ZZ0001ZZ chỉ cho phép liên kết với một
+  địa chỉ, có thể không đủ nếu tiến trình cần xử lý nhiều
+  PGN nhưng không muốn mở nhiều socket.
+
+Để xóa các bộ lọc hiện có, bạn có thể chuyển ZZ0000ZZ hoặc ZZ0001ZZ
+tới ZZ0002ZZ. Thao tác này sẽ xóa tất cả các bộ lọc hiện được đặt. Nếu bạn muốn
+ZZ0004ZZ bộ bộ lọc, bạn phải chuyển bộ bộ lọc đã cập nhật thành
+ZZ0003ZZ, vì bộ lọc mới sẽ ZZ0005ZZ hoàn toàn là bộ lọc cũ.
+Hành vi này đảm bảo rằng mọi cấu hình bộ lọc trước đó đều bị loại bỏ và
+chỉ có bộ mới được áp dụng.
+
+Ví dụ về xóa tất cả các bộ lọc:
+
+.. code-block:: c
+
+    setsockopt(sock, SOL_CAN_J1939, SO_J1939_FILTER, NULL, 0);
+
+ZZ0002ZZ Số lượng bộ lọc tối đa có thể được
+được áp dụng bằng ZZ0000ZZ được xác định bởi ZZ0001ZZ, tức là
+được đặt thành 512. Điều này có nghĩa là bạn có thể định cấu hình tối đa 512 bộ lọc riêng lẻ để khớp với
+nhu cầu lọc cụ thể của bạn.
+
+Trường hợp sử dụng thực tế: ZZ0000ZZ
+
+Một trường hợp sử dụng thực tế là giám sát quá trình xác nhận địa chỉ J1939 bằng cách
+lọc các PGN cụ thể liên quan đến xác nhận quyền sở hữu địa chỉ. Điều này cho phép một quá trình
+để giám sát và xử lý các yêu cầu về địa chỉ mà không xử lý các tin nhắn không liên quan.
+
+Ví dụ:
+
+.. code-block:: c
+
+    struct j1939_filter filt[] = {
+        {
+            .pgn = J1939_PGN_ADDRESS_CLAIMED,
+            .pgn_mask = J1939_PGN_PDU1_MAX,
+        }, {
+            .pgn = J1939_PGN_REQUEST,
+            .pgn_mask = J1939_PGN_PDU1_MAX,
+        }, {
+            .pgn = J1939_PGN_ADDRESS_COMMANDED,
+            .pgn_mask = J1939_PGN_MAX,
+        },
+    };
+    setsockopt(sock, SOL_CAN_J1939, SO_J1939_FILTER, &filt, sizeof(filt));
+
+Trong ví dụ này, socket sẽ chỉ nhận các tin nhắn có PGN liên quan đến
+địa chỉ yêu cầu: ZZ0000ZZ, ZZ0001ZZ, và
+ZZ0002ZZ. Điều này đặc biệt hữu ích trong các tình huống mà
+bạn muốn theo dõi và xử lý các khiếu nại về địa chỉ mà không bị choáng ngợp bởi
+lưu lượng truy cập khác trên mạng J1939.
+
+ZZ0000ZZ
+~~~~~~~~~~~~~~~~~~~~
+
+Tùy chọn ZZ0000ZZ cho phép chế độ lăng nhăng ở cấp độ ổ cắm. Khi nào
+tùy chọn này được bật, ổ cắm sẽ nhận tất cả lưu lượng truy cập J1939, bất kể
+của bất kỳ bộ lọc nào do ZZ0001ZZ hoặc ZZ0002ZZ đặt. Điều này tương tự với
+bật chế độ lăng nhăng cho giao diện Ethernet, trong đó tất cả lưu lượng truy cập trên
+phân đoạn mạng được chụp.
+
+Tuy nhiên, ZZ0003ZZ so với
+ZZ0000ZZ. Điều này có nghĩa là ngay cả trong chế độ lăng nhăng, bạn có thể giảm
+số lượng gói nhận được bằng cách áp dụng các bộ lọc cụ thể với
+ZZ0002ZZ. Các bộ lọc sẽ giới hạn gói nào được chuyển đến
+socket, cho phép lựa chọn lưu lượng tinh tế hơn trong khi chế độ lăng nhăng được
+hoạt động.
+
+Kích thước giá trị được chấp nhận cho tùy chọn này là ZZ0000ZZ và giá trị là
+chỉ phân biệt giữa ZZ0001ZZ và khác không. Giá trị ZZ0002ZZ bị vô hiệu hóa
+chế độ lăng nhăng, trong khi bất kỳ giá trị nào khác 0 đều cho phép nó.
+
+Sự kết hợp này có thể hữu ích cho việc gỡ lỗi hoặc giám sát các loại lỗi cụ thể.
+lưu lượng truy cập trong khi vẫn thu được một loạt tin nhắn.
+
+Ví dụ:
+
+.. code-block:: c
+
+    int value = 1;
+    setsockopt(sock, SOL_CAN_J1939, SO_J1939_PROMISC, &value, sizeof(value));
+
+Trong ví dụ này, việc đặt ZZ0000ZZ thành bất kỳ giá trị nào khác 0 (ví dụ: ZZ0001ZZ) sẽ bật
+chế độ lăng nhăng, cho phép ổ cắm nhận tất cả lưu lượng truy cập J1939 trên
+mạng.
+
+ZZ0000ZZ
+~~~~~~~~~~~~~~~~
+
+Tùy chọn ZZ0000ZZ cho phép gửi và nhận chương trình phát sóng
+tin nhắn. Theo mặc định, tin nhắn quảng bá bị tắt đối với ổ cắm J1939. Khi nào
+tùy chọn này được bật, ổ cắm sẽ được phép gửi và nhận
+các gói quảng bá trên mạng J1939.
+
+Do tính chất của bus CAN là phương tiện chia sẻ, tất cả các tin nhắn được truyền
+trên xe buýt đều được hiển thị cho tất cả người tham gia. Trong bối cảnh của J1939,
+phát sóng đề cập đến việc sử dụng một trường địa chỉ đích cụ thể, trong đó
+địa chỉ đích được đặt thành một giá trị cho biết tin nhắn được dự định
+cho tất cả người tham gia (thường là địa chỉ toàn cầu như 0xFF). Kích hoạt
+tùy chọn phát sóng cho phép ổ cắm gửi và nhận các tin nhắn quảng bá như vậy.
+
+Kích thước giá trị được chấp nhận cho tùy chọn này là ZZ0000ZZ và giá trị là
+chỉ phân biệt giữa ZZ0001ZZ và khác không. Giá trị ZZ0002ZZ vô hiệu hóa
+khả năng gửi và nhận tin nhắn quảng bá, trong khi mọi giá trị khác 0
+cho phép nó.
+
+Ví dụ:
+
+.. code-block:: c
+
+    int value = 1;
+    setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &value, sizeof(value));
+
+Trong ví dụ này, việc đặt ZZ0000ZZ thành bất kỳ giá trị nào khác 0 (ví dụ: ZZ0001ZZ) sẽ bật
+socket để gửi và nhận tin nhắn quảng bá.
+
+ZZ0000ZZ
+~~~~~~~~~~~~~~~~~~~~~~
+
+Tùy chọn ZZ0000ZZ đặt mức độ ưu tiên của các tin nhắn J1939 gửi đi
+cho ổ cắm. Trong J1939, tin nhắn có thể có mức độ ưu tiên khác nhau và mức độ ưu tiên thấp hơn.
+giá trị số cho thấy mức độ ưu tiên cao hơn. Tùy chọn này cho phép người dùng
+kiểm soát mức độ ưu tiên của tin nhắn được gửi từ ổ cắm bằng cách điều chỉnh mức độ ưu tiên
+bit trong mã định danh CAN.
+
+Giá trị chấp nhận được ZZ0004ZZ cho tùy chọn này là ZZ0000ZZ và giá trị
+dự kiến sẽ nằm trong khoảng từ 0 đến 7, trong đó ZZ0001ZZ có mức ưu tiên cao nhất,
+và ZZ0002ZZ là thấp nhất. Theo mặc định, mức độ ưu tiên được đặt thành ZZ0003ZZ nếu tùy chọn này được
+không được cấu hình rõ ràng.
+
+Lưu ý rằng các giá trị ưu tiên ZZ0000ZZ và ZZ0001ZZ chỉ có thể được đặt nếu quy trình có
+khả năng ZZ0002ZZ. Chúng được dành riêng cho lưu lượng ưu tiên cao
+và yêu cầu quyền quản trị.
+
+Ví dụ:
+
+.. code-block:: c
+
+    int prio = 3;  // Priority value between 0 (highest) and 7 (lowest)
+    setsockopt(sock, SOL_CAN_J1939, SO_J1939_SEND_PRIO, &prio, sizeof(prio));
+
+Trong ví dụ này, mức độ ưu tiên được đặt thành ZZ0000ZZ, nghĩa là các tin nhắn gửi đi sẽ
+được gửi với mức độ ưu tiên vừa phải.
+
+ZZ0000ZZ
+~~~~~~~~~~~~~~~~~~~~~
+
+Tùy chọn ZZ0000ZZ cho phép ổ cắm nhận thông báo lỗi
+từ hàng đợi lỗi, cung cấp thông tin chẩn đoán về việc truyền
+lỗi, vi phạm giao thức hoặc các sự cố khác xảy ra trong J1939
+giao tiếp. Khi tùy chọn này được đặt, cần có không gian người dùng để xử lý
+Tin nhắn ZZ0001ZZ.
+
+Đặt ZZ0000ZZ thành ZZ0001ZZ sẽ xóa mọi lỗi hiện có
+thông báo trong hàng đợi lỗi. Khi được bật, thông báo lỗi có thể được truy xuất
+bằng cách sử dụng lệnh gọi hệ thống ZZ0002ZZ.
+
+Khi đăng ký vào hàng đợi lỗi, các sự kiện lỗi sau có thể xảy ra
+đã truy cập:
+
+- ZZ0004ZZ: Lỗi hủy truyền.
+- ZZ0005ZZ: Tiếp nhận điều khiển RTS (Yêu cầu gửi)
+  khung.
+- ZZ0006ZZ: Tiếp nhận gói dữ liệu với Data Page Offset
+  (DPO).
+- ZZ0007ZZ: Lỗi hủy nhận tín hiệu.
+
+Hàng đợi lỗi có thể được sử dụng để so sánh các lỗi với việc truyền tin nhắn cụ thể
+phiên sử dụng ID phiên (ZZ0000ZZ). ID phiên được chỉ định thông qua
+Cờ ZZ0001ZZ, được đặt bằng cách bật
+Tùy chọn ZZ0002ZZ.
+
+Nếu ZZ0000ZZ được kích hoạt, người dùng được yêu cầu kéo tin nhắn
+khỏi hàng đợi lỗi, nghĩa là sử dụng ZZ0001ZZ đơn giản là không đủ
+nữa. Người dùng phải sử dụng ZZ0002ZZ với các cờ thích hợp để xử lý
+thông báo lỗi. Nếu không làm như vậy có thể khiến ổ cắm bị chặn bởi
+thông báo lỗi chưa được xử lý trong hàng đợi.
+
+ZZ0002ZZ là ZZ0000ZZ được sử dụng kết hợp với
+ZZ0001ZZ trong hầu hết các trường hợp. Điều này cho phép xử lý lỗi thích hợp cùng với
+với tính năng theo dõi phiên và đánh dấu thời gian, cung cấp phân tích chi tiết hơn về
+chuyển tin nhắn và lỗi.
+
+Giá trị chấp nhận được ZZ0003ZZ cho tùy chọn này là ZZ0000ZZ và giá trị
+chỉ được phân biệt giữa ZZ0001ZZ và khác không. Giá trị ZZ0002ZZ bị vô hiệu hóa
+tiếp nhận hàng đợi lỗi và xóa mọi thông báo lỗi hiện có, trong khi bất kỳ
+giá trị khác 0 cho phép nó.
+
+Ví dụ:
+
+.. code-block:: c
+
+    int enable = 1;  // Enable error queue reception
+    setsockopt(sock, SOL_CAN_J1939, SO_J1939_ERRQUEUE, &enable, sizeof(enable));
+
+    // Enable timestamping with session tracking via tskey
+    int timestamping = SOF_TIMESTAMPING_OPT_ID | SOF_TIMESTAMPING_TX_ACK |
+                       SOF_TIMESTAMPING_TX_SCHED |
+                       SOF_TIMESTAMPING_RX_SOFTWARE | SOF_TIMESTAMPING_OPT_CMSG;
+    setsockopt(sock, SOL_SOCKET, SO_TIMESTAMPING, &timestamping,
+               sizeof(timestamping));
+
+Khi được bật, có thể truy xuất thông báo lỗi bằng ZZ0000ZZ. Bởi
+kết hợp ZZ0001ZZ với ZZ0002ZZ (với
+đã bật ZZ0003ZZ và ZZ0004ZZ),
+người dùng có thể theo dõi việc truyền tin nhắn, truy xuất dấu thời gian chính xác và tương quan
+lỗi với các phiên cụ thể.
+
+Để biết thêm thông tin về cách bật dấu thời gian và theo dõi phiên, hãy tham khảo
+Phần ZZ0000ZZ.
+
+ZZ0000ZZ
+~~~~~~~~~~~~~~~~~~~
+
+Tùy chọn ZZ0000ZZ cho phép ổ cắm nhận dấu thời gian cho
+các sự kiện khác nhau liên quan đến việc truyền và nhận tin nhắn trong J1939. Cái này
+tùy chọn thường được sử dụng kết hợp với ZZ0001ZZ để cung cấp
+thông tin chẩn đoán chi tiết, theo dõi phiên và dữ liệu thời gian chính xác cho
+chuyển tin nhắn.
+
+Trong J1939, tất cả tải trọng được cung cấp bởi không gian người dùng, bất kể kích thước, đều được
+được xử lý bởi kernel dưới dạng ZZ0000ZZ. Điều này bao gồm cả khung đơn
+thông báo (tối đa 8 byte) và các giao thức đa khung như Transport
+Giao thức (TP) và Giao thức truyền tải mở rộng (ETP). Ngay cả đối với nhỏ,
+thông báo khung đơn, kernel tạo một phiên để quản lý việc truyền
+và sự tiếp nhận. Khái niệm phiên cho phép kernel quản lý nhiều
+các khía cạnh của giao thức, chẳng hạn như tập hợp lại các thông điệp đa khung và theo dõi
+trạng thái của các đường truyền.
+
+Khi nhận được thông báo lỗi mở rộng từ hàng đợi lỗi, lỗi
+thông tin được gửi qua ZZ0002ZZ, có thể truy cập qua
+thông báo điều khiển (ZZ0000ZZ) được truy xuất bằng lệnh gọi hệ thống ZZ0001ZZ.
+
+Có hai nguồn gốc điển hình cho các thông báo lỗi mở rộng trong J1939:
+
+1. ZZ0000ZZ:
+
+Trong trường hợp này, trường ZZ0000ZZ sẽ chứa một trong các thông tin sau
+   các loại dấu thời gian:
+
+- ZZ0000ZZ: Dấu thời gian này hợp lệ cho Vận chuyển mở rộng
+     Chuyển giao thức (ETP) và chuyển đơn giản (8 byte trở xuống). Nó
+     cho biết khi nào một tin nhắn hoặc tập hợp các khung đã được lên lịch cho
+     truyền tải.
+
+- Đối với các lần truyền đơn giản (8 byte trở xuống), nó đánh dấu thời điểm
+       tin nhắn được xếp hàng đợi và sẵn sàng để gửi lên bus CAN.
+
+- Đối với chuyển khoản ETP, nó được gửi sau khi nhận được CTS (Xóa để gửi)
+       frame ở phía người gửi, cho biết rằng một bộ khung mới đã được
+       được lên kế hoạch truyền tải.
+
+- Trường hợp Giao thức vận chuyển (TP) hiện chưa được triển khai cho trường hợp này
+       dấu thời gian.
+
+- Về phía người nhận, đối ứng với sự kiện này của ETP là
+       được biểu thị bằng thông báo ZZ0000ZZ, cho biết
+       tiếp nhận khung điều khiển Độ lệch trang dữ liệu (DPO).
+
+- ZZ0000ZZ: Dấu thời gian này cho biết sự xác nhận của
+     tin nhắn hoặc phiên.
+
+- Đối với các lần truyền đơn giản (8 byte trở xuống), nó đánh dấu khi tin nhắn đã được
+       đã được gửi và xác nhận tiếng vang đã được nhận từ CAN
+       bộ điều khiển, cho biết khung đã được truyền lên xe buýt.
+
+- Đối với truyền nhiều khung (TP hoặc ETP), điều đó có nghĩa là toàn bộ
+       phiên đã được xác nhận, thường là sau khi nhận được Kết thúc của
+       Gói tin xác nhận (EOMA).
+
+2. ZZ0000ZZ:
+
+Trong trường hợp này, trường ZZ0000ZZ sẽ chứa một trong các thông tin sau
+   Các loại thông báo dành riêng cho ngăn xếp J1939:
+
+- ZZ0000ZZ: Thông báo này cho biết rằng việc truyền
+     của một tin nhắn hoặc phiên đã bị hủy bỏ. Nguyên nhân sảy thai có thể xuất phát từ
+     nhiều nguồn khác nhau:
+
+- ZZ0000ZZ: Ngăn xếp J1939 không thể chuyển khung tới
+       khung CAN để truyền tải.
+
+- ZZ0000ZZ: Ngăn xếp J1939 không nhận được xác nhận tiếng vang
+       từ bộ điều khiển CAN, nghĩa là khung có thể chưa thành công
+       được truyền tới bus CAN.
+
+- ZZ0000ZZ: Đối với truyền đa khung (TP/ETP), điều này
+       có thể bao gồm các lỗi liên quan đến giao thức, chẳng hạn như việc hủy bỏ được báo hiệu bởi
+       người nhận hoặc hết thời gian chờ ở cấp độ giao thức, khiến phiên bị ngừng hoạt động.
+       chấm dứt sớm.
+
+- Mã lỗi tương ứng được lưu trong ZZ0000ZZ
+       (ZZ0001ZZ ở phía kernel), cung cấp thêm chi tiết về
+       lý do cụ thể cho việc hủy bỏ.
+
+- ZZ0000ZZ: Thông báo này cho biết ngăn xếp J1939 có
+     đã nhận được khung điều khiển Yêu cầu gửi (RTS), báo hiệu sự bắt đầu của một
+     truyền nhiều khung bằng Giao thức truyền tải (TP) hoặc Extended
+     Giao thức vận chuyển (ETP).
+
+- Nó thông báo cho người nhận rằng người gửi đã sẵn sàng truyền một
+       tin nhắn nhiều khung và bao gồm chi tiết về tổng kích thước tin nhắn
+       và số lượng khung hình được gửi.
+
+- Thống kê như ZZ0000ZZ, ZZ0001ZZ,
+       ZZ0002ZZ và ZZ0003ZZ được cung cấp cùng
+       với tin nhắn ZZ0004ZZ, cung cấp thông tin chi tiết
+       về chuyển khoản đến.
+
+- ZZ0000ZZ: Thông báo này cho biết ngăn xếp J1939 có
+     đã nhận được khung điều khiển Độ lệch trang dữ liệu (DPO), là một phần của
+     Giao thức truyền tải mở rộng (ETP).
+
+- Khung DPO báo hiệu sự tiếp tục của thông báo nhiều khung ETP bằng cách
+       cho biết vị trí bù đắp trong dữ liệu được truyền. Nó giúp
+       người nhận quản lý các tập dữ liệu lớn bằng cách xác định phần nào của
+       tin nhắn đang được nhận.
+
+- Nó thường được ghép nối với sự kiện ZZ0000ZZ tương ứng
+       ở phía người gửi, cho biết khi nào bộ khung tiếp theo được
+       được lên kế hoạch truyền tải.
+
+- Sự kiện này bao gồm các số liệu thống kê như ZZ0000ZZ,
+       theo dõi số byte được thừa nhận tính đến thời điểm đó trong phiên.
+
+- ZZ0000ZZ: Thông báo này cho biết rằng việc nhận tín hiệu
+     tin nhắn nhiều khung (Giao thức truyền tải hoặc Giao thức truyền tải mở rộng) có
+     bị hủy bỏ.
+
+- Việc hủy bỏ có thể được kích hoạt bởi các lỗi cấp độ giao thức như thời gian chờ, lỗi
+       khung không mong muốn hoặc yêu cầu hủy bỏ cụ thể từ người gửi.
+
+- Thông báo này báo hiệu rằng người nhận không thể tiếp tục xử lý
+       chuyển và phiên kết thúc.
+
+- Mã lỗi tương ứng được lưu trong ZZ0000ZZ
+       (ZZ0001ZZ ở phía kernel), cung cấp thêm thông tin chi tiết về
+       lý do hủy bỏ, chẳng hạn như vi phạm giao thức hoặc hết thời gian chờ.
+
+- Sau khi nhận được tin nhắn này, người nhận sẽ hủy tin nhắn đã nhận một phần
+       khung và phiên nhiều khung được coi là không đầy đủ.
+
+Trong cả hai trường hợp, nếu ZZ0000ZZ được bật, ZZ0001ZZ
+sẽ được đặt thành mã định danh duy nhất của phiên (ZZ0002ZZ). Cái này
+cho phép không gian người dùng theo dõi việc truyền tin nhắn bằng mã định danh phiên của họ trên
+nhiều khung hình hoặc giai đoạn.
+
+Trong tất cả các trường hợp khác, ZZ0000ZZ sẽ được đặt thành ZZ0001ZZ, ngoại trừ
+các trường hợp ZZ0002ZZ và ZZ0003ZZ, trong đó
+kernel đặt ZZ0004ZZ thành lỗi được lưu trong ZZ0005ZZ.  Tất cả
+các lỗi giao thức cụ thể được chuyển đổi thành các giá trị lỗi kernel tiêu chuẩn và
+được lưu trữ trong ZZ0006ZZ. Các giá trị lỗi này được thống nhất trên các cuộc gọi hệ thống
+và ZZ0007ZZ.  Một số giá trị lỗi đã biết được mô tả trong
+Phần ZZ0008ZZ.
+
+Khi thông báo ZZ0000ZZ được cung cấp, nó sẽ bao gồm
+số liệu thống kê sau đây cho tin nhắn nhiều khung (TP và ETP):
+
+- ZZ0000ZZ: Tổng dung lượng tin nhắn trong phiên.
+  - ZZ0001ZZ: Số nhóm tham số (PGN) xác định loại thông báo.
+  - ZZ0002ZZ: Tên 64-bit của nguồn ECU.
+  - ZZ0003ZZ: Tên 64-bit của đích ECU.
+  - ZZ0004ZZ: Địa chỉ nguồn 8 bit của ECU gửi.
+  - ZZ0005ZZ: Địa chỉ đích 8 bit của ECU nhận.
+
+- Đối với các tin nhắn khác (bao gồm cả tin nhắn khung đơn), chỉ những tin nhắn sau
+  thống kê bao gồm:
+
+- ZZ0000ZZ: Số byte được xác nhận thành công trong
+    phiên.
+
+Các cờ chính cho ZZ0000ZZ bao gồm:
+
+- ZZ0000ZZ: Cho phép sử dụng mã định danh phiên duy nhất
+  (ZZ0001ZZ) cho mỗi lần chuyển. Mã định danh này giúp theo dõi việc chuyển tin nhắn
+  và các lỗi dưới dạng các phiên riêng biệt trong không gian người dùng. Khi tùy chọn này được kích hoạt,
+  ZZ0002ZZ sẽ được đặt thành ZZ0003ZZ.
+
+- ZZ0000ZZ: Gửi thông tin dấu thời gian thông qua điều khiển
+  tin nhắn (ZZ0001ZZ), cho phép ứng dụng truy xuất
+  dấu thời gian cùng với dữ liệu.
+
+- ZZ0000ZZ: Cung cấp dấu thời gian khi có tin nhắn
+  được lên lịch truyền (ZZ0001ZZ).
+
+- ZZ0000ZZ: Cung cấp dấu thời gian khi có tin nhắn
+  việc truyền tải được xác nhận đầy đủ (ZZ0001ZZ).
+
+- ZZ0000ZZ: Cung cấp dấu thời gian liên quan đến việc tiếp nhận
+  sự kiện (ví dụ: ZZ0001ZZ, ZZ0002ZZ,
+  ZZ0003ZZ).
+
+Những cờ này cho phép giám sát chi tiết vòng đời của tin nhắn, bao gồm
+lập lịch truyền, xác nhận, dấu thời gian tiếp nhận và thu thập
+thống kê chi tiết về phiên giao tiếp, đặc biệt đối với đa khung
+tải trọng như TP và ETP.
+
+Ví dụ:
+
+.. code-block:: c
+
+    // Enable timestamping with various options, including session tracking and
+    // statistics
+    int sock_opt = SOF_TIMESTAMPING_OPT_CMSG |
+                   SOF_TIMESTAMPING_TX_ACK |
+                   SOF_TIMESTAMPING_TX_SCHED |
+                   SOF_TIMESTAMPING_OPT_ID |
+                   SOF_TIMESTAMPING_RX_SOFTWARE;
+
+    setsockopt(sock, SOL_SOCKET, SO_TIMESTAMPING, &sock_opt, sizeof(sock_opt));
+
+
+
+Địa chỉ động
+------------------
+
+Cần phải phân biệt giữa việc sử dụng địa chỉ được xác nhận và việc thực hiện
+yêu cầu địa chỉ. Để sử dụng một địa chỉ đã được xác nhận, người ta phải điền vào
+Thành viên ZZ0000ZZ và cung cấp cho ZZ0001ZZ. Nếu cái tên đã khẳng định một địa chỉ
+trước đó, tất cả các tin nhắn tiếp theo được gửi sẽ sử dụng địa chỉ đó. Và
+Thành viên ZZ0002ZZ sẽ bị bỏ qua.
+
+Một ngoại lệ về điều này là PGN 0x0ee00. Đây là "Xác nhận địa chỉ/Không thể xác nhận quyền sở hữu
+Địa chỉ" và kernel sẽ sử dụng thành viên ZZ0000ZZ cho PGN đó nếu
+cần thiết.
+
+Để yêu cầu một địa chỉ, ví dụ mã sau có thể được sử dụng:
+
+.. code-block:: C
+
+	struct sockaddr_can baddr = {
+		.can_family = AF_CAN,
+		.can_addr.j1939 = {
+			.name = name,
+			.addr = J1939_IDLE_ADDR,
+			.pgn = J1939_NO_PGN,	/* to disable bind() rx filter for PGN */
+		},
+		.can_ifindex = if_nametoindex("can0"),
+	};
+
+	bind(sock, (struct sockaddr *)&baddr, sizeof(baddr));
+
+	/* for Address Claiming broadcast must be allowed */
+	int value = 1;
+	setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &value, sizeof(value));
+
+	/* configured advanced RX filter with PGN needed for Address Claiming */
+	const struct j1939_filter filt[] = {
+		{
+			.pgn = J1939_PGN_ADDRESS_CLAIMED,
+			.pgn_mask = J1939_PGN_PDU1_MAX,
+		}, {
+			.pgn = J1939_PGN_REQUEST,
+			.pgn_mask = J1939_PGN_PDU1_MAX,
+		}, {
+			.pgn = J1939_PGN_ADDRESS_COMMANDED,
+			.pgn_mask = J1939_PGN_MAX,
+		},
+	};
+
+	setsockopt(sock, SOL_CAN_J1939, SO_J1939_FILTER, &filt, sizeof(filt));
+
+	uint64_t dat = htole64(name);
+	const struct sockaddr_can saddr = {
+		.can_family = AF_CAN,
+		.can_addr.j1939 = {
+			.pgn = J1939_PGN_ADDRESS_CLAIMED,
+			.addr = J1939_NO_ADDR,
+		},
+	};
+
+	/* Afterwards do a sendto(2) with data set to the NAME (Little Endian). If the
+	 * NAME provided, does not match the j1939.name provided to bind(2), EPROTO
+	 * will be returned.
+	 */
+	sendto(sock, dat, sizeof(dat), 0, (const struct sockaddr *)&saddr, sizeof(saddr));
+
+Nếu không có ai khác tranh chấp yêu cầu địa chỉ trong vòng 250ms sau khi truyền,
+kernel đánh dấu phép gán NAME-SA là hợp lệ. Bài tập hợp lệ sẽ được giữ lại
+trong số các bài tập NAME-SA hợp lệ khác. Từ thời điểm đó, bất kỳ ổ cắm nào được liên kết với
+NAME có thể gửi gói tin.
+
+Nếu một ECU khác xác nhận địa chỉ, kernel sẽ đánh dấu NAME-SA đã hết hạn.
+Không có ổ cắm nào được liên kết với NAME có thể gửi các gói (ngoài các yêu cầu về địa chỉ). Đến
+yêu cầu một địa chỉ khác, một số ổ cắm được liên kết với NAME, phải lại là ZZ0000ZZ, nhưng với
+chỉ ZZ0001ZZ được thay đổi thành SA mới và sau đó phải gửi yêu cầu địa chỉ hợp lệ
+gói. Việc này sẽ khởi động lại máy trạng thái trong kernel (và bất kỳ máy trạng thái nào khác
+người tham gia trên xe buýt) cho chiếc NAME này.
+
+ZZ0000ZZ cũng bao gồm công cụ ZZ0001ZZ, vì vậy nó có thể được sử dụng làm mẫu mã hoặc làm
+daemon xác nhận địa chỉ mặc định.
+
+Gửi ví dụ
+-------------
+
+Địa chỉ tĩnh
+^^^^^^^^^^^^^^^^^
+
+Ví dụ này sẽ gửi PGN (0x12300) từ SA 0x20 đến DA 0x30.
+
+Ràng buộc:
+
+.. code-block:: C
+
+	struct sockaddr_can baddr = {
+		.can_family = AF_CAN,
+		.can_addr.j1939 = {
+			.name = J1939_NO_NAME,
+			.addr = 0x20,
+			.pgn = J1939_NO_PGN,
+		},
+		.can_ifindex = if_nametoindex("can0"),
+	};
+
+	bind(sock, (struct sockaddr *)&baddr, sizeof(baddr));
+
+Bây giờ, 'sock' ổ cắm được liên kết với SA 0x20. Vì không có ZZ0000ZZ nào được gọi,
+tại thời điểm này, chúng tôi chỉ có thể sử dụng ZZ0001ZZ hoặc ZZ0002ZZ.
+
+Gửi:
+
+.. code-block:: C
+
+	const struct sockaddr_can saddr = {
+		.can_family = AF_CAN,
+		.can_addr.j1939 = {
+			.name = J1939_NO_NAME;
+			.addr = 0x30,
+			.pgn = 0x12300,
+		},
+	};
+
+	sendto(sock, dat, sizeof(dat), 0, (const struct sockaddr *)&saddr, sizeof(saddr));
+
+
+Mã lỗi trong ngăn xếp J1939
+------------------------------
+
+Phần này liệt kê tất cả các mã lỗi kernel tiềm ẩn có thể được hiển thị cho người dùng
+không gian khi tương tác với ngăn xếp J1939. Nó bao gồm cả lỗi chuẩn
+mã và những mã bắt nguồn từ mã hủy bỏ theo giao thức cụ thể.
+
+- ZZ0000ZZ: Hoạt động sẽ bị chặn; thử lại có thể thành công. Một lý do phổ biến là
+  rằng phiên TP hoặc ETP đang hoạt động tồn tại và đã cố gắng bắt đầu một phiên
+  phiên TP hoặc ETP chồng chéo mới giữa các đồng nghiệp giống nhau.
+
+- ZZ0000ZZ: Mạng bị hỏng. Điều này xảy ra khi giao diện CAN được chuyển đổi
+  sang trạng thái “xuống”.
+
+- ZZ0000ZZ: Không có dung lượng bộ đệm. Lỗi này xảy ra khi CAN
+  hàng đợi truyền (TX) của giao diện đã đầy và không thể xếp hàng thêm tin nhắn nào nữa.
+
+- ZZ0000ZZ: Giá trị quá lớn đối với kiểu dữ liệu được xác định. Trong J1939, điều này có thể
+  xảy ra nếu dữ liệu được yêu cầu nằm ngoài bộ đệm được xếp hàng đợi. Ví dụ,
+  nếu CTS (Xóa để gửi) yêu cầu phần bù không có sẵn trong bộ đệm kernel
+  vì không gian người dùng không cung cấp đủ dữ liệu.
+
+- ZZ0000ZZ: Thiết bị hoặc tài nguyên đang bận. Ví dụ, điều này xảy ra nếu một
+  phiên giống hệt nhau đã hoạt động và ngăn xếp không thể phục hồi từ
+  điều kiện.
+
+- ZZ0000ZZ: Quyền bị từ chối. Lỗi này có thể xảy ra, ví dụ như khi
+  cố gắng gửi tin nhắn quảng bá nhưng ổ cắm không được định cấu hình bằng
+  ZZ0001ZZ.
+
+- ZZ0000ZZ: Không có địa chỉ. Lỗi này xảy ra trong các trường hợp như:
+
+- Khi cố gắng sử dụng ZZ0000ZZ để lấy địa chỉ của máy ngang hàng,
+    nhưng ổ cắm không được kết nối.
+
+- Khi cố gắng gửi dữ liệu đến hoặc từ NAME, nhưng địa chỉ yêu cầu
+    NAME không được thực hiện hoặc phát hiện bởi ngăn xếp.
+
+- ZZ0000ZZ: Bộ mô tả file ở trạng thái xấu. Lỗi này có thể xảy ra nếu:
+
+- Đang cố gắng gửi dữ liệu đến một ổ cắm không được liên kết.
+
+- Ổ cắm bị ràng buộc nhưng không có tên nguồn và địa chỉ nguồn là
+    ZZ0000ZZ.
+
+- ZZ0000ZZ không chính xác.
+
+- ZZ0000ZZ: Địa chỉ sai. Xảy ra chủ yếu khi ngăn xếp không thể sao chép từ hoặc tới một
+  sockptr, khi không có đủ dữ liệu từ vùng người dùng hoặc khi bộ đệm
+  không gian do người dùng cung cấp không đủ lớn cho dữ liệu được yêu cầu.
+
+- ZZ0000ZZ: Tín hiệu xảy ra trước khi bất kỳ dữ liệu nào được truyền đi; xem ZZ0001ZZ.
+
+- ZZ0000ZZ: Đã truyền đối số không hợp lệ. Ví dụ:
+
+- ZZ0000ZZ nhỏ hơn ZZ0001ZZ.
+
+- ZZ0000ZZ không bằng ZZ0001ZZ.
+
+- Đã cung cấp một PGN không chính xác.
+
+- ZZ0000ZZ: Không có thiết bị này. Điều này xảy ra khi thiết bị mạng CAN không thể
+  được tìm thấy cho ZZ0001ZZ được cung cấp hoặc nếu ZZ0002ZZ bằng 0.
+
+- ZZ0000ZZ: Hết bộ nhớ. Thường liên quan đến các vấn đề về phân bổ bộ nhớ
+  trong ngăn xếp.
+
+- ZZ0000ZZ: Không có giao thức. Điều này có thể xảy ra khi sử dụng
+  ZZ0001ZZ hoặc ZZ0002ZZ nếu không có tùy chọn ổ cắm được yêu cầu
+  có sẵn.
+
+- ZZ0000ZZ: Cần có địa chỉ đích. Lỗi này xảy ra:
+
+- Trong trường hợp ZZ0000ZZ, nếu ZZ0001ZZ là ZZ0002ZZ.
+
+- Trong trường hợp ZZ0000ZZ, nếu có nỗ lực gửi tin nhắn ETP
+    đến một địa chỉ quảng bá.
+
+- ZZ0000ZZ: Đối số nằm ngoài miền. Lỗi này có thể xảy ra nếu cố gắng gửi
+  một tin nhắn TP hoặc ETP tới PGN được dành riêng cho PGN điều khiển cho TP hoặc ETP
+  hoạt động.
+
+- ZZ0000ZZ: Lỗi vào/ra. Điều này có thể xảy ra nếu lượng dữ liệu được cung cấp cho
+  ổ cắm cho phiên TP hoặc ETP không khớp với lượng dữ liệu đã công bố cho
+  phiên họp.
+
+- ZZ0000ZZ: Không có tập tin hoặc thư mục như vậy. Điều này có thể xảy ra khi ngăn xếp
+  cố gắng chuyển CTS hoặc EOMA nhưng không thể tìm thấy ổ cắm nhận phù hợp
+  nữa.
+
+- ZZ0000ZZ: Không có ioctls nào cho lớp socket.
+
+- ZZ0000ZZ: Không được phép thực hiện thao tác. Ví dụ, điều này có thể xảy ra nếu một
+  hành động được yêu cầu yêu cầu đặc quyền ZZ0001ZZ.
+
+- ZZ0000ZZ: Không thể truy cập mạng. Rất có thể, điều này xảy ra khi các khung
+  không thể truyền tới bus CAN.
+
+- ZZ0000ZZ: Hết giờ hẹn giờ. Điều này có thể xảy ra nếu xảy ra thời gian chờ trong khi
+  cố gắng gửi một tin nhắn đơn giản, chẳng hạn như khi một tin nhắn tiếng vang từ
+  bộ điều khiển không được nhận.
+
+- ZZ0000ZZ: Lỗi giao thức.
+
+- Được sử dụng cho các lỗi cấp độ giao thức khác nhau trong J1939, bao gồm:
+
+- Số thứ tự trùng lặp.
+
+- Gói EDPO hoặc ECTS không mong đợi.
+
+- PGN không hợp lệ hoặc phần bù trong EDPO/ECTS.
+
+- Số lượng gói EDPO vượt quá mức cho phép CTS.
+
+- Bất kỳ lỗi cấp độ giao thức nào khác.
+
+- ZZ0000ZZ: Tin nhắn quá dài.
+
+- ZZ0000ZZ: Không có tin nhắn.
+
+- ZZ0000ZZ: ECU đã tham gia vào một hoặc nhiều kết nối được quản lý
+  phiên và không thể hỗ trợ phiên khác.
+
+- ZZ0000ZZ: Đã hết thời gian chờ và phiên bị hủy.
+
+- ZZ0000ZZ: Đã nhận được tin nhắn CTS (Xóa để gửi) trong quá trình dữ liệu đang hoạt động
+  chuyển giao, gây ra sự hủy bỏ.
+
+- ZZ0000ZZ: Đã đạt đến giới hạn yêu cầu truyền lại tối đa,
+  và phiên không thể phục hồi.
+
+- ZZ0000ZZ: Đã nhận được gói truyền dữ liệu không mong muốn.
+
+- ZZ0000ZZ: Đã nhận được số thứ tự không hợp lệ và phần mềm không thể
+  phục hồi.

@@ -1,0 +1,48 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tc654.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tc654
+===================
+
+Chip được hỗ trợ:
+
+* Vi mạch TC654 và TC655
+
+Tiền tố: 'tc654'
+    Bảng dữ liệu: ZZ0000ZZ
+    icrochip.com/downloads/en/DeviceDoc/20001734C.pdf
+
+tác giả:
+      - Chris Packham <chris.packham@allyedtelesis.co.nz>
+      - Masahiko Iwamoto <iwamoto@allyed-telesis.co.jp>
+
+Sự miêu tả
+-----------
+Trình điều khiển này triển khai hỗ trợ cho Microchip TC654 và TC655.
+
+TC654 sử dụng giao diện 2 dây tương thích với SMBUS 2.0
+đặc điểm kỹ thuật. TC654 có hai (2) đầu vào để đo quạt RPM và
+một (1) đầu ra PWM có thể được sử dụng để điều khiển quạt.
+
+Ghi chú cấu hình
+-------------------
+Thông thường, pwm1_mode ABI được sử dụng để điều khiển đầu ra pwm
+chế độ.  Tuy nhiên, đối với chip này, đầu ra luôn là pwm và
+pwm1_mode xác định xem đầu ra pwm có được điều khiển thông qua giá trị pwm1 hay không
+hoặc thông qua đầu vào tương tự Vin.
+
+
+Đặt pwm1_mode thành 1 sẽ khiến đầu ra pwm được điều khiển dựa trên
+giá trị pwm1. Đặt pwm1_mode thành 0 sẽ khiến đầu ra pwm bị
+được điều khiển dựa trên đầu vào Vin.

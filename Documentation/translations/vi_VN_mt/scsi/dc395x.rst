@@ -1,0 +1,124 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/scsi/dc395x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+====================
+trình điều khiển dc395x SCSI
+==================
+
+Trạng thái
+------
+Trình điều khiển đã được thử nghiệm với ổ đĩa CD-R và CD-R/W. Những điều này nên
+được an toàn để sử dụng. Việc thử nghiệm với đĩa cứng chưa được thực hiện với bất kỳ
+mức độ cao và cần thận trọng nếu bạn muốn thử
+để sử dụng trình điều khiển này với đĩa cứng.
+
+Trình điều khiển này được phát triển từ ZZ0000ZZ.
+Các vấn đề, câu hỏi và bản vá phải được gửi tới ZZ0001ZZ.
+
+Thông số
+----------
+Trình điều khiển sử dụng các cài đặt từ EEPROM được đặt trong SCSI BIOS
+thiết lập. Nếu không có EEPROM, trình điều khiển sẽ sử dụng các giá trị mặc định.
+Cả hai đều có thể bị ghi đè bởi các tham số dòng lệnh (mô-đun hoặc hạt nhân
+thông số).
+
+Các thông số sau đây có sẵn:
+
+an toàn
+   Mặc định: 0, Giá trị được chấp nhận: 0 hoặc 1
+
+Nếu an toàn được đặt thành 1 thì bộ điều hợp sẽ sử dụng chế độ bảo thủ
+   cài đặt mặc định ("an toàn"). Bộ này:
+
+phím tắt cho dc395x=7,4,9,15,2,10
+
+bộ chuyển đổi_id
+   Mặc định: 7, Giá trị được chấp nhận: 0 đến 15
+
+Đặt ID SCSI của bộ điều hợp máy chủ.
+
+tốc độ tối đa
+   Mặc định: 1, Giá trị được chấp nhận: 0 đến 7
+
+=========
+   0 20 MHz
+   1 12,2 MHz
+   2 10 MHz
+   3 8 MHz
+   4 6,7 MHz
+   5 5,8 Hz
+   6 5 MHz
+   7 4 MHz
+   =========
+
+chế độ dev
+   Bitmap cho cấu hình thiết bị
+
+Định nghĩa bit DevMode:
+
+=== ======== ======== ==============================================
+      Bit Val(hex) Val(dec) Ý nghĩa
+      === ======== ======== ==============================================
+       0 0x01 1 Kiểm tra tính chẵn lẻ
+       1 0x02 2 Đàm phán đồng bộ
+       2 0x04 4 Ngắt kết nối
+       3 0x08 8 Gửi lệnh Bắt đầu khi khởi động. (Không được sử dụng)
+       4 0x10 16 Xếp hàng lệnh được gắn thẻ
+       5 0x20 32 Đàm phán rộng rãi
+      === ======== ======== ==============================================
+
+adapter_mode
+   Bitmap cho cấu hình bộ chuyển đổi
+
+Định nghĩa bit AdaptMode
+
+===== ======== =================================================================
+      Bit Val(hex) Val(dec) Ý nghĩa
+    ===== ======== =================================================================
+       0 0x01 1 Hỗ trợ nhiều hơn hai ổ đĩa. (Không được sử dụng)
+       1 0x02 2 Sử dụng ánh xạ tương thích DOS cho HD lớn hơn 1GB.
+       2 0x04 4 Đặt lại Bus SCSI khi khởi động.
+       3 0x08 8 Phủ định chủ động: Cải thiện khả năng chống ồn của Bus SCSI.
+       4 0x10 16 Quay lại lệnh tìm kiếm BIOS ngay lập tức. (Không được sử dụng)
+    (*)5 0x20 32 Kiểm tra LUN >= 1.
+    ===== ======== =================================================================
+
+thẻ
+   Mặc định: 3, Giá trị được chấp nhận: 0-5
+
+Số lượng thẻ là 1<<x, nếu x đã được chỉ định
+
+reset_delay
+   Mặc định: 1, Giá trị được chấp nhận: 0-180
+
+Số giây không chấp nhận lệnh sau khi Đặt lại SCSI
+
+
+Đối với trình điều khiển tích hợp, các tham số phải được bắt đầu bằng
+dc395x. (ví dụ: "dc395x.safe=1")
+
+
+Bản quyền
+---------
+Trình điều khiển là phần mềm miễn phí. Nó được bảo vệ bởi GNU General Public
+Giấy phép (GPL). Vui lòng đọc nó trước khi sử dụng trình điều khiển này. Nó nên như vậy
+được bao gồm trong nguồn kernel và với bản phân phối của bạn. Nó mang theo
+tên tệp COPYING. Nếu bạn chưa có thì nhờ tôi gửi cho bạn 1 cái nhé
+email.
+
+Lưu ý: GNU GPL cũng nói lên điều gì đó về bảo hành và trách nhiệm pháp lý.
+Xin lưu ý những điều sau: Mặc dù chúng tôi cố gắng hết sức để cung cấp một môi trường làm việc và
+trình điều khiển đáng tin cậy, có khả năng nó sẽ giết chết dữ liệu quý giá của bạn.
+Chúng tôi từ chối chịu bất kỳ trách nhiệm nào về điều đó. Trình điều khiển được cung cấp nguyên trạng
+và YOU USE CNTT TẠI YOUR OWN RESPONSIBILITY.

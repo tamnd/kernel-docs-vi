@@ -1,0 +1,201 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad7606.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD7606
+=============
+
+Trình điều khiển ADC cho Analog Devices Inc. AD7606 và các thiết bị tương tự. Tên mô-đun
+là ZZ0000ZZ.
+
+Thiết bị được hỗ trợ
+=================
+
+Các chip sau được hỗ trợ bởi trình điều khiển này:
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+
+Các tính năng được hỗ trợ
+==================
+
+Chế độ nối dây SPI
+----------------
+
+Các ADC này có thể xuất dữ liệu trên một số dòng SDO (1/2/4/8). Người lái xe
+hiện chỉ hỗ trợ 1 dòng SDO.
+
+Hệ thống dây giảm tải SPI
+------------------
+Khi được sử dụng với bộ giảm tải SPI, cấu hình nối dây được hỗ trợ là:
+
+.. code-block::
+
+    +-------------+         +-------------+
+    |        BUSY |-------->| TRIGGER     |
+    |          CS |<--------| CS          |
+    |             |         |             |
+    |     ADC     |         |     SPI     |
+    |             |         |             |
+    |         SDI |<--------| SDO         |
+    |       DOUTA |-------->| SDI         |
+    |        SCLK |<--------| SCLK        |
+    |             |         |             |
+    |             |         +-------------+
+    |      CONVST |<--------| PWM         |
+    +-------------+         +-------------+
+
+Trong trường hợp này, thuộc tính ZZ0000ZZ là bắt buộc.
+Thuộc tính ZZ0001ZZ cũng được yêu cầu để kết nối lại
+để giảm tải SPI. Việc giảm tải SPI sẽ có thuộc tính ZZ0002ZZ
+với một ô để biểu thị tín hiệu bận:
+ZZ0003ZZ.
+
+.. seealso:: `SPI offload support`_
+
+
+Chế độ nối dây song song
+--------------------
+
+Ngoài ra còn có một giao diện song song, với 16 dòng (có thể giảm xuống còn 8 inch).
+chế độ byte). Giao diện song song được chọn bằng cách khai báo thiết bị là
+nền tảng trong cây thiết bị (không xác định nút io-backends, xem bên dưới).
+
+Chế độ phụ trợ IIO
+----------------
+
+Chế độ này cho phép đạt được tốc độ lấy mẫu tốt nhất, nhưng nó yêu cầu một bộ điều khiển bên ngoài.
+phần cứng (ví dụ HDL hoặc APU) để xử lý giao tiếp cấp thấp.
+Chế độ phụ trợ được bật khi thông qua định nghĩa của "phụ trợ io"
+thuộc tính trong cây thiết bị.
+
+Cấu hình tham chiếu để triển khai chế độ phụ trợ IIO hiện tại
+là tài liệu tham khảo HDL do ADI cung cấp:
+ZZ0000ZZ
+
+Việc triển khai này nhúng IP tương thích phụ trợ IIO (adi-axi-adc) và PWM
+được kết nối với chân kích hoạt chuyển đổi.
+
+.. code-block::
+
+    +---+                                       +----------------------------
+    |   |               +-------+               |AD76xx
+    | A |  controls     |       |               |
+    | D |-------------->|  PWM  |-------------->| cnvst
+    | 7 |               |       |               |
+    | 6 |               +-------+               |
+    | 0 | controls  +-----------+-----------+   |
+    | 6 |---------->|           |           |<--| frstdata
+    |   |           | Backend   |  Backend  |<--| busy
+    | D |           | Driver    |           |   |
+    | R |           |           |           |-->| clk
+    | I |  requests |+---------+| DMA       |   |
+    | V |----------->|  Buffer ||<----      |<=>| DATA
+    | E |           |+---------+|           |   |
+    | R |           +-----------+-----------+   |
+    |   |-------------------------------------->| reset/configuration gpios
+    +---+                                       +-----------------------------
+
+
+Chế độ phần mềm và phần cứng
+---------------------------
+
+Mặc dù tất cả các bộ phận của dòng AD7606/AD7616 đều có thể được cấu hình bằng GPIO, một số
+chúng có thể được cấu hình bằng cách sử dụng register.
+
+Các chip hỗ trợ chế độ phần mềm có sẵn nhiều giá trị hơn để cấu hình
+thiết bị cũng như nhiều cài đặt hơn và cho phép kiểm soát phạm vi và
+hiệu chuẩn trên mỗi kênh.
+
+Các cài đặt sau có sẵn cho mỗi kênh ở chế độ phần mềm:
+ - Quy mô
+
+Ngoài ra, có nhiều lựa chọn hơn về tỷ lệ lấy mẫu quá mức trong chế độ phần mềm.
+
+Kích hoạt chuyển đổi
+---------------------
+
+Việc chuyển đổi có thể được kích hoạt bằng hai cách riêng biệt:
+
+- Một GPIO được kết nối với chân kích hoạt chuyển đổi và GPIO này được điều khiển
+   trực tiếp của tài xế.  Trong cấu hình này, trình điều khiển sẽ thiết lập lại
+   chân kích hoạt chuyển đổi lên cao ngay khi nó đọc được tất cả các chuyển đổi.
+
+- Nguồn bên ngoài được kết nối với chân kích hoạt chuyển đổi. trong
+   triển khai hiện tại thì nó phải là PWM. Trong cấu hình này, trình điều khiển
+   không điều khiển trực tiếp chốt kích hoạt chuyển đổi. Thay vào đó, nó có thể
+   kiểm soát tần số của PWM. Trình kích hoạt này chỉ được bật cho iio-backend.
+
+Điện áp tham chiếu
+-----------------
+
+Có thể hỗ trợ 2 nguồn điện áp tham chiếu:
+
+- Tham chiếu nội bộ (2.5V)
+ - Tham chiếu bên ngoài (2.5V)
+
+Nguồn được xác định bởi cây thiết bị. Nếu có ZZ0000ZZ,
+thì tham chiếu bên ngoài sẽ được sử dụng, nếu không thì tham chiếu bên trong sẽ được sử dụng.
+
+Lấy mẫu quá mức
+------------
+
+Dòng này hỗ trợ lấy mẫu quá mức để cải thiện SNR.
+Trong chế độ phần mềm, có các tỷ lệ sau:
+1 (vô hiệu hóa quá mức)/2/4/8/16/32/64/128/256.
+
+Các tính năng chưa được triển khai
+----------------------
+
+- 2/4/8 dòng SDO
+- Chỉ báo CRC
+- Hiệu chuẩn
+
+Hỗ trợ giảm tải SPI
+===================
+
+Để có thể đạt được tốc độ lấy mẫu tối đa, trình điều khiển có thể được sử dụng với
+ZZ0000ZZ để cung cấp hỗ trợ giảm tải SPI.
+
+.. _AXI SPI Engine: https://analogdevicesinc.github.io/hdl/library/spi_engine/index.html
+
+Khi giảm tải SPI đang được sử dụng, một số thuộc tính sẽ khác.
+
+* Thư mục ZZ0000ZZ đã bị xóa.
+* Thuộc tính ZZ0001ZZ được thêm vào để cài đặt tốc độ mẫu.
+* Kênh ZZ0002ZZ bị xóa.
+* Định dạng dữ liệu bộ đệm có thể khác so với khi không sử dụng giảm tải,
+  ví dụ: thuộc tính ZZ0003ZZ.
+
+Bộ đệm thiết bị
+==============
+
+Bộ đệm kích hoạt IIO
+--------------------
+
+Trình điều khiển này hỗ trợ bộ đệm được kích hoạt IIO, với trình kích hoạt "tích hợp", tức là
+trình kích hoạt được phân bổ và liên kết bởi trình điều khiển và một chuyển đổi mới được kích hoạt
+ngay sau khi các mẫu được chuyển và kênh dấu thời gian được thêm vào để tạo
+bù đắp cho hiện tượng jitter tiềm tàng gây ra bởi sự chậm trễ trong việc xử lý ngắt.
+
+Bộ đệm phụ trợ IIO
+------------------
+
+Khi sử dụng phụ trợ IIO, không cần kích hoạt và tốc độ mẫu là
+được coi là ổn định. Không có kênh dấu thời gian. Giao tiếp là
+được ủy quyền cho logic bên ngoài, được gọi là phụ trợ và trình điều khiển của phụ trợ
+xử lý bộ đệm. Khi chế độ này được bật, người lái xe không thể điều khiển được
+chân chuyển đổi, vì chân bận được liên kết với phần phụ trợ.

@@ -1,0 +1,364 @@
+.. SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/userspace-api/media/v4l/vidioc-enumstd.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. c:namespace:: V4L
+
+.. _VIDIOC_ENUMSTD:
+
+*******************************************
+ioctl VIDIOC_ENUMSTD, VIDIOC_SUBDEV_ENUMSTD
+*******************************************
+
+Tên
+====
+
+VIDIOC_ENUMSTD - VIDIOC_SUBDEV_ENUMSTD - Liệt kê các chuẩn video được hỗ trợ
+
+Tóm tắt
+========
+
+.. c:macro:: VIDIOC_ENUMSTD
+
+ZZ0000ZZ
+
+.. c:macro:: VIDIOC_SUBDEV_ENUMSTD
+
+ZZ0000ZZ
+
+Đối số
+=========
+
+ZZ0001ZZ
+    Bộ mô tả tệp được trả về bởi ZZ0000ZZ.
+
+ZZ0001ZZ
+    Con trỏ tới cấu trúc ZZ0000ZZ.
+
+Sự miêu tả
+===========
+
+Để truy vấn các thuộc tính của một tiêu chuẩn video, đặc biệt là một tùy chỉnh (trình điều khiển
+được xác định) một, các ứng dụng sẽ khởi tạo trường ZZ0002ZZ của cấu trúc
+ZZ0000ZZ và gọi ZZ0001ZZ
+ioctl bằng một con trỏ tới cấu trúc này. Trình điều khiển lấp đầy phần còn lại của
+cấu trúc hoặc trả về mã lỗi ZZ0003ZZ khi hết chỉ mục
+giới hạn. Để liệt kê tất cả các ứng dụng tiêu chuẩn sẽ bắt đầu từ chỉ mục
+0, tăng dần một cho đến khi trình điều khiển trả về ZZ0004ZZ. Trình điều khiển có thể
+liệt kê một bộ tiêu chuẩn khác sau khi chuyển đổi đầu vào video
+hoặc đầu ra. [#f1]_
+
+.. c:type:: v4l2_standard
+
+.. tabularcolumns:: |p{4.4cm}|p{4.4cm}|p{8.5cm}|
+
+.. flat-table:: struct v4l2_standard
+    :header-rows:  0
+    :stub-columns: 0
+    :widths:       1 1 2
+
+    * - __u32
+      - ``index``
+      - Number of the video standard, set by the application.
+    * - :ref:`v4l2_std_id <v4l2-std-id>`
+      - ``id``
+      - The bits in this field identify the standard as one of the common
+	standards listed in :ref:`v4l2-std-id`, or if bits 32 to 63 are
+	set as custom standards. Multiple bits can be set if the hardware
+	does not distinguish between these standards, however separate
+	indices do not indicate the opposite. The ``id`` must be unique.
+	No other enumerated struct :c:type:`v4l2_standard` structure,
+	for this input or output anyway, can contain the same set of bits.
+    * - __u8
+      - ``name``\ [24]
+      - Name of the standard, a NUL-terminated ASCII string, for example:
+	"PAL-B/G", "NTSC Japan". This information is intended for the
+	user.
+    * - struct :c:type:`v4l2_fract`
+      - ``frameperiod``
+      - The frame period (not field period) is numerator / denominator.
+	For example M/NTSC has a frame period of 1001 / 30000 seconds.
+    * - __u32
+      - ``framelines``
+      - Total lines per frame including blanking, e. g. 625 for B/PAL.
+    * - __u32
+      - ``reserved``\ [4]
+      - Reserved for future extensions. Drivers must set the array to
+	zero.
+
+
+.. c:type:: v4l2_fract
+
+.. tabularcolumns:: |p{4.4cm}|p{4.4cm}|p{8.5cm}|
+
+.. flat-table:: struct v4l2_fract
+    :header-rows:  0
+    :stub-columns: 0
+    :widths:       1 1 2
+
+    * - __u32
+      - ``numerator``
+      -
+    * - __u32
+      - ``denominator``
+      -
+
+.. tabularcolumns:: |p{4.4cm}|p{4.4cm}|p{8.5cm}|
+
+.. _v4l2-std-id:
+
+.. flat-table:: typedef v4l2_std_id
+    :header-rows:  0
+    :stub-columns: 0
+    :widths:       1 1 2
+
+    * - __u64
+      - ``v4l2_std_id``
+      - This type is a set, each bit representing another video standard
+	as listed below and in :ref:`video-standards`. The 32 most
+	significant bits are reserved for custom (driver defined) video
+	standards.
+
+
+.. code-block:: c
+
+    #define V4L2_STD_PAL_B          ((v4l2_std_id)0x00000001)
+    #define V4L2_STD_PAL_B1         ((v4l2_std_id)0x00000002)
+    #define V4L2_STD_PAL_G          ((v4l2_std_id)0x00000004)
+    #define V4L2_STD_PAL_H          ((v4l2_std_id)0x00000008)
+    #define V4L2_STD_PAL_I          ((v4l2_std_id)0x00000010)
+    #define V4L2_STD_PAL_D          ((v4l2_std_id)0x00000020)
+    #define V4L2_STD_PAL_D1         ((v4l2_std_id)0x00000040)
+    #define V4L2_STD_PAL_K          ((v4l2_std_id)0x00000080)
+
+    #define V4L2_STD_PAL_M          ((v4l2_std_id)0x00000100)
+    #define V4L2_STD_PAL_N          ((v4l2_std_id)0x00000200)
+    #define V4L2_STD_PAL_Nc         ((v4l2_std_id)0x00000400)
+    #define V4L2_STD_PAL_60         ((v4l2_std_id)0x00000800)
+
+ZZ0000ZZ là tiêu chuẩn lai với 525 dòng, làm mới 60 Hz
+tốc độ và điều chế màu PAL với sóng mang phụ màu 4,43 MHz. Một số
+Đầu ghi video PAL có thể phát lại băng NTSC ở chế độ này để hiển thị trên
+TV PAL bất khả tri 50/60 Hz.
+
+.. code-block:: c
+
+    #define V4L2_STD_NTSC_M         ((v4l2_std_id)0x00001000)
+    #define V4L2_STD_NTSC_M_JP      ((v4l2_std_id)0x00002000)
+    #define V4L2_STD_NTSC_443       ((v4l2_std_id)0x00004000)
+
+ZZ0000ZZ là tiêu chuẩn lai với 525 dòng, làm mới 60 Hz
+tốc độ và điều chế màu NTSC với sóng mang phụ màu 4,43 MHz.
+
+.. code-block:: c
+
+    #define V4L2_STD_NTSC_M_KR      ((v4l2_std_id)0x00008000)
+
+    #define V4L2_STD_SECAM_B        ((v4l2_std_id)0x00010000)
+    #define V4L2_STD_SECAM_D        ((v4l2_std_id)0x00020000)
+    #define V4L2_STD_SECAM_G        ((v4l2_std_id)0x00040000)
+    #define V4L2_STD_SECAM_H        ((v4l2_std_id)0x00080000)
+    #define V4L2_STD_SECAM_K        ((v4l2_std_id)0x00100000)
+    #define V4L2_STD_SECAM_K1       ((v4l2_std_id)0x00200000)
+    #define V4L2_STD_SECAM_L        ((v4l2_std_id)0x00400000)
+    #define V4L2_STD_SECAM_LC       ((v4l2_std_id)0x00800000)
+
+    /* ATSC/HDTV */
+    #define V4L2_STD_ATSC_8_VSB     ((v4l2_std_id)0x01000000)
+    #define V4L2_STD_ATSC_16_VSB    ((v4l2_std_id)0x02000000)
+
+ZZ0000ZZ và ZZ0001ZZ là của Hoa Kỳ
+chuẩn truyền hình số mặt đất. Hiện tại V4L2 API không
+hỗ trợ truyền hình kỹ thuật số. Xem thêm Linux DVB API tại
+ZZ0002ZZ.
+
+.. code-block:: c
+
+    #define V4L2_STD_PAL_BG         (V4L2_STD_PAL_B         |
+		     V4L2_STD_PAL_B1        |
+		     V4L2_STD_PAL_G)
+    #define V4L2_STD_B              (V4L2_STD_PAL_B         |
+		     V4L2_STD_PAL_B1        |
+		     V4L2_STD_SECAM_B)
+    #define V4L2_STD_GH             (V4L2_STD_PAL_G         |
+		     V4L2_STD_PAL_H         |
+		     V4L2_STD_SECAM_G       |
+		     V4L2_STD_SECAM_H)
+    #define V4L2_STD_PAL_DK         (V4L2_STD_PAL_D         |
+		     V4L2_STD_PAL_D1        |
+		     V4L2_STD_PAL_K)
+    #define V4L2_STD_PAL            (V4L2_STD_PAL_BG        |
+		     V4L2_STD_PAL_DK        |
+		     V4L2_STD_PAL_H         |
+		     V4L2_STD_PAL_I)
+    #define V4L2_STD_NTSC           (V4L2_STD_NTSC_M        |
+		     V4L2_STD_NTSC_M_JP     |
+		     V4L2_STD_NTSC_M_KR)
+    #define V4L2_STD_MN             (V4L2_STD_PAL_M         |
+		     V4L2_STD_PAL_N         |
+		     V4L2_STD_PAL_Nc        |
+		     V4L2_STD_NTSC)
+    #define V4L2_STD_SECAM_DK       (V4L2_STD_SECAM_D       |
+		     V4L2_STD_SECAM_K       |
+		     V4L2_STD_SECAM_K1)
+    #define V4L2_STD_DK             (V4L2_STD_PAL_DK        |
+		     V4L2_STD_SECAM_DK)
+
+    #define V4L2_STD_SECAM          (V4L2_STD_SECAM_B       |
+		     V4L2_STD_SECAM_G       |
+		     V4L2_STD_SECAM_H       |
+		     V4L2_STD_SECAM_DK      |
+		     V4L2_STD_SECAM_L       |
+		     V4L2_STD_SECAM_LC)
+
+    #define V4L2_STD_525_60         (V4L2_STD_PAL_M         |
+		     V4L2_STD_PAL_60        |
+		     V4L2_STD_NTSC          |
+		     V4L2_STD_NTSC_443)
+    #define V4L2_STD_625_50         (V4L2_STD_PAL           |
+		     V4L2_STD_PAL_N         |
+		     V4L2_STD_PAL_Nc        |
+		     V4L2_STD_SECAM)
+
+    #define V4L2_STD_UNKNOWN        0
+    #define V4L2_STD_ALL            (V4L2_STD_525_60        |
+		     V4L2_STD_625_50)
+
+.. raw:: latex
+
+    \begingroup
+    \tiny
+    \setlength{\tabcolsep}{2pt}
+
+..                            NTSC/M   PAL/M    /N       /B       /D       /H       /I        SECAM/B    /D       /K1     /L
+.. tabularcolumns:: |p{1.43cm}|p{1.38cm}|p{1.59cm}|p{1.7cm}|p{1.7cm}|p{1.17cm}|p{0.64cm}|p{1.71cm}|p{1.6cm}|p{1.07cm}|p{1.07cm}|p{1.07cm}|
+
+.. _video-standards:
+
+.. flat-table:: Video Standards (based on :ref:`itu470`)
+    :header-rows:  1
+    :stub-columns: 0
+
+    * - Characteristics
+      - M/NTSC [#f2]_
+      - M/PAL
+      - N/PAL [#f3]_
+      - B, B1, G/PAL
+      - D, D1, K/PAL
+      - H/PAL
+      - I/PAL
+      - B, G/SECAM
+      - D, K/SECAM
+      - K1/SECAM
+      - L/SECAM
+    * - Frame lines
+      - :cspan:`1` 525
+      - :cspan:`8` 625
+    * - Frame period (s)
+      - :cspan:`1` 1001/30000
+      - :cspan:`8` 1/25
+    * - Chrominance sub-carrier frequency (Hz)
+      - 3579545 ± 10
+      - 3579611.49 ± 10
+      - 4433618.75 ± 5
+
+	(3582056.25 ± 5)
+      - :cspan:`3` 4433618.75 ± 5
+      - 4433618.75 ± 1
+      - :cspan:`2` f\ :sub:`OR` = 4406250 ± 2000,
+
+	f\ :sub:`OB` = 4250000 ± 2000
+    * - Nominal radio-frequency channel bandwidth (MHz)
+      - 6
+      - 6
+      - 6
+      - B: 7; B1, G: 8
+      - 8
+      - 8
+      - 8
+      - 8
+      - 8
+      - 8
+      - 8
+    * - Sound carrier relative to vision carrier (MHz)
+      - 4.5
+      - 4.5
+      - 4.5
+      - 5.5 ± 0.001  [#f4]_  [#f5]_  [#f6]_  [#f7]_
+      - 6.5 ± 0.001
+      - 5.5
+      - 5.9996 ± 0.0005
+      - 5.5 ± 0.001
+      - 6.5 ± 0.001
+      - 6.5
+      - 6.5 [#f8]_
+
+.. raw:: latex
+
+    \endgroup
+
+
+Giá trị trả về
+============
+
+Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
+một cách thích hợp. Các mã lỗi chung được mô tả tại
+Chương ZZ0000ZZ.
+
+EINVAL
+    Cấu trúc ZZ0000ZZ ZZ0001ZZ đã hết
+    của giới hạn.
+
+ENODATA
+    Định giờ video tiêu chuẩn không được hỗ trợ cho đầu vào hoặc đầu ra này.
+
+.. [#f1]
+   The supported standards may overlap and we need an unambiguous set to
+   find the current standard returned by :ref:`VIDIOC_G_STD <VIDIOC_G_STD>`.
+
+.. [#f2]
+   Japan uses a standard similar to M/NTSC (V4L2_STD_NTSC_M_JP).
+
+.. [#f3]
+   The values in brackets apply to the combination N/PAL a.k.a.
+   N\ :sub:`C` used in Argentina (V4L2_STD_PAL_Nc).
+
+.. [#f4]
+   In the Federal Republic of Germany, Austria, Italy, the Netherlands,
+   Slovakia and Switzerland a system of two sound carriers is used, the
+   frequency of the second carrier being 242.1875 kHz above the
+   frequency of the first sound carrier. For stereophonic sound
+   transmissions a similar system is used in Australia.
+
+.. [#f5]
+   New Zealand uses a sound carrier displaced 5.4996 ± 0.0005 MHz from
+   the vision carrier.
+
+.. [#f6]
+   In Denmark, Finland, New Zealand, Sweden and Spain a system of two
+   sound carriers is used. In Iceland, Norway and Poland the same system
+   is being introduced. The second carrier is 5.85 MHz above the vision
+   carrier and is DQPSK modulated with 728 kbit/s sound and data
+   multiplex. (NICAM system)
+
+.. [#f7]
+   In the United Kingdom, a system of two sound carriers is used. The
+   second sound carrier is 6.552 MHz above the vision carrier and is
+   DQPSK modulated with a 728 kbit/s sound and data multiplex able to
+   carry two sound channels. (NICAM system)
+
+.. [#f8]
+   In France, a digital carrier 5.85 MHz away from the vision carrier
+   may be used in addition to the main sound carrier. It is modulated in
+   differentially encoded QPSK with a 728 kbit/s sound and data
+   multiplexer capable of carrying two sound channels. (NICAM system)

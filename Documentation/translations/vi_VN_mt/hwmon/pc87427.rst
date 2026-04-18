@@ -1,0 +1,77 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/pc87427.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân pc87427
+=====================
+
+Chip được hỗ trợ:
+
+* Nhà bán dẫn quốc gia PC87427
+
+Tiền tố: 'pc87427'
+
+Địa chỉ được quét: không có, địa chỉ được đọc từ không gian cấu hình Super I/O
+
+Bảng dữ liệu: Không còn nữa
+
+Tác giả: Jean Delvare <jdelvare@suse.de>
+
+Cảm ơn Amir Habibi tại Candelis vì đã thiết lập hệ thống thử nghiệm và
+Michael Kress đã thử nghiệm nhiều lần trình điều khiển này.
+
+
+Sự miêu tả
+-----------
+
+Chip Super I/O bán dẫn quốc gia bao gồm phần cứng hoàn chỉnh
+khả năng giám sát. Nó có thể giám sát tới 18 điện áp, 8 quạt và
+6 cảm biến nhiệt độ. Chỉ có quạt và nhiệt độ được hỗ trợ ở mức
+Hiện tại, điện áp thì không.
+
+Con chip này còn có tính năng điều khiển quạt (lên tới 4 đầu ra PWM),
+được hỗ trợ một phần bởi trình điều khiển này.
+
+Trình điều khiển giả định rằng không có nhiều hơn một con chip hiện diện, điều này có vẻ như
+hợp lý.
+
+
+Giám sát quạt
+--------------
+
+Tốc độ quay của quạt được báo cáo là giá trị 14 bit từ đồng hồ có cổng
+tín hiệu. Có thể đo được tốc độ xuống tới 83 RPM.
+
+Cảnh báo sẽ được kích hoạt nếu tốc độ quay giảm xuống dưới mức có thể lập trình được
+giới hạn. Một cảnh báo khác được kích hoạt nếu tốc độ quá thấp để đo được
+(bao gồm cả quạt bị chết máy hoặc mất tích).
+
+
+Kiểm soát tốc độ quạt
+-----------------
+
+Tốc độ quạt có thể được điều khiển bằng đầu ra PWM. Có 4 chế độ có thể:
+luôn tắt, luôn bật, thủ công và tự động. Cái sau không được hỗ trợ
+bởi trình điều khiển: bạn chỉ có thể quay lại chế độ đó nếu đó là bản gốc
+cài đặt và giao diện cấu hình bị thiếu.
+
+
+Giám sát nhiệt độ
+----------------------
+
+PC87427 dựa vào các cảm biến bên ngoài (theo SensorPath
+tiêu chuẩn), do đó độ phân giải và phạm vi phụ thuộc vào loại cảm biến
+được kết nối. Phần nguyên có thể là 8 bit hoặc 9 bit và có thể được ký hoặc
+không. Tôi không thể tìm ra cách tìm ra dữ liệu cảm biến bên ngoài
+định dạng nhiệt độ, do đó điều chỉnh không gian người dùng (thường theo hệ số 2)
+có thể được yêu cầu.

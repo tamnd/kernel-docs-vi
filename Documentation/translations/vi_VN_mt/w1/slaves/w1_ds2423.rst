@@ -1,0 +1,68 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/slaves/w1_ds2423.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w1_ds2423
+=======================
+
+Chip được hỗ trợ:
+
+* Thiết bị đếm dựa trên Maxim DS2423.
+
+mã gia đình được hỗ trợ:
+
+================ ====
+	W1_THERM_DS2423 0x1D
+        ================ ====
+
+Tác giả: Mika Laitio <lamikr@pilppa.org>
+
+Sự miêu tả
+-----------
+
+Hỗ trợ được cung cấp thông qua tệp sysfs w1_slave. Mỗi lần mở và
+trình tự đọc của tệp w1_slave bắt đầu đọc bộ đếm và ram
+có sẵn trong DS2423 trang 12 - 15.
+
+Kết quả của mỗi trang được cung cấp dưới dạng đầu ra ASCII trong đó mỗi bộ đếm
+giá trị và bộ đệm ram liên quan được xuất ra dòng riêng.
+
+Mỗi dòng sẽ chứa các giá trị 42 byte được đọc từ bộ đếm và
+trang bộ nhớ dọc theo crc=YES hoặc NO để cho biết liệu thao tác đọc có
+đã thành công và CRC khớp.
+Nếu thao tác thành công thì cũng có ở cuối mỗi dòng
+một giá trị bộ đếm được biểu thị dưới dạng số nguyên sau c=
+
+Ý nghĩa của 42 byte được biểu diễn như sau:
+
+- 1 byte từ trang ram
+ - 4 byte cho giá trị bộ đếm
+ - 4 byte không
+ - 2 byte cho crc16 được tính từ dữ liệu đã đọc kể từ byte crc trước đó
+ - 31 byte còn lại từ trang ram
+ - crc=YES/NO cho biết việc đọc có ổn không và crc có khớp không
+ - c=<int> giá trị bộ đếm hiện tại
+
+ví dụ từ việc đọc thành công::
+
+00 02 00 00 00 00 00 00 00 6d 38 00 ff ff 00 00 fe ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff crc=YES c=2
+  00 02 00 00 00 00 00 00 00 e0 1f 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff crc=YES c=2
+  00 29 c6 5d 18 00 00 00 00 04 37 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff crc=YES c=408798761
+  00 05 00 00 00 00 00 00 00 8d 39 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff crc=YES c=5
+
+ví dụ từ việc đọc với lỗi crc::
+
+00 02 00 00 00 00 00 00 00 6d 38 00 ff ff 00 00 fe ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff crc=YES c=2
+  00 02 00 00 22 00 00 00 00 e0 1f 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff crc=NO
+  00 e1 61 5d 19 00 00 00 00 df 0b 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff 00 00 ff ff crc=NO
+  00 05 00 00 20 00 00 00 00 8d 39 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff crc=NO

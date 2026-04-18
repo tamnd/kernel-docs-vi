@@ -1,0 +1,195 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/dsa/b53.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============================================
+Trình điều khiển chuyển mạch Ethernet Broadcom RoboSwitch
+==========================================
+
+Họ bộ chuyển mạch Broadcom RoboSwitch Ethernet được sử dụng trong khá nhiều
+bộ định tuyến xDSL, modem cáp và các thiết bị đa phương tiện khác.
+
+Việc triển khai thực tế hỗ trợ các thiết bị BCM5325E, BCM5365, BCM539x,
+BCM53115 và BCM53125 cũng như BCM63XX.
+
+Chi tiết triển khai
+======================
+
+Trình điều khiển được đặt trong ZZ0000ZZ và được triển khai dưới dạng
+Trình điều khiển DSA; xem ZZ0001ZZ để biết chi tiết về
+hệ thống con và những gì nó cung cấp.
+
+Nếu có thể, công tắc này được định cấu hình để kích hoạt 4 byte cụ thể của Broadcom
+Thẻ chuyển đổi được chèn vào bởi bộ chuyển đổi cho mỗi gói được chuyển tiếp đến
+Giao diện CPU, ngược lại, giao diện mạng CPU nên chèn một giao diện tương tự
+thẻ cho các gói vào cổng CPU. Định dạng thẻ được mô tả trong
+ZZ0000ZZ.
+
+Cấu hình của thiết bị phụ thuộc vào việc có gắn thẻ hay không
+được hỗ trợ.
+
+Tên giao diện và cấu hình mạng ví dụ được sử dụng theo
+cấu hình được mô tả trong ZZ0000ZZ.
+
+Cấu hình có hỗ trợ gắn thẻ
+----------------------------------
+
+Cấu hình dựa trên gắn thẻ là mong muốn. Nó không dành riêng cho b53
+Trình điều khiển DSA và sẽ hoạt động giống như tất cả các trình điều khiển DSA hỗ trợ gắn thẻ.
+
+Xem ZZ0000ZZ.
+
+Cấu hình không hỗ trợ gắn thẻ
+-------------------------------------
+
+Các mẫu cũ hơn (5325, 5365) hỗ trợ định dạng thẻ khác không được hỗ trợ
+chưa. 539x và 531x5 yêu cầu chế độ được quản lý và một số cách xử lý đặc biệt, đó là
+cũng chưa được hỗ trợ. Hỗ trợ gắn thẻ bị vô hiệu hóa trong những trường hợp này và
+switch cần một cấu hình khác.
+
+Cấu hình hơi khác so với ZZ0000ZZ.
+
+b53 gắn thẻ cổng CPU trong tất cả các Vlan, vì nếu không thì mọi PVID đều không được gắn thẻ
+Lập trình VLAN về cơ bản sẽ thay đổi PVID mặc định của cổng CPU và tạo ra
+nó không được gắn thẻ, không mong muốn.
+
+Khác biệt với cấu hình được mô tả trong ZZ0000ZZ
+VLAN 1 mặc định phải được xóa khỏi cấu hình giao diện người dùng trong
+cấu hình cổng và cổng đơn, trong khi không cần thêm cổng bổ sung
+Cấu hình VLAN trong tủ trưng bày cầu nối.
+
+cổng đơn
+~~~~~~~~~~~
+Cấu hình chỉ có thể được thiết lập thông qua gắn thẻ VLAN và thiết lập cầu nối.
+Theo mặc định, các gói được gắn thẻ vid 1:
+
+.. code-block:: sh
+
+  # tag traffic on CPU port
+  ip link add link eth0 name eth0.1 type vlan id 1
+  ip link add link eth0 name eth0.2 type vlan id 2
+  ip link add link eth0 name eth0.3 type vlan id 3
+
+  # The conduit interface needs to be brought up before the user ports.
+  ip link set eth0 up
+  ip link set eth0.1 up
+  ip link set eth0.2 up
+  ip link set eth0.3 up
+
+  # bring up the user interfaces
+  ip link set wan up
+  ip link set lan1 up
+  ip link set lan2 up
+
+  # create bridge
+  ip link add name br0 type bridge
+
+  # activate VLAN filtering
+  ip link set dev br0 type bridge vlan_filtering 1
+
+  # add ports to bridges
+  ip link set dev wan master br0
+  ip link set dev lan1 master br0
+  ip link set dev lan2 master br0
+
+  # tag traffic on ports
+  bridge vlan add dev lan1 vid 2 pvid untagged
+  bridge vlan del dev lan1 vid 1
+  bridge vlan add dev lan2 vid 3 pvid untagged
+  bridge vlan del dev lan2 vid 1
+
+  # configure the VLANs
+  ip addr add 192.0.2.1/30 dev eth0.1
+  ip addr add 192.0.2.5/30 dev eth0.2
+  ip addr add 192.0.2.9/30 dev eth0.3
+
+  # bring up the bridge devices
+  ip link set br0 up
+
+
+cầu
+~~~~~~
+
+.. code-block:: sh
+
+  # tag traffic on CPU port
+  ip link add link eth0 name eth0.1 type vlan id 1
+
+  # The conduit interface needs to be brought up before the user ports.
+  ip link set eth0 up
+  ip link set eth0.1 up
+
+  # bring up the user interfaces
+  ip link set wan up
+  ip link set lan1 up
+  ip link set lan2 up
+
+  # create bridge
+  ip link add name br0 type bridge
+
+  # activate VLAN filtering
+  ip link set dev br0 type bridge vlan_filtering 1
+
+  # add ports to bridge
+  ip link set dev wan master br0
+  ip link set dev lan1 master br0
+  ip link set dev lan2 master br0
+  ip link set eth0.1 master br0
+
+  # configure the bridge
+  ip addr add 192.0.2.129/25 dev br0
+
+  # bring up the bridge
+  ip link set dev br0 up
+
+cửa ngõ
+~~~~~~~
+
+.. code-block:: sh
+
+  # tag traffic on CPU port
+  ip link add link eth0 name eth0.1 type vlan id 1
+  ip link add link eth0 name eth0.2 type vlan id 2
+
+  # The conduit interface needs to be brought up before the user ports.
+  ip link set eth0 up
+  ip link set eth0.1 up
+  ip link set eth0.2 up
+
+  # bring up the user interfaces
+  ip link set wan up
+  ip link set lan1 up
+  ip link set lan2 up
+
+  # create bridge
+  ip link add name br0 type bridge
+
+  # activate VLAN filtering
+  ip link set dev br0 type bridge vlan_filtering 1
+
+  # add ports to bridges
+  ip link set dev wan master br0
+  ip link set eth0.1 master br0
+  ip link set dev lan1 master br0
+  ip link set dev lan2 master br0
+
+  # tag traffic on ports
+  bridge vlan add dev wan vid 2 pvid untagged
+  bridge vlan del dev wan vid 1
+
+  # configure the VLANs
+  ip addr add 192.0.2.1/30 dev eth0.2
+  ip addr add 192.0.2.129/25 dev br0
+
+  # bring up the bridge devices
+  ip link set br0 up

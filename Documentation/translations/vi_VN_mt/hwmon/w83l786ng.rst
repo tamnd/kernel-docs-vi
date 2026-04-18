@@ -1,0 +1,80 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83l786ng.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83l786ng
+=======================
+
+Chip được hỗ trợ:
+
+* Winbond W83L786NG/W83L786NR
+
+Tiền tố: 'w83l786ng'
+
+Địa chỉ được quét: I2C 0x2e - 0x2f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Kevin Lo <kevlo@kevlo.org>
+
+
+Thông số mô-đun
+-----------------
+
+* đặt lại boolean
+    (mặc định 0)
+
+Sử dụng 'reset=1' để đặt lại chip (thông qua chỉ số 0x40, bit 7). Mặc định
+    hành vi không được thiết lập lại chip để duy trì cài đặt BIOS
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip Winbond W83L786NG/W83L786NR.
+
+Người lái thực hiện hai cảm biến nhiệt độ, hai tốc độ quay của quạt
+cảm biến và ba cảm biến điện áp.
+
+Nhiệt độ được đo bằng độ C và độ phân giải đo là 1
+degC cho temp1 và temp2.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Bài đọc của người hâm mộ
+có thể được chia bằng một bộ chia có thể lập trình (1, 2, 4, 8, 16, 32, 64
+hoặc 128 cho quạt 1/2) để cung cấp phạm vi đọc hoặc độ chính xác cao hơn.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng tính bằng milivolt.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa.
+
+tập tin /sys
+----------
+
+pwm[1-2]
+	    - tệp này lưu trữ chu kỳ nhiệm vụ PWM hoặc giá trị DC (tốc độ quạt) trong phạm vi:
+
+0 (dừng) đến 255 (đầy đủ)
+pwm[1-2]_enable
+	    - file này điều khiển chế độ điều khiển quạt/nhiệt độ:
+
+* 0 Chế độ thủ công
+	    * 1 Du thuyền nhiệt
+	    * 2 Quạt thông minh II
+	    * 4 FAN_SET
+pwm[1-2]_mode
+	    - Chọn PWM của chế độ DC
+
+* 0 DC
+	    * 1 PWM
+khoan dung[1-2]
+	    - Giá trị tính bằng độ C (degC) cho + - T

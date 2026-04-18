@@ -1,0 +1,50 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/misc-devices/ics932s401.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===========================
+Trình điều khiển hạt nhân ics932s401
+========================
+
+Chip được hỗ trợ:
+
+* IDT ICS932S401
+
+Tiền tố: 'ics932s401'
+
+Địa chỉ được quét: I2C 0x69
+
+Bảng dữ liệu: Có sẵn công khai tại trang web IDT
+
+Tác giả: Darrick J. Wong
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho dòng chip IDT ICS932S401.
+
+Con chip này có 4 đầu ra xung nhịp--đồng hồ cơ bản cho CPU (có thể là
+nhân lên để có được đồng hồ CPU thực), đồng hồ hệ thống, đồng hồ PCI, USB
+đồng hồ và đồng hồ tham chiếu.  Trình điều khiển báo cáo đã chọn và thực tế
+tần số.  Nếu chế độ trải phổ được bật, trình điều khiển cũng sẽ báo cáo những gì
+phần trăm tín hiệu đồng hồ đang được trải rộng, nằm trong khoảng từ 0 đến -0,5%.
+Tất cả tần số được báo cáo bằng KHz.
+
+ICS932S401 giám sát liên tục tất cả các đầu vào. Trình điều khiển sẽ không đọc
+các thanh ghi thường xuyên hơn một lần mỗi giây.
+
+Tính năng đặc biệt
+----------------
+
+Đồng hồ có thể được lập trình lại để tăng tốc độ hệ thống.  Tôi sẽ không giúp bạn
+hãy làm điều này vì bạn có nguy cơ làm hỏng hệ thống của mình!

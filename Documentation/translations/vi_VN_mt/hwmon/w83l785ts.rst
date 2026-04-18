@@ -1,0 +1,59 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83l785ts.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83l785ts
+=======================
+
+Chip được hỗ trợ:
+
+* Winbond W83L785TS-S
+
+Tiền tố: 'w83l785ts'
+
+Địa chỉ được quét: I2C 0x2e
+
+Bảng dữ liệu: Có sẵn công khai tại trang web Winbond USA
+
+ZZ0000ZZ
+
+tác giả:
+	Jean Delvare <jdelvare@suse.de>
+
+Sự miêu tả
+-----------
+
+W83L785TS-S là cảm biến nhiệt độ kỹ thuật số. Nó cảm nhận được
+nhiệt độ của một diode bên ngoài. Giới hạn cao là
+về mặt lý thuyết được xác định là 85 hoặc 100 độ C thông qua sự kết hợp
+của điện trở bên ngoài nên người dùng không thể thay đổi được. Giá trị nhìn thấy như vậy
+cho đến nay hai giới hạn có thể thực sự là 95 và 110
+độ C. Bảng dữ liệu khá nghèo nàn và rõ ràng là không chính xác
+trên một số điểm bao gồm cả điểm này.
+
+Tất cả các giá trị nhiệt độ được tính bằng độ C. Độ phân giải
+là 1,0 độ. Xem bảng dữ liệu để biết chi tiết.
+
+Trình điều khiển w83l785ts sẽ không cập nhật giá trị của nó thường xuyên hơn
+mỗi giây khác; đọc chúng thường xuyên hơn sẽ không có hại gì, nhưng sẽ
+trả về giá trị 'cũ'.
+
+Sự cố đã biết
+------------
+
+Trên một số hệ thống (Asus), BIOS được biết là can thiệp vào trình điều khiển
+và gây ra lỗi đọc. Hoặc có thể chip W83L785TS-S đơn giản là không đáng tin cậy,
+chúng tôi thực sự không biết. Trình điều khiển sẽ thử lại một số lần nhất định
+(mặc định là 5) rồi bỏ cuộc, trả về giá trị cũ (hoặc 0 nếu
+không có giá trị cũ). Nó có vẻ hoạt động đủ tốt nên bạn nên
+không để ý gì cả. Cảm ơn James Bolt đã giúp kiểm tra tính năng này.

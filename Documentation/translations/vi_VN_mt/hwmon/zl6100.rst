@@ -1,0 +1,273 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/zl6100.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân zl6100
+====================
+
+Chip được hỗ trợ:
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL2004
+
+Tiền tố: 'zl2004'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL2005
+
+Tiền tố: 'zl2005'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL2006
+
+Tiền tố: 'zl2006'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL2008
+
+Tiền tố: 'zl2008'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL2105
+
+Tiền tố: 'zl2105'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL2106
+
+Tiền tố: 'zl2106'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL6100
+
+Tiền tố: 'zl6100'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL6105
+
+Tiền tố: 'zl6105'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL8802
+
+Tiền tố: 'zl8802'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL9101M
+
+Tiền tố: 'zl9101'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZL9117M
+
+Tiền tố: 'zl9117'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Phòng thí nghiệm Renesas / Intersil / Zilker ZLS1003, ZLS4009
+
+Tiền tố: 'zls1003', zls4009
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Chưa được công bố
+
+* Linh hoạt BMR450, BMR451
+
+Tiền tố: 'bmr450', 'bmr451'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Linh hoạt BMR462, BMR463, BMR464
+
+Tiền tố: 'bmr462', 'bmr463', 'bmr464'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Linh hoạt BMR465, BMR467
+
+Tiền tố: 'bmr465', 'bmr467'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Linh hoạt BMR466
+
+Tiền tố: 'bmr466'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Linh hoạt BMR469
+
+Tiền tố: 'bmr469'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Renesas / Intersil / Zilker Labs
+ZL6100 và bộ điều khiển DC-DC kỹ thuật số tương thích.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst và Documentation.hwmon/pmbus-core để biết chi tiết
+trên trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+.. warning::
+
+  Do not access chip registers using the i2cdump command, and do not use
+  any of the i2ctools commands on a command register used to save and restore
+  configuration data (0x11, 0x12, 0x15, 0x16, and 0xf4). The chips supported by
+  this driver interpret any access to those command registers (including read
+  commands) as request to execute the command in question. Unless write accesses
+  to those registers are protected, this may result in power loss, board resets,
+  and/or Flash corruption. Worst case, your board may turn into a brick.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Thông số mô-đun
+-----------------
+
+trì hoãn
+-----
+
+Bộ điều khiển DC-DC của Renesas/Intersil/Zilker Labs yêu cầu khoảng thời gian tối thiểu
+giữa các lần truy cập xe buýt I2C. Theo Intersil, khoảng thời gian tối thiểu là 2 ms,
+mặc dù 1 ms có vẻ là đủ và không gây ra bất kỳ vấn đề nào trong quá trình thử nghiệm.
+Sự cố được biết là ảnh hưởng đến tất cả các chip hiện được hỗ trợ. Để ghi đè thủ công,
+trình điều khiển cung cấp một tham số mô-đun có thể ghi, 'độ trễ', có thể được sử dụng
+để đặt khoảng thời gian thành giá trị trong khoảng từ 0 đến 65,535 micro giây.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
+thuộc tính chỉ đọc.
+
+=====================================================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào.
+in1_min Điện áp đầu vào tối thiểu.
+in1_max Điện áp đầu vào tối đa.
+in1_lcrit Điện áp đầu vào tối thiểu tới hạn.
+in1_crit Điện áp đầu vào tối đa tới hạn.
+in1_min_alarm Báo động điện áp đầu vào thấp.
+in1_max_alarm Báo động điện áp đầu vào cao.
+in1_lcrit_alarm Báo động điện áp đầu vào cực thấp.
+in1_crit_alarm Báo động điện áp đầu vào tới hạn cao.
+
+in2_label "vmon"
+in2_input Đo điện áp trên VMON (ZL2004) hoặc VDRV (ZL9101M,
+			Chân ZL9117M). Điện áp được báo cáo là 16 lần điện áp trên
+			pin (được điều chỉnh bên trong bằng chip).
+in2_lcrit Điện áp tối thiểu quan trọng VMON/VDRV.
+in2_crit Điện áp VMON/VDRV tối đa tới hạn.
+in2_lcrit_alarm VMON/VDRV báo động điện áp thấp tới hạn.
+báo động điện áp cao tới hạn in2_crit_alarm VMON/VDRV.
+
+thuộc tính vmon được hỗ trợ trên ZL2004, ZL8802,
+			Chỉ ZL9101M, ZL9117M và ZLS4009.
+
+inX_label "vout[12]"
+inX_input Đo điện áp đầu ra.
+inX_lcrit Điện áp đầu ra tối thiểu quan trọng.
+inX_crit Điện áp đầu ra tối đa tới hạn.
+inX_lcrit_alarm Báo động điện áp đầu ra tới hạn ở mức thấp tới hạn.
+inX_crit_alarm Báo động điện áp đầu ra tới hạn ở mức cao tới hạn.
+
+X là 3 cho ZL2004, ZL9101M và ZL9117M,
+			3, 4 cho ZL8802 và 2 cho các trường hợp khác.
+
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào.
+
+Thuộc tính iin chỉ được hỗ trợ trên ZL8802
+
+currY_label "iout[12]"
+currY_input Đo dòng điện đầu ra.
+currY_lcrit Dòng điện đầu ra tối thiểu quan trọng.
+CurrY_crit Dòng điện đầu ra tối đa tới hạn.
+currY_lcrit_alarm Xuất cảnh báo hiện tại ở mức thấp tới hạn.
+currY_crit_alarm Xuất cảnh báo tới hạn hiện tại ở mức cao.
+
+Y là 2, 3 cho ZL8802, ngược lại là 1
+
+temp[12]_input Đo nhiệt độ.
+temp[12]_min Nhiệt độ tối thiểu.
+temp[12]_max Nhiệt độ tối đa.
+temp[12]_lcrit Nhiệt độ thấp tới hạn.
+temp[12]_crit Nhiệt độ cao tới hạn.
+temp[12]_min_alarm Báo động nhiệt độ chip thấp.
+temp[12]_max_alarm Báo động nhiệt độ chip cao.
+temp[12]_lcrit_alarm Báo động nhiệt độ chip ở mức thấp tới hạn.
+temp[12]_crit_alarm Báo động nhiệt độ chip tới hạn cao.
+=====================================================================================

@@ -1,0 +1,96 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/userspace-api/media/drivers/dw100.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển Dewarp DW100
+===================
+
+Lõi IP của Bộ xử lý Dewarp Vivante DW100 được tìm thấy trên i.MX8MP SoC áp dụng một
+chuyển đổi hình học có thể lập trình trên hình ảnh đầu vào để sửa méo
+được giới thiệu bởi thấu kính.
+
+Hàm chuyển đổi được phần cứng hiển thị dưới dạng bản đồ lưới có kích thước 16x16
+macroblock pixel được lập chỉ mục bằng tọa độ đỉnh X, Y.
+::
+
+Chiều rộng hình ảnh
+           <--------------------------------------->
+
+^ -----------------------------------.-------.-------.
+      ZZ0000ZZ 16x16 ZZ0001ZZ ZZ0002ZZ |
+   I ZZ0003ZZ pixel ZZ0004ZZ ZZ0005ZZ |
+   khối ZZ0006ZZ ZZ0007ZZ ZZ0008ZZ |
+   một |    -----------------------------------.-------.
+   g ZZ0009ZZ ZZ0010ZZ ZZ0011ZZ |
+   e ZZ0012ZZ ZZ0013ZZ ZZ0014ZZ |
+      ZZ0015ZZ ZZ0016ZZ ZZ0017ZZ |
+   h |    -----------------------------------.-------.
+   e ZZ0018ZZ ZZ0019ZZ ZZ0020ZZ |
+   và ZZ0021ZZ ZZ0022ZZ ZZ0023ZZ |
+   g ZZ0024ZZ ZZ0025ZZ ZZ0026ZZ |
+   h |    -----------------------------------.-------.
+   t ZZ0027ZZ ZZ0028ZZ ZZ0029ZZ |
+      ZZ0030ZZ ZZ0031ZZ ZZ0032ZZ |
+      ZZ0033ZZ ZZ0034ZZ ZZ0035ZZ |
+      v '-------'-------'-------'-------'-------'
+
+Lưới các khối hình ảnh cho bản đồ làm mờ
+
+
+Mỗi thanh ghi tọa độ x, y sử dụng 16 bit để ghi địa chỉ tọa độ trong
+định dạng điểm cố định 12.4 không dấu (UQ12.4).
+::
+
+.--------------------------.--------..----------------------.--------.
+    ZZ0000ZZ 19~16 |ZZ0001ZZ 3~0 |
+    ZZ0002ZZ (phân đoạn) |ZZ0003ZZ (phân đoạn) |
+    '-------------'--------''----------------------'--------'
+    <--------------------------------------------------------------------------------------------
+                Tọa độ Y tọa độ X
+
+Bố cục đăng ký ánh xạ lại
+
+Bản đồ độ cong được thiết lập từ các ứng dụng sử dụng
+Điều khiển V4L2_CID_DW100_DEWARPING_16x16_VERTEX_MAP. Việc kiểm soát có chứa
+một mảng các giá trị u32 lưu trữ tọa độ đích (x, y) cho mỗi
+đỉnh của lưới. Tọa độ x được lưu trữ trong 16 LSB và tọa độ y
+phối hợp trong 16 MSB.
+
+Số phần tử trong mảng phải phù hợp với kích thước hình ảnh:
+
+.. code-block:: C
+
+    elems = (DIV_ROUND_UP(width, 16) + 1) * (DIV_ROUND_UP(height, 16) + 1);
+
+Nếu ứng dụng chưa đặt quyền kiểm soát, trình điều khiển sẽ sử dụng danh tính
+bản đồ.
+
+Bạn có thể tìm thêm thông tin chi tiết về hoạt động phần cứng DW100 trong
+ZZ0000ZZ của tài liệu tham khảo IMX8MP_.
+
+Trình điều khiển Vivante DW100 m2m thực hiện điều khiển dành riêng cho trình điều khiển sau:
+
+ZZ0000ZZ
+    Chỉ định cho trình điều khiển DW100 blob bản đồ giảm độ cong (còn gọi là LUT) như được mô tả trong
+    Hướng dẫn tham khảo ZZ0001ZZ của IMX8MP_ dưới dạng U32
+    mảng động. Hình ảnh được chia thành nhiều khối nhỏ 16x16. Nếu
+    chiều rộng/chiều cao của hình ảnh không chia hết cho 16, kích thước của
+    khối ngoài cùng bên phải/dưới cùng là phần còn lại. Bản đồ rã đông chỉ lưu
+    tọa độ đỉnh của khối. Bản đồ lưới giảm độ cong bao gồm
+    tọa độ đỉnh của x và y. Mỗi thanh ghi tọa độ x, y sử dụng 16 bit
+    (UQ12.4) để ghi địa chỉ tọa độ, với tọa độ Y trong
+    bit trên và X ở bit dưới. Trình điều khiển sửa đổi kích thước của
+    điều khiển này khi định dạng chìm được thay đổi, để phản ánh đầu vào mới
+    độ phân giải.
+
+.. _IMX8MP: https://www.nxp.com/webapp/Download?colCode=IMX8MPRM

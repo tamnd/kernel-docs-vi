@@ -1,0 +1,194 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/w83791d.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w83791d
+=====================
+
+Chip được hỗ trợ:
+
+* Winbond W83791D
+
+Tiền tố: 'w83791d'
+
+Địa chỉ được quét: I2C 0x2c - 0x2f
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Charles Spirakis <bezaur@gmail.com>
+
+Trình điều khiển này được lấy từ các tệp nguồn w83781d.c và w83792d.c.
+
+Tín dụng:
+
+w83781d.c:
+
+- Frodo Looijaard <frodol@dds.nl>,
+    - Philip Edelbrock <phil@netroedge.com>,
+    - Mark Studebaker <mdsxyz123@yahoo.com>
+
+w83792d.c:
+
+- Shane Huang (Winbond),
+    - Rudolf Marek <r.marek@assembler.cz>
+
+Những người đóng góp bổ sung:
+
+- Sven Anders <anders@anduras.de>
+    - Marc Hulsman <m.hulsman@tudelft.nl>
+
+Thông số mô-đun
+-----------------
+
+* khởi tạo boolean
+    (mặc định 0)
+
+Sử dụng 'init=1' để yêu cầu trình điều khiển thực hiện các khởi tạo phần mềm bổ sung.
+    Hành vi mặc định là thực hiện khởi tạo tối thiểu có thể
+    và phụ thuộc vào BIOS để thiết lập chip đúng cách. Nếu bạn biết bạn
+    có w83791d và bạn đang gặp sự cố, hãy thử init=1 trước khi thử
+    đặt lại=1.
+
+* đặt lại boolean
+    (mặc định 0)
+
+Sử dụng 'reset=1' để đặt lại chip (thông qua chỉ số 0x40, bit 7). Mặc định
+    hành vi là không thiết lập lại chip để duy trì cài đặt BIOS.
+
+* Force_subclients=bus,caddr,saddr,saddr
+    Điều này được sử dụng để buộc các địa chỉ i2c cho các máy khách phụ của
+    một con chip nhất định. Ví dụ sử dụng là ZZ0000ZZ
+    để buộc các máy khách con của chip 0x2f trên địa chỉ bus 0 đến i2c
+    0x4a và 0x4b.
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho chip Winbond W83791D. W83791G
+chip có vẻ giống với W83791D nhưng không có chì.
+
+Việc phát hiện chip đôi khi có thể bị cản trở vì nó có thể ở trong một
+trạng thái nội bộ không cho phép truy cập rõ ràng (Ngân hàng có đăng ký ID không
+hiện đang được chọn). Nếu biết địa chỉ của chip, hãy dùng “lực”
+tham số; điều này trước tiên sẽ đưa nó vào trạng thái hoạt động tốt hơn.
+
+Người lái xe thực hiện ba cảm biến nhiệt độ, mười cảm biến điện áp,
+năm cảm biến tốc độ quay của quạt và điều khiển PWM thủ công cho từng quạt.
+
+Nhiệt độ được đo bằng độ C và độ phân giải đo là 1
+degC cho temp1 và 0,5 độC cho temp2 và temp3. Báo động sẽ được kích hoạt khi
+nhiệt độ cao hơn giá trị Tắt quá nhiệt; nó ở lại
+bật cho đến khi nhiệt độ giảm xuống dưới giá trị Độ trễ.
+
+Cảm biến điện áp (còn được gọi là cảm biến IN) báo cáo giá trị của chúng tính bằng milivolt.
+Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tối thiểu có thể lập trình
+hoặc giới hạn tối đa.
+
+Tốc độ quay của quạt được báo cáo bằng RPM (số vòng quay mỗi phút). Một báo động là
+được kích hoạt nếu tốc độ quay giảm xuống dưới giới hạn có thể lập trình. quạt
+số đọc có thể được chia cho một bộ chia có thể lập trình (1, 2, 4, 8, 16,
+32, 64 hoặc 128 cho tất cả các quạt) để mang lại phạm vi đo hoặc độ chính xác cao hơn.
+
+Mỗi quạt điều khiển được điều khiển bởi PWM. Chu kỳ nhiệm vụ PWM có thể được đọc và
+đặt riêng cho từng quạt. Các giá trị hợp lệ nằm trong khoảng từ 0 (dừng) đến 255 (đầy đủ).
+PWM 1-3 hỗ trợ chế độ Hành trình nhiệt, trong đó các tín hiệu xung điện được tự động điều chỉnh
+được điều chỉnh để giữ nhiệt độ tương ứng 1-3 ở nhiệt độ mục tiêu nhất định.
+Xem bên dưới để biết mô tả về giao diện sysfs.
+
+w83791d có một bit chung được sử dụng để kích hoạt tiếng bíp từ loa khi
+cảnh báo được kích hoạt cũng như mặt nạ bit để bật hoặc tắt tiếng bíp cho
+báo động cụ thể. Bạn cần cả bit kích hoạt tiếng bíp chung và
+bit bíp tương ứng sẽ bật để cảnh báo được kích hoạt phát ra tiếng bíp.
+
+Giao diện sysfs để kích hoạt toàn cục thông qua tệp sysfs beep_enable.
+Tệp này được sử dụng cho cả mã cũ và mã mới.
+
+Giao diện sysfs với bitmask tiếng bíp đã được di chuyển từ phiên bản gốc
+phương thức của một tệp sysfs beep_mask sang một phương thức mới hơn bằng cách sử dụng nhiều
+Các tệp ZZ0000ZZ như được mô tả trong ZZ0001ZZ.
+
+Một thay đổi tương tự đã xảy ra đối với bitmap tương ứng với các cảnh báo. các
+phương thức kế thừa ban đầu đã sử dụng một tệp cảnh báo sysfs có chứa bitmap
+của các báo động được kích hoạt. Phương pháp mới hơn sử dụng nhiều tệp ZZ0000ZZ của sysfs
+(một lần nữa theo mẫu được mô tả trong giao diện sysfs).
+
+Vì cả hai phương pháp đều đọc và ghi phần cứng cơ bản nên chúng có thể được sử dụng
+có thể thay thế cho nhau và những thay đổi trong một cái sẽ tự động được phản ánh bởi
+cái khác. Nếu bạn sử dụng phương pháp bitmask cũ, mã vùng người dùng của bạn là
+chịu trách nhiệm xử lý thực tế là các cảnh báo và bitmap beep_mask
+không giống nhau (xem bảng bên dưới).
+
+NOTE: Tất cả mã mới phải được viết để sử dụng giao diện sysfs mới hơn
+đặc điểm kỹ thuật vì điều đó tránh được các vấn đề về bitmap và là giao diện được ưa thích
+đang tiến về phía trước.
+
+Trình điều khiển đọc các giá trị chip phần cứng tối đa ba giây một lần.
+Mã chế độ người dùng yêu cầu giá trị thường xuyên hơn sẽ nhận được các giá trị được lưu trong bộ nhớ đệm.
+
+tập tin /sys
+----------
+Giao diện sysfs được ghi lại trong tệp 'giao diện sysfs'. Chỉ
+các tùy chọn dành riêng cho chip được ghi lại ở đây.
+
+====================================================================================
+pwm[1-3]_enable tập tin này điều khiển chế độ điều khiển quạt/nhiệt độ cho
+			quạt 1-3. Fan/PWM 4-5 chỉ hỗ trợ chế độ thủ công.
+
+* 1 chế độ thủ công
+			    * 2 chế độ Du thuyền Nhiệt
+			    * Chế độ hành trình 3 tốc độ quạt (không hỗ trợ thêm)
+
+temp[1-3]_target xác định nhiệt độ mục tiêu cho chế độ Du lịch nhiệt.
+			Đơn vị: mili độ C
+			RW
+
+temp[1-3]_tolerance dung sai nhiệt độ cho chế độ Thermal Cruise.
+			Chỉ định một khoảng thời gian xung quanh nhiệt độ mục tiêu
+			trong đó tốc độ quạt không thay đổi.
+			Đơn vị: mili độ C
+			RW
+====================================================================================
+
+Bitmap cảnh báo so với bitmask beep_mask
+-----------------------------------
+
+Đối với mã kế thừa sử dụng các tệp cảnh báo và beep_mask:
+
+============== ==============================================
+Tín hiệu Cảnh báo bíp_mask Quan sát
+============== ==============================================
+in0 (VCORE) 0x000001 0x000001
+in1 (VINR0) 0x000002 0x002000 <== không khớp
+in2 (+3.3VIN) 0x000004 0x000004
+in3 (5VDD) 0x000008 0x000008
+in4 (+12VIN) 0x000100 0x000100
+in5 (-12VIN) 0x000200 0x000200
+in6 (-5VIN) 0x000400 0x000400
+in7 (VSB) 0x080000 0x010000 <== không khớp
+in8 (VBAT) 0x100000 0x020000 <== không khớp
+in9 (VINR1) 0x004000 0x004000
+nhiệt độ1 0x000010 0x000010
+nhiệt độ2 0x000020 0x000020
+temp3 0x002000 0x000002 <== không khớp
+fan1 0x000040 0x000040
+fan2 0x000080 0x000080
+fan3 0x000800 0x000800
+fan4 0x200000 0x200000
+fan5 0x400000 0x400000
+tart1 0x010000 0x040000 <== không khớp
+tart2 0x020000 0x080000 <== không khớp
+tart3 0x040000 0x100000 <== không khớp
+case_open 0x001000 0x001000
+Global_enable - 0x800000 (được sửa đổi qua beep_enable)
+============== ==============================================

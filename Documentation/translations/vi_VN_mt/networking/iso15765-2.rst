@@ -1,0 +1,398 @@
+.. SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/networking/iso15765-2.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+======================
+ISO 15765-2 (ISO-TP)
+====================
+
+Tổng quan
+========
+
+ISO 15765-2, còn được gọi là ISO-TP, là giao thức truyền tải được xác định cụ thể
+để liên lạc chẩn đoán trên CAN. Nó được sử dụng rộng rãi trong ô tô
+công nghiệp, ví dụ như giao thức truyền tải cho UDSonCAN (ISO 14229-3) hoặc
+dịch vụ chẩn đoán liên quan đến khí thải (ISO 15031-5).
+
+ISO-TP có thể được sử dụng cả trên CAN CC (còn gọi là CAN cổ điển) và CAN FD (CAN với
+Mạng dựa trên Datarate linh hoạt). Nó cũng được thiết kế để tương thích với
+Mạng CAN sử dụng SAE J1939 làm lớp liên kết dữ liệu (tuy nhiên, đây không phải là
+yêu cầu).
+
+Thông số kỹ thuật được sử dụng
+-------------------
+
+* ISO 15765-2:2024 : Phương tiện giao thông đường bộ - Giao tiếp chẩn đoán qua Bộ điều khiển
+  Mạng khu vực (DoCAN). Phần 2: Giao thức vận chuyển và các dịch vụ lớp mạng.
+
+Địa chỉ
+----------
+
+Ở dạng đơn giản nhất, ISO-TP dựa trên hai loại chế độ địa chỉ cho
+các nút được kết nối với cùng một mạng:
+
+* địa chỉ vật lý được thực hiện bởi hai địa chỉ dành riêng cho nút và được sử dụng
+  trong giao tiếp 1-1.
+
+* địa chỉ chức năng được thực hiện bởi một địa chỉ cụ thể của nút và được sử dụng
+  trong giao tiếp 1-to-N.
+
+Ba định dạng địa chỉ khác nhau có thể được sử dụng:
+
+* "bình thường" : mỗi địa chỉ được biểu thị đơn giản bằng ID CAN.
+
+* "mở rộng": mỗi địa chỉ được biểu thị bằng ID CAN cộng với byte đầu tiên của
+  tải trọng CAN; cả ID CAN và byte bên trong tải trọng sẽ là
+  khác nhau giữa hai địa chỉ.
+
+* "hỗn hợp": mỗi địa chỉ được biểu thị bằng ID CAN cộng với byte đầu tiên của
+  tải trọng CAN; ID CAN khác nhau giữa hai địa chỉ, nhưng
+  byte bổ sung là như nhau.
+
+Giao thức vận chuyển và các loại khung liên quan
+---------------------------------------------
+
+Khi truyền dữ liệu bằng giao thức ISO-TP, tải trọng có thể vừa
+bên trong một tin nhắn CAN duy nhất hay không, đồng thời xem xét chi phí hoạt động của giao thức
+đang tạo và địa chỉ mở rộng tùy chọn. Trong trường hợp đầu tiên, dữ liệu
+được truyền đi cùng một lúc bằng cách sử dụng cái gọi là Khung đơn (SF). Trong trường hợp thứ hai,
+ISO-TP xác định giao thức đa khung, trong đó người gửi cung cấp (thông qua
+Khung đầu tiên - FF) độ dài PDU sẽ được truyền đi và cũng yêu cầu
+Khung Kiểm soát luồng (FC), cung cấp kích thước được hỗ trợ tối đa của macro
+khối dữ liệu (ZZ0000ZZ) và thời gian tối thiểu giữa các tin nhắn CAN đơn lẻ
+soạn khối như vậy (ZZ0001ZZ). Sau khi nhận được thông tin này,
+người gửi bắt đầu gửi các khung chứa các đoạn tải trọng dữ liệu (được gọi là
+Các khung liên tiếp - CF), dừng sau mỗi khối có kích thước ZZ0002ZZ để chờ
+xác nhận từ người nhận, sau đó sẽ gửi Kiểm soát luồng khác
+frame để thông báo cho người gửi về tính khả dụng của nó để nhận thêm dữ liệu.
+
+Cách sử dụng ISO-TP
+=================
+
+Giống như các giao thức CAN khác, hỗ trợ ngăn xếp ISO-TP được tích hợp vào
+Hệ thống con mạng Linux cho bus CAN, hay còn gọi là. Linux-CAN hoặc SocketCAN và
+do đó đi theo cùng một ổ cắm API.
+
+Tạo và sử dụng cơ bản ổ cắm ISO-TP
+--------------------------------------------
+
+Để sử dụng ngăn xếp ISO-TP, phải sử dụng ZZ0000ZZ. A
+socket sau đó có thể được tạo bằng cách sử dụng họ giao thức ZZ0001ZZ,
+Loại ZZ0002ZZ (vì giao thức cơ bản dựa trên datagram theo thiết kế)
+và giao thức ZZ0003ZZ:
+
+.. code-block:: C
+
+    s = socket(PF_CAN, SOCK_DGRAM, CAN_ISOTP);
+
+Sau khi ổ cắm được tạo thành công, ZZ0000ZZ sẽ được gọi tới
+liên kết ổ cắm với giao diện CAN mong muốn; để làm như vậy:
+
+* ID TX CAN phải được chỉ định như một phần của sockaddr được cung cấp cho cuộc gọi
+  chính nó.
+
+* ID RX CAN cũng phải được chỉ định, trừ khi cờ phát sóng đã được đặt
+  thông qua tùy chọn ổ cắm (được giải thích bên dưới).
+
+Sau khi được liên kết với một giao diện, ổ cắm có thể được đọc và ghi vào bằng cách sử dụng
+các cuộc gọi hệ thống ZZ0000ZZ và ZZ0001ZZ thông thường, cũng như ZZ0002ZZ,
+ZZ0003ZZ, ZZ0004ZZ và ZZ0005ZZ.
+Không giống như ổ cắm CAN_RAW API, chỉ có trường dữ liệu ISO-TP (tải trọng thực tế)
+được gửi và nhận bởi ứng dụng không gian người dùng bằng các lệnh gọi này. Địa chỉ
+thông tin và thông tin giao thức được ISO-TP tự động điền
+ngăn xếp bằng cách sử dụng cấu hình được cung cấp trong quá trình tạo ổ cắm. Theo cách tương tự,
+ngăn xếp sẽ sử dụng cơ chế vận chuyển khi được yêu cầu (tức là khi kích thước
+tải trọng dữ liệu vượt quá MTU của bus CAN cơ bản).
+
+Cấu trúc sockaddr được sử dụng cho SocketCAN có các phần mở rộng để sử dụng với ISO-TP,
+như được chỉ định dưới đây:
+
+.. code-block:: C
+
+    struct sockaddr_can {
+        sa_family_t can_family;
+        int         can_ifindex;
+        union {
+            struct { canid_t rx_id, tx_id; } tp;
+        ...
+        } can_addr;
+    }
+
+* ZZ0000ZZ và ZZ0001ZZ phục vụ cùng mục đích như các loại khác
+  Ổ cắm SocketCAN.
+
+* ZZ0000ZZ chỉ định ID CAN nhận (RX) và sẽ được sử dụng làm
+  bộ lọc RX.
+
+* ZZ0000ZZ chỉ định ID CAN truyền (TX)
+
+Tùy chọn ổ cắm ISO-TP
+---------------------
+
+Khi tạo ổ cắm ISO-TP, các giá trị mặc định hợp lý sẽ được đặt. Một số tùy chọn có thể
+được sửa đổi bằng ZZ0000ZZ và/hoặc đọc lại bằng ZZ0001ZZ.
+
+Tùy chọn chung
+~~~~~~~~~~~~~~~
+
+Các tùy chọn ổ cắm chung có thể được chuyển bằng tên optname ZZ0000ZZ:
+
+.. code-block:: C
+
+    struct can_isotp_options opts;
+    ret = setsockopt(s, SOL_CAN_ISOTP, CAN_ISOTP_OPTS, &opts, sizeof(opts))
+
+trong đó cấu trúc ZZ0000ZZ có nội dung sau:
+
+.. code-block:: C
+
+    struct can_isotp_options {
+        u32 flags;
+        u32 frame_txtime;
+        u8  ext_address;
+        u8  txpad_content;
+        u8  rxpad_content;
+        u8  rx_ext_address;
+    };
+
+* ZZ0000ZZ: công cụ sửa đổi được áp dụng cho hành vi mặc định của ISO-TP
+  ngăn xếp. Các cờ sau đây có sẵn:
+
+* ZZ0000ZZ: chỉ nghe (không gửi khung FC); bình thường
+    được sử dụng như một tính năng thử nghiệm.
+
+* ZZ0000ZZ: sử dụng byte được chỉ định trong ZZ0001ZZ làm
+    thành phần địa chỉ bổ sung. Điều này cho phép định dạng địa chỉ "hỗn hợp" nếu
+    được sử dụng một mình hoặc định dạng địa chỉ "mở rộng" nếu được sử dụng cùng với
+    ZZ0002ZZ.
+
+* ZZ0000ZZ: kích hoạt phần đệm cho các khung được truyền, sử dụng
+    ZZ0001ZZ làm giá trị cho các byte đệm.
+
+* ZZ0000ZZ: bật phần đệm cho các khung đã nhận, sử dụng
+    ZZ0001ZZ làm giá trị cho các byte đệm.
+
+* ZZ0000ZZ: kiểm tra độ dài đệm chính xác trên dữ liệu nhận được
+    khung.
+
+* ZZ0000ZZ: kiểm tra byte đệm trên các khung nhận được
+    chống lại ZZ0001ZZ; nếu ZZ0002ZZ không được chỉ định,
+    cờ này bị bỏ qua.
+
+* ZZ0000ZZ: buộc ổ cắm ISO-TP ở chế độ bán song công
+    (nghĩa là cơ chế vận chuyển chỉ có thể đến hoặc đi cùng một lúc).
+    thời gian, không phải cả hai).
+
+* ZZ0000ZZ: bỏ qua stmin từ FC đã nhận; bình thường
+    được sử dụng như một tính năng thử nghiệm.
+
+* ZZ0000ZZ: bỏ qua CF tùy theo rx stmin; bình thường
+    được sử dụng như một tính năng thử nghiệm.
+
+* ZZ0000ZZ: sử dụng ZZ0001ZZ thay vì ZZ0002ZZ
+    dưới dạng byte địa chỉ mở rộng trên đường dẫn nhận. Nếu dùng kết hợp
+    với ZZ0003ZZ, cờ này cho phép "mở rộng" một cách hiệu quả
+    dạng địa chỉ.
+
+* ZZ0000ZZ: đợi cho đến khi khung được gửi trước khi quay lại
+    từ các cuộc gọi ZZ0001ZZ và ZZ0002ZZ (tức là chặn hoạt động ghi).
+
+* ZZ0000ZZ: sử dụng địa chỉ chức năng 1 đến N (không thể
+    được chỉ định cùng với ZZ0001ZZ).
+
+* ZZ0000ZZ: sử dụng truyền 1-to-N mà không cần điều khiển luồng
+    (không thể chỉ định cùng với ZZ0001ZZ).
+    NOTE: điều này không nằm trong tiêu chuẩn ISO 15765-2.
+
+* ZZ0000ZZ: cho phép cập nhật động điều khiển luồng
+    các thông số.
+
+* ZZ0000ZZ: thời gian truyền khung (được định nghĩa là N_As/N_Ar bên trong
+  tiêu chuẩn ISO); nếu ZZ0001ZZ, giá trị mặc định (hoặc giá trị đặt cuối cùng) sẽ được sử dụng.
+  Để đặt thời gian truyền thành ZZ0002ZZ, ZZ0003ZZ
+  macro (bằng 0xFFFFFFFF) sẽ được sử dụng.
+
+* ZZ0000ZZ: byte địa chỉ mở rộng, được sử dụng nếu
+  Cờ ZZ0001ZZ được chỉ định.
+
+* ZZ0000ZZ: byte dùng làm giá trị đệm cho các khung được truyền.
+
+* ZZ0000ZZ: byte dùng làm giá trị đệm cho các khung nhận được.
+
+* ZZ0000ZZ: byte địa chỉ mở rộng cho đường dẫn nhận, được sử dụng nếu
+  cờ ZZ0001ZZ được chỉ định.
+
+Tùy chọn kiểm soát luồng
+~~~~~~~~~~~~~~~~~~~~
+
+Các tùy chọn Kiểm soát luồng (FC) có thể được chuyển bằng cách sử dụng tên lựa chọn ZZ0000ZZ
+để cung cấp các tham số liên lạc để nhận PDU ISO-TP.
+
+.. code-block:: C
+
+    struct can_isotp_fc_options fc_opts;
+    ret = setsockopt(s, SOL_CAN_ISOTP, CAN_ISOTP_RECV_FC, &fc_opts, sizeof(fc_opts));
+
+trong đó cấu trúc ZZ0000ZZ có nội dung sau:
+
+.. code-block:: C
+
+    struct can_isotp_options {
+        u8 bs;
+        u8 stmin;
+        u8 wftmax;
+    };
+
+* ZZ0000ZZ: kích thước khối được cung cấp trong khung điều khiển luồng.
+
+* ZZ0000ZZ: thời gian phân tách tối thiểu được cung cấp trong các khung điều khiển luồng; có thể
+  có các giá trị sau (các giá trị khác được bảo lưu):
+
+* 0x00 - 0x7F : 0 - 127 mili giây
+
+* 0xF1 - 0xF9 : 100 chúng tôi - 900 chúng tôi
+
+* ZZ0000ZZ: số lượng khung chờ tối đa được cung cấp trong các khung điều khiển luồng.
+
+Tùy chọn lớp liên kết
+~~~~~~~~~~~~~~~~~~
+
+Các tùy chọn Lớp liên kết (LL) có thể được chuyển bằng tên optname ZZ0000ZZ:
+
+.. code-block:: C
+
+    struct can_isotp_ll_options ll_opts;
+    ret = setsockopt(s, SOL_CAN_ISOTP, CAN_ISOTP_LL_OPTS, &ll_opts, sizeof(ll_opts));
+
+trong đó cấu trúc ZZ0000ZZ có nội dung sau:
+
+.. code-block:: C
+
+    struct can_isotp_ll_options {
+        u8 mtu;
+        u8 tx_dl;
+        u8 tx_flags;
+    };
+
+* ZZ0000ZZ: loại khung CAN được tạo và chấp nhận, có thể bằng ZZ0001ZZ
+  cho khung CAN cổ điển hoặc ZZ0002ZZ cho khung CAN FD.
+
+* ZZ0000ZZ: độ dài tải trọng tối đa cho các khung được truyền, có thể có một giá trị
+  trong số: 8, 12, 16, 20, 24, 32, 48, 64. Các giá trị trên 8 chỉ áp dụng cho CAN FD
+  lưu lượng truy cập (ví dụ: ZZ0001ZZ).
+
+* ZZ0000ZZ: cờ được đặt vào ZZ0001ZZ khi tạo khung.
+  Chỉ áp dụng cho lưu lượng CAN FD (tức là: ZZ0002ZZ).
+
+truyền tải stmin
+~~~~~~~~~~~~~~~~~~
+
+Thời gian tách tối thiểu truyền (stmin) có thể bị ép buộc bằng cách sử dụng
+Tên tùy chọn ZZ0000ZZ và cung cấp giá trị stmin tính bằng micro giây như
+số nguyên không dấu 32 bit; điều này sẽ ghi đè giá trị được gửi bởi người nhận trong
+khung điều khiển luồng:
+
+.. code-block:: C
+
+    uint32_t stmin;
+    ret = setsockopt(s, SOL_CAN_ISOTP, CAN_ISOTP_TX_STMIN, &stmin, sizeof(stmin));
+
+Lễ tân
+~~~~~~~~~~~~~~~
+
+Thời gian tách tối thiểu tiếp nhận (stmin) có thể bị ép buộc bằng cách sử dụng
+Tên tùy chọn ZZ0000ZZ và cung cấp giá trị stmin tính bằng micro giây như
+số nguyên không dấu 32 bit; đã nhận được các khung liên tiếp (CF) có dấu thời gian
+khác nhau ít hơn giá trị này sẽ bị bỏ qua:
+
+.. code-block:: C
+
+    uint32_t stmin;
+    ret = setsockopt(s, SOL_CAN_ISOTP, CAN_ISOTP_RX_STMIN, &stmin, sizeof(stmin));
+
+Hỗ trợ vận chuyển đa khung
+-----------------------------
+
+Ngăn xếp ISO-TP chứa bên trong nhân Linux hỗ trợ đa khung
+cơ chế vận chuyển được xác định theo tiêu chuẩn, với các ràng buộc sau:
+
+* kích thước tối đa của PDU được xác định bởi tham số mô-đun, với phần cứng
+  giới hạn áp đặt tại thời điểm xây dựng.
+
+* khi quá trình truyền đang diễn ra, các cuộc gọi tiếp theo tới ZZ0000ZZ sẽ
+  chặn, trong khi các cuộc gọi tới ZZ0001ZZ sẽ chặn hoặc không thành công tùy thuộc vào
+  sự hiện diện của cờ ZZ0002ZZ.
+
+* không có hỗ trợ nào cho việc gửi "khung chờ": liệu PDU có thể được gửi đầy đủ hay không
+  nhận được hay không được quyết định khi nhận được Khung đầu tiên.
+
+Lỗi
+------
+
+Các lỗi sau được báo cáo tới không gian người dùng:
+
+Lỗi đường dẫn RX
+~~~~~~~~~~~~~~
+
+============= =====================================================================
+-ETIMEDOUT hết thời gian nhận dữ liệu
+-EILSEQ số thứ tự không khớp trong quá trình tiếp nhận nhiều khung hình
+-EBADMSG tiếp nhận dữ liệu với phần đệm sai
+============= =====================================================================
+
+Lỗi đường dẫn TX
+~~~~~~~~~~~~~~
+
+=================================================================================
+-ECOMM hết thời gian tiếp nhận điều khiển luồng
+-EMSGSIZE tràn tiếp nhận điều khiển luồng
+-EBADMSG tiếp nhận điều khiển luồng với bố cục/phần đệm sai
+=================================================================================
+
+Ví dụ
+========
+
+Ví dụ về nút cơ bản
+------------------
+
+Ví dụ sau triển khai một nút sử dụng địa chỉ vật lý "bình thường", với
+ID RX bằng 0x18DAF142 và ID TX bằng 0x18DA42F1. Tất cả các tùy chọn còn lại
+theo mặc định của họ.
+
+.. code-block:: C
+
+  int s;
+  struct sockaddr_can addr;
+  int ret;
+
+  s = socket(PF_CAN, SOCK_DGRAM, CAN_ISOTP);
+  if (s < 0)
+      exit(1);
+
+  addr.can_family = AF_CAN;
+  addr.can_ifindex = if_nametoindex("can0");
+  addr.can_addr.tp.tx_id = 0x18DA42F1 | CAN_EFF_FLAG;
+  addr.can_addr.tp.rx_id = 0x18DAF142 | CAN_EFF_FLAG;
+
+  ret = bind(s, (struct sockaddr *)&addr, sizeof(addr));
+  if (ret < 0)
+      exit(1);
+
+  /* Data can now be received using read(s, ...) and sent using write(s, ...) */
+
+Ví dụ bổ sung
+-------------------
+
+Bạn có thể tìm thấy các ví dụ đầy đủ hơn (và phức tạp) bên trong vùng người dùng ZZ0000ZZ
+công cụ, được phân phối như một phần của tiện ích ZZ0001ZZ tại:
+ZZ0002ZZ

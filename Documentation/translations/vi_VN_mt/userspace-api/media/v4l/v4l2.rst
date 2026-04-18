@@ -1,0 +1,427 @@
+.. SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/userspace-api/media/v4l/v4l2.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. c:namespace:: V4L
+.. include:: <isonum.txt>
+
+.. _v4l2spec:
+
+##############################
+Part I - Video dành cho Linux API
+############################
+
+Phần này mô tả thông số kỹ thuật Video dành cho Linux API phiên bản 2 (V4L2 API).
+
+ZZ0000ZZ
+
+.. toctree::
+    :caption: Table of Contents
+    :numbered:
+    :maxdepth: 5
+
+    common
+    pixfmt
+    io
+    devices
+    libv4l
+    compat
+    user-func
+    common-defs
+    videodev
+    capture-example
+    v4l2grab-example
+    biblio
+
+
+**********************
+Sửa đổi và Bản quyền
+**********************
+
+Các tác giả, theo thứ tự bảng chữ cái:
+
+- Ailus, Sakari <sakari.ailus@iki.fi>
+
+- Lựa chọn Subdev API.
+
+- Carvalho Chehab, Mauro <mchehab+samsung@kernel.org>
+
+- Tài liệu libv4l, thiết kế và bổ sung ví dụ v4l2grab, chương Remote Controller.
+
+- Dirks, Bill
+
+- Tác giả gốc của V4L2 API và tài liệu.
+
+- Figa, Tomasz <tfiga@chromium.org>
+
+- Ghi lại giao diện giải mã bộ nhớ-bộ nhớ.
+  - Ghi lại giao diện bộ mã hóa bộ nhớ-bộ nhớ.
+
+- H Schimek, Michael <mschimek@gmx.at>
+
+- Tác giả gốc của V4L2 API và tài liệu.
+
+- Karicheri, Muralidharan <m-karicheri2@ti.com>
+
+- Ghi lại thời gian Video kỹ thuật số API.
+
+- Osciak, Pawel <posciak@chromium.org>
+
+- Ghi lại giao diện giải mã bộ nhớ-bộ nhớ.
+  - Ghi lại giao diện bộ mã hóa bộ nhớ-bộ nhớ.
+
+- Osciak, Pawel <pawel@osciak.com>
+
+- Thiết kế và ghi lại API đa mặt phẳng.
+
+- Palosaari, Antti <crope@iki.fi>
+
+- SDR API.
+
+- Ribalda, Ricardo
+
+- Giới thiệu các định dạng HSV và những thay đổi nhỏ khác.
+
+- Rubli, Martin
+
+- Thiết kế và ghi lại các ioctls VIDIOC_ENUM_FRAMESIZES và VIDIOC_ENUM_FRAMEINTERVALS.
+
+- Tường, Andy <awalls@md.metrocast.net>
+
+- Đã ghi lại luồng V4L2_MPEG_STREAM_VBI_FMT_IVTV MPEG được nhúng, định dạng dữ liệu VBI được cắt lát trong thông số kỹ thuật này.
+
+- Verkuil, Hans <hverkuil@kernel.org>
+
+- Đã thiết kế và ghi lại ioctl VIDIOC_LOG_STATUS, ioctl điều khiển mở rộng, các bộ phận chính của VBI API được cắt lát, API bộ mã hóa và giải mã MPEG cũng như DV Timings API.
+
+ZZ0000ZZ ZZ0001ZZ 1999-2018: Bill Dirks, Michael H. Schimek, Hans Verkuil, Martin Rubli, Andy Walls, Muralidharan Karicheri, Mauro Carvalho Chehab, Pawel Osciak, Sakari Ailus & Antti Palosaari, Tomasz Figa
+
+Ngoại trừ khi được nêu rõ ràng là GPL, các ví dụ lập trình trong này
+một phần có thể được sử dụng và phân phối mà không bị hạn chế.
+
+****************
+Lịch sử sửa đổi
+****************
+
+:sửa đổi: 4.10 / 2016-07-15 (ZZ0000ZZ)
+
+Giới thiệu các định dạng HSV.
+
+
+:sửa đổi: 4.5 / 29-10-2015 (ZZ0000ZZ)
+
+Mở rộng VIDIOC_G_EXT_CTRLS;. Thay thế ctrl_class bằng một liên kết mới bằng
+ctrl_class và cái nào. Được sử dụng để chọn giá trị hiện tại của
+điều khiển hoặc giá trị mặc định.
+
+
+:sửa đổi: 4.4 / 26-05-2015 (ZZ0000ZZ)
+
+Đổi tên V4L2_TUNER_ADC thành V4L2_TUNER_SDR. Đã thêm
+Điều khiển V4L2_CID_RF_TUNER_RF_GAIN. Đã thêm hỗ trợ máy phát cho
+Giao diện vô tuyến được xác định bằng phần mềm (SDR).
+
+
+:sửa đổi: 4.1 / 2015-02-13 (ZZ0000ZZ)
+
+Sửa tài liệu cho các nút thiết bị điều khiển phương tiện và thêm hỗ trợ cho
+Các nút thiết bị DVB. Thêm hỗ trợ cho thiết bị phụ Tuner.
+
+
+:sửa đổi: 3.19 / 2014-12-05 (ZZ0000ZZ)
+
+Viết lại chương Colorspace, thêm enum mới
+ZZ0000ZZ và enum
+Các trường ZZ0001ZZ để cấu trúc
+ZZ0002ZZ, cấu trúc
+ZZ0003ZZ và cấu trúc
+ZZ0004ZZ.
+
+
+:sửa đổi: 3.17 / 2014-08-04 (ZZ0000ZZ)
+
+Cấu trúc mở rộng ZZ0000ZZ. Đã thêm
+cờ định dạng. Đã thêm các loại điều khiển kết hợp và VIDIOC_QUERY_EXT_CTRL.
+
+
+:sửa đổi: 3.15 / 2014-02-03 (ZZ0000ZZ)
+
+Cập nhật một số phần của "Các phần tử API phổ biến": "Mở và đóng
+Thiết bị" "Khả năng truy vấn", "Ưu tiên ứng dụng", "Đầu vào video
+và Đầu ra", "Đầu vào và đầu ra âm thanh" "Bộ điều chỉnh và bộ điều biến", "Video
+Tiêu chuẩn" và "Thời gian Video Kỹ thuật số (DV)". Đã thêm SDR API.
+
+
+:sửa đổi: 3.14 / 25-11-2013 (ZZ0000ZZ)
+
+Đặt chiều rộng và chiều cao là chưa ký trên v4l2_orth.
+
+
+:sửa đổi: 3.11 / 26-05-2013 (ZZ0000ZZ)
+
+Xóa VIDIOC_DBG_G_CHIP_IDENT ioctl.
+
+
+:sửa đổi: 3.10 / 25-03-2013 (ZZ0000ZZ)
+
+Xóa ioctls DV_PRESET lỗi thời và không sử dụng: VIDIOC_G_DV_PRESET,
+VIDIOC_S_DV_PRESET, VIDIOC_QUERY_DV_PRESET và
+VIDIOC_ENUM_DV_PRESET. Xóa v4l2_input/output có liên quan
+cờ khả năng V4L2_IN_CAP_PRESETS và V4L2_OUT_CAP_PRESETS.
+Đã thêm VIDIOC_DBG_G_CHIP_INFO.
+
+
+:sửa đổi: 3.9 / 2012-12-03 (ZZ0000ZZ)
+
+Đã thêm các loại dấu thời gian vào v4l2_buffer. Đã thêm
+Cờ thay đổi sự kiện điều khiển V4L2_EVENT_CTRL_CH_RANGE.
+
+
+:sửa đổi: 3.6 / 2012-07-02 (ZZ0000ZZ)
+
+Đã thêm VIDIOC_ENUM_FREQ_BANDS.
+
+
+:sửa đổi: 3.5 / 2012-05-07 (ZZ0000ZZ)
+
+Đã thêm các lựa chọn nhà phát triển phụ V4L2_CTRL_TYPE_INTEGER_MENU và V4L2 API.
+Đã thêm mô tả về điều khiển V4L2_CID_COLORFX
+Điều khiển V4L2_CID_COLORFX_CBCR. Đã thêm điều khiển máy ảnh
+V4L2_CID_AUTO_EXPOSURE_BIAS,
+V4L2_CID_AUTO_N_PRESET_WHITE_BALANCE,
+V4L2_CID_IMAGE_STABILIZATION, V4L2_CID_ISO_SENSITIVITY,
+V4L2_CID_ISO_SENSITIVITY_AUTO, V4L2_CID_EXPOSURE_METERING,
+V4L2_CID_SCENE_MODE, V4L2_CID_3A_LOCK,
+V4L2_CID_AUTO_FOCUS_START, V4L2_CID_AUTO_FOCUS_STOP,
+V4L2_CID_AUTO_FOCUS_STATUS và V4L2_CID_AUTO_FOCUS_RANGE. Đã thêm
+VIDIOC_ENUM_DV_TIMINGS, VIDIOC_QUERY_DV_TIMINGS và
+VIDIOC_DV_TIMINGS_CAP.
+
+
+:sửa đổi: 3.4 / 25-01-2012 (ZZ0000ZZ)
+
+Đã thêm ZZ0000ZZ
+
+
+:sửa đổi: 3.3 / 2012-01-11 (ZZ0000ZZ)
+
+Đã thêm trường device_caps vào cấu trúc v4l2_capabilities.
+
+
+:sửa đổi: 3.2 / 26-08-2011 (ZZ0000ZZ)
+
+Đã thêm V4L2_CTRL_FLAG_VOLATILE.
+
+
+:sửa đổi: 3.1 / 27-06-2011 (ZZ0000ZZ)
+
+Đã ghi lại rằng VIDIOC_QUERYCAP hiện trả về phiên bản cho mỗi hệ thống con
+thay vì một tài xế. Chuẩn hóa mã lỗi không hợp lệ
+ioctl. Đã thêm V4L2_CTRL_TYPE_BITMASK.
+
+
+:sửa đổi: 2.6.39 / 2011-03-01 (ZZ0000ZZ)
+
+Đã xóa VIDIOC_*_OLD khỏi tiêu đề videodev2.h và cập nhật nó để phản ánh
+những thay đổi mới nhất. Đã thêm ZZ0000ZZ.
+
+
+:sửa đổi: 2.6.37 / 2010-08-06 (ZZ0000ZZ)
+
+Đã xóa vtx (videotext) API lỗi thời.
+
+
+:sửa đổi: 2.6.33 / 2009-12-03 (ZZ0000ZZ)
+
+Đã thêm tài liệu về thời gian Video Kỹ thuật số API.
+
+
+:sửa đổi: 2.6.32 / 2009-08-31 (ZZ0000ZZ)
+
+Bây giờ, các bản sửa đổi sẽ khớp với phiên bản kernel nơi V4L2 API thay đổi
+sẽ được hạt nhân Linux sử dụng. Cũng đã thêm chương Điều khiển từ xa.
+
+
+:sửa đổi: 0,29 / 26-08-2009 (ZZ0000ZZ)
+
+Đã thêm tài liệu về điều khiển chuỗi và điều khiển Máy phát FM.
+
+
+:sửa đổi: 0,28 / 26-08-2009 (ZZ0000ZZ)
+
+Đã thêm tài liệu V4L2_CID_BAND_STOP_FILTER.
+
+
+:sửa đổi: 0,27 / 2009-08-15 (ZZ0000ZZ)
+
+Đã thêm tài liệu về libv4l và Bộ điều khiển từ xa; đã thêm v4l2grab và
+ví dụ về ứng dụng bàn phím
+
+
+:sửa đổi: 0,26 / 23-07-2009 (ZZ0000ZZ)
+
+Đã hoàn tất quá trình chụp RDS API. Đã thêm bộ điều biến và bộ mã hóa RDS
+khả năng. Đã thêm hỗ trợ cho điều khiển chuỗi.
+
+
+:sửa đổi: 0,25 / 2009-01-18 (ZZ0000ZZ)
+
+Đã thêm các định dạng pixel VYUY, NV16 và NV61, đồng thời thay đổi ioctls gỡ lỗi
+VIDIOC_DBG_G/S_REGISTER và VIDIOC_DBG_G_CHIP_IDENT. Đã thêm máy ảnh
+điều khiển V4L2_CID_ZOOM_ABSOLUTE, V4L2_CID_ZOOM_RELATIVE,
+V4L2_CID_ZOOM_CONTINUOUS và V4L2_CID_PRIVACY.
+
+
+:sửa đổi: 0,24 / 2008-03-04 (ZZ0000ZZ)
+
+Đã thêm các định dạng pixel Y16 và SBGGR16, các điều khiển mới và điều khiển camera
+lớp học. Đã xóa VIDIOC_G/S_MPEGCOMP.
+
+
+:sửa đổi: 0,23 / 2007-08-30 (ZZ0000ZZ)
+
+Đã sửa lỗi đánh máy trong VIDIOC_DBG_G/S_REGISTER. Làm rõ thứ tự byte của
+định dạng pixel đóng gói.
+
+
+:sửa đổi: 0,22 / 29-08-2007 (ZZ0000ZZ)
+
+Đã thêm giao diện Lớp phủ đầu ra video, điều khiển MPEG mới,
+V4L2_FIELD_INTERLACED_TB và V4L2_FIELD_INTERLACED_BT,
+VIDIOC_DBG_G/S_REGISTER, VIDIOC\_(TRY\_)ENCODER_CMD,
+VIDIOC_G_CHIP_IDENT, VIDIOC_G_ENC_INDEX, các định dạng pixel mới.
+Làm rõ trong chương cắt xén, về định dạng pixel RGB,
+Các hàm mmap(), poll(), select(), read() và write(). đánh máy
+sửa lỗi.
+
+
+:sửa đổi: 0,21 / 2006-12-19 (ZZ0000ZZ)
+
+Đã sửa lỗi liên kết trong phần VIDIOC_G_EXT_CTRLS.
+
+
+:sửa đổi: 0,20 / 24-11-2006 (ZZ0000ZZ)
+
+Làm rõ mục đích của trường audioset trong struct v4l2_input và
+v4l2_output.
+
+
+:sửa đổi: 0.19 / 2006-10-19 (ZZ0000ZZ)
+
+Tài liệu V4L2_PIX_FMT_RGB444.
+
+
+:sửa đổi: 0,18 / 2006-10-18 (ZZ0000ZZ)
+
+Đã thêm mô tả về các điều khiển mở rộng của Hans Verkuil. Đã liên kết
+V4L2_PIX_FMT_MPEG đến V4L2_CID_MPEG_STREAM_TYPE.
+
+
+:sửa đổi: 0.17 / 2006-10-12 (ZZ0000ZZ)
+
+Đã sửa mô tả V4L2_PIX_FMT_HM12.
+
+
+:sửa đổi: 0.16 / 2006-10-08 (ZZ0000ZZ)
+
+VIDIOC_ENUM_FRAMESIZES và VIDIOC_ENUM_FRAMEINTERVALS hiện là một phần
+của API.
+
+
+:sửa đổi: 0,15 / 23-09-2006 (ZZ0000ZZ)
+
+Làm sạch thư mục, thêm BT.653 và BT.1119.
+capture.c/start_capturing() cho con trỏ người dùng I/O không khởi tạo
+chỉ số đệm. Đã ghi lại V4L MPEG và MJPEG VID_TYPE và
+V4L2_PIX_FMT_SBGGR8. Đã cập nhật danh sách các định dạng pixel dành riêng. Xem
+chương lịch sử về những thay đổi của API.
+
+
+:sửa đổi: 0.14 / 2006-09-14 (ZZ0000ZZ)
+
+Đã thêm đề xuất VIDIOC_ENUM_FRAMESIZES và VIDIOC_ENUM_FRAMEINTERVALS
+để liệt kê định dạng khung của các thiết bị kỹ thuật số.
+
+
+:sửa đổi: 0.13 / 2006-04-07 (ZZ0000ZZ)
+
+Đã sửa mô tả của clip struct v4l2_window. V4L2_STD mới\_
+và V4L2_TUNER_MODE_LANG1_LANG2 định nghĩa.
+
+
+:sửa đổi: 0.12 / 2006-02-03 (ZZ0000ZZ)
+
+Đã sửa mô tả của struct v4l2_captureparm và
+v4l2_outputparm.
+
+
+:sửa đổi: 0.11 / 27-01-2006 (ZZ0000ZZ)
+
+Cải thiện mô tả của struct v4l2_tuner.
+
+
+:sửa đổi: 0.10 / 2006-01-10 (ZZ0000ZZ)
+
+Làm rõ VIDIOC_G_INPUT và VIDIOC_S_PARM.
+
+
+:sửa đổi: 0.9 / 27-11-2005 (ZZ0000ZZ)
+
+Cải thiện sơ đồ đánh số dòng 525. Hans Verkuil và tôi đã viết lại
+phần VBI được cắt lát. Anh ấy cũng đóng góp một trang VIDIOC_LOG_STATUS.
+Đã sửa lỗi cuộc gọi VIDIOC_S_STD trong ví dụ lựa chọn tiêu chuẩn video.
+Cập nhật khác nhau.
+
+
+:sửa đổi: 0.8 / 2004-10-04 (ZZ0000ZZ)
+
+Bằng cách nào đó một mảnh rác lọt vào ví dụ chụp, bị loại bỏ.
+
+
+:sửa đổi: 0.7 / 2004-09-19 (ZZ0000ZZ)
+
+Đã sửa lỗi lựa chọn tiêu chuẩn video, liệt kê điều khiển, thu nhỏ và
+ví dụ về khía cạnh Đã thêm i/o con trỏ đọc và người dùng để quay video
+ví dụ.
+
+
+:sửa đổi: 0.6 / 2004-08-01 (ZZ0000ZZ)
+
+v4l2_buffer thay đổi, thêm ví dụ quay video, nhiều chỉnh sửa khác nhau.
+
+
+:sửa đổi: 0,5 / 2003-11-05 (ZZ0000ZZ)
+
+Lỗi định dạng pixel.
+
+
+:sửa đổi: 0.4 / 2003-09-17 (ZZ0000ZZ)
+
+Đã sửa nguồn và Makefile để tạo PDF. Sửa lỗi SGML. Đã thêm
+những thay đổi mới nhất của API. Đóng những khoảng trống trong chương lịch sử.
+
+
+:sửa đổi: 0.3 / 2003-02-05 (ZZ0000ZZ)
+
+Một bản thảo khác, nhiều chỉnh sửa hơn.
+
+
+:sửa đổi: 0,2 / 2003-01-15 (ZZ0000ZZ)
+
+Bản thảo thứ hai, có những chỉnh sửa được chỉ ra bởi Gerd Knorr.
+
+
+:sửa đổi: 0,1 / 2002-12-01 (ZZ0000ZZ)
+
+Bản thảo đầu tiên, dựa trên tài liệu của Bill Dirks và các cuộc thảo luận về
+Danh sách gửi thư V4L.

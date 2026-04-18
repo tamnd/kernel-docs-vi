@@ -1,0 +1,790 @@
+.. SPDX-License-Identifier: GPL-2.0+
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/ethernet/intel/i40e.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=======================================================================
+Trình điều khiển cơ sở Linux cho Bộ điều khiển Ethernet Intel(R) dòng 700
+=================================================================
+
+Trình điều khiển Intel 40 Gigabit Linux.
+Bản quyền(c) 1999-2018 Tập đoàn Intel.
+
+Nội dung
+========
+
+- Tổng quan
+- Xác định bộ chuyển đổi của bạn
+- Giám đốc luồng Ethernet Intel(R)
+- Cấu hình bổ sung
+- Các vấn đề đã biết
+- Hỗ trợ
+
+
+Thông tin trình điều khiển có thể được lấy bằng ethtool, lspci và ifconfig.
+Hướng dẫn cập nhật ethtool có thể được tìm thấy trong phần Bổ sung
+Cấu hình sau trong tài liệu này.
+
+Đối với các câu hỏi liên quan đến yêu cầu phần cứng, hãy tham khảo tài liệu
+được cung cấp cùng với bộ điều hợp Intel của bạn. Tất cả các yêu cầu phần cứng được liệt kê đều áp dụng để sử dụng
+với Linux.
+
+
+Xác định bộ điều hợp của bạn
+========================
+Trình điều khiển tương thích với các thiết bị dựa trên những điều sau:
+
+* Bộ điều khiển Ethernet Intel(R) X710
+ * Bộ điều khiển Ethernet Intel(R) XL710
+ * Kết nối mạng Ethernet Intel(R) X722
+ * Bộ điều khiển Ethernet Intel(R) XXV710
+
+Để có hiệu suất tốt nhất, hãy đảm bảo cài đặt NVM/FW mới nhất trên máy tính của bạn
+thiết bị.
+
+Để biết thông tin về cách xác định bộ chuyển đổi của bạn và về NVM/FW mới nhất
+hình ảnh và trình điều khiển mạng Intel, hãy tham khảo trang web Hỗ trợ Intel:
+ZZ0000ZZ
+
+Thiết bị SFP+ và QSFP+
+----------------------
+Để biết thông tin về phương tiện được hỗ trợ, hãy tham khảo tài liệu này:
+ZZ0000ZZ
+
+NOTE: Một số bộ điều hợp chỉ dựa trên Bộ điều khiển Ethernet Intel(R) Series 700
+hỗ trợ các mô-đun Intel Ethernet Optics. Trên các bộ điều hợp này, các mô-đun khác không
+được hỗ trợ và sẽ không hoạt động.  Trong mọi trường hợp Intel khuyến nghị sử dụng Intel
+Quang học Ethernet; các mô-đun khác có thể hoạt động nhưng không được Intel xác nhận.
+Liên hệ với Intel để biết các loại phương tiện được hỗ trợ.
+
+NOTE: Đối với các kết nối dựa trên Bộ điều khiển Ethernet Intel(R) Series 700, hỗ trợ
+phụ thuộc vào bo mạch hệ thống của bạn. Vui lòng xem nhà cung cấp của bạn để biết chi tiết.
+
+NOTE: Trong các hệ thống không có đủ luồng khí để làm mát bộ chuyển đổi và
+module quang, bạn phải sử dụng module quang nhiệt độ cao.
+
+Hàm ảo (VF)
+-----------------------
+Sử dụng sysfs để kích hoạt VF. Ví dụ::
+
+#echo $num_vf_enabled > /sys/class/net/$dev/device/sriov_numvfs #enable VF
+  #echo 0 > /sys/class/net/$dev/device/sriov_numvfs #disable VF
+
+Ví dụ: các hướng dẫn sau sẽ định cấu hình PF eth0 và VF đầu tiên
+trên VLAN 10::
+
+$ ip liên kết đặt dev eth0 vf 0 vlan 10
+
+Chỉ đạo gói thẻ VLAN
+------------------------
+Cho phép bạn gửi tất cả các gói có thẻ VLAN cụ thể đến một SR-IOV cụ thể
+hàm ảo (VF). Hơn nữa, tính năng này cho phép bạn chỉ định một
+VF cụ thể được coi là đáng tin cậy và cho phép VF đáng tin cậy đó yêu cầu chọn lọc
+chế độ lăng nhăng trên Chức năng vật lý (PF).
+
+Để đặt VF là đáng tin cậy hoặc không đáng tin cậy, hãy nhập lệnh sau vào hộp
+Giám sát viên::
+
+Bộ liên kết # ip dev eth0 vf 1 tin cậy [bật|tắt]
+
+Khi VF được chỉ định là đáng tin cậy, hãy sử dụng các lệnh sau trong VM để
+đặt VF ở chế độ lăng nhăng.
+
+::
+
+Đối với tất cả lăng nhăng:
+  Liên kết #ip đã bật quảng cáo eth2
+  Trong đó eth2 là giao diện VF trong VM
+
+Đối với Multicast lăng nhăng:
+  Liên kết #ip đã bật eth2 allmulticast
+  Trong đó eth2 là giao diện VF trong VM
+
+NOTE: Theo mặc định, ethtool priv-flag vf-true-promisc-support được đặt thành
+"tắt", nghĩa là chế độ lăng nhăng cho VF sẽ bị hạn chế. Để thiết lập
+chế độ lăng nhăng để VF thành lăng nhăng thực sự và cho phép VF nhìn thấy tất cả
+truy cập vào, sử dụng lệnh sau ::
+
+#ethtool -set-priv-flags p261p1 vf-true-promisc-support bật
+
+Cờ riêng tư vf-true-promisc-support không kích hoạt chế độ lăng nhăng; đúng hơn,
+nó chỉ định loại chế độ lăng nhăng nào (có giới hạn hoặc đúng) mà bạn sẽ nhận được
+khi bạn kích hoạt chế độ lăng nhăng bằng cách sử dụng các lệnh liên kết ip ở trên. Lưu ý rằng
+đây là cài đặt chung ảnh hưởng đến toàn bộ thiết bị. Tuy nhiên,
+vf-true-promisc-support priv-flag chỉ được hiển thị với PF đầu tiên của
+thiết bị. PF vẫn ở chế độ lăng nhăng hạn chế (trừ khi ở chế độ MFP)
+bất kể cài đặt vf-true-promisc-support.
+
+Bây giờ hãy thêm giao diện VLAN trên giao diện VF ::
+
+Liên kết #ip thêm liên kết eth2 tên eth2.100 loại vlan id 100
+
+Lưu ý rằng thứ tự bạn đặt VF ở chế độ hỗn tạp và thêm
+Giao diện VLAN không thành vấn đề (bạn có thể thực hiện trước). Kết quả cuối cùng ở
+ví dụ này là VF sẽ nhận được tất cả lưu lượng truy cập được gắn thẻ VLAN 100.
+
+Giám đốc luồng Ethernet Intel(R)
+-------------------------------
+Giám đốc luồng Ethernet Intel thực hiện các tác vụ sau:
+
+- Chỉ đạo nhận các gói theo luồng của chúng đến các hàng đợi khác nhau.
+- Cho phép kiểm soát chặt chẽ việc định tuyến luồng trong nền tảng.
+- Phù hợp với các luồng và lõi CPU cho mối quan hệ dòng chảy.
+- Hỗ trợ nhiều tham số để phân loại dòng chảy và tải linh hoạt
+  cân bằng (chỉ ở chế độ SFP).
+
+NOTE: Trình điều khiển Linux i40e hỗ trợ các loại luồng sau: IPv4, TCPv4 và
+UDPv4. Đối với một loại luồng nhất định, nó hỗ trợ các kết hợp địa chỉ IP hợp lệ
+(nguồn hoặc đích) và cổng UDP/TCP (nguồn và đích). cho
+Ví dụ: bạn chỉ có thể cung cấp địa chỉ IP nguồn, địa chỉ IP nguồn và
+cổng đích hoặc bất kỳ sự kết hợp nào của một hoặc nhiều trong số bốn tham số này.
+
+NOTE: Trình điều khiển Linux i40e cho phép bạn lọc lưu lượng truy cập dựa trên
+mẫu hai byte linh hoạt do người dùng xác định và phần bù bằng cách sử dụng ethtool user-def
+và các trường mặt nạ. Chỉ hỗ trợ các loại luồng L3 và L4 cho các luồng do người dùng xác định
+bộ lọc linh hoạt. Đối với một loại luồng nhất định, bạn phải xóa tất cả Intel Ethernet Flow
+Đạo diễn lọc trước khi thay đổi bộ đầu vào (đối với loại luồng đó).
+
+Để bật hoặc tắt Intel Ethernet Flow Director::
+
+# ethtool -K ethX ntuple <bật|tắt>
+
+Khi tắt nhiều bộ lọc, tất cả các bộ lọc do người dùng lập trình sẽ bị xóa khỏi
+bộ đệm trình điều khiển và phần cứng. Tất cả các bộ lọc cần thiết phải được thêm lại khi ntuple
+được kích hoạt lại.
+
+Để thêm bộ lọc hướng gói đến hàng đợi 2, hãy sử dụng khóa chuyển -U hoặc -N ::
+
+# ethtool -N ethX loại luồng tcp4 src-ip 192.168.10.1 dst-ip \
+  192.168.10.2 src-port 2000 dst-port 2001 hành động 2 [loc 1]
+
+Để đặt bộ lọc chỉ sử dụng địa chỉ IP nguồn và đích::
+
+# ethtool -N ethX loại luồng tcp4 src-ip 192.168.10.1 dst-ip \
+  192.168.10.2 hành động 2 [loc 1]
+
+Để xem danh sách các bộ lọc hiện có::
+
+# ethtool <-u|-n> ethX
+
+Bộ lọc hoàn hảo định tuyến nhắm mục tiêu ứng dụng (ATR)
+--------------------------------------------------
+ATR được bật theo mặc định khi kernel ở chế độ nhiều hàng đợi truyền.
+Quy tắc lọc ATR Intel Ethernet Flow Director được thêm vào khi luồng TCP-IP
+bắt đầu và bị xóa khi luồng kết thúc. Khi luồng Ethernet Intel TCP-IP
+Quy tắc giám đốc được thêm từ ethtool (bộ lọc Sideband), ATR bị tắt bởi
+người lái xe. Để kích hoạt lại ATR, dải bên có thể bị tắt bằng ethtool -K
+tùy chọn. Ví dụ::
+
+ethtool -K [bộ chuyển đổi] ntuple [tắt|bật]
+
+Nếu dải bên được bật lại sau khi ATR được bật lại, ATR vẫn được bật cho đến khi
+Luồng TCP-IP được thêm vào. Khi tất cả các quy tắc dải biên TCP-IP bị xóa, ATR sẽ
+tự động kích hoạt lại.
+
+Các gói phù hợp với quy tắc ATR được tính trong số liệu thống kê fdir_atr_match trong
+ethtool, cũng có thể được sử dụng để xác minh xem quy tắc ATR có còn tồn tại hay không.
+
+Bộ lọc hoàn hảo Sideband
+------------------------
+Bộ lọc hoàn hảo dải biên được sử dụng để điều hướng lưu lượng truy cập phù hợp với quy định
+đặc điểm. Chúng được kích hoạt thông qua giao diện ntuple của ethtool. Để thêm một
+bộ lọc mới sử dụng lệnh sau ::
+
+ethtool -U <device> loại luồng <type> src-ip <ip> dst-ip <ip> src-port <port> \
+  dst-port <port> hành động <hàng đợi>
+
+Ở đâu:
+  <device> - thiết bị ethernet để lập trình
+  <loại> - có thể là ip4, tcp4, udp4 hoặc sctp4
+  <ip> - địa chỉ IP cần khớp
+  <port> - số cổng cần khớp
+  <queue> - hàng đợi hướng lưu lượng truy cập tới (-1 loại bỏ lưu lượng truy cập phù hợp)
+
+Sử dụng lệnh sau để hiển thị tất cả các bộ lọc đang hoạt động::
+
+ethtool -u <thiết bị>
+
+Sử dụng lệnh sau để xóa bộ lọc::
+
+ethtool -U <thiết bị> xóa <N>
+
+Trong đó <N> là id bộ lọc được hiển thị khi in tất cả các bộ lọc đang hoạt động và
+cũng có thể được chỉ định bằng cách sử dụng "loc <N>" khi thêm bộ lọc.
+
+Ví dụ sau khớp với lưu lượng truy cập TCP được gửi từ 192.168.0.1, cổng 5300,
+được chuyển hướng đến 192.168.0.5, cổng 80 và gửi nó đến hàng đợi 7::
+
+ethtool -U enp130s0 kiểu luồng tcp4 src-ip 192.168.0.1 dst-ip 192.168.0.5 \
+  src-port 5300 dst-port 80 hành động 7
+
+Đối với mỗi loại luồng, các bộ lọc được lập trình đều phải có cùng một kết quả phù hợp.
+bộ đầu vào. Ví dụ: có thể chấp nhận việc đưa ra hai lệnh sau::
+
+ethtool -U enp130s0 loại luồng ip4 src-ip 192.168.0.1 src-port 5300 hành động 7
+  ethtool -U enp130s0 loại luồng ip4 src-ip 192.168.0.5 src-port 55 hành động 10
+
+Tuy nhiên, việc đưa ra hai lệnh tiếp theo là không được chấp nhận vì lệnh đầu tiên
+chỉ định src-ip và thứ hai chỉ định dst-ip::
+
+ethtool -U enp130s0 loại luồng ip4 src-ip 192.168.0.1 src-port 5300 hành động 7
+  ethtool -U enp130s0 loại luồng ip4 dst-ip 192.168.0.5 src-port 55 hành động 10
+
+Lệnh thứ hai sẽ thất bại và có lỗi. Bạn có thể lập trình nhiều bộ lọc
+với cùng các trường, sử dụng các giá trị khác nhau, nhưng trên một thiết bị, bạn không thể
+lập trình hai bộ lọc tcp4 với các trường khớp khác nhau.
+
+Việc khớp trên một phần phụ của trường không được trình điều khiển i40e hỗ trợ, do đó
+các trường mặt nạ một phần không được hỗ trợ.
+
+Trình điều khiển cũng hỗ trợ khớp dữ liệu do người dùng xác định trong tải trọng gói.
+Dữ liệu linh hoạt này được chỉ định bằng trường "user-def" của ethtool
+lệnh theo cách sau:
+
++-----------------------------+--------------------------+
+ZZ0000ZZ 15 12 8 4 0 |
++-----------------------------+--------------------------+
+ZZ0001ZZ 2 byte dữ liệu linh hoạt |
++-----------------------------+--------------------------+
+
+Ví dụ,
+
+::
+
+  ... user-def 0x4FFFF ...
+
+yêu cầu bộ lọc tìm 4 byte vào tải trọng và khớp giá trị đó với
+0xFFFF. Phần bù dựa trên phần đầu của tải trọng chứ không phải phần
+đầu của gói tin. Như vậy
+
+::
+
+loại luồng tcp4 ... user-def 0x8BEAF ...
+
+sẽ khớp các gói TCP/IPv4 có giá trị 0xBEAF 8 byte vào
+Tải trọng TCP/IPv4.
+
+Lưu ý rằng tiêu đề ICMP được phân tích cú pháp thành 4 byte tiêu đề và 4 byte tải trọng.
+Do đó, để khớp với byte đầu tiên của tải trọng, bạn thực sự phải thêm 4 byte vào
+sự bù đắp. Cũng lưu ý rằng bộ lọc ip4 phù hợp với cả khung ICMP cũng như khung thô.
+(không xác định) khung ip4, trong đó tải trọng sẽ là tải trọng L3 của khung IP4.
+
+Độ lệch tối đa là 64. Phần cứng sẽ chỉ đọc tối đa 64 byte dữ liệu
+từ tải trọng. Phần bù phải chẵn vì dữ liệu linh hoạt là 2 byte
+dài và phải được căn chỉnh theo byte 0 của tải trọng gói.
+
+Phần bù linh hoạt do người dùng xác định cũng được coi là một phần của bộ đầu vào và
+không thể lập trình riêng cho nhiều bộ lọc cùng loại. Tuy nhiên,
+dữ liệu linh hoạt không phải là một phần của bộ đầu vào và nhiều bộ lọc có thể sử dụng
+cùng một offset nhưng khớp với các dữ liệu khác nhau.
+
+Để tạo các bộ lọc hướng lưu lượng truy cập đến một Chức năng ảo cụ thể, hãy sử dụng
+tham số "hành động". Chỉ định hành động dưới dạng giá trị 64 bit, trong đó giá trị 32 bit thấp hơn
+bit đại diện cho số hàng đợi, trong khi 8 bit tiếp theo đại diện cho VF nào.
+Lưu ý rằng 0 là PF, do đó mã định danh VF được bù bằng 1. Ví dụ::
+
+  ... action 0x800000002 ...
+
+chỉ định hướng lưu lượng truy cập đến Chức năng ảo 7 (8 trừ 1) vào hàng đợi 2 của
+VF đó.
+
+Lưu ý rằng các bộ lọc này sẽ không vi phạm các quy tắc định tuyến nội bộ và sẽ không
+định tuyến lưu lượng truy cập mà lẽ ra sẽ không được gửi đến Virtual được chỉ định
+Chức năng.
+
+Đặt cờ riêng tư liên kết xuống khi đóng
+-------------------------------------------
+Khi cờ riêng liên kết xuống khi đóng được đặt thành "bật", liên kết của cổng sẽ
+ngừng hoạt động khi giao diện bị hỏng bằng lệnh ifconfig ethX down.
+
+Sử dụng ethtool để xem và đặt liên kết xuống khi đóng, như sau::
+
+ethtool --show-priv-flags ethX
+  ethtool --set-priv-flags ethX liên kết xuống khi đóng [bật|tắt]
+
+Đặt cờ riêng mdd-auto-reset-vf
+------------------------------------------
+
+Khi cờ riêng mdd-auto-reset-vf được đặt thành "bật", VF có vấn đề sẽ
+được tự động đặt lại nếu phát hiện bộ mô tả không đúng định dạng. Nếu cờ là
+được đặt thành "tắt", VF có vấn đề sẽ bị tắt.
+
+Sử dụng ethtool để xem và đặt mdd-auto-reset-vf, như sau::
+
+ethtool --show-priv-flags ethX
+  ethtool --set-priv-flags ethX mdd-auto-reset-vf [bật|tắt]
+
+Xem tin nhắn liên kết
+---------------------
+Thông báo liên kết sẽ không được hiển thị trên bảng điều khiển nếu việc phân phối
+hạn chế tin nhắn hệ thống. Để xem thông báo liên kết trình điều khiển mạng trên
+bảng điều khiển của bạn, hãy đặt dmesg thành 8 bằng cách nhập thông tin sau::
+
+dmesg -n 8
+
+NOTE: Cài đặt này không được lưu trong các lần khởi động lại.
+
+Khung Jumbo
+------------
+Hỗ trợ Khung Jumbo được bật bằng cách thay đổi Đơn vị truyền tối đa (MTU)
+đến giá trị lớn hơn giá trị mặc định là 1500.
+
+Sử dụng lệnh ifconfig để tăng kích thước MTU. Ví dụ: nhập
+sau đây trong đó <x> là số giao diện::
+
+ifconfig eth<x> mtu 9000 trở lên
+
+Ngoài ra, bạn có thể sử dụng lệnh ip như sau ::
+
+bộ liên kết ip mtu 9000 dev eth<x>
+  liên kết ip thiết lập dev eth<x>
+
+Cài đặt này không được lưu trong các lần khởi động lại. Việc thay đổi cài đặt có thể được thực hiện
+vĩnh viễn bằng cách thêm 'MTU=9000' vào tệp::
+
+/etc/sysconfig/network-scripts/ifcfg-eth<x> // cho RHEL
+  /etc/sysconfig/network/<config_file> // cho SLES
+
+NOTE: Cài đặt MTU tối đa cho Khung Jumbo là 9702. Giá trị này trùng khớp
+với kích thước Khung Jumbo tối đa là 9728 byte.
+
+NOTE: Trình điều khiển này sẽ cố gắng sử dụng nhiều bộ đệm có kích thước trang để nhận
+mỗi gói lớn. Điều này sẽ giúp tránh được vấn đề thiếu bộ đệm khi
+phân bổ các gói nhận.
+
+công cụ đạo đức
+-------
+Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
+chẩn đoán cũng như hiển thị thông tin thống kê. Công cụ đạo đức mới nhất
+Phiên bản này là cần thiết cho chức năng này. Tải xuống tại:
+ZZ0000ZZ
+
+Các lệnh và tùy chọn ethtool được hỗ trợ để lọc
+----------------------------------------------------
+-n --show-nfc
+  Truy xuất cấu hình phân loại luồng mạng nhận.
+
+rx-flow-hash tcp4|udp4|ah4|esp4|sctp4|tcp6|udp6|ah6|esp6|sctp6
+  Truy xuất các tùy chọn băm cho loại lưu lượng mạng được chỉ định.
+
+-N --config-nfc
+  Định cấu hình phân loại luồng mạng nhận.
+
+rx-flow-hash tcp4|udp4|ah4|esp4|sctp4|tcp6|udp6|ah6|esp6|sctp6 m|v|t|s|d|f|n|r...
+  Định cấu hình các tùy chọn băm cho loại lưu lượng mạng được chỉ định.
+
+udp4 UDP qua IPv4
+udp6 UDP qua IPv6
+
+f Băm byte 0 và 1 của tiêu đề Lớp 4 của gói Rx.
+n Băm byte 2 và 3 của tiêu đề lớp 4 của gói Rx.
+
+Cấu hình tốc độ và song công
+------------------------------
+Khi giải quyết các vấn đề về tốc độ và cấu hình song công, bạn cần phân biệt
+giữa bộ điều hợp dựa trên đồng và bộ điều hợp dựa trên sợi quang.
+
+Ở chế độ mặc định, Bộ điều hợp mạng Ethernet Intel(R) sử dụng cáp đồng
+các kết nối sẽ cố gắng tự động đàm phán với đối tác liên kết của mình để xác định
+thiết lập tốt nhất. Nếu bộ điều hợp không thể thiết lập liên kết với đối tác liên kết
+bằng cách sử dụng tính năng tự động đàm phán, bạn có thể cần phải định cấu hình bộ điều hợp và liên kết theo cách thủ công
+hợp tác với các cài đặt giống hệt nhau để thiết lập các gói liên kết và truyền. Điều này nên
+chỉ cần thiết khi cố gắng liên kết với một switch cũ hơn không
+hỗ trợ tự động đàm phán hoặc một tốc độ cụ thể hoặc
+chế độ song công. Đối tác liên kết của bạn phải phù hợp với cài đặt bạn chọn. Tốc độ 1 Gbps
+và cao hơn không thể bị ép buộc. Sử dụng cài đặt quảng cáo tự động thương lượng để
+đặt thủ công các thiết bị ở tốc độ 1 Gbps trở lên.
+
+NOTE: Bạn không thể đặt tốc độ cho các thiết bị dựa trên Ethernet Intel(R)
+Thiết bị dựa trên bộ điều hợp mạng XXV710.
+
+Quảng cáo tốc độ, song công và tự động thương lượng được định cấu hình thông qua
+tiện ích ethtool.
+
+Thận trọng: Chỉ những quản trị viên mạng có kinh nghiệm mới nên buộc tốc độ và song công
+hoặc thay đổi quảng cáo tự động đàm phán theo cách thủ công. Các cài đặt ở công tắc phải
+luôn phù hợp với cài đặt bộ chuyển đổi. Hiệu suất của bộ điều hợp có thể bị ảnh hưởng hoặc
+bộ chuyển đổi có thể không hoạt động nếu bạn định cấu hình bộ chuyển đổi khác với
+chuyển đổi.
+
+Tuy nhiên, Bộ điều hợp mạng Ethernet Intel(R) sử dụng các kết nối dựa trên sợi quang,
+sẽ không cố gắng tự động thương lượng với đối tác liên kết của mình vì những bộ điều hợp đó
+chỉ hoạt động ở chế độ song công hoàn toàn và chỉ ở tốc độ gốc.
+
+NAPI
+----
+NAPI (Chế độ bỏ phiếu Rx) được hỗ trợ trong trình điều khiển i40e.
+
+Xem ZZ0000ZZ để biết thêm thông tin.
+
+Kiểm soát dòng chảy
+------------
+Kiểm soát luồng Ethernet (IEEE 802.3x) có thể được cấu hình bằng ethtool để kích hoạt
+nhận và truyền các khung tạm dừng cho i40e. Khi truyền được kích hoạt,
+các khung tạm dừng được tạo ra khi bộ đệm gói nhận vượt qua vùng đệm được xác định trước
+ngưỡng. Khi nhận được kích hoạt, thiết bị truyền sẽ tạm dừng trong một thời gian
+độ trễ được chỉ định khi nhận được khung tạm dừng.
+
+NOTE: Bạn phải có đối tác liên kết có khả năng kiểm soát luồng.
+
+Kiểm soát luồng được bật theo mặc định.
+
+Sử dụng ethtool để thay đổi cài đặt kiểm soát luồng.
+
+Để bật hoặc tắt Kiểm soát luồng Rx hoặc Tx::
+
+ethtool -Một eth? rx <on|off> tx <on|off>
+
+Lưu ý: Lệnh này chỉ bật hoặc tắt Kiểm soát luồng nếu tự động đàm phán được
+bị vô hiệu hóa. Nếu bật tự động đàm phán, lệnh này sẽ thay đổi các tham số
+được sử dụng để tự động đàm phán với đối tác liên kết.
+
+Để bật hoặc tắt tính năng tự động đàm phán::
+
+ethtool -s eth? autoneg <bật|tắt>
+
+Lưu ý: Tự động đàm phán Kiểm soát luồng là một phần của tự động đàm phán liên kết. Tùy theo
+trên thiết bị của bạn, bạn có thể không thay đổi được cài đặt tự động thương lượng.
+
+Luồng băm RSS
+-------------
+Cho phép bạn đặt byte băm cho mỗi loại luồng và bất kỳ sự kết hợp nào của một hoặc
+nhiều tùy chọn hơn cho cấu hình byte băm Nhận tỷ lệ bên (RSS).
+
+::
+
+# ethtool -N <dev> rx-flow-hash <type> <option>
+
+<loại> ở đâu:
+  tcp4 biểu thị TCP qua IPv4
+  udp4 biểu thị UDP qua IPv4
+  tcp6 biểu thị TCP qua IPv6
+  udp6 biểu thị UDP qua IPv6
+Và <option> là một hoặc nhiều trong số:
+  s Hash trên địa chỉ nguồn IP của gói Rx.
+  d Băm địa chỉ đích IP của gói Rx.
+  f Băm byte 0 và 1 của tiêu đề Lớp 4 của gói Rx.
+  n Băm byte 2 và 3 của tiêu đề lớp 4 của gói Rx.
+
+Tính năng chống giả mạo MAC và VLAN
+----------------------------------
+Khi một trình điều khiển độc hại cố gắng gửi một gói giả mạo, nó sẽ bị loại bỏ.
+phần cứng và không được truyền đi.
+NOTE: Tính năng này có thể bị tắt đối với một Chức năng ảo (VF) cụ thể::
+
+bộ liên kết ip <pf dev> vf <vf id> spoofchk {tắt|bật}
+
+Đồng hồ phần cứng giao thức thời gian chính xác IEEE 1588 (PTP) (PHC)
+------------------------------------------------------------
+Giao thức thời gian chính xác (PTP) được sử dụng để đồng bộ hóa đồng hồ trong máy tính
+mạng. Hỗ trợ PTP khác nhau giữa các thiết bị Intel hỗ trợ trình điều khiển này. sử dụng
+"ethtool -T <netdev name>" để có danh sách chính xác về các khả năng của PTP
+được hỗ trợ bởi thiết bị.
+
+Hỗ trợ IEEE 802.1ad (QinQ)
+---------------------------
+Tiêu chuẩn IEEE 802.1ad, được gọi một cách không chính thức là QinQ, cho phép nhiều VLAN
+ID trong một khung Ethernet duy nhất. ID VLAN đôi khi được gọi là
+Do đó, "thẻ" và nhiều ID VLAN được gọi là "ngăn xếp thẻ". Ngăn xếp thẻ
+cho phép tạo đường hầm L2 và khả năng phân chia lưu lượng trong một phạm vi cụ thể
+ID VLAN, cùng với các mục đích sử dụng khác.
+
+Sau đây là ví dụ về cách định cấu hình 802.1ad (QinQ)::
+
+liên kết ip thêm liên kết eth0 eth0.24 loại vlan proto 802.1ad id 24
+  liên kết ip thêm liên kết eth0.24 eth0.24.371 loại vlan proto 802.1Q id 371
+
+Trong đó "24" và "371" là ID VLAN mẫu.
+
+NOTES:
+  Không nhận được giảm tải tổng kiểm tra, bộ lọc đám mây và khả năng tăng tốc VLAN
+  được hỗ trợ cho các gói 802.1ad (QinQ).
+
+Tải xuống phần cứng lớp phủ VXLAN và GENEVE
+--------------------------------------
+Virtual Extensible LAN (VXLAN) cho phép bạn mở rộng mạng L2 qua L3
+mạng, có thể hữu ích trong môi trường ảo hóa hoặc đám mây. Một số
+Các thiết bị Mạng Ethernet Intel(R) thực hiện xử lý VXLAN, giảm tải nó từ
+hệ điều hành. Điều này làm giảm việc sử dụng CPU.
+
+Việc giảm tải VXLAN được kiểm soát bởi các tùy chọn giảm tải tổng kiểm tra Tx và Rx
+được cung cấp bởi ethtool. Tức là, nếu tính năng giảm tải tổng kiểm tra Tx được bật và
+bộ điều hợp có khả năng, tính năng giảm tải VXLAN cũng được bật.
+
+Việc hỗ trợ giảm tải VXLAN và GENEVE HW phụ thuộc vào sự hỗ trợ kernel của
+các tính năng giảm tải CTNH.
+
+Nhiều chức năng trên mỗi cổng
+---------------------------
+Hỗ trợ một số bộ điều hợp dựa trên Bộ điều khiển Ethernet Intel X710/XL710
+nhiều chức năng trên một cổng vật lý. Cấu hình các chức năng này thông qua
+Cài đặt Hệ thống/BIOS.
+
+Băng thông TX tối thiểu là băng thông truyền dữ liệu tối thiểu được đảm bảo, vì
+phần trăm của tốc độ liên kết cổng vật lý đầy đủ mà phân vùng sẽ
+nhận. Băng thông mà phân vùng được cấp sẽ không bao giờ giảm xuống dưới mức
+bạn chỉ định.
+
+Phạm vi cho các giá trị băng thông tối thiểu là:
+1 đến ((100 trừ phân vùng # of trên cổng vật lý) cộng 1)
+Ví dụ: nếu một cổng vật lý có 4 phân vùng thì phạm vi sẽ là:
+1 đến ((100 - 4) + 1 = 97)
+
+Phần trăm băng thông tối đa thể hiện băng thông truyền tối đa
+được phân bổ cho phân vùng dưới dạng phần trăm của liên kết cổng vật lý đầy đủ
+tốc độ. Phạm vi giá trị được chấp nhận là 1-100. Giá trị được sử dụng làm giới hạn,
+nếu bạn chọn bất kỳ chức năng cụ thể nào không thể sử dụng 100%
+băng thông của cổng (nếu có). Tổng tất cả các giá trị của
+Băng thông tối đa không bị hạn chế vì không quá 100% băng thông của cổng
+băng thông có thể được sử dụng.
+
+NOTE: Các thiết bị X710/XXV710 không bật được Max VF (64) khi có nhiều chức năng
+mỗi Cổng (MFP) và SR-IOV được bật. Một lỗi từ i40e được ghi lại cho biết
+"thêm vsi không thành công cho VF N, aq_err 16". Để khắc phục sự cố, hãy bật ít hơn
+64 chức năng ảo (VF).
+
+Cầu nối trung tâm dữ liệu (DCB)
+--------------------------
+DCB là cấu hình triển khai Chất lượng dịch vụ trong phần cứng. Nó sử dụng
+thẻ ưu tiên VLAN (802.1p) để lọc lưu lượng. Điều đó có nghĩa là có 8
+các mức độ ưu tiên khác nhau mà lưu lượng truy cập có thể được lọc vào. Nó cũng cho phép
+điều khiển luồng ưu tiên (802.1Qbb) có thể hạn chế hoặc loại bỏ số lượng
+rớt gói tin khi mạng căng thẳng. Băng thông có thể được phân bổ cho từng
+những ưu tiên này được thực thi ở cấp độ phần cứng (802.1Qaz).
+
+Phần sụn bộ điều hợp triển khai các tác nhân giao thức LLDP và DCBX theo 802.1AB và
+802.1Qaz tương ứng. Tác nhân DCBX dựa trên phần sụn chỉ chạy ở chế độ sẵn sàng
+và có thể chấp nhận cài đặt từ thiết bị ngang hàng có khả năng DCBX. Cấu hình phần mềm của
+Các tham số DCBX qua dcbtool/lldptool không được hỗ trợ.
+
+NOTE: Firmware LLDP có thể bị vô hiệu hóa bằng cách đặt cờ riêng vô hiệu hóa-fw-lldp.
+
+Trình điều khiển i40e triển khai lớp giao diện liên kết mạng DCB để cho phép không gian người dùng
+để liên lạc với trình điều khiển và truy vấn cấu hình DCB cho cổng.
+
+NOTE:
+Hạt nhân giả định rằng TC0 có sẵn và sẽ tắt Luồng ưu tiên
+Điều khiển (PFC) trên thiết bị nếu TC0 không khả dụng. Để khắc phục điều này, hãy đảm bảo TC0 được
+được bật khi thiết lập DCB trên bộ chuyển mạch của bạn.
+
+Giới hạn tốc độ ngắt
+-----------------------
+:Phạm vi hợp lệ: 0-235 (0=không giới hạn)
+
+Dòng Bộ điều khiển Ethernet Intel(R) XL710 hỗ trợ tốc độ ngắt
+cơ chế hạn chế. Người dùng có thể kiểm soát, thông qua ethtool, số lượng
+micro giây giữa các lần ngắt.
+
+Cú pháp::
+
+# ethtool -C ethX rx-usecs-cao N
+
+Phạm vi 0-235 micro giây cung cấp phạm vi hiệu quả từ 4.310 đến 250.000
+ngắt mỗi giây. Giá trị của rx-usecs-high có thể được đặt độc lập với
+rx-usecs và tx-usecs trong cùng một lệnh ethtool và cũng độc lập với
+thuật toán điều tiết ngắt thích ứng. Hỗ trợ phần cứng cơ bản
+độ chi tiết trong khoảng thời gian 4 micro giây, do đó các giá trị liền kề có thể dẫn đến
+tốc độ ngắt như nhau.
+
+Một trường hợp sử dụng có thể xảy ra như sau::
+
+# ethtool -C ethX Adaptive-rx off Adaptive-tx off rx-usecs-high 20 rx-usecs \
+    5 tx-usecs 5
+
+Lệnh trên sẽ vô hiệu hóa việc kiểm duyệt ngắt thích ứng và cho phép
+tối đa 5 micro giây trước khi cho biết quá trình nhận hoặc truyền đã hoàn tất.
+Tuy nhiên, thay vì gây ra tới 200.000 lần ngắt mỗi giây, nó
+giới hạn tổng số lần ngắt mỗi giây ở mức 50.000 thông qua tham số rx-usecs-high.
+
+Tối ưu hóa hiệu suất
+========================
+Các cài đặt mặc định của trình điều khiển nhằm mục đích phù hợp với nhiều khối lượng công việc khác nhau, nhưng nếu tiếp tục
+cần tối ưu hóa, chúng tôi khuyên bạn nên thử nghiệm các cài đặt sau.
+
+NOTE: Để có hiệu suất tốt hơn khi xử lý kích thước khung hình nhỏ (64B), hãy thử
+kích hoạt siêu phân luồng trong BIOS để tăng số lượng logic
+lõi trong hệ thống và sau đó tăng số lượng hàng đợi có sẵn để
+bộ chuyển đổi.
+
+Môi trường ảo hóa
+------------------------
+1. Vô hiệu hóa XPS ở cả hai đầu bằng cách sử dụng tập lệnh virt_perf_default đi kèm
+hoặc bằng cách chạy lệnh sau với quyền root ::
+
+cho tập tin trong ZZ0000ZZ;
+  làm echo 0 > $file; xong
+
+2. Sử dụng cơ chế thích hợp (vcpupin) trong vm, ghim cpu vào
+từng lcpu riêng lẻ, đảm bảo sử dụng một bộ cpu có trong
+local_cpulist của thiết bị: /sys/class/net/<ethX>/device/local_cpulist.
+
+3. Định cấu hình càng nhiều hàng đợi Rx/Tx trong VM càng tốt. Đừng dựa vào
+cài đặt mặc định là 1.
+
+
+Môi trường không ảo hóa
+----------------------------
+Ghim IRQ của bộ điều hợp vào các lõi cụ thể bằng cách tắt dịch vụ mất cân bằng
+và sử dụng tập lệnh set_irq_affinity đi kèm. Vui lòng xem trợ giúp của tập lệnh
+văn bản để có thêm lựa chọn.
+
+- Các cài đặt sau sẽ phân phối IRQ trên tất cả các lõi một cách đồng đều::
+
+# scripts/set_irq_affinity -x tất cả <interface1> , [ <interface2>, ... ]
+
+- Các cài đặt sau sẽ phân phối IRQ trên tất cả các lõi được
+  cục bộ vào bộ chuyển đổi (cùng nút NUMA)::
+
+# scripts/set_irq_affinity -x cục bộ <interface1> ,[ <interface2>, ... ]
+
+Đối với khối lượng công việc nặng về CPU, chúng tôi khuyên bạn nên ghim IRQ vào tất cả các lõi.
+
+Để chuyển tiếp IP: Vô hiệu hóa ITR thích ứng và giảm các ngắt Rx và Tx cho mỗi
+xếp hàng bằng ethtool.
+
+- Đặt rx-usecs và tx-usecs thành 125 sẽ hạn chế ngắt ở khoảng 8000
+  ngắt mỗi giây trên mỗi hàng đợi.
+
+::
+
+# ethtool -C <giao diện> Adaptive-rx off Adaptive-tx off rx-usecs 125 \
+    tx-usecs 125
+
+Để sử dụng CPU thấp hơn: Tắt ITR thích ứng và giảm các ngắt Rx và Tx
+mỗi hàng đợi bằng ethtool.
+
+- Đặt rx-usecs và tx-usecs thành 250 sẽ hạn chế ngắt ở khoảng 4000
+  ngắt mỗi giây trên mỗi hàng đợi.
+
+::
+
+# ethtool -C <giao diện> thích ứng-rx tắt thích ứng-tx tắt rx-usecs 250 \
+    tx-usecs 250
+
+Để có độ trễ thấp hơn: Tắt ITR và ITR thích ứng bằng cách đặt Rx và Tx thành 0 bằng cách sử dụng
+ethtool.
+
+::
+
+# ethtool -C <giao diện> Adaptive-rx off Adaptive-tx off rx-usecs 0 \
+    tx-usecs 0
+
+Hàng đợi thiết bị ứng dụng (ADq)
+-------------------------------
+Hàng đợi thiết bị ứng dụng (ADq) cho phép bạn dành một hoặc nhiều hàng đợi cho một
+ứng dụng cụ thể. Điều này có thể giảm độ trễ cho ứng dụng được chỉ định,
+và cho phép lưu lượng Tx bị giới hạn tốc độ cho mỗi ứng dụng. Thực hiện theo các bước dưới đây
+để thiết lập ADq.
+
+1. Tạo các lớp lưu lượng truy cập (TC). Có thể tạo tối đa 8 TC trên mỗi giao diện.
+Tham số bw_rlimit của bộ tạo hình là tùy chọn.
+
+Ví dụ: Thiết lập hai tcs, tc0 và tc1, với mỗi hàng 16 hàng đợi và đặt tốc độ tx tối đa
+đến 1Gbit cho tc0 và 3Gbit cho tc1.
+
+::
+
+# tc qdisc thêm dev <giao diện> root mqprio num_tc 2 bản đồ 0 0 0 0 1 1 1 1
+  hàng đợi 16@0 16@16 hw 1 chế độ định hình kênh bw_rlimit min_rate 1Gbit 2Gbit
+  tốc độ tối đa 1Gbit 3Gbit
+
+bản đồ: ánh xạ ưu tiên cho tối đa 16 mức độ ưu tiên cho tcs (ví dụ: bản đồ 0 0 0 0 1 1 1 1
+đặt mức độ ưu tiên 0-3 để sử dụng tc0 và 4-7 để sử dụng tc1)
+
+hàng đợi: với mỗi tc, <num queues>@<offset> (ví dụ: hàng đợi 16@0 16@16 được gán
+16 hàng đợi tới tc0 ở offset 0 và 16 hàng đợi đến tc1 ở offset 16. Tổng tối đa
+số hàng đợi cho tất cả tcs là 64 hoặc số lõi, tùy theo số nào thấp hơn.)
+
+kênh chế độ hw 1: 'kênh' với 'hw' được đặt thành 1 là phần cứng mới mới
+chế độ giảm tải trong mqprio sử dụng đầy đủ các tùy chọn mqprio,
+TC, cấu hình hàng đợi và tham số QoS.
+
+Shaper bw_rlimit: với mỗi tc, đặt tốc độ băng thông tối thiểu và tối đa.
+Tổng số phải bằng hoặc nhỏ hơn tốc độ cổng.
+
+Ví dụ: min_rate 1Gbit 3Gbit: Xác minh giới hạn băng thông sử dụng mạng
+các công cụ giám sát như ZZ0000ZZ hoặc ZZ0001ZZ
+
+2. Kích hoạt tính năng giảm tải CTNH trên giao diện::
+
+# ethtool -K <giao diện> bật hw-tc-offload
+
+3. Áp dụng TC cho luồng giao diện đi vào (RX)::
+
+# tc qdisc thêm lối vào dev <interface>
+
+NOTES:
+ - Chạy tất cả các lệnh tc từ thư mục iproute2<pathtoiproute2>/tc/.
+ - ADq không tương thích với bộ lọc đám mây.
+ - Không hỗ trợ thiết lập kênh qua ethtool (ethtool -L) khi
+   TC được định cấu hình bằng mqprio.
+ - Bạn phải có iproute2 phiên bản mới nhất
+ - Cần có NVM phiên bản 6.01 trở lên.
+ - Không thể bật ADq khi bật bất kỳ tính năng nào sau đây: Dữ liệu
+   Cầu nối trung tâm (DCB), Nhiều chức năng trên mỗi cổng (MFP) hoặc Sideband
+   Bộ lọc.
+ - Nếu trình điều khiển khác (ví dụ: DPDK) đã đặt bộ lọc đám mây thì bạn không thể
+   kích hoạt ADq.
+ - Bộ lọc đường hầm không được hỗ trợ trong ADq. Nếu các gói được đóng gói làm
+   đến chế độ không có đường hầm, việc lọc sẽ được thực hiện trên các tiêu đề bên trong.
+   Ví dụ: đối với lưu lượng VXLAN ở chế độ không phải đường hầm, PCTYPE được xác định
+   dưới dạng gói được đóng gói VXLAN, các tiêu đề bên ngoài sẽ bị bỏ qua. Vì vậy,
+   tiêu đề bên trong được khớp.
+ - Nếu bộ lọc TC trên PF phù hợp với lưu lượng trên VF (trên PF), thì
+   lưu lượng sẽ được định tuyến đến hàng đợi thích hợp của PF và sẽ
+   không được thông qua trên VF. Lưu lượng truy cập như vậy cuối cùng sẽ giảm cao hơn
+   lên trong ngăn xếp TCP/IP vì nó không khớp với dữ liệu địa chỉ PF.
+ - Nếu lưu lượng khớp với nhiều bộ lọc TC trỏ đến các TC khác nhau,
+   lưu lượng truy cập đó sẽ được nhân đôi và gửi đến tất cả các hàng đợi TC phù hợp.
+   Bộ chuyển mạch phần cứng phản ánh gói tin vào danh sách VSI khi có nhiều
+   các bộ lọc được khớp.
+
+
+Sự cố đã biết/Khắc phục sự cố
+============================
+
+NOTE: Các thiết bị 1 Gb dựa trên Kết nối mạng Ethernet Intel(R) X722 làm được
+không hỗ trợ các tính năng sau:
+
+* Cầu nối trung tâm dữ liệu (DCB)
+  * QOS
+  * VMQ
+  * SR-IOV
+  * Giảm tải đóng gói tác vụ (VXLAN, NVGRE)
+  * Ethernet tiết kiệm năng lượng (EEE)
+  * Tự động phát hiện phương tiện
+
+Sự cố không mong muốn khi trình điều khiển thiết bị và DPDK dùng chung một thiết bị
+----------------------------------------------------------------
+Sự cố không mong muốn có thể xảy ra khi thiết bị i40e ở chế độ đa trình điều khiển và
+trình điều khiển kernel và trình điều khiển DPDK đang chia sẻ thiết bị. Điều này là do
+quyền truy cập vào tài nguyên NIC toàn cầu không được đồng bộ hóa giữa nhiều
+trình điều khiển. Bất kỳ thay đổi nào đối với cấu hình NIC toàn cầu (ghi vào toàn cục
+đăng ký, cài đặt cấu hình chung theo AQ hoặc thay đổi chế độ chuyển đổi) sẽ
+ảnh hưởng đến tất cả các cổng và trình điều khiển trên thiết bị. Đang tải DPDK bằng
+Tham số mô-đun "đa trình điều khiển" có thể giảm thiểu một số vấn đề.
+
+TC0 phải được bật khi thiết lập DCB trên switch
+---------------------------------------------------
+Hạt nhân giả định rằng TC0 có sẵn và sẽ tắt Luồng ưu tiên
+Điều khiển (PFC) trên thiết bị nếu TC0 không khả dụng. Để khắc phục điều này, hãy đảm bảo TC0 được
+được bật khi thiết lập DCB trên bộ chuyển mạch của bạn.
+
+
+Ủng hộ
+=======
+Để biết thông tin chung, hãy truy cập trang web hỗ trợ của Intel tại:
+ZZ0000ZZ
+
+Nếu xác định được sự cố với mã nguồn đã phát hành trên hạt nhân được hỗ trợ
+với bộ điều hợp được hỗ trợ, hãy gửi email thông tin cụ thể liên quan đến sự cố
+tới intel-wired-lan@lists.osuosl.org.

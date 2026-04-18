@@ -1,0 +1,470 @@
+.. SPDX-License-Identifier: GPL-2.0+
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/ethernet/intel/e1000.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===============================================================
+Trình điều khiển cơ sở Linux cho kết nối mạng Ethernet Intel(R)
+==========================================================
+
+Trình điều khiển Intel Gigabit Linux.
+Copyright(c) 1999 - 2013 Tập đoàn Intel.
+
+Nội dung
+========
+
+- Xác định bộ chuyển đổi của bạn
+- Tham số dòng lệnh
+- Cấu hình tốc độ và song công
+- Cấu hình bổ sung
+- Hỗ trợ
+
+Xác định bộ điều hợp của bạn
+========================
+
+Để biết thêm thông tin về cách xác định bộ điều hợp của bạn, hãy truy cập Bộ điều hợp &
+Hướng dẫn nhận dạng tài xế tại:
+
+ZZ0000ZZ
+
+Để biết trình điều khiển mạng Intel mới nhất dành cho Linux, hãy tham khảo tài liệu sau
+trang web.  Trong trường tìm kiếm, nhập tên hoặc loại bộ điều hợp của bạn hoặc sử dụng
+liên kết mạng ở bên trái để tìm kiếm bộ điều hợp của bạn:
+
+ZZ0000ZZ
+
+Tham số dòng lệnh
+=======================
+
+Giá trị mặc định cho từng tham số thường là cài đặt được đề xuất,
+trừ khi có ghi chú khác.
+
+NOTES:
+	Để biết thêm thông tin về AutoNeg, Duplex và Speed
+        tham số, hãy xem phần "Cấu hình song công và tốc độ" trong
+        tài liệu này.
+
+Để biết thêm thông tin về InterruptThrottleRate,
+        RxIntDelay, TxIntDelay, RxAbsIntDelay và TxAbsIntDelay
+        thông số, xem ghi chú ứng dụng tại:
+        ZZ0000ZZ
+
+Tự động phủ định
+-------
+
+(Chỉ được hỗ trợ trên các bộ điều hợp có kết nối bằng đồng)
+
+:Phạm vi hợp lệ: 0x01-0x0F, 0x20-0x2F
+: Giá trị mặc định: 0x2F
+
+Tham số này là mặt nạ bit chỉ định cài đặt tốc độ và song công
+được quảng cáo bởi bộ chuyển đổi.  Khi tham số này được sử dụng, Tốc độ và
+Các tham số song công không được chỉ định.
+
+NOTE:
+       Tham khảo phần Tốc độ và song công của tài liệu này để biết thêm
+       thông tin về tham số AutoNeg.
+
+song công
+------
+
+(Chỉ được hỗ trợ trên các bộ điều hợp có kết nối bằng đồng)
+
+:Phạm vi hợp lệ: 0-2 (0=tự động thương lượng, 1=một nửa, 2=đầy đủ)
+: Giá trị mặc định: 0
+
+Điều này xác định hướng mà dữ liệu được phép truyền.  có thể
+một hoặc hai chiều.  Nếu cả Duplex và đối tác liên kết đều
+được đặt thành tự động đàm phán, bảng sẽ tự động phát hiện bản song công chính xác.  Nếu
+đối tác liên kết bị ép buộc (toàn bộ hoặc một nửa), Duplex mặc định là một nửa
+song công.
+
+Kiểm soát dòng chảy
+-----------
+
+:Phạm vi hợp lệ: 0-3 (0=không, 1=chỉ Rx, 2=chỉ Tx, 3=Rx&Tx)
+: Giá trị mặc định: Đọc cài đặt điều khiển luồng từ EEPROM
+
+Tham số này điều khiển việc tạo tự động (Tx) và phản hồi (Rx)
+tới các khung Ethernet PAUSE.
+
+Gián đoạn ThrottleRate
+---------------------
+
+(không được hỗ trợ trên các bộ điều hợp dựa trên Intel(R) 82542, 82543 hoặc 82544)
+
+:Phạm vi hợp lệ:
+   0,1,3,4,100-100000 (0=tắt, 1=động, 3=bảo toàn động,
+   4=cân bằng đơn giản)
+: Giá trị mặc định: 3
+
+Trình điều khiển có thể giới hạn số lượng ngắt mỗi giây mà bộ điều hợp
+sẽ tạo ra cho các gói đến. Nó thực hiện điều này bằng cách viết một giá trị vào
+bộ chuyển đổi dựa trên số lượng ngắt tối đa mà bộ chuyển đổi
+sẽ tạo ra mỗi giây.
+
+Đặt InterruptThrottleRate thành giá trị lớn hơn hoặc bằng 100
+sẽ lập trình cho bộ điều hợp gửi tối đa số lần ngắt đó
+mỗi giây, ngay cả khi có nhiều gói đến hơn. Điều này làm giảm tình trạng gián đoạn
+tải trên hệ thống và có thể giảm mức sử dụng CPU khi tải nặng,
+nhưng sẽ tăng độ trễ vì các gói không được xử lý nhanh chóng.
+
+Hành vi mặc định của trình điều khiển trước đó giả định ở trạng thái tĩnh
+Giá trị InterruptThrottleRate là 8000, cung cấp giá trị dự phòng tốt cho
+tất cả các loại lưu lượng nhưng thiếu hiệu suất và độ trễ gói nhỏ.
+Tuy nhiên, phần cứng có thể xử lý nhiều gói nhỏ hơn mỗi giây và
+vì lý do này, một thuật toán điều tiết ngắt thích ứng đã được triển khai.
+
+Kể từ 7.3.x, trình điều khiển có hai chế độ thích ứng (cài đặt 1 hoặc 3), trong đó
+nó tự động điều chỉnh giá trị InterruptThrottleRate dựa trên lưu lượng truy cập
+mà nó nhận được. Sau khi xác định loại lưu lượng truy cập vào cuối cùng
+khung thời gian, nó sẽ điều chỉnh InterruptThrottleRate thành một giá trị phù hợp
+cho lưu lượng truy cập đó.
+
+Thuật toán phân loại lưu lượng truy cập vào mỗi khoảng thời gian thành
+các lớp học.  Khi lớp được xác định, giá trị InterruptThrottleRate là
+được điều chỉnh để phù hợp nhất với loại lưu lượng truy cập đó. Có ba lớp được định nghĩa:
+"Lưu lượng lớn", dành cho số lượng lớn gói có kích thước bình thường; "Độ trễ thấp",
+cho một lượng nhỏ lưu lượng truy cập và/hoặc một tỷ lệ phần trăm đáng kể của lưu lượng truy cập nhỏ
+gói tin; và "Độ trễ thấp nhất", đối với các gói gần như hoàn toàn nhỏ hoặc
+giao thông tối thiểu.
+
+Ở chế độ bảo thủ động, giá trị InterruptThrottleRate được đặt thành 4000
+đối với lưu lượng truy cập thuộc loại "Lưu lượng truy cập số lượng lớn". Nếu lưu lượng truy cập rơi vào mức "Thấp
+độ trễ" hoặc lớp "Độ trễ thấp nhất", InterruptThrottleRate được tăng lên
+từng bước đến 20000. Chế độ mặc định này phù hợp với hầu hết các ứng dụng.
+
+Đối với các tình huống có độ trễ thấp là quan trọng, chẳng hạn như cụm hoặc
+tính toán lưới, thuật toán có thể giảm độ trễ hơn nữa khi
+InterruptThrottleRate được đặt ở chế độ 1. Ở chế độ này, chế độ này hoạt động
+giống như chế độ 3, InterruptThrottleRate sẽ được tăng dần lên
+70000 cho lưu lượng truy cập trong lớp "Độ trễ thấp nhất".
+
+Trong chế độ đơn giản hóa, tốc độ ngắt dựa trên tỷ lệ giữa TX và
+Lưu lượng RX.  Nếu tốc độ byte trên giây xấp xỉ bằng nhau thì
+tốc độ ngắt sẽ giảm xuống mức 2000 lần ngắt mỗi giây.  Nếu
+lưu lượng chủ yếu là truyền hoặc chủ yếu là nhận, tốc độ gián đoạn có thể
+có thể lên tới 8000.
+
+Đặt InterruptThrottleRate thành 0 sẽ tắt mọi kiểm duyệt ngắt
+và có thể cải thiện độ trễ gói nhỏ, nhưng nhìn chung không phù hợp
+cho lưu lượng thông lượng lớn.
+
+NOTE:
+       InterruptThrottleRate được ưu tiên hơn TxAbsIntDelay và
+       Tham số RxAbsIntDelay.  Nói cách khác, giảm thiểu việc nhận
+       và/hoặc truyền độ trễ tuyệt đối không buộc bộ điều khiển phải
+       tạo ra nhiều ngắt hơn tốc độ điều tiết ngắt
+       cho phép.
+
+CAUTION:
+          Nếu bạn đang sử dụng Kết nối mạng Intel(R) PRO/1000 CT
+          (bộ điều khiển 82547), đặt InterruptThrottleRate thành một giá trị
+          lớn hơn 75.000, có thể treo (ngưng truyền) bộ điều hợp
+          trong những điều kiện mạng nhất định.  Nếu điều này xảy ra thì NETDEV
+          Thông báo WATCHDOG được ghi vào nhật ký sự kiện hệ thống.  trong
+          Ngoài ra, bộ điều khiển sẽ tự động được thiết lập lại, khôi phục
+          kết nối mạng.  Để loại bỏ khả năng xảy ra
+          treo, đảm bảo rằng InterruptThrottleRate được đặt không lớn hơn
+          hơn 75.000 và không được đặt thành 0.
+
+NOTE:
+       Khi e1000 được tải với cài đặt mặc định và nhiều bộ điều hợp
+       đang được sử dụng đồng thời, việc sử dụng CPU có thể làm tăng
+       tuyến tính.  Để hạn chế việc sử dụng CPU mà không ảnh hưởng
+       thông lượng tổng thể, chúng tôi khuyên bạn nên tải trình điều khiển dưới dạng
+       sau::
+
+modprobe e1000 InterruptThrottleRate=3000,3000,3000
+
+Điều này đặt InterruptThrottleRate thành 3000 ngắt/giây cho
+       phiên bản đầu tiên, thứ hai và thứ ba của trình điều khiển.  Phạm vi
+       từ 2000 đến 3000 ngắt mỗi giây hoạt động trên phần lớn
+       hệ thống và là điểm khởi đầu tốt, nhưng giá trị tối ưu sẽ
+       được nền tảng cụ thể.  Nếu việc sử dụng CPU không phải là vấn đề đáng lo ngại, hãy sử dụng
+       RX_POLLING (NAPI) và cài đặt trình điều khiển mặc định.
+
+Bộ mô tả Rx
+-------------
+
+:Phạm vi hợp lệ:
+ - 48-256 cho bộ điều hợp dựa trên 82542 và 82543
+ - 48-4096 cho tất cả các bộ điều hợp được hỗ trợ khác
+: Giá trị mặc định: 256
+
+Giá trị này chỉ định số lượng bộ mô tả bộ đệm nhận được phân bổ
+bởi người lái xe.  Việc tăng giá trị này cho phép trình điều khiển đệm nhiều hơn
+các gói tin đến, làm tăng việc sử dụng bộ nhớ hệ thống.
+
+Mỗi bộ mô tả là 16 byte.  Một bộ đệm nhận cũng được phân bổ cho mỗi
+bộ mô tả và có thể là 2048, 4096, 8192 hoặc 16384 byte, tùy thuộc vào
+trên cài đặt MTU. Kích thước MTU tối đa là 16110.
+
+NOTE:
+       MTU chỉ định kích thước khung hình.  Nó chỉ cần được thiết lập cho Jumbo
+       Khung.  Tùy thuộc vào tài nguyên hệ thống có sẵn, yêu cầu
+       đối với số lượng mô tả nhận cao hơn có thể bị từ chối.  Trong này
+       trường hợp, sử dụng số thấp hơn.
+
+RxIntDelay
+----------
+
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 0
+
+Giá trị này trì hoãn việc tạo ra các ngắt nhận theo đơn vị 1,024
+micro giây.  Giảm ngắt nhận có thể cải thiện hiệu quả của CPU nếu
+được điều chỉnh phù hợp cho lưu lượng mạng cụ thể.  Việc tăng giá trị này sẽ tăng thêm
+tăng thêm độ trễ cho việc tiếp nhận khung và cuối cùng có thể làm giảm thông lượng
+lưu lượng truy cập TCP.  Nếu hệ thống báo cáo bị mất nhận, giá trị này
+có thể được đặt quá cao, khiến trình điều khiển hết khả năng nhận
+những người mô tả.
+
+CAUTION:
+          Khi đặt RxIntDelay thành giá trị khác 0, bộ điều hợp có thể
+          treo (ngưng truyền) trong một số điều kiện mạng nhất định.  Nếu
+          điều này xảy ra một thông báo NETDEV WATCHDOG đã được đăng nhập vào hệ thống
+          nhật ký sự kiện.  Ngoài ra, bộ điều khiển sẽ tự động được thiết lập lại,
+          khôi phục lại kết nối mạng.  Để loại bỏ khả năng
+          để treo, đảm bảo rằng RxIntDelay được đặt thành 0.
+
+RxAbsIntDelay
+-------------
+
+(Tham số này chỉ được hỗ trợ trên các bộ điều hợp 82540, 82545 trở lên.)
+
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 128
+
+Giá trị này, tính bằng đơn vị 1,024 micro giây, giới hạn độ trễ trong đó
+nhận ngắt được tạo ra.  Chỉ hữu ích nếu RxIntDelay khác 0,
+giá trị này đảm bảo rằng một ngắt được tạo ra sau lần đầu tiên
+gói được nhận trong khoảng thời gian đã đặt.  Điều chỉnh hợp lý,
+cùng với RxIntDelay, có thể cải thiện lưu lượng truy cập trong mạng cụ thể
+điều kiện.
+
+Tốc độ
+-----
+
+(Tham số này chỉ được hỗ trợ trên các bộ điều hợp có kết nối bằng đồng.)
+
+:Cài đặt hợp lệ: 0, 10, 100, 1000
+: Giá trị mặc định: 0 (tự động thương lượng ở mọi tốc độ được hỗ trợ)
+
+Tốc độ buộc tốc độ đường truyền đạt giá trị được chỉ định tính bằng megabit trên giây
+(Mbps).  Nếu tham số này không được chỉ định hoặc được đặt thành 0 và liên kết
+đối tác được đặt ở chế độ tự động thương lượng, hội đồng quản trị sẽ tự động phát hiện đối tác chính xác
+tốc độ.  Duplex cũng nên được đặt khi Tốc độ được đặt thành 10 hoặc 100.
+
+TxDescriptor
+-------------
+
+:Phạm vi hợp lệ:
+  - 48-256 cho bộ điều hợp dựa trên 82542 và 82543
+  - 48-4096 cho tất cả các bộ điều hợp được hỗ trợ khác
+: Giá trị mặc định: 256
+
+Giá trị này là số lượng bộ mô tả truyền được phân bổ bởi trình điều khiển.
+Việc tăng giá trị này cho phép trình điều khiển xếp hàng nhiều lượt truyền hơn.  Mỗi
+bộ mô tả là 16 byte.
+
+NOTE:
+       Tùy thuộc vào tài nguyên hệ thống có sẵn, yêu cầu về
+       số lượng mô tả truyền cao hơn có thể bị từ chối.  Trong trường hợp này,
+       sử dụng số thấp hơn.
+
+TxIntDelay
+----------
+
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 8
+
+Giá trị này trì hoãn việc tạo ra các ngắt truyền theo đơn vị
+1,024 micro giây.  Giảm gián đoạn truyền có thể cải thiện CPU
+hiệu quả nếu được điều chỉnh hợp lý cho lưu lượng mạng cụ thể.  Nếu
+hệ thống đang báo cáo việc truyền bị mất, giá trị này có thể được đặt quá cao
+khiến trình điều khiển hết bộ mô tả truyền có sẵn.
+
+TxAbsIntDelay
+-------------
+
+(Tham số này chỉ được hỗ trợ trên các bộ điều hợp 82540, 82545 trở lên.)
+
+:Phạm vi hợp lệ: 0-65535 (0=tắt)
+: Giá trị mặc định: 32
+
+Giá trị này, tính bằng đơn vị 1,024 micro giây, giới hạn độ trễ trong đó
+ngắt truyền được tạo ra.  Chỉ hữu ích nếu TxIntDelay khác 0,
+giá trị này đảm bảo rằng một ngắt được tạo ra sau lần đầu tiên
+gói được gửi trên dây trong khoảng thời gian đã đặt.  Điều chỉnh hợp lý,
+cùng với TxIntDelay, có thể cải thiện thông lượng lưu lượng truy cập cụ thể
+điều kiện mạng.
+
+XsumRX
+------
+
+(Tham số này được hỗ trợ NOT trên bộ chuyển đổi dựa trên 82542.)
+
+:Phạm vi hợp lệ: 0-1
+: Giá trị mặc định: 1
+
+Giá trị '1' cho biết trình điều khiển nên bật tổng kiểm tra IP
+giảm tải các gói đã nhận (cả UDP và TCP) sang phần cứng bộ điều hợp.
+
+Sao chép
+---------
+
+:Phạm vi hợp lệ: 0-xxxxxxx (0=tắt)
+: Giá trị mặc định: 256
+:Cách sử dụng: modprobe e1000.ko copybreak=128
+
+Trình điều khiển sao chép tất cả các gói bên dưới hoặc bằng kích thước này với một RX mới
+đệm trước khi đưa nó lên ngăn xếp.
+
+Tham số này khác với các tham số khác ở chỗ nó là một
+tham số duy nhất (không phải 1,1,1, v.v.) được áp dụng cho tất cả các phiên bản trình điều khiển và
+nó cũng có sẵn trong thời gian chạy tại
+/sys/mô-đun/e1000/tham số/copybreak
+
+SmartPowerDownEnable
+--------------------
+
+:Phạm vi hợp lệ: 0-1
+: Giá trị mặc định: 0 (bị tắt)
+
+Cho phép PHY tắt ở trạng thái năng lượng thấp hơn. Người dùng có thể tắt
+tham số này trong các chipset được hỗ trợ.
+
+Cấu hình tốc độ và song công
+==============================
+
+Ba từ khóa được sử dụng để kiểm soát tốc độ và cấu hình song công.
+Những từ khóa này là Tốc độ, Song công và AutoNeg.
+
+Nếu bảng sử dụng giao diện cáp quang, những từ khóa này sẽ bị bỏ qua và
+bảng giao diện cáp quang chỉ liên kết ở tốc độ song công hoàn toàn 1000 Mbps.
+
+Đối với bo mạch bằng đồng, các từ khóa tương tác như sau:
+
+- Hoạt động mặc định là tự động đàm phán.  Bảng quảng cáo tất cả
+  được hỗ trợ kết hợp tốc độ và song công và nó liên kết ở mức cao nhất
+  tốc độ chung và chế độ song công NẾU đối tác liên kết được đặt thành tự động đàm phán.
+
+- Nếu Tốc độ = 1000, tính năng tự động đàm phán có giới hạn được bật và chỉ 1000 Mbps
+  được quảng cáo (Thông số 1000BaseT yêu cầu tự động đàm phán.)
+
+- Nếu Tốc độ = 10 hoặc 100 thì nên đặt cả Tốc độ và Song công.  Tự động-
+  đàm phán bị vô hiệu hóa và tham số AutoNeg bị bỏ qua.  Đối tác
+  SHOULD cũng bị ép buộc.
+
+Tham số AutoNeg được sử dụng khi cần nhiều điều khiển hơn đối với
+quá trình đàm phán tự động.  Nó nên được sử dụng khi bạn muốn kiểm soát cái nào
+sự kết hợp tốc độ và song công được quảng cáo trong quá trình tự động đàm phán
+quá trình.
+
+Tham số có thể được chỉ định dưới dạng giá trị thập phân hoặc thập lục phân như
+được xác định bởi bitmap bên dưới.
+
+============== ====== ====== ======= ======= ====== ====== ======= ======
+Vị trí bit 7 6 5 4 3 2 1 0
+Giá trị thập phân 128 64 32 16 8 4 2 1
+Giá trị thập lục phân 80 40 20 10 8 4 2 1
+Tốc độ (Mbps) N/A N/A 1000 N/A 100 100 10 10
+Duplex Full Full Half Full Half
+============== ====== ====== ======= ======= ====== ====== ======= ======
+
+Một số ví dụ về sử dụng AutoNeg::
+
+modprobe e1000 AutoNeg=0x01 (Hạn chế tự động đàm phán ở 10 nửa)
+  modprobe e1000 AutoNeg=1 (Tương tự như trên)
+  modprobe e1000 AutoNeg=0x02 (Hạn chế tự động đàm phán ở mức 10 đầy đủ)
+  modprobe e1000 AutoNeg=0x03 (Hạn chế tự động đàm phán ở mức 10 Nửa hoặc 10 Toàn bộ)
+  modprobe e1000 AutoNeg=0x04 (Hạn chế tự động đàm phán ở mức 100 Half)
+  modprobe e1000 AutoNeg=0x05 (Hạn chế tự động thương lượng ở mức 10 Nửa hoặc 100
+  Một nửa)
+  modprobe e1000 AutoNeg=0x020 (Hạn chế tự động đàm phán ở mức 1000 Full)
+  modprobe e1000 AutoNeg=32 (Tương tự như trên)
+
+Lưu ý rằng khi sử dụng tham số này, không được chỉ định Tốc độ và Song công.
+
+Nếu đối tác liên kết bị buộc phải thực hiện một tốc độ và song công cụ thể thì điều này
+không nên sử dụng tham số.  Thay vào đó, hãy sử dụng các tham số Tốc độ và Song công
+đã đề cập trước đó để buộc bộ chuyển đổi có cùng tốc độ và song công.
+
+Cấu hình bổ sung
+=========================
+
+Khung Jumbo
+------------
+
+Hỗ trợ Khung Jumbo được bật bằng cách thay đổi MTU thành giá trị lớn hơn
+  mặc định là 1500. Sử dụng lệnh ifconfig để tăng kích thước MTU.
+  Ví dụ::
+
+ifconfig eth<x> mtu 9000 trở lên
+
+Cài đặt này không được lưu trong các lần khởi động lại.  Nó có thể được thực hiện vĩnh viễn nếu
+  bạn thêm::
+
+MTU=9000
+
+vào tệp /etc/sysconfig/network-scripts/ifcfg-eth<x>.  Ví dụ này
+  áp dụng cho các bản phân phối của Red Hat; các bản phân phối khác có thể lưu trữ cái này
+  thiết lập ở một vị trí khác.
+
+Ghi chú:
+  Sự suy giảm hiệu suất thông lượng có thể được quan sát thấy trong một số khung Jumbo
+  môi trường. Nếu điều này được quan sát thấy, hãy tăng bộ đệm ổ cắm của ứng dụng
+  size và/hoặc tăng giá trị mục nhập /proc/sys/net/ipv4/tcp_*mem có thể hữu ích.
+  Xem hướng dẫn ứng dụng cụ thể và /usr/src/linux*/Documentation/
+  Network/ip-sysctl.txt để biết thêm chi tiết.
+
+- Cài đặt MTU tối đa cho Khung Jumbo là 16110. Giá trị này trùng khớp
+    với kích thước Khung Jumbo tối đa là 16128.
+
+- Việc sử dụng khung Jumbo ở tốc độ 10 hoặc 100 Mbps không được hỗ trợ và có thể dẫn đến
+    hiệu suất kém hoặc mất liên kết.
+
+- Bộ điều hợp dựa trên bộ điều khiển Intel(R) 82542 và 82573V/E không
+    hỗ trợ khung Jumbo. Chúng tương ứng với các tên sản phẩm sau::
+
+Bộ điều hợp máy chủ Intel(R) PRO/1000 Gigabit
+     Kết nối mạng Intel(R) PRO/1000 PM
+
+công cụ đạo đức
+-------
+
+Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
+  chẩn đoán cũng như hiển thị thông tin thống kê.  công cụ đạo đức
+  Cần có phiên bản 1.6 trở lên cho chức năng này.
+
+Bản phát hành mới nhất của ethtool có thể được tìm thấy từ
+  ZZ0000ZZ
+
+Kích hoạt Wake trên LAN (WoL)
+--------------------------
+
+WoL được cấu hình thông qua tiện ích ethtool.
+
+WoL sẽ được kích hoạt trên hệ thống trong lần tắt hoặc khởi động lại tiếp theo.
+  Đối với phiên bản trình điều khiển này, để bật WoL, trình điều khiển e1000 phải được
+  được tải khi tắt hoặc khởi động lại hệ thống.
+
+Ủng hộ
+=======
+
+Để biết thông tin chung, hãy truy cập trang web hỗ trợ của Intel tại:
+ZZ0000ZZ
+
+Nếu một vấn đề được xác định với mã nguồn được phát hành trên thiết bị được hỗ trợ
+kernel với bộ điều hợp được hỗ trợ, gửi email thông tin cụ thể liên quan
+gửi vấn đề tới intel-wired-lan@lists.osuosl.org.

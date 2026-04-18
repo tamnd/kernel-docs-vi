@@ -1,0 +1,47 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tmp103.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tmp103
+====================
+
+Chip được hỗ trợ:
+
+* Dụng cụ Texas TMP103
+
+Tiền tố: 'tmp103'
+
+Địa chỉ được quét: không có
+
+Thông tin sản phẩm và bảng dữ liệu: ZZ0000ZZ
+
+Tác giả:
+
+Heiko Schocher <hs@denx.de>
+
+Sự miêu tả
+-----------
+
+TMP103 là cảm biến nhiệt độ đầu ra kỹ thuật số ở dạng bốn bóng
+gói quy mô chip wafer (WCSP). TMP103 có khả năng đọc
+nhiệt độ tới độ phân giải 1°C. TMP103 được chỉ định cho
+hoạt động trong phạm vi nhiệt độ từ -40°C đến +125°C.
+
+Độ phân giải: 8 bit
+Độ chính xác: ±1°C Loại (-10°C đến +100°C)
+
+Trình điều khiển cung cấp giao diện sysfs chung cho nhiệt độ (xem
+Documentation/hwmon/sysfs-interface.rst trong phần Nhiệt độ).
+
+Vui lòng tham khảo cách khởi tạo trình điều khiển này:
+Tài liệu/i2c/instantiating-devices.rst

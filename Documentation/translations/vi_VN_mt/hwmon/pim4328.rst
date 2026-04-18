@@ -1,0 +1,117 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/pim4328.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân pim4328
+=====================
+
+Chip được hỗ trợ:
+
+* Linh hoạt PIM4328
+
+Tiền tố: 'pim4328', 'bmr455'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+
+ZZ0000ZZ
+
+* Linh hoạt PIM4820
+
+Tiền tố: 'pim4820'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+* Linh hoạt PIM4006, PIM4106, PIM4206, PIM4306, PIM4406
+
+Tiền tố: 'pim4006', 'pim4106', 'pim4206', 'pim4306', 'pim4406'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: ZZ0000ZZ
+
+Tác giả: Erik Rosen <erik.rosen@metormote.com>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này hỗ trợ giám sát phần cứng cho Flex PIM4328 và
+mô-đun giao diện nguồn kỹ thuật số tương thích.
+
+Trình điều khiển là trình điều khiển máy khách cho trình điều khiển PMBus cốt lõi. Xin vui lòng xem
+Documentation/hwmon/pmbus.rst và Documentation.hwmon/pmbus-core để biết chi tiết
+trên trình điều khiển máy khách PMBus.
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
+thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
+chi tiết.
+
+
+Hỗ trợ dữ liệu nền tảng
+---------------------
+
+Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
+
+
+Mục nhập hệ thống
+-------------
+
+Các thuộc tính sau được hỗ trợ. Tất cả các thuộc tính là chỉ đọc.
+
+=====================================================================================
+in1_label "vin"
+in1_input Đo điện áp đầu vào.
+in1_alarm Báo động điện áp đầu vào.
+
+in2_label "vin.0"
+in2_input Đo điện áp đầu vào trên đầu vào A.
+
+PIM4328 và PIM4X06
+
+in3_label "vin.1"
+in3_input Đo điện áp đầu vào trên đầu vào B.
+
+PIM4328 và PIM4X06
+
+in4_label "vcap"
+in4_input Đo điện áp trên tụ giữ.
+
+PIM4328
+
+curr1_label "iin.0"
+curr1_input Đo dòng điện đầu vào trên đầu vào A.
+
+PIM4X06
+
+curr2_label "iin.1"
+curr2_input Đo dòng điện đầu vào trên đầu vào B.
+
+PIM4X06
+
+currX_label "iout1"
+currX_input Đo dòng điện đầu ra.
+currX_alarm Xuất cảnh báo hiện tại.
+
+X là 1 cho PIM4820, ngược lại là 3.
+
+temp1_input Đo nhiệt độ.
+temp1_alarm Báo động nhiệt độ cao.
+=====================================================================================

@@ -1,0 +1,183 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/ethernet/davicom/dm9000.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=======================
+Trình điều khiển mạng DM9000
+=====================
+
+Bản quyền 2008 Simtec Electronics,
+
+Ben Dooks <ben@simtec.co.uk> <ben-linux@fluff.org>
+
+
+Giới thiệu
+------------
+
+Tệp này mô tả cách sử dụng trình điều khiển mạng dựa trên thiết bị nền tảng DM9000
+được chứa trong các tệp driver/net/dm9000.c và driver/net/dm9000.h.
+
+Trình điều khiển hỗ trợ ba biến thể DM9000, DM9000E là chip đầu tiên
+được hỗ trợ cũng như các thiết bị DM9000A và DM9000B mới hơn. Hiện tại nó đang
+được duy trì và kiểm tra bởi Ben Dooks, người sẽ là CC: đối với bất kỳ bản vá nào cho vấn đề này
+người lái xe.
+
+
+Xác định thiết bị nền tảng
+----------------------------
+
+Bộ tài nguyên tối thiểu được gắn vào thiết bị nền tảng như sau:
+
+1) Địa chỉ vật lý của thanh ghi địa chỉ
+    2) Địa chỉ vật lý của thanh ghi dữ liệu
+    3) Đường dây IRQ mà chân ngắt của thiết bị được kết nối.
+
+Những tài nguyên này phải được xác định theo thứ tự đó, giống như thứ tự của
+hai vùng địa chỉ là quan trọng (trình điều khiển mong đợi những vùng này là địa chỉ
+và sau đó là dữ liệu).
+
+Một ví dụ từ Arch/arm/mach-s3c/mach-bast.c là::
+
+tài nguyên cấu trúc tĩnh bast_dm9k_resource[] = {
+	[0] = {
+		.start = S3C2410_CS5 + BAST_PA_DM9000,
+		.end = S3C2410_CS5 + BAST_PA_DM9000 + 3,
+		.flags = IORESOURCE_MEM,
+	},
+	[1] = {
+		.start = S3C2410_CS5 + BAST_PA_DM9000 + 0x40,
+		.end = S3C2410_CS5 + BAST_PA_DM9000 + 0x40 + 0x3f,
+		.flags = IORESOURCE_MEM,
+	},
+	[2] = {
+		.start = IRQ_DM9000,
+		.end = IRQ_DM9000,
+		.flags = IORESOURCE_IRQ | IORESOURCE_IRQ_HIGHLEVEL,
+	}
+  };
+
+cấu trúc tĩnh platform_device bast_device_dm9k = {
+	.name = "dm9000",
+	.id = 0,
+	.num_resources = ARRAY_SIZE(bast_dm9k_resource),
+	.resource = bast_dm9k_resource,
+  };
+
+Lưu ý cài đặt cờ kích hoạt IRQ trong bast_dm9k_resource[2].flags,
+vì điều này sẽ tạo ra cảnh báo nếu nó không xuất hiện. Trình kích hoạt từ
+trường cờ sẽ được chuyển tới request_irq() khi đăng ký IRQ
+trình xử lý để đảm bảo rằng IRQ được thiết lập chính xác.
+
+Điều này hiển thị một thiết bị nền tảng điển hình, không có cấu hình tùy chọn
+dữ liệu nền tảng được cung cấp. Ví dụ tiếp theo sử dụng cùng tài nguyên nhưng bổ sung thêm
+dữ liệu nền tảng tùy chọn để truyền dữ liệu cấu hình bổ sung::
+
+cấu trúc tĩnh dm9000_plat_data bast_dm9k_platdata = {
+	.flags = DM9000_PLATF_16BITONLY,
+  };
+
+cấu trúc tĩnh platform_device bast_device_dm9k = {
+	.name = "dm9000",
+	.id = 0,
+	.num_resources = ARRAY_SIZE(bast_dm9k_resource),
+	.resource = bast_dm9k_resource,
+	.dev = {
+		.platform_data = &bast_dm9k_platdata,
+	}
+  };
+
+Dữ liệu nền tảng được xác định trong include/linux/dm9000.h và được mô tả bên dưới.
+
+
+Dữ liệu nền tảng
+-------------
+
+Dữ liệu nền tảng bổ sung cho DM9000 có thể mô tả độ rộng bus IO cho
+thiết bị, cho dù PHY bên ngoài có được gắn vào thiết bị hay không và
+sự sẵn có của cấu hình bên ngoài EEPROM.
+
+Các cờ cho trường dữ liệu nền tảng .flags như sau:
+
+DM9000_PLATF_8BITONLY
+
+IO nên được thực hiện với các hoạt động 8bit.
+
+DM9000_PLATF_16BITONLY
+
+IO nên được thực hiện với các hoạt động 16bit.
+
+DM9000_PLATF_32BITONLY
+
+IO nên được thực hiện với các hoạt động 32bit.
+
+DM9000_PLATF_EXT_PHY
+
+Con chip được kết nối với PHY bên ngoài.
+
+DM9000_PLATF_NO_EEPROM
+
+Điều này có thể được sử dụng để biểu thị rằng hội đồng quản trị không có
+	EEPROM hoặc EEPROM phải được ẩn khỏi người dùng.
+
+DM9000_PLATF_SIMPLE_PHY
+
+Chuyển sang sử dụng phương pháp bỏ phiếu PHY đơn giản hơn, không
+	hãy thử đọc trạng thái MII PHY thường xuyên. Điều này chỉ có sẵn
+	khi sử dụng PHY bên trong. Xem phần bỏ phiếu trạng thái liên kết
+	để biết thêm thông tin.
+
+Ký hiệu cấu hình DM9000_FORCE_SIMPLE_PHY_POLL, mục Kconfig
+	"Buộc bỏ phiếu PHY dựa trên NSR đơn giản" cho phép cờ này được
+	bắt buộc vào thời điểm xây dựng.
+
+
+PHY Thăm dò trạng thái liên kết
+----------------------
+
+Trình điều khiển theo dõi trạng thái liên kết và thông báo cho lõi mạng
+về tính khả dụng của liên kết (nhà cung cấp dịch vụ). Điều này được quản lý bằng một số phương pháp
+tùy thuộc vào phiên bản chip và PHY đang được sử dụng.
+
+Đối với PHY nội bộ, phương thức ban đầu (và hiện tại là mặc định) là
+để đọc trạng thái MII, khi trạng thái thay đổi nếu chúng ta có
+hỗ trợ ngắt cần thiết trong chip hoặc cứ sau hai giây thông qua một
+bộ đếm thời gian định kỳ.
+
+Để giảm chi phí hoạt động cho PHY nội bộ, giờ đây có tùy chọn
+sử dụng cấu hình DM9000_FORCE_SIMPLE_PHY_POLL hoặc DM9000_PLATF_SIMPLE_PHY
+tùy chọn dữ liệu nền tảng để đọc thông tin tóm tắt mà không cần
+truy cập MII đắt tiền. Phương pháp này nhanh hơn nhưng không in được
+càng nhiều thông tin.
+
+Khi sử dụng PHY bên ngoài, trình điều khiển hiện phải thăm dò MII
+trạng thái liên kết vì không có phương pháp nào để nhận được sự gián đoạn khi thay đổi liên kết.
+
+
+DM9000A / DM9000B
+-----------------
+
+Các chip này có chức năng tương tự như DM9000E và được hỗ trợ dễ dàng
+bởi cùng một người lái xe. Các tính năng là:
+
+1) Ngắt khi thay đổi trạng thái PHY bên trong. Điều này có nghĩa là định kỳ
+      việc thăm dò trạng thái PHY có thể bị tắt trên các thiết bị này khi sử dụng
+      PHY bên trong.
+
+2) Giảm tải tổng kiểm tra TCP/UDP mà trình điều khiển hiện không hỗ trợ.
+
+
+công cụ đạo đức
+-------
+
+Driver hỗ trợ giao diện ethtool để truy cập driver
+thông tin trạng thái, trạng thái PHY và EEPROM.

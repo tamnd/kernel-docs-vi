@@ -1,0 +1,75 @@
+.. SPDX-License-Identifier: GPL-2.0-or-later
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/spd5118.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân spd5118
+=====================
+
+Chip được hỗ trợ:
+
+* Chip cảm biến nhiệt độ tương thích SPD5118 (JEDEC JESD300)
+
+Tải xuống tiêu chuẩn JEDEC:
+	ZZ0000ZZ
+	(yêu cầu tài khoản)
+
+
+Tiền tố: 'spd5118'
+
+Địa chỉ được quét: I2C 0x50 - 0x57
+
+tác giả:
+	Guenter Roeck <linux@roeck-us.net>
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ nhiệt độ tuân thủ SPD5118 (JEDEC JESD300)
+cảm biến, được sử dụng trên nhiều mô-đun bộ nhớ DDR5. Một số hệ thống sử dụng cảm biến
+để ngăn bộ nhớ quá nóng bằng cách tự động điều chỉnh bộ điều khiển bộ nhớ.
+
+Trình điều khiển tự động phát hiện các chip tương thích SPD5118 nhưng cũng có thể được khởi tạo
+sử dụng các nút devicetree/firmware.
+
+Chip tuân thủ SPD5118 hỗ trợ một cảm biến nhiệt độ duy nhất. Tối thiểu quan trọng,
+nhiệt độ tối thiểu, tối đa và tới hạn có thể được cấu hình. Có báo động
+cho các ngưỡng tới hạn thấp, thấp, cao và tới hạn.
+
+
+Các mục sysfs giám sát phần cứng
+---------------------------------
+
+==============================================================
+nhiệt độ temp1_input (RO)
+temp1_lcrit Nhiệt độ cao tới hạn thấp (RW)
+temp1_min Nhiệt độ tối thiểu (RW)
+temp1_max Nhiệt độ tối đa (RW)
+temp1_crit Nhiệt độ cao tới hạn (RW)
+
+temp1_lcrit_alarm Báo động nhiệt độ thấp tới hạn
+temp1_min_alarm Báo động nhiệt độ thấp
+temp1_max_alarm Báo động nhiệt độ cao
+temp1_crit_alarm Báo động nhiệt độ quan trọng
+==============================================================
+
+Thuộc tính cảnh báo được cố định cho đến khi được đọc và sẽ bị xóa sau đó
+trừ khi điều kiện báo động vẫn được áp dụng.
+
+
+Hỗ trợ SPD (Phát hiện hiện diện nối tiếp)
+------------------------------------
+
+Trình điều khiển cũng hỗ trợ đọc SPD NVRAM trên các chip tương thích SPD5118.
+Dữ liệu SPD có sẵn từ tệp thuộc tính nhị phân 'eeprom' được đính kèm với
+thiết bị I2C của chip.

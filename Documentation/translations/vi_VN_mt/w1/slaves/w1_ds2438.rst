@@ -1,0 +1,100 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/slaves/w1_ds2438.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân w1_ds2438
+=======================
+
+Chip được hỗ trợ:
+
+* Màn hình pin thông minh Maxim DS2438
+
+mã gia đình được hỗ trợ:
+        ================= ====
+        W1_FAMILY_DS2438 0x26
+        ================= ====
+
+Tác giả: Mariusz Bialonczyk <manio@skyboo.net>
+
+Sự miêu tả
+-----------
+
+Chip DS2438 cung cấp một số chức năng mong muốn mang theo
+một bộ pin. Nó cũng có 40 byte EEPROM không biến đổi.
+Bởi vì khả năng đo nhiệt độ, dòng điện và điện áp, chip
+cũng thường được sử dụng trong các trạm thời tiết và các ứng dụng như: máy đo mưa,
+đo tốc độ/hướng gió, cảm biến độ ẩm, v.v.
+
+Hỗ trợ hiện tại được cung cấp thông qua các tệp sysfs sau (tất cả các tệp
+ngoại trừ "iad" và "offset" là chỉ đọc):
+
+"iad"
+-----
+Tệp này điều khiển 'Bit điều khiển A/D hiện tại' (IAD) trong
+Thanh ghi trạng thái/cấu hình.
+Viết giá trị 0 sẽ xóa bit IAD và vô hiệu hóa dòng điện
+số đo.
+Giá trị ghi "1" đang thiết lập bit IAD (cho phép đo).
+Bit IAD được bật theo mặc định trong DS2438.
+
+Khi ghi vào tệp sysfs, các bit 2-7 bị bỏ qua, vì vậy việc ghi ASCII là an toàn.
+Lỗi I/O được trả về khi có sự cố khi đặt giá trị mới.
+
+"trang0"
+-------
+Tệp này cung cấp đầy đủ 8 byte của chip Trang 0 (00h).
+Trang này chứa thông tin được truy cập thường xuyên nhất của DS2438.
+Bên trong khi tệp này được đọc, byte CRC bổ sung cũng được lấy
+từ thiết bị nô lệ. Nếu đúng, dữ liệu trang 8 byte sẽ được truyền
+vào không gian người dùng, nếu không sẽ trả về lỗi I/O.
+
+"trang 1"
+-------
+File này cung cấp đầy đủ 8 byte của chip Trang 1 (01h).
+Trang này chứa ICA, đồng hồ đo thời gian đã trôi qua và dữ liệu offset hiện tại của DS2438.
+Bên trong khi tệp này được đọc, byte CRC bổ sung cũng được lấy
+từ thiết bị nô lệ. Nếu đúng, dữ liệu trang 8 byte sẽ được truyền
+vào không gian người dùng, nếu không sẽ trả về lỗi I/O.
+
+"bù lại"
+--------
+Tệp này kiểm soát Thanh ghi bù 2 byte của chip.
+Việc ghi một giá trị 2 byte sẽ thay đổi Thanh ghi bù, làm thay đổi
+đo dòng điện được thực hiện bởi chip. Thay đổi thanh ghi này thành phần bù của hai
+của thanh ghi hiện tại trong khi buộc dòng điện bằng 0 qua tải sẽ hiệu chỉnh
+chip, hủy các lỗi bù trong ADC hiện tại.
+
+
+"nhiệt độ"
+-------------
+Mở và đọc tệp này sẽ khởi chạy CONVERT_T (chuyển đổi nhiệt độ)
+lệnh của chip, sau đó nhiệt độ được đọc từ thiết bị
+đăng ký và được cung cấp dưới dạng giá trị thập phân ASCII.
+
+Quan trọng: Giá trị trả về phải chia cho 256 để có giá trị thực
+nhiệt độ tính bằng độ C.
+
+"vad", "vdd"
+------------
+Việc mở và đọc tệp này sẽ khởi tạo CONVERT_V (chuyển đổi điện áp)
+lệnh của chip.
+
+Tùy thuộc vào tên tệp sysfs, đầu vào khác cho A/D sẽ được chọn:
+
+vad:
+    Đầu vào A/D mục đích chung (VAD)
+vdd:
+    đầu vào pin (VDD)
+
+Sau khi chuyển đổi điện áp, giá trị được trả về dưới dạng ASCII thập phân.
+Lưu ý: Để có được vôn, giá trị phải chia cho 100.

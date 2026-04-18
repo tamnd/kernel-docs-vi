@@ -1,0 +1,99 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/tsc1641.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân tsc1641
+=====================
+
+Chip được hỗ trợ:
+
+*ST TSC1641
+
+Tiền tố: 'tsc1641'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu:
+	ZZ0000ZZ
+
+tác giả:
+	- Igor Reznichenko <igor@reznichenko.net>
+
+
+Sự miêu tả
+-----------
+
+TSC1641 là thiết bị đo dòng điện, điện áp, công suất và nhiệt độ có độ chính xác cao
+giám sát giao diện người dùng tương tự (AFE). Nó giám sát dòng điện hai chiều vào một
+điện trở shunt và điện áp tải lên đến 60 V một cách đồng bộ. Xe buýt kỹ thuật số
+giao diện là I2C/SMbus. TSC1641 cho phép xác nhận một số cảnh báo
+về điện áp, dòng điện, công suất và nhiệt độ.
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển TSC1641 yêu cầu giá trị của điện trở shunt bên ngoài để
+tính toán chính xác các phép đo dòng điện và công suất. Giá trị điện trở trong
+micro-ohms, phải được cung cấp thông qua thuộc tính cây thiết bị
+"điện trở shunt-micro-ohms" hoặc thông qua thuộc tính sysfs có thể ghi "shunt_resistor".
+Vui lòng tham khảo Tài liệu/devicetree/binds/hwmon/st,tsc1641.yaml
+để liên kết nếu cây thiết bị được sử dụng.
+
+Phạm vi giá trị điện trở shunt được hỗ trợ là từ 100 uOhm đến 655,35 mOhm, trong
+10uOhm bước.
+Khi chọn giá trị, hãy ghi nhớ số đo công suất DC tối đa của thiết bị là
+1600W. Xem bảng dữ liệu trang 22 để biết các khuyến nghị ST về việc chọn giá trị shunt.
+
+Nếu giá trị điện trở shunt không được xác định trong cây thiết bị, trình điều khiển
+khởi tạo nó ở mức 1000 uOhm theo mặc định. Người dùng có thể cấu hình shunt chính xác
+giá trị điện trở trong thời gian chạy bằng cách ghi vào thuộc tính sysfs "shunt_resistor".
+
+Trình điều khiển chỉ hỗ trợ chế độ hoạt động liên tục.
+Phạm vi đo:
+
+=====================================================================================
+Hai chiều hiện tại, phụ thuộc vào shunt
+Điện áp xe buýt 0-60V
+Công suất DC tối đa 1600W
+Nhiệt độ -40C đến +125C
+=====================================================================================
+
+Mục nhập hệ thống
+-------------
+
+======================================================================================
+điện áp bus in0_input (mV)
+giới hạn báo động tối đa điện áp bus in0_max (mV)
+vượt quá giới hạn cảnh báo tối đa của điện áp bus in0_max_alarm
+giới hạn báo động tối thiểu điện áp bus in0_min (mV)
+vượt quá giới hạn cảnh báo tối thiểu của điện áp bus in0_min_alarm
+
+đo dòng điện đầu vàocurr1_input (mA)
+giới hạn cảnh báo tối đa hiện tại của curr1_max (mA)
+curr1_max_alarm đã vượt quá giới hạn cảnh báo tối đa hiện tại
+giới hạn cảnh báo tối thiểu hiện tại của Curr1_min (mA)
+curr1_min_alarm đã vượt quá giới hạn cảnh báo tối thiểu hiện tại
+
+power1_đo công suất đầu vào (uW)
+power1_max giới hạn cảnh báo công suất tối đa (uW)
+power1_max_alarm đã vượt quá giới hạn cảnh báo nguồn tối đa
+
+shunt_resistor giá trị điện trở shunt (uOhms)
+
+đo nhiệt độ đầu vào temp1_input (mdegC)
+giới hạn cảnh báo nhiệt độ tối đa temp1_max (mdegC)
+vượt quá giới hạn cảnh báo nhiệt độ tối đa temp1_max_alarm
+
+update_interval thời gian chuyển đổi dữ liệu (1 - 33ms), thời gian chuyển đổi lâu hơn
+                     tương ứng với độ phân giải hiệu quả cao hơn tính bằng bit
+======================================================================================

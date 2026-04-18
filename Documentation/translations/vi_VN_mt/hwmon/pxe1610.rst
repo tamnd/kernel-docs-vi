@@ -1,0 +1,121 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/pxe1610.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân pxe1610
+=====================
+
+Chip được hỗ trợ:
+
+* Infineon PXE1610
+
+Tiền tố: 'pxe1610'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Bảng dữ liệu không có sẵn công khai.
+
+* Infineon PXE1110
+
+Tiền tố: 'pxe1110'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Bảng dữ liệu không có sẵn công khai.
+
+* Infineon PXM1310
+
+Tiền tố: 'pxm1310'
+
+Địa chỉ được quét: -
+
+Bảng dữ liệu: Bảng dữ liệu không có sẵn công khai.
+
+Tác giả: Vijay Khemka <vijaykhemka@fb.com>
+
+
+Sự miêu tả
+-----------
+
+PXE1610/PXE1110 là Bộ điều khiển kỹ thuật số đa đường ray/đa pha
+và tuân thủ
+
+- Thông số kỹ thuật bộ chuyển đổi DC-DC Intel VR13.
+	- Giao thức Intel SVID.
+
+Được sử dụng để điều chỉnh nguồn Vcore cho bộ vi xử lý dựa trên Intel VR13
+
+- Máy chủ, máy trạm và máy tính để bàn cao cấp
+
+PXM1310 là Bộ điều khiển đa đường ray và nó tuân thủ
+
+- Thông số kỹ thuật bộ chuyển đổi DC-DC Intel VR13.
+	- Giao thức Intel SVID.
+
+Được sử dụng để điều chỉnh công suất bộ nhớ DDR3/DDR4 cho Intel VR13 và
+Hệ thống dựa trên IMVP8
+
+
+Ghi chú sử dụng
+-----------
+
+Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ có
+để khởi tạo thiết bị một cách rõ ràng.
+
+Ví dụ: các lệnh sau sẽ tải trình điều khiển cho PXE1610
+tại địa chỉ 0x70 trên xe buýt I2C #4::
+
+# modprobe pxe1610
+    # echo pxe1610 0x70 > /sys/bus/i2c/devices/i2c-4/new_device
+
+Nó cũng có thể được khởi tạo bằng cách khai báo trong cây thiết bị
+
+
+Thuộc tính Sysfs
+----------------
+
+==============================================================
+curr1_label "iin"
+curr1_input Đo dòng điện đầu vào
+curr1_alarm Báo động cao hiện tại
+
+Curr[2-4]_label "iout[1-3]"
+curr[2-4]_input Đo dòng điện đầu ra
+Curr[2-4]_crit Dòng tối đa tới hạn
+curr[2-4]_crit_alarm Báo động nghiêm trọng hiện tại ở mức cao
+
+in1_label "vin"
+in1_input Đo điện áp đầu vào
+in1_crit Điện áp đầu vào tối đa tới hạn
+in1_crit_alarm Báo động cao tới hạn điện áp đầu vào
+
+trong[2-4]_label "vout[1-3]"
+in[2-4]_input Đo điện áp đầu ra
+in[2-4]_lcrit Điện áp đầu ra tối thiểu quan trọng
+in[2-4]_lcrit_alarm Báo động điện áp đầu ra cực thấp
+in[2-4]_crit Điện áp đầu ra tối đa tới hạn
+in[2-4]_crit_alarm Báo động cao tới hạn điện áp đầu ra
+
+power1_label "pin"
+power1_input Công suất đầu vào đo được
+power1_alarm Báo động nguồn điện đầu vào cao
+
+power[2-4]_label "bĩu môi[1-3]"
+power[2-4]_input Công suất đầu ra đo được
+
+temp[1-3]_input Nhiệt độ đo được
+temp[1-3]_crit Nhiệt độ cao tới hạn
+temp[1-3]_crit_alarm Cảnh báo nhiệt độ chip tới hạn cao
+temp[1-3]_max Nhiệt độ tối đa
+temp[1-3]_max_alarm Báo động nhiệt độ chip cao
+==============================================================

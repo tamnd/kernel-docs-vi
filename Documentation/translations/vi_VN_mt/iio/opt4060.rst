@@ -1,0 +1,75 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/opt4060.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=================================
+Trình điều khiển OPT4060
+==============================
+
+1. Tổng quan
+=============================
+
+Trình điều khiển này hỗ trợ cảm biến màu độ phân giải cao Texas Instrument RGBW trên
+I2C.
+ZZ0000ZZ
+
+Trình điều khiển hỗ trợ:
+- Giá trị thô cho màu đỏ, xanh lá cây, xanh dương và rõ ràng.
+- Giá trị độ sáng.
+- Giá trị màu được chia tỷ lệ cho màu đỏ, xanh lá cây và xanh lam.
+- Sự kiện IIO cho các ngưỡng.
+- Bộ đệm kích hoạt IIO sử dụng cả bộ kích hoạt sẵn sàng cho dữ liệu của chính nó và bộ kích hoạt từ
+những người lái xe khác.
+
+2. Tính độ rọi
+=============================
+
+Độ sáng được tính bằng cách sử dụng kênh màu xanh lá cây phổ rộng.
+
+lux = GREEN_RAW x 2.15e-3
+
+Giá trị được truy cập từ:
+/sys/bus/iio/devices/iio:deviceX/in_illuminance_input
+
+Xem phần 8.4.5.2 trong bảng dữ liệu để biết thêm chi tiết.
+
+3. Giá trị thang màu
+=============================
+
+Cảm biến có độ nhạy khác nhau đối với các thành phần màu khác nhau và
+các yếu tố bù trừ được đưa ra từ người lái xe.
+
+Các giá trị được truy cập từ:
+/sys/bus/iio/devices/iio:deviceX/in_intensity_red_scale
+/sys/bus/iio/devices/iio:deviceX/in_intensity_green_scale
+/sys/bus/iio/devices/iio:deviceX/in_intensity_blue_scale
+
+Ứng dụng không gian người dùng có thể nhân các giá trị thô với các giá trị tỷ lệ để
+đối với một nguồn sáng thử nghiệm cụ thể, thường là màu trắng, phép đo
+cường độ giống nhau trên các kênh màu khác nhau. Điều này được tính toán
+theo cách sau:
+
+R = RED_RAW x SCALE_RED(2.4)
+G = GREEN_RAW x SCALE_GREEN(1.0)
+B = BLUE_RAW x SCALE_BLUE(1.3)
+
+Bảng dữ liệu đề xuất sử dụng các giá trị được chia tỷ lệ để chuẩn hóa R, G được chia tỷ lệ
+và giá trị B. Điều này rất hữu ích để có được giá trị cho tỷ lệ giữa các màu
+không phụ thuộc vào cường độ ánh sáng. Một ứng dụng không gian người dùng có thể thực hiện việc này trong
+cách sau:
+
+R_NORMALIZED = R / (R + G + B)
+G_NORMALIZED = G / (R + G + B)
+B_NORMALIZED = B / (R + G + B)
+
+Xem phần 8.4.5.2 trong bảng dữ liệu để biết thêm chi tiết.

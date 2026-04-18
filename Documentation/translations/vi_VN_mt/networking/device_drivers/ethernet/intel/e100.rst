@@ -1,0 +1,197 @@
+.. SPDX-License-Identifier: GPL-2.0+
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/ethernet/intel/e100.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===================================================================
+Trình điều khiển cơ sở Linux cho dòng bộ điều hợp Intel(R) PRO/100
+=============================================================
+
+Ngày 1 tháng 6 năm 2018
+
+Nội dung
+========
+
+- Trong bản phát hành này
+- Xác định bộ chuyển đổi của bạn
+- Xây dựng và lắp đặt
+- Thông số cấu hình trình điều khiển
+- Cấu hình bổ sung
+- Các vấn đề đã biết
+- Hỗ trợ
+
+
+Trong bản phát hành này
+===============
+
+Tệp này mô tả Trình điều khiển cơ sở Linux cho dòng Intel(R) PRO/100
+Bộ điều hợp. Trình điều khiển này bao gồm hỗ trợ cho các hệ thống dựa trên Itanium(R)2.
+
+Đối với các câu hỏi liên quan đến yêu cầu phần cứng, hãy tham khảo tài liệu
+được cung cấp cùng với bộ chuyển đổi Intel PRO/100 của bạn.
+
+Các tính năng sau hiện có sẵn trong hạt nhân được hỗ trợ:
+ - Vlan gốc
+ - Liên kết kênh (nhóm)
+ -SNMP
+
+Tài liệu Liên kết kênh có thể được tìm thấy trong nguồn nhân Linux:
+/Tài liệu/mạng/bonding.rst
+
+
+Xác định bộ điều hợp của bạn
+========================
+
+Để biết thông tin về cách xác định bộ điều hợp của bạn và để có phiên bản Intel mới nhất
+trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel:
+ZZ0000ZZ
+
+Thông số cấu hình trình điều khiển
+===============================
+
+Giá trị mặc định cho từng tham số thường là cài đặt được đề xuất,
+trừ khi có ghi chú khác.
+
+Bộ mô tả Rx:
+   Số lượng mô tả nhận được. Bộ mô tả nhận là một dữ liệu
+   cấu trúc mô tả bộ đệm nhận và các thuộc tính của nó đối với mạng
+   bộ điều khiển. Dữ liệu trong bộ mô tả được bộ điều khiển sử dụng để ghi
+   dữ liệu từ bộ điều khiển đến bộ nhớ máy chủ. Trong trình điều khiển 3.x.x, phạm vi hợp lệ
+   đối với tham số này là 64-256. Giá trị mặc định là 256. Tham số này có thể là
+   đã thay đổi bằng lệnh ::
+
+ethtool -G eth? rx n
+
+Trong đó n là số lượng bộ mô tả Rx mong muốn.
+
+Bộ mô tả Tx:
+   Số lượng bộ mô tả truyền. Bộ mô tả truyền là một dữ liệu
+   cấu trúc mô tả bộ đệm truyền và các thuộc tính của nó đối với mạng
+   bộ điều khiển. Dữ liệu trong bộ mô tả được bộ điều khiển sử dụng để đọc
+   dữ liệu từ bộ nhớ máy chủ đến bộ điều khiển. Trong trình điều khiển 3.x.x hợp lệ
+   phạm vi cho tham số này là 64-256. Giá trị mặc định là 128. Tham số này
+   có thể thay đổi bằng lệnh::
+
+ethtool -G eth? cảm ơn bạn
+
+Trong đó n là số lượng bộ mô tả Tx mong muốn.
+
+Tốc độ/Song công:
+   Trình điều khiển tự động điều chỉnh tốc độ liên kết và cài đặt song công bằng cách
+   mặc định. Tiện ích ethtool có thể được sử dụng như sau để buộc tốc độ/song công.::
+
+ethtool -s eth?  tốc độ tự động tắt {10|100} duplex {full|half}
+
+NOTE: cài đặt tốc độ/song công thành các giá trị không chính xác sẽ khiến liên kết bị hỏng
+   thất bại.
+
+Cấp độ thông báo nhật ký sự kiện:
+   Trình điều khiển sử dụng cờ cấp độ tin nhắn để ghi lại sự kiện
+   để ghi nhật ký hệ thống. Mức thông báo có thể được đặt tại thời điểm tải trình điều khiển. Nó cũng có thể
+   thiết lập bằng lệnh::
+
+ethtool -s eth? tin nhắn n
+
+
+Cấu hình bổ sung
+=========================
+
+Định cấu hình trình điều khiển trên các bản phân phối khác nhau
+-------------------------------------------------
+
+Định cấu hình trình điều khiển mạng để tải đúng cách khi hệ thống khởi động
+phụ thuộc vào sự phân phối.  Thông thường, quá trình cấu hình bao gồm
+thêm một dòng bí danh vào ZZ0000ZZ cũng như chỉnh sửa các dòng khác
+tập lệnh khởi động hệ thống và/hoặc tệp cấu hình.  Nhiều Linux phổ biến
+các bản phân phối đi kèm với các công cụ để thực hiện những thay đổi này cho bạn.  để học
+cách thích hợp để cấu hình thiết bị mạng cho hệ thống của bạn, hãy tham khảo
+tài liệu phân phối của bạn.  Nếu trong quá trình này bạn được yêu cầu
+đối với tên trình điều khiển hoặc mô-đun, tên của Trình điều khiển cơ sở Linux cho
+Dòng bộ điều hợp Intel PRO/100 là e100.
+
+Ví dụ: nếu bạn cài đặt trình điều khiển e100 cho hai bộ điều hợp PRO/100
+(eth0 và eth1), hãy thêm phần sau vào tệp cấu hình trong
+/etc/modprobe.d/::
+
+bí danh eth0 e100
+       bí danh eth1 e100
+
+Xem tin nhắn liên kết
+---------------------
+
+Để xem các thông báo liên kết và thông tin trình điều khiển Intel khác trên thiết bị của bạn
+console, bạn phải đặt mức dmesg lên đến sáu.  Điều này có thể được thực hiện bởi
+nhập thông tin sau vào dòng lệnh trước khi tải e100
+tài xế::
+
+dmesg -n 6
+
+Nếu bạn muốn xem tất cả các thông báo do trình điều khiển đưa ra, bao gồm cả gỡ lỗi
+tin nhắn, hãy đặt mức dmesg thành tám.
+
+NOTE: Cài đặt này không được lưu trong các lần khởi động lại.
+
+công cụ đạo đức
+-------
+
+Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
+chẩn đoán cũng như hiển thị thông tin thống kê.  công cụ đạo đức
+Cần có phiên bản 1.6 trở lên cho chức năng này.
+
+Bản phát hành mới nhất của ethtool có thể được tìm thấy từ
+ZZ0000ZZ
+
+Kích hoạt Wake trên LAN (WoL)
+--------------------------
+WoL được cung cấp thông qua tiện ích ethtool.  Để được hướng dẫn về
+bật WoL bằng ethtool, hãy tham khảo trang man ethtool.  WoL sẽ là
+được bật trên hệ thống trong lần tắt hoặc khởi động lại tiếp theo.  Vì điều này
+phiên bản trình điều khiển, để bật WoL, phải tải trình điều khiển e100
+khi tắt hoặc khởi động lại hệ thống.
+
+NAPI
+----
+
+NAPI (Chế độ bỏ phiếu Rx) được hỗ trợ trong trình điều khiển e100.
+
+Xem ZZ0000ZZ để biết thêm thông tin.
+
+Nhiều giao diện trên cùng một mạng phát sóng Ethernet
+------------------------------------------------------
+
+Do hành vi ARP mặc định trên Linux nên không thể có
+hệ thống trên hai mạng IP trong cùng một miền quảng bá Ethernet
+(chuyển đổi không phân vùng) hoạt động như mong đợi.  Tất cả các giao diện Ethernet
+sẽ phản hồi lưu lượng IP cho bất kỳ địa chỉ IP nào được gán cho hệ thống.
+Điều này dẫn đến lưu lượng nhận không cân bằng.
+
+Nếu bạn có nhiều giao diện trong một máy chủ, hãy bật ARP
+lọc theo
+
+(1) nhập::
+
+echo 1 > /proc/sys/net/ipv4/conf/all/arp_filter
+
+(điều này chỉ hoạt động nếu phiên bản kernel của bạn cao hơn 2.4.5) hoặc
+
+(2) cài đặt các giao diện trong các miền quảng bá riêng biệt (hoặc
+    trong các switch khác nhau hoặc trong một switch được phân vùng thành VLAN).
+
+
+Ủng hộ
+=======
+Để biết thông tin chung, hãy truy cập trang web hỗ trợ của Intel tại:
+ZZ0000ZZ
+
+Nếu xác định được sự cố với mã nguồn đã phát hành trên hạt nhân được hỗ trợ
+với bộ điều hợp được hỗ trợ, hãy gửi email thông tin cụ thể liên quan đến sự cố
+tới intel-wired-lan@lists.osuosl.org.

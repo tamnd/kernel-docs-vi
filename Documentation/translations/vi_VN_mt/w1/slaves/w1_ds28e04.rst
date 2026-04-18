@@ -1,0 +1,55 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/w1/slaves/w1_ds28e04.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===========================
+Trình điều khiển hạt nhân w1_ds28e04
+========================
+
+Chip được hỗ trợ:
+
+* Maxim DS28E04-100 4096-Bit Địa chỉ 1 dây EEPROM với PIO
+
+mã gia đình được hỗ trợ:
+
+=================== ====
+	W1_FAMILY_DS28E04 0x1C
+        =================== ====
+
+Tác giả: Markus Franke, <franke.m@sebakmt.com> <franm@hrz.tu-chemnitz.de>
+
+Sự miêu tả
+-----------
+
+Hỗ trợ được cung cấp thông qua các tệp sysfs "eeprom" và "pio". Kiểm tra CRC
+trong quá trình truy cập bộ nhớ có thể được bật/tắt tùy chọn thông qua thiết bị
+thuộc tính "crccheck". Khả năng kéo lên mạnh mẽ có thể được bật/tắt tùy ý
+thông qua tham số mô-đun "w1_strong_pullup".
+
+Truy cập bộ nhớ
+
+Thao tác đọc trên tệp "eeprom" sẽ đọc số byte đã cho
+	từ EEPROM của DS28E04.
+
+Thao tác ghi trên tệp "eeprom" ghi chuỗi byte đã cho
+	đến EEPROM của DS28E04. Nếu chế độ kiểm tra CRC chỉ được bật
+	các khối 32 byte được căn chỉnh đầy đủ với các giá trị CRC16 hợp lệ (tính bằng byte 30
+	và 31) được phép viết.
+
+Truy cập PIO
+
+Có thể truy cập 2 PIO của DS28E04-100 thông qua tệp sysfs "pio".
+
+Trạng thái hiện tại của PIO được trả về dưới dạng giá trị 8 bit. Bit 0/1
+	đại diện cho trạng thái của PIO_0/PIO_1. Bit 2..7 không quan tâm. PIO là
+	được điều khiển ở mức hoạt động thấp, tức là trình điều khiển cung cấp/mong đợi các giá trị hoạt động ở mức thấp.

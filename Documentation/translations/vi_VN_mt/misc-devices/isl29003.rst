@@ -1,0 +1,89 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/misc-devices/isl29003.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+========================
+Trình điều khiển hạt nhân isl29003
+======================
+
+Chip được hỗ trợ:
+
+* Intersil ISL29003
+
+Tiền tố: 'isl29003'
+
+Địa chỉ được quét: không có
+
+Bảng dữ liệu:
+ZZ0000ZZ
+
+Tác giả: Daniel Mack <daniel@caiaq.de>
+
+
+Sự miêu tả
+-----------
+ISL29003 là cảm biến ánh sáng tích hợp loại tích hợp 16 bit
+Lựa chọn phạm vi lux có thể lập trình của người dùng ADC, I2C để tối ưu hóa số lượng/lux và
+I2C có khả năng điều khiển và giám sát đa chức năng. ADC bên trong
+cung cấp độ phân giải 16 bit trong khi loại bỏ hiện tượng nhấp nháy 50Hz và 60Hz do
+nguồn ánh sáng nhân tạo.
+
+Trình điều khiển cho phép thiết lập phạm vi lux, độ phân giải bit, hoạt động
+(xem bên dưới) và trạng thái nguồn của thiết bị và có thể đọc lux hiện tại
+tất nhiên là có giá trị.
+
+
+Phát hiện
+---------
+
+ISL29003 không có thanh ghi ID có thể được sử dụng để xác định
+nó, vì vậy quy trình phát hiện sẽ chỉ cố đọc từ I2C đã được cấu hình
+địa chỉ và coi thiết bị có mặt ngay khi nó ACK
+chuyển nhượng.
+
+
+Mục nhập hệ thống
+-------------
+
+phạm vi:
+        ===============================
+	0: 0 lux đến 1000 lux (mặc định)
+	1: 0 lux đến 4000 lux
+	2: 0 lux đến 16.000 lux
+	3: 0 lux đến 64.000 lux
+        ===============================
+
+độ phân giải:
+        =========================
+	0: 2^16 chu kỳ (mặc định)
+	1: 2^12 chu kỳ
+	2: 2^8 chu kỳ
+	3: 2^4 chu kỳ
+        =========================
+
+chế độ:
+        =======================================================
+	0: dòng điện của diode1 (không dấu 16bit) (mặc định)
+	1: dòng điện của diode1 (16bit không dấu)
+	2: sự khác biệt giữa các điốt (l1 - l2, signature 15bit)
+        =======================================================
+
+sức mạnh_state:
+        =======================================================
+	0: thiết bị bị tắt (mặc định)
+	1: thiết bị được kích hoạt
+        =======================================================
+
+lux (chỉ đọc):
+	trả về giá trị từ lần đọc cảm biến cuối cùng
+

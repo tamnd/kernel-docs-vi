@@ -1,0 +1,224 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ad7380.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============
+Trình điều khiển AD7380
+=============
+
+Trình điều khiển ADC cho Analog Devices Inc. AD7380 và các thiết bị tương tự. Tên mô-đun
+là ZZ0000ZZ.
+
+
+Thiết bị được hỗ trợ
+=================
+
+Các chip sau được hỗ trợ bởi trình điều khiển này:
+
+* ZZ0000ZZ
+* ZZ0001ZZ
+* ZZ0002ZZ
+* ZZ0003ZZ
+* ZZ0004ZZ
+* ZZ0005ZZ
+* ZZ0006ZZ
+* ZZ0007ZZ
+* ZZ0008ZZ
+* ZZ0009ZZ
+* ZZ0010ZZ
+* ZZ0011ZZ
+* ZZ0012ZZ
+* ZZ0013ZZ
+* ZZ0014ZZ
+* ZZ0015ZZ
+* ZZ0016ZZ
+* ZZ0017ZZ
+
+
+Các tính năng được hỗ trợ
+==================
+
+Chế độ nối dây SPI
+----------------
+
+ADC ad738x có thể xuất dữ liệu trên một số dòng SDO (1/2/4). Tài xế hiện đang
+chỉ hỗ trợ 1 dòng SDO.
+
+Điện áp tham chiếu
+-----------------
+
+quảng cáo7380-4
+~~~~~~~~
+
+ad7380-4 chỉ hỗ trợ điện áp tham chiếu bên ngoài (2,5V đến 3,3V). Nó phải như vậy
+được khai báo trong cây thiết bị là ZZ0000ZZ.
+
+quảng cáo7389-4
+~~~~~~~~
+
+ad7389-4 chỉ hỗ trợ điện áp tham chiếu bên trong. ZZ0000ZZ và
+Các thuộc tính ZZ0001ZZ đều bị bỏ qua trong trường hợp này.
+
+Thiết bị ADAQ
+~~~~~~~~~~~~
+
+Các thiết bị ADAQ không có tham chiếu bên ngoài mà sử dụng tham chiếu bên trong 3,3V
+bắt nguồn từ một trong những nguồn cung cấp của nó (ZZ0000ZZ)
+
+Tất cả các thiết bị khác thuộc dòng ad738x
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tất cả các thiết bị khác từ ad738x đều hỗ trợ 2 nguồn điện áp tham chiếu có thể có:
+
+- Tham chiếu nội bộ (2.5V)
+- Tham chiếu bên ngoài (2.5V đến 3.3V)
+
+Nguồn được xác định bởi cây thiết bị. Nếu có ZZ0000ZZ,
+sau đó nó được sử dụng làm tham chiếu bên ngoài, nếu không thì tham chiếu bên trong sẽ được sử dụng.
+
+Tăng cường lấy mẫu và tăng độ phân giải
+---------------------------------
+
+Dòng này hỗ trợ 2 loại lấy mẫu quá mức: trung bình bình thường và luân chuyển
+trung bình. Trình điều khiển chỉ hỗ trợ mức trung bình bình thường, vì mức trung bình luân chuyển có thể
+có thể đạt được bằng cách xử lý bộ đệm dữ liệu đã thu được. Các tỉ số sau đây là
+khả dụng: 1 (vô hiệu hóa quá mức lấy mẫu)/2/4/8/16/32.
+
+Khi chức năng lấy mẫu quá mức trên chip được bật, hiệu suất của ADC có thể
+vượt quá độ phân giải mặc định. Để đáp ứng việc tăng hiệu suất có thể đạt được,
+có thể kích hoạt thêm hai bit độ phân giải. Bởi vì
+Tính năng tăng cường độ phân giải chỉ có thể được bật khi tính năng lấy mẫu quá mức được bật và
+lấy mẫu quá mức sẽ không hữu ích nếu không tăng độ phân giải, trình điều khiển
+tự động kích hoạt tăng độ phân giải khi và chỉ khi lấy mẫu quá mức
+đã bật.
+
+Vì tính năng tăng độ phân giải khiến chip 16 bit hiện có dữ liệu 18 bit
+điều đó có nghĩa là các bit lưu trữ phải thay đổi từ 16 thành 32 bit, chúng tôi sử dụng cái mới
+tính năng ext_scan_type để cho phép thay đổi scan_type khi chạy. Thật không may
+libiio không hỗ trợ nó. Vì vậy, khi bật hoặc tắt tính năng lấy mẫu quá mức, người dùng
+phải khởi động lại iod bằng lệnh sau:
+
+.. code-block:: bash
+
+	root:~# systemctl restart iiod
+
+Báo động
+-----
+
+Biến thể 2 kênh của dòng ad738x, có thể sử dụng dòng SDOB làm chốt cảnh báo
+khi được cấu hình ở chế độ 1 dòng SDO. Các biến thể 4 kênh, có thể sử dụng SDOD làm
+chốt cảnh báo khi được định cấu hình ở chế độ 1 hoặc 2 dòng SDO, mặc dù chỉ có 1 dòng SDO
+chế độ hiện được trình điều khiển hỗ trợ (xem ZZ0000ZZ).
+
+Khi kết thúc quá trình chuyển đổi, chân cảnh báo mức hoạt động thấp sẽ được xác nhận nếu
+kết quả chuyển đổi vượt quá giới hạn cảnh báo cao hoặc giảm xuống dưới mức cảnh báo thấp
+giới hạn. Nó bị xóa, trên một cạnh rơi của CS. Pin cảnh báo là chung cho tất cả mọi người
+các kênh.
+
+Người dùng có thể bật cảnh báo bằng thuộc tính sự kiện iio thông thường:
+
+.. code-block:: bash
+
+	events/thresh_either_en
+
+Ngưỡng cao và thấp là chung cho tất cả các kênh và cũng có thể được đặt bằng cách sử dụng
+thuộc tính sự kiện iio thông thường:
+
+.. code-block:: bash
+
+	events/in_thresh_falling_value
+	events/in_thresh_rising_value
+
+Nếu có sẵn debugf, người dùng có thể đọc thanh ghi ALERT để xác định
+kênh và hướng bị lỗi.
+
+Trong hầu hết các trường hợp sử dụng, người dùng sẽ nối dây cảnh báo để kích hoạt tắt máy.
+
+Lựa chọn và sắp xếp kênh (chỉ chip một đầu)
+-------------------------------------------------------
+
+Các chip một đầu thuộc họ này (ad7386/7/8(-4)) có bộ ghép kênh 2:1 trong
+phía trước mỗi ADC. Chúng cũng bao gồm các thanh ghi cấu hình bổ sung
+cho phép lựa chọn thủ công hoặc chuyển đổi tự động (chế độ tuần tự), của
+các đầu vào của bộ ghép kênh.
+
+Từ quan điểm của IIO, tất cả đầu vào đều được xuất, tức là ad7386/7/8
+xuất 4 kênh và ad7386-4/7-4/8-4 xuất 8 kênh.
+
+Đầu vào ZZ0000ZZ của bộ ghép kênh tương ứng với nửa đầu của kênh IIO (tức là
+0-1 hoặc 0-3) và đầu vào ZZ0001ZZ tương ứng với nửa sau (tức là 2-3 hoặc 4-7).
+Ví dụ cho AD7386/7/8 (phần 2 kênh):
+
+.. code-block::
+
+	   IIO   | AD7386/7/8
+	         |         +----------------------------
+	         |         |     _____        ______
+	         |         |    |     |      |      |
+	voltage0 | AinA0 --|--->|     |      |      |
+	         |         |    | mux |----->| ADCA |---
+	voltage2 | AinA1 --|--->|     |      |      |
+	         |         |    |_____|      |_____ |
+	         |         |     _____        ______
+	         |         |    |     |      |      |
+	voltage1 | AinB0 --|--->|     |      |      |
+	         |         |    | mux |----->| ADCB |---
+	voltage3 | AinB1 --|--->|     |      |      |
+	         |         |    |_____|      |______|
+	         |         |
+	         |         +----------------------------
+
+
+Khi bật chế độ trình tự sắp xếp, tốc độ lấy mẫu hiệu quả được chia cho hai.
+
+Tăng (chỉ dành cho thiết bị ADAQ)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Các thiết bị ADAQ có mức tăng có thể lựa chọn pin ở phía trước mỗi ADC. Thích hợp
+có thể chọn mức tăng từ cây thiết bị bằng thuộc tính ZZ0000ZZ.
+Tham khảo phần sơ đồ kết nối điển hình của biểu dữ liệu để biết chân cắm
+nối dây.
+
+Các tính năng chưa được triển khai
+----------------------
+
+- 2/4 dòng SDO
+- Lấy mẫu quá mức trung bình
+- Chế độ tắt nguồn
+- Chỉ báo CRC
+
+Hỗ trợ giảm tải SPI
+===================
+
+Để có thể đạt được tốc độ lấy mẫu tối đa, trình điều khiển có thể được sử dụng với
+ZZ0000ZZ để cung cấp hỗ trợ giảm tải SPI.
+
+.. _AXI SPI Engine: http://analogdevicesinc.github.io/hdl/projects/pulsar_adc/index.html
+
+Khi giảm tải SPI đang được sử dụng, một số thuộc tính sẽ khác.
+
+* Thư mục ZZ0000ZZ đã bị xóa.
+* Thuộc tính ZZ0001ZZ được thêm vào để cài đặt mẫu
+  tỷ lệ.
+* Thuộc tính ZZ0002ZZ được thêm vào để truy vấn
+  tốc độ lấy mẫu tối đa
+* Kênh ZZ0003ZZ bị xóa.
+* Định dạng dữ liệu bộ đệm có thể khác so với khi không sử dụng giảm tải,
+  ví dụ: thuộc tính ZZ0004ZZ.
+
+Bộ đệm thiết bị
+==============
+
+Trình điều khiển này hỗ trợ bộ đệm kích hoạt IIO.
+
+Xem ZZ0000ZZ để biết thêm thông tin.

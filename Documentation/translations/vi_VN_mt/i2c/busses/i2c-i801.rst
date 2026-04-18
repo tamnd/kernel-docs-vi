@@ -1,0 +1,207 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/i2c/busses/i2c-i801.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+========================
+Trình điều khiển hạt nhân i2c-i801
+======================
+
+
+Bộ điều hợp được hỗ trợ:
+  * Intel 82801AA và 82801AB (ICH và ICH0 - một phần của
+    chipset '810' và '810E')
+  * Intel 82801BA (ICH2 - một phần của chipset '815E')
+  * Intel 82801CA/CAM (ICH3)
+  * Intel 82801DB (ICH4) (hỗ trợ HW PEC)
+  * Intel 82801EB/ER (ICH5) (hỗ trợ HW PEC)
+  * Intel 6300ESB
+  * Intel 82801FB/FR/FW/FRW (ICH6)
+  * Intel 82801G (ICH7)
+  * Intel 631xESB/632xESB (ESB2)
+  * Intel 82801H (ICH8)
+  * Intel 82801I (ICH9)
+  * Intel EP80579 (Tolapai)
+  * Intel 82801JI (ICH10)
+  * Dòng Intel 5/3400 (PCH)
+  * Dòng Intel 6 (PCH)
+  * Intel Patsburg (PCH)
+  * Intel DH89xxCC (PCH)
+  * Điểm Intel Panther (PCH)
+  * Điểm Intel Lynx (PCH)
+  * Intel Avoton (SOC)
+  * Intel Wellsburg (PCH)
+  * Lạch Intel Coleto (PCH)
+  * Điểm Intel Wildcat (PCH)
+  * Intel BayTrail (SOC)
+  * Intel Braswell (SOC)
+  * Điểm mặt trời mọc của Intel (PCH)
+  * Hồ Kaby Intel (PCH)
+  * Intel DNV (SOC)
+  * Intel Broxton (SOC)
+  * Intel Lewisburg (PCH)
+  * Hồ Gemini Intel (SOC)
+  * Hồ pháo Intel (PCH)
+  * Ngã ba tuyết tùng Intel (PCH)
+  * Hồ băng Intel (PCH)
+  * Hồ sao chổi Intel (PCH)
+  * Hồ Intel Elkhart (PCH)
+  * Hồ Tiger Intel (PCH)
+  * Hồ Jasper Intel (SOC)
+  * Intel Emmitsburg (PCH)
+  * Hồ Alder Intel (PCH)
+  * Hồ Raptor của Intel (PCH)
+  * Hồ sao băng Intel (SOC và PCH)
+  * Dòng bạch dương Intel (SOC)
+  * Hồ mũi tên Intel (SOC)
+  * Hồ Intel Panther (SOC)
+  * Hồ mèo hoang Intel (SOC)
+  * Intel Diamond Rapids (SOC)
+  * Hồ Intel Nova (PCH)
+
+Bảng dữ liệu: Có sẵn công khai tại trang web của Intel
+
+Trên Intel Patsburg và các chipset mới hơn, cả bộ điều khiển SMBus của máy chủ thông thường đều
+và các bộ điều khiển 'Chức năng thiết bị tích hợp' bổ sung được hỗ trợ.
+
+tác giả:
+	- Mark Studebaker <mdsxyz123@yahoo.com>
+	- Jean Delvare <jdelvare@suse.de>
+
+
+Thông số mô-đun
+-----------------
+
+* vô hiệu hóa_features (vectơ bit)
+
+Tắt các tính năng đã chọn thường được thiết bị hỗ trợ. Điều này làm cho nó
+có thể khắc phục các lỗi trình điều khiển hoặc phần cứng có thể xảy ra nếu tính năng trong
+câu hỏi không hoạt động như dự định vì bất kỳ lý do gì. Giá trị bit:
+
+==== =============================================
+ 0x01 vô hiệu hóa SMBus PEC
+ 0x02 vô hiệu hóa bộ đệm khối
+ 0x08 vô hiệu hóa chức năng đọc khối I2C
+ 0x10 không sử dụng ngắt
+ 0x20 vô hiệu hóa Thông báo máy chủ SMBus
+ ==== =============================================
+
+
+Sự miêu tả
+-----------
+
+ICH (được gọi đúng là 82801AA), ICH0 (82801AB), ICH2 (82801BA),
+ICH3 (82801CA/CAM) và các thiết bị mới hơn (PCH) là các chip Intel là một phần của
+Chipset '810' của Intel dành cho PC dựa trên Celeron, chipset '810E' dành cho PC
+PC dựa trên Pentium, chipset '815E' và các loại khác.
+
+Các chip ICH chứa ít nhất các hàm PCI riêng biệt SEVEN theo logic TWO
+Thiết bị PCI. Đầu ra của lspci sẽ hiển thị nội dung tương tự như
+sau đây::
+
+00:1e.0 Cầu PCI: Tập đoàn Intel: Thiết bị không xác định 2418 (rev 01)
+  00:1f.0 Cầu ISA: Tập đoàn Intel: Thiết bị không xác định 2410 (rev 01)
+  00:1f.1 Giao diện IDE: Tập đoàn Intel: Thiết bị không xác định 2411 (rev 01)
+  00:1f.2 Bộ điều khiển USB: Tập đoàn Intel: Thiết bị không xác định 2412 (rev 01)
+  00:1f.3 Lớp không xác định [0c05]: Tập đoàn Intel: Thiết bị không xác định 2413 (rev 01)
+
+Bộ điều khiển SMBus có chức năng 3 trong thiết bị 1f. Lớp 0c05 là SMBus Serial
+Người điều khiển.
+
+Các chip ICH khá giống với chip PIIX4 của Intel, ít nhất là ở
+Bộ điều khiển SMBus.
+
+
+Hỗ trợ cuộc gọi quy trình
+--------------------
+
+Cuộc gọi quy trình khối được hỗ trợ trên các chip 82801EB (ICH5) và mới hơn.
+
+
+Hỗ trợ đọc khối I2C
+----------------------
+
+Đọc khối I2C được hỗ trợ trên các chip 82801EB (ICH5) và mới hơn.
+
+
+Hỗ trợ SMBus 2.0
+-----------------
+
+Các chip 82801DB (ICH4) và các chip mới hơn hỗ trợ một số tính năng SMBus 2.0.
+
+
+Hỗ trợ ngắt
+-----------------
+
+Hỗ trợ ngắt PCI được hỗ trợ trên các chip 82801EB (ICH5) và mới hơn.
+
+
+SMB ICH ẩn
+----------------
+
+Nếu hệ thống của bạn có cầu nối phía nam Intel ICH, nhưng bạn có NOT hãy xem
+Thiết bị SMBus ở 00:1f.3 trong lspci và bạn không thể tìm ra cách nào trong
+BIOS để kích hoạt nó có nghĩa là nó đã bị ẩn bởi mã BIOS. Asus là
+nổi tiếng vì lần đầu tiên thực hiện điều này trên bo mạch chủ P4B của họ và nhiều sản phẩm khác
+bảng sau đó. Một số máy của nhà cung cấp cũng bị ảnh hưởng.
+
+Điều đầu tiên cần thử là trình điều khiển ACPI "i2c-scmi". Có thể đó là
+SMBus đã được cố tình ẩn đi vì nó sẽ được điều khiển bởi ACPI. Nếu
+Trình điều khiển i2c-scmi phù hợp với bạn, chỉ cần quên trình điều khiển i2c-i801 đi và
+đừng cố gắng hiện ICH SMBus. Ngay cả khi i2c-scmi không hoạt động, bạn
+tốt hơn hết hãy đảm bảo rằng SMBus không được sử dụng bởi mã ACPI. Hãy thử tải
+trình điều khiển "quạt" và "nhiệt", đồng thời kiểm tra /sys/class/thermal. Nếu bạn
+tìm vùng nhiệt có loại "acpitz", có khả năng ACPI là
+truy cập SMBus và sẽ an toàn hơn nếu không bỏ ẩn nó. Chỉ một lần bạn
+chắc chắn rằng ACPI không sử dụng SMBus, bạn có thể thử hiện nó.
+
+Để hiện SMBus, chúng ta cần thay đổi giá trị của PCI
+đăng ký trước khi kernel liệt kê các thiết bị PCI. Việc này được thực hiện ở
+driver/pci/quirks.c, trong đó tất cả các bo mạch bị ảnh hưởng phải được liệt kê (xem
+chức năng asus_hides_smbus_hostbridge.) Nếu thiếu thiết bị SMBus,
+và bạn cho rằng có điều gì đó thú vị trên SMBus (ví dụ:
+chip giám sát phần cứng), bạn cần thêm bo mạch của mình vào danh sách.
+
+Bo mạch chủ được xác định bằng cách sử dụng ID nhà cung cấp phụ và thiết bị phụ của
+cầu chủ thiết bị PCI. Hãy sở hữu nó với ZZ0000ZZ::
+
+00:00.0 Lớp 0600: 8086:2570 (rev 02)
+          Hệ thống con: 1043:80f2
+          Cờ: chủ xe buýt, phát triển nhanh, độ trễ 0
+          Bộ nhớ tại fc000000 (32-bit, có thể tìm nạp trước) [size=32M]
+          Khả năng: [e4] #09 [2106]
+          Khả năng: [a0] AGP phiên bản 3.0
+
+Ở đây ID cầu nối máy chủ là 2570 (82865G/PE/P), ID nhà cung cấp phụ là 1043
+(Asus) và ID thiết bị phụ là 80f2 (P4P800-X). Bạn có thể tìm thấy biểu tượng
+tên cho ID cầu nối và ID nhà cung cấp phụ trong include/linux/pci_ids.h,
+rồi thêm trường hợp cho ID thiết bị phụ của bạn vào đúng vị trí trong
+trình điều khiển/pci/quirks.c. Sau đó hãy thử nghiệm thật tốt để đảm bảo
+rằng SMBus không bị ẩn không xung đột với ví dụ: ACPI.
+
+Nếu nó hoạt động, chứng tỏ là hữu ích (tức là có các chip có thể sử dụng được trên SMBus)
+và có vẻ an toàn, vui lòng gửi bản vá để đưa vào kernel.
+
+Lưu ý: Có một tập lệnh hữu ích trong lm_sensors 2.10.2 trở lên, được đặt tên
+unhide_ICH_SMBus (trong prog/hotplug), sử dụng trình điều khiển fakephp để
+tạm thời bỏ ẩn SMBus mà không cần phải vá và biên dịch lại
+hạt nhân. Sẽ rất thuận tiện nếu bạn chỉ muốn kiểm tra xem có
+bất cứ điều gì thú vị trên SMBus ICH ẩn của bạn.
+
+
+-----------------------------------------------------------------------------------------
+
+Dự án lm_sensors xin chân thành cảm ơn sự hỗ trợ của Texas
+Công cụ trong sự phát triển ban đầu của trình điều khiển này.
+
+Dự án lm_sensors xin chân thành cảm ơn sự hỗ trợ của Intel trong việc
+phát triển các tính năng SMBus 2.0 / ICH4 của trình điều khiển này.

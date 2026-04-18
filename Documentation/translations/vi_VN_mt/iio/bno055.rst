@@ -1,0 +1,63 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/bno055.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=================================
+Trình điều khiển BNO055
+==============================
+
+1. Tổng quan
+===========
+
+Trình điều khiển này hỗ trợ IMU Bosch BNO055 (trên cả bus nối tiếp và I2C).
+
+Các phép đo gia tốc kế, từ kế và con quay hồi chuyển luôn có sẵn.
+Khi thuộc tính sysfs "fusion_enable" được đặt thành 1, hướng (cả Euler
+góc và quaternion), vận tốc tuyến tính và vector trọng lực cũng
+được cung cấp, nhưng một số cài đặt cảm biến (ví dụ: phạm vi và lọc thông thấp)
+bị khóa (phần sụn IMU điều khiển chúng).
+
+Trình điều khiển này cũng hỗ trợ bộ đệm IIO.
+
+2. Hiệu chuẩn
+==============
+
+IMU liên tục thực hiện quy trình tự động hiệu chỉnh nếu (và chỉ khi)
+hoạt động ở chế độ tổng hợp. Tuy nhiên, việc tự động hiệu chuẩn từ kế có thể được
+bị vô hiệu hóa bằng cách ghi 0 vào thuộc tính sysfs in_magn_calibration_fast_enable.
+
+Trình điều khiển cung cấp quyền truy cập vào các cờ hiệu chuẩn tự động (tức là bạn có thể xác định
+nếu IMU đã tự động hiệu chỉnh thành công) và vào blob dữ liệu hiệu chuẩn.
+
+Người dùng có thể lưu đốm màu này vào một tệp chương trình cơ sở (tức là trong /lib/firmware)
+người lái xe tìm kiếm tại thời điểm thăm dò. Nếu tìm thấy thì IMU sẽ được khởi tạo
+với dữ liệu hiệu chuẩn này. Điều này giúp người dùng không phải thực hiện
+quy trình hiệu chuẩn mọi lúc (bao gồm việc di chuyển IMU vào
+nhiều cách khác nhau).
+
+Trình điều khiển tìm kiếm tệp dữ liệu hiệu chuẩn bằng hai tên khác nhau: đầu tiên
+một tệp có tên được gắn với ID duy nhất IMU (được hiển thị trong sysfs dưới dạng
+serial_number) được tìm kiếm; điều này rất hữu ích khi có nhiều hơn một
+Phiên bản IMU. Nếu không tìm thấy tệp này thì tệp hiệu chỉnh "chung"
+được tìm kiếm (có thể được sử dụng khi chỉ có một IMU, không có
+vật lộn với những cái tên lạ mắt, thay đổi trên từng thiết bị).
+
+Tên tệp hiệu chuẩn hợp lệ sẽ là ví dụ:
+ bno055-caldata-0e7c26a33541515120204a35342b04ff.dat
+ bno055-caldata.dat
+
+Ở chế độ không hợp nhất, các thuộc tính 'offset' của IIO cung cấp quyền truy cập vào
+các giá trị offset từ dữ liệu hiệu chuẩn (nếu có) để người dùng có thể áp dụng cho
+các thuộc tính accel, angvel và magn IIO. Ở chế độ tổng hợp, chúng không
+cần thiết (phần sụn IMU áp dụng nội bộ những chỉnh sửa đó) và chúng
+đọc là số không.

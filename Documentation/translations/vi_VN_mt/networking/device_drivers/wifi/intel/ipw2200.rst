@@ -1,0 +1,538 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../../disclaimer-vi.rst
+
+:Original: Documentation/networking/device_drivers/wifi/intel/ipw2200.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+==================================================
+Trình điều khiển Intel(R) PRO/Wireless 2915ABG cho Linux
+==============================================
+
+
+Hỗ trợ cho:
+
+- Kết nối mạng Intel(R) PRO/Không dây 2200BG
+- Kết nối mạng Intel(R) PRO/Không dây 2915ABG
+
+Lưu ý: Trình điều khiển Intel(R) PRO/Wireless 2915ABG dành cho Linux và Intel(R)
+Trình điều khiển PRO/Wireless 2200BG cho Linux là trình điều khiển hợp nhất hoạt động trên
+cả hai bộ điều hợp phần cứng được liệt kê ở trên. Trong tài liệu này Intel(R)
+Trình điều khiển PRO/Wireless 2915ABG dành cho Linux sẽ được sử dụng để tham khảo
+trình điều khiển thống nhất.
+
+Bản quyền ZZ0000ZZ 2004-2006, Tập đoàn Intel
+
+README.ipw2200
+
+:Phiên bản: 1.1.2
+:Ngày: 30 tháng 3 năm 2006
+
+
+.. Index
+
+    0.   IMPORTANT INFORMATION BEFORE USING THIS DRIVER
+    1.   Introduction
+    1.1. Overview of features
+    1.2. Module parameters
+    1.3. Wireless Extension Private Methods
+    1.4. Sysfs Helper Files
+    1.5. Supported channels
+    2.   Ad-Hoc Networking
+    3.   Interacting with Wireless Tools
+    3.1. iwconfig mode
+    3.2. iwconfig sens
+    4.   About the Version Numbers
+    5.   Firmware installation
+    6.   Support
+    7.   License
+
+
+0. IMPORTANT INFORMATION BEFORE USING THIS DRIVER
+=================================================
+
+Thông báo quan trọng FOR ALL USERS HOẶC DISTRIBUTORS!!!!
+
+Bộ điều hợp LAN không dây của Intel được thiết kế, sản xuất, thử nghiệm và
+được kiểm tra chất lượng để đảm bảo rằng chúng đáp ứng tất cả các yêu cầu cần thiết của địa phương và
+yêu cầu của cơ quan quản lý chính phủ đối với các khu vực mà họ
+được chỉ định và/hoặc đánh dấu để vận chuyển vào. Vì mạng LAN không dây là
+nói chung là các thiết bị không được cấp phép chia sẻ phổ tần với radar,
+vệ tinh và các thiết bị được cấp phép và không được cấp phép khác, đôi khi
+cần thiết để tự động phát hiện, tránh và hạn chế việc sử dụng để tránh
+nhiễu với các thiết bị này. Trong nhiều trường hợp Intel được yêu cầu phải
+cung cấp dữ liệu thử nghiệm để chứng minh sự tuân thủ của khu vực và địa phương đối với các quy định của khu vực và
+quy định của chính phủ trước khi chứng nhận hoặc chấp thuận sử dụng
+sản phẩm được cấp. EEPROM không dây của Intel LAN, chương trình cơ sở và
+trình điều khiển phần mềm được thiết kế để kiểm soát cẩn thận các thông số ảnh hưởng đến
+hoạt động vô tuyến và đảm bảo tuân thủ điện từ (EMC). Những cái này
+các thông số bao gồm, không giới hạn, công suất RF, mức sử dụng phổ tần,
+quét kênh và tiếp xúc với con người.
+
+Vì những lý do này, Intel không thể cho phép bất kỳ sự thao túng nào của bên thứ ba
+của phần mềm được cung cấp ở định dạng nhị phân với WLAN không dây
+bộ điều hợp (ví dụ: EEPROM và phần sụn). Hơn nữa, nếu bạn sử dụng bất kỳ
+các bản vá, tiện ích hoặc mã bằng bộ điều hợp LAN không dây của Intel
+đã bị thao túng bởi một bên trái phép (ví dụ: các bản vá,
+các tiện ích hoặc mã (bao gồm các sửa đổi mã nguồn mở) có
+chưa được Intel xác thực), (i) bạn sẽ hoàn toàn chịu trách nhiệm về
+đảm bảo sự tuân thủ quy định của sản phẩm, (ii) Intel sẽ chịu trách nhiệm
+không có trách nhiệm pháp lý, theo bất kỳ lý thuyết trách nhiệm pháp lý nào đối với mọi vấn đề liên quan
+với các sản phẩm được sửa đổi, bao gồm nhưng không giới hạn, các khiếu nại theo
+bảo hành và/hoặc các vấn đề phát sinh từ việc không tuân thủ quy định, và
+(iii) Intel sẽ không cung cấp hoặc không bị yêu cầu hỗ trợ việc cung cấp
+hỗ trợ cho bất kỳ bên thứ ba nào đối với các sản phẩm được sửa đổi đó.
+
+Lưu ý: Nhiều cơ quan quản lý coi bộ điều hợp LAN không dây là
+mô-đun và theo đó, có điều kiện phê duyệt theo quy định ở cấp hệ thống
+khi nhận và xem xét dữ liệu thử nghiệm ghi lại rằng ăng-ten và
+cấu hình hệ thống không làm cho EMC và hoạt động vô tuyến bị ảnh hưởng
+không tuân thủ.
+
+Các trình điều khiển có sẵn để tải xuống từ SourceForge được cung cấp dưới dạng
+một phần của dự án phát triển.  Sự phù hợp với quy định của địa phương
+yêu cầu là trách nhiệm của cá nhân nhà phát triển.  Như
+chẳng hạn, nếu bạn quan tâm đến việc triển khai hoặc vận chuyển trình điều khiển như một phần của
+giải pháp dự định sẽ được sử dụng cho các mục đích khác ngoài mục đích phát triển, vui lòng
+lấy trình điều khiển đã được thử nghiệm từ bộ phận Hỗ trợ Khách hàng của Intel tại:
+
+ZZ0000ZZ
+
+
+1. Giới thiệu
+===============
+
+Các phần sau đây cố gắng cung cấp một giới thiệu ngắn gọn về việc sử dụng
+Trình điều khiển Intel(R) PRO/Wireless 2915ABG dành cho Linux.
+
+Tài liệu này không có nghĩa là một hướng dẫn toàn diện về
+hiểu biết hoặc sử dụng các công nghệ không dây, nhưng chỉ cần đủ
+để giúp bạn di chuyển mà không cần dây trên Linux.
+
+Để biết thông tin về cách xây dựng và cài đặt trình điều khiển, hãy xem INSTALL
+tập tin.
+
+
+1.1. Tổng quan về tính năng
+-------------------------
+Bản phát hành hiện tại (1.1.2) hỗ trợ các tính năng sau:
+
++ Chế độ BSS (Cơ sở hạ tầng, Được quản lý)
++ Chế độ IBSS (Ad-Hoc)
++ WEP (chế độ OPEN và SHARED KEY)
++ 802.1x EAP qua wpa_supplicant và xsupplicant
++ Hỗ trợ mở rộng không dây
++ Hỗ trợ Full B và G (2200 và 2915)
++ Hỗ trợ Full A rate (chỉ 2915)
++ Điều khiển công suất phát
++ Hỗ trợ trạng thái S (tạm dừng/tiếp tục ACPI)
+
+Các tính năng sau hiện đã được bật nhưng chưa chính thức
+được hỗ trợ:
+
++ WPA
++ hỗ trợ lời mở đầu dài/ngắn
++ Chế độ giám sát (còn gọi là RFMon)
+
+Sự khác biệt giữa được hỗ trợ chính thức và được kích hoạt là sự phản ánh
+về số lượng xác nhận và thử nghiệm khả năng tương tác đã được
+được thực hiện trên một tính năng nhất định.
+
+
+
+1.2. Tham số dòng lệnh
+----------------------------
+
+Giống như nhiều mô-đun được sử dụng trong nhân Linux, Intel(R) PRO/Wireless
+2915ABG Driver cho Linux cho phép cung cấp các tùy chọn cấu hình
+như các tham số mô-đun.  Cách phổ biến nhất để chỉ định tham số mô-đun
+là thông qua dòng lệnh.
+
+Dạng tổng quát là::
+
+% tham số modprobe ipw2200 = giá trị
+
+Trong đó tham số được hỗ trợ là:
+
+cộng tác viên
+	Đặt thành 0 để tắt chức năng tự động quét và liên kết của
+	người lái xe.  Nếu bị tắt, trình điều khiển sẽ không cố gắng quét
+	cho và liên kết với mạng cho đến khi nó được cấu hình với
+	một hoặc nhiều thuộc tính cho mạng mục tiêu, ví dụ như cấu hình
+	mạng SSID.  Mặc định là 0 (không tự động liên kết)
+
+Ví dụ: % modprobe ipw2200 Associate=0
+
+tự động tạo
+	Đặt thành 0 để tắt tính năng tự động tạo mạng Ad-Hoc
+	phù hợp với các thông số tên kênh và mạng được cung cấp.
+	Mặc định là 1.
+
+kênh
+	số kênh cho liên kết.  Phương pháp thông thường để thiết lập
+	kênh sẽ sử dụng các công cụ không dây tiêu chuẩn
+	(tức là ZZ0000ZZ), nhưng đôi khi nó cũng hữu ích
+	để thiết lập điều này trong khi gỡ lỗi.  Kênh 0 có nghĩa là 'ANY'
+
+gỡ lỗi
+	Nếu sử dụng bản dựng gỡ lỗi, bản dựng này được sử dụng để kiểm soát số lượng bản gỡ lỗi
+	thông tin được ghi lại.  Xem tập lệnh 'dvals' và 'load' để biết thêm thông tin về
+	cách sử dụng cái này (các dval và tập lệnh tải được cung cấp như một phần
+	trong số các bản phát hành ảnh chụp nhanh phát triển ipw2200 có sẵn từ
+	Dự án SourceForge tại ZZ0000ZZ
+
+dẫn đầu
+	Có thể dùng để bật mã LED thử nghiệm.
+	0 = Tắt, 1 = Bật.  Mặc định là 1.
+
+chế độ
+	Có thể được sử dụng để đặt chế độ mặc định của bộ chuyển đổi.
+	0 = Được quản lý, 1 = Ad-Hoc, 2 = Giám sát
+
+
+1.3. Phương thức riêng tư mở rộng không dây
+---------------------------------------
+
+Là một giao diện được thiết kế để xử lý phần cứng chung, có một số
+các khả năng không được hiển thị thông qua giao diện Công cụ không dây thông thường.  Như
+như vậy, một điều khoản được cung cấp để người lái xe khai báo hải quan, hoặc
+riêng tư, phương pháp.  Trình điều khiển Intel(R) PRO/Wireless 2915ABG dành cho Linux
+xác định một số trong số này để định cấu hình các cài đặt khác nhau.
+
+Hình thức chung của việc sử dụng các phương pháp không dây riêng là::
+
+% iwpriv $IFNAME tham số phương thức
+
+Trong đó $IFNAME là tên giao diện mà thiết bị được đăng ký
+(thường là eth1, được tùy chỉnh thông qua một trong các giao diện mạng khác nhau
+trình quản lý tên, chẳng hạn như ifrename)
+
+Các phương thức riêng tư được hỗ trợ là:
+
+chế độ lấy
+	Có thể được sử dụng để báo cáo trình điều khiển đang ở chế độ IEEE nào
+	được cấu hình để hỗ trợ.  Ví dụ:
+
+% iwpriv eth1 get_mode
+	eth1 get_mode:802.11bg (6)
+
+set_mode
+	Có thể được sử dụng để định cấu hình trình điều khiển sẽ sử dụng chế độ IEEE nào
+	hỗ trợ.
+
+Cách sử dụng::
+
+% iwpriv eth1 set_mode {mode}
+
+Trong đó {mode} là một số trong phạm vi 1-7:
+
+=========================
+	1 802.11a (chỉ 2915)
+	2 802.11b
+	3 802.11ab (chỉ 2915)
+	4 802.11g
+	5 802.11ag (chỉ 2915)
+	6 802.11bg
+	7 802.11abg (chỉ 2915)
+	=========================
+
+get_preamble
+	Có thể được sử dụng để báo cáo cấu hình độ dài phần mở đầu.
+
+set_preamble
+	Có thể được sử dụng để đặt cấu hình độ dài lời mở đầu:
+
+Cách sử dụng::
+
+% iwpriv eth1 set_preamble {mode}
+
+Trong đó {mode} là một trong:
+
+=============================================
+	Chỉ 1 lời mở đầu dài
+	0 Tự động (dài hay ngắn tùy theo kết nối)
+	=============================================
+
+
+1.4. Tệp trợ giúp Sysfs
+-----------------------
+
+Nhân Linux cung cấp một hệ thống tập tin giả có thể được sử dụng để
+truy cập các thành phần khác nhau của hệ điều hành.  Intel(R)
+Trình điều khiển PRO/Wireless 2915ABG cho Linux tiết lộ một số cấu hình
+thông số thông qua cơ chế này.
+
+Một mục trong sysfs có thể hỗ trợ đọc và/hoặc viết.  bạn có thể
+thường truy vấn nội dung của mục nhập sysfs thông qua việc sử dụng cat,
+và có thể thiết lập nội dung thông qua echo.  Ví dụ::
+
+% cat /sys/bus/pci/drivers/ipw2200/debug_level
+
+Sẽ báo cáo mức gỡ lỗi hiện tại của hệ thống con ghi nhật ký của trình điều khiển
+(chỉ khả dụng nếu CONFIG_IPW2200_DEBUG được định cấu hình khi trình điều khiển
+đã được xây dựng).
+
+Bạn có thể đặt mức gỡ lỗi thông qua ::
+
+% echo $VALUE > /sys/bus/pci/drivers/ipw2200/debug_level
+
+Trong đó $VALUE sẽ là một số trong trường hợp mục nhập sysfs này.  các
+đầu vào của tệp sysfs không nhất thiết phải là số.  Ví dụ,
+trình tải chương trình cơ sở được sử dụng bởi hotplug sử dụng các mục nhập sysfs để truyền
+hình ảnh phần sụn từ không gian người dùng vào trình điều khiển.
+
+Trình điều khiển Intel(R) PRO/Wireless 2915ABG dành cho Linux hiển thị các mục sysfs
+ở hai cấp độ -- cấp độ trình điều khiển, áp dụng cho tất cả các phiên bản của trình điều khiển
+(trong trường hợp có nhiều thiết bị được cài đặt) và thiết bị
+cấp độ, chỉ áp dụng cho một trường hợp cụ thể duy nhất.
+
+
+1.4.1 Tệp trợ giúp Sysfs cấp trình điều khiển
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Đối với các tệp cấp trình điều khiển, hãy tìm trong /sys/bus/pci/drivers/ipw2200/
+
+cấp độ gỡ lỗi
+	Điều này kiểm soát toàn cầu giống như tham số mô-đun 'gỡ lỗi'
+
+
+
+1.4.2 Tệp trợ giúp Sysfs cấp thiết bị
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Đối với các tệp cấp thiết bị, hãy tìm trong ::
+
+/sys/bus/pci/drivers/ipw2200/{PCI-ID}/
+
+Ví dụ:::
+
+/sys/bus/pci/drivers/ipw2200/0000:02:01.0
+
+Để biết các tệp cấp thiết bị, hãy xem /sys/bus/pci/drivers/ipw2200:
+
+rf_kill
+	đọc -
+
+==============================================
+	0 Tính năng tiêu diệt RF không được bật (bật radio)
+	1 hoạt động tiêu diệt RF dựa trên SW (tắt radio)
+	2 chức năng tiêu diệt RF dựa trên HW đang hoạt động (tắt radio)
+	3 Cả HW và SW RF đều tắt hoạt động (tắt radio)
+	==============================================
+
+viết -
+
+========================================================
+	0 Nếu chức năng diệt RF dựa trên SW hoạt động, hãy bật lại radio
+	1 Nếu radio đang bật, hãy kích hoạt tiêu diệt RF dựa trên SW
+	========================================================
+
+	.. note::
+
+	   If you enable the SW based RF kill and then toggle the HW
+	   based RF kill from ON -> OFF -> ON, the radio will NOT come back on
+
+  ucode
+quyền truy cập chỉ đọc vào số phiên bản ucode
+
+dẫn đầu
+	đọc -
+
+====================
+	0 Mã LED bị vô hiệu hóa
+	Đã bật 1 mã LED
+	====================
+
+viết -
+
+===================
+	0 Vô hiệu hóa mã LED
+	1 Kích hoạt mã LED
+	===================
+
+
+	.. note::
+
+	   The LED code has been reported to hang some systems when
+	   running ifconfig and is therefore disabled by default.
+
+
+1.5. Các kênh được hỗ trợ
+-----------------------
+
+Khi tải Trình điều khiển Intel(R) PRO/Wireless 2915ABG cho Linux, một
+thông báo cho biết mã địa lý được phát hiện và số 802.11
+các kênh được thẻ hỗ trợ sẽ được hiển thị trong nhật ký.
+
+Mã địa lý tương ứng với một miền quy định như được hiển thị trong
+bảng dưới đây.
+
++------+-----------------------------+----------------------+
+	ZZ0000ZZ ZZ0001ZZ
+	ZZ0002ZZ Địa lý +----------+----------+
+	ZZ0003ZZ ZZ0004ZZ 802.11a |
+	+=======+=========================================================+
+	ZZ0005ZZ Bị hạn chế ZZ0006ZZ 0 |
+	+------+-----------------------------+----------+----------+
+	ZZ0007ZZ Tùy chỉnh Hoa Kỳ/Canada ZZ0008ZZ 8 |
+	+------+-----------------------------+----------+----------+
+	ZZ0009ZZ Phần còn lại của thế giới ZZ0010ZZ 0 |
+	+------+-----------------------------+----------+----------+
+	ZZ0011ZZ Tùy chỉnh USA & Châu Âu & ZZ0012ZZ Cao 13 |
+	+------+-----------------------------+----------+----------+
+	ZZ0013ZZ Tùy chỉnh NA & Châu Âu ZZ0014ZZ 13 |
+	+------+-----------------------------+----------+----------+
+	ZZ0015ZZ Tùy chỉnh Nhật Bản ZZ0016ZZ 4 |
+	+------+-----------------------------+----------+----------+
+	ZZ0017ZZ Tùy chỉnh ZZ0018ZZ 0 |
+	+------+-----------------------------+----------+----------+
+	ZZ0019ZZ Châu Âu ZZ0020ZZ 19 |
+	+------+-----------------------------+----------+----------+
+	ZZ0021ZZ Tùy chỉnh Nhật Bản ZZ0022ZZ 4 |
+	+------+-----------------------------+----------+----------+
+	ZZ0023ZZ Phần còn lại của thế giới ZZ0024ZZ 0 |
+	+------+-----------------------------+----------+----------+
+	ZZ0025ZZ Dải Cao ZZ0026ZZ 4 |
+	+------+-----------------------------+----------+----------+
+	ZZ0027ZZ Tùy chỉnh Châu Âu ZZ0028ZZ 4 |
+	+------+-----------------------------+----------+----------+
+	ZZ0029ZZ Châu Âu ZZ0030ZZ 24 |
+	+------+-----------------------------+----------+----------+
+	ZZ0031ZZ Châu Âu ZZ0032ZZ 13 |
+	+------+-----------------------------+----------+----------+
+
+2. Mạng Ad-Hoc
+=====================
+
+Khi sử dụng một thiết bị trong mạng Ad-Hoc, sẽ rất hữu ích nếu hiểu được
+trình tự và yêu cầu để người lái xe có thể tạo, tham gia hoặc
+hợp nhất các mạng.
+
+Những nỗ lực sau đây nhằm cung cấp đủ thông tin để bạn có thể
+có trải nghiệm nhất quán khi sử dụng trình điều khiển với tư cách là thành viên của một
+Mạng Ad-Hoc.
+
+2.1. Tham gia mạng Ad-Hoc
+------------------------------
+
+Cách dễ nhất để truy cập mạng Ad-Hoc là tham gia một mạng
+đã tồn tại rồi.
+
+2.2. Tạo mạng Ad-Hoc
+-------------------------------
+
+Mạng Ad-Hoc được tạo bằng cú pháp của công cụ Không dây.
+
+Ví dụ:
+iwconfig eth1 chế độ thử nghiệm đặc biệt essid kênh 2
+
+2.3. Hợp nhất các mạng Ad-Hoc
+----------------------------
+
+
+3. Tương tác với các công cụ không dây
+==================================
+
+3.1 chế độ iwconfig
+-----------------
+
+Khi định cấu hình chế độ của bộ điều hợp, tất cả các tham số được định cấu hình trong thời gian chạy
+được đặt lại về giá trị được sử dụng khi mô-đun được tải.  Điều này bao gồm
+kênh, tốc độ, ESSID, v.v.
+
+3.2 cảm biến iwconfig
+-----------------
+
+Lệnh 'iwconfig ethX sens XX' sẽ không đặt độ nhạy tín hiệu
+ngưỡng, như được mô tả trong tài liệu iwconfig, mà là số
+các báo hiệu bị bỏ lỡ liên tiếp sẽ kích hoạt chuyển giao, tức là chuyển vùng
+đến một điểm truy cập khác. Đồng thời, nó sẽ thiết lập sự phân ly
+ngưỡng gấp 3 lần giá trị đã cho.
+
+
+4. Về số phiên bản
+=============================
+
+Do tính chất của các dự án phát triển nguồn mở, có
+thường xuyên thay đổi được kết hợp mà chưa trải qua
+một quá trình xác nhận hoàn chỉnh.  Những thay đổi này được đưa vào
+phát hành ảnh chụp nhanh phát triển.
+
+Các bản phát hành được đánh số theo sơ đồ ba cấp:
+
+Major.minor.development
+
+Bất kỳ phiên bản nào có phần 'phát triển' là 0 (ví dụ:
+1.0.0, 1.1.0, v.v.) cho biết phiên bản ổn định sẽ được tạo
+có sẵn để đưa vào kernel.
+
+Bất kỳ phiên bản nào có phần 'phát triển' không phải là 0 (đối với
+ví dụ 1.0.1, 1.1.5, v.v.) cho biết phiên bản phát triển
+đang được cung cấp để thử nghiệm và người dùng tiên tiến.  Sự ổn định
+và chức năng của các phiên bản phát triển không được biết.  Chúng tôi làm
+nỗ lực cố gắng giữ cho tất cả các ảnh chụp nhanh ổn định một cách hợp lý, nhưng do
+tần suất phát hành của chúng và mong muốn có được những bản phát hành đó
+có sẵn càng nhanh càng tốt, dự kiến sẽ có những bất thường chưa biết.
+
+Số phiên bản chính sẽ được tăng lên khi có những thay đổi đáng kể
+được thực hiện cho người lái xe.  Hiện tại, không có thay đổi lớn nào được lên kế hoạch.
+
+5. Cài đặt phần mềm
+========================
+
+Trình điều khiển yêu cầu hình ảnh chương trình cơ sở, tải xuống và giải nén
+các tập tin trong /lib/firmware (hoặc bất cứ nơi nào firmware.agent của hotplug của bạn
+sẽ tìm kiếm các tập tin phần sụn)
+
+Có thể tải xuống chương trình cơ sở từ URL sau:
+
+ZZ0000ZZ
+
+
+6. Hỗ trợ
+==========
+
+Để được hỗ trợ trực tiếp phiên bản 1.0.0, bạn có thể liên hệ
+ZZ0000ZZ hoặc bạn có thể sử dụng dự án nguồn mở
+hỗ trợ.
+
+Để biết thông tin chung và hỗ trợ, hãy truy cập:
+
+ZZ0000ZZ
+
+
+7. Giấy phép
+==========
+
+Bản quyền ZZ0000ZZ 2003 - 2006 Tập đoàn Intel. Mọi quyền được bảo lưu.
+
+Chương trình này là phần mềm miễn phí; bạn có thể phân phối lại nó và/hoặc sửa đổi nó
+  theo các điều khoản của Giấy phép Công cộng GNU phiên bản 2 như
+  được xuất bản bởi Tổ chức Phần mềm Tự do.
+
+Chương trình này được phân phối với hy vọng nó sẽ hữu ích, nhưng WITHOUT
+  ANY WARRANTY; thậm chí không có sự bảo đảm ngụ ý của MERCHANTABILITY hoặc
+  FITNESS FOR A PARTICULAR PURPOSE.  Xem Giấy phép Công cộng GNU để biết
+  biết thêm chi tiết.
+
+Bạn hẳn đã nhận được một bản sao Giấy phép Công cộng GNU cùng với
+  chương trình này; nếu không, hãy viết thư cho Free Software Foundation, Inc., 59
+  Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+Giấy phép Công cộng Chung GNU đầy đủ được bao gồm trong bản phân phối này trong
+  tập tin có tên LICENSE.
+
+Thông tin liên hệ:
+
+James P. Ketrenos <ipw2100-admin@linux.intel.com>
+
+Tập đoàn Intel, 5200 N.E. Đường Elam Young Parkway, Hillsboro, OR 97124-6497

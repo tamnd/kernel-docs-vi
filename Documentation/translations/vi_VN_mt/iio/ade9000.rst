@@ -1,0 +1,280 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/iio/ade9000.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=================
+Trình điều khiển ADE9000
+===============
+
+Trình điều khiển này hỗ trợ IC đo năng lượng ADE9000 của Thiết bị Analog trên bus SPI.
+
+1. Thiết bị được hỗ trợ
+====================
+
+* ZZ0000ZZ
+
+ADE9000 là thiết bị đo năng lượng và năng lượng đa pha có độ chính xác cao, tích hợp đầy đủ
+thiết bị giám sát chất lượng. Hiệu suất tương tự vượt trội và tín hiệu số
+lõi xử lý (DSP) cho phép giám sát năng lượng chính xác trên phạm vi rộng
+phạm vi. Một tham chiếu cao cấp tích hợp đảm bảo độ lệch nhiệt độ thấp
+với độ lệch kết hợp tối đa nhỏ hơn ±25 ppm/°C cho toàn bộ kênh
+bao gồm bộ khuếch đại khuếch đại có thể lập trình (PGA) và bộ chuyển đổi tương tự sang kỹ thuật số
+bộ chuyển đổi (ADC).
+
+2. Thuộc tính thiết bị
+====================
+
+Các phép đo công suất và năng lượng được cung cấp cho điện áp, dòng điện, công suất hoạt động,
+công suất phản kháng, công suất biểu kiến và hệ số công suất qua ba pha.
+
+Mỗi thiết bị IIO có một thư mục thiết bị trong ZZ0000ZZ,
+trong đó X là chỉ số IIO của thiết bị. Dưới các thư mục này chứa một bộ
+tập tin thiết bị, tùy thuộc vào đặc điểm và tính năng của phần cứng
+thiết bị được đề cập. Các tập tin này được khái quát hóa và ghi lại một cách nhất quán trong
+tài liệu IIO ABI.
+
+Các bảng sau hiển thị các tệp thiết bị liên quan đến ADE9000, được tìm thấy trong
+đường dẫn thư mục thiết bị cụ thể ZZ0000ZZ.
+
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0001ZZ Đo dòng điện thô cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0002ZZ Thang đo cho các kênh hiện tại.                              |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0003ZZ Hiệu chuẩn tăng cho các kênh hiện tại (AIGAIN reg).      |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0004ZZ RMS đo dòng điện cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+Thang đo ZZ0005ZZ cho các kênh hiện tại RMS.                          |
++---------------------------------------------------+----------------------------------------------------------+
+Hiệu chỉnh bù ZZ0006ZZ RMS cho các kênh hiện tại (IRMSOS reg). |
++---------------------------------------------------+----------------------------------------------------------+
+
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0001ZZ Đo điện áp thô cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0002ZZ Thang đo kênh điện áp.                              |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0003ZZ Hiệu chỉnh mức tăng cho các kênh điện áp (AVGAIN reg).      |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0004ZZ Đo tần số đường dây từ điện áp tức thời.      |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0005ZZ RMS đo điện áp pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+Thang đo ZZ0006ZZ cho các kênh điện áp RMS.                          |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0007ZZ RMS Hiệu chỉnh bù cho các kênh điện áp (VRMSOS reg). |
++---------------------------------------------------+----------------------------------------------------------+
+
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0001ZZ Đo công suất tác dụng cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0002ZZ Cân cho các kênh công suất hoạt động.                         |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0003ZZ Hiệu chỉnh bù cho công suất hoạt động (regs xWATTOS).      |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0004ZZ Hiệu chỉnh mức tăng cho công suất hoạt động (APGAIN reg).          |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0005ZZ Đo công suất phản kháng pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0006ZZ Cân cho các kênh công suất phản kháng.                       |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0007ZZ Hiệu chuẩn bù cho công suất phản kháng (xVAROS regs).     |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0008ZZ Đo công suất biểu kiến cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0009ZZ Thang đo cho các kênh công suất biểu kiến.                       |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0010ZZ Hệ số công suất cho pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0001ZZ Đo năng lượng hoạt động cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0002ZZ Đo năng lượng phản kháng cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0003ZZ Đo năng lượng biểu kiến cho các pha A, B, C. |
++---------------------------------------------------+----------------------------------------------------------+
+
++------------------------------+-------------------------------------------------------------------+
+ZZ0000ZZ Mô tả |
++------------------------------+-------------------------------------------------------------------+
+ZZ0001ZZ Tên của thiết bị IIO.                                          |
++------------------------------+-------------------------------------------------------------------+
+ZZ0002ZZ Loại bộ lọc đệm dạng sóng (sinc4, sinc4+lp).                   |
++------------------------------+-------------------------------------------------------------------+
+ZZ0003ZZ Các loại bộ lọc có sẵn cho bộ đệm dạng sóng.                      |
++------------------------------+-------------------------------------------------------------------+
+
+3. Hiệu chuẩn và chia tỷ lệ
+===========================
+
+ADE9000 cung cấp nhiều mức tăng và hiệu chỉnh bù:
+
+ZZ0001ZZ
+  Tinh chỉnh mức tăng hiệu chuẩn được áp dụng trong miền kỹ thuật số cho từng loại kênh.
+  Được điều khiển thông qua các thuộc tính ZZ0000ZZ (các thanh ghi AIGAIN, AVGAIN, APGAIN).
+
+ZZ0000ZZ
+  Hiệu chỉnh phần cứng được thiết bị áp dụng nội bộ:
+
+- Đo công suất: Được điều khiển thông qua thuộc tính ZZ0000ZZ cho các kênh công suất (các thanh ghi xWATTOS, xVAROS).
+  - Đo RMS: Được điều khiển thông qua thuộc tính ZZ0001ZZ cho các kênh RMS (các thanh ghi IRMSOS, VRMSOS).
+
+Đây là các hiệu chỉnh chip nội bộ, không phải hiệu chỉnh áp dụng cho không gian người dùng.
+
+4. Thuộc tính sự kiện
+===================
+
+ADE9000 cung cấp nhiều ngắt khác nhau được ánh xạ tới các sự kiện IIO.
+Chức năng sự kiện chỉ khả dụng nếu các ngắt tương ứng được
+được kết nối trong cây thiết bị.
+
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0000ZZ ADE9000 Bảng dữ liệu tương đương |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0001ZZ Ngắt phát hiện cắt ngang 0 (ZXVx) |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0002ZZ RMS ngắt phát hiện sưng tấy (SWELLx) |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0003ZZ RMS ngưỡng tăng (đăng ký SWELL_LVL) |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0004ZZ RMS ngắt phát hiện võng/nhúng (DIPx) |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0005ZZ RMS ngưỡng chùng/nhúng (đăng ký DIP_LVL) |
++---------------------------------------------------+----------------------------------------------------------+
+ZZ0006ZZ Ngắt phát hiện cắt ngang điểm 0 hiện tại (ZXIx) |
++---------------------------------------------------+----------------------------------------------------------+
+
+Hướng sự kiện:
+
+- ZZ0000ZZ: Vượt ngưỡng trên (phát hiện độ phồng)
+- ZZ0001ZZ: Vượt ngưỡng dưới (phát hiện độ võng/nhúng)
+- ZZ0002ZZ: Vượt ngưỡng bất kỳ (phát hiện vượt ngưỡng bằng 0)
+- ZZ0003ZZ: Hết thời gian hoặc sự kiện không định hướng
+
+ZZ0000ZZ: Thuộc tính sự kiện chỉ khả dụng nếu các ngắt tương ứng
+(irq0, irq1, dready) được chỉ định trong cây thiết bị. Người lái xe làm việc mà không
+bị gián đoạn nhưng với chức năng giảm.
+
+5. Bộ đệm thiết bị
+=================
+
+Trình điều khiển này hỗ trợ bộ đệm IIO để chụp dạng sóng. Chức năng đệm
+yêu cầu ngắt đáng sợ phải được kết nối.
+
+Thiết bị hỗ trợ thu thập dạng sóng điện áp và dòng điện để đánh giá chất lượng điện năng
+phân tích. Bộ đệm dạng sóng có thể được cấu hình để thu thập dữ liệu từ các
+sự kết hợp kênh.
+
+Các kết hợp kênh được hỗ trợ để chụp vào bộ đệm:
+
+- Pha A: điện áp và dòng điện (IA + VA)
+- Pha B: điện áp và dòng điện (IB + VB)
+- Pha C: điện áp và dòng điện (IC + VC)
+- Tất cả các pha: tất cả các kênh điện áp và dòng điện
+- Kênh riêng: IA, VA, IB, VB, IC, VC
+
+Ví dụ sử dụng
+--------------
+
+Bật tính năng chụp dạng sóng cho Giai đoạn A:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > scan_elements/in_current0_en
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > scan_elements/in_voltage0_en
+
+Đặt độ dài bộ đệm và kích hoạt:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> echo 100 > buffer/length
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > buffer/enable
+
+6. Đầu ra đồng hồ
+===============
+
+ADE9000 có thể cung cấp đầu ra xung nhịp thông qua chân CLKOUT khi sử dụng bộ điều khiển bên ngoài
+nguồn tinh thể/đồng hồ. Tính năng này được kích hoạt bằng cách chỉ định ZZ0000ZZ
+trong cây thiết bị. Đồng hồ đầu ra sẽ được đăng ký là "clkout" và có thể
+được tham chiếu bởi các thiết bị khác.
+
+7. Ví dụ sử dụng
+=================
+
+Hiển thị tên thiết bị:
+
+.. code-block:: bash
+
+	root:/sys/bus/iio/devices/iio:device0> cat name
+        ade9000
+
+Đọc số đo điện áp:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat in_voltage0_raw
+        12345
+        root:/sys/bus/iio/devices/iio:device0> cat in_voltage0_scale
+        0.000030517
+
+- Điện áp pha A = in_volt0_raw * in_volt0_scale = 0,3769 V
+
+Đọc số đo công suất:
+
+.. code-block:: bash
+
+        root:/sys/bus/iio/devices/iio:device0> cat in_power0_active_raw
+        5678
+        root:/sys/bus/iio/devices/iio:device0> cat in_power0_scale
+        0.000244140
+
+- Công suất tác dụng pha A = in_power0_active_raw * in_power0_scale = 1,386 W
+
+Định cấu hình mức tăng hiệu chuẩn:
+
+.. code-block:: bash
+
+        # Set current channel 0 calibration gain
+        root:/sys/bus/iio/devices/iio:device0> echo 0x800000 > in_current0_calibscale
+        # Set voltage channel 0 calibration gain
+        root:/sys/bus/iio/devices/iio:device0> echo 0x7FFFFF > in_voltage0_calibscale
+
+Định cấu hình ngưỡng sự kiện điện áp RMS (yêu cầu ngắt):
+
+.. code-block:: bash
+
+        # Set RMS sag detection threshold
+        root:/sys/bus/iio/devices/iio:device0> echo 180000 > events/in_altvoltage0_rms_thresh_falling_value
+        # Enable RMS sag detection
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > events/in_altvoltage0_rms_thresh_falling_en
+
+        # Set RMS swell detection threshold
+        root:/sys/bus/iio/devices/iio:device0> echo 260000 > events/in_altvoltage0_rms_thresh_rising_value
+        # Enable RMS swell detection
+        root:/sys/bus/iio/devices/iio:device0> echo 1 > events/in_altvoltage0_rms_thresh_rising_en
+
+8. Công cụ giao tiếp IIO
+========================
+
+Xem Documentation/iio/iio_tools.rst để biết mô tả về IIO có sẵn
+các công cụ giao tiếp.

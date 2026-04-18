@@ -1,0 +1,128 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../../disclaimer-vi.rst
+
+:Original: Documentation/virt/kvm/s390/s390-pv.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=============================================
+s390 (IBM Z) Máy ảo siêu giám sát và máy ảo được bảo vệ
+=========================================
+
+Bản tóm tắt
+-------
+Các máy ảo được bảo vệ (PVM) là các máy ảo KVM không cho phép KVM
+truy cập trạng thái VM như bộ nhớ khách hoặc sổ đăng ký khách. Thay vào đó,
+PVM hầu hết được quản lý bởi một thực thể mới gọi là Ultravisor (UV). tia cực tím
+cung cấp API mà PVM và KVM có thể sử dụng để yêu cầu quản lý
+hành động.
+
+Mỗi khách bắt đầu ở chế độ không được bảo vệ và sau đó có thể đưa ra yêu cầu
+chuyển sang chế độ được bảo vệ. Khi chuyển đổi, KVM đăng ký khách
+và các VCPU của nó với Ultravisor và chuẩn bị mọi thứ để chạy
+nó.
+
+Ultravisor sẽ bảo mật và giải mã bộ nhớ khởi động của khách
+(tức là kernel/initrd). Nó sẽ bảo vệ các thay đổi trạng thái như VCPU
+bắt đầu/dừng và chèn các ngắt trong khi khách đang chạy.
+
+Khi quyền truy cập vào trạng thái của khách, chẳng hạn như mô tả trạng thái SIE, được
+thường cần thiết để có thể chạy máy ảo, một số thay đổi đã được thực hiện trong
+hành vi của lệnh SIE. Mô tả trạng thái 4 định dạng mới
+đã được giới thiệu, trong đó một số trường có ý nghĩa khác nhau đối với một
+PVM. Các lối thoát SIE được giảm thiểu hết mức có thể để cải thiện tốc độ và
+giảm trạng thái tiếp xúc của khách.
+
+
+tiêm gián đoạn
+-------------------
+Việc tiêm gián đoạn được bảo vệ bởi Ultravisor. Vì KVM thì không
+có quyền truy cập vào lõi thấp của VCPU, việc tiêm được xử lý thông qua
+định dạng 4 mô tả trạng thái.
+
+Mỗi lần gián đoạn kiểm tra máy, bên ngoài, IO và khởi động lại có thể được thực hiện
+được đưa vào mục nhập SIE thông qua một bit trong điều khiển chèn ngắt
+trường (độ lệch 0x54). Nếu CPU khách không được kích hoạt cho ngắt
+tại thời điểm tiêm, việc chặn hợp lệ được công nhận. các
+mô tả trạng thái định dạng 4 chứa các trường trong dữ liệu chặn
+khối nơi dữ liệu liên quan đến ngắt có thể được vận chuyển.
+
+Các ngoại lệ của Cuộc gọi Chương trình và Dịch vụ có một lớp khác
+bảo vệ; chúng chỉ có thể được tiêm theo hướng dẫn có
+đã bị chặn vào KVM. Các trường hợp ngoại lệ cần phải là một kết quả hợp lệ
+mô phỏng lệnh của KVM, ví dụ: chúng ta không bao giờ có thể tiêm một
+giải quyết ngoại lệ khi chúng được SIE báo cáo vì KVM không có
+truy cập vào bộ nhớ của khách.
+
+
+Chặn thông báo mặt nạ
+-------------------------------
+KVM không thể chặn lctl(g) và lpsw(e) nữa để
+được thông báo khi PVM kích hoạt một loại ngắt nhất định.  Như một
+thay thế, hai mã chặn mới đã được giới thiệu: Một
+chỉ ra rằng nội dung của CR 0, 6 hoặc 14 đã bị thay đổi,
+chỉ ra các lớp con gián đoạn khác nhau; và một chỉ ra rằng
+PSW bit 13 đã được thay đổi, cho biết quá trình kiểm tra máy
+sự can thiệp đã được yêu cầu và những sự can thiệp đó hiện đã được kích hoạt.
+
+Mô phỏng hướng dẫn
+---------------------
+Với mô tả trạng thái định dạng 4 cho PVM, lệnh SIE đã
+diễn giải nhiều hướng dẫn hơn so với định dạng 2. Nó không thể
+để diễn giải mọi hướng dẫn nhưng cần giao một số nhiệm vụ cho KVM;
+do đó, đầu vào và đầu ra mô phỏng bảo vệ màn hình SIE và bộ giám sát cực tím.
+
+Các cấu trúc điều khiển được liên kết với SIE cung cấp Bảo mật
+Vùng dữ liệu lệnh (SIDA), Tham số chặn (IP) và
+Đánh chặn an toàn Đăng ký chung Khu vực lưu.  GR khách và hầu hết
+dữ liệu lệnh, chẳng hạn như cấu trúc dữ liệu I/O, được lọc.
+Dữ liệu lệnh được sao chép đến và từ SIDA khi cần.  khách
+GR được đưa vào/truy xuất từ Đánh chặn an toàn chung
+Đăng ký Lưu khu vực.
+
+Chỉ các giá trị GR cần thiết để mô phỏng một lệnh mới được sao chép vào đây
+lưu khu vực và số đăng ký thực sẽ bị ẩn.
+
+Trường mô tả trạng thái Tham số chặn vẫn chứa
+các byte của văn bản lệnh, nhưng với các giá trị thanh ghi được đặt trước
+thay vì những cái thực tế. tức là mỗi lệnh luôn sử dụng giống nhau
+văn bản hướng dẫn, để không rò rỉ văn bản hướng dẫn khách.
+Điều này cũng ngụ ý rằng nội dung đăng ký mà khách có trong r<n>
+có thể ở r<m> theo quan điểm của người ảo hóa.
+
+Vùng dữ liệu lệnh an toàn chứa lưu trữ lệnh
+dữ liệu. Dữ liệu lệnh, tức là dữ liệu được tham chiếu bởi một lệnh
+giống như SCCB cho sclp, được di chuyển qua SIDA. Khi một hướng dẫn được
+bị chặn, SIE sẽ chỉ cho phép ngắt dữ liệu và chương trình đối với
+hướng dẫn này sẽ được chuyển đến khách thông qua hai vùng dữ liệu
+thảo luận trước đó. Dữ liệu khác bị bỏ qua hoặc có giá trị
+đánh chặn.
+
+
+Chặn mô phỏng hướng dẫn
+-----------------------------------
+Có hai loại chặn lệnh an toàn SIE: loại thông thường
+và loại thông báo. Việc chặn lệnh an toàn thông thường sẽ
+làm cho khách chờ hoàn thành hướng dẫn bị chặn
+loại lệnh, tức là trên mục SIE nó được cố gắng hoàn thành
+mô phỏng lệnh với dữ liệu được cung cấp bởi KVM. Điều đó có thể
+là một ngoại lệ chương trình hoặc hoàn thành hướng dẫn.
+
+Loại thông báo chặn thông báo cho KVM về môi trường khách
+thay đổi do việc giải thích hướng dẫn của khách. Sự đánh chặn như vậy
+được công nhận, ví dụ, đối với lệnh tiền tố cửa hàng để cung cấp
+vị trí lowcore mới. Khi quay lại SIE, mọi dữ liệu KVM trong vùng dữ liệu
+bị bỏ qua và việc thực thi tiếp tục như thể lệnh khách đã
+hoàn thành. Vì lý do đó KVM không được phép chèn chương trình
+ngắt lời.
+
+Liên kết
+-----
+ZZ0000ZZ

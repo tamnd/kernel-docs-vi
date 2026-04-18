@@ -1,0 +1,130 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/hwmon/smsc47m192.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển hạt nhân smsc47m192
+========================
+
+Chip được hỗ trợ:
+
+* SMSC LPC47M192, LPC47M15x, ​​LPC47M292 và LPC47M997
+
+Tiền tố: 'smsc47m192'
+
+Địa chỉ được quét: I2C 0x2c - 0x2d
+
+Bảng dữ liệu: Bảng dữ liệu cho LPC47M192 được cung cấp công khai từ
+
+ZZ0000ZZ
+
+LPC47M15x, ​​LPC47M292 và LPC47M997 tương thích với
+
+giám sát phần cứng.
+
+
+
+tác giả:
+      - Hartmut Rick <linux@rick.claranet.de>
+
+- Đặc biệt cảm ơn Jean Delvare vì đã kiểm tra cẩn thận
+	của mã và nhiều nhận xét và đề xuất hữu ích.
+
+
+Sự miêu tả
+-----------
+
+Trình điều khiển này triển khai hỗ trợ cho các khả năng cảm biến phần cứng
+của SMSC LPC47M192 và các chip Super-I/O tương thích.
+
+Những con chip này hỗ trợ 3 kênh nhiệt độ và 8 đầu vào điện áp
+cũng như đầu vào điện áp CPU VID.
+
+Họ cũng có khả năng giám sát và kiểm soát quạt, nhưng
+các tính năng này được truy cập qua bus ISA và không được hỗ trợ bởi bus này
+người lái xe. Sử dụng trình điều khiển 'smsc47m1' để theo dõi và điều khiển quạt.
+
+Điện áp và nhiệt độ được đo bằng ADC 8 bit, độ phân giải
+của nhiệt độ là 1 bit trên mỗi độ C.
+Điện áp được chia tỷ lệ sao cho điện áp danh định tương ứng với
+192 số đếm, tức là 3/4 toàn dải. Vì vậy, phạm vi có sẵn cho
+mỗi kênh điện áp là 0V ... 255/192*(điện áp danh định), độ phân giải
+là 1 bit trên mỗi (điện áp danh định)/192.
+Cả hai giá trị điện áp và nhiệt độ đều được chia tỷ lệ theo 1000, tệp sys
+hiển thị điện áp tính bằng mV và nhiệt độ tính bằng đơn vị 0,001 độ C.
+
+Kênh đầu vào điện áp tương tự +12V (in4_input) được ghép kênh với
+bit 4 của điện áp CPU được mã hóa. Điều này có nghĩa là bạn có thể nhận được
+phép đo điện áp +12V hoặc CPU VID 5 bit, nhưng không phải cả hai.
+Cài đặt mặc định là sử dụng chân làm đầu vào 12V và chỉ sử dụng VID 4 bit.
+Trình điều khiển này giả định rằng thông tin trong thanh ghi cấu hình
+là đúng, tức là BIOS đã cập nhật cấu hình nếu
+bo mạch chủ có đầu vào này được nối với VID4.
+
+Các chỉ số nhiệt độ và điện áp được cập nhật cứ sau 1,5 giây.
+Đọc chúng thường xuyên lặp lại các giá trị tương tự.
+
+
+giao diện sysfs
+---------------
+
+======================================================================================
+in0_input + điện áp đầu vào 2,5V
+in1_input Đầu vào điện áp CPU (danh nghĩa 2,25V)
+in2_input + điện áp đầu vào 3,3V
+in3_input + điện áp đầu vào 5V
+in4_input +đầu vào điện áp 12V (có thể bị thiếu nếu được sử dụng làm VID4)
+in5_input Điện áp đầu vào Vcc (danh định 3,3V)
+		      Đây là điện áp cung cấp của chính chip cảm biến.
+in6_input + điện áp đầu vào 1,5V
+in7_input + điện áp đầu vào 1,8V
+
+trong[0-7]_phút,
+in[0-7]_max ngưỡng báo động dưới và trên cho in[0-7]_input đọc
+
+Tất cả các điện áp được đọc và ghi bằng mV.
+
+in[0-7]_alarm cờ cảnh báo cho điện áp đầu vào
+		      Các tệp này đọc '1' trong trường hợp có cảnh báo, ngược lại là '0'.
+
+Nhiệt độ chip temp1_input được đo bằng diode trên chip
+temp[2-3]_nhiệt độ đầu vào được đo bằng điốt bên ngoài (một trong số đó
+		      thường sẽ được nối với diode bên trong CPU)
+
+nhiệt độ[1-3]_min,
+temp[1-3]_max ngưỡng báo động dưới và trên cho nhiệt độ
+
+temp[1-3]_offset thanh ghi bù nhiệt độ
+		      Con chip thêm các offset được lưu trữ trong các thanh ghi này vào
+		      số đo nhiệt độ tương ứng.
+		      Lưu ý rằng offset temp1 và temp2 chia sẻ cùng một thanh ghi,
+		      chúng không thể cùng lúc khác 0.
+		      Viết một số khác 0 vào một trong số chúng sẽ đặt lại số còn lại
+		      bù đắp bằng không.
+
+Tất cả nhiệt độ và độ lệch được đọc và ghi bằng
+		      đơn vị 0,001 độ C.
+
+temp[1-3]_alarm cờ cảnh báo cho đầu vào nhiệt độ, '1' trong trường hợp cảnh báo,
+		      '0' nếu không.
+Cờ báo lỗi diode temp[2-3]_input_fault cho đầu vào nhiệt độ 2 và 3.
+		      Một lỗi được phát hiện nếu hai chân tương ứng
+		      cảm biến bị hở hoặc bị chập, hoặc một trong hai cảm biến bị chập
+		      nối đất hoặc Vcc. '1' biểu thị lỗi diode.
+
+điện áp cpu0_vid CPU khi nhận được từ CPU
+
+vrm CPU VID chuẩn dùng để giải mã điện áp CPU
+======================================================================================
+
+Các tệp ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ và ZZ0003ZZ có thể được đọc và ghi,
+tất cả những thứ khác là chỉ đọc.
