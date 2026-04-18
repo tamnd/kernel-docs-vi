@@ -31,12 +31,18 @@ from __future__ import annotations
 import argparse
 import concurrent.futures as cf
 import os
+import random
 import re
 import sys
+import threading
 import time
 from pathlib import Path
 
 from deep_translator import GoogleTranslator
+from deep_translator.exceptions import TooManyRequests
+
+RATE_LIMIT_LOCK = threading.Lock()
+RATE_LIMIT_UNTIL = 0.0
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOC_ROOT = REPO_ROOT / "Documentation"
@@ -187,6 +193,42 @@ def split_blocks(text: str) -> list[tuple[str, list[str]]]:
     return blocks
 
 
+def _wait_for_rate_limit() -> None:
+    while True:
+        with RATE_LIMIT_LOCK:
+            remaining = RATE_LIMIT_UNTIL - time.time()
+        if remaining <= 0:
+            return
+        time.sleep(min(remaining, 5) + random.uniform(0, 0.5))
+
+
+def _set_rate_limit_penalty(seconds: float) -> None:
+    global RATE_LIMIT_UNTIL
+    with RATE_LIMIT_LOCK:
+        target = time.time() + seconds
+        if target > RATE_LIMIT_UNTIL:
+            RATE_LIMIT_UNTIL = target
+
+
+def translate_with_retry(translator: GoogleTranslator, text: str) -> str | None:
+    attempts = 6
+    backoff = 2.0
+    for i in range(attempts):
+        _wait_for_rate_limit()
+        try:
+            result = translator.translate(text)
+        except TooManyRequests:
+            penalty = backoff * (2 ** i) + random.uniform(0, backoff)
+            penalty = min(penalty, 120.0)
+            _set_rate_limit_penalty(penalty)
+            continue
+        except Exception as exc:
+            print(f"  ! translate failed: {exc!r}", file=sys.stderr)
+            return None
+        return result if result else None
+    return None
+
+
 def translate_prose(translator: GoogleTranslator, lines: list[str]) -> list[str]:
     text = "\n".join(lines)
     if not text.strip():
@@ -194,11 +236,7 @@ def translate_prose(translator: GoogleTranslator, lines: list[str]) -> list[str]
     protected, tokens = protect(text)
     if not protected.strip():
         return lines
-    try:
-        result = translator.translate(protected)
-    except Exception as exc:
-        print(f"  ! translate failed: {exc!r}", file=sys.stderr)
-        return lines
+    result = translate_with_retry(translator, protected)
     if not result:
         return lines
     restored = restore(result, tokens)

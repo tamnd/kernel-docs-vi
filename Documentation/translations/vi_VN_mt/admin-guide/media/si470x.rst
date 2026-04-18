@@ -1,0 +1,179 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/admin-guide/media/si470x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+Trình điều khiển Máy thu đài FM Silicon Labs Si470x
+=================================================
+
+Bản quyền ZZ0000ZZ 2009 Tobias Lorenz <tobias.lorenz@gmx.net>
+
+
+Thông tin từ Phòng thí nghiệm Silicon
+-----------------------------
+
+Phòng thí nghiệm Silicon là nhà sản xuất IC vô tuyến, ngày nay là
+máy thu radio thường được sử dụng nhất trong điện thoại di động. Thông thường chúng được kết nối với
+I2C. Nhưng SiLabs cũng cung cấp một thiết kế tham khảo tích hợp IC này,
+cùng với bộ vi điều khiển nhỏ C8051F321 để tạo thành một đài phát thanh USB.
+Một phần của thiết kế tham chiếu này cũng là một ứng dụng vô tuyến ở dạng nhị phân và nguồn
+mã. Phần mềm này cũng chứa bản nâng cấp chương trình cơ sở tự động lên hầu hết
+phiên bản hiện tại. Thông tin về những điều này có thể được tải xuống ở đây:
+ZZ0000ZZ
+
+
+IC được hỗ trợ
+-------------
+
+Các IC sau đây có bộ thanh ghi rất giống nhau, do đó chúng đang hoặc sẽ
+được hỗ trợ bởi trình điều khiển:
+
+- Si4700: Máy thu đài FM
+- Si4701: Đầu thu đài FM, Hỗ trợ RDS
+- Si4702: Máy thu đài FM
+- Si4703: Máy thu đài FM, Hỗ trợ RDS
+- Si4704: Thu sóng đài FM, không cần ăng-ten ngoài
+- Si4705: Thu sóng đài FM, không cần ăng-ten ngoài, hỗ trợ RDS, Dig I/O
+- Si4706: Bộ thu sóng radio FM RDS/TMC cải tiến, không cần ăng-ten ngoài, RDS
+	  Hỗ trợ
+- Si4707: Máy thu radio băng tần thời tiết chuyên dụng với bộ giải mã SAME, Hỗ trợ RDS
+- Si4708: Máy thu FM nhỏ nhất
+- Si4709: Máy thu FM nhỏ nhất, Hỗ trợ RDS
+
+Thông tin thêm về những điều này có thể được tải xuống ở đây:
+ZZ0000ZZ
+
+
+Các thiết bị USB được hỗ trợ
+---------------------
+
+Hiện tại có các bộ đàm USB (nhà cung cấp:sản phẩm) sau với Silicon Labs si470x
+chip được biết là hoạt động:
+
+- 10c4:818a: Thiết kế tham chiếu đài FM USB của Silicon Labs
+- 06e1:a155: ADS/Bộ thu đài FM Tech (trước đây là Nhạc FM tức thì) (RDX-155-EF)
+- 1b80:d700: KWorld USB Đài FM SnapMusic Mobile 700 (FM700)
+- 10c5:819a: Đài phát thanh FM USB của Sanei Electric, Inc. (được bán dưới tên DealExtreme.com PCear)
+
+
+Phần mềm
+--------
+
+Việc kiểm tra thường được thực hiện với hầu hết ứng dụng trong Debian/thử nghiệm:
+
+- fmtools - Tiện ích quản lý card bắt sóng FM
+- gnomeradio - Bộ thu sóng đài FM cho máy tính để bàn GNOME
+- gradio - Bộ dò đài FM GTK
+- kradio - Ứng dụng Radio thoải mái cho KDE
+- radio - ứng dụng radio dựa trên ncurses
+- mplayer - Trình phát phim tối ưu cho Linux
+- v4l2-ctl - Tổng hợp các tiện ích dòng lệnh video4linux
+
+Ví dụ: bạn có thể sử dụng:
+
+.. code-block:: none
+
+	v4l2-ctl -d /dev/radio0 --set-ctrl=volume=10,mute=0 --set-freq=95.21 --all
+
+Ngoài ra còn có thư viện libv4l có thể được sử dụng. Nó sẽ có chức năng
+để tìm kiếm tần số bằng cách sử dụng chức năng phần cứng như trong radio-si470x
+hoặc bằng cách triển khai một chức năng như chúng tôi hiện có trong mọi chức năng đã đề cập
+các chương trình. Đôi khi các chương trình radio nên sử dụng libv4l.
+
+Để xử lý thông tin RDS, có một dự án đang được thực hiện tại:
+ZZ0000ZZ
+
+Hiện tại không có dự án nào giúp con người có thể đọc được các câu TMC.
+
+
+Danh sách âm thanh
+-------------
+
+Âm thanh USB được cung cấp bởi mô-đun ALSA snd_usb_audio. Đó là khuyến khích để
+cũng chọn SND_USB_AUDIO, vì điều này là bắt buộc để nhận âm thanh từ radio. cho
+liệt kê bạn phải chuyển hướng âm thanh, ví dụ như sử dụng một trong các cách sau
+lệnh. Vui lòng điều chỉnh thiết bị âm thanh theo nhu cầu của bạn (/dev/dsp* và hw:x,x).
+
+Nếu bạn chỉ muốn kiểm tra âm thanh (chất lượng rất kém):
+
+.. code-block:: none
+
+	cat /dev/dsp1 > /dev/dsp
+
+Nếu bạn sử dụng sox + OSS hãy thử:
+
+.. code-block:: none
+
+	sox -2 --endian little -r 96000 -t oss /dev/dsp1 -t oss /dev/dsp
+
+hoặc sử dụng sox + alsa:
+
+.. code-block:: none
+
+	sox --endian little -c 2 -S -r 96000 -t alsa hw:1 -t alsa -r 96000 hw:0
+
+Nếu bạn sử dụng nghệ thuật hãy thử:
+
+.. code-block:: none
+
+	arecord -D hw:1,0 -r96000 -c2 -f S16_LE | artsdsp aplay -B -
+
+Nếu bạn sử dụng mplayer hãy thử:
+
+.. code-block:: none
+
+	mplayer -radio adevice=hw=1.0:arate=96000 \
+		-rawaudio rate=96000 \
+		radio://<frequency>/capture
+
+Thông số mô-đun
+-----------------
+
+Sau khi tải mô-đun, bạn vẫn có quyền truy cập vào một số mô-đun trong sysfs
+gắn kết dưới /sys/module/radio_si470x/parameters. Nội dung của các tập tin chỉ đọc
+(0444) không được cập nhật, ngay cả khi không gian, băng tần và de được thay đổi bằng chế độ riêng tư
+điều khiển video. Những cái khác có thể thay đổi thời gian chạy.
+
+
+Lỗi
+------
+
+Tăng tune_timeout nếu bạn thường xuyên gặp lỗi -EIO.
+
+Khi hết thời gian chờ hoặc đạt đến giới hạn băng tần, hw_freq_seek trả về -EAGAIN.
+
+Nếu bạn gặp bất kỳ lỗi nào từ snd_usb_audio, vui lòng báo cáo cho người ALSA.
+
+
+Các vấn đề mở
+-----------
+
+V4L phân bổ thiết bị nhỏ và cài đặt tham số không hoàn hảo. Một giải pháp là
+hiện đang được thảo luận.
+
+Có giao diện USB để tải xuống/tải lên hình ảnh chương trình cơ sở mới. Hỗ trợ
+vì nó có thể được triển khai bằng giao diện request_firmware.
+
+Có chế độ ngắt RDS. Trình điều khiển đã sử dụng cùng một giao diện
+để thăm dò thông tin RDS, nhưng hiện không sử dụng chế độ ngắt.
+
+Có giao diện LED, có thể được sử dụng để ghi đè điều khiển LED
+được lập trình trong firmware. Điều này có thể được cung cấp bằng cách sử dụng hỗ trợ LED
+các chức năng trong kernel.
+
+
+Thông tin và liên kết hữu ích khác
+----------------------------------
+
+ZZ0000ZZ

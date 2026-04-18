@@ -1,0 +1,203 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/admin-guide/media/si4713.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+Trình điều khiển máy phát sóng vô tuyến Silicon Labs Si4713 FM
+===================================================
+
+Bản quyền ZZ0000ZZ 2009 Tập đoàn Nokia
+
+Liên hệ: Eduardo Valentin <eduardo.valentin@nokia.com>
+
+
+Thông tin về thiết bị
+----------------------------
+
+Con chip này là sản phẩm của Silicon Labs. Đây là thiết bị I2C, hiện có địa chỉ 0x63.
+Về cơ bản, nó có tính năng đo mức nhiễu truyền dẫn và tín hiệu.
+
+Si4713 tích hợp các chức năng truyền để truyền âm thanh nổi phát sóng FM.
+Con chip này còn cho phép tích hợp chức năng quét công suất thu để xác định tín hiệu yếu
+kênh FM công suất.
+
+Con chip được lập trình bằng cách sử dụng các lệnh và phản hồi. Ngoài ra còn có một số
+thuộc tính có thể thay đổi hoạt động của con chip này.
+
+Người dùng phải tuân thủ các quy định của địa phương về truyền tần số vô tuyến (RF).
+
+Mô tả trình điều khiển thiết bị
+-------------------------
+
+Có hai mô-đun để xử lý thiết bị này. Một là trình điều khiển thiết bị I2C
+và cái còn lại là trình điều khiển nền tảng.
+
+Trình điều khiển thiết bị I2C xuất giao diện v4l2-subdev sang kernel.
+Tất cả các thuộc tính cũng có thể được truy cập bằng giao diện điều khiển mở rộng v4l2, bằng cách
+bằng cách sử dụng lệnh gọi v4l2-subdev (g_ext_ctrls, s_ext_ctrls).
+
+Trình điều khiển thiết bị nền tảng xuất giao diện thiết bị vô tuyến v4l2 sang vùng đất của người dùng.
+Vì vậy, nó sử dụng trình điều khiển thiết bị I2C làm thiết bị phụ để gửi cho người dùng
+lệnh đến thiết bị thực tế. Về cơ bản nó là một trình bao bọc cho trình điều khiển thiết bị I2C.
+
+Các ứng dụng có thể sử dụng đài phát thanh v4l2 API để chỉ định tần số hoạt động, trạng thái tắt tiếng,
+v.v. Nhưng hầu hết các thuộc tính của nó sẽ có trong các điều khiển mở rộng.
+
+Khi thuộc tính tắt tiếng v4l2 được đặt thành 1 (true), trình điều khiển sẽ tắt chip.
+
+Mô tả thuộc tính
+----------------------
+
+Các thuộc tính có thể được truy cập bằng cách sử dụng các điều khiển mở rộng v4l2.
+Đây là kết quả đầu ra từ v4l2-ctl:
+
+.. code-block:: none
+
+	/ # v4l2-ctl -d /dev/radio0 --all -L
+	Driver Info:
+		Driver name   : radio-si4713
+		Card type     : Silicon Labs Si4713 Modulator
+		Bus info      :
+		Driver version: 0
+		Capabilities  : 0x00080800
+			RDS Output
+			Modulator
+	Audio output: 0 (FM Modulator Audio Out)
+	Frequency: 1408000 (88.000000 MHz)
+	Video Standard = 0x00000000
+	Modulator:
+		Name                 : FM Modulator
+		Capabilities         : 62.5 Hz stereo rds
+		Frequency range      : 76.0 MHz - 108.0 MHz
+		Subchannel modulation: stereo+rds
+
+	User Controls
+
+				mute (bool) : default=1 value=0
+
+	FM Radio Modulator Controls
+
+		rds_signal_deviation (int)  : min=0 max=90000 step=10 default=200 value=200 flags=slider
+			rds_program_id (int)  : min=0 max=65535 step=1 default=0 value=0
+		rds_program_type (int)  : min=0 max=31 step=1 default=0 value=0
+			rds_ps_name (str)  : min=0 max=96 step=8 value='si4713  '
+			rds_radio_text (str)  : min=0 max=384 step=32 value=''
+	audio_limiter_feature_enabled (bool) : default=1 value=1
+	audio_limiter_release_time (int)  : min=250 max=102390 step=50 default=5010 value=5010 flags=slider
+		audio_limiter_deviation (int)  : min=0 max=90000 step=10 default=66250 value=66250 flags=slider
+	audio_compression_feature_enabl (bool) : default=1 value=1
+		audio_compression_gain (int)  : min=0 max=20 step=1 default=15 value=15 flags=slider
+	audio_compression_threshold (int)  : min=-40 max=0 step=1 default=-40 value=-40 flags=slider
+	audio_compression_attack_time (int)  : min=0 max=5000 step=500 default=0 value=0 flags=slider
+	audio_compression_release_time (int)  : min=100000 max=1000000 step=100000 default=1000000 value=1000000 flags=slider
+	pilot_tone_feature_enabled (bool) : default=1 value=1
+		pilot_tone_deviation (int)  : min=0 max=90000 step=10 default=6750 value=6750 flags=slider
+		pilot_tone_frequency (int)  : min=0 max=19000 step=1 default=19000 value=19000 flags=slider
+		pre_emphasis_settings (menu) : min=0 max=2 default=1 value=1
+		tune_power_level (int)  : min=0 max=120 step=1 default=88 value=88 flags=slider
+		tune_antenna_capacitor (int)  : min=0 max=191 step=1 default=0 value=110 flags=slider
+
+Đây là một bản tóm tắt của họ:
+
+* Pilot là một âm thanh có thể nghe được được gửi bởi thiết bị.
+
+- Pilot_ Frequency - Định cấu hình tần số của âm thử nghiệm âm thanh nổi.
+- Pilot_deviation - Định cấu hình mức độ lệch tần số âm thử.
+- Pilot_enabled - Bật hoặc tắt tính năng âm thử.
+
+* Thiết bị si4713 có khả năng áp dụng tính năng nén âm thanh cho
+  tín hiệu truyền đi.
+
+- acomp_enabled - Bật hoặc tắt tính năng điều khiển dải động âm thanh.
+- acomp_gain - Đặt mức tăng cho điều khiển dải động âm thanh.
+- acomp_threshold - Đặt mức ngưỡng cho điều khiển dải động âm thanh.
+- acomp_Attack_time - Đặt thời gian tấn công để kiểm soát dải động âm thanh.
+- acomp_release_time - Đặt thời gian phát hành để kiểm soát dải động âm thanh.
+
+* Limiter thiết lập tính năng giới hạn độ lệch âm thanh. Một khi xảy ra sai lệch quá mức,
+  có thể điều chỉnh mức tăng mặt trước của đầu vào âm thanh và luôn
+  ngăn chặn sự sai lệch quá mức.
+
+- limiter_enabled - Bật hoặc tắt tính năng giới hạn.
+- limiter_deviation - Định cấu hình mức độ lệch tần số âm thanh.
+- limiter_release_time - Đặt thời gian phát hành giới hạn.
+
+* Công suất điều chỉnh
+
+- power_level - Đặt mức công suất đầu ra để truyền tín hiệu.
+  Antenna_capacitor - Điều này chọn giá trị của tụ điều chỉnh ăng-ten
+  bằng tay hoặc tự động nếu được đặt thành 0.
+
+* Liên quan đến RDS
+
+- rds_ps_name - Đặt trường tên ps RDS để truyền.
+- rds_radio_text - Đặt văn bản radio RDS để truyền.
+- rds_pi - Đặt trường PI RDS để truyền.
+- rds_pty - Đặt trường RDS PTY để truyền.
+
+* Liên quan đến khu vực
+
+- nhấn mạnh trước - thiết lập nhấn mạnh trước được áp dụng cho việc truyền tải.
+
+RNL
+---
+
+Thiết bị này còn có giao diện để đo mức ồn thu được. Để làm được điều đó, bạn nên
+ioctl nút thiết bị. Đây là một mã ví dụ:
+
+.. code-block:: none
+
+	int main (int argc, char *argv[])
+	{
+		struct si4713_rnl rnl;
+		int fd = open("/dev/radio0", O_RDWR);
+		int rval;
+
+		if (argc < 2)
+			return -EINVAL;
+
+		if (fd < 0)
+			return fd;
+
+		sscanf(argv[1], "%d", &rnl.frequency);
+
+		rval = ioctl(fd, SI4713_IOC_MEASURE_RNL, &rnl);
+		if (rval < 0)
+			return rval;
+
+		printf("received noise level: %d\n", rnl.rnl);
+
+		close(fd);
+	}
+
+Cấu trúc si4713_rnl và SI4713_IOC_MEASURE_RNL được định nghĩa trong
+bao gồm/linux/platform_data/media/si4713.h.
+
+Kênh con Stereo/Mono và RDS
+-------------------------------
+
+Thiết bị cũng có thể được cấu hình bằng cách sử dụng các kênh phụ có sẵn để
+truyền tải. Để làm điều đó, hãy sử dụng S/G_MODULATOR ioctl và định cấu hình txsubchans đúng cách.
+Hãy tham khảo thông số kỹ thuật V4L2 API để sử dụng ioctl này đúng cách.
+
+Kiểm tra
+-------
+Việc kiểm tra thường được thực hiện với tiện ích v4l2-ctl để quản lý thẻ điều chỉnh FM.
+Công cụ này có thể được tìm thấy trong kho lưu trữ v4l-dvb trong thư mục v4l2-apps/util.
+
+Ví dụ để đặt tên rds ps:
+
+.. code-block:: none
+
+	# v4l2-ctl -d /dev/radio0 --set-ctrl=rds_ps_name="Dummy"

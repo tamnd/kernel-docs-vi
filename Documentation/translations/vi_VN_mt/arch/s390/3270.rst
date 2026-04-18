@@ -1,0 +1,312 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/arch/s390/3270.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==================================
+Hỗ trợ hệ thống hiển thị IBM 3270
+===============================
+
+Tệp này mô tả trình điều khiển hỗ trợ tệp đính kèm kênh cục bộ
+của thiết bị IBM 3270.  Nó bao gồm ba phần:
+
+* Giới thiệu
+	* Cài đặt
+	* Hoạt động
+
+
+Giới thiệu
+============
+
+Bài báo này mô tả việc cài đặt và vận hành 3270 thiết bị theo
+Linux/390.  Thiết bị 3270 là thiết bị đầu cuối hàng và cột ở chế độ khối của
+mà tôi chắc chắn hàng trăm triệu đã được bán bởi IBM và các nhà sản xuất bản sao
+hai mươi ba mươi năm trước.
+
+Có thể bạn có 3270 trong nhà mà không biết.  Nếu bạn đang sử dụng
+Hệ điều hành VM-ESA, xác định 3270 cho máy ảo của bạn bằng cách sử dụng
+lệnh "DEF GRAF <hex-address>" Bài viết này giả định bạn sẽ
+xác định bốn 3270 bằng lệnh CP/CMS:
+
+-DEF GRAF 620
+	-DEF GRAF 621
+	- DEF GRAF 622
+	-DEF GRAF 623
+
+Kết nối mạng của bạn từ VM-ESA cho phép bạn sử dụng x3270, tn3270 hoặc
+một trình giả lập 3270 khác, bắt đầu từ cửa sổ xterm trên PC của bạn hoặc
+máy trạm.  Với lệnh DEF GRAF, một ứng dụng như xterm,
+và trình điều khiển Linux-390 3270 này, bạn có một cách khác để nói chuyện với
+Hộp Linux.
+
+Bài viết này bao gồm việc cài đặt trình điều khiển và vận hành một
+đã quay số vào x3270.
+
+
+Cài đặt
+============
+
+Bạn cài đặt trình điều khiển bằng cách cài đặt một bản vá, xây dựng kernel và
+chạy tập lệnh cấu hình (config3270.sh, trong thư mục này).
+
+WARNING: Nếu bạn đang sử dụng hỗ trợ bảng điều khiển 3270, bạn phải chạy lại
+tập lệnh cấu hình mỗi khi bạn thay đổi địa chỉ của bảng điều khiển (có thể
+bằng cách sử dụng tham số condev= trong /boot/parmfile của silo).  Chính xác hơn,
+bạn nên chạy lại tập lệnh cấu hình mỗi lần đặt bộ 3270 của mình,
+bao gồm bảng điều khiển 3270, thay đổi mã nhận dạng kênh con liên quan đến
+nhau.  ReIPL càng sớm càng tốt sau khi chạy cấu hình
+tập lệnh và kết quả là /tmp/mkdev3270.
+
+Nếu bạn đã chọn biến tub3270 thành một mô-đun, bạn thêm một dòng vào
+tệp cấu hình trong /etc/modprobe.d/.  Nếu bạn đang làm việc trên máy ảo
+máy ảo, bạn có thể sử dụng DEF GRAF để xác định thiết bị ảo 3270.
+
+Bạn có thể tạo cả hỗ trợ bảng điều khiển 3270 và 3215 hoặc một hoặc
+khác, hoặc không.  Nếu bạn tạo cả hai, loại bảng điều khiển trong VM là
+không thay đổi.  Sử dụng #CP Q TERM để xem loại bảng điều khiển hiện tại là gì.
+Sử dụng #CP TERM CONMODE 3270 để đổi thành 3270. Nếu bạn chỉ tạo
+Hỗ trợ bảng điều khiển 3270, sau đó trình điều khiển sẽ tự động chuyển đổi bảng điều khiển của bạn
+lúc khởi động lên 3270 nếu là 3215.
+
+Tóm lại, đây là các bước:
+
+1. Cài đặt bản vá tub3270
+	2. (Nếu là mô-đun) thêm một dòng vào tệp trong ZZ0000ZZ
+	3. (Nếu VM) xác định các thiết bị có DEF GRAF
+	4. Khởi động lại
+	5. Cấu hình
+
+Để kiểm tra xem mọi thứ có hoạt động không, giả sử VM và x3270,
+
+1. Xuất hiện cửa sổ x3270.
+	2. Sử dụng lệnh DIAL trong cửa sổ đó.
+	3. Bạn sẽ thấy ngay màn hình đăng nhập Linux.
+
+Dưới đây là các bước cài đặt chi tiết:
+
+1. Trình điều khiển 3270 là một phần của kernel Linux chính thức
+	nguồn.  Xây dựng một cây với nguồn kernel và mọi thứ cần thiết
+	các bản vá lỗi.  Sau đó làm::
+
+tạo cấu hình cũ
+		(Nếu bạn muốn tắt hỗ trợ bảng điều khiển 3215, hãy chỉnh sửa
+		.config; thay đổi giá trị của CONFIG_TN3215 thành "n";
+		và chạy lại "make oldconfig".)
+		tạo hình ảnh
+		làm mô-đun
+		tạo mô-đun_install
+
+2. (Chỉ thực hiện bước này nếu bạn đã định cấu hình tub3270 làm
+	mô-đun.) Thêm một dòng vào tệp ZZ0000ZZ để tự động
+	tải trình điều khiển khi cần thiết.  Với dòng này được thêm vào, bạn sẽ thấy
+	lời nhắc đăng nhập xuất hiện trên 3270 của bạn ngay sau khi khởi động xong (hoặc
+	với những chiếc 3270 được mô phỏng, ngay khi bạn quay số vào máy khách vm của mình bằng cách sử dụng
+	lệnh "DIAL <vmguestname>").  Vì số chính của chế độ dòng là
+	227, dòng cần thêm phải là::
+
+bí danh char-major-227 tub3270
+
+3. Xác định các thiết bị đồ họa cho máy khách vm của bạn, nếu bạn
+	chưa.  Xác định chúng trước khi bạn khởi động lại (reipl):
+
+-DEFINE GRAF 620
+		-DEFINE GRAF 621
+		- DEFINE GRAF 622
+		-DEFINE GRAF 623
+
+4. Khởi động lại.  Quá trình khởi động lại sẽ quét các thiết bị phần cứng, bao gồm
+	3270 và điều này cho phép trình điều khiển tub3270 sau khi được tải sẽ phản hồi
+	chính xác các yêu cầu cấu hình của bước tiếp theo.  Nếu
+	bạn đã chọn hỗ trợ bảng điều khiển 3270, bảng điều khiển của bạn hiện hoạt động
+	là 3270 chứ không phải 3215.
+
+5. Chạy tập lệnh cấu hình 3270 config3270.  Đó là
+	được phân phối trong cùng thư mục này, Documentation/arch/s390, như
+	config3270.sh.  Kiểm tra tập lệnh đầu ra mà nó tạo ra,
+	/tmp/mkdev3270, rồi chạy tập lệnh đó.  Điều này sẽ tạo ra
+	các tập tin thiết bị đặc biệt về ký tự cần thiết và thực hiện các thao tác cần thiết
+	thay đổi thành /etc/inittab.
+
+Sau đó thông báo cho /sbin/init rằng /etc/inittab đã thay đổi bằng cách đưa ra
+	lệnh telinit với toán hạng q::
+
+cd Tài liệu/arch/s390
+		sh config3270.sh
+		sh /tmp/mkdev3270
+		telinit q
+
+Điều này là đủ cho lần đầu tiên của bạn.  Nếu 3270 của bạn
+	cấu hình đã thay đổi và bạn đang sử dụng lại config3270, bạn
+	nên làm theo các bước sau::
+
+Thay đổi cấu hình 3270
+		Khởi động lại
+		Chạy config3270 và/tmp/mkdev3270
+		Khởi động lại
+
+Dưới đây là các bước thử nghiệm chi tiết:
+
+1. Mở cửa sổ x3270 hoặc sử dụng phần cứng thực tế 3278 hoặc
+	3279 hoặc sử dụng trình giả lập 3270 mà bạn chọn.  Bạn sẽ là
+	chạy trình giả lập trên PC hoặc máy trạm của bạn.  Bạn sẽ sử dụng
+	lệnh, ví dụ::
+
+x3270 vm-esa-tên miền &
+
+nếu bạn muốn có 3278 Model 4 với 43 hàng 80 cột, thì
+	số mô hình mặc định.  Tài xế không tận dụng được
+	thuộc tính mở rộng.
+
+Màn hình bạn sẽ thấy bây giờ có chứa logo VM với thông tin đầu vào
+	dòng gần phía dưới.  Sử dụng TAB để chuyển xuống dòng dưới cùng,
+	có lẽ được gắn nhãn "COMMAND ===>".
+
+2. Sử dụng lệnh DIAL thay vì lệnh LOGIN để kết nối
+	đến một trong những 3270 ảo mà bạn đã xác định bằng DEF GRAF
+	lệnh::
+
+quay số my-vm-guest-name
+
+3. Bạn sẽ thấy ngay lời nhắc đăng nhập từ
+	Hệ điều hành Linux-390.  Nếu điều đó không xảy ra, bạn sẽ
+	thay vào đó hãy xem dòng "DIALED TO my-vm-guest-name 0620".
+
+Để khắc phục sự cố: hãy thực hiện những điều này.
+
+A. Trình điều khiển đã được tải chưa?  Sử dụng lệnh lsmod (không có toán hạng)
+	để tìm hiểu.  Có lẽ là không.  Hãy thử tải nó theo cách thủ công, với
+	lệnh "insmod tub3270".  Lệnh đó có báo lỗi không
+	tin nhắn?  Hà!  Có vấn đề của bạn.
+
+B. Tệp /etc/inittab có được sửa đổi như trong bước cài đặt 3 không
+	ở trên?  Sử dụng lệnh grep để tìm hiểu; ví dụ, vấn đề
+	"grep 3270/etc/inittab".  Không tìm thấy gì?  Có của bạn
+	vấn đề!
+
+C. Các tập tin đặc biệt của thiết bị có được tạo ra không, như trong quá trình cài đặt
+	bước 2 ở trên?  Sử dụng lệnh ls -l để tìm hiểu; ví dụ,
+	vấn đề "ls -l/dev/3270/tty620".  Đầu ra phải bắt đầu bằng
+	chữ "c" nghĩa là thiết bị ký tự và phải chứa "227, 1"
+	ngay bên trái tên thiết bị.  Không có tập tin như vậy?  không có "c"?
+	Sai số chính?  Sai số phụ?  Có của bạn
+	vấn đề!
+
+D. Bạn có nhận được tin nhắn::
+
+"HCPDIA047E tên-vm-khách-0620 của tôi không tồn tại"?
+
+Nếu vậy, bạn phải ra lệnh "DEF GRAF 620" từ máy ảo của mình
+	3215 rồi khởi động lại hệ thống.
+
+
+
+OPERATION.
+==========
+
+Trình điều khiển xác định ba vùng trên màn hình 3270: vùng nhật ký, vùng
+vùng đầu vào và vùng trạng thái.
+
+Vùng nhật ký chiếm toàn bộ ngoại trừ hai dòng dưới cùng của màn hình.  các
+trình điều khiển ghi đầu ra đầu cuối vào nó, bắt đầu từ dòng trên cùng và đi
+xuống.  Khi nó lấp đầy, vùng trạng thái sẽ thay đổi từ "Đang chạy Linux" sang
+"Linux Thêm...".  Sau khi hết thời gian cuộn (mặc định) 5 giây,
+màn hình xóa và nhiều đầu ra được ghi hơn, từ trên xuống.
+
+Vùng nhập liệu kéo dài từ đầu màn hình thứ hai đến màn hình cuối cùng
+dòng đến đầu của khu vực trạng thái.  Bạn gõ lệnh ở khu vực này
+và nhấn ENTER để thực hiện chúng.
+
+Vùng trạng thái khởi tạo thành "Linux Running" để mang đến cho bạn cảm giác ấm áp
+cảm giác mơ hồ.  Khi vùng nhật ký đầy và đầu ra đang chờ, nó
+thay đổi thành "Linux Thêm...".  Lúc này bạn có thể làm một số việc hoặc
+không có gì.  Nếu bạn không làm gì, màn hình sẽ xóa sau (mặc định) 5 giây
+và nhiều đầu ra hơn sẽ xuất hiện.  Bạn có thể nhấn ENTER mà không cần gõ gì vào
+khu vực đầu vào để chuyển đổi giữa "Linux More..." và "Linux Holding",
+cho biết sẽ không có thao tác cuộn nào xảy ra.  (Nếu bạn nhấn ENTER bằng "Linux
+Đang chạy" và không gõ gì, ứng dụng sẽ nhận được dòng mới.)
+
+Bạn có thể thay đổi giá trị thời gian chờ cuộn.  Ví dụ, sau đây
+dòng lệnh::
+
+echo Scrolltime=60 > /proc/tty/driver/tty3270
+
+thay đổi giá trị thời gian chờ cuộn thành 60 giây.  Đặt thời gian cuộn thành 0 nếu
+bạn muốn ngăn chặn việc cuộn hoàn toàn.
+
+Những việc khác bạn có thể làm khi vùng nhật ký đầy là: nhấn PA2 để
+xóa vùng nhật ký và ghi thêm đầu ra vào đó hoặc nhấn CLEAR để xóa
+vùng nhật ký và vùng đầu vào và ghi thêm đầu ra vào vùng nhật ký.
+
+Một số phím Chức năng chương trình (PF) và Chú ý chương trình (PA) là
+chức năng đặc biệt được ấn định trước.  Những cái không đưa ra cảnh báo
+khi nhấn.
+
+PA1 gây ra SIGINT cho ứng dụng hiện đang chạy.  Bạn có thể làm
+điều tương tự từ khu vực đầu vào, bằng cách nhập "^C" và nhấn ENTER.
+
+PA2 khiến vùng nhật ký bị xóa.  Nếu đầu ra đang chờ thì đó là
+được ghi vào khu vực nhật ký.
+
+PF3 khiến ứng dụng nhận EOF làm đầu vào.  Bạn có thể
+cũng gây ra EOF bằng cách gõ "^D" và nhấn ENTER.
+
+Không có khóa PF nào được gán trước để tạm dừng công việc, nhưng bạn có thể gây ra lỗi
+đình chỉ công việc bằng cách gõ "^Z" và nhấn ENTER.  Bạn có thể muốn
+gán chức năng này cho một phím PF.  Để khiến PF7 bị đình chỉ công việc,
+thực hiện lệnh::
+
+echo pf7=^z > /proc/tty/driver/tty3270
+
+Nếu dữ liệu bạn nhập không kết thúc bằng hai ký tự "^n", thì
+trình điều khiển nối thêm một ký tự dòng mới và gửi nó đến trình điều khiển tty;
+nếu không thì trình điều khiển sẽ loại bỏ "^n" và không thêm dòng mới.
+Trình điều khiển IBM 3215 hoạt động tương tự.
+
+Pf10 khiến lệnh gần đây nhất được lấy từ ống
+ngăn xếp lệnh (độ sâu mặc định 20) và hiển thị trong vùng nhập liệu.  bạn
+có thể nhấn lại PF10 cho lệnh gần đây nhất tiếp theo, v.v.  A
+lệnh chỉ được nhập vào ngăn xếp khi vùng đầu vào không được tạo
+vô hình (chẳng hạn như để nhập mật khẩu) và nó không giống với
+mục hàng đầu hiện tại.  PF10 quay ngược qua ngăn xếp lệnh;
+PF11 quay về phía trước.  Bạn có thể gán chức năng lùi cho bất kỳ PF nào
+khóa (hoặc khóa PA, đối với vấn đề đó), chẳng hạn như PA3, bằng lệnh ::
+
+echo -e pa3=\\033k > /proc/tty/driver/tty3270
+
+Điều này gán chuỗi ESC-k cho PA3.  Tương tự, chuỗi ESC-j
+thực hiện chức năng chuyển tiếp.  (Cơ sở lý luận: Trong bash có dòng vi-mode
+chỉnh sửa, ESC-k và ESC-j truy xuất lịch sử lùi và tiến.
+Đề xuất hoan nghênh.)
+
+Kích thước ngăn xếp gồm 20 lệnh có phải là điều bạn không thích không?  Thay đổi nó trên
+con ruồi.  Để thay đổi sang lưu 100 lệnh cuối cùng, hãy thực hiện lệnh
+lệnh::
+
+echo thu hồisize=100 > /proc/tty/driver/tty3270
+
+Bạn có lệnh nào bạn thường xuyên đưa ra không?  Gán nó cho khóa PF hoặc PA!  sử dụng
+lệnh::
+
+echo pf24="mkdir foobar; cd foobar" > /proc/tty/driver/tty3270
+
+để thực thi các lệnh mkdir foobar và cd foobar ngay lập tức khi bạn
+nhấn PF24.  Bạn muốn xem dòng lệnh trước khi thực thi nó?
+Sử dụng tùy chọn -n của lệnh echo ::
+
+echo -n pf24="mkdir foo; cd foo" > /proc/tty/driver/tty3270
+
+
+
+Chúc bạn thử nghiệm vui vẻ!  Tôi hoan nghênh mọi ý kiến đóng góp về tài liệu này,
+người lái xe, v.v.
+
+Dick Hitt <rbh00@utsglobal.com>

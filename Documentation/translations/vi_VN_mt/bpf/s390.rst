@@ -1,0 +1,219 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/bpf/s390.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=====================
+Đang thử nghiệm BPF trên s390
+===================
+
+1. Giới thiệu
+***************
+
+IBM Z là các máy tính lớn, là hậu duệ của IBM System/360 từ
+năm 1964. Chúng được hỗ trợ bởi nhân Linux dưới tên "s390". Cái này
+tài liệu mô tả cách kiểm tra BPF trên máy khách s390 QEMU.
+
+2. Thiết lập một lần
+*****************
+
+Những điều sau đây là cần thiết để xây dựng và chạy bộ thử nghiệm:
+
+*s390GCC
+  * tiêu đề và thư viện phát triển s390
+  * Kêu vang với sự hỗ trợ của BPF
+  * QEMU có hỗ trợ s390
+  * Ảnh đĩa với rootfs s390
+
+Debian hỗ trợ cài đặt sẵn trình biên dịch và thư viện cho s390.
+Người dùng các bản phân phối khác có thể sử dụng debootstrap để thiết lập chroot Debian::
+
+sudo debootstrap \
+    --variant=cơ sở tối thiểu \
+    --include=sudo \
+    thử nghiệm \
+    ./s390-chuỗi công cụ
+  sudo mount --rbind /dev ./s390-toolchain/dev
+  sudo mount --rbind /proc ./s390-toolchain/proc
+  sudo mount --rbind /sys ./s390-toolchain/sys
+  sudo chroot ./s390-toolchain
+
+Khi đã có trên Debian, bạn có thể cài đặt các điều kiện tiên quyết của bản dựng như sau::
+
+sudo dpkg --add-architecture s390x
+  cập nhật sudo apt-get
+  cài đặt sudo apt-get \
+    bc \
+    bò rừng \
+    cmake \
+    debootstrap \
+    người lùn \
+    uốn cong \
+    g++ \
+    gcc \
+    g++-s390x-linux-gnu \
+    gcc-s390x-linux-gnu \
+    gdb-multiarch \
+    git \
+    làm \
+    trăn3 \
+    qemu-system-misc \
+    qemu-utils \
+    rsync \
+    libcap-dev:s390x \
+    libelf-dev:s390x \
+    libncurses-dev
+
+Nhắm mục tiêu Clang mới nhất BPF có thể được cài đặt như sau::
+
+bản sao git ZZ0000ZZ
+  ln -s ../../clang llvm-project/llvm/tools/
+  mkdir llvm-dự án-xây dựng
+  cd llvm-dự án-xây dựng
+  cmake \
+    -DLLVM_TARGETS_TO_BUILD=BPF \
+    -DCMAKE_BUILD_TYPE=Phát hành \
+    -DCMAKE_INSTALL_PREFIX=/opt/clang-bpf \
+    ../llvm-project/llvm
+làm
+  sudo thực hiện cài đặt
+  xuất PATH=/opt/clang-bpf/bin:$PATH
+
+Hình ảnh đĩa có thể được chuẩn bị bằng cách sử dụng loopback mount và debootstrap::
+
+qemu-img tạo -f raw ./s390.img 1G
+  sudo lostup -f ./s390.img
+  sudo mkfs.ext4 /dev/loopX
+  mkdir ./s390.rootfs
+  sudo mount /dev/loopX ./s390.rootfs
+  sudo debootstrap \
+    --nước ngoài \
+    --arch=s390x \
+    --variant=cơ sở tối thiểu \
+    --bao gồm=" \
+      iproute2, \
+      iputils-ping, \
+      isc-dhcp-client, \
+      kmod, \
+      libcap2, \
+      phỉ báng1, \
+      netcat, \
+      quy trình" \
+    thử nghiệm \
+    ./s390.rootfs
+  sudo umount ./s390.rootfs
+  sudo lostup -d /dev/loopX
+
+3. Biên soạn
+**************
+
+Ngoài các tùy chọn Kconfig thông thường cần có để chạy bộ thử nghiệm BPF, nó
+cũng hữu ích để chọn::
+
+CONFIG_NET_9P=y
+  CONFIG_9P_FS=y
+  CONFIG_NET_9P_VIRTIO=y
+  CONFIG_VIRTIO_PCI=y
+
+vì điều đó sẽ cho phép chia sẻ tập tin với máy ảo s390 một cách rất dễ dàng
+máy.
+
+Biên dịch kernel, mô-đun và bộ thử nghiệm, cũng như chuẩn bị các tập lệnh gdb để
+đơn giản hóa việc gỡ lỗi, có thể được thực hiện bằng các lệnh sau ::
+
+tạo ARCH=s390 CROSS_COMPILE=s390x-linux-gnu-menuconfig
+  tạo các mô-đun ARCH=s390 CROSS_COMPILE=s390x-linux-gnu- bzImage scripts_gdb
+  tạo ARCH=s390 CROSS_COMPILE=s390x-linux-gnu- \
+    -C công cụ/kiểm tra/tự kiểm tra \
+    TARGETS=bpf \
+    INSTALL_PATH=$PWD/tools/testing/selftests/kselftest_install \
+    cài đặt
+
+4. Chạy bộ thử nghiệm
+*************************
+
+Máy ảo có thể được khởi động như sau::
+
+qemu-system-s390x \
+    -cpu max,zpci=on \
+    -smp 2 \
+    -m 4G \
+    -kernel linux/arch/s390/boot/compression/vmlinux \
+    -drive file=./s390.img,if=virtio,format=raw \
+    -nographic \
+    -append 'root=/dev/vda rw console=ttyS1' \
+    -virtfs local,path=./linux,security_model=none,mount_tag=linux \
+    -object rng-random,filename=/dev/urandom,id=rng0 \
+    -thiết bị virtio-rng-ccw,rng=rng0 \
+    -người dùng netdev,id=net0 \
+    -thiết bị virtio-net-ccw,netdev=net0
+
+Khi sử dụng tính năng này trên IBM Z thật, ZZ0000ZZ có thể được thêm vào để tốt hơn
+hiệu suất. Khi khởi động máy ảo lần đầu tiên, ảnh đĩa
+thiết lập phải được hoàn tất bằng lệnh sau ::
+
+/debootstrap/debootstrap --giai đoạn thứ hai
+
+Thư mục có mã được xây dựng trên máy chủ cũng như ZZ0000ZZ và ZZ0001ZZ
+cần phải được gắn kết như sau::
+
+mkdir -p/linux
+  gắn kết -t 9p linux/linux
+  mount -t proc proc /proc
+  gắn kết -t sysfs sys /sys
+
+Sau đó, bộ thử nghiệm có thể được chạy bằng các lệnh sau ::
+
+cd /linux/tools/testing/selftests/kselftest_install
+  ./run_kselftest.sh
+
+Như thường lệ, các bài kiểm tra cũng có thể được chạy riêng lẻ::
+
+cd /linux/tools/testing/selftests/bpf
+  ./test_verifier
+
+5. Gỡ lỗi
+************
+
+Có thể gỡ lỗi kernel s390 bằng cách sử dụng sơ khai QEMU GDB, được kích hoạt
+bằng cách chuyển ZZ0000ZZ tới QEMU.
+
+Tốt nhất là tắt KASLR để gdb biết tìm ở đâu
+ảnh hạt nhân trong bộ nhớ, bằng cách xây dựng hạt nhân với::
+
+RANDOMIZE_BASE=n
+
+Sau đó, GDB có thể được gắn bằng lệnh sau ::
+
+gdb-multiarch -ex 'nhắm mục tiêu localhost từ xa: 1234' ./vmlinux
+
+6. Mạng
+**********
+
+Trong trường hợp người ta cần sử dụng mạng trong máy ảo để ví dụ:
+cài đặt các gói bổ sung, nó có thể được cấu hình bằng cách sử dụng ::
+
+dhclient eth0
+
+7. Liên kết
+********
+
+Tài liệu này là sự tổng hợp các kỹ thuật có tính toàn diện hơn
+mô tả có thể được tìm thấy bằng cách làm theo các liên kết sau:
+
+-ZZ0000ZZ
+-ZZ0001ZZ
+-ZZ0002ZZ
+-ZZ0003ZZ
+-ZZ0004ZZ
+-ZZ0005ZZ
+-ZZ0006ZZ

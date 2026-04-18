@@ -1,0 +1,70 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/admin-guide/media/cx88.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển cx88
+===============
+
+Tác giả: Gerd Hoffmann
+
+Đây là trình điều khiển thiết bị v4l2 cho chip cx2388x.
+
+
+Tình trạng hiện tại
+--------------
+
+video
+	- Có tác dụng.
+	- Lớp phủ không được hỗ trợ.
+
+âm thanh
+	- Có tác dụng. Việc phát hiện tiêu chuẩn TV được thực hiện bởi người lái xe, vì
+	  phần cứng có lỗi để tự động phát hiện.
+	- dma dữ liệu âm thanh (tức là ghi âm mà không cần cáp loopback tới
+	  card âm thanh) được hỗ trợ qua cx88-alsa.
+
+vbi
+	- Có tác dụng.
+
+
+Cách thêm hỗ trợ cho thẻ mới
+--------------------------------
+
+Trình điều khiển cần một số thông tin cấu hình cho card TV.  Thứ này có trong
+cx88-cards.c.  Nếu trình điều khiển không hoạt động tốt, bạn có thể cần một trình điều khiển mới
+mục nhập cho thẻ của bạn trong tập tin đó.  Kiểm tra nhật ký kernel (sử dụng dmesg)
+để xem tài xế có biết thẻ của bạn hay không.  Có một dòng
+như thế này:
+
+.. code-block:: none
+
+	cx8800[0]: subsystem: 0070:3400, board: Hauppauge WinTV \
+		34xxx models [card=1,autodetected]
+
+Nếu thẻ của bạn được liệt kê là "board: UNKNOWN/GENERIC" thì không rõ
+người lái xe.  Vậy phải làm gì?
+
+1) Hãy thử nâng cấp lên ảnh chụp nhanh mới nhất, có thể nó đã được thêm vào
+   trong khi đó.
+2) Bạn có thể thử tự mình tạo một mục mới, hãy xem
+   cx88-cards.c.  Nếu cách đó hiệu quả, hãy gửi cho tôi những thay đổi của bạn dưới dạng thống nhất
+   khác biệt ("khác biệt -u").
+3) Hoặc bạn có thể gửi cho tôi thông tin cấu hình.  Chúng ta cần ít nhất
+   thông tin sau để thêm thẻ:
+
+- ID hệ thống con PCI ("0070:3400" từ dòng trên,
+       Đầu ra "lspci -v" cũng ổn).
+     - loại bộ điều chỉnh được sử dụng bởi thẻ.  Bạn có thể cố gắng tìm một bằng cách
+       thử và sai bằng cách sử dụng tùy chọn tuner=<n> insmod.  Nếu bạn
+       biết thẻ nào có, bạn cũng có thể xem qua
+       danh sách trong CARDLIST.tuner

@@ -1,0 +1,172 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/admin-guide/media/si476x.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+
+Trình điều khiển SI476x
+=================
+
+Bản quyền ZZ0000ZZ 2013 Andrey Smirnov <andrew.smirnov@gmail.com>
+
+TODO dành cho người lái xe
+-------------------
+
+- Theo bảng dữ liệu của SiLabs, có thể cập nhật
+  phần sụn của chip vô tuyến trong thời gian chạy, do đó đưa nó đến
+  phiên bản mới nhất. Thật không may, tôi không thể tìm thấy bất kỳ đề cập đến
+  bản cập nhật chương trình cơ sở cho các chip cũ mà tôi đã kiểm tra trình điều khiển
+  chống lại nên đối với chip như vậy thì driver chỉ lộ cái cũ thôi
+  chức năng.
+
+
+Các tham số được hiển thị qua debugfs
+-------------------------------
+SI476x cho phép người dùng nhận được nhiều đặc điểm có thể rất hữu ích
+hữu ích cho việc kiểm tra EoL/ước tính hiệu suất RF, các thông số có
+rất ít liên quan đến hệ thống con V4L2. Các thông số như vậy được thể hiện thông qua
+debugfs và có thể được truy cập thông qua các thao tác I/O tệp thông thường.
+
+Trình điều khiển hiển thị các tệp sau:
+
+* /sys/kernel/debug/<tên thiết bị>/acf
+  Tệp này chứa trạng thái ACF(Tính năng được điều khiển tự động)
+  thông tin. Nội dung của tập tin là dữ liệu nhị phân của
+  bố cục sau:
+
+  .. tabularcolumns:: |p{7ex}|p{12ex}|L|
+
+============== =======================================================
+  Tên bù đắp Mô tả
+  ============== =======================================================
+  Cờ 0x00 blend_int, được đặt khi tách âm thanh nổi
+				  vượt qua dưới ngưỡng pha trộn
+  Cờ 0x01 hblend_int, được đặt khi cắt HiBlend
+				  tần số thấp hơn ngưỡng
+  0x02 cờ hicut_int, được đặt khi cắt HiCut
+				  tần số thấp hơn ngưỡng
+  0x03 chbw_int Cờ, được đặt khi lọc kênh
+				  băng thông nhỏ hơn ngưỡng
+  0x04 softmute_int Cờ biểu thị phần mềm đó
+				  sự suy giảm đã tăng lên trên
+				  ngưỡng tắt tiếng
+  0x05 smute 0 - Âm thanh không bị tắt nhẹ
+				  1 - Âm thanh bị tắt nhẹ
+  0x06 smattn Mức suy giảm tắt tiếng mềm tính bằng dB
+  0x07 chbw Băng thông bộ lọc kênh tính bằng kHz
+  Tần số cắt Hicut 0x08 hicut tính bằng đơn vị
+				  100Hz
+  0x09 tần số cắt Hiblend HiBlend theo đơn vị
+				  của 100 Hz
+  0x10 thí điểm 0 - Không có thí điểm âm thanh nổi
+				  1 - Có phi công âm thanh nổi
+  Hỗn hợp âm thanh nổi 0x11 stblend tính bằng %
+  ============== =======================================================
+
+
+* /sys/kernel/debug/<tên thiết bị>/rds_blckcnt
+  Tệp này chứa số liệu thống kê về số lần tiếp nhận RDS. Đó là dữ liệu nhị phân
+  có bố cục sau:
+
+  .. tabularcolumns:: |p{7ex}|p{12ex}|L|
+
+============== =======================================================
+  Tên bù đắp Mô tả
+  ============== =======================================================
+  0x00 dự kiến Số lượng khối RDS dự kiến
+  0x02 đã nhận Số khối RDS đã nhận
+  0x04 không thể sửa được Số khối RDS không thể sửa được
+  ============== =======================================================
+
+* /sys/kernel/debug/<tên thiết bị>/agc
+  Tập tin này chứa thông tin về các tham số liên quan đến
+  AGC(Điều khiển khuếch đại tự động)
+
+Bố cục là:
+
+  .. tabularcolumns:: |p{7ex}|p{12ex}|L|
+
+============== =======================================================
+  Tên bù đắp Mô tả
+  ============== =======================================================
+  0x00 mxhi 0 - Ngưỡng cao PD của Bộ trộn FM là
+				  không bị vấp ngã
+				  1 - Ngưỡng cao PD của Bộ trộn FM là
+				  vấp ngã
+  0x01 mxlo tương tự cho Bộ trộn FM PD thấp
+  0x02 lnahi tương tự cho FM LNA PD cao
+  0x03 lnalo tương tự cho FM LNA PD ở mức thấp
+  Điện trở suy giảm 0x04 fmagc1 FMAGC1
+				  (xem bảng dữ liệu để biết thêm chi tiết)
+  0x05 fmagc2 tương tự cho FMAGC2
+  Tăng 0x06 pgaga PGA tính bằng dB
+  0x07 fmwblang FM/WB LNA Tăng tính bằng dB
+  ============== =======================================================
+
+* /sys/kernel/debug/<tên thiết bị>/rsq
+  Tập tin này chứa thông tin về các tham số liên quan đến
+  RSQ(Chất lượng tín hiệu nhận được)
+
+Bố cục là:
+
+  .. tabularcolumns:: |p{7ex}|p{12ex}|p{60ex}|
+
+============== =======================================================
+  Tên bù đắp Mô tả
+  ============== =======================================================
+  0x00 multhint 0 - giá trị đa đường chưa vượt qua
+				  ngưỡng cao đa đường
+				  1 - giá trị đa đường đã vượt qua
+				  ngưỡng cao đa đường
+  0x01 multlint tương tự cho ngưỡng thấp Đa đường
+  0x02 snrhint 0 - SNR của tín hiệu đã nhận chưa
+				  vượt ngưỡng cao
+				  1 - SNR của tín hiệu nhận được có
+				  vượt ngưỡng cao
+  0x03 snrlint tương tự cho ngưỡng thấp
+  0x04 rssihint tương tự cho ngưỡng cao RSSI
+  0x05 rssilint tương tự cho ngưỡng thấp RSSI
+  0x06 bltf Cờ cho biết lệnh tìm kiếm
+				  đã đạt/bọc giới hạn băng tần tìm kiếm
+  0x07 snr_ready Cho biết số liệu SNR đã sẵn sàng
+  0x08 rssiready tương tự cho số liệu RSSI
+  0x09 tiêm 0 - Tiêm phía thấp đang được sử dụng
+				  1 – Sử dụng phương pháp phun cao áp
+  0x10 afcrl Cờ cho biết liệu AFC có chạy theo đường ray hay không
+  0x11 hợp lệ Cờ cho biết kênh có hợp lệ không
+  Tần số đọc 0x12 Tần số điều chỉnh hiện tại
+  Tần số 0x14 Độ lệch tần số có dấu tính theo đơn vị
+				  2 trang/phút
+  0x15 rssi Giá trị có dấu của RSSI tính bằng dBuV
+  0x16 snr RF SNR đã ký tính bằng dB
+  0x17 issi Tín hiệu cường độ hình ảnh đã ký
+				  chỉ báo
+  0x18 lassi Đã ký Kênh liền kề phía thấp
+				  Chỉ báo cường độ
+  0x19 hassi tương tự cho phía Cao
+  Chỉ báo đa đường 0x20
+  0x21 dev Độ lệch tần số
+  0x24 asi Kênh liền kề SSI
+  0x25 usn Chỉ báo tiếng ồn siêu âm
+  0x26 Pilotdev Độ lệch thí điểm theo đơn vị 100 Hz
+  0x27 rdsdev tương tự cho RDS
+  0x28 hỗ trợ tương tự cho ASSI
+  0x29 strongdev Độ lệch tần số
+  0x30 rdspi Mã PI RDS
+  ============== =======================================================
+
+* /sys/kernel/debug/<tên thiết bị>/rsq_primary
+  Tập tin này chứa thông tin về các tham số liên quan đến
+  RSQ(Chất lượng tín hiệu nhận được) chỉ dành cho bộ dò chính. Bố cục như
+  cái ở trên.

@@ -1,0 +1,101 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/admin-guide/media/saa7134.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Trình điều khiển saa7134
+==================
+
+Tác giả Gerd Hoffmann
+
+
+Đây là trình điều khiển thiết bị v4l2/oss dành cho chụp / TV dựa trên saa7130/33/34/35
+bảng.
+
+
+Trạng thái
+------
+
+Hầu như mọi thứ đều hoạt động.  video, âm thanh, bộ chỉnh tần, radio, mpeg ts, ...
+
+Giống như bttv, cần có những điều chỉnh dành riêng cho thẻ.  Kiểm tra CARDLIST để biết
+danh sách các card TV đã biết và saa7134-cards.c cho card driver
+thông tin cấu hình.
+
+
+Xây dựng
+-----
+
+Khi bạn chọn nguồn Kernel, bạn nên định cấu hình, xây dựng,
+cài đặt và khởi động kernel mới.  Bạn sẽ cần ít nhất
+các tùy chọn cấu hình này::
+
+./scripts/config -e PCI
+    ./scripts/config -e INPUT
+    ./scripts/config -m I2C
+    ./scripts/config -m MEDIA_SUPPORT
+    ./scripts/config -e MEDIA_PCI_SUPPORT
+    ./scripts/config -e MEDIA_ANALOG_TV_SUPPORT
+    ./scripts/config -e MEDIA_DIGITAL_TV_SUPPORT
+    ./scripts/config -e MEDIA_RADIO_SUPPORT
+    ./scripts/config -e RC_CORE
+    ./scripts/config -e MEDIA_SUBDRV_AUTOSELECT
+    ./scripts/config -m VIDEO_SAA7134
+    ./scripts/config -e SAA7134_ALSA
+    ./scripts/config -e VIDEO_SAA7134_RC
+    ./scripts/config -e VIDEO_SAA7134_DVB
+    ./scripts/config -e VIDEO_SAA7134_GO7007
+
+Để xây dựng và cài đặt, bạn nên chạy::
+
+thực hiện && thực hiện module_install && thực hiện cài đặt
+
+Khi Kernel mới được khởi động, trình điều khiển saa7134 sẽ được tải tự động.
+
+Tùy thuộc vào thẻ, bạn có thể phải chuyển ZZ0000ZZ làm tùy chọn insmod.
+Nếu vậy, vui lòng kiểm tra Tài liệu/admin-guide/media/saa7134-cardlist.rst
+cho những lựa chọn hợp lệ.
+
+Khi bạn có số loại thẻ của mình, bạn có thể chuyển cấu hình mô-đun
+thông qua một tệp (thông thường, đó là ZZ0000ZZ hoặc một số tệp tại
+ZZ0001ZZ, nhưng địa điểm thực tế phụ thuộc vào bạn
+phân phối), với nội dung này::
+
+tùy chọn saa7134 card=13 # Assuming rằng loại thẻ của bạn là #13
+
+
+Thay đổi/Sửa lỗi
+---------------
+
+Vui lòng gửi thư tới linux-media AT vger.kernel.org thống nhất khác biệt với
+cây git phương tiện linux:
+
+ZZ0000ZZ
+
+Điều này được thực hiện bằng cách thực hiện một bản vá tại một bản sao của cây git và
+gửi bản vá bằng ZZ0000ZZ. Đừng quên
+mô tả rất nhiều điều nó thay đổi / vấn đề nào nó khắc phục được / bất cứ điều gì
+nó tốt cho...
+
+
+Sự cố đã biết
+--------------
+
+* Bộ điều chỉnh cho flyvideo không được phát hiện tự động và
+  mặc định có thể không hoạt động tùy thuộc vào phiên bản bạn có.
+  Có tùy chọn insmod ZZ0000ZZ để ghi đè mặc định của trình điều khiển.
+
+Tín dụng
+-------
+
+andrew.stevens@philips.com + werner.leeb@philips.com đã cung cấp
+thông số phần cứng và bảng mẫu saa7134.
