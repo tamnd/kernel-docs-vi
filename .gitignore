@@ -1,0 +1,14 @@
+# Scratch dir used by scripts/ to perform sparse+shallow clones of
+# torvalds/linux. Never committed.
+_upstream/
+
+# Build outputs from `make htmldocs` if someone runs Sphinx locally.
+Documentation/output/
+_build/
+
+# Editor / OS noise
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
