@@ -274,10 +274,10 @@ def make_header(source_rel: str, spdx_line: str | None, upstream_sha: str) -> st
         f":Translator: Google Translate (machine translation)\n"
         f":Upstream-at: {upstream_sha[:12]}\n\n"
         ".. warning::\n"
-        "   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.\n"
-        "   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac\n"
-        "   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc\n"
-        "   review) duoc dat trong thu muc vi_VN/.\n\n"
+        "   Tài liệu này được dịch tự động bằng máy và chưa được review bởi người dịch.\n"
+        "   Nội dung có thể không chính xác hoặc khó hiểu ở một số chỗ. Khi có sự khác\n"
+        "   biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được\n"
+        "   review) được đặt trong thư mục vi_VN/.\n\n"
     )
 
 

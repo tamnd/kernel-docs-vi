@@ -7,10 +7,10 @@
 :Upstream-at: 8541d8f725c6
 
 .. warning::
-   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
-   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
-   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
-   review) duoc dat trong thu muc vi_VN/.
+   Tài liệu này được dịch tự động bằng máy và chưa được review bởi người dịch.
+   Nội dung có thể không chính xác hoặc khó hiểu ở một số chỗ. Khi có sự khác
+   biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
+   review) được đặt trong thư mục vi_VN/.
 
 ==========================
 Trình điều khiển drm/xe Intel GFX
