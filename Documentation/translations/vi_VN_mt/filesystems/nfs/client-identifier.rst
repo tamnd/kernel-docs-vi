@@ -57,7 +57,7 @@ gửi yêu cầu OPEN và LOCK mới. Điều này cho phép khóa tập tin
 tồn tại an toàn trong suốt quá trình khởi động lại máy chủ.
 
 Mã định danh máy khách NFSv4
-------------------------
+----------------------------
 
 Mỗi máy khách NFSv4 trình bày một mã định danh cho các máy chủ NFSv4 để
 họ có thể liên kết khách hàng với hợp đồng thuê của nó. của mỗi khách hàng
@@ -97,7 +97,7 @@ Chuỗi "co_ownerid" có một số thuộc tính quan trọng:
     chuỗi "co_ownerid".
 
 Bảo vệ trạng thái cho thuê NFSv4
-----------------------------
+--------------------------------
 
 Máy chủ NFSv4 sử dụng "client_owner4" như được mô tả ở trên để
 ấn định một hợp đồng thuê duy nhất cho mỗi khách hàng. Theo sơ đồ này, có

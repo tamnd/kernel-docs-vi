@@ -40,7 +40,7 @@ Lớp này cung cấp API cho trình điều khiển cổng được mô tả tr
 các thuộc tính được mô tả trong Documentation/ABI/testing/sysfs-class-typec.
 
 Giao diện không gian người dùng
---------------------
+-------------------------------
 Mỗi cổng sẽ được trình bày dưới dạng thiết bị riêng trong /sys/class/typec/. các
 cổng đầu tiên sẽ được đặt tên là "port0", "port1" thứ hai, v.v.
 
@@ -68,7 +68,7 @@ chế độ>/mode1/. Các yêu cầu vào/ra một chế độ có thể đượ
 tập tin thuộc tính trong nhóm đó.
 
 Trình điều khiển API
-----------
+--------------------
 
 Đăng ký các cổng
 ~~~~~~~~~~~~~~~~~~~~~
@@ -197,7 +197,7 @@ thông báo cho lớp bằng API sau:
    :functions: typec_altmode_update_active
 
 Bộ chuyển mạch ghép kênh/khử ghép kênh
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Đầu nối USB Type-C có thể có một hoặc nhiều công tắc mux/demux phía sau chúng. Kể từ khi
 phích cắm có thể được cắm theo hướng bên phải hoặc lộn ngược, cần có công tắc để

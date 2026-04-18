@@ -18,7 +18,7 @@ s3fb - trình điều khiển fbdev cho chip S3 Trio/Virge
 
 
 Phần cứng được hỗ trợ
-==================
+=====================
 
 Bộ ba S332
 	S3 Trio64 (và các biến thể V+, UV+, V2/DX, V2/GX)
@@ -35,7 +35,7 @@ tất cả trên i386.
 
 
 Các tính năng được hỗ trợ
-==================
+=========================
 
 * 4 chế độ màu giả bpp (với bảng màu 18bit, hai biến thể)
 	* Chế độ giả màu 8 bpp (với bảng màu 18 bit)
@@ -86,7 +86,7 @@ Thiếu tính năng
 
 
 Lỗi đã biết
-==========
+===========
 
 * vô hiệu hóa con trỏ ở chế độ văn bản không hoạt động
 	* Chế độ văn bản bị hỏng trên S3 Trio64 V2/DX

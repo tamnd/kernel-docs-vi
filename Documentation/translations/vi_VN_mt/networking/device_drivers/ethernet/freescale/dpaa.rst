@@ -31,7 +31,7 @@ tác giả:
 	- Debugging
 
 Tổng quan về Ethernet DPAA
-======================
+==========================
 
 DPAA là viết tắt của Kiến trúc tăng tốc đường dẫn dữ liệu và nó là một
 tập hợp các IP tăng tốc mạng có sẵn trên một số
@@ -126,7 +126,7 @@ ARM
 -LS1046A
 
 Định cấu hình DPAA Ethernet trong kernel của bạn
-========================================
+================================================
 
 Để bật trình điều khiển Ethernet DPAA, cần có các tùy chọn Kconfig sau ::
 
@@ -158,7 +158,7 @@ trước khi truyền dẫn đến skb. Khi bộ đệm trở về trạng thái
 trình điều khiển trên FQ xác nhận, skb có thể được sử dụng chính xác.
 
 Tính năng Ethernet DPAA
-======================
+=======================
 
 Hiện tại trình điều khiển Ethernet DPAA hỗ trợ các tính năng cơ bản cần thiết cho
 trình điều khiển Ethernet Linux. Sự hỗ trợ cho các tính năng nâng cao sẽ được thêm vào

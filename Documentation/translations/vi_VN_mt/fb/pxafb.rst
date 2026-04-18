@@ -96,7 +96,7 @@ phân cực đồng hồ pixel
 
 
 Hỗ trợ lớp phủ cho bộ điều khiển PXA27x và LCD mới hơn
-====================================================
+======================================================
 
 Bộ xử lý PXA27x và mới hơn hỗ trợ lớp phủ1 và lớp phủ2 ở trên cùng của
   bộ đệm khung cơ sở (mặc dù cũng có thể ở bên dưới cơ sở). Họ

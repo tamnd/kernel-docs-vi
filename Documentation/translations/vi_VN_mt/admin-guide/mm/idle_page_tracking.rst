@@ -30,7 +30,7 @@ Nó được kích hoạt bởi CONFIG_IDLE_PAGE_TRACKING=y.
 .. _user_api:
 
 Người dùng API
-========
+==============
 
 API theo dõi trang nhàn rỗi được đặt tại ZZ0000ZZ.
 Hiện tại, nó bao gồm tệp đọc-ghi duy nhất,

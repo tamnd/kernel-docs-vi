@@ -17,7 +17,7 @@ NFS LOCALIO
 ============
 
 Tổng quan
-========
+=========
 
 Giao thức RPC phụ trợ LOCALIO cho phép máy khách Linux NFS và
 máy chủ bắt tay một cách đáng tin cậy để xác định xem chúng có ở trên cùng một không
@@ -229,7 +229,7 @@ các phiên bản được kết nối với máy khách nfs đang chạy trên 
 chủ nhà.
 
 NFS Khóa liên động máy khách và máy chủ
-===============================
+=======================================
 
 LOCALIO cung cấp đối tượng nfs_uuid_t và các giao diện liên quan cho
 cho phép không gian tên mạng thích hợp (net-ns) và tính toán lại đối tượng NFSD.
@@ -258,7 +258,7 @@ cố gắng nfsd_open_local_fh() mà không có tài liệu tham khảo thích h
 Mạng của NFSD.
 
 NFS Máy khách phát hành IO thay vì Máy chủ
-======================================
+==========================================
 
 Bởi vì LOCALIO tập trung vào việc bỏ qua giao thức để đạt được IO được cải thiện
 hiệu suất, các lựa chọn thay thế cho giao thức dây NFS truyền thống (SUNRPC
@@ -339,7 +339,7 @@ LOCALIO mỗi N (nfs3_localio_probe_throttle) IO, mặc định là 0
 cấu hình sai (giá trị quá thấp hoặc không có lũy thừa bằng 2).
 
 Kiểm tra
-=======
+========
 
 Giao thức phụ trợ LOCALIO và đọc, ghi NFS LOCALIO liên quan
 và quyền truy cập cam kết đã được chứng minh là ổn định trước các tình huống thử nghiệm khác nhau:

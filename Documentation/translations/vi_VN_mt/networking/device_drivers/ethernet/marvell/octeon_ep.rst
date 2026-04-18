@@ -27,12 +27,12 @@ Nội dung
 -ZZ0002ZZ
 
 Tổng quan
-========
+=========
 Trình điều khiển này triển khai chức năng kết nối mạng của Marvell's Octeon PCI
 Điểm cuối NIC.
 
 Thiết bị được hỗ trợ
-=================
+====================
 Hiện tại, trình điều khiển này hỗ trợ các thiết bị sau:
  * Bộ điều khiển mạng: Cavium, Inc. Device b100
  * Bộ điều khiển mạng: Cavium, Inc. Device b200
@@ -43,7 +43,7 @@ Hiện tại, trình điều khiển này hỗ trợ các thiết bị sau:
  * Bộ điều khiển mạng: Cavium, Inc. Device bd00
 
 Kiểm soát giao diện
-=================
+===================
 Kiểm soát giao diện mạng như thay đổi mtu, tốc độ liên kết, liên kết xuống/lên
 được thực hiện bằng cách viết lệnh vào hàng đợi lệnh hộp thư, giao diện hộp thư
 được thực hiện thông qua vùng dành riêng trong BAR4.

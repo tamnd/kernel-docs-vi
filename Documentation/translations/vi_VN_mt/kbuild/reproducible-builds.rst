@@ -28,7 +28,7 @@ chủ đề chung.  Tài liệu này bao gồm các lý do khác nhau tại sao 
 hạt nhân có thể không thể tái tạo được và cách tránh chúng.
 
 Dấu thời gian
-----------
+-------------
 
 Hạt nhân nhúng dấu thời gian ở ba nơi:
 
@@ -53,7 +53,7 @@ tương ứng bằng cách thiết lập môi trường ZZ0002ZZ
 biến.
 
 Người dùng, máy chủ
-----------
+-------------------
 
 Hạt nhân nhúng tên người dùng và tên máy chủ của tòa nhà vào
 ZZ0000ZZ.  Chúng phải được ghi đè bằng cách sử dụng
@@ -124,7 +124,7 @@ giá trị được sử dụng bởi mỗi bản dựng. Xem ZZ0002ZZ
 để biết chi tiết.
 
 Gỡ lỗi xung đột thông tin
---------------------
+-------------------------
 
 Đây không phải là vấn đề không thể tái tạo mà là vấn đề về các tệp được tạo
 có thể tái tạo ZZ0000ZZ.

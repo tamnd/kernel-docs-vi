@@ -194,7 +194,7 @@ tới AVECINTC, sau đó truy cập trực tiếp vào CPUINTC, trong khi tất 
              +----------+
 
 Các định nghĩa liên quan đến ACPI
-========================
+=================================
 
 CPUINTC::
 
@@ -239,7 +239,7 @@ ACPI_MADT_TYPE_LPC_PIC;
   enum acpi_madt_lpc_pic_version;
 
 Tài liệu tham khảo
-==========
+==================
 
 Tài liệu của Loongson-3A5000:
 

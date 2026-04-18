@@ -128,7 +128,7 @@ tiêu chuẩn. Tại thời điểm cập nhật tài liệu này lần cuối (
 .. _cdrom_api:
 
 Tiêu chuẩn hóa thông qua cấp độ phần mềm khác
-============================================
+=============================================
 
 Vào thời điểm tài liệu này được hình thành, tất cả các trình điều khiển trực tiếp
 đã triển khai các cuộc gọi CD-ROM ZZ0000ZZ thông qua các quy trình riêng của họ. Cái này
@@ -579,7 +579,7 @@ Tôi nghĩ tốt hơn là nên điều khiển ZZ0000ZZ hơn là
 ZZ0001ZZ.
 
 Tùy chọn
--------
+--------
 
 Thanh ghi cờ cuối cùng điều khiển ZZ0000ZZ của CD-ROM
 ổ đĩa, để đáp ứng mong muốn của người dùng khác nhau, hy vọng
@@ -991,7 +991,7 @@ Cuối cùng, tất cả ZZ0000ZZ khác được chuyển đến hàm ZZ0001ZZ,
 nếu được thực hiện. Không có việc phân bổ hoặc xác minh bộ nhớ nào được thực hiện.
 
 Cách cập nhật trình điều khiển của bạn
-=========================
+======================================
 
 - Tạo một bản sao lưu của trình điều khiển hiện tại của bạn.
 - Giữ các tập tin ZZ0000ZZ và ZZ0001ZZ, chúng phải ở trong

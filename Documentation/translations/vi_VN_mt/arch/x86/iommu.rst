@@ -25,7 +25,7 @@ Tìm kiếm các tài liệu sau để có được phiên bản mới nhất:
 Hướng dẫn này cung cấp bảng tóm tắt nhanh để bạn hiểu cơ bản.
 
 Nội dung cơ bản
------------
+---------------
 
 ACPI liệt kê và liệt kê các IOMMU khác nhau trên nền tảng và
 mối quan hệ phạm vi thiết bị giữa các thiết bị và IOMMU điều khiển
@@ -74,7 +74,7 @@ cần thực hiện DMA. Khi DMA được hoàn thành và việc ánh xạ khô
 được yêu cầu, trình điều khiển sẽ thực hiện lệnh gọi dma_unmap_*() để hủy ánh xạ khu vực.
 
 Ghi chú cụ thể của Intel
---------------------
+------------------------
 
 Vấn đề về đồ họa?
 ^^^^^^^^^^^^^^^^^^
@@ -84,14 +84,14 @@ tùy chọn intel_iommu=igfx_off để tắt công cụ đồ họa tích hợp.
 Nếu điều này khắc phục được bất kỳ điều gì, vui lòng đảm bảo bạn gửi báo cáo lỗi cho sự cố.
 
 Một số trường hợp ngoại lệ đối với IOVA
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Phạm vi ngắt không được dịch địa chỉ, (0xfee00000 - 0xfeefffff).
 Điều này cũng đúng với các giao dịch ngang hàng. Do đó chúng tôi bảo lưu
 địa chỉ từ phạm vi PCI MMIO để chúng không được phân bổ cho các địa chỉ IOVA.
 
 Ghi chú cụ thể của AMD
-------------------
+----------------------
 
 Vấn đề về đồ họa?
 ^^^^^^^^^^^^^^^^^^
@@ -107,10 +107,10 @@ lý do và thiết bị gây ra nó được in trên bảng điều khiển.
 
 
 Mẫu nhật ký hạt nhân
-------------------
+--------------------
 
 Thông báo khởi động Intel
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Một cái gì đó như thế này được in ra cho biết sự hiện diện của các bảng DMAR
 trong ACPI:
@@ -148,7 +148,7 @@ DMAR:[DMA Write] Yêu cầu thiết bị [00:02.0] lỗi addr 6df084000
 	DMAR:[lý do lỗi 05] PTE Quyền truy cập ghi chưa được thiết lập
 
 Thông báo khởi động AMD
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Một cái gì đó như thế này được in ra cho biết sự hiện diện của IOMMU:
 

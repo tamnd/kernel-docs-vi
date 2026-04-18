@@ -23,7 +23,7 @@ lịch trình
 
 
 PELT (Theo dõi tải trên mỗi thực thể)
-===============================
+=====================================
 
 Với PELT, chúng tôi theo dõi một số số liệu trên các thực thể lập lịch khác nhau, từ
 nhiệm vụ riêng lẻ cho nhóm nhiệm vụ cắt thành hàng đợi CPU. Là cơ sở cho việc này
@@ -132,7 +132,7 @@ runqueue giữ tổng hợp tối đa các kẹp này cho tất cả các tác v
 
 
 Lịch trình / DVFS
-================
+=================
 
 Mỗi lần theo dõi tải của bộ lập lịch được cập nhật (đánh thức tác vụ, thực hiện tác vụ
 di chuyển, tiến trình thời gian), chúng tôi yêu cầu schedutil cập nhật phần cứng

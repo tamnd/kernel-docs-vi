@@ -40,7 +40,7 @@ ZZ0000ZZ.
 
 
 Định dạng nhiều mặt phẳng
-====================
+=========================
 
 Multi-planar API giới thiệu các định dạng đa mặt phẳng mới. Những định dạng đó sử dụng
 một bộ mã FourCC riêng biệt. Điều quan trọng là phải phân biệt giữa

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân corsair-cpro
-==========================
+======================================
 
 Các thiết bị được hỗ trợ:
 
@@ -31,12 +31,12 @@ Corsair Commander Pro là thiết bị USB có 6 đầu nối quạt,
 Nó có thể đọc các mức điện áp trên đầu nối nguồn SATA.
 
 Ghi chú sử dụng
------------
+---------------
 
 Vì là thiết bị USB nên có thể trao đổi nóng. Thiết bị được tự động phát hiện.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ===================================================================================================
 in0_Điện áp đầu vào trên SATA 12v

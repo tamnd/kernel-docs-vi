@@ -25,7 +25,7 @@ chip đồ họa. Được hỗ trợ là:
 
 
 Tại sao tôi cần trình điều khiển bộ đệm khung?
-===================================
+==============================================
 
 sisfb là ví dụ. hữu ích nếu bạn muốn có bảng điều khiển văn bản có độ phân giải cao. Bên cạnh đó,
 sisfb được yêu cầu để chạy DirectFB (đi kèm với một tiện ích bổ sung, chuyên dụng
@@ -47,7 +47,7 @@ cấu hình.
 
 
 Các tham số được truyền tới sisfb như thế nào?
-===================================
+==============================================
 
 Vâng, điều đó còn tùy: Nếu được biên dịch tĩnh vào kernel, hãy sử dụng phần bổ sung của lilo
 câu lệnh để thêm các tham số vào dòng lệnh kernel. Xin vui lòng xem lilo
@@ -77,7 +77,7 @@ video=sisfb:chế độ:1024x768x16,tỷ lệ:75,mem:12288
 
 
 Làm cách nào để sử dụng nó?
-================
+===========================
 
 Lời nói đầu: Tập tin này chỉ bao gồm rất ít thông tin về trình điều khiển
 khả năng và tính năng. Vui lòng tham khảo tài liệu của tác giả và người bảo trì

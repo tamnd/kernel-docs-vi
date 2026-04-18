@@ -201,7 +201,7 @@ Các ví dụ dưới đây cung cấp một minh họa cụ thể hơn về
   các khái niệm và mô hình sử dụng điển hình đã thảo luận ở trên.
 
 2.1. trường sự kiện 'đặc biệt'
----------------------------
+------------------------------
 
 Có một số 'trường sự kiện đặc biệt' có sẵn để sử dụng làm
   khóa hoặc giá trị trong trình kích hoạt lịch sử.  Chúng trông giống và hoạt động như thể
@@ -227,7 +227,7 @@ Có một số 'trường sự kiện đặc biệt' có sẵn để sử dụng
   Tài liệu/trace/ftrace.rst để biết chi tiết.
 
 2.3. ví dụ về trình kích hoạt 'lịch sử'
-----------------------------
+---------------------------------------
 
 Tập ví dụ đầu tiên tạo tập hợp bằng cách sử dụng kmalloc
   sự kiện.  Các trường có thể được sử dụng cho trình kích hoạt lịch sử được liệt kê
@@ -1623,7 +1623,7 @@ Tổng số:
         Đã đánh rơi: 0
 
 2.4. Trình kích hoạt lịch sử giữa các sự kiện
-------------------------------
+---------------------------------------------
 
 Trình kích hoạt lịch sử giữa các sự kiện là trình kích hoạt lịch sử kết hợp các giá trị từ
 một hoặc nhiều sự kiện khác và tạo biểu đồ bằng dữ liệu đó.  dữ liệu
@@ -2109,7 +2109,7 @@ Tổng số:
     Đã đánh rơi: 0
 
 2.7. Trình kích hoạt lịch sử 'trình xử lý' và 'hành động'
-------------------------------------------
+---------------------------------------------------------
 
 'Hành động' kích hoạt lịch sử là một chức năng được thực thi (trong hầu hết các trường hợp
 có điều kiện) bất cứ khi nào một mục biểu đồ được thêm vào hoặc cập nhật.
@@ -2541,7 +2541,7 @@ gnome-shell-1261 [006] dN.3 49.823113: sched_stat_runtime: comm=gnome-shell pid=
               <nhàn rỗi>-0 [004] ..s7 49.823798: tcp_probe: src=10.0.0.10:54326 dest=23.215.104.193:80 mark=0x0 length=32 snd_nxt=0xe3ae2ff5 snd_una=0xe3ae2ecd snd_cwnd=10 ssthresh=2147483647 snd_wnd=28960 srtt=19604 rcv_wnd=29312
 
 2.8. Không gian người dùng tạo trình kích hoạt
-----------------------------------
+----------------------------------------------
 
 Viết vào /sys/kernel/tracing/trace_marker ghi vào ftrace
 bộ đệm vòng. Điều này cũng có thể hoạt động giống như một sự kiện, bằng cách ghi vào trình kích hoạt

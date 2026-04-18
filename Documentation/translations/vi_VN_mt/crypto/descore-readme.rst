@@ -215,7 +215,7 @@ hơn các phiên bản viết tay trong hội cho sparc!
 
 
 ghi chú chuyển
-=============
+==============
 
 một điều tôi không muốn làm là viết một mớ hỗn độn
 phụ thuộc vào độ kết thúc và các vấn đề khác của máy,
@@ -283,7 +283,7 @@ vì tôi không có cách nào để kiểm tra nó một cách thuận tiện n
    cho các quy trình DesQuickCore...!
 
 ghi chú mã hóa
-============
+==============
 
 mỗi quy trình en/giải mã sử dụng 6 biến đăng ký cần thiết,
 với 4 được sử dụng tích cực cùng một lúc trong các lần lặp bên trong.
@@ -325,7 +325,7 @@ yêu cầu khai báo tạm thời khác).
 
 
 định dạng dữ liệu hiệu quả đặc biệt
-==============================
+===================================
 
 hầu hết thời gian các bit được thao tác theo cách sắp xếp này (S7 S5 S3 S1)::
 
@@ -411,7 +411,7 @@ cho trình biên dịch của bạn (tối ưu hóa MAX).
 
 
 Tăng tốc kerberos (và/hoặc thư viện des của nó)
-=============================================
+===============================================
 
 lưu ý rằng tôi đã đưa giao diện tương thích với kerberos vào desUtil.c
 thông qua các hàm des_key_sched() và des_ecb_encrypt().
@@ -421,7 +421,7 @@ bạn không cần phải có #include desCore.h;  chỉ bao gồm tiêu đề
 tập tin được cung cấp cùng với thư viện kerberos.
 
 Công dụng khác
-==========
+==============
 
 các macro trong desCode.h sẽ rất hữu ích cho việc đặt các des nội tuyến
 hoạt động trong các quy trình mã hóa phức tạp hơn.

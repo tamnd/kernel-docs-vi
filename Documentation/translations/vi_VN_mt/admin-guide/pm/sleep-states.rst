@@ -29,7 +29,7 @@ giảm đi.
 
 
 Các trạng thái ngủ có thể được hỗ trợ
-==================================
+=====================================
 
 Tùy thuộc vào cấu hình của nó và khả năng của nền tảng mà nó chạy trên đó,
 nhân Linux có thể hỗ trợ tối đa bốn trạng thái ngủ của hệ thống, bao gồm
@@ -39,7 +39,7 @@ có thể được hỗ trợ bởi kernel được liệt kê dưới đây.
 .. _s2idle:
 
 Tạm dừng để không hoạt động
----------------
+---------------------------
 
 Đây là một phần mềm chung, thuần túy, một biến thể nhẹ của hệ thống treo (cũng
 được gọi là S2I hoặc S2Idle).  Nó cho phép tiết kiệm nhiều năng lượng hơn so với
@@ -60,7 +60,7 @@ các biến thể tạm dừng hệ thống sâu hơn để giảm độ trễ t
 .. _standby:
 
 Chế độ chờ
--------
+----------
 
 Trạng thái này, nếu được hỗ trợ, sẽ mang lại mức tiết kiệm năng lượng vừa phải nhưng thực tế, trong khi
 cung cấp một sự chuyển đổi tương đối đơn giản trở lại trạng thái làm việc.  Không

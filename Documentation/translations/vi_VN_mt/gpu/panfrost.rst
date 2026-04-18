@@ -19,7 +19,7 @@
 .. _panfrost-usage-stats:
 
 Triển khai số liệu thống kê sử dụng máy khách Pan Frost DRM
-==============================================
+===========================================================
 
 Trình điều khiển drm/Pan Frost triển khai thông số thống kê sử dụng máy khách DRM như
 được ghi lại trong ZZ0000ZZ.

@@ -104,7 +104,7 @@ IMPORTANT NOTES
 
 
 Bẫy liên quan đến ADI
-=================
+=====================
 
 Khi bật ADI, các bẫy mới sau có thể xảy ra:
 
@@ -151,7 +151,7 @@ NOTE:
 
 
 MCD bị vô hiệu hóa
-------------
+------------------
 
 Khi tác vụ chưa kích hoạt ADI và cố gắng đặt phiên bản ADI
 	trên địa chỉ bộ nhớ, bộ xử lý sẽ gửi bẫy bị vô hiệu hóa MCD. Cái này
@@ -168,7 +168,7 @@ siginfo.si_signo = SIGSEGV;
 
 
 Chương trình mẫu để sử dụng ADI
--------------------------
+-------------------------------
 
 Chương trình mẫu sau đây nhằm minh họa cách sử dụng ADI
 chức năng::

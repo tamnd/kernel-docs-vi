@@ -44,7 +44,7 @@ với các cấu hình khác nhau trước, biết rằng cấu hình đó sẽ
 hoàn thành yêu cầu cũng có sẵn để đọc.
 
 Cách sử dụng chung
--------------
+------------------
 
 Yêu cầu API mở rộng Bộ điều khiển phương tiện API và hợp tác với
 API dành riêng cho hệ thống con để hỗ trợ việc sử dụng yêu cầu. Tại Bộ điều khiển phương tiện

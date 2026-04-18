@@ -49,7 +49,7 @@ cpufreq_put_cpu được gọi. Điều đó cũng đảm bảo rằng cpufreq t
 chính sách không được giải phóng trong khi đang được sử dụng.
 
 2. Trình thông báo CPUFreq
-====================
+==========================
 
 Trình thông báo CPUFreq tuân theo giao diện trình thông báo kernel tiêu chuẩn.
 Xem linux/include/linux/notifier.h để biết chi tiết về trình thông báo.
@@ -59,7 +59,7 @@ thông báo chuyển tiếp.
 
 
 2.1 Trình thông báo chính sách CPUFreq
-----------------------------
+--------------------------------------
 
 Chúng được thông báo khi một chính sách mới được tạo hoặc xóa.
 
@@ -73,7 +73,7 @@ tần số (tính bằng kHz) của chính sách mới).
 
 
 2.2 Thông báo chuyển tiếp CPUFreq
---------------------------------
+---------------------------------
 
 Chúng được thông báo hai lần cho mỗi CPU trực tuyến trong chính sách, khi
 Trình điều khiển CPUfreq chuyển đổi tần số lõi CPU và thay đổi này không có

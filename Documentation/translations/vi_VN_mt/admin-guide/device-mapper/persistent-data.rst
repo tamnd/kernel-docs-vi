@@ -37,13 +37,13 @@ mục tiêu.  Nó hiện đang được sử dụng bởi mục tiêu cung cấp
 mục tiêu lưu trữ phân cấp sắp tới.
 
 Tổng quan
-========
+=========
 
 Tài liệu chính nằm trong các tệp tiêu đề, tất cả đều có thể được tìm thấy
 trong trình điều khiển/md/dữ liệu liên tục.
 
 Người quản lý khối
------------------
+------------------
 
 dm-block-manager.[hc]
 
@@ -67,7 +67,7 @@ cùng một giao dịch nên hiệu suất là hợp lý.  Phương thức cam k
 Khi mất điện, siêu dữ liệu của bạn sẽ vẫn như cũ khi được cam kết lần cuối.
 
 Bản đồ không gian
---------------
+-----------------
 
 dm-space-map.h
 dm-space-map-siêu dữ liệu.[hc]
@@ -81,7 +81,7 @@ không gian siêu dữ liệu.  Cái sau phức tạp bởi nhu cầu lưu trữ
 dữ liệu riêng của nó trong không gian nó đang quản lý.
 
 Các cấu trúc dữ liệu
--------------------
+--------------------
 
 dm-btree.[hc]
 dm-btree-remove.c

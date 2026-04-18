@@ -13,13 +13,13 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển bộ điều khiển phương tiện ảo (vimc)
-==========================================
+====================================================
 
 Trình điều khiển vimc mô phỏng phần cứng video phức tạp bằng V4L2 API và Media
 API. Nó có một thiết bị chụp và ba thiết bị phụ: cảm biến, bộ gỡ lỗi và bộ chia tỷ lệ.
 
 Cấu trúc liên kết
---------
+-----------------
 
 Cấu trúc liên kết được mã hóa cứng, mặc dù bạn có thể sửa đổi nó trong vimc-core và
 biên dịch lại trình điều khiển để đạt được cấu trúc liên kết của riêng bạn. Đây là cấu trúc liên kết mặc định:
@@ -33,7 +33,7 @@ biên dịch lại trình điều khiển để đạt được cấu trúc liê
     Media pipeline graph on vimc
 
 Cấu hình cấu trúc liên kết
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Mỗi thiết bị con sẽ có cấu hình mặc định (pixelformat, chiều cao,
 chiều rộng,...). Người ta cần phải cấu hình cấu trúc liên kết để phù hợp với
@@ -54,7 +54,7 @@ các lệnh phù hợp với cấu trúc liên kết mặc định:
         v4l2-ctl -z platform:vimc -d "Raw Capture 0" -v pixelformat=BA81
 
 Thiết bị phụ
-----------
+------------
 
 Các thiết bị con xác định hành vi của một thực thể trong cấu trúc liên kết. Tùy thuộc vào
 thiết bị con, thực thể có thể có nhiều miếng đệm thuộc loại nguồn hoặc phần chìm.
@@ -109,7 +109,7 @@ chụp vimc:
 	* 1 nguồn Pad
 
 Tùy chọn mô-đun
---------------
+---------------
 
 Vimc có tham số mô-đun để định cấu hình trình điều khiển.
 

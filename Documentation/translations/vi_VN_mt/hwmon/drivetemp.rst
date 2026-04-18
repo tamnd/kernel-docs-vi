@@ -13,11 +13,11 @@
    review) được đặt trong thư mục vi_VN/.
 
 Nhiệt độ ổ đĩa trình điều khiển hạt nhân
-=======================
+========================================
 
 
 Tài liệu tham khảo
-----------
+------------------
 
 ANS T13/1699-D
 Công nghệ thông tin - AT Bản đính kèm 8 - Bộ lệnh ATA/ATAPI (ATA8-ACS)
@@ -43,7 +43,7 @@ nhiệt độ ổ đĩa.
 
 
 Lưu ý sử dụng
-----------
+-------------
 
 Việc đọc nhiệt độ ổ đĩa có thể đặt lại bộ đếm thời gian quay xuống trên một số ổ đĩa.
 Điều này đã được quan sát thấy với các ổ đĩa WD120EFAX, nhưng có thể được nhìn thấy với các ổ đĩa khác
@@ -61,7 +61,7 @@ sẽ không bao giờ quay xuống.
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Chỉ có thuộc tính temp1_input luôn có sẵn. Các thuộc tính khác là
 chỉ khả dụng nếu được ổ đĩa báo cáo. Tất cả nhiệt độ được báo cáo trong

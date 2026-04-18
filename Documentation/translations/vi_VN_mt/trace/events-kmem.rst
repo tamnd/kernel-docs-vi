@@ -29,7 +29,7 @@ Tài liệu này mô tả từng điểm theo dõi là gì và tại sao chúng
 có thể hữu ích.
 
 1. Phân bổ phiến của các đối tượng nhỏ không xác định loại
-===================================================
+==========================================================
 ::
 
 kmalloc call_site=%lx ptr=%p bytes_req=%zu bytes_alloc=%zu gfp_flags=%s
@@ -44,7 +44,7 @@ các trang web phân bổ được.
 
 
 2. Phân bổ phiến của các đối tượng nhỏ thuộc loại đã biết
-=================================================
+=========================================================
 ::
 
 kmem_cache_alloc call_site=%lx ptr=%p bytes_req=%zu bytes_alloc=%zu gfp_flags=%s

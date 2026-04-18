@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 .. Copyright 2001 Matthew Wilcox
-..
+................................
 ..     This documentation is free software; you can redistribute
 ..     it and/or modify it under the terms of the GNU General Public
 ..     License as published by the Free Software Foundation; either
@@ -35,10 +35,10 @@ và thiết bị, cho phép trình điều khiển thiết bị được viết 
 loại.
 
 IO được ánh xạ bộ nhớ
-================
+=====================
 
 Nhận quyền truy cập vào thiết bị
-----------------------------
+--------------------------------
 
 Dạng IO được hỗ trợ rộng rãi nhất là IO được ánh xạ bộ nhớ. Đó là, một
 một phần không gian địa chỉ của CPU được hiểu không phải là quyền truy cập vào
@@ -131,10 +131,10 @@ trong số các lệnh gọi readX() của trình điều khiển có thể đư
 vì chỉ một số cuộc gọi sẽ chỉ ra hoặc phụ thuộc vào việc hoàn thành DMA.
 
 Truy cập không gian cổng
-===================
+========================
 
 Giải thích về không gian cổng
---------------------
+-----------------------------
 
 Một dạng IO khác thường được hỗ trợ là Port Space. Đây là một loạt các
 địa chỉ tách biệt với không gian địa chỉ bộ nhớ thông thường. Truy cập vào những thứ này
@@ -145,7 +145,7 @@ Không giống như IO được ánh xạ bộ nhớ, không cần chuẩn bị 
 không gian.
 
 Truy cập không gian cổng
---------------------
+------------------------
 
 Quyền truy cập vào không gian này được cung cấp thông qua một tập hợp các chức năng
 cho phép truy cập 8 bit, 16 bit và 32 bit; còn được gọi là byte, word và
@@ -161,7 +161,7 @@ Hàm outs() sao chép byte, từ hoặc độ dài vào giá trị đã cho
 cổng.
 
 __mã thông báo con trỏ iomem
-======================
+============================
 
 Kiểu dữ liệu cho địa chỉ MMIO là một con trỏ đủ tiêu chuẩn ZZ0000ZZ, chẳng hạn như
 ZZ0001ZZ. Trên hầu hết các kiến trúc, nó là một con trỏ thông thường
@@ -178,7 +178,7 @@ chỉ mã hóa địa chỉ vật lý hoặc cookie có thể bù đắp đượ
 bởi readl()/writel().
 
 Sự khác biệt giữa các chức năng truy cập I/O
-========================================
+============================================
 
 readq(), readl(), readw(), readb(), writeq(), writel(), writew(), writeb()
 
@@ -299,7 +299,7 @@ insl, insw, insb, outsl, outsw, outsb
   bộ đệm bất kể kiến trúc.
 
 Chế độ ánh xạ bộ nhớ thiết bị
-===========================
+=============================
 
 Một số kiến ​​trúc hỗ trợ nhiều chế độ để ánh xạ bộ nhớ thiết bị.
 Các biến thể ioremap_*() cung cấp sự trừu tượng chung xung quanh các biến thể này
@@ -518,7 +518,7 @@ Việc không sử dụng các trình bao bọc này có thể khiến trình đ
 các quy tắc chặt chẽ hơn để ánh xạ bộ nhớ I/O.
 
 Khái quát hóa quyền truy cập vào hệ thống và bộ nhớ I/O
-============================================
+=======================================================
 
 .. kernel-doc:: include/linux/iosys-map.h
    :doc: overview
@@ -527,7 +527,7 @@ Khái quát hóa quyền truy cập vào hệ thống và bộ nhớ I/O
    :internal:
 
 Chức năng công cộng được cung cấp
-=========================
+=================================
 
 .. kernel-doc:: arch/x86/include/asm/io.h
    :internal:

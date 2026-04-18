@@ -21,7 +21,7 @@ model (xem ZZ0000ZZ) để định cấu hình chuyển tiếp và bảo mật c
 chức năng.
 
 API kế thừa
-==========
+===========
 
 SR-IOV API cũ được triển khai trong dòng ZZ0000ZZ Netlink như một phần của
 các lệnh ZZ0001ZZ và ZZ0002ZZ. Về phía người lái

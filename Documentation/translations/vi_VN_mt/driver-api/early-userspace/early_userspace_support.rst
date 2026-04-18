@@ -41,7 +41,7 @@ kho lưu trữ được sử dụng làm hình ảnh hoặc xây dựng quy trì
 hình ảnh từ thông số kỹ thuật.
 
 Phương pháp CPIO ARCHIVE
--------------------
+------------------------
 
 Bạn có thể tạo một kho lưu trữ cpio chứa hình ảnh không gian người dùng ban đầu.
 Kho lưu trữ cpio của bạn phải được chỉ định trong CONFIG_INITRAMFS_SOURCE và nó
@@ -50,7 +50,7 @@ CONFIG_INITRAMFS_SOURCE và tên thư mục và tập tin không được phép 
 kết hợp với kho lưu trữ cpio.
 
 Phương pháp IMAGE BUILDING
----------------------
+--------------------------
 
 Quá trình xây dựng kernel cũng có thể xây dựng hình ảnh không gian người dùng ban đầu từ
 các bộ phận nguồn thay vì cung cấp kho lưu trữ cpio.  Phương pháp này cung cấp
@@ -96,7 +96,7 @@ các chỉ thị từ việc quét thư mục và sao chép nội dung tập tin
 Xem thêm 'usr/gen_initramfs.sh -h'.
 
 Tất cả điều này dẫn đến đâu?
-=========================
+============================
 
 Bản phân phối klibc chứa một số phần mềm cần thiết để thực hiện
 không gian người dùng sớm hữu ích.  Việc phân phối klibc hiện tại là
@@ -139,7 +139,7 @@ Nếu có thắc mắc và trợ giúp, bạn có thể đăng ký không gian n
 danh sách gửi thư tại ZZ0000ZZ
 
 Nó hoạt động như thế nào?
-=================
+=========================
 
 Kernel hiện có 3 cách để mount hệ thống tập tin gốc:
 

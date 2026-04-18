@@ -81,7 +81,7 @@ các lệnh sẽ được chạy và số liệu thống kê độ trễ tương
 cũng đóng vai trò là một ví dụ về việc sử dụng giao diện taskstats.
 
 Cách sử dụng
------
+------------
 
 Biên dịch kernel với::
 

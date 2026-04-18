@@ -84,7 +84,7 @@ Trước khi truy cập các thanh ghi gỡ lỗi, chúng ta nên đảm bảo m
 đã được kích hoạt đúng cách. Trong ARMv8-a ARM (ARM DDI 0487A.k) chương 'H9.1
 Các thanh ghi gỡ lỗi', các thanh ghi gỡ lỗi được chia thành hai miền: thanh ghi gỡ lỗi
 miền và miền CPU.
-::
+:::::::::::::::::
 
 +--------------+
                                 ZZ0000ZZ
@@ -129,7 +129,7 @@ Trong trường hợp này, việc truy cập vào các thanh ghi gỡ lỗi khi
 
 
 Ràng buộc cây thiết bị
---------------------
+----------------------
 
 Xem Documentation/devicetree/binds/arm/arm,coresight-cpu-debug.yaml để biết
 chi tiết.
@@ -190,7 +190,7 @@ Tài liệu/admin-guide/pm/cpuidle.rst)::
 # echo 1 > /sys/devices/system/cpu/cpu$cpu/cpuidle/state$state/disable
 
 định dạng đầu ra
--------------
+----------------
 
 Dưới đây là ví dụ về định dạng đầu ra gỡ lỗi::
 

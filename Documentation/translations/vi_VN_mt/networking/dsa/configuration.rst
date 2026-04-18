@@ -309,7 +309,7 @@ ZZ0000ZZ
     ip link set br0 up
 
 Quản lý cơ sở dữ liệu chuyển tiếp (FDB)
-------------------------------------
+---------------------------------------
 
 Các công tắc DSA hiện tại không có hỗ trợ phần cứng cần thiết để duy trì
 phần mềm FDB của cầu đồng bộ với các bảng phần cứng nên cả hai
@@ -376,7 +376,7 @@ Do đó, người viết kịch bản được khuyến khích sử dụng bộ 
 cờ khi làm việc với các mục cầu FDB trên giao diện chuyển đổi DSA.
 
 Mối quan hệ của cổng người dùng với cổng CPU
------------------------------------
+--------------------------------------------
 
 Thông thường, các bộ chuyển mạch DSA được gắn vào máy chủ thông qua một cổng Ethernet duy nhất.
 giao diện, nhưng trong trường hợp chip chuyển đổi rời rạc, thiết kế phần cứng

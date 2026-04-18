@@ -23,7 +23,7 @@ cài đặt.  Quyền truy cập vào dung sai được lập trình của nhà 
 phần cụ thể được sử dụng.
 
 Tập tin
-=====
+=======
 
 Mỗi thiết bị dpot sẽ có một bộ tệp eeprom, rdac và dung sai.  Làm thế nào
 nhiều phụ thuộc vào phần thực tế bạn có, cũng như phạm vi giá trị được phép.

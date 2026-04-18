@@ -67,7 +67,7 @@ Tích hợp trong kernel:
 
 
 Giao diện hệ thống HSMP
-====================
+=======================
 
 1. Hệ thống nhị phân của bảng số liệu
 
@@ -106,7 +106,7 @@ Các tệp sysfs sau có sẵn tại /sys/devices/platform/AMDI0097:0X/.
   giới hạn.
 
 Định dạng đối tượng thiết bị ACPI
-=========================
+=================================
 Định dạng đối tượng ACPI được mong đợi từ trình điều khiển AMD_hsmp
 đối với ổ cắm có ID00 được đưa ra dưới đây ::
 

@@ -17,7 +17,7 @@ Giai đoạn phân tích cú pháp hạt nhân-doc
 ========================================
 
 Quy tắc thay thế C được trình phân tích cú pháp sử dụng
-======================================
+=======================================================
 
 .. automodule:: lib.python.kdoc.xforms_lists
    :members:
@@ -25,7 +25,7 @@ Quy tắc thay thế C được trình phân tích cú pháp sử dụng
    :undoc-members:
 
 Các lớp xử lý tập tin
-====================
+=====================
 
 .. automodule:: lib.python.kdoc.kdoc_files
    :members:
@@ -33,7 +33,7 @@ Các lớp xử lý tập tin
    :undoc-members:
 
 Lớp dữ liệu mục được phân tích cú pháp
-======================
+======================================
 
 .. automodule:: lib.python.kdoc.kdoc_item
    :members:
@@ -41,7 +41,7 @@ Lớp dữ liệu mục được phân tích cú pháp
    :undoc-members:
 
 Các lớp và phương thức phân tích cú pháp
-==========================
+========================================
 
 .. automodule:: lib.python.kdoc.kdoc_parser
    :members:

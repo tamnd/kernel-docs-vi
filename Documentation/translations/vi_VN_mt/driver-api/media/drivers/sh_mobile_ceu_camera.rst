@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thuật toán cắt xén và chia tỷ lệ, được sử dụng trong trình điều khiển sh_mobile_ceu_Camera
-=======================================================================
+==========================================================================================
 
 Tác giả: Guennadi Liakhovetski <g.liakhovetski@gmx.de>
 

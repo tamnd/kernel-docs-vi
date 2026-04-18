@@ -62,7 +62,7 @@ Thư viện không gian người dùng và các tiện ích có sẵn từ
 ZZ0000ZZ
 
 Loại hệ thống tập tin
-===============
+=====================
 
 Loại hệ thống tập tin được cung cấp cho mount(2) có thể là một trong những loại sau:
 
@@ -76,7 +76,7 @@ cầu chì
       lệnh gọi hệ thống mount được hiểu là tên của thiết bị.
 
 Tùy chọn gắn kết
-=============
+================
 
 fd=N
   Bộ mô tả tệp được sử dụng để liên lạc giữa không gian người dùng
@@ -116,7 +116,7 @@ blksize=N
   tùy chọn chỉ hợp lệ cho các giá treo loại 'fuseblk'.
 
 Kiểm soát hệ thống tập tin
-==================
+==========================
 
 Có một hệ thống tệp điều khiển cho FUSE, có thể được gắn kết bởi ::
 
@@ -158,7 +158,7 @@ tắc nghẽn_ngưỡng
 Chỉ chủ sở hữu của mount mới có thể đọc hoặc ghi những tập tin này.
 
 Làm gián đoạn hoạt động của hệ thống tập tin
-##################################
+############################################
 
 Nếu quá trình đưa ra yêu cầu hệ thống tập tin FUSE bị gián đoạn,
 sau đây sẽ xảy ra:
@@ -228,7 +228,7 @@ hệ thống tập tin.  Có một số cách để làm điều này:
     phương pháp mạnh mẽ, luôn hoạt động.
 
 Các thú cưỡi không có đặc quyền hoạt động như thế nào?
-==================================
+======================================================
 
 Vì lệnh gọi hệ thống mount() là một hoạt động đặc quyền, nên một trình trợ giúp
 chương trình (fusermount) là cần thiết, được cài đặt root setuid.
@@ -247,7 +247,7 @@ C) chủ sở hữu thú cưỡi không thể gây ra hành vi không mong muố
     quy trình của người dùng khác hoặc siêu người dùng
 
 Các yêu cầu được thực hiện như thế nào?
-===============================
+=======================================
 
 A) Chủ sở hữu thú cưỡi có thể nhận được các đặc quyền nâng cao bằng cách:
 
@@ -310,7 +310,7 @@ Lưu ý rằng việc kiểm tra ZZ0000ZZ không thực sự cần thiết để
 	hệ thống tập tin, vì ZZ0001ZZ có thể được sử dụng để đạt được hiệu ứng tương tự.
 
 Tôi nghĩ những hạn chế này là không thể chấp nhận được?
-===========================================
+=======================================================
 
 Nếu quản trị viên hệ thống đủ tin tưởng người dùng hoặc có thể đảm bảo thông qua người khác
 biện pháp, các quy trình hệ thống đó sẽ không bao giờ đi vào không có đặc quyền
@@ -339,7 +339,7 @@ rò rỉ thông tin hoặc ZZ0000ZZ như được mô tả ở điểm B và C/2
 phần trước.
 
 Kernel - giao diện không gian người dùng
-============================
+========================================
 
 Sơ đồ sau đây cho thấy cách hoạt động của hệ thống tập tin (trong phần này
 ví dụ hủy liên kết) được thực hiện trong FUSE. ::

@@ -25,7 +25,7 @@ ZZ0000ZZ đến ZZ0001ZZ với số chính 81 và
 được phân bổ động các số nhỏ từ 0 đến 255.
 
 Tổng quan
-========
+=========
 
 Cảm biến có thể là Cảm biến quang học hoặc Cảm ứng điện dung dự kiến ​​(PCT).
 
@@ -65,6 +65,6 @@ Các định dạng được hỗ trợ bởi các thiết bị cảm ứng đư
 ZZ0000ZZ.
 
 Đàm phán định dạng dữ liệu
-=======================
+==========================
 
 Một thiết bị cảm ứng có thể hỗ trợ bất kỳ phương thức I/O nào.

@@ -219,7 +219,7 @@ ZZ0001ZZ. Ở đây chúng tôi mô tả ngắn gọn các lĩnh vực này
 cấu trúc:
 
 Tổng quan
-~~~~~~~
+~~~~~~~~~
 
 ZZ0000ZZ
   Các vùng cho nút này.  Không phải tất cả các khu vực đều có thể có dân cư sinh sống, nhưng nó
@@ -282,7 +282,7 @@ ZZ0000ZZ
   ZZ0001ZZ để tra cứu lruvecs.
 
 Đòi lại quyền kiểm soát
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Xem thêm Tài liệu/mm/page_reclaim.rst.
 
@@ -350,7 +350,7 @@ ZZ0000ZZ
 .. _zones:
 
 Khu vực
-=====
+=======
 Như chúng tôi đã đề cập, mỗi vùng trong bộ nhớ được mô tả bởi ZZ0000ZZ
 là một phần tử của mảng ZZ0001ZZ của nút mà nó thuộc về.
 ZZ0002ZZ là cấu trúc dữ liệu cốt lõi của bộ cấp phát trang. Một khu vực
@@ -386,7 +386,7 @@ Cấu trúc vùng ZZ0000ZZ được xác định trong ZZ0001ZZ.
 Ở đây chúng tôi mô tả ngắn gọn các trường của cấu trúc này:
 
 Tổng quan
-~~~~~~~
+~~~~~~~~~
 
 ZZ0000ZZ
   Hình mờ cho vùng này. Khi số lượng trang trống trong một vùng thấp hơn

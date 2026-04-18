@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ina233
-====================
+================================
 
 Chip được hỗ trợ:
 
@@ -28,7 +28,7 @@ Có sẵn công khai tại trang web TI: ZZ0000ZZ
 Tác giả: Leo Yang <leo.yang.sy0@gmail.com>
 
 Ghi chú sử dụng
------------
+---------------
 
 Giá trị điện trở shunt có thể được cấu hình bằng thuộc tính cây thiết bị;
 xem Tài liệu/devicetree/binds/hwmon/ti,ina2xx.yaml để biết chi tiết.

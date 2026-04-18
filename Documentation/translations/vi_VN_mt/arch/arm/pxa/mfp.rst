@@ -23,7 +23,7 @@ bộ xử lý dòng PXA sau này.  Tài liệu này mô tả MFP API hiện có,
 và cách các tác giả trình điều khiển bo mạch/nền tảng có thể sử dụng nó.
 
 Khái niệm cơ bản
-=============
+================
 
 Không giống như cài đặt chức năng thay thế GPIO trên PXA25x và PXA27x, MFP mới
 cơ chế được giới thiệu từ PXA3xx để di chuyển hoàn toàn các chức năng pin-mux
@@ -86,7 +86,7 @@ có nghĩa đó là tín hiệu GPIO và MFP<xxx> hoặc pin xxx, chúng tôi mu
 miếng đệm (hoặc quả bóng).
 
 Cách sử dụng MFP API
-=============
+====================
 
 Đối với người viết mã bảng, đây là một số hướng dẫn:
 
@@ -164,7 +164,7 @@ d) mặc dù PXA3xx MFP hỗ trợ phát hiện cạnh trên mỗi chân, nhưng
 
 
 MFP trên PXA3xx
-=============
+===============
 
 Mỗi bảng I/O bên ngoài trên PXA3xx (không bao gồm các bảng dành cho mục đích đặc biệt) đều có
 một logic MFP được liên kết và được điều khiển bởi một thanh ghi MFP (MFPR).
@@ -200,7 +200,7 @@ Bit 0 - 2: AF_SEL - lựa chọn chức năng thay thế, 8 khả năng, từ 0-
 			0b007 - nhanh 10mA
 
 Thiết kế MFP cho PXA2xx/PXA3xx
-============================
+==============================
 
 Do sự khác biệt trong cách xử lý pin-mux giữa PXA2xx và PXA3xx, một hệ thống thống nhất
 MFP API được giới thiệu để bao gồm cả hai dòng bộ xử lý.
@@ -211,7 +211,7 @@ API thực tế được gọi để chuyển đổi các định nghĩa này th
 làm cho chúng có hiệu lực sau đó.
 
 Các tập tin liên quan
---------------
+---------------------
 
 - vòm/cánh tay/mach-pxa/include/mach/mfp.h
 

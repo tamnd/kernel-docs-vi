@@ -38,7 +38,7 @@ bị hủy bỏ. Nếu cần thiết, hãy thăm dò ý kiến hoặc chờ hoà
 bất kỳ lệnh đặt lại nào.
 
 Tự động đóng
-----------
+------------
 
 Thói quen ndo_stop sẽ được gọi bởi unregister_netdevice
 nếu thiết bị vẫn LÊN.
@@ -110,19 +110,19 @@ Và sau đó khi kết thúc quá trình xử lý sự kiện thu hồi TX của
 				 drv_tx_avail(dr), 2 * MAX_SKB_FRAGS);
 
 Macro trợ giúp dừng/đánh thức hàng đợi không khóa
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: include/net/netdev_queues.h
    :doc: Lockless queue stopping / waking helpers.
 
 Không có quyền sở hữu độc quyền
-----------------------
+-------------------------------
 
 Phương thức ndo_start_xmit không được sửa đổi các phần được chia sẻ của
 nhân bản SKB.
 
 Hoàn thành kịp thời
-------------------
+-------------------
 
 Đừng quên rằng khi bạn trả lại NETDEV_TX_OK từ
 ndo_start_xmit, tài xế của bạn có trách nhiệm giải phóng

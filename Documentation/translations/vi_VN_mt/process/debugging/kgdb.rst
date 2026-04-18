@@ -63,7 +63,7 @@ Biên dịch hạt nhân
    chương.
 
 Tùy chọn cấu hình hạt nhân cho kgdb
-------------------------------
+-----------------------------------
 
 Để kích hoạt ZZ0002ZZ bạn nên xem bên dưới
 ZZ0000ZZ và chọn
@@ -103,7 +103,7 @@ Dưới đây là tập hợp ví dụ về các ký hiệu ZZ0000ZZ để bật
   CONFIG_KGDB_SERIAL_CONSOLE=y
 
 Tùy chọn cấu hình hạt nhân cho kdb
------------------------------
+----------------------------------
 
 Kdb phức tạp hơn một chút so với gdbstub đơn giản nằm ở trên cùng
 lõi gỡ lỗi của kernel. Kdb phải triển khai một shell và cũng bổ sung thêm
@@ -133,7 +133,7 @@ Dưới đây là tập hợp ví dụ về các ký hiệu ZZ0000ZZ để bật
   CONFIG_KDB_KEYBOARD=y
 
 Đối số khởi động trình gỡ lỗi hạt nhân
-==============================
+======================================
 
 Phần này mô tả các tham số kernel thời gian chạy khác nhau ảnh hưởng đến
 cấu hình của trình gỡ lỗi kernel. Chương sau bao gồm
@@ -188,7 +188,7 @@ cấu hình tùy chọn với nhau. Sử dụng km + chỉ gdb nói chung là kh
 một sự kết hợp hữu ích.
 
 Sử dụng mô-đun có thể tải hoặc tích hợp sẵn
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Là một kernel tích hợp:
 
@@ -211,7 +211,7 @@ Dưới đây là hai ví dụ về cách bạn có thể định dạng chuỗi
 2. ZZ0000ZZ
 
 Định cấu hình kgdboc khi chạy với sysfs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trong thời gian chạy, bạn có thể bật hoặc tắt kgdboc bằng cách ghi tham số
 vào sysfs. Dưới đây là hai ví dụ:
@@ -400,10 +400,10 @@ hiển thị với menuconfig trên một số kiến ​​trúc (ví dụ: arm
 bạn có thể chuyển ZZ0001ZZ vào kernel trong trường hợp này.
 
 Sử dụng kdb
-=========
+===========
 
 Khởi động nhanh cho kdb trên cổng nối tiếp
-------------------------------------
+------------------------------------------
 
 Đây là một ví dụ nhanh về cách sử dụng kdb.
 
@@ -463,7 +463,7 @@ Một số lệnh hữu ích trong kdb bao gồm:
    cân nhắc khi sử dụng trình gỡ lỗi kernel.
 
 Bắt đầu nhanh cho kdb bằng bảng điều khiển được kết nối với bàn phím
-------------------------------------------------------
+--------------------------------------------------------------------
 
 Đây là ví dụ nhanh về cách sử dụng kdb bằng bàn phím.
 
@@ -602,7 +602,7 @@ Hãy nhớ rằng nếu bạn tiếp tục trong gdb và cần "đột nhập" l
 shell hoặc script để đột nhập vào trình gỡ lỗi.
 
 khả năng tương tác kgdb và kdb
-=============================
+==============================
 
 Có thể chuyển đổi linh hoạt giữa kdb và kgdb. Việc gỡ lỗi
 core sẽ ghi nhớ những gì bạn đã sử dụng lần trước và tự động bắt đầu
@@ -679,7 +679,7 @@ Ví dụ::
     (gdb)
 
 Bộ thử nghiệm kgdb
-===============
+==================
 
 Khi kgdb được bật trong cấu hình kernel, bạn cũng có thể chọn bật
 tham số cấu hình ZZ0000ZZ. Bật tính năng này sẽ kích hoạt một tính năng đặc biệt
@@ -699,7 +699,7 @@ lý lẽ. Nếu tính năng này được bật, bộ kiểm tra kgdb có thể 
 chỉ định ZZ0001ZZ làm đối số khởi động kernel.
 
 Nội bộ trình gỡ lỗi hạt nhân
-=========================
+============================
 
 Kiến trúc cụ thể
 ----------------------
@@ -911,7 +911,7 @@ con_debug_leave().
 
 
 Tín dụng
-=======
+========
 
 Những người sau đây đã đóng góp cho tài liệu này:
 

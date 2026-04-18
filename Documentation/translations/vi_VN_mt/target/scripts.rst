@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tập lệnh thiết bị xuất mục tiêu
----------------------------
+-------------------------------
 
 .. literalinclude:: target-export-device
     :language: shell

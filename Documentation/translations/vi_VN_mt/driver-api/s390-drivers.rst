@@ -82,7 +82,7 @@ Hoạt động.
    :internal:
 
 thiết bị ccw
------------
+------------
 
 Các thiết bị muốn bắt đầu I/O kênh cần phải gắn vào bus ccw.
 Tương tác với lõi trình điều khiển được thực hiện thông qua lớp I/O chung, lớp này

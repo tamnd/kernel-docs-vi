@@ -100,7 +100,7 @@ Chức năng ZZ0000ZZ. Dữ liệu được đóng gói theo nhóm
 ba byte như sau:
 
 Cấu trúc cơ sở hạ tầng RDS
-==================
+==========================
 
 .. c:type:: v4l2_rds_data
 

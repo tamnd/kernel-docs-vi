@@ -20,7 +20,7 @@ Trình điều khiển ADC cho các thiết bị Analog Devices Inc. AD4060/AD40
 ZZ0000ZZ.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 Các chip sau được hỗ trợ bởi trình điều khiển này:
 
@@ -28,7 +28,7 @@ Các chip sau được hỗ trợ bởi trình điều khiển này:
 * ZZ0001ZZ
 
 Chế độ nối dây
-============
+==============
 
 ADC được giao tiếp thông qua bus I3C và chứa hai GPIO có thể lập trình.
 
@@ -45,7 +45,7 @@ Nếu thuộc tính ZZ0000ZZ có trong cây thiết bị thì GPO
 không có trong ZZ0001ZZ được hiển thị dưới dạng GPO.
 
 Thuộc tính thiết bị
-=================
+===================
 
 ADC chỉ chứa một kênh có các thuộc tính sau:
 
@@ -97,14 +97,14 @@ Nếu mỗi cái không xuất hiện, trình điều khiển dự phòng sẽ k
 I3C IBI.
 
 Chế độ năng lượng thấp
-==============
+======================
 
 Thiết bị chuyển sang chế độ năng lượng thấp khi không hoạt động để tiết kiệm điện. Kích hoạt một sự kiện đặt
 thiết bị hết năng lượng vì ADC tự động lấy mẫu để khẳng định
 điều kiện sự kiện.
 
 Hỗ trợ kích hoạt IIO
-===================
+====================
 
 Trình kích hoạt IIO ZZ0000ZZ được trình điều khiển đăng ký để sử dụng bởi
 cùng một thiết bị, để chụp mẫu vào bộ đệm phần mềm. Cần phải đính kèm
@@ -151,7 +151,7 @@ Các thuộc tính sự kiện sau đây có sẵn:
      - Set the maximum threshold value.
 
 Hỗ trợ bộ điều khiển GPO
-======================
+========================
 
 Thiết bị hỗ trợ sử dụng GP0 và GP1 làm GPO. Nếu cây thiết bị chứa
 nút ZZ0000ZZ`, thiết bị được đánh dấu là bộ điều khiển GPIO và

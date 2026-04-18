@@ -31,7 +31,7 @@ BPF cung cấp các chương trình với một bộ ZZ0000ZZ có thể
 được sử dụng để phân bổ, thay đổi, truy vấn và giải phóng cpumask.
 
 2. Đối tượng cpumask BPF
-======================
+========================
 
 Có hai loại mặt nạ cpu khác nhau có thể được các chương trình BPF sử dụng.
 

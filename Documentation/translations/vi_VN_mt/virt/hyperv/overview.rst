@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tổng quan
-========
+=========
 Nhân Linux chứa nhiều loại mã để chạy dưới dạng đầy đủ
 vị khách được khai sáng trên bộ ảo hóa Hyper-V của Microsoft.  Hyper-V
 bao gồm chủ yếu là một bộ ảo hóa kim loại trần cộng với một máy ảo
@@ -160,7 +160,7 @@ hồi quy.
 Trên arm64, Hyper-V chỉ hỗ trợ khách 64-bit.
 
 tính chất endian
------------
+----------------
 Tất cả giao tiếp giữa Hyper-V và máy ảo khách đều sử dụng Little-Endian
 định dạng trên cả x86/x64 và arm64.  Định dạng Big-endian trên arm64 thì không
 được hỗ trợ bởi Hyper-V và mã Linux không sử dụng macro endian-ness

@@ -17,7 +17,7 @@ Hệ thống lưu trữ đĩa Acorn - ADFS
 ==================================
 
 Hệ thống tập tin được hỗ trợ bởi ADFS
------------------------------
+-------------------------------------
 
 Mô-đun ADFS hỗ trợ các định dạng Filecore sau:
 
@@ -41,7 +41,7 @@ Nếu hỗ trợ ghi (ADFS_FS_RW) được định cấu hình, chúng tôi cho 
 cập nhật thư mục, cụ thể là cập nhật chế độ truy cập và dấu thời gian.
 
 Tùy chọn gắn kết cho ADFS
-----------------------
+-------------------------
 
 ============= ===========================================================
   uid=nnn Tất cả các tập tin trong phân vùng sẽ thuộc quyền sở hữu của
@@ -105,7 +105,7 @@ Do đó, bạn có thể điều chỉnh bản dịch quyền theo bất cứ đ
   mong muốn các quyền phải có trong Linux.
 
 Hậu tố loại tệp hệ điều hành RISC
-------------------------
+---------------------------------
 
 Các loại tệp hệ điều hành RISC được lưu trữ ở bit 19..8 của địa chỉ tải tệp.
 

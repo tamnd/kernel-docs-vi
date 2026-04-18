@@ -27,7 +27,7 @@ thứ tự "con trỏ inode" đó như sau.
 
 
 nguyên thủy
-==========
+===========
 
 Đối với mục đích của chúng tôi, tất cả các hoạt động đều thuộc 6 lớp:
 
@@ -126,7 +126,7 @@ bố mẹ có một tổ tiên chung.
 
 
 Nội dung đa hệ thống tập tin
-=========================
+============================
 
 Đối với một số hệ thống tập tin, một phương thức có thể liên quan đến thao tác thư mục trên
 một hệ thống tập tin khác; nó có thể là các ecryptfs đang hoạt động trong cơ sở

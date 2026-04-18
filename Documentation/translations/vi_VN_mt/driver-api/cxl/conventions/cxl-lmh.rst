@@ -21,12 +21,12 @@ Tài liệu
 CXL Phiên bản 3.2, Phiên bản 1.0
 
 Giấy phép
--------
+---------
 
 SPDX-Số nhận dạng giấy phép: CC-BY-4.0
 
 Người sáng tạo/Người đóng góp
---------------------
+-----------------------------
 
 - Fabio M. De Francesco, Intel
 - Dan J. Williams, Intel
@@ -112,7 +112,7 @@ Bộ giải mã chuyển mạch trung gian và Bộ giải mã điểm cuối th
 bất kể kích thước phạm vi của chúng.
 
 Lợi ích của sự thay đổi
-----------------------
+-----------------------
 
 Nếu không có sự thay đổi, OSPM sẽ không phù hợp với Switch và Endpoint trung gian
 Bộ giải mã với Bộ giải mã gốc được định cấu hình với kích thước CFMWS HPA không căn chỉnh
@@ -123,7 +123,7 @@ và Bộ giải mã điểm cuối cho chúng, sao cho phần có thể định 
 tổng công suất của thiết bị được cung cấp cho người dùng.
 
 Tài liệu tham khảo
-----------
+------------------
 
 Bản sửa đổi đặc tả liên kết nhanh điện toán 3.2, phiên bản 1.0
 <ZZ0000ZZ

@@ -32,7 +32,7 @@ Sổ tay tham khảo kiến trúc cánh tay DDI 0487K.a (Arm ARM).
 .. _arm64_mops_hyp:
 
 Yêu cầu của người giám sát
------------------------
+--------------------------
 
 Trình ảo hóa chạy máy khách Linux phải xử lý tất cả các ngoại lệ MOPS từ
 kernel khách, vì Linux không phải lúc nào cũng có thể xử lý được ngoại lệ.

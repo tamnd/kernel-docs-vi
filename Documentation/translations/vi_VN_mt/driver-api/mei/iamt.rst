@@ -89,7 +89,7 @@ Tác nhân cục bộ cho phép nhân viên CNTT đặt cấu hình ngay lập t
        "Sử dụng mẫu đại lý địa phương"
 
 Cơ quan giám sát tình trạng hệ điều hành Intel AMT
-----------------------------
+--------------------------------------------------
 
 Cơ quan giám sát Intel AMT là cơ quan giám sát Tình trạng hệ điều hành (Hang/Crash).
 Bất cứ khi nào hệ điều hành bị treo hoặc gặp sự cố, Intel AMT sẽ gửi một sự kiện

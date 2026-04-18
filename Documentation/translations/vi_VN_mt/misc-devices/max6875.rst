@@ -54,7 +54,7 @@ Xem bảng dữ liệu để biết thêm thông tin.
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 eeprom - 512 byte không gian EEPROM do người dùng xác định.
 

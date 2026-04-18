@@ -30,7 +30,7 @@ Thông tin chi tiết hơn về tòa nhà chọc trời BPF có sẵn trong ZZ00
 ZZ0002ZZ cho ZZ0003ZZ.
 
 Các loại bản đồ
-=========
+===============
 
 .. toctree::
    :maxdepth: 1
@@ -39,7 +39,7 @@ Các loại bản đồ
    map_*
 
 Ghi chú sử dụng
-===========
+===============
 
 .. c:function::
    int bpf(int command, union bpf_attr *attr, u32 size)

@@ -24,7 +24,7 @@ ngân hàng (được chọn bởi SR.RB, chỉ r0 ... r7 được ngân hàng),
 có thể có nhiều tính năng ngân hàng hơn hoặc đơn giản là không có khả năng nào như vậy.
 
 Ngân hàng SR.RB
--------------
+---------------
 
 Trong trường hợp của loại hình ngân hàng này, các sổ đăng ký ngân hàng được ánh xạ trực tiếp tới
 r0 ... r7 nếu SR.RB được đặt thành ngân hàng mà chúng tôi quan tâm, nếu không thì ldc/stc

@@ -21,7 +21,7 @@ Bảng hoán đổi
 Bảng hoán đổi triển khai bộ đệm trao đổi dưới dạng mảng giá trị bộ đệm trao đổi trên mỗi cụm.
 
 Trao đổi mục nhập
-----------
+-----------------
 
 Mục trao đổi chứa thông tin cần thiết để phục vụ trang ẩn danh
 lỗi.
@@ -32,7 +32,7 @@ Loại trao đổi cho biết thiết bị trao đổi nào sẽ được sử d
 Phần bù hoán đổi là phần bù của tệp hoán đổi để đọc dữ liệu trang từ đó.
 
 Hoán đổi bộ đệm
-----------
+---------------
 
 Bộ đệm trao đổi là một bản đồ để tra cứu các folio bằng cách sử dụng mục nhập trao đổi làm khóa. kết quả
 giá trị có thể có ba loại tùy thuộc vào giai đoạn nào của mục hoán đổi này

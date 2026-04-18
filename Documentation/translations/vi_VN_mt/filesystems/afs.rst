@@ -29,7 +29,7 @@ kAFS: AFS FILESYSTEM
 
 
 Tổng quan
-========
+=========
 
 Hệ thống tệp này cung cấp trình điều khiển hệ thống tệp AFS an toàn khá đơn giản. Đó là
 đang được phát triển và chưa cung cấp bộ tính năng đầy đủ.  các tính năng
@@ -71,7 +71,7 @@ các mặt nạ trong các tập tin sau::
 
 
 Cách sử dụng
-=====
+============
 
 Khi chèn các mô-đun trình điều khiển, ô gốc phải được chỉ định cùng với một
 danh sách địa chỉ IP của máy chủ vị trí khối lượng::
@@ -116,7 +116,7 @@ Các ô bổ sung có thể được thêm thông qua /proc (xem phần sau).
 
 
 Điểm gắn kết
-===========
+============
 
 AFS có khái niệm về điểm gắn kết. Theo thuật ngữ AFS, chúng được định dạng đặc biệt
 các liên kết tượng trưng (có cùng dạng với "tên thiết bị" được truyền cho mount).  kAFS
@@ -154,7 +154,7 @@ ls /afs/grand.central.org/
 
 
 Hệ thống tập tin Proc
-===============
+=====================
 
 Mô-đun AFS tạo thư mục "/proc/fs/afs/" và điền vào nó:
 
@@ -180,7 +180,7 @@ Mô-đun AFS tạo thư mục "/proc/fs/afs/" và điền vào nó:
 
 
 Cơ sở dữ liệu di động
-=================
+=====================
 
 Hệ thống tập tin duy trì một cơ sở dữ liệu nội bộ của tất cả các ô mà nó biết và
 Địa chỉ IP của máy chủ định vị khối cho các ô đó.  Tế bào mà

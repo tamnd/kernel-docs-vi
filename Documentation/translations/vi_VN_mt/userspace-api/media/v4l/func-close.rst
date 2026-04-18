@@ -49,7 +49,7 @@ tham số, đầu vào hoặc đầu ra hiện tại, giá trị điều khiển
 vẫn không thay đổi.
 
 Giá trị trả về
-============
+==============
 
 Hàm trả về 0 nếu thành công, -1 nếu thất bại và ZZ0000ZZ là
 thiết lập một cách thích hợp. Mã lỗi có thể xảy ra:

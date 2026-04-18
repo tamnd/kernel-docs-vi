@@ -27,7 +27,7 @@ Trình điều khiển cần điều khiển cổng song song
 Được tài trợ bởi SuSE
 
 Tuyên bố miễn trừ trách nhiệm
-==========
+=============================
 
 Mọi thông tin trong tập tin này được cung cấp nguyên trạng mà không có bất kỳ sự đảm bảo nào rằng
 nó sẽ là sự thật. Vì vậy, sử dụng nó có nguy cơ của riêng bạn. Những thiệt hại có thể xảy ra
@@ -45,7 +45,7 @@ cả hai bit đầu ra và đầu vào đều là cổng phù hợp nhất trên
 kết nối các thiết bị như vậy.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 Nhiều bảng điều khiển và gamepad máy tính 8-bit và cần điều khiển được hỗ trợ. các
 các phần phụ sau đây thảo luận về cách sử dụng của từng phần.
@@ -159,7 +159,7 @@ Sơ đồ chân cho gamepad bản sao (db9) NES Sơ đồ chân cho gamepad bả
          +--------> Nối đất +----------------> Nguồn điện
 
 Cần điều khiển đa hệ thống
----------------------
+--------------------------
 
 Trong kỷ nguyên của máy 8 bit, có một thứ gì đó giống như tiêu chuẩn thực tế
 cho các cổng cần điều khiển. Tất cả đều là kỹ thuật số và đều sử dụng chân D-Cannon 9
@@ -244,7 +244,7 @@ Phổ Sinclair +2A/+3 Amiga 1200
 Và còn rất nhiều người khác nữa.
 
 Cần điều khiển đa hệ thống sử dụng db9.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Đối với cần điều khiển Đa hệ thống và các dẫn xuất của chúng, trình điều khiển db9.c
 đã được viết. Nó chỉ cho phép một cần điều khiển/tay cầm chơi game trên mỗi cổng song song, nhưng
@@ -285,7 +285,7 @@ trình điều khiển cần điều khiển kỹ thuật số 0.8.0.2, điều 
 trình điều khiển, như loại thiết bị 8. (Xem phần 3.2)
 
 Cần điều khiển đa hệ thống sử dụng gamecon.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Đối với một số người, chỉ một cần điều khiển cho mỗi cổng song song là không đủ và/hoặc
 muốn sử dụng chúng trên một cổng song song cùng với các miếng đệm NES/SNES/PSX. Đây là
@@ -325,7 +325,7 @@ Dữ liệu ------------+------> Mặt đất
 Và đó là tất cả, chúng ta bắt đầu thôi!
 
 Cần điều khiển đa hệ thống sử dụng turbografx.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Giao diện TurboGraFX, được thiết kế bởi
 
@@ -340,7 +340,7 @@ giao diện, xem:
 ZZ0000ZZ
 
 Máy chơi game Sony
-----------------
+------------------
 
 Bộ điều khiển PSX được gamecon.c hỗ trợ. Sơ đồ chân của PSX
 bộ điều khiển (tương thích với DirectPadPro)::
@@ -373,7 +373,7 @@ Cần điều khiển đa hệ thống. Tuy nhiên, vì họ không sử dụng 
 logic, trình điều khiển duy nhất có thể sử dụng được với chúng là trình điều khiển db9.c.
 
 Hệ thống Sega Master
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 Gamepad SMS gần như giống hệt 2 nút thông thường
 Cần điều khiển đa hệ thống. Đặt trình điều khiển ở chế độ Multi2, sử dụng chế độ tương ứng
@@ -395,7 +395,7 @@ các chân cổng song song và sơ đồ sau::
        +----------> Nút 2
 
 Sega Genesis hay còn gọi là MegaDrive
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các miếng đệm Sega Genesis (ở Châu Âu được bán dưới dạng Sega MegaDrive) là một phần mở rộng
 đến các miếng đệm của Hệ thống Sega Master. Họ sử dụng nhiều nút hơn (3+1, 5+1, 6+1).  sử dụng
@@ -595,7 +595,7 @@ sử dụng turbografx.map2 và turbografx.map3 làm tham số dòng lệnh bổ
 cho hai giao diện nữa.
 
 Sơ đồ chân cổng song song của PC
-=======================
+================================
 
 ::
 

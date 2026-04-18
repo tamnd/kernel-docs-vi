@@ -25,7 +25,7 @@ Athira Rajeev, ngày 2 tháng 3 năm 2025
 
 
 Tổng quan cơ bản
-==============
+================
 
 H_HTM được sử dụng làm giao diện để thực thi Macro theo dõi phần cứng (HTM)
 các chức năng, bao gồm thiết lập, cấu hình, kiểm soát và kết xuất dữ liệu HTM.
@@ -108,7 +108,7 @@ Tệp theo dõi này sẽ chứa các dấu vết hướng dẫn có liên quan
 tập tin đầu vào cho bộ giải mã dấu vết để hiểu dữ liệu.
 
 Lợi ích của việc sử dụng giao diện debugfs HTM
-=======================================
+==============================================
 
 Hiện tại có thể thu thập dấu vết cho một lõi/chip cụ thể
 từ bên trong bất kỳ phân vùng nào của hệ thống và giải mã nó. Thông qua

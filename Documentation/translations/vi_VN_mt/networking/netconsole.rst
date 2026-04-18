@@ -190,7 +190,7 @@ mkdir cmdline1
  10.0.0.3
 
 Nối thêm dữ liệu người dùng
-----------------
+---------------------------
 
 Dữ liệu người dùng tùy chỉnh có thể được thêm vào cuối tin nhắn bằng netconsole
 cấu hình động được kích hoạt. Các mục nhập dữ liệu người dùng có thể được sửa đổi mà không cần
@@ -254,7 +254,7 @@ rmdir /sys/kernel/config/netconsole/cmdline0/userdata/qux
    It is recommended to not write user data values with newlines.
 
 Tự động điền tên tác vụ trong dữ liệu người dùng
--------------------------------------
+------------------------------------------------
 
 Bên trong hệ thống phân cấp cấu hình netconsole, có một tệp có tên
 ZZ0000ZZ trong thư mục ZZ0001ZZ. Tập tin này được sử dụng để kích hoạt
@@ -282,7 +282,7 @@ Trong ví dụ này, thông báo được tạo trong khi "echo" là hiện tạ
 quá trình theo lịch trình.
 
 Tự động phát hành hạt nhân trong dữ liệu người dùng
-------------------------------------------
+---------------------------------------------------
 
 Trong hệ thống phân cấp cấu hình netconsole, có một tệp có tên ZZ0000ZZ
 nằm trong thư mục ZZ0001ZZ. Tập tin này kiểm soát việc phát hành kernel
@@ -307,7 +307,7 @@ echo "Đây là tin nhắn" > /dev/kmsg
 
 
 Tự động điền số CPU trong dữ liệu người dùng
---------------------------------------
+--------------------------------------------
 
 Bên trong hệ thống phân cấp cấu hình netconsole, có một tệp có tên
 ZZ0000ZZ trong thư mục ZZ0001ZZ. Tập tin này được sử dụng để kích hoạt hoặc vô hiệu hóa
@@ -350,7 +350,7 @@ Trong ví dụ này, tin nhắn được gửi bởi CPU 42.
 
 
 Tự động điền ID tin nhắn trong dữ liệu người dùng
---------------------------------------
+-------------------------------------------------
 
 Trong hệ thống phân cấp cấu hình netconsole, có một tệp có tên ZZ0000ZZ
 nằm trong thư mục ZZ0001ZZ. Tệp này kiểm soát ID tin nhắn
@@ -382,7 +382,7 @@ echo "Đây là tin nhắn #1" > /dev/kmsg
 
 
 Bảng điều khiển mở rộng:
-=================
+========================
 
 Nếu '+' được đặt trước dòng cấu hình hoặc tệp cấu hình "mở rộng"
 được đặt thành 1, hỗ trợ bảng điều khiển mở rộng sẽ được bật. Một ví dụ khởi động

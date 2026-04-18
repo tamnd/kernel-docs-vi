@@ -48,7 +48,7 @@ vào mã điều khiển ACPI của chúng trong không gian tên ACPI.
 cấu hình dành riêng cho thiết bị. Có một ví dụ về điều này dưới đây.
 
 Hỗ trợ xe buýt nền tảng
-====================
+=======================
 
 Vì chúng ta đang sử dụng các thiết bị nền tảng để đại diện cho các thiết bị không
 được kết nối với bất kỳ xe buýt vật lý nào, chúng tôi chỉ cần triển khai trình điều khiển nền tảng
@@ -77,7 +77,7 @@ Nếu trình điều khiển cần thực hiện việc khởi tạo phức tạ
 từ các bảng ACPI.
 
 Đối tượng thiết bị ACPI
-===================
+=======================
 
 Nói chung, có hai loại thiết bị trong một hệ thống, trong đó
 ACPI được sử dụng làm giao diện giữa phần sụn nền tảng và HĐH: Thiết bị
@@ -198,7 +198,7 @@ trực tiếp acpi_dma_request_slave_chan_by_index() và do đó chọn
 tài nguyên Cố địnhDMA cụ thể theo chỉ mục của nó.
 
 Ngắt được đặt tên
-================
+=================
 
 Các trình điều khiển được liệt kê qua ACPI có thể có tên để ngắt trong bảng ACPI
 có thể được sử dụng để lấy số IRQ trong trình điều khiển.
@@ -236,7 +236,7 @@ Trình điều khiển có thể gọi hàm - fwnode_irq_get_byname() bằng fwn
 và ngắt tên làm đối số để lấy số IRQ tương ứng.
 
 Hỗ trợ bus nối tiếp SPI
-======================
+=======================
 
 Các thiết bị phụ phía sau xe buýt SPI có tài nguyên SpiSerialBus được đính kèm với chúng.
 Điều này được trích xuất tự động bởi lõi SPI và các thiết bị phụ được
@@ -311,7 +311,7 @@ err = device_property_read_u32(dev, "address-width", &addr_width);
 		...error handling...
 
 Hỗ trợ bus nối tiếp I2C
-======================
+=======================
 
 Các nô lệ đằng sau bộ điều khiển bus I2C chỉ cần thêm ID ACPI như
 với nền tảng và trình điều khiển SPI. Lõi I2C tự động liệt kê
@@ -470,7 +470,7 @@ Thiết bị (DEV)
 		...
 
 Thiết bị MFD
-===========
+============
 
 Các thiết bị MFD đăng ký các thiết bị con của chúng làm thiết bị nền tảng. Đối với đứa trẻ
 các thiết bị cần phải có bộ điều khiển ACPI để chúng có thể sử dụng để tham khảo
@@ -503,7 +503,7 @@ thiết bị MFD và nếu được tìm thấy, thiết bị đồng hành ACPI
 kết quả là thiết bị nền tảng con.
 
 ID thiết bị liên kết không gian tên cây thiết bị
-====================================
+================================================
 
 Giao thức Cây thiết bị sử dụng nhận dạng thiết bị dựa trên "tương thích"
 thuộc tính có giá trị là một chuỗi hoặc một mảng chuỗi được nhận dạng là thiết bị
@@ -734,7 +734,7 @@ bảng dsdt.dsl, trong khi tên thiết bị "BRG1", "BRG2" và "EXAR" là
 đã tạo phân tích vị trí của Exar UART trong cấu trúc liên kết bus PCI.
 
 Tài liệu tham khảo
-==========
+==================
 
 .. [1] Documentation/firmware-guide/acpi/gpio-properties.rst
 

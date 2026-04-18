@@ -17,7 +17,7 @@ Lập trình driver gameport
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Một gameport cổ điển cơ bản
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nếu cổng trò chơi không cung cấp nhiều hơn chức năng inb()/outb(),
 mã cần thiết để đăng ký nó với trình điều khiển cần điều khiển rất đơn giản ::
@@ -53,7 +53,7 @@ gọi lại, để nó không bị lỗi nếu một số địa chỉ có thể
 đã bị chiếm giữ bởi các gameport khác.
 
 Cổng trò chơi được ánh xạ theo bộ nhớ
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Khi một gameport có thể được truy cập thông qua MMIO, cách này được ưu tiên hơn, bởi vì
 nó nhanh hơn, cho phép đọc nhiều hơn mỗi giây. Đăng ký một gameport như vậy
@@ -78,7 +78,7 @@ gameport.read = my_read;
 .. _gameport_pgm_cooked_mode:
 
 Cổng trò chơi chế độ nấu chín
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Có những gameport có thể báo cáo các giá trị trục dưới dạng số, điều đó có nghĩa là
 người lái xe không cần phải đo chúng theo cách cũ - ADC được tích hợp sẵn

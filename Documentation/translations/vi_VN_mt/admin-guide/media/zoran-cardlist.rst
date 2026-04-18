@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Danh sách thẻ Zoran
-================
+===================
 
 .. tabularcolumns:: |p{1.4cm}|p{11.1cm}|p{4.2cm}|
 

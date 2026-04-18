@@ -27,7 +27,7 @@ trí nhớ. Thiết bị này hoạt động như một thiết bị chìm cores
 bộ tạo dấu vết tương ứng (ETM) được đính kèm dưới dạng thiết bị nguồn.
 
 Các tập tin và thư mục Sysfs
----------------------------
+----------------------------
 
 Các thiết bị SMB xuất hiện trên bus coresight hiện có cùng với các thiết bị khác
 thiết bị::
@@ -51,7 +51,7 @@ Các mục tập tin chính là:
    * ZZ0003ZZ: Hiển thị kích thước bộ đệm của từng thiết bị.
 
 Ràng buộc phần sụn
------------------
+------------------
 
 Thiết bị chỉ được hỗ trợ với ACPI. Ràng buộc của nó mô tả thiết bị
 mã định danh, thông tin tài nguyên và cấu trúc đồ thị.

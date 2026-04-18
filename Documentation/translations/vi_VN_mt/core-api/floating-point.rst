@@ -41,7 +41,7 @@ ZZ0000ZZ, như được mô tả bên dưới. Một số kiến trúc khác tri
 các API riêng biệt, được ghi lại riêng biệt.
 
 Thời gian xây dựng API
---------------
+----------------------
 
 Mã dấu phẩy động có thể được xây dựng nếu tùy chọn ZZ0000ZZ
 được kích hoạt. Đối với mã C, mã đó phải được đặt trong một tệp riêng và
@@ -62,7 +62,7 @@ CC_FLAGS_NO_FPU := -msoft-float
 Mã hạt nhân thông thường được coi là sử dụng tương đương với ZZ0000ZZ.
 
 Thời gian chạy API
------------
+------------------
 
 Thời gian chạy API được cung cấp trong ZZ0000ZZ. Không thể bao gồm tiêu đề này
 từ các tệp triển khai mã FP (những tệp có cờ biên dịch được điều chỉnh thành

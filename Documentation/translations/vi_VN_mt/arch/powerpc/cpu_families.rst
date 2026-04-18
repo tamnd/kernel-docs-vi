@@ -21,7 +21,7 @@ và được hỗ trợ bởi Arch/powerpc.
 
 
 Book3S (còn gọi là sPAPR)
-------------------
+-------------------------
 
 - Hash MMU (trừ 603 và e300)
 - Cơ số MMU (POWER9 trở lên)

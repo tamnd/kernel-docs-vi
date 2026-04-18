@@ -38,7 +38,7 @@ Cấu hình pci_ep có hai thư mục gốc: bộ điều khiển và
 chức năng. Mọi thiết bị EPC có trong hệ thống sẽ có một mục nhập
 thư mục ZZ0000ZZ và mọi trình điều khiển EPF có trong hệ thống
 sẽ có một mục trong thư mục ZZ0001ZZ.
-::
+:::::::::::::::::::::::::::::::::::::
 
 /sys/kernel/config/pci_ep/
 		.. controllers/
@@ -49,7 +49,7 @@ Tạo thiết bị EPF
 
 Mọi trình điều khiển EPF đã đăng ký sẽ được liệt kê trong thư mục bộ điều khiển. các
 các mục tương ứng với trình điều khiển EPF sẽ được tạo bởi lõi EPF.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 /sys/kernel/config/pci_ep/functions/
 		.. <EPF Driver1>/
@@ -67,7 +67,7 @@ Mỗi thư mục <EPF device> bao gồm các mục sau có thể được
 được sử dụng để định cấu hình tiêu đề cấu hình tiêu chuẩn của chức năng điểm cuối.
 (Các mục này được tạo bởi khung khi có bất kỳ <EPF Device> mới nào được
 đã tạo)
-::
+:::::::
 
 		.. <EPF Driver1>/
 			... <EPF Device 11>/
@@ -101,11 +101,11 @@ chức năng vật lý và <EPF Device 31> là một chức năng ảo. Một th
 nó được liên kết với một thiết bị EPF khác, không thể liên kết với thiết bị EPC.
 
 Thiết bị EPC
-==========
+============
 
 Mọi thiết bị EPC đã đăng ký sẽ được liệt kê trong thư mục bộ điều khiển. các
 các mục tương ứng với thiết bị EPC sẽ được tạo bởi lõi EPC.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 /sys/kernel/config/pci_ep/bộ điều khiển/
 		.. <EPC Device1>/
@@ -126,7 +126,7 @@ Thư mục <EPC Device> cũng sẽ có trường ZZ0000ZZ. Một lần
 "1" được ghi vào trường này, thiết bị đầu cuối sẽ sẵn sàng
 thiết lập liên kết với máy chủ. Việc này thường được thực hiện sau
 tất cả các thiết bị EPF đều được tạo và liên kết với thiết bị EPC.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 | bộ điều khiển/
 				| <Thư mục: Tên EPC>/

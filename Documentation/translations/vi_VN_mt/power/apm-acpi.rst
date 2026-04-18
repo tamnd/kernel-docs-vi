@@ -36,7 +36,7 @@ muốn sử dụng cả hai để có được bộ đầy đủ các tính năn
 giao diện có thể được điều khiển của máy cùng một lúc.  Hãy nghĩ về nó ..
 
 Daemon không gian người dùng
-------------------
+----------------------------
 Cả APM và ACPI đều dựa vào daemon không gian người dùng, apmd và acpid
 tương ứng, có đầy đủ chức năng.  Có được cả hai thứ này
 daemon từ bản phân phối Linux của bạn hoặc từ Internet (xem bên dưới)

@@ -41,7 +41,7 @@ Khi bạn xác định rằng mình đang chạy trên KVM có khả năng PV, g
 siêu cuộc gọi như được mô tả dưới đây.
 
 Siêu cuộc gọi KVM
-==============
+=================
 
 Bên trong nút /hypervisor của cây thiết bị có một thuộc tính được gọi là
 'hướng dẫn hypercall'. Thuộc tính này chứa tối đa 4 opcode tạo nên
@@ -104,7 +104,7 @@ Bố cục trang ma thuật được mô tả bởi struct kvm_vcpu_arch_shared
 trong Arch/powerpc/include/uapi/asm/kvm_para.h.
 
 Tính năng trang ma thuật
-===================
+========================
 
 Khi ánh xạ trang ma thuật bằng siêu âm KVM KVM_HC_PPC_MAP_MAGIC_PAGE,
 giá trị trả về thứ hai được chuyển cho khách. Giá trị trả về thứ hai này chứa
@@ -121,7 +121,7 @@ Các cải tiến sau đây cho trang ma thuật hiện có sẵn:
 tính năng trước khi sử dụng chúng!
 
 Cờ trang ma thuật
-================
+=================
 
 Ngoài các tính năng cho biết liệu máy chủ có khả năng thực hiện một chức năng cụ thể hay không
 tính năng chúng tôi cũng có một kênh để khách thông báo cho chủ nhà biết liệu nó có khả năng không
@@ -211,7 +211,7 @@ hướng dẫn. Điều này cho phép chúng tôi kiểm tra các ngắt đang 
 chẳng hạn.
 
 Hypercall ABI trong KVM trên PowerPC
-=================================
+====================================
 
 1) Siêu lệnh gọi KVM (ePAPR)
 

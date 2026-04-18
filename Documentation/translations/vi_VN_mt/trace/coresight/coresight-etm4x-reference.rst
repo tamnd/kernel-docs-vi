@@ -22,7 +22,7 @@ Tài liệu tham khảo lập trình trình điều khiển linux ETMv4 sysfs.
 Bổ sung vào tài liệu trình điều khiển ETMv4 hiện có.
 
 Các tập tin và thư mục Sysfs
----------------------------
+----------------------------
 
 Gốc: ZZ0000ZZ
 

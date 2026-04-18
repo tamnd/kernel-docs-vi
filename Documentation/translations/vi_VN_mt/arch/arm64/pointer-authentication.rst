@@ -25,7 +25,7 @@ chức năng trong AArch64 Linux.
 
 
 Tổng quan về kiến ​​trúc
----------------------
+------------------------
 
 Tiện ích mở rộng Xác thực con trỏ ARMv8.3 bổ sung thêm các nguyên hàm có thể
 được sử dụng để giảm thiểu một số loại tấn công nhất định mà kẻ tấn công có thể làm hỏng
@@ -123,7 +123,7 @@ dẫn đến ngoại lệ UNDEFINED được đưa vào máy khách.
 
 
 Kích hoạt và vô hiệu hóa các phím
----------------------------
+---------------------------------
 
 Prctl PR_PAC_SET_ENABLED_KEYS cho phép chương trình người dùng kiểm soát những gì
 Phím PAC được kích hoạt trong một tác vụ cụ thể. Phải mất hai đối số,

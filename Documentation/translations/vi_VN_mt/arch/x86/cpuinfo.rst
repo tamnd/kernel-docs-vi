@@ -89,7 +89,7 @@ cờ đặc trưng.
 
 
 Cờ tính năng được tạo ra như thế nào?
-==============================
+=====================================
 
 Cờ tính năng có thể được lấy từ nội dung của các lá CPUID
 --------------------------------------------------------------
@@ -103,7 +103,7 @@ cpufeatures.h và nếu nó được phát hiện trong thời gian chạy, các
 đến từ X86_FEATURE_AVX2 trong cpufeatures.h.
 
 Cờ có thể từ các tính năng dựa trên CPUID rải rác
-------------------------------------------------
+-------------------------------------------------
 
 Các tính năng phần cứng được liệt kê trong các lá CPUID dân cư thưa thớt có được
 các giá trị do phần mềm xác định. Tuy nhiên, CPUID cần được truy vấn để xác định
@@ -119,7 +119,7 @@ mảng. Vì có một cấu trúc cpuinfo_x86 cho mỗi CPU có thể, nên lãn
 trí nhớ không hề tầm thường.
 
 Cờ có thể được tạo tổng hợp trong các điều kiện nhất định đối với các tính năng phần cứng
----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
 
 Ví dụ về các điều kiện bao gồm liệu các tính năng nhất định có hiện diện trong
 MSR_IA32_CORE_CAPS hoặc các mẫu CPU cụ thể được xác định. Nếu cần thiết
@@ -130,14 +130,14 @@ tính năng X86_FEATURE_SPLIT_LOCK_DETECT sẽ được kích hoạt và
 chỉ hiển thị khi chạy trên bộ xử lý INTEL_XEON_PHI_[KNL|KNM].
 
 Cờ có thể đại diện cho các tính năng phần mềm thuần túy
---------------------------------------------
+-------------------------------------------------------
 Những lá cờ này không đại diện cho các tính năng phần cứng. Thay vào đó, họ đại diện cho một
 tính năng phần mềm được triển khai trong kernel. Ví dụ: Bảng trang hạt nhân
 Cách ly hoàn toàn là tính năng phần mềm và cờ tính năng X86_FEATURE_PTI của nó là
 cũng được định nghĩa trong cpufeatures.h.
 
 Đặt tên các lá cờ
-===============
+=================
 
 Tập lệnh Arch/x86/kernel/cpu/mkcapflags.sh xử lý
 #define X86_FEATURE_<name> từ cpufeatures.h và tạo
@@ -146,7 +146,7 @@ kết quả x86_cap/bug_flags[] được sử dụng để điền vào /proc/cp
 của các cờ trong x86_cap/bug_flags[] như sau:
 
 Cờ không xuất hiện theo mặc định trong /proc/cpuinfo
------------------------------------------------
+----------------------------------------------------
 
 Theo mặc định, các cờ tính năng bị bỏ qua khỏi /proc/cpuinfo vì nó không tạo ra
 có ý nghĩa để tính năng này được hiển thị trong không gian người dùng trong hầu hết các trường hợp. Ví dụ,
@@ -183,7 +183,7 @@ Kernel không biết về cờ
 Ví dụ: khi kernel cũ đang chạy trên phần cứng mới.
 
 Kernel đã vô hiệu hóa hỗ trợ cho nó tại thời điểm biên dịch
---------------------------------------------------
+-----------------------------------------------------------
 
 Ví dụ: nếu Mặt nạ địa chỉ tuyến tính (LAM) không được bật khi xây dựng (tức là
 CONFIG_ADDRESS_MASKING không được chọn) cờ "lam" sẽ không hiển thị.

@@ -39,7 +39,7 @@ Có lẽ tốt nhất nên sử dụng hướng dẫn này kết hợp với cod
 mã trình điều khiển trong sound/soc/codecs/
 
 Sự cố trình điều khiển Codec ASoC
-===========================
+=================================
 
 Cấu hình Codec DAI và PCM
 -------------------------------
@@ -48,7 +48,7 @@ Khả năng và hoạt động của PCM. Cấu trúc này được xuất để
 đã được đăng ký với lõi bởi trình điều khiển máy của bạn.
 
 ví dụ.
-::
+::::::
 
 cấu trúc tĩnh snd_soc_dai_ops wm8731_dai_ops = {
 	.prepare = wm8731_pcm_prepare,
@@ -79,7 +79,7 @@ cấu trúc snd_soc_dai_driver wm8731_dai = {
 
 
 Kiểm soát codec IO
-----------------
+------------------
 Codec thường có thể được điều khiển thông qua giao diện kiểu I2C hoặc SPI
 (AC97 kết hợp điều khiển với dữ liệu trong DAI). Trình điều khiển codec nên sử dụng
 Regmap API cho tất cả codec IO. Vui lòng xem include/linux/regmap.h và hiện có
@@ -87,15 +87,15 @@ trình điều khiển codec, ví dụ như sử dụng regmap.
 
 
 Bộ trộn và điều khiển âm thanh
--------------------------
+------------------------------
 Tất cả các bộ trộn codec và điều khiển âm thanh có thể được xác định bằng cách sử dụng tiện ích
 macro được xác định trong soc.h.
-::
+::::::::::::::::::::::::::::::::
 
 #define SOC_SINGLE(xname, reg, shift, mặt nạ, đảo ngược)
 
 Xác định một điều khiển duy nhất như sau: -
-::
+:::::::::::::::::::::::::::::::::::::::::::
 
 xname = Tên điều khiển, ví dụ: "Âm lượng phát lại"
   reg = đăng ký codec
@@ -104,22 +104,22 @@ xname = Tên điều khiển, ví dụ: "Âm lượng phát lại"
   đảo ngược = điều khiển bị đảo ngược
 
 Các macro khác bao gồm: -
-::
+:::::::::::::::::::::::::
 
 #define SOC_DOUBLE(xname, reg, shift_left, shift_right, mặt nạ, đảo ngược)
 
 Một điều khiển âm thanh nổi
-::
+:::::::::::::::::::::::::::
 
 #define SOC_DOUBLE_R(xname, reg_left, reg_right, shift, mặt nạ, đảo ngược)
 
 Một điều khiển âm thanh nổi trải dài 2 thanh ghi
-::
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 #define SOC_ENUM_SINGLE(xreg, xshift, xmask, xtexts)
 
 Xác định một điều khiển liệt kê duy nhất như sau: -
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::
 
 xreg = đăng ký
    xshift = độ lệch bit điều khiển trong thanh ghi
@@ -132,9 +132,9 @@ Xác định điều khiển liệt kê âm thanh nổi
 
 
 Hoạt động âm thanh Codec
-----------------------
+------------------------
 Trình điều khiển codec cũng hỗ trợ các hoạt động ALSA PCM sau:-
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 /* Hoạt động âm thanh SoC */
   cấu trúc snd_soc_ops {
@@ -158,13 +158,13 @@ Vui lòng xem thêm các ví dụ trong trình điều khiển codec khác.
 
 
 Trình xử lý sự kiện DAPM
-------------------
+------------------------
 Chức năng này là một cuộc gọi lại xử lý các cuộc gọi và hệ thống PM miền codec
 cuộc gọi PM miền (ví dụ: tạm dừng và tiếp tục). Nó được sử dụng để đặt codec
 đi ngủ khi không sử dụng.
 
 Trạng thái năng lượng: -
-::
+::::::::::::::::::::::::
 
 SNDRV_CTL_POWER_D0: /* Bật đầy đủ */
 	/* vref/mid, bật clk và OSc, đang hoạt động */
@@ -179,7 +179,7 @@ SNDRV_CTL_POWER_D3cold: /* Mọi thứ đều tắt, không có nguồn */
 
 
 Điều khiển tắt tiếng kỹ thuật số Codec DAC
-------------------------------
+------------------------------------------
 Hầu hết các codec đều có chức năng tắt tiếng kỹ thuật số trước DAC có thể được sử dụng để
 giảm thiểu bất kỳ tiếng ồn hệ thống.  Việc tắt tiếng sẽ dừng mọi dữ liệu kỹ thuật số khỏi
 vào DAC.
@@ -188,7 +188,7 @@ Có thể tạo một cuộc gọi lại được gọi bởi lõi cho mỗi cod
 khi tắt tiếng được áp dụng hoặc giải phóng.
 
 tức là
-::
+::::::
 
 int tĩnh wm8974_mute(struct snd_soc_dai *dai, int mute, int Direction)
   {

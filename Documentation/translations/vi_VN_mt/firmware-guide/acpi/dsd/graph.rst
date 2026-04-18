@@ -161,7 +161,7 @@ thiết bị "ISP" và ngược lại.
 
 
 Tài liệu tham khảo
-==========
+==================
 
 [acpi] Cấu hình nâng cao và đặc tả giao diện nguồn.
     ZZ0000ZZ được tham chiếu 2021-11-30.

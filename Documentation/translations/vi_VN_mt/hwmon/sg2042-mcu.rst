@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân sg2042-mcu
-========================
+====================================
 
 Chip được hỗ trợ:
 
@@ -34,7 +34,7 @@ Trình điều khiển này hỗ trợ giám sát phần cứng cho MCU trên bo
 giao diện i2c.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 các thiết bị một cách rõ ràng.

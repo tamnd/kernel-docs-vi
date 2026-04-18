@@ -15,7 +15,7 @@
 .. _maintainerentryprofile:
 
 Hồ sơ đăng nhập của người bảo trì
-========================
+=================================
 
 Hồ sơ mục nhập của người bảo trì bổ sung cho các tài liệu quy trình cấp cao nhất
 (gửi-bản vá, gửi trình điều khiển...) với
@@ -27,7 +27,7 @@ thực tiễn chung.
 
 
 Tổng quan
---------
+---------
 Cung cấp phần giới thiệu về cách hoạt động của hệ thống con. Trong khi MAINTAINERS
 cho người đóng góp biết nơi gửi bản vá cho tệp nào, nhưng nó không
 truyền tải cơ sở hạ tầng và cơ chế hệ thống con-cục bộ khác hỗ trợ
@@ -50,7 +50,7 @@ Các câu hỏi ví dụ cần xem xét:
 
 
 Gửi phụ lục danh sách kiểm tra
--------------------------
+------------------------------
 Liệt kê các tiêu chí bắt buộc và tư vấn, ngoài "danh sách kiểm tra gửi" chung
 để một bản vá được coi là đủ tốt để thu hút sự chú ý của người bảo trì.
 Ví dụ: "vượt qua checkpatch.pl không có lỗi hoặc cảnh báo. Vượt qua
@@ -63,7 +63,7 @@ sẽ được xem xét.
 
 
 Ngày chu kỳ chính
----------------
+-----------------
 Một trong những hiểu lầm phổ biến của người gửi là các bản vá có thể được
 được gửi bất cứ lúc nào trước khi cửa sổ hợp nhất đóng lại và vẫn có thể được
 được xem xét cho -rc1 tiếp theo. Thực tế là hầu hết các bản vá cần phải

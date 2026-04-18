@@ -19,7 +19,7 @@ Cấu trúc liên kết PHY
 =====================
 
 Tổng quan
-========
+=========
 
 Việc biểu diễn cấu trúc liên kết PHY trong ngăn xếp mạng nhằm mục đích thể hiện
 bố trí phần cứng cho bất kỳ liên kết Ethernet nhất định nào.

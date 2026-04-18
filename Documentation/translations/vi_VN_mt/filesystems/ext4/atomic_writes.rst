@@ -161,7 +161,7 @@ Xử lý giao dịch Nhật ký
     chỉ cần thiết để xử lý một phạm vi phân chia trên các khối lá.
 
 Làm cách nào để
-~~~~~~
+~~~~~~~~~~~~~~~
 
 Tạo hệ thống tập tin với hỗ trợ ghi nguyên tử
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

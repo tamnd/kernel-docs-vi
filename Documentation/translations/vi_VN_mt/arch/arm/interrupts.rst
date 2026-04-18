@@ -130,7 +130,7 @@ thao tác, cũng như theo dõi trạng thái.  Điều này rất hữu ích ch
 SMC9196 và USAR ở trên.
 
 Vì vậy, những gì đã thay đổi?
-===================
+=============================
 
 1. Việc triển khai máy không được ghi vào mảng irqdesc.
 

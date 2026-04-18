@@ -21,7 +21,7 @@ Eprobe - Truy tìm thăm dò dựa trên sự kiện
 - Viết cho v6.17
 
 Tổng quan
-========
+=========
 
 Eprobes là các sự kiện động được đặt trên các sự kiện hiện có để
 hủy đăng ký một trường là một con trỏ hoặc đơn giản là giới hạn những trường nào
@@ -60,7 +60,7 @@ FETCHARGS : Đối số. Mỗi đầu dò có thể có tới 128 đối số.
                   được hỗ trợ.
 
 Các loại
------
+--------
 FETCHARGS ở trên rất giống với các sự kiện kprobe như được mô tả trong
 Tài liệu/trace/kprobetrace.rst.
 
@@ -112,7 +112,7 @@ lĩnh vực?
 
 Một eprobe có thể giới hạn những gì được ghi lại. Lưu ý, nó không giúp ích gì về hiệu suất,
 vì tất cả các trường được ghi vào bộ đệm tạm thời để xử lý eprobe.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 'e:sched/switch sched.sched_switch prev=$prev_pid:u32 next=$next_pid:u32' >> /sys/kernel/tracing/dynamic_events
  # echo 1 > /sys/kernel/tracing/events/sched/switch/bật
@@ -156,7 +156,7 @@ Nếu một cuộc gọi hệ thống cụ thể được ghi lại nhưng các 
 sự kiện không phải là sự kiện bình thường mà được tạo từ sự kiện raw_syscalls
 trong hạt nhân). Để theo dõi cuộc gọi hệ thống openat, người ta có thể tạo
 một thăm dò sự kiện bên cạnh sự kiện raw_syscalls:
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # cd /sys/kernel/truy tìm
  Sự kiện # cat/raw_syscalls/sys_enter/format
@@ -174,7 +174,7 @@ trường:id dài;	bù đắp: 8;	kích thước:8;	đã ký: 1;
 in fmt: "NR %ld (%lx, %lx, %lx, %lx, %lx, %lx)", REC->id, REC->args[0], REC->args[1], REC->args[2], REC->args[3], REC->args[4], REC->args[5]
 
 Từ mã nguồn, sys_openat() có:
-::
+:::::::::::::::::::::::::::::
 
 int sys_openat(int dirfd, const char *path, int flags, chế độ mode_t)
  {
@@ -182,18 +182,18 @@ int sys_openat(int dirfd, const char *path, int flags, chế độ mode_t)
  }
 
 Đường dẫn là tham số thứ hai và đó là điều mong muốn.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 'e:openat raw_syscalls.sys_enter nr=$id filename=+8($args):ustring' >> Dynamic_events
 
 Điều này đang được chạy trên x86_64 trong đó kích thước từ là 8 byte và openat
 cuộc gọi hệ thống __NR_openat được đặt ở 257.
-::
+:::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 'nr == 257' > sự kiện/eprobes/openat/bộ lọc
 
 Bây giờ hãy kích hoạt sự kiện và xem dấu vết.
-::
+:::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 1 > sự kiện/eprobes/openat/kích hoạt
  Dấu vết # cat

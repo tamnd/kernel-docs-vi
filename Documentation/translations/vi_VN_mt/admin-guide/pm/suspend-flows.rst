@@ -53,7 +53,7 @@ ZZ0002ZZ nêu rõ nội dung sau.
 .. _s2idle_suspend:
 
 Luồng mã tạm dừng chuyển sang không hoạt động
-=================================
+=============================================
 
 Các bước sau đây được thực hiện để chuyển hệ thống từ chế độ làm việc
 chuyển sang trạng thái ngủ ZZ0000ZZ:
@@ -131,7 +131,7 @@ Từ thời điểm này trở đi, CPU chỉ có thể được đánh thức b
 .. _s2idle_resume:
 
 Luồng mã tiếp tục tạm dừng để không hoạt động
-================================
+=============================================
 
 Các bước sau đây được thực hiện để chuyển đổi hệ thống từ
 ZZ0000ZZ trạng thái ngủ sang trạng thái làm việc:
@@ -175,7 +175,7 @@ Nhiệm vụ bị cố định ở bước 2 của ZZ0000ZZ trước đó
 
 
 Luồng mã tạm dừng phụ thuộc vào nền tảng
-====================================
+========================================
 
 Các bước sau đây được thực hiện để chuyển hệ thống từ chế độ làm việc
 chuyển sang trạng thái tạm dừng phụ thuộc vào nền tảng:
@@ -244,7 +244,7 @@ Trong nhiều trường hợp, quyền điều khiển được chuyển tới p
 
 
 Luồng mã tiếp tục phụ thuộc vào nền tảng
-===================================
+========================================
 
 Các bước sau đây được thực hiện để chuyển đổi hệ thống từ
 trạng thái tạm dừng phụ thuộc vào nền tảng sang trạng thái làm việc:

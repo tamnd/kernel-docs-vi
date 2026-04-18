@@ -17,7 +17,7 @@
 .. _context-analysis:
 
 Phân tích bối cảnh dựa trên trình biên dịch
-===============================
+===========================================
 
 Phân tích bối cảnh là một phần mở rộng ngôn ngữ, cho phép kiểm tra tĩnh
 ngữ cảnh được yêu cầu đang hoạt động (hoặc không hoạt động) bằng cách thu thập và giải phóng
@@ -88,7 +88,7 @@ Thông tin chi tiết cũng được ghi lại ZZ0000ZZ.
    retain consistency between inline and non-inline function declarations.
 
 Hạt nhân nguyên thủy được hỗ trợ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hiện nay các nguyên thủy đồng bộ hóa sau đây được hỗ trợ:
 ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ, ZZ0003ZZ, ZZ0004ZZ,

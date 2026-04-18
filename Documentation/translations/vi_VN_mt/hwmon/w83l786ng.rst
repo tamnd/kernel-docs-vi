@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w83l786ng
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -58,7 +58,7 @@ Cảnh báo sẽ được kích hoạt nếu điện áp vượt quá mức tố
 hoặc giới hạn tối đa.
 
 tập tin /sys
-----------
+------------
 
 pwm[1-2]
 	    - tệp này lưu trữ chu kỳ nhiệm vụ PWM hoặc giá trị DC (tốc độ quạt) trong phạm vi:

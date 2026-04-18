@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 nhật ký thay đổi ibm 3270
-------------------
+-------------------------
 
 .. include:: 3270.ChangeLog
     :literal:

@@ -15,7 +15,7 @@
 .. _NMI_rcu_doc:
 
 Sử dụng RCU để bảo vệ Trình xử lý NMI động
-=========================================
+==========================================
 
 
 Mặc dù RCU thường được sử dụng để bảo vệ cấu trúc dữ liệu chủ yếu đọc,

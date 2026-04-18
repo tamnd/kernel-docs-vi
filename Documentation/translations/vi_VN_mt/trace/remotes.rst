@@ -19,7 +19,7 @@ Truy tìm điều khiển từ xa
 :Tác giả: Vincent Donnefort <vdonnefort@google.com>
 
 Tổng quan
-========
+=========
 Phần sụn và phần mềm ảo hóa là hộp đen của kernel. Có cách để xem những gì
 họ đang làm có thể hữu ích để gỡ lỗi cả hai. Đây là nơi bộ đệm theo dõi từ xa
 đi vào. Bộ đệm theo dõi từ xa là bộ đệm vòng được thực thi bởi phần sụn hoặc
@@ -30,7 +30,7 @@ Với bộ đệm vòng theo dõi từ xa, phần sụn và bộ ảo hóa có t
 mà nhân máy chủ có thể nhìn thấy và hiển thị với không gian người dùng.
 
 Đăng ký một điều khiển từ xa
-=================
+============================
 Điều khiển từ xa phải cung cấp một tập hợp các cuộc gọi lại ZZ0000ZZ mà
 mô tả có thể được tìm thấy dưới đây. Những cuộc gọi lại đó cho phép Tracefs kích hoạt và
 vô hiệu hóa việc theo dõi và các sự kiện, để tải và dỡ bỏ bộ đệm theo dõi (một tập hợp
@@ -44,7 +44,7 @@ thư mục ZZ0000ZZ. Bộ đệm sau đó có thể được đọc bằng các 
 ZZ0001ZZ và ZZ0002ZZ.
 
 Khai báo một sự kiện từ xa
-======================
+==========================
 Macro được cung cấp để dễ dàng khai báo các sự kiện từ xa, theo cách tương tự
 thời trang cho các sự kiện trong kernel. Một tờ khai phải cung cấp ID, mô tả về
 các đối số sự kiện và cách in sự kiện:
@@ -71,7 +71,7 @@ ZZ0001ZZ.
 Các sự kiện đã đăng ký xuất hiện trong thư mục từ xa dưới ZZ0000ZZ.
 
 Bộ đệm vòng đơn giản
-==================
+====================
 Có thể tìm thấy một cách triển khai đơn giản cho trình ghi bộ đệm vòng trong
 kernel/trace/simple_ring_buffer.c.
 

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Chất khử trùng hành vi không xác định - UBSAN
-====================================
+=============================================
 
 UBSAN là trình kiểm tra hành vi không xác định trong thời gian chạy.
 
@@ -59,7 +59,7 @@ Báo cáo ví dụ
 	 =======================================================================================
 
 Cách sử dụng
------
+------------
 
 Để bật UBSAN, hãy định cấu hình kernel bằng::
 
@@ -84,7 +84,7 @@ vẫn kích hoạt nó trong config, chỉ cần lưu ý là nó sẽ tạo ra r
 báo cáo.
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. _1: https://gcc.gnu.org/onlinedocs/gcc-4.9.0/gcc/Debugging-Options.html
 .. _2: https://gcc.gnu.org/onlinedocs/gcc/Debugging-Options.html

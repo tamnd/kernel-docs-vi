@@ -29,7 +29,7 @@ Nội dung
 
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 Để biết thông tin về cách xác định bộ điều hợp của bạn và để có phiên bản Intel mới nhất
 trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel:
 ZZ0000ZZ
@@ -94,7 +94,7 @@ liên kết ip đặt eth0 vf 0 vlan 100 // đặt vlan 100 cho VF 0
     ip link set eth0 vf 0 vlan 200 // đặt vlan 200 mới cho VF 0
 
 Gỡ lỗi
------
+------
 :Phạm vi hợp lệ: 0-16 (0=none,...,16=all)
 : Giá trị mặc định: 0
 
@@ -133,7 +133,7 @@ hiệu suất kém hoặc mất liên kết.
 
 
 công cụ đạo đức
--------
+---------------
 Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
 chẩn đoán cũng như hiển thị thông tin thống kê. Công cụ đạo đức mới nhất
 Phiên bản này là cần thiết cho chức năng này. Tải xuống tại:
@@ -142,7 +142,7 @@ ZZ0000ZZ
 
 
 Kích hoạt Wake trên LAN (WoL)
---------------------------
+-----------------------------
 WoL được cấu hình thông qua tiện ích ethtool.
 
 WoL sẽ được kích hoạt trên hệ thống trong lần tắt hoặc khởi động lại tiếp theo. cho
@@ -155,7 +155,7 @@ Wake On LAN không được hỗ trợ cho thiết bị sau:
 
 
 Nhiều hàng đợi
-----------
+--------------
 Trong chế độ này, một vectơ MSI-X riêng biệt được phân bổ cho mỗi hàng đợi và một vectơ cho
 các ngắt "khác" như thay đổi trạng thái liên kết và lỗi. Tất cả các ngắt đều
 được điều chỉnh thông qua kiểm duyệt ngắt. Việc kiểm duyệt ngắt phải được sử dụng để tránh
@@ -172,7 +172,7 @@ và chế độ nhiều hàng đợi hoặc ngược lại.
 
 
 Tính năng chống giả mạo MAC và VLAN
-----------------------------------
+-----------------------------------
 Khi một trình điều khiển độc hại cố gắng gửi một gói giả mạo, nó sẽ bị loại bỏ.
 phần cứng và không được truyền đi.
 
@@ -184,14 +184,14 @@ giả mạo
 
 
 Đặt địa chỉ MAC, VLAN và giới hạn tốc độ bằng công cụ IProute2
-------------------------------------------------------------
+--------------------------------------------------------------
 Bạn có thể đặt địa chỉ MAC của Chức năng ảo (VF), VLAN mặc định và
 giới hạn tốc độ bằng công cụ IProute2. Tải về phiên bản mới nhất của
 Công cụ IProute2 từ Sourceforge nếu phiên bản của bạn không có tất cả các tính năng
 bạn yêu cầu.
 
 Công cụ định hình dựa trên tín dụng (Chế độ Qav)
-------------------------------
+------------------------------------------------
 Khi bật qdisc CBS ở chế độ giảm tải phần cứng, định hình lưu lượng bằng cách sử dụng
 CBS (được mô tả trong IEEE 802.1Q-2018 Mục 8.6.8.2 và được thảo luận trong
 Thuật toán Phụ lục L) sẽ chạy trong bộ điều khiển i210 nên chính xác hơn và

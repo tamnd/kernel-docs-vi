@@ -53,7 +53,7 @@ và mẫu số 32 bit, do đó giá trị STC 90kHz thực là
 ZZ0002ZZ.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

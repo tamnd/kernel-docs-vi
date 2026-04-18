@@ -158,7 +158,7 @@ mã không yêu cầu điều này nhưng sẽ hiệu quả hơn nếu điều n
 
 
 Bộ đệm và kiểm soát dòng chảy
---------------------------
+-----------------------------
 
 Lớp PPP chung đã được thiết kế để giảm thiểu lượng dữ liệu
 mà nó đệm theo hướng truyền.  Nó duy trì một hàng đợi
@@ -205,7 +205,7 @@ sự phân mảnh.
 
 
 SMP an toàn
-----------
+-----------
 
 Lớp chung PPP đã được thiết kế để đảm bảo an toàn cho SMP.  Ổ khóa được
 được sử dụng xung quanh quyền truy cập vào cấu trúc dữ liệu nội bộ khi cần thiết
@@ -260,7 +260,7 @@ Lớp chung cung cấp những đảm bảo này cho các kênh:
 
 
 Giao diện với pppd
------------------
+------------------
 
 Lớp chung PPP xuất giao diện thiết bị ký tự được gọi là
 /dev/ppp.  Điều này được pppd sử dụng để điều khiển các đơn vị giao diện PPP và

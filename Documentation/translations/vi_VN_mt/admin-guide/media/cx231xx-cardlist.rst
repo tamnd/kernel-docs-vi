@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 danh sách thẻ cx231xx
-==================
+=====================
 
 .. tabularcolumns:: |p{1.4cm}|p{10.0cm}|p{6.5cm}|
 

@@ -28,7 +28,7 @@ Bản quyền 2009 Red Hat Inc.
 Viết cho: 2.6.31
 
 Thuật ngữ được sử dụng trong Tài liệu này
----------------------------------
+-----------------------------------------
 
 đuôi
 	- nơi việc ghi mới diễn ra trong bộ đệm vòng.
@@ -427,7 +427,7 @@ Nhưng khi việc hoán đổi diễn ra, nó sẽ sử dụng trang đầu gầ
 
 
 Làm cho bộ đệm vòng không bị khóa:
---------------------------------
+----------------------------------
 
 Ý tưởng chính đằng sau thuật toán không khóa là kết hợp chuyển động
 của con trỏ head_page với việc hoán đổi các trang với đầu đọc.
@@ -710,7 +710,7 @@ trang đệm cũng là trang cam kết.
 
 
 Viết lồng nhau
--------------
+--------------
 
 Trong quá trình đẩy về phía trước của trang đuôi, trước tiên chúng ta phải đẩy về phía trước
 trang đầu nếu trang đầu là trang tiếp theo. Nếu trang đầu

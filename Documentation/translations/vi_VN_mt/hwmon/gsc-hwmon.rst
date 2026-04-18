@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân gsc-hwmon
-=======================
+===================================
 
 Chip được hỗ trợ: Gateworks GSC
 Bảng dữ liệu: ZZ0000ZZ
@@ -50,7 +50,7 @@ tempX_label Tên của nhiệt độ đầu vào.
 
 
 Kiểm soát đầu ra PWM
-------------------
+--------------------
 
 GSC có 1 đầu ra PWM hoạt động ở chế độ tự động trong đó
 Giá trị PWM sẽ được chia tỷ lệ tùy theo 6 ranh giới nhiệt độ.

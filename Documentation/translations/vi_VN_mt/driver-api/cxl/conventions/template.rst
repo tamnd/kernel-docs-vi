@@ -22,11 +22,11 @@ Tài liệu
 Bản sửa đổi CXL <rev>, Phiên bản <ver>
 
 Giấy phép
--------
+---------
 SPDX-Số nhận dạng giấy phép: CC-BY-4.0
 
 Người sáng tạo/Người đóng góp
---------------------
+-----------------------------
 
 Tóm tắt sự thay đổi
 ---------------------
@@ -35,13 +35,13 @@ Tóm tắt sự thay đổi
 các giả định và sự đánh đổi được thực hiện bởi nền tảng phần cứng.>
 
 Lợi ích của sự thay đổi
-----------------------
+-----------------------
 
 <Chi tiết điều gì sẽ xảy ra nếu nền tảng và Linux không áp dụng điều này
 quy ước.>
 
 Tài liệu tham khảo
-----------
+------------------
 
 Mô tả chi tiết về sự thay đổi
 ----------------------------------

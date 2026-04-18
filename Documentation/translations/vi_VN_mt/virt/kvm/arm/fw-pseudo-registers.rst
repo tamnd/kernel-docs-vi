@@ -88,7 +88,7 @@ KVM_REG_ARM_SMCCC_ARCH_WORKAROUND_2_NOT_AVAIL:
 
 
 Thanh ghi chương trình cơ sở tính năng Bitmap
----------------------------------
+---------------------------------------------
 
 Ngược lại với các thanh ghi trên, các thanh ghi sau đây thể hiện
 dịch vụ hypercall dưới dạng feature-bitmap tới không gian người dùng. Cái này

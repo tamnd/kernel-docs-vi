@@ -225,7 +225,7 @@ fw.bootloader
 Phiên bản của bộ nạp khởi động.
 
 Công việc tương lai
-===========
+===================
 
 Các phần mở rộng sau có thể hữu ích:
 

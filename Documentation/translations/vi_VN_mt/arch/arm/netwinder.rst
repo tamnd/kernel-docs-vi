@@ -21,7 +21,7 @@ NetWinder là một máy tính nhỏ có công suất thấp, được thiết k
 Cầu DC21285 PCI, với phần cứng kiểu PC được dán xung quanh.
 
 Sử dụng cổng
-==========
+============
 
 ============= ==================================
 Mô tả tối thiểu tối đa
@@ -83,7 +83,7 @@ Loại IRQ Mô tả
 ======= ======= ===========================
 
 Cách sử dụng DMA
-=========
+================
 
 ======= ======= ============
 Loại DMA Mô tả

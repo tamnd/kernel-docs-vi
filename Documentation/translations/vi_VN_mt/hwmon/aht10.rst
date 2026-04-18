@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân aht10
-=====================
+===============================
 
 Chip được hỗ trợ:
 
@@ -51,13 +51,13 @@ AHT10/AHT20 là cảm biến nhiệt độ và độ ẩm
 Địa chỉ của thiết bị i2c này chỉ có thể là 0x38
 
 Tính năng đặc biệt
-----------------
+------------------
 
 AHT20, DHT20 có hỗ trợ CRC8 bổ sung được gửi dưới dạng byte cuối cùng của cảm biến
 các giá trị.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị AHT10/ATH20 vì không có trình điều khiển đáng tin cậy.
 cách để xác định xem chip i2c có phải là AHT10/AHT20 hay không. Thiết bị có
@@ -65,7 +65,7 @@ cách để xác định xem chip i2c có phải là AHT10/AHT20 hay không. Thi
 Documentation/i2c/instantiating-devices.rst để biết chi tiết.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ================================================================
 temp1_input Nhiệt độ đo được tính bằng mili độ C

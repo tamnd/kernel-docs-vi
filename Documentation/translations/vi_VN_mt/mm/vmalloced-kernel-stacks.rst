@@ -21,7 +21,7 @@ Hỗ trợ ngăn xếp hạt nhân được ánh xạ ảo
 .. contents:: :local:
 
 Tổng quan
---------
+---------
 
 Đây là sự tổng hợp thông tin từ code và bản vá gốc
 loạt giới thiệu ZZ0000ZZ
@@ -140,7 +140,7 @@ Trên x86, việc này được thực hiện bằng cách xử lý lỗi trang 
 tràn ngăn xếp trên ngăn xếp lỗi kép.
 
 Kiểm tra phân bổ VMAP với các trang bảo vệ
-----------------------------------------
+------------------------------------------
 
 Làm cách nào để chúng tôi đảm bảo rằng VMAP_STACK thực sự đang được phân bổ với vị trí dẫn đầu
 và trang bảo vệ theo sau? Các bài kiểm tra lkdtm sau đây có thể giúp phát hiện bất kỳ

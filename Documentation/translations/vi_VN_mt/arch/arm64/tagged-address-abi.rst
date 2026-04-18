@@ -34,7 +34,7 @@ syscall ABI cho phép không gian người dùng chuyển các con trỏ đượ
 các cuộc gọi hệ thống kernel.
 
 2. Địa chỉ được gắn thẻ AArch64 ABI
------------------------------
+-----------------------------------
 
 Từ góc độ giao diện tòa nhà hạt nhân và cho các mục đích
 tài liệu này, "con trỏ được gắn thẻ hợp lệ" là một con trỏ có khả năng
@@ -124,7 +124,7 @@ Có thể tìm thấy định nghĩa về ý nghĩa của các con trỏ đượ
 trong Tài liệu/arch/arm64/tagged-pointers.rst.
 
 3. Địa chỉ được gắn thẻ AArch64 ABI Ngoại lệ
------------------------------------------
+--------------------------------------------
 
 Các tham số cuộc gọi hệ thống sau đây phải được bỏ gắn thẻ bất kể
 Thư giãn ABI:
@@ -148,7 +148,7 @@ Mọi nỗ lực sử dụng con trỏ được gắn thẻ khác 0 đều có t
 thất bại.
 
 4. Ví dụ về cách sử dụng đúng
----------------------------
+-----------------------------
 .. code-block:: c
 
    #include <stdlib.h>

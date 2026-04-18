@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân it87
-==================
+==============================
 
 Chip được hỗ trợ:
 
@@ -363,7 +363,7 @@ khởi động, hãy tham khảo /etc/sensors.conf của lm_sensors. (4 = nhiệ
 
 
 Kiểm soát tốc độ quạt
------------------
+---------------------
 
 Các tính năng kiểm soát tốc độ quạt được giới hạn ở chế độ PWM thủ công. tự động
 Xử lý điều khiển chế độ "Người bảo vệ thông minh" chỉ được triển khai cho các chip cũ hơn
@@ -378,7 +378,7 @@ chỉ đọc.
 
 
 Điều khiển tốc độ quạt tự động (giao diện cũ)
--------------------------------------------
+---------------------------------------------
 
 Driver hỗ trợ giao diện cũ điều khiển tốc độ quạt tự động
 được triển khai bởi các chip IT8705F cho đến phiên bản F và IT8712F

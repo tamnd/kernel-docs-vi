@@ -17,7 +17,7 @@ Phần GPU SVM
 =================
 
 Thống nhất nguyên tắc thiết kế
-=============================
+==============================
 
 * đường dẫn di chuyển_to_ram
 	* Chỉ dựa vào các khái niệm MM cốt lõi (PTE di chuyển, tham chiếu trang và
@@ -92,7 +92,7 @@ Tổng quan về thiết kế cơ sở
    :doc: Examples
 
 Tổng quan về thiết kế drm_pagemap
-==============================
+=================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_pagemap.c
    :doc: Overview
@@ -101,7 +101,7 @@ Tổng quan về thiết kế drm_pagemap
    :doc: Migration
 
 Các tính năng thiết kế có thể có trong tương lai
-===============================
+================================================
 
 * Lỗi GPU đồng thời
 	* Các lỗi CPU xảy ra đồng thời nên có GPU đồng thời là điều hợp lý

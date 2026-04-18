@@ -17,11 +17,11 @@ Trình điều khiển hạt nhân cho mô-đun omap HDQ/1 dây
 ===================================================
 
 Chip được hỗ trợ:
-================
+=================
 Bộ điều khiển HDQ/1 dây trên nền tảng TI OMAP 2430/3430.
 
 Một liên kết hữu ích về những điều cơ bản về HDQ:
-===============================
+=================================================
 ZZ0000ZZ
 
 Sự miêu tả:
@@ -43,7 +43,7 @@ sử dụng xung khởi tạo (còn được gọi là xung ngắt). xung phụ
 không phản hồi với xung hiện diện như trong giao thức 1-Dây.
 
 Nhận xét:
-========
+=========
 Trình điều khiển (drivers/w1/masters/omap_hdq.c) hỗ trợ chế độ HDQ của
 bộ điều khiển. Ở chế độ này, vì chúng tôi không thể đọc ID tuân theo W1
 spec(family:id:crc), một tham số mô-đun có thể được chuyển tới trình điều khiển sẽ

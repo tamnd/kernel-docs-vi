@@ -34,7 +34,7 @@ Nhược điểm:
 
 
 Làm thế nào để sử dụng nó?
-==============
+==========================
 
 Việc chuyển đổi chế độ được thực hiện bằng cách sử dụng video=aty128fb:<độ phân giải>... moddb
 tham số khởi động hoặc sử dụng chương trình ZZ0000ZZ.

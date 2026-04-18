@@ -17,7 +17,7 @@
 ===============================
 
 Tổng quan
-========
+=========
 Hệ thống theo dõi PCI cung cấp các điểm theo dõi để theo dõi các sự kiện phần cứng quan trọng
 có thể ảnh hưởng đến hiệu năng và độ tin cậy của hệ thống. Những sự kiện này thường hiển thị
 lên đây:
@@ -34,7 +34,7 @@ pci_hp_event
 
 Giám sát các sự kiện cắm nóng PCI bao gồm lắp/tháo thẻ và liên kết
 những thay đổi trạng thái.
-::
+::::::::::::::::::::::::::
 
 pci_hp_event "%s slot:%s, sự kiện:%s\n"
 
@@ -60,7 +60,7 @@ pcie_link_event
 ---------------
 
 Theo dõi sự thay đổi tốc độ liên kết PCIe và cung cấp thông tin trạng thái liên kết chi tiết.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 pcie_link_event "%s loại:%d, lý do:%d, cur_bus_speed:%d, max_bus_speed:%d, chiều rộng:%u, flit_mode:%u, trạng thái:%s\n"
 

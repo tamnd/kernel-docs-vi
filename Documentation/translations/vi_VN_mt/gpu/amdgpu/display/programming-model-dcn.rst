@@ -29,7 +29,7 @@ vì đơn giản, tài liệu này chỉ kiểm tra DCN).
    For this page, we will use the term GPU to refers to dGPU and APU.
 
 Tổng quan
-========
+=========
 
 Từ góc độ phần cứng màn hình, có thể hy vọng rằng nếu một
 vấn đề đã được xác định rõ ràng thì nó có thể sẽ được triển khai ở cấp độ phần cứng.
@@ -70,7 +70,7 @@ góc nhìn của người lái xe. Trang này hy vọng sẽ cho phép người 
 qua mã hiển thị amdgpu.
 
 Tổng quan về kiến ​​trúc trình điều khiển hiển thị
-====================================
+==================================================
 
 Sơ đồ bên dưới cung cấp cái nhìn tổng quan về kiến ​​trúc trình điều khiển hiển thị;
 lưu ý rằng nó minh họa các lớp phần mềm được DC áp dụng:
@@ -88,7 +88,7 @@ tập hợp các lớp khác nhau thể hiện sự tương tác với DMUB
 vi điều khiển.
 
 Đối tượng cơ bản
--------------
+----------------
 
 Sơ đồ dưới đây phác thảo các đối tượng hiển thị cơ bản. Đặc biệt, trả
 chú ý đến tên trong các hộp vì chúng đại diện cho cấu trúc dữ liệu trong

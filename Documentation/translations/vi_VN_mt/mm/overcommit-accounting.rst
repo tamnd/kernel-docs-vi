@@ -63,7 +63,7 @@ không quan trọng lắm nhưng đó là trường hợp khó khăn nếu bạn
 
 
 Nó hoạt động như thế nào
-============
+========================
 
 Việc cam kết quá mức dựa trên các quy tắc sau
 
@@ -81,7 +81,7 @@ Kế toán bổ sung
 	| bộ nhớ shmfs được rút ra từ cùng một nhóm
 
 Trạng thái
-======
+==========
 
 * Chúng tôi tính đến ánh xạ bộ nhớ mmap
 * Chúng tôi tính đến những thay đổi của mprotect trong cam kết
@@ -95,5 +95,5 @@ Trạng thái
 * Triển khai thực thi hạn mức thực tế
 
 phải làm
-=====
+========
 * Trang ptrace tài khoản (điều này khó)

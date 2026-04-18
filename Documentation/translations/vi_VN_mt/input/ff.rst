@@ -53,7 +53,7 @@ Nếu bạn có thiết bị iforce nối tiếp, bạn cần bắt đầu đín
 joydev/joystick.rst để biết chi tiết.
 
 Nó có hoạt động không?
---------------
+----------------------
 
 Có một tiện ích tên là fftest sẽ cho phép bạn kiểm tra trình điều khiển ::
 
@@ -67,7 +67,7 @@ và write() trên /dev/input/eventXX.
 Thông tin này có thể thay đổi.
 
 Truy vấn khả năng của thiết bị
-----------------------------
+------------------------------
 
 ::
 
@@ -164,7 +164,7 @@ int ioctl(int fd, EVIOCRMFF, effect.id);
 dừng hiệu ứng nếu nó đang chơi.
 
 Kiểm soát việc phát lại các hiệu ứng
------------------------------------
+------------------------------------
 
 Việc điều khiển việc chơi được thực hiện bằng write(). Dưới đây là một ví dụ:
 
@@ -195,7 +195,7 @@ write(fd, (const void*) &play, sizeof(play));
 write(fd, (const void*) &stop, sizeof(stop));
 
 Thiết lập mức tăng
-----------------
+------------------
 
 Không phải tất cả các thiết bị đều có sức mạnh như nhau. Vì vậy, người dùng nên đặt mức tăng
 tùy thuộc vào mức độ họ muốn hiệu ứng mạnh đến mức nào. Cài đặt này là

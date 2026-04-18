@@ -27,7 +27,7 @@ hoặc các thiết bị có khả năng phát hiện đối tượng.
 .. _detect-control-id:
 
 Phát hiện ID kiểm soát
-==================
+======================
 
 ZZ0001ZZ
     Bộ mô tả lớp Phát hiện. Đang gọi

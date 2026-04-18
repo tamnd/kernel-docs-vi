@@ -24,7 +24,7 @@ bộ chuyển đổi đi kèm với PhoenixRC hoặc các bộ chuyển đổi t
 Bộ chuyển đổi hỗ trợ 7 kênh analog và 1 công tắc đầu vào kỹ thuật số.
 
 Ghi chú
-=====
+=======
 
 Nhiều bộ điều khiển RC có thể định cấu hình thanh nào đi đến kênh nào.
 Điều này cũng có thể được cấu hình trong hầu hết các trình mô phỏng, do đó không cần thiết phải khớp.
@@ -52,7 +52,7 @@ ZZ0007ZZ ABS_MISC |
 Công tắc đầu vào kỹ thuật số được tạo dưới dạng sự kiện ZZ0000ZZ.
 
 Kiểm tra thủ công
-==============
+=================
 
 Để kiểm tra chức năng của trình điều khiển này, bạn có thể sử dụng ZZ0000ZZ, một phần của
 bộ ZZ0001ZZ [1]_.
@@ -65,6 +65,6 @@ Ví dụ::
 Để in tất cả các sự kiện đầu vào từ đầu vào ZZ0000ZZ.
 
 Tài liệu tham khảo
-==========
+==================
 
 .. [1] https://www.kraxel.org/cgit/input/

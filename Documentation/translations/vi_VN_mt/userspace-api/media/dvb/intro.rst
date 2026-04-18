@@ -22,7 +22,7 @@ Giới thiệu
 .. _requisites:
 
 Những điều bạn cần biết
-=====================
+=======================
 
 Người đọc tài liệu này cần phải có một số kiến thức về
 lĩnh vực phát sóng video kỹ thuật số (Truyền hình kỹ thuật số) và nên làm quen với
@@ -69,7 +69,7 @@ Hạt nhân.
 .. _overview:
 
 Tổng quan
-========
+=========
 
 
 .. _stb_components:
@@ -129,7 +129,7 @@ chảy giữa các thành phần đó.
 .. _dvb_devices:
 
 Thiết bị truyền hình kỹ thuật số Linux
-========================
+======================================
 
 Linux Digital TV API cho phép bạn điều khiển các thành phần phần cứng này thông qua
 hiện có sáu thiết bị ký tự kiểu Unix cho video, âm thanh, giao diện người dùng,
@@ -172,7 +172,7 @@ thiết bị được mô tả trong các chương sau.
 .. _include_files:
 
 API bao gồm các tập tin
-=================
+=======================
 
 Đối với mỗi thiết bị TV kỹ thuật số đều tồn tại một tệp bao gồm tương ứng. các
 TV kỹ thuật số API bao gồm các tệp nên được đưa vào nguồn ứng dụng với

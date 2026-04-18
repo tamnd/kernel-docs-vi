@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân cros_ec_hwmon
-===========================
+=======================================
 
 Chip được hỗ trợ:
 
@@ -36,7 +36,7 @@ Bộ điều khiển nhúng ChromeOS được sử dụng trong Chromebook và c
 Các nhãn kênh được hiển thị qua hwmon được lấy từ chính EC.
 
 Các tính năng được hỗ trợ
-------------------
+-------------------------
 
 Bài đọc của người hâm mộ
     Luôn được hỗ trợ.

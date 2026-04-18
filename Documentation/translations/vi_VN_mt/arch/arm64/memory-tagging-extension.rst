@@ -38,7 +38,7 @@ thẻ logic đối với thẻ phân bổ và có khả năng tăng
 ngoại lệ về sự không khớp, tùy thuộc vào cấu hình thanh ghi hệ thống.
 
 Hỗ trợ không gian người dùng
-=================
+============================
 
 Khi ZZ0000ZZ được chọn và Tiện ích gắn thẻ bộ nhớ được bật
 được phần cứng hỗ trợ, kernel sẽ quảng cáo tính năng này tới
@@ -144,7 +144,7 @@ giao diện cung cấp một mặt nạ bao gồm. Mặt nạ bao gồm của ZZ
 mặt nạ ZZ0002ZZ) dẫn đến CPU luôn tạo thẻ ZZ0003ZZ.
 
 Chế độ kiểm tra thẻ ưa thích Per-CPU
------------------------------------
+------------------------------------
 
 Trên một số CPU, hiệu suất của MTE ở chế độ kiểm tra thẻ chặt chẽ hơn
 tương tự như các chế độ kiểm tra thẻ ít nghiêm ngặt hơn. Điều này làm cho nó
@@ -176,7 +176,7 @@ Lưu ý rằng không gian người dùng không có cách nào để yêu cầu
 cũng vô hiệu hóa chế độ bất đối xứng.
 
 Trạng thái quá trình ban đầu
----------------------
+----------------------------
 
 Trên ZZ0000ZZ, quy trình mới có cấu hình sau:
 
@@ -236,7 +236,7 @@ Documentation/arch/arm64/tagged-address-abi.rst and above. The corresponding
 ``regset`` is 1 element of 8 bytes (``sizeof(dài))``).
 
 Hỗ trợ kết xuất lõi
------------------
+-------------------
 
 Các thẻ phân bổ cho bộ nhớ người dùng được ánh xạ với ZZ0000ZZ bị loại bỏ
 trong tệp lõi dưới dạng các phân đoạn ZZ0001ZZ bổ sung. các
@@ -259,7 +259,7 @@ trong một byte. Với phần thẻ 16 byte, một trang 4K yêu cầu 128
 byte trong tệp lõi.
 
 Ví dụ về cách sử dụng đúng
-========================
+==========================
 
 ZZ0000ZZ
 

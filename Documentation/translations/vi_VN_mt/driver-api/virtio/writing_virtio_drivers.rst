@@ -28,7 +28,7 @@ tổng quan về đức hạnh
 
 
 Bản soạn sẵn trình điều khiển
-==================
+=============================
 
 Ở mức tối thiểu, người lái xe tài năng cần phải đăng ký trên xe buýt tài năng
 và định cấu hình hàng đợi cho thiết bị theo thông số kỹ thuật của nó,
@@ -200,7 +200,7 @@ thiết bị hoặc virtqueue (virtio_reset_device()).
 
 
 Tài liệu tham khảo
-==========
+==================
 
 _ZZ0000ZZ Virtio Spec v1.2:
 ZZ0001ZZ

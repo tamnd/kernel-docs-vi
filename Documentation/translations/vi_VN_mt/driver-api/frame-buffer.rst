@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thư viện bộ đệm khung
-====================
+=====================
 
 Trình điều khiển bộ đệm khung phụ thuộc rất nhiều vào bốn cấu trúc dữ liệu. Những cái này
 cấu trúc được khai báo trong include/linux/fb.h. Họ là fb_info,
@@ -55,7 +55,7 @@ Bản đồ màu đệm khung
    :export:
 
 Cơ sở dữ liệu chế độ video đệm khung
---------------------------------
+------------------------------------
 
 .. kernel-doc:: drivers/video/fbdev/core/modedb.c
    :internal:
@@ -64,13 +64,13 @@ Cơ sở dữ liệu chế độ video đệm khung
    :export:
 
 Bộ đệm khung Cơ sở dữ liệu chế độ video Macintosh
-------------------------------------------
+-------------------------------------------------
 
 .. kernel-doc:: drivers/video/fbdev/macmodes.c
    :export:
 
 Phông chữ đệm khung
-------------------
+-------------------
 
 Tham khảo tệp lib/fonts/fonts.c để biết thêm thông tin.
 

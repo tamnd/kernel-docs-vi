@@ -100,7 +100,7 @@ trình điều khiển hiện đã lỗi thời cùng với API bổ sung có tr
 thiết bị sử dụng.
 
 Nhận kênh truyền hình kỹ thuật số
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Phần này cố gắng giải thích cách nó hoạt động và điều này ảnh hưởng như thế nào đến
 cấu hình của card TV kỹ thuật số.

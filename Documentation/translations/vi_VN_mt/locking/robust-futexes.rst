@@ -98,7 +98,7 @@ futex mạnh mẽ không thực tế đối với bất kỳ loại phân phối
 Vì vậy cần phải làm gì đó.
 
 Cách tiếp cận mới cho futex mạnh mẽ
-------------------------------
+-----------------------------------
 
 Trọng tâm của phương pháp mới này là một danh sách riêng tư cho mỗi luồng
 các khóa mạnh mẽ mà không gian người dùng đang nắm giữ (được duy trì bởi glibc) - được

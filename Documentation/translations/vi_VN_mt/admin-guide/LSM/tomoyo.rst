@@ -30,7 +30,7 @@ Mặc dù các hướng dẫn này sử dụng phiên bản TOMOYO không phải
 để biết TOMOYO là gì.
 
 Làm cách nào để kích hoạt TOMOYO?
-=====================
+=================================
 
 Xây dựng kernel với ZZ0000ZZ và truyền ZZ0001ZZ vào
 dòng lệnh của kernel.

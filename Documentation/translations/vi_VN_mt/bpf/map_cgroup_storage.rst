@@ -33,7 +33,7 @@ Loại bản đồ ZZ0000ZZ. Một số hành vi của nó đã được thay đ
 Linux 5.9 và tài liệu này sẽ mô tả sự khác biệt.
 
 Cách sử dụng
-=====
+============
 
 Bản đồ sử dụng khóa loại ZZ0000ZZ hoặc
 ZZ0001ZZ, được khai báo trong ZZ0002ZZ::

@@ -69,7 +69,7 @@ Nếu bạn đang làm việc trên PCI, kiến trúc máy hoặc trình điều
 rất có thể ở sai chỗ.
 
 Làm thế nào là điều này tốt hơn?
-===================
+================================
 
 Không giống như mô hình I/O Linux cổ điển chia I/O tệp thành các phần nhỏ.
 đơn vị (thường là các trang hoặc khối bộ nhớ) và tra cứu ánh xạ không gian trên
@@ -109,7 +109,7 @@ của các giao diện được trình bày bởi iomap.
 Nếu bạn thay đổi iomap, vui lòng cập nhật tài liệu thiết kế này.
 
 Trình lặp phạm vi tệp
-===================
+=====================
 
 định nghĩa
 -----------
@@ -403,7 +403,7 @@ Cả hai hàm sẽ trả về mã lỗi âm nếu có lỗi hoặc bằng 0 nế
 thành công.
 
 Chuẩn bị cho hoạt động tập tin
-=============================
+==============================
 
 iomap chỉ xử lý ánh xạ và I/O.
 Hệ thống tập tin vẫn phải gọi VFS để kiểm tra các tham số đầu vào

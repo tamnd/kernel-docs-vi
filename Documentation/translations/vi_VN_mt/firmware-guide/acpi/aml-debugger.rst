@@ -26,7 +26,7 @@ Tài liệu này mô tả cách sử dụng trình gỡ lỗi AML được nhún
 hạt nhân.
 
 1. Xây dựng trình gỡ lỗi
-=====================
+========================
 
 Cần có các mục cấu hình kernel sau để kích hoạt AML
 giao diện trình gỡ lỗi từ nhân Linux::
@@ -48,7 +48,7 @@ Nó có thể được cài đặt vào các thư mục hệ thống bằng các
 người dùng có đủ đặc quyền).
 
 2. Khởi động giao diện trình gỡ lỗi không gian người dùng
-=========================================
+=========================================================
 
 Sau khi khởi động kernel với trình gỡ lỗi tích hợp sẵn, trình gỡ lỗi có thể
 bắt đầu bằng cách sử dụng các lệnh sau ::
@@ -69,7 +69,7 @@ Tham khảo lệnh gỡ lỗi chi tiết nằm ở Chương 12 "ACPICA
 Tham chiếu trình gỡ lỗi".  Lệnh "trợ giúp" có thể được sử dụng để tham khảo nhanh.
 
 3. Dừng giao diện gỡ lỗi không gian người dùng
-========================================
+==============================================
 
 Có thể đóng giao diện trình gỡ lỗi tương tác bằng cách nhấn Ctrl+C hoặc sử dụng
 lệnh "thoát" hoặc "thoát".  Khi hoàn tất, hãy dỡ mô-đun bằng::
@@ -79,7 +79,7 @@ lệnh "thoát" hoặc "thoát".  Khi hoàn tất, hãy dỡ mô-đun bằng::
 Việc dỡ tải mô-đun có thể không thành công nếu có phiên bản acpidbg đang chạy.
 
 4. Chạy trình gỡ lỗi trong tập lệnh
-===============================
+===================================
 
 Có thể hữu ích khi chạy trình gỡ lỗi AML trong tập lệnh thử nghiệm. hỗ trợ "acpidbg"
 cái này ở chế độ "lô" đặc biệt.  Ví dụ: đầu ra lệnh sau

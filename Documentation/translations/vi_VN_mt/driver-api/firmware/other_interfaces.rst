@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Các giao diện phần mềm khác
-=========================
+===========================
 
 Giao diện DMI
 --------------

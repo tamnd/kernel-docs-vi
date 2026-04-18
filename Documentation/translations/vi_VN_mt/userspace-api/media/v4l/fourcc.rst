@@ -15,7 +15,7 @@
 .. c:namespace:: V4L
 
 Hướng dẫn về định dạng pixel 4CC của Video4Linux
-============================================
+================================================
 
 Nguyên tắc dành cho mã Video4Linux 4CC được xác định bằng v4l2_fourcc() là
 quy định trong tài liệu này. Ký tự đầu tiên xác định bản chất của

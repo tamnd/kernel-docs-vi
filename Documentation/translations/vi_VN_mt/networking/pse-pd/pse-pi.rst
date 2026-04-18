@@ -56,7 +56,7 @@ phương pháp truyền tải điện mà còn bởi những tác động đối
 hướng truyền tải.
 
 Tổng quan về phương án A và B
-----------------------------
+-----------------------------
 
 - ZZ0000ZZ Sử dụng dây dẫn RJ45 1, 2, 3 và 6. Trong cả hai trường hợp
   mạng 10/100BaseT hoặc 1G/2G/5G/10GBaseT, các cặp được sử dụng đang mang dữ liệu.
@@ -72,7 +72,7 @@ Tổng quan về phương án A và B
   yêu cầu mạng khác nhau và thông số kỹ thuật của thiết bị.
 
 Bảng 145-3 Các lựa chọn thay thế sơ đồ chân PSE
------------------------------------
+-----------------------------------------------
 
 Bảng sau đây phác thảo các cấu hình chân cho cả Phương án A và
 Phương án B.
@@ -104,7 +104,7 @@ ZZ0027ZZ - ZZ0028ZZ Tích cực V ZZ0029ZZ
       specific configuration.
 
 Khả năng tương thích của PSE PI
-----------------------
+-------------------------------
 
 Bảng sau đây phác thảo khả năng tương thích giữa giải pháp thay thế sơ đồ chân
 và 1000/2.5G/5G/10GBaseT trong kết nối 2 cặp PSE.
@@ -164,7 +164,7 @@ Ethernet PHY để truyền dữ liệu và PSE PI để cấp nguồn.
     +--------------------------+
 
 Cấu hình PI PSE đơn giản cho giải pháp thay thế A
----------------------------------------------
+-------------------------------------------------
 
 Sơ đồ bên dưới minh họa PSE PI (Nguồn điện
 Cấu hình Giao diện nguồn thiết bị) được thiết kế để hỗ trợ Giải pháp thay thế A

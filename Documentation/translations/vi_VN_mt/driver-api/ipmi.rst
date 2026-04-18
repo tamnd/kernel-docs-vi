@@ -100,7 +100,7 @@ tham số có tên "panic_op" trong mô-đun ipmi_msghandler thành "sự kiện
 hoặc "chuỗi".  Đặt tham số đó thành "không" sẽ tắt chức năng này.
 
 Thiết kế cơ bản
-------------
+---------------
 
 Trình điều khiển Linux IPMI được thiết kế rất mô-đun và linh hoạt, bạn
 chỉ cần lấy những phần bạn cần và bạn có thể sử dụng nó vào nhiều việc
@@ -397,7 +397,7 @@ ipmi_smi.h xác định giao diện cho các giao diện quản lý, xem
 
 
 Trình điều khiển SI
--------------
+-------------------
 
 Trình điều khiển SI cho phép cấu hình các giao diện KCS, BT và SMIC
 trong hệ thống.  Nó khám phá các giao diện thông qua một loạt các giao diện khác nhau
@@ -534,7 +534,7 @@ chỉ ba tham số đầu tiên (loại si, loại địa chỉ và địa chỉ
 được sử dụng để so sánh.  Mọi tùy chọn đều bị bỏ qua để loại bỏ.
 
 Trình điều khiển SMBus (SSIF)
------------------------
+-----------------------------
 
 Trình điều khiển SMBus cho phép cấu hình tối đa 4 thiết bị SMBus trong
 hệ thống.  Theo mặc định, trình điều khiển sẽ chỉ đăng ký với thứ gì đó mà nó
@@ -603,7 +603,7 @@ Trình điều khiển hỗ trợ thêm và xóa giao diện nóng thông qua I2
 giao diện sysfs.
 
 Trình điều khiển IPMI IPMB
---------------------
+--------------------------
 
 Trình điều khiển này dùng để hỗ trợ hệ thống nằm trên xe buýt IPMB; nó
 cho phép giao diện trông giống như giao diện IPMI bình thường.  Đang gửi
@@ -642,10 +642,10 @@ phụ thuộc vào cách hệ thống được nối dây.  Bạn có thể tìm
 các kênh là 0-7 và thử các kênh IPMB.
 
 Những mảnh khác
-------------
+---------------
 
 Nhận thông tin chi tiết liên quan đến thiết bị IPMI
---------------------------------------------------
+---------------------------------------------------
 
 Một số người dùng cần thông tin chi tiết hơn về thiết bị, chẳng hạn như vị trí
 địa chỉ đến từ hoặc thiết bị cơ sở thô cho giao diện IPMI.
@@ -672,7 +672,7 @@ trên con trỏ dev.
 
 
 Cơ quan giám sát
---------
+----------------
 
 Một bộ đếm thời gian theo dõi được cung cấp để thực hiện tiêu chuẩn Linux
 giao diện hẹn giờ của cơ quan giám sát.  Nó có ba tham số mô-đun có thể được
@@ -750,7 +750,7 @@ trình điều khiển trong Linux.
 
 
 Hết thời gian hoảng loạn
---------------
+------------------------
 
 Trình điều khiển OpenIPMI hỗ trợ khả năng đặt bán tùy chỉnh và tùy chỉnh
 các sự kiện trong nhật ký sự kiện hệ thống nếu xảy ra hoảng loạn.  nếu bạn kích hoạt
@@ -797,7 +797,7 @@ gửi chúng.
 
 
 Tắt nguồn
---------
+---------
 
 Nếu khả năng tắt nguồn được chọn, trình điều khiển IPMI sẽ cài đặt
 một chức năng tắt máy vào con trỏ chức năng tắt nguồn tiêu chuẩn.  Cái này

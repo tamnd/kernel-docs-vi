@@ -22,7 +22,7 @@ Trình tạo số ngẫu nhiên (RNG)
    :functions: rng_alg
 
 Tiền điện tử API Số ngẫu nhiên API
-----------------------------
+----------------------------------
 
 .. kernel-doc:: include/crypto/rng.h
    :doc: Random number generator API

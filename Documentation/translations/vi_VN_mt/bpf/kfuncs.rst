@@ -191,7 +191,7 @@ chú thích, trình xác minh sẽ từ chối chương trình nếu dynptr đư
 không được khởi tạo.
 
 2.3.4 __Chú thích có thể vô hiệu
----------------------------
+--------------------------------
 
 Chú thích này được sử dụng để chỉ ra rằng đối số con trỏ có thể là NULL.
 Trình xác minh sẽ cho phép chuyển NULL cho các đối số như vậy.
@@ -432,7 +432,7 @@ int init_subsystem tĩnh (void)
         Late_initcall(init_subsystem);
 
 2.7 Chỉ định bí danh không truyền bằng ___init
---------------------------------------------
+----------------------------------------------
 
 Trình xác minh sẽ luôn thực thi rằng loại con trỏ BTF được truyền tới một
 kfunc bằng chương trình BPF, khớp với loại con trỏ được chỉ định trong kfunc
@@ -473,7 +473,7 @@ Khớp loại PTR_TO_BTF_ID nếu hai loại có cùng tên, với một loại
 .. _BPF_kfunc_lifecycle_expectations:
 
 3. kỳ vọng về vòng đời của kfunc
-===============================
+================================
 
 kfuncs cung cấp kernel <-> kernel API và do đó không bị ràng buộc bởi bất kỳ
 hạn chế nghiêm ngặt về độ ổn định liên quan đến kernel <-> UAPI của người dùng. Điều này có nghĩa
@@ -525,7 +525,7 @@ c) Kfunc sẽ không bao giờ có bất kỳ đảm bảo ổn định cứng n
    sử dụng kfuncs.
 
 3,1 kfunc không được dùng nữa
----------------------
+-----------------------------
 
 Như đã mô tả ở trên, đôi khi người bảo trì có thể thấy rằng kfunc phải được
 được thay đổi hoặc loại bỏ ngay lập tức để phù hợp với một số thay đổi trong hệ thống con của họ,
@@ -564,14 +564,14 @@ quy trình được thực hiện để loại bỏ:
    các chương trình gọi kfunc sẽ bị người xác minh từ chối.
 
 4. Kfunc cốt lõi
-==============
+================
 
 Hệ thống con BPF cung cấp một số kfunc "cốt lõi" có khả năng
 có thể áp dụng cho nhiều trường hợp và chương trình sử dụng khác nhau.
 Những kfuncs đó được ghi lại ở đây.
 
 4.1 cấu trúc task_struct * kfuncs
--------------------------------
+---------------------------------
 
 Có một số kfunc cho phép các đối tượng ZZ0000ZZ
 được sử dụng như kptr:
@@ -735,7 +735,7 @@ người xác minh. bpf_cgroup_ancestor() có thể được sử dụng như sa
 	}
 
 4.3 cấu trúc cpumask * kfuncs
----------------------------
+-----------------------------
 
 BPF cung cấp một tập hợp kfunc có thể được sử dụng để truy vấn, phân bổ, thay đổi và
 phá hủy các đối tượng struct cpumask *. Vui lòng tham khảo ZZ0000ZZ

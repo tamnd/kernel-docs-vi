@@ -39,7 +39,7 @@ lớp thiết bị, Vlan trên các giao diện trong không gian tên cung cấ
 và sau đó các thiết bị VRF cung cấp khả năng phân tách L3.
 
 Thiết kế
-------
+--------
 Một thiết bị VRF được tạo với bảng lộ trình liên quan. Giao diện mạng
 sau đó bị bắt làm nô lệ cho thiết bị VRF::
 
@@ -74,7 +74,7 @@ miền nói chung.
        using either the VRF device or real egress device.
 
 Cài đặt
------
+-------
 1. Thiết bị VRF được tạo với sự liên kết với bảng FIB.
    ví dụ,::
 
@@ -172,7 +172,7 @@ VRF dựa trên giao diện xâm nhập, như được ghi lại trước đó.
 --------------------------------------------------------------------------------
 
 Sử dụng iproute2 cho VRF
-=======================
+========================
 iproute2 hỗ trợ từ khóa vrf kể từ v4.7. Để tương thích ngược, điều này
 phần liệt kê cả hai lệnh khi thích hợp -- với từ khóa vrf và
 hình thức cũ hơn mà không có nó.

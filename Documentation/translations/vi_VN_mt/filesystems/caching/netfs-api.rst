@@ -52,7 +52,7 @@ API này được sử dụng bởi::
 
 
 Tổng quan
-========
+=========
 
 Hệ thống phân cấp fscache được tổ chức theo hai cấp độ từ hệ thống tệp mạng
 quan điểm.  Cấp trên đại diện cho "khối lượng" và cấp dưới
@@ -198,7 +198,7 @@ xóa nó.
 
 
 Đánh dấu một cookie đang được sử dụng
-=======================
+=====================================
 
 Khi cookie đã được hệ thống tệp mạng thu được, hệ thống tệp sẽ
 báo cho fscache biết khi nào nó có ý định sử dụng cookie (thường được thực hiện khi mở tệp)
@@ -232,7 +232,7 @@ Lưu ý rằng điểm đang sử dụng sẽ được tích lũy.  Mỗi lần 
 
 
 Thay đổi kích thước tệp dữ liệu (cắt ngắn)
-=================================
+==========================================
 
 Nếu tệp hệ thống tệp mạng được thay đổi kích thước cục bộ bằng cách cắt bớt, thì như sau
 nên được gọi để thông báo bộ đệm::
@@ -246,7 +246,7 @@ size được chuyển vào và bộ đệm được thay đổi kích thước 
 
 
 Dữ liệu vào/ra API
-============
+==================
 
 Để thực hiện các thao tác I/O dữ liệu trực tiếp thông qua cookie, các chức năng sau
 có sẵn::
@@ -299,7 +299,7 @@ hoạt động đang diễn ra.
 
 
 Sự mạch lạc của tệp dữ liệu
-===================
+===========================
 
 Để yêu cầu cập nhật dữ liệu mạch lạc và kích thước tệp trên cookie,
 sau đây nên được gọi::
@@ -312,7 +312,7 @@ void fscache_update_cookie(struct fscache_cookie *cookie,
 
 
 Vô hiệu hóa tệp dữ liệu
-======================
+=======================
 
 Đôi khi cần phải vô hiệu hóa một đối tượng chứa dữ liệu.
 Thông thường, điều này sẽ cần thiết khi máy chủ thông báo hệ thống tệp mạng
@@ -437,7 +437,7 @@ các trang sau khi hoàn thành trước khi gọi term_func.
 
 
 Phát hành và vô hiệu hóa trang
-=============================
+==============================
 
 Fscache theo dõi xem chúng tôi có bất kỳ dữ liệu nào trong bộ đệm cho bộ đệm hay không
 đối tượng chúng ta vừa tạo.  Nó biết nó không cần phải thực hiện bất kỳ việc đọc nào cho đến khi nó
@@ -459,6 +459,6 @@ void wait_on_page_fscache(trang cấu trúc *trang);
 
 
 Tham khảo chức năng API
-======================
+=======================
 
 .. kernel-doc:: include/linux/fscache.h

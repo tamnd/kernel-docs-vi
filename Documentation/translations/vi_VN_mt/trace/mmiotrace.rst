@@ -46,7 +46,7 @@ không có cách nào để tự động phát hiện xem bạn có bị mất s
 
 
 Cách sử dụng Tham khảo nhanh
----------------------
+----------------------------
 ::
 
 $ mount -t debugfs debugfs/sys/kernel/debug
@@ -59,7 +59,7 @@ $ mount -t debugfs debugfs/sys/kernel/debug
 
 
 Cách sử dụng
------
+------------
 
 Đảm bảo các debugf được gắn vào /sys/kernel/debug.
 Nếu không (yêu cầu quyền root)::
@@ -129,7 +129,7 @@ rồi gửi tệp .tar.gz. Dấu vết nén đáng kể. Thay thế
 
 
 Mliotrace hoạt động như thế nào
--------------------
+-------------------------------
 
 Có thể truy cập vào bộ nhớ IO phần cứng bằng cách ánh xạ địa chỉ từ bus PCI bằng
 gọi một trong các hàm ioremap_*(). Miotrace được nối vào
@@ -153,7 +153,7 @@ việc truy tìm không được khuyến khích.
 
 
 Định dạng nhật ký theo dõi
-----------------
+--------------------------
 
 Nhật ký thô là văn bản và dễ dàng được lọc bằng ví dụ: grep và awk. Một kỷ lục là
 một dòng trong nhật ký. Một bản ghi bắt đầu bằng một từ khóa, theo sau là từ khóa-
@@ -182,14 +182,14 @@ nguồn gốc trong bộ nhớ không gian người dùng chưa được hỗ tr
 
 Chẳng hạn, bộ lọc awk sau sẽ vượt qua tất cả mục tiêu ghi 32 bit đó
 địa chỉ vật lý trong phạm vi [0xfb73ce40, 0xfb800000]
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 $ awk '/W 4 / { adr=strtonum($5); nếu (adr >= 0xfb73ce40 &&
 	adr < 0xfb800000) in; }'
 
 
 Công cụ dành cho nhà phát triển
---------------------
+-------------------------------
 
 Các công cụ không gian người dùng bao gồm các tiện ích dành cho:
   - thay thế địa chỉ số và giá trị bằng tên đăng ký phần cứng

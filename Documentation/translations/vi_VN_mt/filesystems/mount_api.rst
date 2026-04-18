@@ -36,7 +36,7 @@ Hệ thống tập tin Mount API
 
 
 Tổng quan
-========
+=========
 
 Việc tạo các giá treo mới bây giờ được thực hiện theo quy trình gồm nhiều bước:
 
@@ -71,7 +71,7 @@ rằng các không gian tên có thể được điều chỉnh trước tiên.
 
 
 Bối cảnh hệ thống tập tin
-======================
+=========================
 
 Việc tạo và cấu hình lại siêu khối được quản lý bởi hệ thống tập tin
 bối cảnh.  Điều này được thể hiện bằng cấu trúc fs_context::
@@ -216,7 +216,7 @@ mô-đun.
 
 
 Các hoạt động bối cảnh của hệ thống tập tin
-=================================
+===========================================
 
 Bối cảnh hệ thống tập tin trỏ đến một bảng hoạt động::
 
@@ -313,7 +313,7 @@ Nếu thành công, nó sẽ trả về 0. Trong trường hợp có lỗi, nó 
 
 
 Bối cảnh hệ thống tập tin Bảo mật
-===========================
+=================================
 
 Bối cảnh hệ thống tập tin chứa một con trỏ bảo mật mà LSM có thể sử dụng để
 xây dựng bối cảnh bảo mật cho siêu khối được gắn kết.  có một
@@ -407,7 +407,7 @@ int security_sb_mountpoint(struct fs_context *fc,
 
 
 VFS Bối cảnh hệ thống tập tin API
-==========================
+=================================
 
 Có bốn thao tác để tạo ngữ cảnh hệ thống tập tin và một thao tác để
 phá hủy một bối cảnh:
@@ -556,7 +556,7 @@ Tạo một giá trị gắn kết với các tham số trong ngữ cảnh hệ 
 
 
 Người trợ giúp tạo siêu khối
-===========================
+============================
 
 Một số trình trợ giúp VFS có sẵn để các hệ thống tệp sử dụng để tạo
 hoặc tra cứu các siêu khối.

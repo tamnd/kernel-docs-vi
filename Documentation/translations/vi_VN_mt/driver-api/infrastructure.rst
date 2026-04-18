@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Cơ sở hạ tầng trình điều khiển thiết bị
-=============================
+=======================================
 
 Cấu trúc mô hình trình điều khiển thiết bị cơ bản
-----------------------------------------
+-------------------------------------------------
 
 .. kernel-doc:: include/linux/device.h
    :internal:
@@ -32,7 +32,7 @@ Cấu trúc mô hình trình điều khiển thiết bị cơ bản
    :identifiers: probe_type device_driver
 
 Cơ sở trình điều khiển thiết bị
--------------------
+-------------------------------
 
 .. kernel-doc:: drivers/base/init.c
    :internal:
@@ -83,13 +83,13 @@ Cơ sở trình điều khiển thiết bị
    :export:
 
 Trình điều khiển thiết bị Quản lý DMA
------------------------------
+-------------------------------------
 
 .. kernel-doc:: kernel/dma/mapping.c
    :export:
 
 Trình điều khiển thiết bị hỗ trợ PnP
---------------------------
+------------------------------------
 
 .. kernel-doc:: drivers/pnp/core.c
    :internal:
@@ -107,7 +107,7 @@ Trình điều khiển thiết bị hỗ trợ PnP
    :export:
 
 Thiết bị IO không gian người dùng
---------------------
+---------------------------------
 
 .. kernel-doc:: drivers/uio/uio.c
    :export:

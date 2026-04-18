@@ -21,7 +21,7 @@ Tác giả: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 
 
 Tạm dừng và tiếp tục IRQ của thiết bị
------------------------------------
+-------------------------------------
 
 Các dòng yêu cầu ngắt thiết bị (IRQ) thường bị vô hiệu hóa trong quá trình hệ thống
 tạm dừng sau giai đoạn "muộn" của việc tạm dừng thiết bị (nghĩa là sau tất cả các
@@ -70,7 +70,7 @@ cùng một lúc nên tránh.
 
 
 Ngắt đánh thức hệ thống, allow_irq_wake() và vô hiệu hóa_irq_wake()
-------------------------------------------------------------------
+-------------------------------------------------------------------
 
 Các ngắt đánh thức hệ thống thường cần được cấu hình để đánh thức hệ thống
 khỏi trạng thái ngủ, đặc biệt nếu chúng được sử dụng cho các mục đích khác nhau (ví dụ như
@@ -108,7 +108,7 @@ sử dụng Enable_irq_wake().
 
 
 Ngắt và tạm dừng để không hoạt động
-------------------------------
+-----------------------------------
 
 Tạm dừng ở trạng thái không hoạt động (còn được gọi là trạng thái ngủ "đóng băng") là một trạng thái tương đối mới
 trạng thái ngủ của hệ thống hoạt động bằng cách cho tất cả các bộ xử lý chạy không tải và chờ đợi

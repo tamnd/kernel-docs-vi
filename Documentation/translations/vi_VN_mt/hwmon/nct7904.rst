@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân nct7904
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -40,7 +40,7 @@ với SmartFan.
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Hiện tại, trình điều khiển chỉ hỗ trợ các tính năng sau:
 

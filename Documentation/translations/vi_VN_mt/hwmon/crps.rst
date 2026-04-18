@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân crps
-==================
+==============================
 
 Chip được hỗ trợ:
 
@@ -40,7 +40,7 @@ Vui lòng xem Tài liệu/hwmon/pmbus.rst để biết chi tiết về trình đ
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
@@ -48,7 +48,7 @@ chi tiết.
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ===================================================================================
 curr1_label "iin"

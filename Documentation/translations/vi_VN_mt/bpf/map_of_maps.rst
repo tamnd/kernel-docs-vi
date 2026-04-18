@@ -53,10 +53,10 @@ các thành phần bảng theo mặc định. Cờ ZZ0001ZZ có thể được s
 phân bổ trước khi nó quá tốn bộ nhớ.
 
 Cách sử dụng
-=====
+============
 
 Trình trợ giúp hạt nhân BPF
------------------
+---------------------------
 
 bpf_map_lookup_elem()
 ~~~~~~~~~~~~~~~~~~~~~
@@ -101,7 +101,7 @@ Xem ZZ0000ZZ trong ZZ0001ZZ để biết thêm
 ví dụ về khởi tạo khai báo của bản đồ bên ngoài.
 
 Không gian người dùng
-----------
+---------------------
 
 Đoạn mã này cho thấy cách tạo bản đồ bên ngoài dựa trên mảng:
 
@@ -137,7 +137,7 @@ Không gian người dùng
     }
 
 Tài liệu tham khảo
-==========
+==================
 
 -ZZ0000ZZ
 -ZZ0001ZZ

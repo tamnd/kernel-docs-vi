@@ -60,10 +60,10 @@ về cơ bản là CAP_SETUID tương đương với root.
 
 
 Các phương pháp tiếp cận khác được xem xét
-===========================
+==========================================
 
 Giải quyết vấn đề này trong không gian người dùng
--------------------------------
+-------------------------------------------------
 Dành cho các ứng dụng ứng viên muốn hạn chế khả năng setid
 như được triển khai trong LSM này, một lựa chọn thay thế sẽ đơn giản là loại bỏ
 khả năng setid hoàn toàn từ ứng dụng và cấu trúc lại quy trình
@@ -78,7 +78,7 @@ không gian người dùng có thể sẽ kém hấp dẫn hơn khi kết hợp 
 dựa vào ngữ nghĩa sinh sản quy trình nhất định trong Linux.
 
 Sử dụng không gian tên người dùng
--------------------
+---------------------------------
 Một cách tiếp cận khả thi khác là chạy một cây quy trình nhất định trong người dùng của chính nó
 không gian tên và cung cấp cho các chương trình khả năng setid của cây. Bằng cách này,
 các chương trình trong cây có thể thay đổi thành bất kỳ UID/GID nào mong muốn trong bối cảnh của chúng.
@@ -121,7 +121,7 @@ Viết một chuỗi trống "" sẽ xóa chính sách. Một lần nữa, cấu
 các đặc quyền, chẳng hạn như cho phép người dùng thiết lập ánh xạ không gian tên người dùng UID/GID.
 
 Lưu ý về các chính sách và nhóm setgroups của GID()
-====================================
+===================================================
 Trong v5.9, chúng tôi sẽ thêm hỗ trợ để giới hạn các đặc quyền CAP_SETGID như đã được thực hiện
 trước đây cho CAP_SETUID. Tuy nhiên, để tương thích với sandbox thông thường
 quy ước mã liên quan trong không gian người dùng, chúng tôi hiện cho phép tùy ý

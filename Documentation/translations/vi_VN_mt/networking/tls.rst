@@ -19,13 +19,13 @@ Hạt nhân TLS
 ============
 
 Tổng quan
-========
+=========
 
 Bảo mật lớp vận chuyển (TLS) là Giao thức lớp trên (ULP) chạy trên
 TCP. TLS cung cấp tính toàn vẹn và bảo mật dữ liệu từ đầu đến cuối.
 
 Giao diện người dùng
-==============
+====================
 
 Tạo kết nối TLS
 -------------------------
@@ -137,7 +137,7 @@ ZZ0000ZZ được trả về nếu tin nhắn nhận được quá lớn.
 ZZ0000ZZ được trả về nếu quá trình giải mã không thành công vì bất kỳ lý do nào khác.
 
 Gửi tin nhắn điều khiển TLS
--------------------------
+---------------------------
 
 Ngoài dữ liệu ứng dụng, TLS còn có các thông báo điều khiển như cảnh báo
 tin nhắn (loại bản ghi 21) và tin nhắn bắt tay (loại bản ghi 22), v.v.
@@ -217,7 +217,7 @@ nhận được mà không có bộ đệm cmsg.
 recv sẽ không bao giờ trả về dữ liệu từ các loại bản ghi TLS hỗn hợp.
 
 Cập nhật chính của TLS 1.3
--------------------
+--------------------------
 
 Trong TLS 1.3, tin nhắn bắt tay KeyUpdate báo hiệu rằng người gửi
 cập nhật khóa TX của nó. Mọi tin nhắn được gửi sau KeyUpdate sẽ được
@@ -243,7 +243,7 @@ Thống kê ZZ0003ZZ. Thống kê ZZ0004ZZ
 đếm các tin nhắn bắt tay KeyUpdate đã được nhận.
 
 Tích hợp vào thư viện TLS không gian người dùng
----------------------------------------
+-----------------------------------------------
 
 Ở mức cao, kernel TLS ULP là sự thay thế cho record
 lớp của thư viện TLS không gian người dùng.

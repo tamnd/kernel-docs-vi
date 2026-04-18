@@ -21,7 +21,7 @@ là ZZ0000ZZ.
 
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 Các chip sau được hỗ trợ bởi trình điều khiển này:
 
@@ -72,15 +72,15 @@ ZZ0004ZZ - chế độ chung1 |
 +-----------------+-------------------+
 
 Các tính năng được hỗ trợ
-==================
+=========================
 
 Chế độ nối dây SPI
-----------------
+------------------
 
 Trình điều khiển hiện hỗ trợ các cấu hình nối dây SPI sau:
 
 Chế độ một làn
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Ở chế độ này, mỗi kênh có dòng SDO riêng để gửi kết quả chuyển đổi.
 Hiện tại, chế độ này chỉ có thể được sử dụng trên AD4030 có một kênh nên chỉ có
@@ -105,12 +105,12 @@ Chế độ xen kẽ
 Do đó, hệ thống dây điện giống như ZZ0000ZZ.
 
 Chế độ đồng hồ SPI
---------------
+------------------
 
 Chỉ hỗ trợ chế độ xung nhịp SPI.
 
 Chế độ đầu ra
-------------
+-------------
 
 Có nhiều kênh IIO được hiển thị hơn các kênh như mô tả trong thiết bị
 bảng dữ liệu. Điều này là do mã hóa ZZ0000ZZ
@@ -138,7 +138,7 @@ Chế độ này được chọn khi:
 dữ liệu nhưng chưa thể chọn được.
 
 Dữ liệu chênh lệch trung bình
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Chế độ này được chọn khi:
 
@@ -164,7 +164,7 @@ phần lãi, sau đó là phần bù.
 được điều khiển bởi thuộc tính ZZ0001ZZ.
 
 Điện áp tham chiếu
------------------
+------------------
 
 Chip hỗ trợ điện áp tham chiếu bên ngoài thông qua đầu vào ZZ0000ZZ hoặc
 điện áp tham chiếu được đệm bên trong thông qua đầu vào ZZ0001ZZ. Người lái xe trông
@@ -174,7 +174,7 @@ bị vô hiệu hóa. Nếu có ZZ0003ZZ thì tham chiếu được đệm bên 
 điện áp được sử dụng.
 
 Cài lại
------
+-------
 
 Cả thiết lập lại phần cứng và phần mềm đều được hỗ trợ. Người lái xe nhìn đầu tiên vào
 cây thiết bị để xem ZZ0000ZZ có được điền hay không.
@@ -182,7 +182,7 @@ Nếu không có, trình điều khiển sẽ chuyển sang thiết lập lại 
 các thanh ghi của thiết bị.
 
 Các tính năng chưa được triển khai
-----------------------
+----------------------------------
 
 - Chỉ báo ZZ0000ZZ
 - Chế độ nối dây bổ sung

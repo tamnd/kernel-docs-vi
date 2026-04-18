@@ -15,7 +15,7 @@
 .. _clangformat:
 
 định dạng clang
-============
+===============
 
 ZZ0000ZZ là công cụ định dạng mã C/C++/... theo
 một tập hợp các quy tắc và heuristic. Giống như hầu hết các công cụ, nó không hoàn hảo
@@ -58,7 +58,7 @@ ZZ0000ZZ
 .. _clangformatreview:
 
 Xem lại các tập tin và bản vá cho phong cách mã hóa
------------------------------------------
+---------------------------------------------------
 
 Bằng cách chạy công cụ ở chế độ nội tuyến, bạn có thể xem lại toàn bộ hệ thống con,
 các thư mục hoặc tệp riêng lẻ để tìm lỗi kiểu mã, lỗi chính tả hoặc cải tiến.
@@ -171,7 +171,7 @@ const tĩnh struct file_Operations uprobe_events_ops = {
 .. _clangformatextra:
 
 Các tính năng/tùy chọn bổ sung
-----------------------
+------------------------------
 
 Một số tùy chọn tính năng/kiểu dáng không được bật theo mặc định trong cấu hình
 tập tin để giảm thiểu sự khác biệt giữa đầu ra và hiện tại

@@ -180,7 +180,7 @@ Trên hệ thống 64 bit, lệnh gọi tới kmap_local_page(), kmap_atomic() v
 
 
 Chi phí lập bản đồ tạm thời
-==========================
+===========================
 
 Chi phí tạo ánh xạ tạm thời có thể khá cao.  Vòm phải
 thao tác các bảng trang của kernel, dữ liệu TLB và/hoặc các thanh ghi của MMU.

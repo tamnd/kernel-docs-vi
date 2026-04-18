@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân lm73
-==================
+==============================
 
 Chip được hỗ trợ:
 
@@ -101,7 +101,7 @@ trong đó 'x' là đầu ra từ 'update_interval' và 'g(x)' là
 độ phân giải tính bằng độ C trên LSB.
 
 Hỗ trợ cảnh báo
--------------
+---------------
 
 LM73 có cơ chế cảnh báo quá nhiệt đơn giản.  Cái này
 tính năng được hiển thị thông qua các thuộc tính sysfs.

@@ -19,7 +19,7 @@ TEE (Môi trường thực thi đáng tin cậy)
 Tài liệu này mô tả hệ thống con TEE trong Linux.
 
 Tổng quan
-========
+=========
 
 TEE là một hệ điều hành đáng tin cậy chạy trong một số môi trường an toàn, chẳng hạn như
 TrustZone trên CPU ARM hoặc bộ đồng xử lý bảo mật riêng biệt, v.v. Trình điều khiển TEE

@@ -15,10 +15,10 @@
 :mồ côi:
 
 Làm cho hệ thống tập tin có thể xuất được
-=============================
+=========================================
 
 Tổng quan
---------
+---------
 
 Tất cả các hoạt động của hệ thống tập tin đều yêu cầu một (hoặc hai) dấu răng để bắt đầu
 điểm.  Các ứng dụng cục bộ có thời gian lưu giữ được tính tham chiếu phù hợp
@@ -110,7 +110,7 @@ d_splice_alias(inode, dentry) sẽ đưa một hàm mới vào trong cây;
       quy ước -> tra cứu.
 
 Sự cố về hệ thống tập tin
------------------
+-------------------------
 
 Để một hệ thống tập tin có thể xuất được, nó phải:
 

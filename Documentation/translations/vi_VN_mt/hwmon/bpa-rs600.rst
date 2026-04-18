@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân bpa-rs600
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -31,7 +31,7 @@ Sự miêu tả
 BPA-RS600 là mô-đun nguồn điện có thể tháo rời 600W nhỏ gọn.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng.

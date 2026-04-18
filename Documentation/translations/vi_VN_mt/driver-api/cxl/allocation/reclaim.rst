@@ -23,7 +23,7 @@ Trong phần này chúng ta sẽ không thảo luận về cấu hình ZZ0000ZZ 
 bộ nhớ có thể được sử dụng bởi nhiều phần khác nhau của hệ thống thu hồi.
 
 giáng chức
-========
+==========
 Theo mặc định, hệ thống lấy lại sẽ ưu tiên trao đổi (hoặc zswap) khi lấy lại
 trí nhớ.  Kích hoạt ZZ0000ZZ sẽ gây ra vmscan
 có cơ hội thích các nút NUMA ở xa để trao đổi hoặc zswap, nếu dung lượng
@@ -34,7 +34,7 @@ nút giáng chức tiếp theo.  Nút giáng chức tiếp theo dựa trên ZZ00
 hoặc dữ liệu hiệu suất ZZ0002ZZ.
 
 cpusets.mems_allowed không đúng
---------------------------
+-------------------------------
 Trong Linux v6.15 trở xuống, việc giáng chức không tôn trọng ZZ0000ZZ
 khi di chuyển các trang.  Kết quả là nếu kích hoạt chức năng giáng cấp, vmscan không thể
 đảm bảo cách ly bộ nhớ của vùng chứa khỏi các nút không được đặt trong mems_allowed.

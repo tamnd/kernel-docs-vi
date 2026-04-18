@@ -138,7 +138,7 @@ kết quả.
 
 
 5. Chính sách lập kế hoạch
-======================
+==========================
 
 CFS thực hiện ba chính sách lập lịch:
 

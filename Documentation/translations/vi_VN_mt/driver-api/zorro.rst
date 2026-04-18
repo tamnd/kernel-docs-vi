@@ -65,7 +65,7 @@ trong khi ((z = zorro_find_device(ZORRO_WILDCARD, z))) {
 
 
 Tài nguyên Zorro
----------------
+----------------
 
 Trước khi bạn có thể truy cập vào sổ đăng ký của thiết bị Zorro, bạn phải đảm bảo rằng nó
 chưa được sử dụng. Việc này được thực hiện bằng cách sử dụng tính năng quản lý tài nguyên không gian bộ nhớ I/O
@@ -107,7 +107,7 @@ z_iounmap(virt_addr);
 
 
 Tài liệu tham khảo
-----------
+------------------
 
 #. linux/include/linux/zorro.h
 #. linux/include/uapi/linux/zorro.h

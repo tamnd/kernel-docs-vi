@@ -75,7 +75,7 @@ spdif
     Kích hoạt đầu ra SPDIF trên NID 0x1e
 
 ALC22x/23x/25x/269/27x/28x/29x (và các mẫu ALC3xxx dành riêng cho nhà cung cấp)
-===================================================================
+===============================================================================
 laptop-amic
     Laptops with analog-mic input
 laptop-dmic

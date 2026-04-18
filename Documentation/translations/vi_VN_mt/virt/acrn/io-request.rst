@@ -21,7 +21,7 @@ tương ứng với phạm vi địa chỉ của yêu cầu I/O. Chi tiết về
 xử lý được mô tả trong các phần sau.
 
 1. Yêu cầu vào/ra
---------------
+-----------------
 
 Đối với mỗi VM người dùng, có một vùng bộ nhớ 4-KByte dùng chung được sử dụng cho các yêu cầu I/O
 giao tiếp giữa hypervisor và Service VM. Một yêu cầu I/O là một
@@ -33,7 +33,7 @@ GPA (Địa chỉ vật lý khách) của bộ đệm tới bộ ảo hóa. Bộ
 byte. Mảng này được lập chỉ mục bởi vCPU ID.
 
 2. Máy khách I/O
---------------
+----------------
 
 Một máy khách I/O chịu trách nhiệm xử lý các yêu cầu I/O VM của người dùng có quyền truy cập
 GPA rơi vào một phạm vi nhất định. Nhiều máy khách I/O có thể được liên kết với mỗi máy khách
@@ -77,7 +77,7 @@ Các yêu cầu I/O và các máy khách I/O.
      +-------------------------------------------------------------------+
 
 3. Chuyển đổi trạng thái yêu cầu I/O
--------------------------------
+------------------------------------
 
 Quá trình chuyển đổi trạng thái của yêu cầu I/O ACRN như sau.
 

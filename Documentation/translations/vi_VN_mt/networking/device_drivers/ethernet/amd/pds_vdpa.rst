@@ -23,7 +23,7 @@ Trình điều khiển thiết bị AMD/Pensando vDPA VF
 Copyright(c) 2023 Advanced Micro Devices, Inc
 
 Tổng quan
-========
+=========
 
 Trình điều khiển ZZ0000ZZ là trình điều khiển xe buýt phụ trợ cung cấp
 một thiết bị vDPA để ngăn xếp mạng virtio sử dụng.  Nó được sử dụng với
@@ -69,7 +69,7 @@ Các bước ví dụ:
 
 
 Kích hoạt trình điều khiển
-===================
+==========================
 
 Trình điều khiển được kích hoạt thông qua hệ thống cấu hình kernel tiêu chuẩn,
 sử dụng lệnh tạo ::

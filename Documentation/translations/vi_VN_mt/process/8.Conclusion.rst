@@ -15,7 +15,7 @@
 .. _development_conclusion:
 
 Để biết thêm thông tin
-====================
+======================
 
 Có rất nhiều nguồn thông tin về phát triển nhân Linux và
 chủ đề liên quan.  Đầu tiên trong số đó sẽ luôn là Tài liệu
@@ -64,7 +64,7 @@ ZZ0000ZZ
 
 
 Phần kết luận
-==========
+=============
 
 Xin chúc mừng những ai đã vượt qua được chặng đường dài này
 tài liệu.  Hy vọng nó đã cung cấp những hiểu biết hữu ích về cách thức

@@ -58,7 +58,7 @@ do đó giá trị 0 đóng vai trò là "kỷ nguyên" nếu người ta muốn
 đã từng là một lỗi được đặt ra kể từ lần đầu tiên nó được khởi tạo.
 
 Cách sử dụng API
-=========
+================
 
 Để tôi kể cho bạn nghe câu chuyện về chiếc máy bay không người lái của công nhân.  Bây giờ anh ấy là một công nhân tốt
 nhìn chung, nhưng công ty hơi...nặng về quản lý.  Anh ấy phải
@@ -142,7 +142,7 @@ cần phải thúc đẩy nó ở đây. Anh ấy cũng không cần bất kỳ 
 không ai khác có thể sử dụng được.
 
 Đang nối tiếp các cập nhật con trỏ errseq_t
-===================================
+===========================================
 
 Lưu ý rằng errseq_t API không bảo vệ con trỏ errseq_t trong khi
 check_and_advance_Operation. Chỉ xử lý mã lỗi chuẩn

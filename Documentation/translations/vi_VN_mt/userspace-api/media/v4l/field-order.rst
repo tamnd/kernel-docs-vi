@@ -158,7 +158,7 @@ enum v4l2_field
 .. _fieldseq-tb:
 
 Thứ tự trường, Trường trên cùng được truyền đầu tiên
-========================================
+====================================================
 
 .. kernel-figure:: fieldseq_tb.svg
     :alt:    fieldseq_tb.svg
@@ -170,7 +170,7 @@ Thứ tự trường, Trường trên cùng được truyền đầu tiên
 .. _fieldseq-bt:
 
 Thứ tự trường, Trường dưới cùng được truyền đầu tiên
-===========================================
+====================================================
 
 .. kernel-figure:: fieldseq_bt.svg
     :alt:    fieldseq_bt.svg

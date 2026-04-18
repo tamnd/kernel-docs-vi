@@ -20,7 +20,7 @@ về cách DMA có thể được sử dụng để thực hiện các thao tác
 trong hướng dẫn lập trình kernel usb (kerneldoc, từ mã nguồn).
 
 Tổng quan về API
-============
+================
 
 Bức tranh lớn là trình điều khiển USB có thể tiếp tục bỏ qua hầu hết các vấn đề về DMA,
 mặc dù họ vẫn phải cung cấp bộ đệm sẵn sàng cho DMA (xem

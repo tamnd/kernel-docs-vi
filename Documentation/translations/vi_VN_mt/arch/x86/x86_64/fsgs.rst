@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Sử dụng phân đoạn FS và GS trong các ứng dụng không gian người dùng
-===================================================
+===================================================================
 
 Kiến trúc x86 hỗ trợ phân đoạn. Hướng dẫn truy cập
 bộ nhớ có thể sử dụng chế độ đánh địa chỉ dựa trên thanh ghi phân đoạn. Sau đây
@@ -135,7 +135,7 @@ nếu (val & HWCAP2_FSGSBASE)
         printf("Đã bật FSGSBASE\n");
 
 Hỗ trợ trình biên dịch hướng dẫn FSGSBASE
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 GCC phiên bản 4.6.4 và mới hơn cung cấp nội dung cơ bản cho FSGSBASE
 hướng dẫn. Clang 5 cũng hỗ trợ họ.
@@ -151,7 +151,7 @@ hướng dẫn. Clang 5 cũng hỗ trợ họ.
 mã và tùy chọn trình biên dịch -mfsgsbase phải được thêm vào.
 
 Hỗ trợ trình biên dịch cho việc đánh địa chỉ dựa trên FS/GS
--------------------------------------------
+-----------------------------------------------------------
 
 GCC phiên bản 6 và mới hơn cung cấp hỗ trợ cho việc đánh địa chỉ dựa trên FS/GS thông qua
 Không gian địa chỉ được đặt tên. GCC triển khai không gian địa chỉ sau
@@ -199,7 +199,7 @@ phiên bản:
  ===============================================================================
 
 Địa chỉ dựa trên FS/GS với lắp ráp nội tuyến
--------------------------------------------
+--------------------------------------------
 
 Trong trường hợp trình biên dịch không hỗ trợ không gian địa chỉ, tập hợp nội tuyến có thể
 được sử dụng cho chế độ đánh địa chỉ dựa trên FS/GS::

@@ -61,7 +61,7 @@ hàm kernel_neon_end().
 
 
 Sự gián đoạn trong chế độ kernel
-----------------------------
+--------------------------------
 Vì lý do hiệu quả và tính đơn giản, người ta đã quyết định rằng sẽ không có
 cơ chế bảo tồn/khôi phục cho nội dung đăng ký chế độ kernel NEON/VFP. Cái này
 ngụ ý rằng việc gián đoạn phần NEON của chế độ kernel chỉ có thể được phép nếu
@@ -114,7 +114,7 @@ cả hai lệnh NEON và VFP sẽ chỉ xuất hiện trong phần biên dịch 
 
 
 Bộ lắp ráp NEON
---------------
+---------------
 Trình biên dịch mã NEON được hỗ trợ mà không cần cảnh báo bổ sung miễn là tuân thủ các quy tắc
 ở trên được tuân theo.
 

@@ -25,7 +25,7 @@ Sử dụng Linux CAIF
 :Tác giả: Sjur Brendeland/ sjur.brandeland@stericsson.com
 
 Bắt đầu
-=====
+=======
 
 Nếu bạn đã biên dịch CAIF cho các mô-đun, hãy làm::
 

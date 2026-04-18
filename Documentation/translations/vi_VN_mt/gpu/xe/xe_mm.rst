@@ -35,7 +35,7 @@ GGTT Nội bộ API
    :internal:
 
 Xây dựng bảng phân trang
-==================
+========================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_pt.c
    :doc: Pagetable building

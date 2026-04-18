@@ -21,7 +21,7 @@ Giá trị mới của ZZ0001ZZ và ZZ0002ZZ. Nó cũng cung cấp
 cơ chế kích hoạt firmware.
 
 Hành động tải lại
-==============
+=================
 
 Người dùng có thể chọn hành động tải lại.
 Theo mặc định, hành động ZZ0000ZZ được chọn.
@@ -58,7 +58,7 @@ nó. Ví dụ: một số trình điều khiển không hỗ trợ khởi tạo 
 lệnh trả về danh sách các hành động đã được thực hiện thực sự.
 
 Giới hạn tải lại
-=============
+================
 
 Theo mặc định, các hành động tải lại không bị giới hạn và việc triển khai trình điều khiển có thể
 bao gồm thời gian đặt lại hoặc thời gian ngừng hoạt động nếu cần để thực hiện các hành động.
@@ -76,14 +76,14 @@ thực hiện các ràng buộc cụ thể.
        configuration is lost.
 
 Thay đổi không gian tên
-================
+=======================
 
 Tùy chọn netns cho phép người dùng có thể di chuyển các phiên bản devlink vào
 không gian tên trong quá trình tải lại liên kết phát triển.
 Theo mặc định, tất cả các phiên bản liên kết phát triển được tạo trong init_net và ở đó.
 
 cách sử dụng ví dụ
--------------
+------------------
 
 .. code:: shell
 

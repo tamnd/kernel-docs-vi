@@ -58,7 +58,7 @@ system* có nghĩa là SoC 32-bit không đối xứng chạy Linux với kernel
 tùy chọn dòng lệnh được kích hoạt.
 
 Tác động đến không gian người dùng
-================
+==================================
 
 Các tác vụ 32 bit chạy trên hệ thống bất đối xứng hoạt động gần như giống nhau
 giống như trên một hệ thống đồng nhất, với một số khác biệt chính liên quan đến
@@ -151,7 +151,7 @@ Trong cả hai trường hợp này, ái lực mới được tính theo bước
 không thay đổi bất kể phiên bản cgroup.
 
 phích cắm nóng CPU
------------
+------------------
 
 Trên hệ thống bất đối xứng, CPU có khả năng 32 bit được phát hiện đầu tiên là
 không bị ngoại tuyến bởi không gian người dùng và mọi nỗ lực như vậy sẽ

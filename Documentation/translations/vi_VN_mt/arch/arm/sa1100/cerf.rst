@@ -28,7 +28,7 @@ Tài liệu này mô tả sự hỗ trợ trong nhân Linux cho
 Intrinsyc CerfBoard.
 
 Được hỗ trợ trong phiên bản này
-=========================
+===============================
 
 - Khe cắm CompactFlash+ (chọn PCMCIA trong Cài đặt chung và bất kỳ tùy chọn nào
      điều đó có thể được yêu cầu)

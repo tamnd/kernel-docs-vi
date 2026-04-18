@@ -64,7 +64,7 @@ phần thứ hai thảo luận về cơ chế đệm vòng AUX.
 =============================
 
 2.1 Thuật toán cơ bản
--------------------
+---------------------
 
 Điều đó nói rằng, một bộ đệm vòng điển hình được quản lý bởi một con trỏ đầu và một con trỏ đuôi
 con trỏ; con trỏ đầu được thao tác bởi người viết và con trỏ đuôi
@@ -123,7 +123,7 @@ và kernel tận dụng cơ hội này để ánh xạ trang vào tiến trình 
 trang sau khi trở về từ ngoại lệ.
 
 2.2 Bộ đệm vòng cho các chế độ theo dõi khác nhau
--------------------------------------------
+-------------------------------------------------
 
 Các chương trình cấu hình hoàn hảo với các chế độ khác nhau: chế độ mặc định, trên mỗi luồng
 chế độ, mỗi chế độ CPU và chế độ toàn hệ thống.  Phần này mô tả những
@@ -131,7 +131,7 @@ các chế độ và cách bộ đệm vòng đáp ứng các yêu cầu đối 
 sẽ xem xét các điều kiện cuộc đua do các chế độ này gây ra.
 
 2.2.1 Chế độ mặc định
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 Thông thường chúng tôi thực thi lệnh ZZ0000ZZ, sau đó là chương trình định hình
 tên, như lệnh dưới đây::
@@ -205,7 +205,7 @@ T1: Sợi 1; T2: Sợi 2; T3: Chủ đề 3
 Hình 3. Bộ đệm vòng cho chế độ mặc định
 
 2.2.2 Chế độ trên mỗi luồng
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Bằng cách chỉ định tùy chọn ZZ0000ZZ trong lệnh hoàn hảo, ví dụ:
 
@@ -266,7 +266,7 @@ thread ZZ0002ZZ đang chạy, các sự kiện biểu diễn sẽ được ghi v
 bị vô hiệu hóa, do đó sẽ không có dữ liệu theo dõi nào được ghi vào bộ đệm vòng.
 
 2.2.3 Chế độ Per-CPU
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Tùy chọn ZZ0000ZZ được sử dụng để thu thập các mẫu trong danh sách CPU, dành cho
 ví dụ lệnh hoàn hảo bên dưới nhận tùy chọn ZZ0001ZZ::
@@ -326,7 +326,7 @@ T1: Sợi 1; T2: Sợi 2; T3: Chủ đề 3
 Hình 5. Bộ đệm vòng cho chế độ per-CPU
 
 2.2.4 Chế độ toàn hệ thống
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Bằng cách sử dụng tùy chọn ZZ0000ZZ hoặc ZZ0001ZZ, Perf sẽ thu thập các mẫu trên tất cả các CPU
 đối với tất cả các tác vụ, chúng tôi gọi nó là chế độ toàn hệ thống, lệnh là::
@@ -398,7 +398,7 @@ Dựa trên sự hiểu biết về cách phân bổ bộ đệm vòng trong
 chế độ khác nhau, phần này giải thích cách truy cập bộ đệm vòng.
 
 2.3.1 Mô hình sản xuất-tiêu dùng
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trong nhân Linux, các sự kiện PMU có thể tạo ra các mẫu được lưu trữ
 vào bộ đệm vòng; lệnh hoàn hảo trong không gian người dùng sẽ tiêu tốn
@@ -724,7 +724,7 @@ T1: Sợi 1; T2: Sợi 2; T3: Chủ đề 3
 Hình 8. Bộ đệm vòng AUX cho chế độ toàn hệ thống
 
 3.2 Sự kiện AUX
---------------
+---------------
 
 Tương tự như ZZ0000ZZ và ZZ0001ZZ hoạt động cho
 bộ đệm vòng thông thường, ZZ0002ZZ và ZZ0003ZZ
@@ -766,7 +766,7 @@ Sự kiện ZZ0002ZZ và sự kiện ZZ0003ZZ được sử dụng để
 giải mã một đoạn dữ liệu bằng cách tương quan với thứ tự thời gian.
 
 3.3 Chế độ chụp nhanh
------------------
+---------------------
 
 Perf hỗ trợ chế độ chụp nhanh cho bộ đệm vòng AUX, ở chế độ này, người dùng
 chỉ ghi lại dữ liệu theo dõi AUX tại một thời điểm cụ thể mà người dùng đang

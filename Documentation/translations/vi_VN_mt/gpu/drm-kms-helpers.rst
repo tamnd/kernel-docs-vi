@@ -48,7 +48,7 @@ Có một số lĩnh vực mà những người trợ giúp này có thể nhóm
   lật hàng đợi và các loại bit.
 
 Tham khảo trợ giúp Modeset cho các Vtable thông thường
-===========================================
+======================================================
 
 .. kernel-doc:: include/drm/drm_modeset_helper_vtables.h
    :doc: overview
@@ -59,16 +59,16 @@ Tham khảo trợ giúp Modeset cho các Vtable thông thường
 .. _drm_atomic_helper:
 
 Tham khảo các hàm trợ giúp của Atomic Modeset
-=========================================
+=============================================
 
 Tổng quan
---------
+---------
 
 .. kernel-doc:: drivers/gpu/drm/drm_atomic_helper.c
    :doc: overview
 
 Triển khai cam kết nguyên tử không đồng bộ
----------------------------------------
+------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_atomic_helper.c
    :doc: implementing nonblocking commit
@@ -83,19 +83,19 @@ Tham khảo các hàm trợ giúp
    :export:
 
 Thiết lập lại và khởi tạo trạng thái nguyên tử
--------------------------------------
+----------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_atomic_state_helper.c
    :doc: atomic state reset and initialization
 
 Tài liệu tham khảo trợ giúp trạng thái nguyên tử
------------------------------
+------------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_atomic_state_helper.c
    :export:
 
 Tài liệu tham khảo trợ giúp nguyên tử GEM
----------------------------
+-----------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_gem_atomic_helper.c
    :doc: overview
@@ -107,7 +107,7 @@ Tài liệu tham khảo trợ giúp nguyên tử GEM
    :export:
 
 Tài liệu tham khảo trợ giúp VBLANK
------------------------
+----------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_vblank_helper.c
    :doc: overview
@@ -119,7 +119,7 @@ Tài liệu tham khảo trợ giúp VBLANK
    :export:
 
 Tài liệu tham khảo về hàm trợ giúp fbdev
-================================
+========================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_fb_helper.c
    :doc: fbdev helpers
@@ -131,7 +131,7 @@ Tài liệu tham khảo về hàm trợ giúp fbdev
    :export:
 
 tham chiếu các hàm trợ giúp định dạng
-=================================
+=====================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_format_helper.c
    :export:
@@ -146,7 +146,7 @@ Tham khảo chức năng của bộ đệm khung DMA
    :export:
 
 Tham khảo trợ giúp Framebuffer GEM
-================================
+==================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_gem_framebuffer_helper.c
    :doc: overview
@@ -160,13 +160,13 @@ Cầu
 =======
 
 Tổng quan
---------
+---------
 
 .. kernel-doc:: drivers/gpu/drm/drm_bridge.c
    :doc: overview
 
 Tích hợp trình điều khiển hiển thị
---------------------------
+----------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_bridge.c
    :doc: display driver integration
@@ -184,14 +184,14 @@ Vận hành cầu
    :doc: bridge operations
 
 Trình trợ giúp kết nối cầu
------------------------
+--------------------------
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_bridge_connector.c
    :doc: overview
 
 
 Tài liệu tham khảo của người trợ giúp cầu nối
--------------------------
+---------------------------------------------
 
 .. kernel-doc:: include/drm/drm_bridge.h
    :internal:
@@ -207,13 +207,13 @@ Vận hành cầu MIPI-DSI
 
 
 Tài liệu tham khảo của người trợ giúp kết nối cầu
----------------------------------
+-------------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_bridge_connector.c
    :export:
 
 Tài liệu tham khảo trợ giúp cầu bảng điều khiển
------------------------------
+-----------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/bridge/panel.c
    :export:
@@ -221,7 +221,7 @@ Tài liệu tham khảo trợ giúp cầu bảng điều khiển
 .. _drm_panel_helper:
 
 Tài liệu tham khảo của người trợ giúp bảng điều khiển
-======================
+=====================================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_panel.c
    :doc: drm panel
@@ -239,7 +239,7 @@ Tài liệu tham khảo của người trợ giúp bảng điều khiển
    :export:
 
 Tài liệu tham khảo về trình trợ giúp tự làm mới bảng điều khiển
-===================================
+===============================================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_self_refresh_helper.c
    :doc: overview
@@ -248,10 +248,10 @@ Tài liệu tham khảo về trình trợ giúp tự làm mới bảng điều k
    :export:
 
 Người trợ giúp trạng thái nguyên tử HDMI
-=========================
+========================================
 
 Tổng quan
---------
+---------
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_hdmi_state_helper.c
    :doc: hdmi helpers
@@ -263,13 +263,13 @@ Tham khảo chức năng
    :export:
 
 Tham khảo chức năng trợ giúp HDCP
-===============================
+=================================
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_hdcp_helper.c
    :export:
 
 Tham chiếu chức năng trợ giúp cổng hiển thị
-=======================================
+===========================================
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_dp_helper.c
    :doc: dp helpers
@@ -284,7 +284,7 @@ Tham chiếu chức năng trợ giúp cổng hiển thị
    :export:
 
 Tham khảo chức năng của trình trợ giúp cổng hiển thị CEC
-===========================================
+========================================================
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_dp_cec.c
    :doc: dp cec helpers
@@ -293,7 +293,7 @@ Tham khảo chức năng của trình trợ giúp cổng hiển thị CEC
    :export:
 
 Cổng hiển thị Chức năng trợ giúp bộ điều hợp chế độ kép Tham khảo
-=========================================================
+=================================================================
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_dp_dual_mode_helper.c
    :doc: dp dual mode helpers
@@ -305,10 +305,10 @@ Cổng hiển thị Chức năng trợ giúp bộ điều hợp chế độ kép
    :export:
 
 Trình trợ giúp cổng hiển thị MST
-========================
+================================
 
 Tổng quan
---------
+---------
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_dp_mst_topology.c
    :doc: dp mst helper
@@ -326,7 +326,7 @@ Tham khảo chức năng
    :export:
 
 Cấu trúc liên kết nội bộ trọn đời
----------------------------
+---------------------------------
 
 Các chức năng này không được xuất sang trình điều khiển nhưng được ghi lại ở đây để giúp thực hiện
 Trình trợ giúp cấu trúc liên kết MST dễ hiểu hơn
@@ -339,7 +339,7 @@ Trình trợ giúp cấu trúc liên kết MST dễ hiểu hơn
                drm_dp_mst_get_mstb_malloc drm_dp_mst_put_mstb_malloc
 
 Tham khảo chức năng trợ giúp MIPI DBI
-===================================
+=====================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_mipi_dbi.c
    :doc: overview
@@ -351,7 +351,7 @@ Tham khảo chức năng trợ giúp MIPI DBI
    :export:
 
 Tham khảo chức năng trợ giúp MIPI DSI
-===================================
+=====================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_mipi_dsi.c
    :doc: dsi helpers
@@ -384,7 +384,7 @@ Tham khảo các hàm trợ giúp thăm dò đầu ra
    :export:
 
 Tham khảo chức năng trợ giúp EDID
-===============================
+=================================
 
 .. kernel-doc:: include/drm/drm_edid.h
    :internal:
@@ -399,7 +399,7 @@ Tham khảo chức năng trợ giúp EDID
    :export:
 
 Tham khảo chức năng trợ giúp SCDC
-===============================
+=================================
 
 .. kernel-doc:: drivers/gpu/drm/display/drm_scdc_helper.c
    :doc: scdc helpers
@@ -411,7 +411,7 @@ Tham khảo chức năng trợ giúp SCDC
    :export:
 
 Tài liệu tham khảo trợ giúp khung thông tin HDMI
-================================
+================================================
 
 Nói đúng ra đây không phải là thư viện trợ giúp DRM nhưng nhìn chung có thể sử dụng được
 bởi bất kỳ trình điều khiển nào giao tiếp với đầu ra HDMI như trình điều khiển v4l hoặc alsa.
@@ -425,7 +425,7 @@ thư viện và do đó cũng được bao gồm ở đây.
    :export:
 
 Tham khảo tiện ích hình chữ nhật
-=============================
+================================
 
 .. kernel-doc:: include/drm/drm_rect.h
    :doc: rect utils
@@ -437,7 +437,7 @@ Tham khảo tiện ích hình chữ nhật
    :export:
 
 Tài liệu tham khảo về người trợ giúp công việc lật
-==========================
+==================================================
 
 .. kernel-doc:: include/drm/drm_flip_work.h
    :doc: flip utils
@@ -449,7 +449,7 @@ Tài liệu tham khảo về người trợ giúp công việc lật
    :export:
 
 Người trợ giúp chế độ phụ trợ
-=========================
+=============================
 
 .. kernel-doc:: drivers/gpu/drm/drm_modeset_helper.c
    :doc: aux kms helpers
@@ -458,7 +458,7 @@ Người trợ giúp chế độ phụ trợ
    :export:
 
 Người trợ giúp OF/DT
-=============
+====================
 
 .. kernel-doc:: drivers/gpu/drm/drm_of.c
    :doc: overview
@@ -467,7 +467,7 @@ Người trợ giúp OF/DT
    :export:
 
 Tài liệu tham khảo về người trợ giúp máy bay kế thừa
-=============================
+====================================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_plane_helper.c
    :doc: overview
@@ -476,7 +476,7 @@ Tài liệu tham khảo về người trợ giúp máy bay kế thừa
    :export:
 
 Tham khảo các chức năng trợ giúp của Modeset CRTC/Modeset kế thừa
-==============================================
+=================================================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_crtc_helper.c
    :doc: overview
@@ -485,7 +485,7 @@ Tham khảo các chức năng trợ giúp của Modeset CRTC/Modeset kế thừa
    :export:
 
 Lớp kiểm soát quyền riêng tư
-====================
+============================
 
 .. kernel-doc:: drivers/gpu/drm/drm_privacy_screen.c
    :doc: overview

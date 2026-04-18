@@ -31,14 +31,14 @@ Dành cho bộ điều hợp Ethernet aQuantia Multi-Gigabit PCI Express
     - License
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 
 Trình điều khiển trong phiên bản này tương thích với AQC-100, AQC-107, AQC-108
 bộ điều hợp ethernet dựa trên.
 
 
 Thiết bị SFP+ (dành cho bộ điều hợp dựa trên AQC-100)
------------------------------------------
+-----------------------------------------------------
 
 Bản phát hành này đã được thử nghiệm với Cáp gắn trực tiếp thụ động (DAC) và SFP+/LC
 Bộ thu phát quang học.
@@ -68,7 +68,7 @@ Trình điều khiển hỗ trợ Khung Jumbo cho tất cả các bộ điều h
 bộ liên kết ip mtu 16000 dev enp1s0
 
 công cụ đạo đức
--------
+---------------
 Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
   chẩn đoán cũng như hiển thị thông tin thống kê. mới nhất
   phiên bản ethtool là cần thiết cho chức năng này.
@@ -78,7 +78,7 @@ NAPI
 NAPI (Chế độ bỏ phiếu Rx) được hỗ trợ trong trình điều khiển atlantic.
 
 Tùy chọn ethtool được hỗ trợ
-=========================
+============================
 
 Xem cài đặt bộ điều hợp
 ------------------------
@@ -148,7 +148,7 @@ tài xế: Đại Tây Dương
 
 
 Xem số liệu thống kê bộ điều hợp Ethernet
------------------------------------
+-----------------------------------------
 
  ::
 
@@ -227,7 +227,7 @@ ethtool -s <ethX> wol g
 ethtool -s <ethX> wol d
 
 Đặt và kiểm tra mức thông báo trình điều khiển
---------------------------------------
+----------------------------------------------
 
 Đặt mức tin nhắn
 
@@ -267,7 +267,7 @@ Nếu bạn muốn tắt đầu ra của tin nhắn ::
 ethtool -s <ethX> msglvl 0
 
 Quy tắc luồng RX (bộ lọc ntuple)
-------------------------------
+--------------------------------
 
 Có các quy tắc riêng được hỗ trợ, áp dụng theo thứ tự đó:
 
@@ -377,7 +377,7 @@ Ví dụ::
 ethtool -N eth0 hành động udp4 loại luồng 0 loc 32
 
 Giảm tải phần cứng UDP GSO
-------------------------
+--------------------------
 
 UDP GSO cho phép tăng tốc độ tx UDP bằng cách giảm tải phân bổ tiêu đề UDP
  vào phần cứng. Cần có tùy chọn ổ cắm không gian người dùng đặc biệt cho việc này,
@@ -459,7 +459,7 @@ Giá trị mặc định: 0
    ITR settings could be changed in runtime by ethtool -c means (see below)
 
 Thông số tập tin cấu hình
-======================
+=========================
 
 Đối với một số tinh chỉnh và tối ưu hóa hiệu suất,
 một số tham số có thể được thay đổi trong tệp {source_dir}/aq_cfg.h.
@@ -508,7 +508,7 @@ Giá trị hợp lệ
 =========
 0 bị vô hiệu hóa
 1 đã được kích hoạt
-=========
+===================
 
 Giá trị mặc định: 1
 
@@ -537,7 +537,7 @@ Giá trị hợp lệ
 =========
 0 bị vô hiệu hóa
 1 đã được kích hoạt
-=========
+===================
 
 Giá trị mặc định: 1
 
@@ -558,7 +558,7 @@ kernel với bộ điều hợp được hỗ trợ, gửi email thông tin cụ
 gửi vấn đề tới aqn_support@marvell.com
 
 Giấy phép
-=======
+=========
 
 Trình điều khiển mạng của Tập đoàn aQuantia
 

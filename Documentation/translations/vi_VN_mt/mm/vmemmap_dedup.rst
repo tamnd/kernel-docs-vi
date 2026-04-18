@@ -186,7 +186,7 @@ Bit liền kề được sử dụng để tăng kích thước ánh xạ tại 
 kích thước của cấu trúc ZZ0000ZZ lớn hơn trang ZZ0001ZZ.
 
 Thiết bị DAX
-==========
+============
 
 Giao diện device-dax sử dụng kỹ thuật loại bỏ trùng lặp đuôi tương tự như đã giải thích
 trong chương trước, ngoại trừ khi được sử dụng với vmemmap trong

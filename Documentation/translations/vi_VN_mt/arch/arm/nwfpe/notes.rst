@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Ghi chú
-=====
+=======
 
 Có vẻ như có vấn đề với exp(double) và trình giả lập của chúng tôi.  Tôi chưa
 vẫn có thể theo dõi nó.  Điều này không xảy ra với trình giả lập

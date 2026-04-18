@@ -177,7 +177,7 @@ là 24 byte và rw_semaphore là 40 byte. Kích thước cấu trúc lớn hơn 
 bộ nhớ cache và dấu chân bộ nhớ.
 
 Khi nào nên sử dụng mutexes
--------------------
+---------------------------
 
 Trừ khi ngữ nghĩa nghiêm ngặt của mutexes không phù hợp và/hoặc điều quan trọng
 khu vực ngăn không cho khóa được chia sẻ, luôn ưu tiên chúng hơn bất kỳ khu vực nào khác

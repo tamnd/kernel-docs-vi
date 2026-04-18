@@ -285,7 +285,7 @@ chỉ khác nhau về số bit và mã hóa scancode.
      - extended bits
 
 không cần (RC_PROTO_NEC)
-------------------
+------------------------
 
 Giao thức nec mã hóa địa chỉ 8 bit và lệnh 8 bit. Đó là
 được mô tả ở đây ZZ0000ZZ Lưu ý
@@ -404,7 +404,7 @@ bản thân giao thức bị bỏ qua và bit thứ 16 sẽ được lấy làm 
 chút.
 
 sắc nét (RC_PROTO_SHARP)
-----------------------
+------------------------
 
 Đây là giao thức được sử dụng bởi Sharp VCR, được mô tả ở đây
 ZZ0000ZZ Có một thời gian rất dài

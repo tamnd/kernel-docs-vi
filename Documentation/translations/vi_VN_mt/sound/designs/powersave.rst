@@ -40,7 +40,7 @@ Tùy chọn ZZ0000ZZ được xuất dưới dạng có thể ghi.  Điều này
 điều chỉnh giá trị thông qua sysfs một cách nhanh chóng.  Ví dụ, để bật
 chế độ tiết kiệm năng lượng tự động trong 10 giây, ghi vào
 ZZ0001ZZ (thường là root):
-::
+::::::::::::::::::::::::::
 
 # echo 10 > /sys/module/snd_ac97_codec/parameters/power_save
 

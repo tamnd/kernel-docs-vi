@@ -22,7 +22,7 @@ Bộ điều chỉnh và bộ điều biến
 
 
 Bộ chỉnh
-======
+========
 
 Thiết bị đầu vào video có thể có một hoặc nhiều bộ điều chỉnh giải điều chế RF
 tín hiệu. Mỗi bộ dò được liên kết với một hoặc nhiều đầu vào video,
@@ -53,7 +53,7 @@ cũng chứa thông tin trạng thái tín hiệu có thể áp dụng khi bộ 
 
 
 Bộ điều biến
-==========
+============
 
 Thiết bị đầu ra video có thể có một hoặc nhiều bộ điều biến, điều chỉnh một
 tín hiệu video cho bức xạ hoặc kết nối với đầu vào ăng-ten của TV

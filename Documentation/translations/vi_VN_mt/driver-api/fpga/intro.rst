@@ -35,7 +35,7 @@ Linux.  Một số mục đích cốt lõi của hệ thống con FPGA là:
 Khung trong kernel được chia thành:
 
 Người quản lý FPGA
-------------
+------------------
 
 Nếu bạn đang thêm FPGA mới hoặc một phương pháp lập trình FPGA mới,
 đây là hệ thống con dành cho bạn.  Trình điều khiển trình quản lý FPGA cấp thấp chứa

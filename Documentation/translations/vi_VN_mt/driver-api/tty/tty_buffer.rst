@@ -36,7 +36,7 @@ Quản lý bộ đệm lật
 ----
 
 Các chức năng khác
-===============
+==================
 
 .. kernel-doc:: drivers/tty/tty_buffer.c
    :identifiers: tty_buffer_space_avail tty_buffer_set_limit

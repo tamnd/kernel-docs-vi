@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Cần điều khiển Crystal SoundFusion CS4610/CS4612/CS461
-================================================
+======================================================
 
 Đây là trình điều khiển cấp thấp mới để hỗ trợ cần điều khiển analog được gắn vào
 Crystal SoundFusion CS4610/CS4612/CS4615. Mã này dựa trên

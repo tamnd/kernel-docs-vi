@@ -70,14 +70,14 @@ C) Bảo vệ
 =============
 
 1. Dữ liệu toàn cầu:
----------------
+--------------------
 danh sách cấu trúc_head pcmcia_socket_list;
 
 được bảo vệ bởi pcmcia_socket_list_rwsem;
 
 
 2. Dữ liệu trên mỗi ổ cắm:
--------------------
+--------------------------
 Resource_ops và dữ liệu của chúng được bảo vệ bởi ops_mutex.
 
 Cấu trúc pcmcia_socket "chính" được bảo vệ như sau (các trường chỉ đọc
@@ -121,7 +121,7 @@ u_int bị đình chỉ_state;
 
 
 3. Dữ liệu trên mỗi thiết bị PCMCIA:
---------------------------
+------------------------------------
 
 Cấu trúc pcmcia_device "chính" được bảo vệ như sau (các trường chỉ đọc
 hoặc các trường sử dụng một lần không được đề cập):

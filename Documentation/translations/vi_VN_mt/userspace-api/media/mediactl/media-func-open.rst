@@ -56,7 +56,7 @@ cấu hình sẽ dẫn đến lỗi và ZZ0000ZZ sẽ được đặt thành
 EBADF.
 
 Giá trị trả về
-============
+==============
 
 ZZ0000ZZ trả về bộ mô tả tệp mới nếu thành công. Do lỗi,
 -1 được trả về và ZZ0001ZZ được đặt phù hợp. Mã lỗi có thể xảy ra

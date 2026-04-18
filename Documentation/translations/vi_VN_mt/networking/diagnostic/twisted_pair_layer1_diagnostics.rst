@@ -62,7 +62,7 @@ Kịch bản chẩn đoán
 - ZZ0000ZZ: Giao diện đã lên nhưng chưa thiết lập được liên kết.
 
 Xác minh trạng thái giao diện
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Bắt đầu bằng cách xác minh trạng thái của giao diện Ethernet để kiểm tra xem nó có
 lên về mặt hành chính. Không giống như ZZ0000ZZ, cung cấp thông tin về liên kết
@@ -141,7 +141,7 @@ trạng thái hành chính "DOWN".
       hướng dẫn này.
 
 Kiểm tra trạng thái liên kết và cấu hình PHY
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sử dụng ZZ0000ZZ để kiểm tra trạng thái liên kết, cấu hình PHY, liên kết được hỗ trợ
 các chế độ và số liệu thống kê bổ sung như bộ đếm ZZ0001ZZ. Cái này
@@ -227,7 +227,7 @@ nhiều chế độ liên kết và tự động đàm phán.
     bước chẩn đoán tiếp theo.
 
 Kiểm tra nguồn điện (PoDL hoặc PoE)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nếu biết ZZ0000ZZ hoặc ZZ0001ZZ là ZZ0002ZZ trên hệ thống,
 hoặc ZZ0003ZZ (Thiết bị tìm nguồn điện) được quản lý bởi không gian người dùng độc quyền
@@ -382,7 +382,7 @@ ZZ0001ZZ:
 tham khảo phần ZZ0000ZZ.
 
 Khắc phục sự cố dựa trên kết quả kiểm tra cáp
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sau khi chạy kiểm tra cáp, kết quả có thể giúp xác định các vấn đề cụ thể trong
 kết nối vật lý. Tuy nhiên, điều quan trọng cần lưu ý là **kiểm tra cáp
@@ -498,14 +498,14 @@ Kết quả có thể là một trong những kết quả sau:
       cáp bằng tay nếu cần thiết.
 
 Xác minh cấu hình PHY của đối tác liên kết
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nếu kiểm tra cáp đạt nhưng liên kết vẫn không hoạt động chính xác thì đó là
 cần thiết để xác minh cấu hình PHY của đối tác liên kết. Sự không phù hợp trong
 tốc độ, cài đặt song công hoặc vai trò chính-phụ có thể gây ra sự cố kết nối.
 
 Tự động đàm phán không khớp
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Nếu cả hai đối tác liên kết đều hỗ trợ tự động thương lượng, hãy đảm bảo rằng quá trình tự động thương lượng được thực hiện
   được bật ở cả hai bên và tất cả các chế độ liên kết được hỗ trợ đều được quảng cáo. A
@@ -539,7 +539,7 @@ Ví dụ sau đây cho thấy trường hợp PHY cục bộ quảng cáo ít li
         Auto-negotiation: on
 
 Chế độ kết hợp không khớp (Tự động đàm phán ở một bên, cưỡng bức ở bên kia)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Một vấn đề có thể xảy ra khi một bên đang sử dụng ZZ0000ZZ (như trong
   hầu hết các hệ thống hiện đại) và mặt còn lại được đặt thành ZZ0001ZZ
@@ -568,7 +568,7 @@ Chế độ kết hợp không khớp (Tự động đàm phán ở một bên, 
      ethtool -s <interface> speed 1000 duplex full autoneg off
 
 Vai trò Master/Slave không khớp (PHY BaseT1 và 1000BaseT)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Trong các hệ thống ZZ0000ZZ (ví dụ: 1000BaseT1, 100BaseT1), thiết lập liên kết
   yêu cầu một thiết bị được cấu hình là ZZ0001ZZ và thiết bị kia là
@@ -623,7 +623,7 @@ hoặc:
   điều chỉnh một bên cho phù hợp để giải quyết sự không phù hợp.
 
 Giám sát việc đặt lại liên kết và giảm tốc độ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nếu liên kết không ổn định, thường xuyên bị reset hoặc giảm tốc độ, điều này có thể
 cho biết sự cố với cáp, cấu hình PHY hoặc các yếu tố môi trường.
@@ -770,7 +770,7 @@ Bất kỳ sự không nhất quán nào về tốc độ dự kiến hoặc cà
       giữa MAC và PHY.
 
 Khi mọi cách khác đều thất bại...
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Vậy là bạn đã kiểm tra cáp, theo dõi nhật ký, tắt EEE và vẫn...
 không có gì à? Đừng lo lắng, bạn không đơn độc. Đôi khi, gremlin Ethernet không

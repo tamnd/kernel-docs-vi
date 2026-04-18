@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân tc74
-====================
+==============================
 
 Chip được hỗ trợ:
 
@@ -32,6 +32,6 @@ TC74 có cảm biến 8 bit, độ phân giải 1 độ C
 và độ chính xác + - 2 độ C.
 
 Ghi chú
------
+-------
 
 Hiện không hỗ trợ chuyển sang chế độ chờ nguồn điện thấp.

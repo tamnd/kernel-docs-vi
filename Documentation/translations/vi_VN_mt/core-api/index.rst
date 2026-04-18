@@ -20,7 +20,7 @@ Tài liệu lõi API
 (và việc viết!) tài liệu cho sổ tay này được đánh giá cao!
 
 Tiện ích cốt lõi
-==============
+================
 
 Phần này có tài liệu chung và "cốt lõi".  Đầu tiên là một
 một lượng lớn thông tin kerneldoc còn sót lại từ thời docbook; nó

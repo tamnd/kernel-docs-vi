@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển Bộ xử lý màn hình mịn Renesas R-Car (FDP1)
-==================================================
+===========================================================
 
 Trình điều khiển R-Car FDP1 thực hiện các điều khiển dành riêng cho người lái như sau.
 

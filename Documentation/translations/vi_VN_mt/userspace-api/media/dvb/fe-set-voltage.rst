@@ -62,7 +62,7 @@ cấp nguồn cho LNBf.
    recommended.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

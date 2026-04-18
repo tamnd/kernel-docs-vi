@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân pli1209bc
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -38,7 +38,7 @@ giao diện qua giao diện UART bị cô lập. Thông qua PLI, bộ xử lý c
 có thể định cấu hình, đặt giới hạn bảo vệ và giám sát BCM.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =====================================================================================
 in1_label "vin2"

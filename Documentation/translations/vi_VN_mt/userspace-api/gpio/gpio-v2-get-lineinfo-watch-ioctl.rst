@@ -71,7 +71,7 @@ Việc thêm đồng hồ vào dòng đã được xem là một lỗi (ZZ0000ZZ
 trên cùng một chip GPIO được mở bằng lệnh gọi riêng tới ZZ0001ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 và ZZ0000ZZ được điền thông tin dòng hiện tại.
 

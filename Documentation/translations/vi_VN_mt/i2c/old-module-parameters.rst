@@ -38,7 +38,7 @@ Tài liệu/i2c/instantiating-devices.rst, phần
 Dưới đây là ánh xạ từ các tham số mô-đun cũ sang giao diện mới.
 
 Gắn trình điều khiển vào thiết bị I2C
------------------------------------
+-------------------------------------
 
 Phương thức cũ (tham số mô-đun)::
 

@@ -77,7 +77,7 @@ phụ thuộc vào hệ thống phân phối và thiết bị:
 - Cuộc gọi này chỉ yêu cầu quyền truy cập chỉ đọc vào thiết bị.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

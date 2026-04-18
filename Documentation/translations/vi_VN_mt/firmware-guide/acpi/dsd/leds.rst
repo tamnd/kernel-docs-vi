@@ -89,7 +89,7 @@ Thiết bị (SEN)
 	}
 
 Ở đâu
-::
+:::::
 
 Thiết bị điều khiển LED LED
 	LED0 LED đầu tiên
@@ -97,7 +97,7 @@ Thiết bị điều khiển LED LED
 	SEN Thiết bị cảm biến camera (hoặc thiết bị khác có liên quan đến LED)
 
 Tài liệu tham khảo
-==========
+==================
 
 [acpi] Cấu hình nâng cao và đặc tả giao diện nguồn.
     ZZ0000ZZ được tham chiếu 2021-11-30.

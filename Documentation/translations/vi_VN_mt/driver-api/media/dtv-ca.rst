@@ -13,6 +13,6 @@
    review) được đặt trong thư mục vi_VN/.
 
 Truy cập có điều kiện truyền hình kỹ thuật số kABI
-----------------------------------
+--------------------------------------------------
 
 .. kernel-doc:: include/media/dvb_ca_en50221.h

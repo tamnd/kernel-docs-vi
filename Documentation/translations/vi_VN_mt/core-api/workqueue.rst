@@ -40,7 +40,7 @@ Khi một mục công việc mới được xếp vào hàng đợi, nhân viên
 
 
 Tại sao phải có hàng đợi công việc được quản lý đồng thời?
-==================================
+==========================================================
 
 Trong triển khai wq ban đầu, wq đa luồng (MT) có một
 luồng công nhân trên mỗi CPU và một luồng đơn (ST) wq có một công nhân
@@ -388,7 +388,7 @@ Lưu ý: Nếu thứ gì đó có thể tạo ra nhiều hơn @max_active còn t
 
 
 Phạm vi mối quan hệ
-===============
+===================
 
 Hàng đợi công việc không liên kết sẽ nhóm các CPU theo phạm vi quan hệ của nó để cải thiện
 địa phương bộ đệm. Ví dụ: nếu một hàng công việc đang sử dụng mối quan hệ mặc định
@@ -462,7 +462,7 @@ Nếu được đặt thành 1, tất cả công nhân trong phạm vi được 
 
 
 Phạm vi mối quan hệ và hiệu suất
-===============================
+================================
 
 Sẽ là lý tưởng nếu hành vi của hàng đợi công việc không liên kết là tối ưu cho nhiều
 phần lớn các trường hợp sử dụng mà không cần điều chỉnh thêm. Thật không may, trong hiện tại
@@ -482,7 +482,7 @@ ZZ0000ZZ là thiết bị dm-crypt được tạo trên NVME SSD (Samsung 990 PR
 
 
 Kịch bản 1: Có đủ số lượng người phát hành và công việc trải đều trên máy
--------------------------------------------------------------
+-------------------------------------------------------------------------
 
 Lệnh được sử dụng: ::
 
@@ -524,7 +524,7 @@ nhưng máy cache-affine hoạt động tốt hơn 0,6% nhờ cải tiến
 
 
 Kịch bản 2: Ít nhà phát hành hơn, đủ công việc để bão hòa
------------------------------------------------------
+---------------------------------------------------------
 
 Lệnh được sử dụng: ::
 
@@ -567,7 +567,7 @@ hiện đang bắt đầu bị ảnh hưởng với việc mất băng thông 3,
 
 
 Kịch bản 3: Thậm chí còn ít tổ chức phát hành hơn, không đủ công việc để bão hòa
------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Lệnh được sử dụng: ::
 

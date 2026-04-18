@@ -74,7 +74,7 @@ Theo mặc định, trình điều khiển mong đợi các bản vá cho giao d
 
 
 Hỗ trợ hạt nhân
-==============
+===============
 
 Gói nguồn này chỉ dành cho kernel ngược dòng. (Xem ghi chú
   ở đầu tập tin này). Nó dựa vào các giao diện đang chậm lại
@@ -88,6 +88,6 @@ Nếu cần trình điều khiển cho các hạt nhân cũ hơn, vui lòng sử
 
 
 Bản vá lỗi
-=======
+==========
 
 Rất may, tại thời điểm này, các bản vá không cần thiết.

@@ -43,7 +43,7 @@ dấu thời gian khi một tệp có dấu thời gian được truy vấn gầ
 thời gian chi tiết thô không gây ra sự thay đổi.
 
 Dấu thời gian Inode
-================
+===================
 Hiện tại có 3 dấu thời gian trong inode được cập nhật theo giá trị hiện tại
 đồng hồ treo tường thời gian trên hoạt động khác nhau:
 
@@ -68,7 +68,7 @@ Dấu thời gian nhiều lớp chỉ được theo dõi cho ctime và mtime. đ
 không bị ảnh hưởng và luôn sử dụng giá trị thô (tùy theo mức sàn).
 
 Thứ tự dấu thời gian Inode
-========================
+==========================
 
 Ngoài việc chỉ cung cấp thông tin về những thay đổi đối với từng tệp, tệp
 dấu thời gian cũng phục vụ một mục đích quan trọng trong các ứng dụng như "thực hiện". Những cái này

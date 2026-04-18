@@ -17,14 +17,14 @@ Nền tảng SoC với các yêu cầu tuân thủ DTS
 ==================================================
 
 Tổng quan
---------
+---------
 
 Nền tảng SoC hoặc kiến trúc phụ phải tuân theo tất cả các quy tắc từ
 Tài liệu/quy trình/bảo trì-soc.rst.  Tài liệu này được tham chiếu trong
 MAINTAINERS áp đặt các yêu cầu bổ sung được liệt kê bên dưới.
 
 Tuân thủ nghiêm ngặt Lược đồ DT DTS và dtc
----------------------------------------
+------------------------------------------
 
 Không có thay đổi nào đối với nguồn Devicetree nền tảng SoC (tệp DTS) sẽ được giới thiệu
 cảnh báo ZZ0000ZZ mới.  Cảnh báo trong bảng DTS mới, đó là

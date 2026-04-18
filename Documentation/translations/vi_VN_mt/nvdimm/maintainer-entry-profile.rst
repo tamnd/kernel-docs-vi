@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hồ sơ đăng nhập của người bảo trì LIBNVDIMM
-==================================
+===========================================
 
 Tổng quan
---------
+---------
 Hệ thống con libnvdimm quản lý bộ nhớ liên tục trên nhiều
 kiến trúc. Danh sách gửi thư được theo dõi bằng cách chắp vá tại đây:
 ZZ0000ZZ
@@ -40,7 +40,7 @@ trước khi gửi nhưng không bắt buộc.
 
 
 Gửi phụ lục danh sách kiểm tra
--------------------------
+------------------------------
 Có các bài kiểm tra đơn vị cho hệ thống con thông qua tiện ích ndctl:
 ZZ0000ZZ
 Những thử nghiệm đó cần phải được thông qua trước khi các bản vá được đưa lên thượng nguồn, nhưng không phải
@@ -48,7 +48,7 @@ nhất thiết phải trước khi đăng bài đầu tiên. Liên hệ với da
 thiết lập môi trường thử nghiệm.
 
 Phương pháp cụ thể của thiết bị ACPI (_DSM)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Trước khi xem xét các bản vá cho phép dòng _DSM mới, nó phải
 được gán mã giao diện định dạng từ Nhóm phụ NVDIMM của ACPI
 Nhóm làm việc đặc điểm kỹ thuật. Nhìn chung, lập trường của hệ thống con là
@@ -58,7 +58,7 @@ driver/acpi/nfit/nfit.h để biết tập hợp các bộ lệnh được hỗ 
 
 
 Ngày chu kỳ chính
----------------
+-----------------
 Các bài nộp mới có thể được gửi bất cứ lúc nào, nhưng nếu chúng có ý định đạt được
 cửa sổ hợp nhất tiếp theo, chúng sẽ được gửi trước -rc4 và lý tưởng nhất là
 được ổn định trong nhánh libnvdimm-for-next bởi -rc6. Tất nhiên nếu một

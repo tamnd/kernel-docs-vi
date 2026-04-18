@@ -17,7 +17,7 @@ RDS
 ===
 
 Tổng quan
-========
+=========
 
 Bài đọc này cố gắng cung cấp một số thông tin cơ bản về cách thức và lý do của RDS,
 và hy vọng sẽ giúp bạn tìm ra cách giải mã.
@@ -194,7 +194,7 @@ xem trang chủ rds(7)
 
 
 Giao thức RDS
-============
+=============
 
 Tiêu đề tin nhắn
 
@@ -373,7 +373,7 @@ rds_ib_xmit()
     - gửi bài tới cặp hàng đợi của kết nối
 
 Đường dẫn recv
-=============
+==============
 
 rds_ib_recv_cq_comp_handler()
     - xem xét việc hoàn thành viết

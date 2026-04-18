@@ -30,7 +30,7 @@ Sự miêu tả
 Có 3 chức năng trong LM3556, Flash, Torch và Indicator.
 
 Chế độ đèn nháy
-^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 Ở Chế độ Flash, nguồn dòng LED (LED) cung cấp 16 mức dòng mục tiêu
 từ 93,75 mA đến 1500 mA. Dòng điện Flash được điều chỉnh thông qua CURRENT
@@ -59,7 +59,7 @@ OFF::
 #echo 16 > /sys/class/leds/flash/độ sáng
 
 Chế độ đèn pin
-^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Ở Chế độ đèn pin, nguồn hiện tại (LED) được lập trình thông qua CURRENT CONTROL
 REGISTER(0x09).Chế độ đèn pin được kích hoạt bởi ENABLE REGISTER(0x0A) hoặc bởi
@@ -129,7 +129,7 @@ OFF::
 #echo 8 > /sys/class/leds/chỉ báo/độ sáng
 
 Ghi chú
------
+-------
 Trình điều khiển hy vọng nó được đăng ký bằng cơ chế i2c_board_info.
 Để đăng ký chip tại địa chỉ 0x63 trên bộ điều hợp cụ thể, hãy đặt dữ liệu nền tảng
 theo include/linux/platform_data/leds-lm3556.h, đặt thông tin bảng i2c

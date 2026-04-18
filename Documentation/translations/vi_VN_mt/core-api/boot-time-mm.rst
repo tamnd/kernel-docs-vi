@@ -35,7 +35,7 @@ khi phân bổ không thành công và phân bổ không thành công.
 Memblock cũng cung cấp nhiều API kiểm soát hành vi của chính nó.
 
 Tổng quan về Memblock
-=================
+=====================
 
 .. kernel-doc:: mm/memblock.c
    :doc: memblock overview

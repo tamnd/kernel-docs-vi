@@ -29,7 +29,7 @@ dữ liệu hình ảnh ra khỏi thiết bị.
 .. _image-source-control-id:
 
 ID kiểm soát nguồn hình ảnh
-========================
+===========================
 
 ZZ0000ZZ
     Bộ mô tả lớp IMAGE_SOURCE.

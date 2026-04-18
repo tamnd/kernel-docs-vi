@@ -31,7 +31,7 @@ Bản thảo đầu tiên ngày 10 tháng 1 năm 2007
 
 
 1. Giới thiệu
---------
+-------------
 
 devres đã nghĩ ra khi cố gắng chuyển đổi libata để sử dụng iomap.  Mỗi
 Địa chỉ iomapped phải được giữ lại và không được ánh xạ khi tách trình điều khiển.  cho
@@ -216,7 +216,7 @@ void my_midlayer_destroy_something()
 
 
 4. Chi tiết
-----------
+-----------
 
 Thời gian tồn tại của một mục nhập dành cho nhà phát triển bắt đầu từ việc phân bổ và kết thúc dành cho nhà phát triển
 khi nó được giải phóng hoặc bị phá hủy (loại bỏ và giải phóng) - không có tài liệu tham khảo
@@ -237,7 +237,7 @@ mặt nạ gfp bên phải được đưa ra.
 
 
 5. Chi phí chung
------------
+----------------
 
 Thông tin kế toán của mỗi nhà phát triển được phân bổ cùng với dữ liệu được yêu cầu
 khu vực.  Khi tắt tùy chọn gỡ lỗi, thông tin sổ sách kế toán chiếm 16
@@ -254,7 +254,7 @@ chắc chắn đầu tư thêm một chút công sức vào lớp lõi libata).
 
 
 6. Danh sách các giao diện được quản lý
------------------------------
+---------------------------------------
 
 CLOCK
   devm_clk_get()

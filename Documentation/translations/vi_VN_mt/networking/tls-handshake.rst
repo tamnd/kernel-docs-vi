@@ -17,7 +17,7 @@ Bắt tay TLS trong hạt nhân
 ==========================
 
 Tổng quan
-========
+=========
 
 Bảo mật lớp vận chuyển (TLS) là Giao thức lớp trên (ULP) chạy
 trên TCP. TLS cung cấp tính toàn vẹn và bảo mật dữ liệu đầu cuối trong
@@ -35,7 +35,7 @@ biết cách bắt tay được thực hiện như thế nào.
 
 
 Tác nhân bắt tay người dùng
-====================
+===========================
 
 Theo văn bản này, không có triển khai bắt tay TLS nào trong
 Hạt nhân Linux. Để cung cấp dịch vụ bắt tay, một tác nhân bắt tay

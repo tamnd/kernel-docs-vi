@@ -22,7 +22,7 @@ Ghi chú triển khai Clang
 Tài liệu này cung cấp thêm chi tiết cụ thể về cách triển khai Clang/LLVM của tập lệnh eBPF.
 
 Phiên bản
-========
+=========
 
 Clang đã xác định các phiên bản "CPU", trong đó phiên bản CPU gồm 3 tương ứng với eBPF ISA hiện tại.
 
@@ -41,7 +41,7 @@ Nếu ZZ0000ZZ được sử dụng, Clang sẽ tạo ZZ0001ZZ (0x8d)
 hướng dẫn không được trình xác minh nhân Linux hỗ trợ.
 
 Hoạt động nguyên tử
-=================
+===================
 
 Clang có thể tạo các hướng dẫn nguyên tử theo mặc định khi ZZ0000ZZ
 đã bật. Nếu phiên bản thấp hơn cho ZZ0001ZZ được đặt, lệnh nguyên tử duy nhất

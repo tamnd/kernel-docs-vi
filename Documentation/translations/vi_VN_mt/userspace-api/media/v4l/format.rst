@@ -21,7 +21,7 @@
 *****************
 
 Đàm phán định dạng dữ liệu
-=======================
+==========================
 
 Các thiết bị khác nhau trao đổi các loại dữ liệu khác nhau với các ứng dụng,
 ví dụ: hình ảnh video, dữ liệu VBI thô hoặc được cắt lát, gói dữ liệu RDS. Thậm chí
@@ -81,7 +81,7 @@ ZZ0000ZZ và ZZ0001ZZ ioctl. Thực hiện các
 ZZ0002ZZ rất được khuyến khích nhưng không bắt buộc.
 
 Bảng liệt kê định dạng hình ảnh
-========================
+===============================
 
 Ngoài các chức năng đàm phán định dạng chung, một ioctl đặc biệt để
 liệt kê tất cả các định dạng hình ảnh được hỗ trợ bởi quay video, lớp phủ hoặc

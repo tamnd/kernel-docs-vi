@@ -50,7 +50,7 @@ các thông số.
 Trình điều khiển ZZ0000ZZ hỗ trợ tải lại qua ZZ0001ZZ
 
 Phiên bản thông tin
-=============
+===================
 
 Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
 
@@ -71,7 +71,7 @@ Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
      - Three digit firmware version
 
 Phiên bản thông tin thiết bị phụ trợ thẻ dòng
-========================================
+=============================================
 
 Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau cho thiết bị phụ trợ card dòng
 
@@ -95,7 +95,7 @@ Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau cho thiết bị
      - Three digit firmware version of line card device
 
 Bẫy dành riêng cho người lái xe
-=====================
+===============================
 
 .. list-table:: List of Driver-specific Traps Registered by ``mlxsw``
    :widths: 5 5 90

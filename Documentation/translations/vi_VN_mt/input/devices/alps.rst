@@ -116,7 +116,7 @@ nằm trên bàn di chuột, các bit M R L báo hiệu trạng thái kết hợ
 nút trỏ và bàn di chuột.
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 1
----------------------------------------
+---------------------------------------------
 
 ::
 
@@ -128,7 +128,7 @@ byte 0: 1 0 0 0 1 x9 x8 x7
  byte 5: 0 z6 z5 z4 z3 z2 z1 z0
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 2
----------------------------------------
+---------------------------------------------
 
 ::
 
@@ -166,7 +166,7 @@ bàn di chuột, chuyển sang định dạng gói xen kẽ khi cả thanh và
 bàn di chuột được sử dụng cùng một lúc.
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 3
----------------------------------------
+---------------------------------------------
 
 Giao thức ALPS phiên bản 3 có ba định dạng gói khác nhau. Hai cái đầu tiên là
 được liên kết với các sự kiện trên bàn di chuột và sự kiện thứ ba được liên kết với trackstick
@@ -214,7 +214,7 @@ TP có nghĩa là trạng thái Nhấn vào SW khi xử lý nhấn được bậ
 xử lý được kích hoạt. SW có nghĩa là cuộn lên khi có sẵn 4 nút.
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 4
----------------------------------------
+---------------------------------------------
 
 Giao thức phiên bản 4 có định dạng gói 8 byte::
 
@@ -258,7 +258,7 @@ Có một số điều đáng lưu ý ở đây.
 Cho đến nay chưa gặp thiết bị v4 nào có trackstick.
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 5
----------------------------------------
+---------------------------------------------
 Về cơ bản đây là Giao thức phiên bản 3 nhưng có logic khác cho gói
 giải mã.  Nó sử dụng lệnh gọi Alps_process_touchpad_packet_v3 tương tự với
 con trỏ hàm giải mã_fields chuyên dụng để diễn giải chính xác
@@ -283,7 +283,7 @@ byte 0: 1 1 1 n3 1 n2 n1 x24
  byte 5: 0 x16 x15 x14 x13 x12 x11 x10
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 6
----------------------------------------
+---------------------------------------------
 
 Đối với gói trackstick, định dạng là::
 
@@ -306,7 +306,7 @@ byte 0: 1 1 1 1 1 1 1 1
 (Touchpad v6 không có nút giữa)
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 7
----------------------------------------
+---------------------------------------------
 
 Đối với gói trackstick, định dạng là::
 
@@ -348,7 +348,7 @@ L: Nút trái
 
 
 Chế độ tuyệt đối ALPS - Phiên bản giao thức 8
----------------------------------------
+---------------------------------------------
 
 Được phát triển bởi phần cứng SS4 (73 03 14) và SS5 (73 03 28).
 

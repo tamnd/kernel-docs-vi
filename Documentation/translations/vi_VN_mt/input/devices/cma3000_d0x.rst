@@ -58,7 +58,7 @@ sự kiện có giá trị 1 khi phát hiện sự rơi tự do.
 Dữ liệu nền tảng cần được cấu hình cho các giá trị mặc định ban đầu.
 
 Dữ liệu nền tảng
--------------
+----------------
 
 lông tơ_x:
     Tiếng ồn trên trục X
@@ -85,7 +85,7 @@ ffth:
     Giá trị ngưỡng phạm vi g rơi tự do
 
 Giao diện đầu vào
----------------
+-----------------
 
 Phiên bản trình điều khiển đầu vào là 1.0.0
 ID thiết bị đầu vào: bus 0x18 nhà cung cấp 0x0 sản phẩm 0x0 phiên bản 0x0

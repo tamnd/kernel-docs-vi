@@ -92,7 +92,7 @@ Trình xử lý ngoại lệ
   quyền ưu tiên được kích hoạt.
 
 Tính năng tùy chọn
------------------
+------------------
 
 Bộ định thời và nguồn xung nhịp
   Nên sử dụng nguồn xung nhịp và thiết bị sự kiện xung nhịp có độ phân giải cao. các

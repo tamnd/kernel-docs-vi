@@ -54,7 +54,7 @@ Trường struct ZZ0000ZZ::ifnum sẽ là
 chứa đầy số lượng giao diện đã tạo.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, 0 được trả về và ZZ0000ZZ được điền.
 

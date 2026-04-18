@@ -80,7 +80,7 @@ các nút xe buýt đơn giản. Những hạn chế sau đây được áp dụ
 
 
 Bố cục không gian địa chỉ MMUv3.
-============================
+================================
 
 Bố cục tương thích MMUv2 mặc định::
 

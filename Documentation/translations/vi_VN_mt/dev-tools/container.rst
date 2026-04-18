@@ -31,7 +31,7 @@ checkpatch, v.v. miễn là có sẵn hình ảnh phù hợp.
 
 
 Tùy chọn
-=======
+========
 
 Cú pháp dòng lệnh::
 
@@ -79,7 +79,7 @@ Hiển thị thông báo trợ giúp và thoát.
 
 
 Cách sử dụng
-=====
+============
 
 Người dùng hoàn toàn có quyền lựa chọn sử dụng hình ảnh nào và ZZ0000ZZ
 các đối số được truyền trực tiếp dưới dạng dòng lệnh tùy ý để chạy trong
@@ -140,7 +140,7 @@ scripts/container -i docker.io/tuxmake/korg-clang tạo LLVM=1
 
 
 ID người dùng
-========
+=============
 
 Đây là lĩnh vực mà hành vi sẽ thay đổi đôi chút tùy thuộc vào
 thời gian chạy vùng chứa.  Mục tiêu là chạy các lệnh khi người dùng gọi công cụ.

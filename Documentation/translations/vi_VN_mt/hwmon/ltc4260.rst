@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ltc4260
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -38,7 +38,7 @@ và loại bỏ khỏi một bảng nối đa năng trực tiếp.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị LTC4260 vì không có đăng ký
 có thể được sử dụng một cách an toàn để nhận dạng chip. Bạn sẽ phải khởi tạo
@@ -52,7 +52,7 @@ $ modprobe ltc4260
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Số đọc điện áp do trình điều khiển này cung cấp được báo cáo là thu được từ ADC
 sổ đăng ký. Nếu lắp đặt một bộ điện trở chia điện áp, hãy tính toán

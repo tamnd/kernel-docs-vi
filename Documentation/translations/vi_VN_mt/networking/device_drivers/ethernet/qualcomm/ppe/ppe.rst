@@ -32,7 +32,7 @@ Nội dung
 
 
 Tổng quan về PPE
-============
+================
 
 Dòng SoC (System-on-Chip) IPQ (Bộ xử lý Internet Qualcomm) là dòng SoC (System-on-Chip) của Qualcomm
 kết nối mạng SoC cho các điểm truy cập Wi-Fi. PPE (Công cụ xử lý gói) là Ethernet
@@ -145,7 +145,7 @@ các PHY được kết nối và trạng thái liên kết cổng. Điều này
 
 
 Tổng quan về trình điều khiển PPE
-===================
+=================================
 Trình điều khiển PPE là trình điều khiển Ethernet cho SoC Qualcomm IPQ. Nó là một trình điều khiển nền tảng duy nhất
 bao gồm phần PPE và phần Ethernet DMA. Phần PPE khởi tạo và điều khiển
 các khối khác nhau trong lõi chuyển đổi PPE như khối BM/QM/L2 và MAC PPE. Phần EDMA
@@ -174,7 +174,7 @@ Bộ đếm mã CPU và bộ đếm hàng đợi.
 
 
 SoC được hỗ trợ trình điều khiển PPE
-=========================
+====================================
 
 Trình điều khiển PPE hỗ trợ IPQ SoC sau:
 
@@ -182,7 +182,7 @@ Trình điều khiển PPE hỗ trợ IPQ SoC sau:
 
 
 Kích hoạt trình điều khiển
-===================
+==========================
 
 Trình điều khiển nằm trong cấu trúc menu tại::
 

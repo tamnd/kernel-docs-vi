@@ -16,7 +16,7 @@ Thiết bị cấp nguồn (PSE) theo tiêu chuẩn IEEE 802.3
 =====================================================
 
 Tổng quan
---------
+---------
 
 Thiết bị cung cấp điện (PSE) rất cần thiết trong các mạng để cung cấp điện
 cùng với dữ liệu qua cáp Ethernet. Nó thường đề cập đến các thiết bị như
@@ -24,7 +24,7 @@ thiết bị chuyển mạch và trung tâm cung cấp điện cho Thiết bị 
 máy ảnh, điện thoại VoIP và các điểm truy cập không dây.
 
 PSE so với PoDL PSE
-----------------
+-------------------
 
 PSE trong tiêu chuẩn IEEE 802.3 thường đề cập đến thiết bị cung cấp
 cấp nguồn cùng với dữ liệu qua cáp Ethernet, thường được liên kết với Cấp nguồn qua
@@ -36,7 +36,7 @@ rất có ý nghĩa trong các bối cảnh như điều khiển ô tô và côn
 và việc phân phối dữ liệu qua một cặp là thuận lợi.
 
 Phụ lục IEEE 802.3-2018 và các điều khoản liên quan
----------------------------------------------
+---------------------------------------------------
 
 Phụ lục chính của tiêu chuẩn IEEE 802.3-2018 liên quan đến việc cung cấp điện qua
 Ethernet như sau:
@@ -65,7 +65,7 @@ quy ước đặt tên sau đây được khuyến khích:
   Cài đặt PoDL PSE theo Điều 104.
 
 Tóm tắt Điều 33: Cấp nguồn cho Thiết bị đầu cuối dữ liệu (DTE) qua Giao diện phụ thuộc phương tiện (MDI)
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 Điều 33 của tiêu chuẩn IEEE 802.3 xác định chức năng và điện
 đặc điểm của Thiết bị cấp nguồn (PD) và Thiết bị cấp nguồn (PSE).

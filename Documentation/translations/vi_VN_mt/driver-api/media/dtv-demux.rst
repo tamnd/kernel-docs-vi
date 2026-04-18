@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Truyền hình kỹ thuật số Demux kABI
----------------------
+----------------------------------
 
 Demux truyền hình kỹ thuật số
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Kernel Digital TV Demux kABI xác định giao diện bên trong trình điều khiển cho
 đăng ký trình điều khiển phần cứng cụ thể, cấp thấp cho một phần cứng độc lập
@@ -81,16 +81,16 @@ Cơ chế này được thực hiện bởi ZZ0000ZZ và ZZ0001ZZ
 cuộc gọi lại.
 
 Chức năng đăng ký thiết bị Demux TV kỹ thuật số và cấu trúc dữ liệu
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: include/media/dmxdev.h
 
 Giao diện demux TV kỹ thuật số cấp cao
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: include/media/dvb_demux.h
 
 Giao diện giải mã trình điều khiển dành riêng cho phần cứng cấp thấp bên trong trình điều khiển
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: include/media/demux.h

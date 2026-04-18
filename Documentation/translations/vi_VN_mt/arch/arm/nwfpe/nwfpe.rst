@@ -61,7 +61,7 @@ hướng dẫn nào có lỗi.  Các chương trình nhỏ minh họa một vấ
 vấn đề là một ơn trời.
 
 Thông báo pháp lý
--------------
+-----------------
 
 Trình giả lập dấu phẩy động NetWinder là phần mềm miễn phí.  Mọi thứ Rebel.com
 đã viết được cung cấp theo GNU GPL.  Xem file COPYING để sao chép

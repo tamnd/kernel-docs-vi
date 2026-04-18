@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển saa7134
-==================
+========================
 
 Tác giả Gerd Hoffmann
 
@@ -23,7 +23,7 @@ bảng.
 
 
 Trạng thái
-------
+----------
 
 Hầu như mọi thứ đều hoạt động.  video, âm thanh, bộ chỉnh tần, radio, mpeg ts, ...
 
@@ -33,7 +33,7 @@ thông tin cấu hình.
 
 
 Xây dựng
------
+--------
 
 Khi bạn chọn nguồn Kernel, bạn nên định cấu hình, xây dựng,
 cài đặt và khởi động kernel mới.  Bạn sẽ cần ít nhất
@@ -74,7 +74,7 @@ tùy chọn saa7134 card=13 # Assuming rằng loại thẻ của bạn là #13
 
 
 Thay đổi/Sửa lỗi
----------------
+----------------
 
 Vui lòng gửi thư tới linux-media AT vger.kernel.org thống nhất khác biệt với
 cây git phương tiện linux:
@@ -95,7 +95,7 @@ Sự cố đã biết
   Có tùy chọn insmod ZZ0000ZZ để ghi đè mặc định của trình điều khiển.
 
 Tín dụng
--------
+--------
 
 andrew.stevens@philips.com + werner.leeb@philips.com đã cung cấp
 thông số phần cứng và bảng mẫu saa7134.

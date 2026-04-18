@@ -168,7 +168,7 @@ bộ đệm có kích thước phù hợp cho từng trường hợp sử dụng
 .. c:type:: v4l2_buffer
 
 cấu trúc v4l2_buffer
-==================
+====================
 
 .. tabularcolumns:: |p{2.9cm}|p{2.4cm}|p{12.0cm}|
 
@@ -323,7 +323,7 @@ cấu trúc v4l2_buffer
 .. c:type:: v4l2_plane
 
 cấu trúc v4l2_plane
-=================
+===================
 
 .. tabularcolumns:: |p{3.5cm}|p{3.5cm}|p{10.3cm}|
 
@@ -714,7 +714,7 @@ enum v4l2_memory
     \normalsize
 
 Mã thời gian
-=========
+============
 
 Cấu trúc ZZ0000ZZ được thiết kế để giữ một
 ZZ0001ZZ hoặc mã thời gian tương tự.
@@ -724,7 +724,7 @@ Trường ZZ0003ZZ ZZ0004ZZ.)
 .. c:type:: v4l2_timecode
 
 cấu trúc v4l2_timecode
---------------------
+----------------------
 
 .. tabularcolumns:: |p{1.4cm}|p{2.8cm}|p{13.1cm}|
 
@@ -760,7 +760,7 @@ cấu trúc v4l2_timecode
 .. _timecode-type:
 
 Các loại mã thời gian
---------------
+---------------------
 
 .. flat-table::
     :header-rows:  0
@@ -787,7 +787,7 @@ Các loại mã thời gian
 .. _timecode-flags:
 
 Cờ mã thời gian
---------------
+---------------
 
 .. tabularcolumns:: |p{6.6cm}|p{1.4cm}|p{9.3cm}|
 

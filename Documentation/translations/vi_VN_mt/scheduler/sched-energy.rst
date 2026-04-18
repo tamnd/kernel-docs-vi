@@ -80,7 +80,7 @@ và chi phí năng lượng tương ứng của chúng.
 
 
 3. Thông tin cấu trúc liên kết
------------------------
+------------------------------
 
 EAS (cũng như phần còn lại của bộ lập lịch) sử dụng khái niệm 'công suất' để
 phân biệt các CPU có thông lượng tính toán khác nhau. “Công suất” của một chiếc CPU
@@ -140,7 +140,7 @@ EAS cũng duy trì khóa tĩnh (sched_energy_Present) được bật khi ở
 
 
 4. Vị trí nhiệm vụ nhận biết năng lượng
-------------------------------
+---------------------------------------
 
 EAS ghi đè mã cân bằng đánh thức tác vụ CFS. Nó sử dụng EM của
 nền tảng và tín hiệu PELT để chọn mục tiêu CPU tiết kiệm năng lượng trong quá trình
@@ -337,7 +337,7 @@ phần liệt kê những phụ thuộc này và cung cấp gợi ý về cách 
 
 
 6.1 - Cấu trúc liên kết CPU không đối xứng
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Như đã đề cập trong phần giới thiệu, EAS chỉ được hỗ trợ trên các nền tảng có
@@ -354,7 +354,7 @@ có thể được sửa đổi trong tương lai nếu được chứng minh kh
 
 
 6.2 - Sự hiện diện của Mô hình Năng lượng
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 EAS sử dụng EM của nền tảng để ước tính tác động của các quyết định lập kế hoạch đối với
 năng lượng. Vì vậy, nền tảng của bạn phải cung cấp bảng chi phí điện năng cho khung EM trong
@@ -371,7 +371,7 @@ tính bằng mili-Watt hoặc ở 'thang trừu tượng'.
 
 
 6.3 - Độ phức tạp của mô hình năng lượng
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 EAS không áp đặt bất kỳ giới hạn phức tạp nào đối với số lượng PD/OPP/CPU nhưng
 giới hạn số lượng CPU ở EM_MAX_NUM_CPUS để tránh tràn trong quá trình
@@ -379,7 +379,7 @@ việc ước lượng năng lượng.
 
 
 6.4 - Thống đốc Schedutil
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 EAS cố gắng dự đoán CPU nào sẽ chạy OPP trong tương lai gần
 để ước tính mức tiêu thụ năng lượng của họ. Để làm như vậy, giả định rằng OPP

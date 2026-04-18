@@ -13,14 +13,14 @@
    review) được đặt trong thư mục vi_VN/.
 
 Kiểm tra các bản cập nhật dịch cần thiết
-=======================================
+========================================
 
 Tập lệnh này giúp theo dõi trạng thái dịch của tài liệu trong
 các ngôn ngữ khác nhau, tức là liệu tài liệu có được cập nhật với
 đối tác tiếng Anh.
 
 Nó hoạt động như thế nào
-------------
+------------------------
 
 Nó sử dụng lệnh ZZ0000ZZ để theo dõi cam kết tiếng Anh mới nhất từ
 Cam kết dịch thuật (thứ tự theo ngày tác giả) và cam kết tiếng Anh mới nhất
@@ -35,7 +35,7 @@ Các tính năng được triển khai
 - theo dõi trạng thái dịch của các file chưa có bản dịch
 
 Cách sử dụng
------
+------------
 
 ::
 

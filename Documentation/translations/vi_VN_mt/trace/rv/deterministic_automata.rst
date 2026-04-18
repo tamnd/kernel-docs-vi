@@ -118,7 +118,7 @@ trong O(1). Ví dụ::
 next_state = automaton_wip.function[curr_state][event];
 
 Định dạng Graphviz .dot
---------------------
+-----------------------
 
 Công cụ nguồn mở Graphviz có thể tạo ra biểu diễn đồ họa
 của một máy tự động sử dụng ngôn ngữ DOT (văn bản) làm mã nguồn.
@@ -167,7 +167,7 @@ Nội dung 'wip.h' là mẫu mã trong phần 'Máy tự động xác định
 ở C'.
 
 Bình luận
--------
+---------
 
 Chủ nghĩa hình thức automata cho phép mô hình hóa các hệ thống sự kiện rời rạc (DES) trong
 nhiều định dạng, phù hợp với các ứng dụng/người dùng khác nhau.
@@ -177,7 +177,7 @@ cho các hoạt động tự động, trong khi định dạng đồ họa để
 và ngôn ngữ máy tính để thực thi máy.
 
 Tài liệu tham khảo
-----------
+------------------
 
 Nhiều sách giáo khoa đề cập đến chủ nghĩa hình thức automata. Để biết phần giới thiệu ngắn gọn, hãy xem::
 

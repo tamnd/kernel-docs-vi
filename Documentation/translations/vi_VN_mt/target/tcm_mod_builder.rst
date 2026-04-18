@@ -145,7 +145,7 @@ mục tiêu:/mnt/sdb/lio-core-2.6.git# lsmod
 ----------------------------------------------------------------------
 
 Các mặt hàng TODO trong tương lai
-=================
+=================================
 
 1) Thêm nhiều proto_idents T10
 	2) Làm cho tcm_mod_dump_fabric_ops() thông minh hơn và tạo con trỏ hàm

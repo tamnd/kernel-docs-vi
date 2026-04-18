@@ -17,7 +17,7 @@ Giao thức bảo mật PSP
 =======================
 
 Giao thức
-========
+=========
 
 Giao thức bảo mật PSP (PSP) đã được xác định tại Google và được xuất bản trong:
 
@@ -32,7 +32,7 @@ dành cho một nhà phát triển trung bình và ít có khả năng vi phạm
 hướng dẫn.
 
 Khóa Rx có nguồn gốc
----------------
+--------------------
 
 PSP mượn một số điều khoản và cơ chế từ IPsec. PSP được thiết kế
 có lưu ý đến việc giảm tải CTNH. Tính năng chính của PSP là các phím Rx cho mọi
@@ -60,7 +60,7 @@ mang trong các tiêu đề gói cho biết thế hệ khóa thiết bị nào
 gói đã được mã hóa bằng.
 
 Người dùng phải đối mặt với API
-===============
+===============================
 
 PSP được thiết kế chủ yếu để giảm tải phần cứng. Hiện tại có
 không có dự phòng phần mềm cho các hệ thống không có NIC hỗ trợ PSP.
@@ -75,7 +75,7 @@ có khả năng PSP.
 Tất cả cấu hình của PSP được thực hiện thông qua họ netlink PSP.
 
 Khám phá thiết bị
-----------------
+-----------------
 
 Họ netlink PSP xác định các hoạt động để truy xuất thông tin
 về các thiết bị PSP có sẵn trên hệ thống, định cấu hình chúng và
@@ -157,7 +157,7 @@ Triển khai hạt nhân
 =====================
 
 Ghi chú của tài xế
-------------
+------------------
 
 Trình điều khiển dự kiến sẽ bắt đầu khi không bật PSP (ZZ0000ZZ
 trong ZZ0001ZZ được đặt thành ZZ0002ZZ) bất cứ khi nào có thể. Không gian người dùng nên

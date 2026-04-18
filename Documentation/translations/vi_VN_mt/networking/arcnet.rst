@@ -65,14 +65,14 @@ bao gồm và dường như đang hoạt động tốt!
 .. _arcnet-netdev:
 
 Tôi có thể thảo luận về các trình điều khiển này ở đâu?
----------------------------------
+-------------------------------------------------------
 
 Các cuộc thảo luận ARCnet diễn ra trên netdev. Chỉ cần gửi email của bạn đến
 netdev@vger.kernel.org và đảm bảo Cc: người bảo trì được liệt kê trong
 Tiêu đề "ARCNET NETWORK LAYER" của Documentation/process/maintainers.rst.
 
 Trình điều khiển và thông tin khác
-----------------------
+----------------------------------
 
 Bạn có thể thử trang ARCNET của tôi trên World Wide Web tại:
 
@@ -101,7 +101,7 @@ truy cập.
 
 
 Cài đặt trình điều khiển
----------------------
+------------------------
 
 Tất cả những gì bạn cần làm để cài đặt trình điều khiển là::
 
@@ -187,7 +187,7 @@ shmem=<shmem> irq=<irq> nút=<node_ID> thiết bị=<tên>
 
 
 Hỗ trợ mô-đun có thể tải
------------------------
+------------------------
 
 Cấu hình và xây dựng lại Linux.  Khi được hỏi, hãy trả lời 'm' cho "ARCnet chung
 support" và hỗ trợ cho chipset ARCnet của bạn nếu bạn muốn sử dụng
@@ -215,7 +215,7 @@ cd /usr/src/linux/mô-đun
 
 
 Sử dụng trình điều khiển
-----------------
+------------------------
 
 Nếu bạn xây dựng hạt nhân của mình có hỗ trợ ARCnet COM90xx đi kèm, thì hạt nhân đó sẽ
 tự động thăm dò thẻ của bạn khi bạn khởi động. Nếu bạn sử dụng một cách khác
@@ -254,7 +254,7 @@ Trình điều khiển ARCnet bây giờ sẽ tự động sắp xếp tên củ
 
 
 Làm cách nào để nó hoạt động với...?
---------------------------------
+------------------------------------
 
 NFS:
 	Sẽ ổn thôi linux->linux, chỉ cần giả vờ như bạn đang sử dụng thẻ Ethernet.
@@ -323,7 +323,7 @@ NetBSD/AmiTCP:
 
 
 Sử dụng ARCnet đa giao thức
---------------------------
+---------------------------
 
 Trình điều khiển ARCnet v2.10 ALPHA hỗ trợ ba giao thức, mỗi giao thức riêng
 "thiết bị mạng ảo":
@@ -515,14 +515,14 @@ Thật may mắn khi lần đầu tiên tôi sắp xếp mọi việc như thế
 
 
 Nó hoạt động: bây giờ thì sao?
--------------------
+------------------------------
 
 Gửi thư sau ZZ0000ZZ. Tốt nhất là mô tả thiết lập của bạn
 bao gồm phiên bản trình điều khiển, phiên bản kernel, model thẻ ARCnet, loại CPU, số
 của các hệ thống trên mạng của bạn và danh sách phần mềm đang được sử dụng.
 
 Nó không hoạt động: bây giờ thì sao?
---------------------------
+------------------------------------
 
 Thực hiện tương tự như trên nhưng cũng bao gồm đầu ra của ifconfig và tuyến đường
 lệnh, cũng như bất kỳ mục nhật ký thích hợp nào (tức là bất cứ điều gì bắt đầu
@@ -575,6 +575,6 @@ Gửi email cho tôi về vấn đề của bạn.
 
 
 Tôi muốn gửi tiền: làm sao bây giờ?
--------------------------------
+-----------------------------------
 
 Đi ngủ trưa hay gì đó đi.  Bạn sẽ cảm thấy tốt hơn vào buổi sáng.

@@ -69,7 +69,7 @@ một CTM với nhau. Trên các hệ thống này, chỉ mục CTM được kha
 Các thiết bị CTI được kết nối với nhau thông qua CTM nhất định.
 
 Các tập tin và thư mục Sysfs
----------------------------
+----------------------------
 
 Các thiết bị CTI xuất hiện trên bus CoreSight hiện có cùng với các thiết bị khác
 Thiết bị CoreSight::

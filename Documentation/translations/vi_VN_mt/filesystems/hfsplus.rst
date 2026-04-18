@@ -22,7 +22,7 @@ khối, tên tệp unicode gồm 255 ký tự và kích thước tệp là 2^63 
 
 
 Tùy chọn gắn kết
-=============
+================
 
 Khi gắn hệ thống tệp HFSPlus, các tùy chọn sau được chấp nhận:
 
@@ -66,7 +66,7 @@ nls=cccc
 
 
 Tài liệu tham khảo
-==========
+==================
 
 nguồn hạt nhân: <file:fs/hfsplus>
 

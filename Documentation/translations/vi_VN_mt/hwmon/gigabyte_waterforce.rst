@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân gigabyte_waterforce
-=================================
+=============================================
 
 Các thiết bị được hỗ trợ:
 
@@ -37,13 +37,13 @@ nó không được kết nối, các cảm biến liên quan đến quạt sẽ
 được kiểm soát thông qua các công cụ không gian người dùng.
 
 ghi chú sử dụng
------------
+---------------
 
 Vì đây là các USB HID nên trình điều khiển có thể được tải tự động bởi kernel và
 hỗ trợ trao đổi nóng.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =========== ==================================================
 fan1_input Tốc độ quạt (tính bằng vòng/phút)

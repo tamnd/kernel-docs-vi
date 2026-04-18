@@ -18,7 +18,7 @@ Bộ nhớ thiết bị TCP
 
 
 giới thiệu
-=====
+==========
 
 Bộ nhớ thiết bị TCP (devmem TCP) cho phép nhận dữ liệu trực tiếp vào thiết bị
 bộ nhớ (dmabuf). Tính năng này hiện được triển khai cho các ổ cắm TCP.
@@ -64,7 +64,7 @@ Thuận lợi:
 
 
 Thêm thông tin
----------
+--------------
 
 slide, video
     ZZ0000ZZ
@@ -86,7 +86,7 @@ thiết lập đường dẫn RX của API này.
 
 
 Cài đặt NIC
----------
+-----------
 
 Phân chia tiêu đề, điều khiển luồng và RSS là những tính năng bắt buộc phải có đối với devmem TCP.
 
@@ -148,7 +148,7 @@ devmem TCP, ngay cả khi dmabuf không thực sự được hỗ trợ bởi de
 
 
 Thiết lập ổ cắm
-------------
+---------------
 
 Ổ cắm phải được điều hướng theo luồng đến hàng đợi RX bị ràng buộc dmabuf ::
 
@@ -156,7 +156,7 @@ ethtool -N eth1 loại luồng tcp4 ... hàng đợi 15
 
 
 Đang nhận dữ liệu
---------------
+-----------------
 
 Ứng dụng người dùng phải báo hiệu cho kernel rằng nó có khả năng nhận
 dữ liệu devmem bằng cách chuyển cờ MSG_SOCK_DEVMEM tới recvmsg::
@@ -224,7 +224,7 @@ dữ liệu TCP thông thường nằm trên hàng đợi RX không bị ràng b
 
 
 Giải phóng mảnh vỡ
--------------
+------------------
 
 Các mảnh nhận được qua SCM_DEVMEM_DMABUF được hạt nhân ghim trong khi người dùng
 xử lý mảnh. Người dùng phải trả lại frag cho kernel thông qua
@@ -259,7 +259,7 @@ thiết lập đường dẫn TX của API này.
 
 
 Cài đặt NIC
----------
+-----------
 
 Người dùng phải liên kết TX dmabuf với NIC nhất định bằng cách sử dụng netlink API::
 
@@ -290,7 +290,7 @@ devmem TCP, ngay cả khi dmabuf không thực sự được hỗ trợ bởi de
 đây là udmabuf, bao bọc bộ nhớ người dùng (không phải devmem) trong dmabuf.
 
 Thiết lập ổ cắm
-------------
+---------------
 
 Ứng dụng người dùng phải sử dụng cờ MSG_ZEROCOPY khi gửi devmem TCP. Devmem
 kernel không thể sao chép được, vì vậy ngữ nghĩa của devmem TX tương tự nhau
@@ -349,7 +349,7 @@ sendmsg(socket_fd, &msg, MSG_ZEROCOPY);
 
 
 Tái sử dụng dmabuf TX
-------------------
+---------------------
 
 Tương tự như MSG_ZEROCOPY với bộ nhớ thông thường, người dùng không nên sửa đổi
 nội dung của dma-buf trong khi thao tác gửi đang được tiến hành. Điều này là do
@@ -393,7 +393,7 @@ Thực hiện & Hãy cẩn thận
 ========================
 
 skbs không thể đọc được
----------------
+-----------------------
 
 Tải trọng Devmem không thể truy cập được để hạt nhân xử lý các gói. Cái này
 dẫn đến một số vấn đề về tải trọng của devmem skbs:
@@ -407,7 +407,7 @@ dẫn đến một số vấn đề về tải trọng của devmem skbs:
 
 
 Kiểm tra
-=======
+========
 
 Mã ví dụ thực tế hơn có thể được tìm thấy trong nguồn kernel bên dưới
 ZZ0000ZZ

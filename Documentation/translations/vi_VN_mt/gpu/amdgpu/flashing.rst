@@ -43,5 +43,5 @@ miễn là nó không xung đột với các tệp nhị phân hiện có khác 
 ZZ0001ZZ.
 
 tập tin sysfs
------------
+-------------
 .. kernel-doc:: drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c

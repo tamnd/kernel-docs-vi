@@ -47,7 +47,7 @@ Các thông số có thể được đặt ở các chế độ cấu hình khá
        for it to take effect.
 
 Đang tải lại
----------
+------------
 
 Để các thông số ZZ0000ZZ có hiệu lực, trình điều khiển phải
 hỗ trợ tải lại thông qua lệnh ZZ0001ZZ. Lệnh này sẽ

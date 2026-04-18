@@ -37,7 +37,7 @@ Hạn ngạch chưa được chỉ định của một nhóm được theo dõi 
 trong mỗi bản cập nhật này đều có thể điều chỉnh được và được mô tả là "lát cắt".
 
 Tính năng bùng nổ
--------------
+-----------------
 Tính năng này mượn thời gian hiện tại để chống lại sự thiếu hụt trong tương lai của chúng tôi, với cái giá phải trả là
 tăng sự can thiệp đối với những người sử dụng hệ thống khác. Tất cả đều được giới hạn độc đáo.
 
@@ -123,7 +123,7 @@ Bất kỳ cập nhật nào đối với thông số kỹ thuật băng thông 
 không được điều chỉnh nếu nó ở trạng thái bị hạn chế.
 
 Cài đặt toàn hệ thống
---------------------
+---------------------
 Để đạt hiệu quả, thời gian chạy được chuyển giữa nhóm chung và CPU cục bộ
 "silo" theo kiểu hàng loạt. Điều này làm giảm đáng kể áp lực kế toán toàn cầu
 trên các hệ thống lớn. Số tiền được chuyển mỗi lần cần cập nhật như vậy
@@ -173,7 +173,7 @@ Trong trường hợp b) ở trên, mặc dù trẻ có thể còn thời gian c
 được phép cho đến khi thời gian chạy của cha mẹ được làm mới.
 
 Hãy cẩn thận về hạn ngạch băng thông CFS
----------------------------
+----------------------------------------
 Khi một lát được gán cho CPU, nó sẽ không hết hạn.  Tuy nhiên tất cả trừ 1ms
 lát cắt có thể được trả về nhóm chung nếu tất cả các luồng trên CPU đó trở thành
 không thể chạy được. Điều này được cấu hình tại thời điểm biên dịch bởi min_cfs_rq_runtime

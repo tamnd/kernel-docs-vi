@@ -39,37 +39,37 @@ HVS
    :doc: VC4 HVS module.
 
 Máy bay HVS
-----------
+-----------
 
 .. kernel-doc:: drivers/gpu/drm/vc4/vc4_plane.c
    :doc: VC4 plane module
 
 Bộ mã hóa HDMI
-------------
+--------------
 
 .. kernel-doc:: drivers/gpu/drm/vc4/vc4_hdmi.c
    :doc: VC4 Falcon HDMI module
 
 Bộ mã hóa DSI
------------
+-------------
 
 .. kernel-doc:: drivers/gpu/drm/vc4/vc4_dsi.c
    :doc: VC4 DSI0/DSI1 module
 
 Bộ mã hóa DPI
------------
+-------------
 
 .. kernel-doc:: drivers/gpu/drm/vc4/vc4_dpi.c
    :doc: VC4 DPI module
 
 Bộ mã hóa VEC (Đầu ra TV tổng hợp)
-------------------------------
+----------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/vc4/vc4_vec.c
    :doc: VC4 SDTV module
 
 Kiểm tra KUnit
-===========
+==============
 
 Trình điều khiển VC4 sử dụng KUnit để thực hiện đơn vị dành riêng cho trình điều khiển và
 các bài kiểm tra tích hợp.
@@ -111,7 +111,7 @@ Tạo danh sách lệnh kết xuất V3D (RCL)
    :doc: Render command list generation
 
 Trình xác thực Shader cho VC4
----------------------------
+-----------------------------
 .. kernel-doc:: drivers/gpu/drm/vc4/vc4_validate_shaders.c
    :doc: Shader validator for VC4.
 

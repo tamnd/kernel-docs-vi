@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển cx2341x
-==================
+========================
 
 Định dạng file không nén
 --------------------------
@@ -55,7 +55,7 @@ thiếu macroblocks ở cuối và không sử dụng được. Vậy chiều ca
 bội số của 32.
 
 Ví dụ về định dạng thô c
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: c
 
@@ -140,7 +140,7 @@ Ví dụ về định dạng thô c
 
 
 Định dạng của dữ liệu V4L2_MPEG_STREAM_VBI_FMT_IVTV VBI được nhúng
----------------------------------------------------------
+------------------------------------------------------------------
 
 Tác giả: Hans Verkuil <hverkuil@kernel.org>
 

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ad7314
-====================
+================================
 
 Chip được hỗ trợ:
 
@@ -43,6 +43,6 @@ cảm biến có 1lsb = 0,25 độ C. Adt7301 và
 adt7302 có cảm biến 14 bit với 1lsb = 0,03125 độ C.
 
 Ghi chú
------
+-------
 
 Hiện tại chế độ tắt nguồn không được hỗ trợ.

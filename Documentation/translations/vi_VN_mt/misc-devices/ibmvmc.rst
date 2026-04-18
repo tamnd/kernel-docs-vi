@@ -114,7 +114,7 @@ CRQ
         từ bộ ảo hóa đến phân vùng cũng được báo cáo trong hàng đợi này.
 
 Ví dụ về quản lý phân vùng VMC Giao diện trình điều khiển
-=================================================
+=========================================================
 
 Phần này cung cấp một ví dụ về ứng dụng quản lý
 triển khai trong đó trình điều khiển thiết bị được sử dụng để giao tiếp với VMC
@@ -184,7 +184,7 @@ Quản lý phân vùng ảo hóa
         <----------------------------------------
 
 Thời gian chạy giao diện VMC
----------------------
+----------------------------
 
 Trong thời gian chạy bình thường, ứng dụng quản lý và bộ ảo hóa
 trao đổi tin nhắn HMC thông qua tin nhắn Signal VMC và các hoạt động RDMA. Khi nào

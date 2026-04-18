@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân asus_ec_sensors
-=================================
+=========================================
 
 Các bảng được hỗ trợ:
  * MAXIMUS VI HERO

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân max15301
-======================
+==================================
 
 Chip được hỗ trợ:
 
@@ -48,7 +48,7 @@ trên trình điều khiển máy khách PMBus.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
@@ -56,7 +56,7 @@ chi tiết.
 
 
 Hỗ trợ dữ liệu nền tảng
----------------------
+-----------------------
 
 Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
 
@@ -65,7 +65,7 @@ Thông số mô-đun
 -----------------
 
 trì hoãn
------
+--------
 
 Bộ điều khiển yêu cầu khoảng thời gian tối thiểu giữa các lần truy cập bus I2C.
 Khoảng thời gian mặc định được đặt thành 100 us. Để ghi đè thủ công, trình điều khiển
@@ -74,7 +74,7 @@ cung cấp một tham số mô-đun có thể ghi, 'độ trễ', có thể đư
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
 thuộc tính chỉ đọc.

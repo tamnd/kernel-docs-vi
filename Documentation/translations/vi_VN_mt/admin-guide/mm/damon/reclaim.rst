@@ -40,7 +40,7 @@ giảm mức sử dụng bộ nhớ của hệ thống.  Tiến hành việc kha
 khách có thể giảm thiểu vấn đề này.
 
 Nó hoạt động như thế nào?
-=============
+=========================
 
 DAMON_RECLAIM tìm các vùng bộ nhớ không được truy cập trong thời gian cụ thể
 thời lượng và trang ra.  Để tránh tiêu tốn quá nhiều CPU cho việc phân trang
@@ -84,7 +84,7 @@ tham số được đặt là ZZ0002ZZ.  Nếu tìm thấy các tham số không
 đọc lại, DAMON_RECLAIM sẽ bị vô hiệu hóa.
 
 tuổi tối thiểu
--------
+--------------
 
 Ngưỡng thời gian để xác định vùng bộ nhớ lạnh tính bằng micro giây.
 
@@ -94,7 +94,7 @@ xác định khu vực này là lạnh và đòi lại nó.
 120 giây theo mặc định.
 
 hạn ngạch_ms
---------
+------------
 
 Giới hạn thời gian thu hồi tính bằng mili giây.
 
@@ -106,7 +106,7 @@ giới hạn bị vô hiệu hóa.
 10 mili giây theo mặc định.
 
 hạn ngạch_sz
---------
+------------
 
 Giới hạn kích thước bộ nhớ để thu hồi tính bằng byte.
 
@@ -118,7 +118,7 @@ không, giới hạn bị vô hiệu hóa.
 128 MiB theo mặc định.
 
 hạn ngạch_reset_interval_ms
------------------------
+---------------------------
 
 Khoảng thời gian đặt lại phí hạn ngạch thời gian/kích thước tính bằng mili giây.
 
@@ -130,7 +130,7 @@ mili giây.
 1 giây theo mặc định.
 
 hạn ngạch_mem_áp lực_us
----------------------
+-----------------------
 
 Mức thời gian ngừng áp suất bộ nhớ mong muốn tính bằng micro giây.
 
@@ -144,7 +144,7 @@ vô hiệu hóa tính năng tự động điều chỉnh này.
 Bị tắt theo mặc định.
 
 hạn ngạch_autotune_feedback
------------------------
+---------------------------
 
 Phản hồi do người dùng chỉ định để tự động điều chỉnh hạn ngạch hiệu quả.
 
@@ -207,7 +207,7 @@ Khoảng thời gian tổng hợp của DAMON để theo dõi bộ nhớ nguội
 tham khảo tài liệu DAMON (ZZ0000ZZ) để biết thêm chi tiết.
 
 phút_nr_khu vực
---------------
+---------------
 
 Số lượng khu vực giám sát tối thiểu.
 
@@ -230,7 +230,7 @@ Tuy nhiên, cài đặt mức này quá thấp có thể dẫn đến chất lư
 tham khảo tài liệu DAMON (ZZ0000ZZ) để biết thêm chi tiết.
 
 màn hình_khu vực_start
---------------------
+----------------------
 
 Bắt đầu vùng nhớ đích trong địa chỉ vật lý.
 
@@ -239,7 +239,7 @@ chống lại.  Tức là DAMON_RECLAIM sẽ tìm các vùng bộ nhớ lạnh t
 và đòi lại.  Theo mặc định, Hệ thống RAM lớn nhất được sử dụng làm khu vực.
 
 màn hình_khu vực_end
-------------------
+--------------------
 
 Kết thúc vùng bộ nhớ đích trong địa chỉ vật lý.
 
@@ -269,7 +269,7 @@ Bộ nhớ 42 KiB và lấy lại thành công tổng cộng 32 bộ nhớ KiB.
 Nếu không chắc chắn, chỉ sử dụng giá trị mặc định (ZZ0000ZZ) và quên điều này.
 
 bỏ qua_anon
----------
+-----------
 
 Bỏ qua việc cải tạo các trang ẩn danh.
 
@@ -306,7 +306,7 @@ byte_reclaimed_khu vực
 Tổng số byte vùng bộ nhớ được DAMON_RECLAIM thu hồi thành công.
 
 nr_quota_vượt quá
-----------------
+-----------------
 
 Số lần vượt quá giới hạn hạn ngạch thời gian/không gian.
 

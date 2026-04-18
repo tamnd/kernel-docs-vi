@@ -17,7 +17,7 @@ Hệ thống tệp thân thiện với Flash (F2FS)
 ========================================
 
 Tổng quan
-========
+=========
 
 Các thiết bị lưu trữ dựa trên bộ nhớ flash NAND, chẳng hạn như SSD, eMMC và thẻ SD, có
 được trang bị trên nhiều hệ thống khác nhau, từ hệ thống di động đến hệ thống máy chủ. Kể từ khi
@@ -49,10 +49,10 @@ công cụ kiểm tra tính nhất quán (fsck.f2fs) và công cụ gỡ lỗi (
 -ZZ0000ZZ
 
 Các vấn đề về bối cảnh và thiết kế
-============================
+==================================
 
 Hệ thống tệp có cấu trúc nhật ký (LFS)
---------------------------------
+--------------------------------------
 "Một hệ thống tập tin có cấu trúc nhật ký ghi tất cả các sửa đổi vào đĩa một cách tuần tự theo
 một cấu trúc giống như nhật ký, do đó tăng tốc cả việc ghi tệp và khôi phục sự cố.
 Nhật ký là cấu trúc duy nhất trên đĩa; nó chứa thông tin lập chỉ mục để
@@ -95,10 +95,10 @@ là để ẩn độ trễ cho người dùng. Và cũng chắc chắn, nó sẽ
 lượng dữ liệu hợp lệ cần được di chuyển và di chuyển chúng một cách nhanh chóng.
 
 Các tính năng chính
-============
+===================
 
 Nhận thức chớp nhoáng
----------------
+---------------------
 - Mở rộng vùng ghi ngẫu nhiên để có hiệu suất tốt hơn nhưng vẫn mang lại hiệu suất cao
   địa phương không gian
 - Căn chỉnh cấu trúc dữ liệu FS cho các đơn vị vận hành trong FTL bằng nỗ lực tốt nhất
@@ -117,7 +117,7 @@ Dọn dẹp trên cao
 - Giới thiệu tính năng ghi nhật ký thích ứng để phân bổ khối hiệu quả
 
 Tùy chọn gắn kết
-=============
+================
 
 
 ===========================================================================================
@@ -436,7 +436,7 @@ f2fs. Mỗi tệp hiển thị toàn bộ thông tin f2fs.
  - dung lượng bộ nhớ hiện tại được sử dụng bởi f2fs.
 
 Mục nhập hệ thống
-=============
+=================
 
 Thông tin về hệ thống tập tin f2fs được gắn có thể được tìm thấy trong
 /sys/fs/f2fs.  Mỗi hệ thống tập tin được gắn sẽ có một thư mục trong
@@ -447,7 +447,7 @@ Các tệp trong /sys/fs/f2fs/<devname>
 (xem thêm Tài liệu/ABI/testing/sysfs-fs-f2fs)
 
 Cách sử dụng
-=====
+============
 
 1. Tải xuống các công cụ dành cho người dùng và biên dịch chúng.
 
@@ -508,7 +508,7 @@ Các tùy chọn nhanh bao gồm::
 Lưu ý: vui lòng tham khảo trang chủ của fsck.f2fs(8) để có danh sách tùy chọn đầy đủ.
 
 bãi chứa.f2fs
----------
+-------------
 dump.f2fs hiển thị thông tin của inode cụ thể và chuyển SSA và SIT sang
 tập tin. Mỗi tệp là dump_ssa và dump_sit.
 
@@ -540,14 +540,14 @@ hình ảnh. Công cụ này hữu ích khi xây dựng hình ảnh f2fs cho cá
 Lưu ý: vui lòng tham khảo trang chủ của sload.f2fs(8) để có danh sách tùy chọn đầy đủ.
 
 thay đổi kích thước.f2fs
------------
+------------------------
 Thay đổi kích thước.f2fs cho phép người dùng thay đổi kích thước hình ảnh đĩa có định dạng f2fs, trong khi vẫn giữ nguyên
 tất cả các tập tin và thư mục được lưu trữ trong hình ảnh.
 
 Lưu ý: vui lòng tham khảo trang chủ của size.f2fs(8) để có danh sách tùy chọn đầy đủ.
 
 chống phân mảnh.f2fs
------------
+--------------------
 Defrag.f2fs có thể được sử dụng để chống phân mảnh dữ liệu văn bản rải rác cũng như
 siêu dữ liệu hệ thống tập tin trên đĩa. Điều này có thể cải thiện tốc độ ghi bằng cách cho
 nhiều không gian trống liên tiếp hơn.
@@ -562,10 +562,10 @@ những cái dành riêng cho f2fs, rất hữu ích cho các bài kiểm tra QA
 Lưu ý: vui lòng tham khảo trang chủ của f2fs_io(8) để có danh sách tùy chọn đầy đủ.
 
 Thiết kế
-======
+========
 
 Bố cục trên đĩa
---------------
+---------------
 
 F2FS chia toàn bộ tập đĩa thành nhiều đoạn, mỗi đoạn cố định
 đến kích thước 2 MB. Một phần bao gồm các phân đoạn liên tiếp và một vùng
@@ -627,7 +627,7 @@ Tham khảo khảo sát sau đây để biết thêm chi tiết kỹ thuật.
 ZZ0000ZZ
 
 Cấu trúc siêu dữ liệu hệ thống tệp
-------------------------------
+----------------------------------
 
 F2FS áp dụng sơ đồ điểm kiểm tra để duy trì tính nhất quán của hệ thống tệp. Tại
 thời gian gắn kết, trước tiên F2FS cố gắng tìm dữ liệu điểm kiểm tra hợp lệ cuối cùng bằng cách quét
@@ -652,7 +652,7 @@ hợp lệ, như được hiển thị như dưới đây::
      `---------------------------------------'
 
 Cấu trúc chỉ mục
----------------
+----------------
 
 Cấu trúc dữ liệu chính để quản lý các vị trí dữ liệu là một "nút". Tương tự như
 cấu trúc tệp truyền thống, F2FS có ba loại nút: inode, nút trực tiếp,
@@ -807,7 +807,7 @@ ghi nhật ký từ các vùng khác nhau càng nhiều càng tốt, vì FTL có
 nhật ký hoạt động vào một đơn vị phân bổ theo mức độ chi tiết ánh xạ của nó.
 
 Quá trình làm sạch
-----------------
+------------------
 
 F2FS thực hiện dọn dẹp theo yêu cầu và ở chế độ nền. Làm sạch theo yêu cầu là
 được kích hoạt khi không có đủ phân đoạn trống để phục vụ cuộc gọi VFS. Nền
@@ -827,7 +827,7 @@ F2FS quản lý bitmap. Mỗi bit đại diện cho tính hợp lệ của một
 bitmap bao gồm một luồng bit bao phủ toàn bộ các khối trong khu vực chính.
 
 Chính sách gợi ý viết
------------------
+---------------------
 
 F2FS luôn đặt ra lời kêu gọi với chính sách bên dưới.
 
@@ -858,7 +858,7 @@ WRITE_LIFE_LONG" WRITE_LIFE_LONG
 ============================================== ======================
 
 Chính sách Fallocate(2)
--------------------
+-----------------------
 
 Chính sách mặc định tuân theo quy tắc POSIX bên dưới.
 
@@ -986,7 +986,7 @@ fd = open(tên tệp, O_WRONLY, 0);
   ret = ioctl(fd, F2FS_IOC_COMPRESS_FILE);
 
 Thiết bị không gian tên được khoanh vùng NVMe
-----------------------------
+---------------------------------------------
 
 - ZNS xác định công suất trên mỗi vùng có thể bằng hoặc nhỏ hơn công suất
   kích thước vùng. Dung lượng vùng là số khối có thể sử dụng được trong vùng.
@@ -1001,7 +1001,7 @@ Thiết bị không gian tên được khoanh vùng NVMe
   vượt quá dung lượng vùng được coi là không thể sử dụng được trong các phân đoạn này.
 
 Tính năng đặt bí danh thiết bị
------------------------
+------------------------------
 
 f2fs có thể sử dụng một tệp đặc biệt gọi là "tệp bí danh thiết bị". Tập tin này cho phép
 toàn bộ thiết bị lưu trữ được ánh xạ với một mức độ lớn, duy nhất, không sử dụng

@@ -122,7 +122,7 @@ mã cấp phát bộ nhớ.
 
 
 1.3 CPUset được triển khai như thế nào?
----------------------------------
+---------------------------------------
 
 Cpusets cung cấp cơ chế nhân Linux để hạn chế CPU và
 Nút bộ nhớ được sử dụng bởi một quy trình hoặc một tập hợp các quy trình.
@@ -628,7 +628,7 @@ Nếu tình huống của bạn là:
 
 
 1.9 Làm cách nào để sử dụng CPUset?
---------------------------
+-----------------------------------
 
 Để giảm thiểu tác động của cpuset lên kernel quan trọng
 mã, chẳng hạn như bộ lập lịch, và do thực tế là kernel
@@ -751,7 +751,7 @@ các cuộc gọi có thể được thực hiện tại dấu nhắc shell bằ
 ============================
 
 2.1 Cách sử dụng cơ bản
----------------
+-----------------------
 
 Việc tạo, sửa đổi, sử dụng cpuset có thể được thực hiện thông qua cpuset
 hệ thống tập tin ảo.

@@ -42,7 +42,7 @@ Chỉ mục printk giúp tìm những thay đổi trong định dạng tin nhắ
 
 
 Giao diện người dùng
-==============
+====================
 
 Chỉ mục của các định dạng printk được chia thành các tệp riêng biệt. Các tập tin là
 được đặt tên theo các tệp nhị phân nơi các định dạng printk được tích hợp sẵn. Ở đó
@@ -84,7 +84,7 @@ cho những thay đổi cuối cùng.
 
 
 printk() Không phải là KABI ổn định
-=============================
+===================================
 
 Một số nhà phát triển lo ngại rằng việc xuất tất cả những triển khai này
 chi tiết vào không gian người dùng sẽ chuyển đổi các lệnh gọi printk() cụ thể
@@ -95,7 +95,7 @@ Và chỉ mục printk giúp các công cụ không gian của người dùng gi
 
 
 Trình bao bọc printk cụ thể của hệ thống con
-==================================
+============================================
 
 Chỉ mục printk được tạo bằng siêu dữ liệu bổ sung được lưu trữ trong
 một phần .elf dành riêng ".printk_index". Nó đạt được bằng cách sử dụng macro
@@ -117,7 +117,7 @@ một số hệ thống con có thể bị thiếu trong chỉ mục printk.
 
 
 Tiền tố cụ thể của hệ thống con
-=========================
+===============================
 
 Macro pr_fmt() cho phép xác định tiền tố được in
 trước chuỗi được tạo bởi lệnh gọi printk() liên quan.

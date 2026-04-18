@@ -122,7 +122,7 @@ tất cả các trường hợp sử dụng.
 Xem chi tiết về trình xác minh eBPF trong kernel/bpf/verifier.c
 
 Đăng ký theo dõi giá trị
-=======================
+========================
 
 Để xác định tính an toàn của chương trình eBPF, người xác minh phải theo dõi
 phạm vi các giá trị có thể có trong mỗi thanh ghi và trong mỗi khe ngăn xếp.
@@ -219,7 +219,7 @@ tài liệu tham khảo không bị rò rỉ, bắt buộc NULL phải kiểm tr
 trường hợp không phải NULL và chuyển tham chiếu hợp lệ đến chức năng giải phóng ổ cắm.
 
 Truy cập gói trực tiếp
-====================
+======================
 
 Trong các chương trình cls_bpf và Act_bpf trình xác minh cho phép truy cập trực tiếp vào gói
 dữ liệu thông qua con trỏ skb->data và skb->data_end.

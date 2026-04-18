@@ -43,7 +43,7 @@ chi tiết:
    :identifiers: __tty_alloc_driver tty_driver_kref_put
 
 Cờ trình điều khiển TTY
-----------------
+-----------------------
 
 Ở đây có tài liệu về các cờ được chấp nhận bởi tty_alloc_driver() (hoặc
 __tty_alloc_driver()):
@@ -97,7 +97,7 @@ Trình tự đăng ký được ghi lại như sau:
 ----
 
 Liên kết thiết bị với cổng
-------------------------
+--------------------------
 Như đã nêu trước đó, mọi thiết bị TTY sẽ có struct tty_port được gán cho
 nó. Nó phải được biết đến với lớp TTY tại ZZ0000ZZ
 muộn nhất.  Có rất ít người trợ giúp cho ZZ0001ZZ. Lý tưởng nhất là người lái xe sử dụng
@@ -121,7 +121,7 @@ Các thói quen liên kết được ghi lại ở đây:
 ----
 
 Tài liệu tham khảo trình điều khiển TTY
-====================
+=======================================
 
 Tất cả các thành viên của struct tty_driver đều được ghi lại ở đây. Các thành viên cần thiết là
 ghi chú ở cuối. struct tty_Operation sẽ được ghi lại tiếp theo.

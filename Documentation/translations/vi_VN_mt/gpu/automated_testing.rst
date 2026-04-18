@@ -36,10 +36,10 @@ khá nhiều thời gian và công sức.
 
 
 Các tập tin liên quan
-==============
+=====================
 
 trình điều khiển/gpu/drm/ci/gitlab-ci.yml
---------------------------------
+-----------------------------------------
 
 Đây là tệp cấu hình gốc cho GitLab CI. Trong số những thứ khác ít thú vị hơn
 bit, nó chỉ định phiên bản cụ thể của tập lệnh sẽ được sử dụng. có
@@ -62,18 +62,18 @@ IGT_VERSION
     ZZ0000ZZ
 
 trình điều khiển/gpu/drm/ci/testlist.txt
--------------------------------
+----------------------------------------
 
 IGT kiểm tra khả năng chạy trên tất cả các trình điều khiển (trừ khi được đề cập trong \*-skips.txt của trình điều khiển
 tập tin, xem bên dưới).
 
 trình điều khiển/gpu/drm/ci/${DRIVER_NAME}-${HW_REVISION}-fails.txt
-----------------------------------------------------------
+-------------------------------------------------------------------
 
 Liệt kê các lỗi đã biết đối với một trình điều khiển nhất định trên một bản sửa đổi phần cứng cụ thể.
 
 trình điều khiển/gpu/drm/ci/${DRIVER_NAME}-${HW_REVISION}-flakes.txt
------------------------------------------------------------
+--------------------------------------------------------------------
 
 Liệt kê các bài kiểm tra dành cho một trình điều khiển nhất định trên một bản sửa đổi phần cứng cụ thể là
 được biết là cư xử không đáng tin cậy. Những thử nghiệm này sẽ không khiến công việc thất bại bất kể
@@ -100,7 +100,7 @@ trình điều khiển msm: ZZ0002ZZ
 trình điều khiển xe: ZZ0003ZZ
 
 trình điều khiển/gpu/drm/ci/${DRIVER_NAME}-${HW_REVISION}-skips.txt
------------------------------------------------------------
+-------------------------------------------------------------------
 
 Liệt kê các bài kiểm tra sẽ không được chạy cho một trình điều khiển nhất định trên một phần cứng cụ thể
 sửa đổi. Đây thường là các bài kiểm tra can thiệp vào việc chạy thử nghiệm
@@ -142,7 +142,7 @@ bị ảnh hưởng bởi sự thay đổi.
 
 
 Cách mở rộng vùng phủ sóng
-======================
+==========================
 
 Nếu mã của bạn thay đổi, bạn có thể chạy nhiều thử nghiệm hơn (bằng cách giải quyết độ tin cậy
 chẳng hạn như các vấn đề), bạn có thể xóa các bài kiểm tra khỏi danh sách nhóm và/hoặc bỏ qua,
@@ -154,7 +154,7 @@ tập tin gitlab-ci.yml.
 
 
 Cách kiểm tra các thay đổi của bạn đối với tập lệnh
-=======================================
+===================================================
 
 Để kiểm tra các thay đổi đối với tập lệnh trong repo drm-ci, hãy thay đổi
 Các biến DRM_CI_PROJECT_PATH và DRM_CI_COMMIT_SHA trong
@@ -163,7 +163,7 @@ janedoe/drm-ci). Ngã ba này cần phải ở ZZ0000ZZ
 
 
 Cách kết hợp các bản sửa lỗi bên ngoài vào thử nghiệm của bạn
-=================================================
+=============================================================
 
 Thông thường, hồi quy ở các cây khác sẽ ngăn cản việc kiểm tra các thay đổi cục bộ đối với cây
 cây đang được thử nghiệm. Các bản sửa lỗi này sẽ được tự động hợp nhất trong quá trình xây dựng
@@ -175,7 +175,7 @@ tồn tại trong cây cục bộ, các cam kết từ nhánh đó cũng sẽ đ
 
 
 Cách xử lý các phòng thử nghiệm tự động có thể ngừng hoạt động
-========================================================
+==============================================================
 
 Nếu một trang trại phần cứng ngừng hoạt động và do đó khiến đường ống bị hỏng, điều đó sẽ
 nếu không thì vượt qua, người ta có thể vô hiệu hóa tất cả các công việc sẽ được gửi đến trang trại đó

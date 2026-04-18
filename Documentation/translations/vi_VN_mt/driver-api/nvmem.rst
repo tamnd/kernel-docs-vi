@@ -41,7 +41,7 @@ Khung này nhằm mục đích giải quyết những vấn đề này. Nó cũn
 Địa chỉ, SoC/ID sửa đổi, số bộ phận, v.v.) từ NVMEM.
 
 Nhà cung cấp NVMEM
-+++++++++++++++
+++++++++++++++++++
 
 Nhà cung cấp NVMEM đề cập đến một thực thể thực hiện các phương thức để khởi tạo, đọc
 và ghi vào bộ nhớ bất biến.
@@ -97,13 +97,13 @@ cấu trúc tĩnh nvmem_cell_lookup foo_nvmem_lookup = {
 nvmem_add_cell_lookups(&foo_nvmem_lookup, 1);
 
 Người tiêu dùng NVMEM
-+++++++++++++++
++++++++++++++++++++++
 
 Người tiêu dùng NVMEM là những thực thể sử dụng nhà cung cấp NVMEM để
 đọc từ và tới NVMEM.
 
 3. API tiêu dùng dựa trên tế bào NVMEM
-=================================
+======================================
 
 Các ô NVMEM là các mục/trường dữ liệu trong NVMEM.
 Khung NVMEM cung cấp 3 API để đọc/ghi các ô NVMEM::
@@ -123,7 +123,7 @@ Sau khi sử dụng xong cell, người tiêu dùng nên gọi
 ZZ0001ZZ để giải phóng tất cả bộ nhớ cấp phát cho ô.
 
 4. API tiêu dùng dựa trên thiết bị NVMEM trực tiếp
-==========================================
+==================================================
 
 Trong một số trường hợp, cần phải đọc/ghi trực tiếp NVMEM.
 Để tạo điều kiện thuận lợi cho những người tiêu dùng như vậy, khung NVMEM cung cấp các API bên dưới::
@@ -166,10 +166,10 @@ devm_nvmem_cell_put và devm_nvmem_device_put phá hủy các devre liên quan
 với chiếc NVMEM này.
 
 Không gian người dùng
-+++++++++
++++++++++++++++++++++
 
 6. Giao diện nhị phân không gian người dùng
-==============================
+===========================================
 
 Không gian người dùng có thể đọc/ghi tệp NVMEM thô có tại::
 
@@ -184,11 +184,11 @@ hexdump /sys/bus/nvmem/devices/qfprom0/nvmem
   00000a0 db10 2240 0000 e000 0c00 0c00 0000 0c00
   0000000 0000 0000 0000 0000 0000 0000 0000 0000
   ...
-*
+*****
   0001000
 
 7. Liên kết cây thiết bị
-=====================
+========================
 
 Xem Tài liệu/devicetree/binds/nvmem/nvmem.txt
 

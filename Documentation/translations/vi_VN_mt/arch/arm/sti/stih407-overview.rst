@@ -28,6 +28,6 @@ Tính năng
     - SATA2, USB 3.0, PCIe, Gbit Ethernet
 
 Tác giả tài liệu
----------------
+----------------
 
 Maxime coquelin <maxime.coquelin@st.com>, (c) 2014 ST Vi điện tử

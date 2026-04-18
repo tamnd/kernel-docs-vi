@@ -15,7 +15,7 @@
 .. include:: <isonum.txt>
 
 Trình điều khiển Bộ xử lý tín hiệu hình ảnh OMAP 3 (ISP)
-==========================================
+========================================================
 
 Bản quyền ZZ0000ZZ 2010 Nokia Corporation
 
@@ -26,7 +26,7 @@ Sakari Ailus <sakari.ailus@iki.fi>, David Cohen <dacohen@gmail.com>
 
 
 Sự kiện
-------
+-------
 
 Trình điều khiển OMAP 3 ISP hỗ trợ giao diện sự kiện V4L2 trên CCDC và
 các phân nhóm thống kê (AEWB, AF và biểu đồ).
@@ -215,6 +215,6 @@ khớp với field_count của bộ đệm video.
 
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. [#] include/linux/omap3isp.h

@@ -53,7 +53,7 @@ Mô tả chi tiết về cấu trúc TTY được đặt tên có trong các tà
    console
 
 Viết trình điều khiển TTY
-==================
+=========================
 
 Trước khi bắt đầu viết trình điều khiển TTY, họ phải xem xét
 ZZ0000ZZ và ZZ0001ZZ

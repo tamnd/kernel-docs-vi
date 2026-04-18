@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tài liệu cụ thể về trình điều khiển thiết bị phần cứng
----------------------------------------------
+------------------------------------------------------
 
 .. toctree::
    :maxdepth: 1

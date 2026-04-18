@@ -17,7 +17,7 @@ Trình điều khiển ethernet CPSW của Texas Instruments
 ====================================================
 
 Nhiều hàng đợi & CBS & MQPRIO
-=========================
+=============================
 
 
 Cpsw có 3 bộ định dạng CBS cho mỗi cổng bên ngoài. Tài liệu này
@@ -28,7 +28,7 @@ dựa trên các ví dụ. Nó có khả năng có thể được sử dụng tr
 Các ví dụ sau đã được thử nghiệm trên bo mạch AM572x EVM và BBB.
 
 Thiết lập thử nghiệm
-==========
+====================
 
 Đang xem xét hai ví dụ với AM572x EVM chạy trình điều khiển cpsw
 ở chế độ Dual_emac.
@@ -50,7 +50,7 @@ Một số điều kiện tiên quyết:
   tối đa cho phép là 4, nhưng chỉ có thể đặt tốc độ cho 3.
 
 Thiết lập thử nghiệm cho các ví dụ
-=======================
+==================================
 
 ::
 

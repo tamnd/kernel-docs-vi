@@ -13,6 +13,6 @@
    review) được đặt trong thư mục vi_VN/.
 
 Chức năng định giờ DV V4L2 DV
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/v4l2-dv-timings.h

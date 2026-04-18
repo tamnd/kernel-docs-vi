@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển Dewarp DW100
-===================
+=============================
 
 Lõi IP của Bộ xử lý Dewarp Vivante DW100 được tìm thấy trên i.MX8MP SoC áp dụng một
 chuyển đổi hình học có thể lập trình trên hình ảnh đầu vào để sửa méo
@@ -21,7 +21,7 @@ chuyển đổi hình học có thể lập trình trên hình ảnh đầu vào
 
 Hàm chuyển đổi được phần cứng hiển thị dưới dạng bản đồ lưới có kích thước 16x16
 macroblock pixel được lập chỉ mục bằng tọa độ đỉnh X, Y.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Chiều rộng hình ảnh
            <--------------------------------------->
@@ -49,7 +49,7 @@ Lưới các khối hình ảnh cho bản đồ làm mờ
 
 Mỗi thanh ghi tọa độ x, y sử dụng 16 bit để ghi địa chỉ tọa độ trong
 định dạng điểm cố định 12.4 không dấu (UQ12.4).
-::
+:::::::::::::::::::::::::::::::::::::::::::::::
 
 .--------------------------.--------..----------------------.--------.
     ZZ0000ZZ 19~16 |ZZ0001ZZ 3~0 |

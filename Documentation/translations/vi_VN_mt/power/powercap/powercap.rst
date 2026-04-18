@@ -202,7 +202,7 @@ ràng buộc_0_name
 	ràng buộc_2_time_window_us
 
 Thuộc tính vùng quyền lực
-=====================
+=========================
 
 Thuộc tính giám sát
 ---------------------
@@ -254,13 +254,13 @@ ràng buộc_X_min_time_window_us(ro)
 Ngoại trừ power_limit_uw và time_window_us các trường khác là tùy chọn.
 
 Thuộc tính vùng chung và loại điều khiển
----------------------------------------
+----------------------------------------
 
 đã bật (rw): Bật/Tắt điều khiển ở cấp vùng hoặc cho tất cả các vùng bằng cách sử dụng
 một loại điều khiển.
 
 Giao diện trình điều khiển máy khách Power Cap
-=================================
+==============================================
 
 Tóm tắt API:
 

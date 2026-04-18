@@ -13,13 +13,13 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển CTU CAN FD
-=================
+===========================
 
 Tác giả: Martin Jerabek <martin.jerabek01@gmail.com>
 
 
 Giới thiệu về lõi IP CTU CAN FD
-------------------------
+-------------------------------
 
 ZZ0000ZZ
 là một lõi mềm mã nguồn mở được viết bằng VHDL.
@@ -47,7 +47,7 @@ phát triển ZZ0001ZZ.
 
 
 Giới thiệu về SocketCAN
----------------
+-----------------------
 
 SocketCAN là giao diện chung tiêu chuẩn cho các thiết bị CAN trong Linux
 hạt nhân. Như tên cho thấy, xe buýt được truy cập thông qua ổ cắm, tương tự
@@ -58,7 +58,7 @@ cách tự nhiên để triển khai và làm việc với các giao thức lớ
 theo cách tương tự như UDP/IP qua Ethernet.
 
 Đầu dò thiết bị
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Trước khi đi vào chi tiết về cấu trúc của driver thiết bị bus CAN,
 hãy nhắc lại cách kernel nhận biết về thiết bị.
@@ -77,7 +77,7 @@ phải tìm hiểu về các thiết bị từ nơi khác. Đây chính xác là
 Cây thiết bị được tạo ra cho.
 
 Cây thiết bị
-~~~~~~~~~~~
+~~~~~~~~~~~~
 
 Một mục trong cây thiết bị cho biết rằng một thiết bị tồn tại trong hệ thống, làm thế nào
 nó có thể truy cập được (trên bus nào nó cư trú) và cấu hình của nó –
@@ -107,7 +107,7 @@ CTU_CAN_FD_0: CTU_CAN_FD@43c30000 {
 .. _sec:socketcan:drv:
 
 Cấu trúc trình điều khiển
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Trình điều khiển có thể được chia thành hai phần – thiết bị phụ thuộc vào nền tảng
 khám phá và thiết lập cũng như thiết bị mạng CAN độc lập với nền tảng
@@ -116,7 +116,7 @@ thực hiện.
 .. _sec:socketcan:platdev:
 
 Trình điều khiển thiết bị nền tảng
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trong trường hợp của Zynq, lõi được kết nối thông qua bus hệ thống AXI,
 không có hỗ trợ liệt kê và thiết bị phải được chỉ định trong
@@ -175,7 +175,7 @@ so với các bàn của tất cả ZZ0002ZZ.
 .. _sec:socketcan:netdev:
 
 Trình điều khiển thiết bị mạng
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Mỗi thiết bị mạng phải hỗ trợ ít nhất các hoạt động sau:
 
@@ -270,14 +270,14 @@ IP, lõi, cùng với giao diện APB, đã được đóng gói dưới dạng
 Thành phần Vivado.
 
 Thiết kế trình điều khiển CTU CAN FD
-------------------------
+------------------------------------
 
 Cấu trúc chung của trình điều khiển thiết bị CAN đã được kiểm tra
 trong . Các đoạn tiếp theo cung cấp mô tả chi tiết hơn về CTU
 Trình điều khiển lõi CAN FD nói riêng.
 
 Trình điều khiển cấp thấp
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Lõi không nhằm mục đích chỉ được sử dụng với SocketCAN, và do đó nó
 mong muốn có trình điều khiển cấp thấp độc lập với hệ điều hành. Mức độ thấp này
@@ -293,7 +293,7 @@ chế độ điều khiển, bật/tắt, đọc khung RX, ghi khung TX, v.v.
 trên.
 
 Định cấu hình thời gian bit
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Trên CAN, mỗi bit được chia thành bốn đoạn: SYNC, PROP, PHASE1 và
 PHASE2. Thời lượng của chúng được biểu thị bằng bội số của Lượng tử thời gian
@@ -469,7 +469,7 @@ ZZ0009ZZ ZZ0010ZZ ZZ0011ZZ H |
 .. _subsec:ctucanfd:txtimestamp:
 
 Khung TX theo dấu thời gian
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Khi gửi khung tới bộ đệm TX, người ta có thể chỉ định dấu thời gian tại
 khung nào sẽ được truyền đi. Việc truyền khung có thể bắt đầu
@@ -530,7 +530,7 @@ cá nhân tôi có ý tưởng rằng tình trạng lỗi trong quá khứ vẫn
 
 
 Tham khảo nguồn trình điều khiển CTU CAN FD
------------------------------------
+-------------------------------------------
 
 .. kernel-doc:: drivers/net/can/ctucanfd/ctucanfd.h
    :internal:
@@ -617,7 +617,7 @@ Xác nhận phát triển trình điều khiển và lõi IP CTU CAN FD
  * Luận văn tốt nghiệp Model Bộ điều khiển truyền thông CAN FD cho Trình giả lập QEMU
 
 Ghi chú
------
+-------
 
 
 .. [1]

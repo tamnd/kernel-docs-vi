@@ -99,7 +99,7 @@ Các thao tác sau đây có thể được thực hiện trên bộ điều khi
 .. _gpio-v1-line-event:
 
 Sự kiện dòng
-==========
+============
 
 Các sự kiện dòng được tạo bởi gpio-get-lineevent-ioctl.rst và cung cấp
 truy cập vào một dòng được yêu cầu.  Sự kiện dòng được hiển thị với không gian người dùng
@@ -121,7 +121,7 @@ Các thao tác sau có thể được thực hiện trên sự kiện dòng:
    Đọc sự kiện cạnh dòng <gpio-lineevent-data-read>
 
 Các loại
-=====
+========
 
 Phần này chứa các cấu trúc được tham chiếu bởi ABI v1.
 

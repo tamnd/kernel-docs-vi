@@ -17,7 +17,7 @@ ngăn xếp hạt nhân
 =================
 
 Ngăn xếp hạt nhân trên x86-64 bit
-===========================
+=================================
 
 Phần lớn văn bản của Keith Owens, bị AK hack
 

@@ -204,7 +204,7 @@ sắp xếp giữa lần đọc chỉ mục cho biết rằng người tiêu dù
 
 
 Người tiêu dùng
-------------
+---------------
 
 Người tiêu dùng sẽ trông giống như thế này::
 

@@ -36,7 +36,7 @@ có sẵn thông qua một thiết bị ký tự trong không gian tên /dev và
 Văn bản API không còn được dùng kể từ phiên bản 2.6.35 nhưng vẫn có sẵn để thuận tiện.
 
 Cách sử dụng usbmon để thu thập dấu vết văn bản thô
-============================================
+===================================================
 
 Không giống như ổ cắm gói, usbmon có giao diện cung cấp dấu vết
 ở dạng văn bản. Điều này được sử dụng cho hai mục đích. Đầu tiên, nó phục vụ như một
@@ -46,7 +46,7 @@ Không giống như ổ cắm gói, usbmon có giao diện cung cấp dấu vế
 Để thu thập dấu vết văn bản thô, hãy thực hiện các bước sau.
 
 1. Chuẩn bị
-----------
+-----------
 
 Gắn debugfs (nó phải được kích hoạt trong cấu hình kernel của bạn) và
 tải mô-đun usbmon (nếu được xây dựng dưới dạng mô-đun). Bước thứ hai được bỏ qua
@@ -88,7 +88,7 @@ T: Bus=03 Lev=01 Prnt=01 Cổng=00 Cnt=01 Dev#= 2 Spd=12 MxCh= 0
 Bus 003 Thiết bị 002: ID 0557:2004 ATEN UC100KM V2.00
 
 3. Bắt đầu từ 'con mèo'
---------------
+-----------------------
 
 ::
 
@@ -118,7 +118,7 @@ Tại thời điểm này, tệp đầu ra (/tmp/1.mon.out trong ví dụ này) 
 rằng kích thước tệp không quá lớn đối với trình chỉnh sửa yêu thích của bạn.
 
 Định dạng dữ liệu văn bản thô
-====================
+=============================
 
 Hiện tại có hai định dạng được hỗ trợ: định dạng gốc hoặc định dạng '1t' và
 định dạng '1u'. Định dạng '1t' không được dùng nữa trong kernel 2.6.21. '1u'
@@ -223,7 +223,7 @@ dd65f0e8 4128379752 S Bo:1:005:2 -115 31 = 55534243 ad000000 00800000 80010a28 2
   dd65f0e8 4128379808 C Bo:1:005:2 0 31 >
 
 Định dạng nhị phân thô và API
-=========================
+=============================
 
 Kiến trúc tổng thể của API gần giống như kiến trúc ở trên,
 chỉ các sự kiện được phân phối ở định dạng nhị phân. Mỗi sự kiện được gửi vào

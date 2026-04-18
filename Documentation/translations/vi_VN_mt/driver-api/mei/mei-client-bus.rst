@@ -18,7 +18,7 @@ Bus máy khách Intel(R) Management Engine (ME) API
 
 
 Cơ sở lý luận
-=========
+=============
 
 Thiết bị ký tự MEI rất hữu ích cho các ứng dụng chuyên dụng để gửi và nhận
 dữ liệu tới nhiều thiết bị FW có trong ME của Intel từ không gian người dùng.
@@ -33,7 +33,7 @@ mã hiện có.
 
 
 Xe buýt MEI CL API
-==============
+==================
 
 Việc triển khai trình điều khiển cho Máy khách MEI rất giống với bất kỳ xe buýt hiện có nào khác
 trình điều khiển thiết bị dựa trên. Trình điều khiển tự đăng ký làm trình điều khiển xe buýt MEI CL thông qua
@@ -171,7 +171,7 @@ xử lý dữ liệu nhận được.
         }
 
 Trình điều khiển xe buýt khách MEI
-======================
+==================================
 
 .. toctree::
    :maxdepth: 2

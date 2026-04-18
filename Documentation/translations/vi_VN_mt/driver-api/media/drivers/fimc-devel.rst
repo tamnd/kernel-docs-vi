@@ -15,7 +15,7 @@
 .. include:: <isonum.txt>
 
 Trình điều khiển Samsung S5P/EXYNOS4 FIMC
-===================================
+=========================================
 
 Bản quyền ZZ0000ZZ 2012 - 2013 Công ty TNHH Điện tử Samsung
 

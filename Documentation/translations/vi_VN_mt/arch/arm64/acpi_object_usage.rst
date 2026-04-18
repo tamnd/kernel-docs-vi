@@ -515,7 +515,7 @@ Cần thiết cho arm64.
 ====== ==============================================================================
 
 Đối tượng ACPI
-------------
+--------------
 Những kỳ vọng về các đối tượng ACPI riêng lẻ có khả năng được sử dụng là
 hiển thị trong danh sách sau; bất kỳ đối tượng nào không được đề cập rõ ràng dưới đây
 nên được sử dụng khi cần thiết cho một nền tảng cụ thể hoặc hệ thống con cụ thể,
@@ -681,7 +681,7 @@ _UID 6.1.12 Được khuyến nghị để phân biệt các thiết bị giốn
 
 
 Mô hình sự kiện ACPI
-----------------
+--------------------
 Không sử dụng các thiết bị khối GPE; những thứ này không được hỗ trợ trong phần cứng giảm
 hồ sơ được sử dụng bởi arm64.  Vì không có khối GPE nào được xác định để sử dụng trên ARM
 nền tảng, các sự kiện ACPI phải được báo hiệu khác nhau.
@@ -694,7 +694,7 @@ trên một nền tảng nhất định và việc sử dụng nền tảng nào
 
 
 Điều khiển bộ xử lý ACPI
-----------------------
+------------------------
 Phần 8 của thông số kỹ thuật ACPI đã thay đổi đáng kể trong phiên bản 6.0.
 Bộ xử lý bây giờ phải được xác định là đối tượng Thiết bị với _HID ACPI0007; làm
 không sử dụng câu lệnh Bộ xử lý không được dùng nữa trong ASL.  Tất cả các hệ thống đa bộ xử lý
@@ -726,7 +726,7 @@ dành cho máy chủ ARM.
 
 
 Giao diện bản đồ địa chỉ hệ thống ACPI
-----------------------------------
+--------------------------------------
 Trong Phần 15 của đặc tả ACPI, một số phương pháp được đề cập như
 các cơ chế có thể để truyền tải thông tin tài nguyên bộ nhớ tới kernel.
 Đối với arm64, chúng tôi sẽ chỉ hỗ trợ UEFI khởi động bằng ACPI, do đó có UEFI
@@ -754,7 +754,7 @@ hãy lưu ý rằng nó có thể xảy ra.
 
 
 Đối tượng ACPI không được hỗ trợ trên ARM64
------------------------------------
+-------------------------------------------
 Mặc dù điều này có thể thay đổi trong tương lai nhưng có một số lớp đối tượng
 có thể được xác định, nhưng hiện không được các máy chủ ARM quan tâm chung.
 Một số đối tượng này có tương đương x86 và thực sự có thể có ý nghĩa trong ARM

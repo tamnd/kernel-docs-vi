@@ -52,11 +52,11 @@ Khi thiết bị được kết nối và được trình điều khiển nhận
 
 
 Các thiết bị cụ thể được hỗ trợ
-==========================
+===============================
 
 
 Bộ chuyển đổi ConnectTech WhiteHEAT 4 cổng
---------------------------------------
+------------------------------------------
 
 ConnectTech đã rất sẵn sàng cung cấp thông tin về
   thiết bị, bao gồm cả việc cung cấp một thiết bị để kiểm tra.
@@ -69,7 +69,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Trình điều khiển HandSpring Visor, Palm USB và Clié USB
------------------------------------------------
+-------------------------------------------------------
 
 Trình điều khiển này hoạt động với tất cả HandSpring USB, Palm USB và Sony Clié USB
   thiết bị.
@@ -114,7 +114,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Trình điều khiển PocketPC PDA
--------------------
+-----------------------------
 
 Driver này có thể dùng để kết nối với Compaq iPAQ, HP Jornada, Casio EM500
   và các PDA khác chạy Windows CE 3.0 hoặc PocketPC 2002 sử dụng USB
@@ -166,7 +166,7 @@ Mọi thắc mắc hoặc vấn đề về driver vui lòng liên hệ Ganesh
 
 
 Bộ chuyển đổi nối tiếp Keyspan PDA
---------------------------
+----------------------------------
 
 Bộ điều hợp nối tiếp DB-9 một cổng, được đẩy dưới dạng bộ điều hợp PDA cho iMac (chủ yếu
   được bán trong danh mục Macintosh, có dạng dongle màu trắng/xanh mờ).
@@ -198,7 +198,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Bộ điều hợp nối tiếp dòng Keyspan USA
-----------------------------------
+-------------------------------------
 
 Bộ điều hợp cổng đơn, kép và bốn cổng - trình điều khiển sử dụng Keyspan được cung cấp
   firmware và đang được phát triển với sự hỗ trợ của họ.
@@ -223,7 +223,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Trình điều khiển nối tiếp cổng đơn FTDI
-------------------------------
+---------------------------------------
 
 Đây là bộ chuyển đổi nối tiếp DB-25 một cổng.
 
@@ -236,14 +236,14 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Màn hình LCD ZyXEL omni.net cộng với ISDN TA
--------------------------------
+--------------------------------------------
 
 Đây là ISDN TA. Hãy báo cáo cả những thành công và rắc rối cho
   azummo@towertech.it
 
 
 Trình điều khiển nối tiếp gia đình Cypress M8 CY4601
---------------------------------------
+----------------------------------------------------
 
 Trình điều khiển này phần lớn được phát triển bởi Neil "koyama" Whelchel.  Nó
   đã được cải thiện kể từ hình thức trước đó để hỗ trợ nối tiếp động
@@ -304,7 +304,7 @@ dignome@gmail.com
 
 
 Trình điều khiển Digi AccelePort
-----------------------
+--------------------------------
 
 Trình điều khiển này hỗ trợ các thiết bị Digi AccelePort USB 2 và 4, 2 cổng
   (cộng với một cổng song song) và bộ chuyển đổi nối tiếp 4 cổng USB.  Người lái xe
@@ -326,7 +326,7 @@ Vui lòng liên hệ với Peter Berger (pberger@brimson.com) hoặc Al Borchers
 
 
 Bộ chuyển đổi nối tiếp Belkin USB F5U103
---------------------------------
+----------------------------------------
 
 Bộ điều hợp nối tiếp DB-9/PS-2 một cổng của Belkin với chương trình cơ sở của eTEK Labs.
   Bộ điều hợp nối tiếp một cổng Peracom cũng hoạt động với trình điều khiển này, như
@@ -383,7 +383,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 MCT USB Bộ điều hợp nối tiếp một cổng U232
----------------------------------------
+------------------------------------------
 
 Trình điều khiển này dành cho Bộ chuyển đổi MCT USB-RS232 (25 pin, Model No.
   U232-P25) từ Magic Control Technology Corp. (cũng có loại 9 chân
@@ -404,7 +404,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Trình điều khiển Edgeport của Inside Out Networks
------------------------------------
+-------------------------------------------------
 
 Trình điều khiển này hỗ trợ tất cả các thiết bị do Inside Out Networks sản xuất, cụ thể
   các mô hình sau:
@@ -431,7 +431,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 REINER SCT cyberJack pinpad/e-com Đầu đọc thẻ chip USB
------------------------------------------------------
+------------------------------------------------------
 
 Giao diện với thẻ chip dựa trên tiếp xúc tương thích ISO 7816, ví dụ: SIM GSM.
 
@@ -447,7 +447,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Trình điều khiển PL2303 phong phú
-----------------------
+---------------------------------
 
 Trình điều khiển này hỗ trợ mọi thiết bị có chip PL2303 của Prolific
   trong đó.  Điều này bao gồm một số bộ chuyển đổi cổng đơn USB sang nối tiếp,
@@ -460,7 +460,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
 
 
 Chipset KL5KUSB105 / Bộ chuyển đổi một cổng PalmConnect USB
---------------------------------------------------------
+-----------------------------------------------------------
 
 Tình trạng hiện tại:
 
@@ -478,7 +478,7 @@ Xem ZZ0000ZZ để biết thông tin cập nhật
   thông tin về trình điều khiển này.
 
 Trình điều khiển Winchiphead CH341
-------------------------
+----------------------------------
 
 Trình điều khiển này dành cho Bộ chuyển đổi Winchiphead CH341 USB-RS232. Con chip này
   cũng triển khai cổng song song IEEE 1284, I2C và SPI, nhưng điều đó không phải
@@ -491,7 +491,7 @@ Nếu có bất kỳ câu hỏi hoặc vấn đề nào với trình điều khi
   frank@kingswood-consulting.co.uk.
 
 Trình điều khiển Moschip MCS7720, MCS7715
--------------------------------
+-----------------------------------------
 
 Những con chip này có mặt trong các thiết bị được bán bởi nhiều nhà sản xuất khác nhau, chẳng hạn như Syba
   và Cáp không giới hạn.  Có thể có những người khác.  7720 cung cấp hai cổng nối tiếp
@@ -509,7 +509,7 @@ TODO:
       không có một trong những thiết bị này nên tôi không thể nói chắc chắn.
 
 Trình điều khiển nối tiếp chung
----------------------
+-------------------------------
 
 Nếu thiết bị của bạn không phải là một trong những thiết bị được liệt kê ở trên, tương thích với
   các mô hình trên, bạn có thể thử giao diện "chung". Cái này

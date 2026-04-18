@@ -83,7 +83,7 @@ mèo /mnt/crypt/hello.txt
 
 
 Ghi chú
-=====
+=======
 
 eCryptfs phiên bản 0.1 chỉ nên được gắn vào (1) thư mục trống
 hoặc (2) thư mục chứa các tập tin chỉ được tạo bởi eCryptfs. Nếu bạn

@@ -168,7 +168,7 @@ nén, điều này sẽ ngăn tác vụ hoạt động cho đến khi xảy ra l
 được giải quyết.
 
 chế độ chống phân mảnh
-===========
+======================
 
 Khi được đặt thành 1, bộ cấp phát trang sẽ cố gắng hơn để tránh bị phân mảnh
 và duy trì khả năng tạo ra các trang lớn/trang có thứ tự cao hơn.
@@ -301,7 +301,7 @@ mèo (1234): drop_caches: 3
 với hệ thống của bạn.  Để tắt chúng, hãy echo 4 (bit 2) vào drop_caches.
 
 kích hoạt_soft_offline
-===================
+======================
 Lỗi bộ nhớ có thể sửa được rất phổ biến trên các máy chủ. Soft-offline là của kernel
 giải pháp cho các trang bộ nhớ có (quá nhiều) lỗi bộ nhớ đã được sửa.
 
@@ -638,7 +638,7 @@ Giá trị này có thể được thay đổi sau khi khởi động bằng cá
 
 
 di chuyển_gigantic_pages
-======================
+========================
 
 Tham số này kiểm soát xem các trang khổng lồ có thể được phân bổ từ
 ZONE_MOVABLE. Nếu được đặt thành khác 0, các trang khổng lồ có thể được phân bổ
@@ -903,7 +903,7 @@ những trang liên tiếp được đọc trước sẽ mang lại kết quả.
 
 
 trang_lock_sự không công bằng
-====================
+=============================
 
 Giá trị này xác định số lần khóa trang có thể được thực hiện
 bị đánh cắp từ dưới một người phục vụ. Sau khi khóa bị đánh cắp số lần
@@ -911,7 +911,7 @@ bị đánh cắp từ dưới một người phục vụ. Sau khi khóa bị đ
 sẽ được áp dụng và người phục vụ sẽ chỉ được đánh thức nếu có thể lấy được khóa.
 
 hoảng loạn_on_oom
-============
+=================
 
 Điều này cho phép hoặc vô hiệu hóa sự hoảng loạn về tính năng hết bộ nhớ.
 
@@ -997,7 +997,7 @@ echo 1 > /proc/sys/vm/numa_stat
 
 
 sự tráo đổi
-==========
+===========
 
 Kiểm soát này được sử dụng để xác định chi phí IO tương đối thô của việc hoán đổi
 và phân trang hệ thống tập tin, có giá trị từ 0 đến 200. Ở mức 100, VM
@@ -1022,7 +1022,7 @@ các trang được hỗ trợ bằng tệp nhỏ hơn hình mờ cao trong mộ
 
 
 không có đặc quyền_userfaultfd
-========================
+==============================
 
 Cờ này kiểm soát chế độ trong đó người dùng không có đặc quyền có thể sử dụng
 cuộc gọi hệ thống userfaultfd. Đặt giá trị này thành 0 để hạn chế người dùng không có đặc quyền
@@ -1082,7 +1082,7 @@ các đối tượng hơn có.
 Lưu ý: Cài đặt này phải luôn được sử dụng cùng với vfs_cache_ Pressure_denom.
 
 vfs_cache_ Pressure_denom
-========================
+=========================
 
 Mặc định là 100 (giá trị tối thiểu được phép). Yêu cầu tương ứng
 cài đặt vfs_cache_ Pressure có hiệu lực.

@@ -17,7 +17,7 @@ Trình điều khiển tiện ích Linux UVC
 ===================================
 
 Tổng quan
---------
+---------
 Trình điều khiển Tiện ích UVC là trình điều khiển cho phần cứng ở phía ZZ0000ZZ của USB
 kết nối. Nó được thiết kế để chạy trên hệ thống Linux có phía thiết bị USB
 phần cứng như bo mạch có cổng OTG.
@@ -40,7 +40,7 @@ Các tùy chọn Kconfig USB_CONFIGFS, USB_LIBCOMPOSITE, USB_CONFIGFS_F_UVC và
 USB_F_UVC phải được chọn để kích hoạt hỗ trợ cho tiện ích UVC.
 
 Định cấu hình tiện ích thông qua configfs
----------------------------------------
+-----------------------------------------
 Tiện ích UVC dự kiến ​​sẽ được định cấu hình thông qua configfs bằng chức năng UVC.
 Điều này cho phép mức độ linh hoạt đáng kể, vì nhiều thiết bị UVC
 cài đặt có thể được kiểm soát theo cách này.
@@ -178,7 +178,7 @@ một cái khác.
 
 
 Liên kết tiêu đề
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Đặc tả UVC yêu cầu các bộ mô tả Định dạng và Khung phải được đặt trước bởi
 Tiêu đề nêu chi tiết những thứ như số lượng và kích thước tích lũy của các phần khác nhau
@@ -290,7 +290,7 @@ $ echo 2 > bControlSize
 bNrInPins và baSourceID hoạt động theo cách tương tự.
 
 Định cấu hình các điều khiển được hỗ trợ cho thiết bị đầu cuối và bộ xử lý camera
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Thiết bị đầu cuối camera và bộ xử lý trong chuỗi UVC cũng có bmControls
 các thuộc tính có chức năng tương tự với cùng một trường trong Đơn vị mở rộng.
@@ -386,7 +386,7 @@ cải thiện băng thông (và do đó tốc độ khung hình tối đa có th
 Tăng streaming_interval sẽ giảm băng thông và tốc độ khung hình.
 
 Ứng dụng không gian người dùng
--------------------------
+------------------------------
 Bản thân trình điều khiển Tiện ích UVC không thể làm được điều gì đặc biệt thú vị. Nó
 phải được ghép nối với chương trình không gian người dùng đáp ứng các yêu cầu kiểm soát UVC và
 điền vào bộ đệm để xếp hàng vào thiết bị V4L2 mà trình điều khiển tạo ra. Làm thế nào những điều đó

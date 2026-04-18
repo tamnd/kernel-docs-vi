@@ -23,7 +23,7 @@ Bảng trang cơ số chung
 	:doc: Generic Page Table Language
 
 Cách sử dụng
-=====
+============
 
 PT chung được cấu trúc như một hệ thống đa biên dịch. Vì mỗi định dạng
 cung cấp API bằng cách sử dụng một nhóm tên chung, chỉ có thể có một định dạng hoạt động
@@ -80,12 +80,12 @@ cấu trúc, chẳng hạn như cấu trúc pt_iommu_amdv1.
 .. kernel-doc:: drivers/iommu/generic_pt/pt_common.h
 
 Người trợ giúp lặp lại
------------------
+----------------------
 
 .. kernel-doc:: drivers/iommu/generic_pt/pt_iter.h
 
 Viết một định dạng
-----------------
+------------------
 
 Tốt nhất là bắt đầu từ một định dạng đơn giản tương tự như mục tiêu. x86_64
 thường là một tài liệu tham khảo tốt cho một cái gì đó đơn giản và AMDv1 là một cái gì đó khá

@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển bộ xử lý tín hiệu hình ảnh Rockchip (rkisp1)
-===================================================
+=============================================================
 
 Các phiên bản và sự khác biệt của chúng
-------------------------------
+---------------------------------------
 
 Khối rkisp1 đã trải qua một số thay đổi giữa các lần triển khai SoC.
 Nhà cung cấp chỉ định chúng là:
@@ -38,7 +38,7 @@ Mặt khác, V20 có thể sẽ được sử dụng trong các SoC và
 khá nhiều nghiên cứu.
 
 Thay đổi từ V10 thành V12
------------------------
+-------------------------
 
 - V12 hỗ trợ triển khai máy chủ CSI mới nhưng vẫn có thể
   cũng sử dụng cách triển khai tương tự từ V10
@@ -48,7 +48,7 @@ Thay đổi từ V10 thành V12
   thu thập dữ liệu chi tiết
 
 Thay đổi từ V12 thành V13
------------------------
+-------------------------
 
 Danh sách V13 chưa đầy đủ và cần điều tra thêm.
 

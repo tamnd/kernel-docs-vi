@@ -17,7 +17,7 @@ Giao thức truyền thông không gian người dùng qua trình kết nối
 ==============================================================
 
 Các loại tin nhắn
-=============
+=================
 
 Có ba loại tin nhắn giữa lõi w1 và không gian người dùng:
 
@@ -28,7 +28,7 @@ Có ba loại tin nhắn giữa lõi w1 và không gian người dùng:
 
 
 Giao thức
-========
+=========
 
 ::
 
@@ -149,7 +149,7 @@ Lệnh đặt lại W1::
 
 
 Trả lời trạng thái lệnh
-======================
+=======================
 
 Mỗi lệnh (root, master hoặc Slave có hoặc không có w1_netlink_cmd
 Structure) sẽ bị lõi w1 'ack'. Định dạng của câu trả lời giống nhau

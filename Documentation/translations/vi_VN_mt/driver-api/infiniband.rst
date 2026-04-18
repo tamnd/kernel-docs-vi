@@ -22,7 +22,7 @@ Giới thiệu và Tổng quan
 TBD
 
 Giao diện cốt lõi của InfiniBand
-==========================
+================================
 
 .. kernel-doc:: drivers/infiniband/core/iwpm_util.h
     :internal:
@@ -58,7 +58,7 @@ Giao diện cốt lõi của InfiniBand
     :export:
 
 Thư viện vận chuyển động từ RDMA
-============================
+================================
 
 .. kernel-doc:: drivers/infiniband/sw/rdmavt/mr.c
     :export:
@@ -85,7 +85,7 @@ Giao thức lớp trên
 =====================
 
 Phần mở rộng iSCSI cho RDMA (iSER)
---------------------------------
+----------------------------------
 
 .. kernel-doc:: drivers/infiniband/ulp/iser/iscsi_iser.h
    :internal:
@@ -122,7 +122,7 @@ Hỗ trợ Omni-Path (OPA) Virtual NIC
    :internal:
 
 Hỗ trợ mục tiêu giao thức InfiniBand SCSI RDMA
---------------------------------------------
+----------------------------------------------
 
 .. kernel-doc:: drivers/infiniband/ulp/srpt/ib_srpt.h
    :internal:
@@ -131,7 +131,7 @@ Hỗ trợ mục tiêu giao thức InfiniBand SCSI RDMA
    :internal:
 
 Tiện ích mở rộng iSCSI để hỗ trợ mục tiêu RDMA (iSER)
------------------------------------------------
+-----------------------------------------------------
 
 .. kernel-doc:: drivers/infiniband/ulp/isert/ib_isert.c
    :internal:

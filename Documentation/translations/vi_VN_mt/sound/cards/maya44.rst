@@ -26,7 +26,7 @@ Ngày 14 tháng 2 năm 2008
 Rainer Zimmermann <mail@lightshed.de>
  
 STATE CỦA DEVELOPMENT
-====================
+=====================
 
 Trình điều khiển này đang được phát triển theo sáng kiến ​​của Piotr Makowski (oponek@gmail.com) và được tài trợ bởi Lars Bergmann.
 Quá trình phát triển được thực hiện bởi Rainer Zimmermann (mail@lightshed.de).
@@ -134,7 +134,7 @@ Các thiết bị PCM tương ứng với đầu vào/đầu ra như sau (giả 
 
 
 NAMING CỦA MIXER CONTROLS
-========================
+=========================
 
 (để biết thêm thông tin về luồng tín hiệu, vui lòng tham khảo sơ đồ khối trên trang 24 của hướng dẫn sử dụng ESI Maya44 hoặc trong phần mềm Windows ESI).
 

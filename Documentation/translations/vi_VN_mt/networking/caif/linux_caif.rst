@@ -37,7 +37,7 @@ và chủ nhà. Hiện tại, UART và Loopback có sẵn cho Linux.
 
 
 Ngành kiến ​​​​trúc
-============
+===================
 
 Việc triển khai CAIF được chia thành:
 

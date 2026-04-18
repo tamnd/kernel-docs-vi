@@ -123,7 +123,7 @@ thông qua các thanh ghi trạng thái.
 được giám sát hiệu quả với các điện trở mở rộng bên trong.
 
 Đặc trưng
---------
+---------
 
 - Hỗ trợ giao diện PECI và giám sát các điốt nhiệt bên trong và từ xa
 - Giao diện nối tiếp 2 dây, tương thích SMBus 2.0

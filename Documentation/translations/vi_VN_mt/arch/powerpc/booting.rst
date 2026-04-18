@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Khởi động DeviceTree
-------------------
+--------------------
 
 Trong quá trình phát triển hạt nhân Linux/ppc64 và cụ thể hơn là
 bổ sung các loại nền tảng mới bên ngoài cặp IBM pSeries/iSeries cũ, nó

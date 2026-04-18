@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 danh sách thẻ dvb-usb-az6027
-=========================
+============================
 
 .. tabularcolumns:: |p{7.0cm}|p{10.5cm}|
 

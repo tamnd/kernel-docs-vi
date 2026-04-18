@@ -38,7 +38,7 @@ lõi i2c tuân thủ SMBus 2.0 và gần như giống với
 bộ điều khiển i2c được tìm thấy trong các cầu nối phía nam Intel 801.
 
 Đặc trưng
---------
+---------
 
 Trình điều khiển này chỉ điều khiển Máy chủ SMB. Trình điều khiển này không sử dụng
 ngắt quãng.

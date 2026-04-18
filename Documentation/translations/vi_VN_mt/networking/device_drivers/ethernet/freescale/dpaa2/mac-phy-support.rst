@@ -21,7 +21,7 @@ Hỗ trợ DPAA2 MAC / PHY
 :Bản quyền: ZZ0000ZZ 2019 NXP
 
 Tổng quan
---------
+---------
 
 Hỗ trợ DPAA2 MAC / PHY bao gồm một bộ API giúp mạng DPAA2
 trình điều khiển (dpaa2-eth, dpaa2-ethsw) tương tác với thư viện PHY.
@@ -185,7 +185,7 @@ sau đây:
 
 
 API đã xuất khẩu
-------------
+----------------
 
 Bất kỳ trình điều khiển DPAA2 nào điều khiển các điểm cuối của đối tượng DPMAC đều phải phục vụ nó
 _EVENT_ENDPOINT_CHANGED irq và kết nối/ngắt kết nối khỏi DPMAC được liên kết

@@ -76,7 +76,7 @@ ZZ0007ZZ được trả lại. Khối chức năng ghi cho đến khi scancode
 được truyền đi bởi phần cứng.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, số byte đã ghi sẽ được trả về. Đó không phải là lỗi nếu
 con số này nhỏ hơn số byte được yêu cầu hoặc số lượng

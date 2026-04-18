@@ -27,7 +27,7 @@ Thiết bị có khả năng thu sóng FM.
 .. _fm-rx-control-id:
 
 ID điều khiển FM_RX
-=================
+===================
 
 ZZ0001ZZ
     Bộ mô tả lớp FM_RX. Đang gọi

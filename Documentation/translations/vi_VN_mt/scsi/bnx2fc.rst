@@ -33,7 +33,7 @@ eth0.1001-fcoe).  Không xóa hoặc vô hiệu hóa các giao diện này hoặ
 sẽ bị gián đoạn.
 
 Mô hình sử dụng trình điều khiển:
-===================
+=================================
 
 1. Đảm bảo rằng gói fcoe-utils đã được cài đặt.
 

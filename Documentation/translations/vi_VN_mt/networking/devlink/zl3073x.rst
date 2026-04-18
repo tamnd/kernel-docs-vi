@@ -34,7 +34,7 @@ Thông số
        and pins.
 
 Phiên bản thông tin
-=============
+===================
 
 Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
 
@@ -63,7 +63,7 @@ Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
       - Device configuration version customized by OEM
 
 Cập nhật nhanh
-============
+==============
 
 Trình điều khiển ZZ0000ZZ triển khai hỗ trợ cập nhật flash bằng cách sử dụng
 Giao diện ZZ0001ZZ. Nó hỗ trợ cập nhật flash thiết bị bằng cách sử dụng

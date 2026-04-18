@@ -26,7 +26,7 @@ Trình tự có thể khởi động lại cho phép đăng ký một vùng bộ
 * phần mở rộng lát thời gian lập lịch
 
 Trình tự có thể khởi động lại (nguyên tử trên mỗi CPU)
----------------------------------------
+------------------------------------------------------
 
 Trình tự có thể khởi động lại cho phép không gian người dùng thực hiện các thao tác cập nhật trên
 dữ liệu trên mỗi CPU mà không yêu cầu các hoạt động nguyên tử hạng nặng. thực tế
@@ -39,7 +39,7 @@ Cho phép triển khai trên mỗi dữ liệu CPU một cách hiệu quả. Tà
 tự kiểm tra. :(
 
 Phần mở rộng lát thời gian của bộ lập lịch
--------------------------------
+------------------------------------------
 
 Điều này cho phép một luồng yêu cầu một phần mở rộng lát thời gian khi nó đi vào một
 phần quan trọng để tránh tranh chấp tài nguyên khi luồng được

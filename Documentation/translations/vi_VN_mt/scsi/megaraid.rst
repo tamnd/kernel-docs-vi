@@ -17,7 +17,7 @@ Mô-đun quản lý chung Megaraid
 ====================================
 
 Tổng quan
---------
+---------
 
 Các lớp bộ điều khiển khác nhau từ LSI Logic chấp nhận và phản hồi
 ứng dụng của người dùng theo cách tương tự. Họ hiểu cách kiểm soát phần sụn giống nhau
@@ -41,7 +41,7 @@ tương tác. Vì vậy, mọi triển khai 'proc', 'sysfs' sẽ được bản 
 mô-đun chung.
 
 Tín dụng
--------
+--------
 
 ::
 
@@ -66,7 +66,7 @@ Tín dụng
 - Matt Domsch, (Matt_Domsch@dell.com), 25.02.2004 LKML
 
 Thiết kế
-------
+--------
 
 Mô-đun quản lý chung được triển khai trong tệp megaaid_mm.[ch]. Cái này
 mô-đun hoạt động như một cơ quan đăng ký cho trình điều khiển hba cấp thấp. Trình điều khiển cấp thấp

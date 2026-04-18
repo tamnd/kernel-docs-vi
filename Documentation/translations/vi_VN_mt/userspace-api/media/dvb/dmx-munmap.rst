@@ -55,7 +55,7 @@ Hủy ánh xạ trước đó với hàm ZZ0000ZZ được ánh xạ
 đệm và giải phóng nó, nếu có thể.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công ZZ0000ZZ trả về 0, nếu thất bại -1 và
 Biến ZZ0001ZZ được đặt phù hợp:

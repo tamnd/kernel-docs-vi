@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ltc4151
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -37,7 +37,7 @@ LTC4151 là Bộ theo dõi dòng điện và điện áp I2C điện áp cao.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị LTC4151 vì không có đăng ký
 có thể được sử dụng một cách an toàn để nhận dạng chip. Bạn sẽ phải khởi tạo
@@ -51,7 +51,7 @@ trên xe buýt I2C #0::
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Số đọc điện áp do trình điều khiển này cung cấp được báo cáo là thu được từ ADIN
 và các thanh ghi VIN.

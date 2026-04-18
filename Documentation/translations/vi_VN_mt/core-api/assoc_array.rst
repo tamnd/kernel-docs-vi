@@ -17,7 +17,7 @@ Triển khai mảng kết hợp chung
 ============================================
 
 Tổng quan
-========
+=========
 
 Việc triển khai mảng kết hợp này là một vùng chứa đối tượng với các thành phần sau:
 thuộc tính:
@@ -83,7 +83,7 @@ Mã được chọn bằng cách bật ZZ0000ZZ với::
 
 
 Chỉnh sửa tập lệnh
------------
+------------------
 
 Các chức năng chèn và xóa tạo ra một 'tập lệnh chỉnh sửa' mà sau này có thể được sử dụng
 được áp dụng để thực hiện các thay đổi mà không gây rủi ro cho ZZ0000ZZ. Điều này giữ lại
@@ -292,7 +292,7 @@ Các luồng khác có thể lặp lại hoặc tìm kiếm mảng bên dưới
 
 
 Chức năng truy cập
-----------------
+------------------
 
 Có hai hàm để truy cập một mảng kết hợp:
 
@@ -335,7 +335,7 @@ Hàm sẽ trả về đối tượng nếu tìm thấy (và đặt ZZ0000ZZ thà
 
 
 Biểu mẫu khóa chỉ mục
---------------
+---------------------
 
 Khóa chỉ mục có thể ở bất kỳ dạng nào, nhưng vì thuật toán không cho biết thời gian tồn tại của nó là bao lâu.
 điều quan trọng là, chúng tôi đặc biệt khuyến nghị rằng khóa chỉ mục bao gồm độ dài của nó

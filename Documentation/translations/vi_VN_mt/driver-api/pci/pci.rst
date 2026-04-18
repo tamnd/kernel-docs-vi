@@ -67,7 +67,7 @@ Thư viện hỗ trợ PCI
    :export:
 
 Thư viện hỗ trợ cắm nóng PCI
----------------------------
+----------------------------
 
 .. kernel-doc:: drivers/pci/hotplug/pci_hotplug_core.c
    :export:

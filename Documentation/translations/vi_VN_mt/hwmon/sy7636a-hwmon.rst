@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân sy7636a-hwmon
-===========================
+=======================================
 
 Chip được hỗ trợ:
 

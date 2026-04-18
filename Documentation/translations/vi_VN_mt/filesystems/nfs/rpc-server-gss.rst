@@ -58,7 +58,7 @@ kernel, nhưng để việc thiết lập bối cảnh ban đầu cho không gia
 cần gọi lên để yêu cầu không gian người dùng nhằm thực hiện thiết lập ngữ cảnh.
 
 Cơ chế nâng cấp kế thừa của máy chủ NFS
-==================================
+=======================================
 
 Cơ chế upcall cổ điển sử dụng cơ chế upcall dựa trên văn bản tùy chỉnh
 để nói chuyện với một daemon tùy chỉnh có tên là rpc.svcgssd được cung cấp bởi

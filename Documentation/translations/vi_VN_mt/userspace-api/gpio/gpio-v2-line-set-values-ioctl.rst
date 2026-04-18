@@ -58,7 +58,7 @@ Chỉ có thể đặt giá trị của dòng đầu ra.
 Cố gắng đặt giá trị của dòng đầu vào là một lỗi (ZZ0000ZZ).
 
 Giá trị trả về
-============
+==============
 
 Về thành công 0.
 

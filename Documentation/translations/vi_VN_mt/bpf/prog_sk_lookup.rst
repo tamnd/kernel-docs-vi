@@ -43,7 +43,7 @@ Những thiết lập như vậy sẽ yêu cầu tạo và tạo một ổ cắm
 độ trễ tăng đột biến trong quá trình tra cứu ổ cắm.
 
 Tệp đính kèm
-==========
+============
 
 Chương trình BPF sk_lookup có thể được gắn vào không gian tên mạng với
 Tòa nhà cao tầng ZZ0000ZZ sử dụng loại đính kèm ZZ0001ZZ và một

@@ -32,7 +32,7 @@ Cấu hình
         tạo multi_v7_defconfig
 
 Cách trình bày
-------
+--------------
 
 Tất cả các tệp cho nhiều họ máy đều nằm trong mã nền tảng
 chứa trong Arch/arm/mach-stm32

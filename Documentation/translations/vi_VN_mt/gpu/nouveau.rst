@@ -21,7 +21,7 @@ bao gồm các dòng GeForce, Quadro và Tesla, từ kiến trúc NV04 trở lê
 đến các dòng Turing, Ampere, Ada mới nhất.
 
 NVKM: Trình quản lý hạt nhân NVIDIA
-===========================
+===================================
 
 Thành phần NVKM đóng vai trò là lớp trừu tượng cốt lõi trong tân tiến
 trình điều khiển, chịu trách nhiệm quản lý phần cứng NVIDIA GPU ở cấp kernel.

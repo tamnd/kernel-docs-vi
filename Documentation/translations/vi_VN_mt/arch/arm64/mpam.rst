@@ -32,7 +32,7 @@ cách ly với nhau theo chính sách phân vùng (gọi là ồn ào
 hàng xóm).
 
 Nền tảng được hỗ trợ
-===================
+====================
 Việc sử dụng tính năng này cần có sự hỗ trợ của CPU, hỗ trợ trong hệ thống bộ nhớ
 các thành phần và mô tả từ chương trình cơ sở về nơi điều khiển thiết bị MPAM
 nằm trong không gian địa chỉ MMIO. (ví dụ: bảng 'MPAM' ACPI).

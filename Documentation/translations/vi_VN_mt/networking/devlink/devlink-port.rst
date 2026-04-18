@@ -70,7 +70,7 @@ Cổng Devlink có thể có loại khác dựa trên lớp liên kết được
        type automatically.
 
 Bộ điều khiển PCI
----------------
+-----------------
 Trong hầu hết các trường hợp, thiết bị PCI chỉ có một bộ điều khiển. Một bộ điều khiển bao gồm
 có thể có nhiều chức năng vật lý, ảo và chức năng con. một chức năng
 bao gồm một hoặc nhiều cổng. Cổng này được đại diện bởi eswitch devlink
@@ -150,10 +150,10 @@ Người dùng cũng có thể đặt hàng đợi sự kiện IO tối đa củ
 sử dụng lệnh ZZ0000ZZ.
 
 Thuộc tính chức năng
-===================
+====================
 
 Thiết lập địa chỉ MAC
------------------
+---------------------
 Địa chỉ MAC được định cấu hình của PCI VF/SF sẽ được netdevice và rdma sử dụng
 thiết bị được tạo cho PCI VF/SF.
 
@@ -190,7 +190,7 @@ $ cổng devlink hiển thị pci/0000:06:00.0/32768
         hw_addr 00:00:00:00:88:88
 
 Thiết lập khả năng RoCE
----------------------
+-----------------------
 Không phải tất cả các VF/SF PCI đều yêu cầu khả năng RoCE.
 
 Khi khả năng RoCE bị tắt, nó sẽ tiết kiệm bộ nhớ hệ thống trên mỗi PCI VF/SF.
@@ -219,7 +219,7 @@ $ cổng devlink hiển thị pci/0000:06:00.0/2
             hw_addr 00:00:00:00:00:00 roce vô hiệu hóa
 
 thiết lập khả năng di chuyển
----------------------------
+----------------------------
 Di chuyển trực tiếp là quá trình chuyển một máy ảo đang hoạt động
 từ máy chủ vật lý này sang máy chủ vật lý khác mà không làm gián đoạn hoạt động bình thường của nó
 hoạt động.
@@ -262,7 +262,7 @@ Khởi động máy ảo.
 Thực hiện di chuyển trực tiếp.
 
 Thiết lập khả năng mã hóa IPsec
------------------------------
+-------------------------------
 Khi người dùng kích hoạt khả năng mã hóa IPsec cho VF, ứng dụng người dùng có thể giảm tải
 Hoạt động mã hóa trạng thái XFRM (Mã hóa/Giải mã) cho VF này.
 
@@ -311,7 +311,7 @@ $ cổng devlink hiển thị pci/0000:06:00.0/2
             hw_addr 00:00:00:00:00:00 ipsec_packet đã bật
 
 Thiết lập hàng đợi sự kiện IO tối đa
-------------------------------
+------------------------------------
 Khi người dùng đặt số lượng hàng đợi sự kiện IO tối đa cho SF hoặc
 một VF, trình điều khiển chức năng như vậy bị giới hạn chỉ sử dụng được thực thi
 số lượng hàng đợi sự kiện IO.
@@ -341,7 +341,7 @@ $ cổng devlink hiển thị pci/0000:06:00.0/2
             hw_addr 00:00:00:00:00:00 ipsec_packet bị vô hiệu hóa max_io_eqs 32
 
 Chức năng con
-============
+=============
 
 Hàm con là một hàm nhẹ có hàm PCI gốc trên đó
 nó được triển khai. Chức năng con được tạo và triển khai theo đơn vị 1. Không giống như
@@ -376,7 +376,7 @@ cũng có thể định cấu hình địa chỉ phần cứng (chẳng hạn nh
 chức năng phụ trong khi chức năng phụ không hoạt động.
 
 (3) Triển khai
-----------
+--------------
 Khi một chức năng phụ được cấu hình, người dùng phải kích hoạt nó để sử dụng nó. Khi
 kích hoạt, trình điều khiển quản lý chức năng phụ sẽ yêu cầu quản lý chức năng phụ
 thiết bị để khởi tạo thiết bị chức năng phụ trên chức năng PCI cụ thể.
@@ -384,7 +384,7 @@ Một thiết bị chức năng phụ được tạo trên ZZ0000ZZ.
 Tại thời điểm này, trình điều khiển chức năng phụ phù hợp sẽ liên kết với thiết bị phụ trợ của chức năng phụ.
 
 Đánh giá quản lý đối tượng
-======================
+==========================
 
 Devlink cung cấp API để quản lý tốc độ tx của một cổng hoặc một nhóm liên kết phát triển.
 Điều này được thực hiện thông qua các đối tượng xếp hạng, có thể là một trong hai loại:
@@ -462,7 +462,7 @@ và phương pháp thiết lập các thông số của chúng. Ngoài ra việc
 có thể xuất các nút/lá và mối quan hệ con-cha của chúng.
 
 Điều khoản và định nghĩa
-=====================
+========================
 
 .. list-table:: Terms and Definitions
    :widths: 22 90

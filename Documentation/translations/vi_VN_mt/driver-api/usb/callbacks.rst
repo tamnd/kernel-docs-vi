@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Lệnh gọi lại lõi USB
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 USBcore sẽ thực hiện những cuộc gọi lại nào?
-===============================
+============================================
 
 Usbcore sẽ gọi tới trình điều khiển thông qua các lệnh gọi lại được xác định trong trình điều khiển
 cấu trúc và thông qua trình xử lý hoàn thành của URB mà trình điều khiển gửi.
@@ -85,7 +85,7 @@ Những cuộc gọi lại này nhằm mục đích liên kết và tách rời 
 một giao diện. Mối liên kết của trình điều khiển với một giao diện là độc quyền.
 
 Cuộc gọi lại thăm dò()
---------------------
+----------------------
 
 ::
 
@@ -104,7 +104,7 @@ giao diện cụ thể. Thiết bị sẽ không bị treo và bạn có thể t
 việc khởi tạo không mất quá nhiều thời gian là một ý tưởng hay ở đây.
 
 Lệnh gọi lại ngắt kết nối()
--------------------------
+---------------------------
 
 ::
 
@@ -123,7 +123,7 @@ thời gian sau khi ngắt kết nối vật lý. Vì vậy tài xế của bạ
 để xử lý lỗi IO ngay cả trước khi gọi lại.
 
 Lệnh gọi lại cấp thiết bị
-======================
+=========================
 
 pre_reset
 ---------

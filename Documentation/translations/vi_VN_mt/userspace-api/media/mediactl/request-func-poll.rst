@@ -64,7 +64,7 @@ Cố gắng thăm dò ý kiến ​​cho một yêu cầu chưa được xếp 
 đặt cờ ZZ0000ZZ trong ZZ0001ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, ZZ0000ZZ trả về số lượng
 các cấu trúc có trường ZZ0001ZZ khác 0 hoặc bằng 0 nếu lệnh gọi

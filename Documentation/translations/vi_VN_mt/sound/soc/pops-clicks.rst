@@ -28,14 +28,14 @@ nhấp chuột mỗi khi trạng thái nguồn thành phần được thay đổ
 
 
 Giảm thiểu số lần nhấp và nhấp chuột phát lại
-===================================
+=============================================
 
 Không thể loại bỏ hoàn toàn hiện tượng phát lại trong hệ thống con âm thanh di động
 Tuy nhiên, hiện tại, phần cứng codec âm thanh trong tương lai sẽ có tính năng bật và nhấp tốt hơn
 đàn áp.  Có thể giảm tiếng pop khi phát lại bằng cách cấp nguồn cho âm thanh
 thành phần theo một thứ tự cụ thể. Thứ tự này khác nhau khi khởi động và
 tắt máy và tuân theo một số quy tắc cơ bản: -
-::
+:::::::::::::::::::::::::::::::::::::::::::::
 
 Thứ tự khởi động: - DAC --> Bộ trộn --> Đầu ra PGA --> Bật tiếng kỹ thuật số
   
@@ -46,13 +46,13 @@ PGA (bộ khuếch đại khuếch đại có thể lập trình) trước khi x
 
 
 Giảm thiểu số lần chụp và nhấp chuột
-==================================
+====================================
 
 Việc loại bỏ các hiện vật bị bắt giữ có phần dễ dàng hơn vì chúng ta có thể trì hoãn việc kích hoạt
 ADC cho đến khi tất cả các cửa sổ bật lên xuất hiện. Điều này tuân theo các quy tắc quyền lực tương tự như
 phát lại trong các thành phần đó được cấp nguồn theo trình tự tùy thuộc vào luồng
 khởi động hoặc tắt máy.
-::
+:::::::::::::::::::::::
 
 Thứ tự khởi động - Đầu vào PGA --> Bộ trộn --> ADC
   
@@ -60,7 +60,7 @@ Lệnh tắt máy - ADC --> Bộ trộn --> Đầu vào PGA
 
 
 Tiếng ồn của dây kéo
-============
+====================
 Tiếng ồn dây kéo không mong muốn có thể xảy ra trong quá trình phát lại hoặc ghi âm thanh
 khi điều khiển âm lượng được thay đổi gần giá trị khuếch đại tối đa của nó. Tiếng ồn của dây kéo
 được nghe thấy khi mức tăng hoặc giảm mức tăng làm thay đổi tín hiệu âm thanh trung bình

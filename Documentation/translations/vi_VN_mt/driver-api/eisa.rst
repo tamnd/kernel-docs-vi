@@ -56,7 +56,7 @@ Mọi chức năng/cấu trúc bên dưới đều tồn tại trong <linux/eisa
 chủ yếu dựa vào <linux/device.h>.
 
 Trình điều khiển gốc xe buýt
-===============
+============================
 
 ::
 
@@ -139,7 +139,7 @@ cấu trúc tĩnh eisa_driver vortex_eisa_driver = {
 	};
 
 Thiết bị
-======
+========
 
 Khung sysfs gọi các hàm .probe và .remove trên thiết bị
 phát hiện và loại bỏ (lưu ý rằng hàm .remove chỉ được gọi
@@ -167,13 +167,13 @@ tập hợp các cờ biểu thị trạng thái của thiết bị. hiện tạ
 tập hợp res gồm bốn vùng I/O 256 byte được phân bổ cho thiết bị này
 Bộ mặt nạ dma_mask DMA từ thiết bị mẹ.
 thiết bị chung dành cho nhà phát triển (xem Tài liệu/driver-api/driver-model/device.rst)
-==========================================================================
+========================================================================================
 
 Bạn có thể lấy 'struct eisa_device' từ 'struct device' bằng cách sử dụng
 macro 'to_eisa_device'.
 
 Những thứ linh tinh
-==========
+===================
 
 ::
 
@@ -214,7 +214,7 @@ virtual_root.force_probe
 	CONFIG_EISA_VLB_PRIMING được thiết lập.
 
 ghi chú ngẫu nhiên
-============
+==================
 
 Việc chuyển đổi trình điều khiển EISA sang API mới chủ yếu liên quan đến ZZ0000ZZ
 mã (vì việc thăm dò hiện nằm trong mã EISA cốt lõi). Thật không may, hầu hết

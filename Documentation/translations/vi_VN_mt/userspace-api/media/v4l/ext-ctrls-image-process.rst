@@ -29,7 +29,7 @@ việc nắm bắt nó.
 .. _image-process-control-id:
 
 ID kiểm soát quá trình hình ảnh
-=========================
+===============================
 
 ZZ0000ZZ
     Bộ mô tả lớp IMAGE_PROC.

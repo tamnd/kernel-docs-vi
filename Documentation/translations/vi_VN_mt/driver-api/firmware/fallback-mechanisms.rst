@@ -77,7 +77,7 @@ giao diện như một cơ sở tải:
 Trước tiên, hãy ghi lại cơ sở tải sysfs được chia sẻ.
 
 Cơ sở tải sysfs chương trình cơ sở
-===============================
+==================================
 
 Để giúp trình điều khiển thiết bị tải lên chương trình cơ sở bằng cơ chế dự phòng
 cơ sở hạ tầng phần sụn tạo ra giao diện sysfs để kích hoạt không gian người dùng
@@ -129,7 +129,7 @@ firmware_fallback_sysfs
    :functions: firmware_fallback_sysfs
 
 Cơ chế dự phòng sự kiện kobject của chương trình cơ sở
-==========================================
+======================================================
 
 Vì một thiết bị được tạo cho giao diện sysfs để giúp tải chương trình cơ sở dưới dạng
 Không gian người dùng của cơ chế dự phòng có thể được thông báo về việc bổ sung thiết bị bằng cách
@@ -201,7 +201,7 @@ bằng cách nào đó sẽ giám sát việc bổ sung thiết bị của bạn
 tải chương trình cơ sở cho bạn thông qua đường dẫn tùy chỉnh.
 
 Hết thời gian chờ dự phòng chương trình cơ sở
-=========================
+=============================================
 
 Cơ chế dự phòng phần sụn có thời gian chờ. Nếu phần sụn không được tải
 trên giao diện sysfs theo giá trị thời gian chờ, một lỗi sẽ được gửi đến

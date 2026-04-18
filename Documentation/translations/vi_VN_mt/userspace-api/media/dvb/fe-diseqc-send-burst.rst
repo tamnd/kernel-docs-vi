@@ -52,7 +52,7 @@ Nó cung cấp hỗ trợ cho những gì được chỉ định tại
 ZZ0000ZZ
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

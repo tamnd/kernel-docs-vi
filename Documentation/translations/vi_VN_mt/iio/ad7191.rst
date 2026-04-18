@@ -19,7 +19,7 @@ Trình điều khiển AD7191
 Trình điều khiển thiết bị cho Thiết bị Analog AD7191 ADC.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 * ZZ0000ZZ
 
@@ -28,7 +28,7 @@ Nó có hai kênh đầu vào vi sai, một cảm biến nhiệt độ bên tron
 tốc độ lấy mẫu có thể cấu hình
 
 cây thiết bị
-==========
+============
 
 Cấu hình chân
 -----------------

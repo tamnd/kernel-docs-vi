@@ -47,7 +47,7 @@ mặt nạ bit, một bit cho mỗi miếng đệm. Bit 0 tương ứng với pa
 .. _dv-control-id:
 
 ID điều khiển video kỹ thuật số
-=========================
+===============================
 
 ZZ0000ZZ
     Bộ mô tả lớp Video kỹ thuật số.

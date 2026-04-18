@@ -25,7 +25,7 @@ những cái được chỉ định chính thức như PCI hoặc USB.
 
 
 Thiết bị nền tảng
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 Thiết bị nền tảng là thiết bị thường xuất hiện dưới dạng tự trị
 các thực thể trong hệ thống. Điều này bao gồm các thiết bị dựa trên cổng cũ và
 cầu nối máy chủ với các xe buýt ngoại vi và hầu hết các bộ điều khiển được tích hợp
@@ -47,7 +47,7 @@ cấu trúc platform_device {
 
 
 Trình điều khiển nền tảng
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 Trình điều khiển nền tảng tuân theo quy ước mô hình trình điều khiển tiêu chuẩn, trong đó
 việc khám phá/liệt kê được xử lý bên ngoài trình điều khiển và trình điều khiển
 cung cấp các phương thức thăm dò() và loại bỏ().  Họ hỗ trợ quản lý năng lượng
@@ -128,7 +128,7 @@ các cuộc gọi tới clk_get(&pdev->dev, clock_name) trả lại chúng nếu
 
 
 Trình điều khiển kế thừa: Thăm dò thiết bị
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Một số trình điều khiển không được chuyển đổi hoàn toàn sang mô hình trình điều khiển vì chúng chiếm
 với vai trò không phải là người lái xe: người lái xe đăng ký thiết bị nền tảng của mình, thay vì
 để lại điều đó cho cơ sở hạ tầng hệ thống.  Những trình điều khiển như vậy không thể được cắm nóng
@@ -168,7 +168,7 @@ và đăng ký một thiết bị.
 
 
 Đặt tên thiết bị và liên kết trình điều khiển
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 platform_device.dev.bus_id là tên chuẩn của thiết bị.
 Nó được xây dựng từ hai thành phần:
 
@@ -202,7 +202,7 @@ ba cách khác nhau để tìm kết quả phù hợp:
 
 
 Trình điều khiển và thiết bị nền tảng ban đầu
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Các giao diện nền tảng ban đầu cung cấp dữ liệu nền tảng cho thiết bị nền tảng
 trình điều khiển sớm trong quá trình khởi động hệ thống. Mã được xây dựng dựa trên
 phân tích dòng lệnh Early_param() và có thể được thực thi từ rất sớm.
@@ -237,13 +237,13 @@ ví dụ về trình điều khiển vì mã trình điều khiển nối tiếp
 trừ khi người dùng đã chỉ định cổng trên dòng lệnh kernel.
 
 4. Đăng ký trình điều khiển nền tảng sớm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Trình điều khiển nền tảng được biên dịch sử dụng Early_platform_init() là
 được đăng ký tự động trong bước 2 hoặc 3. Ví dụ về trình điều khiển nối tiếp
 nên sử dụng Early_platform_init("earlyprintk", &platform_driver).
 
 5. Thăm dò các trình điều khiển nền tảng sớm thuộc một lớp nhất định
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Mã kiến trúc gọi Early_platform_driver_probe() để khớp
 các thiết bị nền tảng đầu tiên đã đăng ký được liên kết với một lớp nhất định với
 trình điều khiển nền tảng đã đăng ký sớm. Các thiết bị phù hợp sẽ được thăm dò().
@@ -251,7 +251,7 @@ Bước này có thể được thực hiện bất kỳ lúc nào trong quá tr
 càng tốt có thể tốt cho trường hợp cổng nối tiếp.
 
 6. Bên trong đầu dò trình điều khiển nền tảng đầu tiên()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Mã trình điều khiển cần được chăm sóc đặc biệt trong quá trình khởi động sớm, đặc biệt là
 khi nói đến việc cấp phát bộ nhớ và đăng ký ngắt. Mã
 trong hàm thăm dò() có thể sử dụng is_early_platform_device() để kiểm tra xem

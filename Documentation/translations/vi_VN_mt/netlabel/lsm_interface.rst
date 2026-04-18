@@ -21,7 +21,7 @@ Paul Moore, paul.moore@hp.com
 Ngày 17 tháng 5 năm 2006
 
 Tổng quan
-========
+=========
 
 NetLabel là một cơ chế có thể thiết lập và truy xuất các thuộc tính bảo mật từ
 các gói mạng.  Nó được thiết kế để sử dụng bởi các nhà phát triển LSM muốn tạo ra
@@ -43,7 +43,7 @@ thuộc tính bảo mật vào bất kỳ định danh bảo mật nào đang đ
 đặc biệt là LSM.
 
 Hoạt động của giao thức NetLabel LSM
-================================
+====================================
 
 Đây là những chức năng cho phép nhà phát triển LSM thao tác với nhãn
 trên các gói đi cũng như đọc nhãn trên các gói đến.  Chức năng

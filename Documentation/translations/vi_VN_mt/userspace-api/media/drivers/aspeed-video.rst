@@ -15,7 +15,7 @@
 .. include:: <isonum.txt>
 
 Trình điều khiển video ASPEED
-===================
+=============================
 
 Công cụ video ASPEED được tìm thấy trên SoC AST2400/2500/2600 hỗ trợ hiệu suất cao
 nén video với nhiều chất lượng video và tỷ lệ nén

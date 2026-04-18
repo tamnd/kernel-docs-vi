@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Khởi động DeviceTree
-------------------
+--------------------
 
 Có một điểm vào 32 bit duy nhất cho kernel tại code32_start,
   bộ giải nén (điểm vào chế độ thực sẽ chuyển sang cùng 32 bit

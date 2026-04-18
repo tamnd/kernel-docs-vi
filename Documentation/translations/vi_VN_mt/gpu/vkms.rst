@@ -22,7 +22,7 @@
    :doc: vkms (Virtual Kernel Modesetting)
 
 Cài đặt
-=====
+=======
 
 Trình điều khiển VKMS có thể được thiết lập theo các bước sau:
 
@@ -66,7 +66,7 @@ Sudo modprobe vkms Enable_cursor=1
 sudo modprobe -r vkms
 
 Định cấu hình bằng Configfs
-=========================
+===========================
 
 Có thể tạo và định cấu hình nhiều phiên bản VKMS thông qua configfs.
 
@@ -157,7 +157,7 @@ sudo rm /config/vkms/my-vkms/planes/ZZ0000ZZ
   sudo rmdir /config/vkms/my-vkms
 
 Thử nghiệm với IGT
-================
+==================
 
 Công cụ IGT GPU là bộ thử nghiệm được sử dụng riêng để gỡ lỗi và
 phát triển trình điều khiển DRM.
@@ -227,7 +227,7 @@ Chế độ phần cứng ảo (vblank-less):
   nhiều kịch bản.
 
 Thêm tính năng máy bay
-------------------
+----------------------
 
 Có rất nhiều tính năng trên máy bay mà chúng tôi có thể thêm hỗ trợ cho:
 
@@ -246,7 +246,7 @@ tất cả các trường hợp thử nghiệm igt có liên quan đều hoạt 
 dự án.
 
 Cấu hình thời gian chạy
----------------------
+-----------------------
 
 Chúng tôi muốn có thể cấu hình lại phiên bản vkms mà không cần phải tải lại
 mô-đun thông qua configfs. Trường hợp sử dụng/thử nghiệm:
@@ -272,7 +272,7 @@ Hỗ trợ viết lại
   cấu hình, để các nhà phát triển thấy được điều gì đang thực sự diễn ra.
 
 Tính năng đầu ra
----------------
+----------------
 
 - Hỗ trợ tốc độ làm mới/freesync thay đổi. Điều này có lẽ cần bộ đệm chính
   hỗ trợ chia sẻ để chúng tôi có thể sử dụng hàng rào vgem để mô phỏng kết xuất trong
@@ -287,7 +287,7 @@ CRC API Cải tiến
 - Tối ưu hóa tính toán CRC ZZ0000ZZ và trộn mặt phẳng ZZ0001ZZ
 
 Kiểm tra nguyên tử bằng eBPF
------------------------
+----------------------------
 
 Trình điều khiển nguyên tử có rất nhiều hạn chế không được tiếp xúc với không gian người dùng trong
 bất kỳ hình thức rõ ràng nào thông qua ví dụ: các giá trị thuộc tính có thể có. Không gian người dùng chỉ có thể

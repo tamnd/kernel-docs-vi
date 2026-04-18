@@ -90,6 +90,6 @@ chi tiết về phần cứng và thuật toán.
 	};
 
 Các loại dữ liệu uAPI Intel IPU3 ImgU
-===============================
+=====================================
 
 .. kernel-doc:: drivers/staging/media/ipu3/include/uapi/intel-ipu3.h

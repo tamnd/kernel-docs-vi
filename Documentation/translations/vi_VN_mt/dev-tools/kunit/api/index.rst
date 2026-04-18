@@ -45,7 +45,7 @@ Tài liệu/dev-tools/kunit/api/functionredirection.rst
 - Tài liệu Chuyển hướng hàm KUnit API
 
 Trình điều khiển KUnit API
-================
+==========================
 
 Tài liệu/dev-tools/kunit/api/clk.rst
 

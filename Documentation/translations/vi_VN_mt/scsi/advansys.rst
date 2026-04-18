@@ -74,7 +74,7 @@ Sản phẩm đa kênh:
    - ABP3950U3W - Bus-Master PCI Dual LVD2/Ultra3-Wide (253 CDB)
 
 Tùy chọn thời gian biên dịch trình điều khiển và gỡ lỗi
-=========================================
+=======================================================
 
 Các hằng số sau có thể được xác định trong tệp nguồn.
 
@@ -182,7 +182,7 @@ Khi ADVANSYS_STATS không được xác định thì chỉ có các tệp AdvanS
    chứa thông tin cấu hình bộ điều hợp và thiết bị.
 
 Tùy chọn trình điều khiển LILO
-==================
+==============================
 
 Nếu init/main.c được sửa đổi như được mô tả trong 'Hướng dẫn thêm
 phần Trình điều khiển AdvanSys cho Linux' (B.4.) ở trên, trình điều khiển sẽ

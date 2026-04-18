@@ -161,7 +161,7 @@ pca9698 29 2A
 ========== ============== ====
 
 Chip có LED nhấp nháy và kiểm soát cường độ
-------------------------------------------
+-------------------------------------------
 
 Những chip Maxim này không có thanh ghi đảo ngược.
 
@@ -300,13 +300,13 @@ xra1202 05 06 07 08 09 0A
 ==================================== ========================= =========
 
 Tổng quan về chức năng
-=====================
+======================
 
 Phần này liệt kê các chức năng chip được trình điều khiển hỗ trợ
 đã có hoặc ít nhất là phổ biến trong nhiều chip.
 
 Đầu vào, đầu ra, đảo ngược, hướng
---------------------------------
+---------------------------------
 
 4 chức năng GPIO cơ bản có ở tất cả trừ một loại chip, tức là.
 ZZ0000ZZ thiếu chức năng đảo ngược
@@ -328,7 +328,7 @@ Ngắt
 ----------
 
 Chỉ có một thanh ghi mặt nạ ngắt
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Bố cục tương tự được sử dụng cho tất cả những điều này:
 
 1. ngân hàng 5 với độ lệch ngân hàng là 2^n
@@ -390,7 +390,7 @@ Cách trình bày:
 1. ngân hàng 5, bù đắp ngân hàng 2^n
 
 Chốt đầu vào
------------
+------------
 
 Chỉ ZZ0000ZZ và
 ZZ0001ZZ
@@ -613,7 +613,7 @@ không làm giảm khả năng phát hiện so với đường dẫn chung, như
 giới hạn tính nguyên tử.
 
 Bảng dữ liệu
-==========
+============
 
 -MAX7310: ZZ0000ZZ
 -MAX7312: ZZ0001ZZ

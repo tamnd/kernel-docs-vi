@@ -33,7 +33,7 @@ có tốc độ khác nhau. Thẻ dòng đảm bảo ánh xạ N:M giữa
 mô-đun chuyển đổi ASIC và các cổng vật lý ở bảng mặt trước.
 
 Tổng quan
-========
+=========
 
 Mỗi đối tượng liên kết thẻ dòng được tạo bởi trình điều khiển thiết bị,
 theo các khe cắm thẻ dòng vật lý có sẵn trên thiết bị.
@@ -68,7 +68,7 @@ Nhà mạng Netdevice được quyết định như sau:
 - Nhà mạng được quyết định như đối với thiết bị mạng cổng thông thường
 
 Trạng thái thẻ dòng
-===============
+===================
 
 Cơ chế ZZ0000ZZ hỗ trợ các trạng thái thẻ dòng sau:
 
@@ -117,7 +117,7 @@ chuyển đổi trạng thái::
 
 
 Cách sử dụng ví dụ
-=============
+==================
 
 .. code:: shell
 

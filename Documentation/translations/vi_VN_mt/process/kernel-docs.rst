@@ -47,7 +47,7 @@ Tài liệu.
    the exception of foundational books.
 
 Tài liệu tại cây hạt nhân Linux
------------------------------
+-------------------------------
 
 Sách Sphinx nên được xây dựng bằng ZZ0000ZZ.
 
@@ -62,7 +62,7 @@ Sách Sphinx nên được xây dựng bằng ZZ0000ZZ.
         cập nhật hơn phiên bản web.
 
 Tài liệu trực tuyến
-------------
+-------------------
 
 * Tiêu đề: ZZ0000ZZ
 
@@ -87,7 +87,7 @@ Tài liệu trực tuyến
         được duy trì tích cực tại ZZ0001ZZ
 
 Sách đã xuất bản
----------------
+----------------
 
 * Tiêu đề: ZZ0000ZZ
 
@@ -235,7 +235,7 @@ Linh tinh
         sự phát triển.
 
 rỉ sét
-----
+------
 
 * Tiêu đề: ZZ0000ZZ
 

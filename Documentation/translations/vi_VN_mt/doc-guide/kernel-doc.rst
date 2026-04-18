@@ -51,7 +51,7 @@ bố cục mã nguồn hạt nhân. Đây là mức độ ưu tiên thấp hơn 
 của người duy trì tập tin nguồn kernel đó.
 
 Cách định dạng nhận xét kernel-doc
----------------------------------
+----------------------------------
 
 Dấu nhận xét mở đầu ZZ0000ZZ được sử dụng cho nhận xét kernel-doc. các
 Công cụ ZZ0001ZZ sẽ trích xuất những bình luận được đánh dấu theo cách này. Phần còn lại của
@@ -139,7 +139,7 @@ Nếu một hàm có số lượng đối số thay đổi thì phần mô tả 
 * @...: Sự miêu tả
 
 Bối cảnh chức năng
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 Bối cảnh trong đó một hàm có thể được gọi nên được mô tả trong một
 phần có tên ZZ0000ZZ. Điều này nên bao gồm liệu chức năng
@@ -157,7 +157,7 @@ Ví dụ::
   * Ngữ cảnh: Ngữ cảnh ngắt.
 
 Giá trị trả về
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 Giá trị trả về, nếu có, phải được mô tả trong phần dành riêng
 có tên là ZZ0000ZZ (hoặc ZZ0001ZZ).
@@ -213,7 +213,7 @@ dòng và kết thúc bằng mô tả thành viên, dòng nhận xét trống ho
 cuối khối bình luận.
 
 Thành viên
-~~~~~~~
+~~~~~~~~~~
 
 Các thành viên của structs, unions và enums phải được ghi lại theo cùng một cách
 như các tham số chức năng; họ ngay lập tức thành công với mô tả ngắn gọn
@@ -251,7 +251,7 @@ Ví dụ::
   };
 
 Cấu trúc/công đoàn lồng nhau
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Có thể ghi lại các cấu trúc và liên kết lồng nhau, như ::
 
@@ -304,7 +304,7 @@ Có thể ghi lại các cấu trúc và liên kết lồng nhau, như ::
       it should be documented as ``@bar:``
 
 Nhận xét tài liệu thành viên nội tuyến
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các thành viên cấu trúc cũng có thể được ghi lại nội tuyến trong định nghĩa.
 Có hai kiểu, nhận xét một dòng trong đó cả phần mở đầu ZZ0000ZZ và
@@ -423,7 +423,7 @@ Ví dụ::
 
 
 Điểm nổi bật và tài liệu tham khảo chéo
--------------------------------
+---------------------------------------
 
 Các mẫu đặc biệt sau đây được nhận dạng trong nhận xét kernel-doc
 văn bản mô tả và được chuyển đổi thành đánh dấu reStructuredText và tham chiếu ZZ0000ZZ thích hợp.

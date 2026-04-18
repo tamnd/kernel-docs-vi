@@ -28,7 +28,7 @@ biên dịch lại kernel. Sau khi khởi động kernel, hãy thực hiện
 theo dõi.
 
 Ví dụ 1: Chèn mã trạng thái mặc định mà không cần thử lại
----------------------------------------------------
+---------------------------------------------------------
 
 ::
 
@@ -83,7 +83,7 @@ FAULT_INJECTION: buộc phải thất bại.
   inode #2: comm cp: đọc thư mục lblock 0
 
 Ví dụ 2: Chèn mã trạng thái mặc định bằng thử lại
-------------------------------------------------
+-------------------------------------------------
 
 ::
 

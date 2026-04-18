@@ -35,7 +35,7 @@ của dự án Rust for Linux như được ghi lại trong
   cung cấp API an toàn cho mã trình điều khiển khác sử dụng.
 
 Phong cách
------
+----------
 
 Tất cả các quy tắc của dự án Rust for Linux như được ghi lại trong
 Áp dụng ZZ0000ZZ.

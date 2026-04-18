@@ -87,7 +87,7 @@ CNFE{cond} Fn, Fm So sánh phủ định nổi với ngoại lệ
 Những điều này được thực hiện đầy đủ.
 
 Hướng dẫn dữ liệu bộ đồng xử lý dấu phẩy động (CPDT)
----------------------------------------------------
+----------------------------------------------------
 
 Hoạt động kép:
 

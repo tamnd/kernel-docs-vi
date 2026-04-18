@@ -106,7 +106,7 @@ AUTOFDO_PROFILE_foo.o := n
 AUTOFDO_PROFILE := n
 
 Quy trình làm việc
-========
+==================
 
 Dưới đây là quy trình làm việc mẫu cho kernel AutoFDO:
 

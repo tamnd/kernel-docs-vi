@@ -48,7 +48,7 @@ Mã chip lp855x.
 Giá trị: lp8550/lp8551/lp8552/lp8553/lp8555/lp8556/lp8557
 
 Dữ liệu nền tảng cho lp855x
-------------------------
+---------------------------
 
 Để hỗ trợ dữ liệu cụ thể của nền tảng, có thể sử dụng dữ liệu nền tảng lp855x.
 

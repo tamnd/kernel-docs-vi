@@ -13,13 +13,13 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tệp chương trình cơ sở cho thẻ lmedm04
-================================
+======================================
 
 Để giải nén phần sụn cho DM04/QQBOX, bạn cần sao chép tệp
 (các) tệp sau đây vào thư mục này.
 
 Dành cho DM04+/QQBOX LME2510C (Bộ chỉnh sắc nét 7395)
--------------------------------------------
+-----------------------------------------------------
 
 Trình điều khiển Sharp 7395 có thể được tìm thấy trong windows/system32/drivers
 
@@ -51,7 +51,7 @@ Phần sụn LG có thể được tìm thấy trên trình điều khiển
 đĩa DM04+_5.1A[LG] trong BDADriver/trình điều khiển
 
 Dành cho DM04 LME2510 (Bộ điều chỉnh LG)
----------------------------
+----------------------------------------
 
 LMEBDA_DVBS.sys (ngày 13 tháng 11 năm 2007)
 
@@ -71,7 +71,7 @@ chỉ tìm thấy trong windows/system32/drivers
 dd if=US280D.sys ibs=1 Skip=42360 count=3924 of=dvb-usb-lme2510-lg.fw
 
 Dành cho DM04 LME2510C (Bộ điều chỉnh LG)
-----------------------------
+-----------------------------------------
 
 .. code-block:: none
 
@@ -83,7 +83,7 @@ Trình điều khiển bộ chỉnh Sharp 0194 có thể được tìm thấy tr
 US290D.sys (ngày 09 tháng 4 năm 2009)
 
 Dành cho LME2510
------------
+----------------
 
 .. code-block:: none
 
@@ -91,7 +91,7 @@ Dành cho LME2510
 
 
 Dành cho LME2510C
-------------
+-----------------
 
 
 .. code-block:: none

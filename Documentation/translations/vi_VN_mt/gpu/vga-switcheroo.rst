@@ -22,16 +22,16 @@ Bộ chuyển đổi VGA
    :doc: Overview
 
 Phương thức sử dụng
-============
+===================
 
 Chuyển đổi thủ công và điều khiển nguồn thủ công
------------------------------------------
+------------------------------------------------
 
 .. kernel-doc:: drivers/gpu/vga/vga_switcheroo.c
    :doc: Manual switching and manual power control
 
 Điều khiển công suất điều khiển
---------------------
+-------------------------------
 
 .. kernel-doc:: drivers/gpu/vga/vga_switcheroo.c
    :doc: Driver power control
@@ -40,13 +40,13 @@ API
 ===
 
 Chức năng công cộng
-----------------
+-------------------
 
 .. kernel-doc:: drivers/gpu/vga/vga_switcheroo.c
    :export:
 
 Công trình công cộng
------------------
+--------------------
 
 .. kernel-doc:: include/linux/vga_switcheroo.h
    :functions: vga_switcheroo_handler
@@ -55,7 +55,7 @@ Công trình công cộng
    :functions: vga_switcheroo_client_ops
 
 Hằng số công khai
-----------------
+-----------------
 
 .. kernel-doc:: include/linux/vga_switcheroo.h
    :functions: vga_switcheroo_handler_flags_t
@@ -76,10 +76,10 @@ Công trình riêng
    :functions: vga_switcheroo_client
 
 Trình xử lý
-========
+===========
 
 Trình xử lý apple-gmux
-------------------
+----------------------
 
 .. kernel-doc:: drivers/platform/x86/apple-gmux.c
    :doc: Overview
@@ -94,7 +94,7 @@ Trình xử lý apple-gmux
    :doc: Graphics mux
 
 Kiểm soát quyền lực
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/platform/x86/apple-gmux.c
    :doc: Power control
@@ -106,7 +106,7 @@ Kiểm soát đèn nền
    :doc: Backlight control
 
 Chức năng công cộng
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: include/linux/apple-gmux.h
    :internal:

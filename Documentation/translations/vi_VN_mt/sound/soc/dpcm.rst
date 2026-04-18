@@ -34,11 +34,11 @@ bất kỳ sửa đổi nào.
 
 
 Hệ thống âm thanh điện thoại với DSP dựa trên SoC
--------------------------------------
+-------------------------------------------------
 
 Hãy xem xét hệ thống con âm thanh điện thoại sau đây. Điều này sẽ được sử dụng trong này
 tài liệu cho tất cả các ví dụ: -
-::
+::::::::::::::::::::::::::::::::
 
 ZZ0000ZZ SoC DSP ZZ0001ZZ Thiết bị âm thanh |
   
@@ -71,7 +71,7 @@ Ví dụ - DPCM Chuyển phát lại từ DAI0 sang DAI1
 và âm thanh tiếp tục phát trên loa.
 
 Phát lại trên PCM0 tới Tai nghe sẽ như sau:-
-::
+::::::::::::::::::::::::::::::::::::::::::::
 
 *************
   PCM0 <==============> * * <====DAI0=====> Tai nghe Codec
@@ -88,7 +88,7 @@ Phát lại trên PCM0 tới Tai nghe sẽ như sau:-
                       *************
 
 Người dùng đã tháo tai nghe ra khỏi giắc cắm nên bây giờ phải sử dụng loa:-
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 *************
   PCM0 <=============> * * <----DAI0------> Tai nghe Codec
@@ -125,7 +125,7 @@ liên kết lên hoặc xuống. Quá trình phát lại âm thanh không dừng
 
 
 Trình điều khiển máy DPCM
-===================
+=========================
 
 Driver máy ASoC kích hoạt DPCM tương tự như driver máy thông thường
 ngoại trừ việc chúng tôi cũng phải: -
@@ -138,7 +138,7 @@ ngoại trừ việc chúng tôi cũng phải: -
 
 
 Liên kết FE và BE DAI
--------------------
+---------------------
 ::
 
 ZZ0000ZZ SoC DSP ZZ0001ZZ Thiết bị âm thanh |
@@ -159,7 +159,7 @@ ZZ0000ZZ SoC DSP ZZ0001ZZ Thiết bị âm thanh |
 
 Đối với ví dụ trên, chúng ta phải xác định 4 liên kết FE DAI và 6 liên kết BE DAI. các
 Liên kết FE DAI được định nghĩa như sau: -
-::
+::::::::::::::::::::::::::::::::::::::::::
 
 SND_SOC_DAILINK_DEFS(pcm0,
 	DAILINK_COMP_ARRAY(COMP_CPU("Pin hệ thống")),
@@ -188,7 +188,7 @@ FE DAI ở trên đặt codec và mã DAI thành các thiết bị giả vì BE 
 động và sẽ thay đổi tùy thuộc vào cấu hình thời gian chạy.
 
 BE DAI được cấu hình như sau: -
-::
+:::::::::::::::::::::::::::::::
 
 SND_SOC_DAILINK_DEFS(tai nghe,
 	DAILINK_COMP_ARRAY(COMP_CPU("ssp-dai.0")),
@@ -214,7 +214,7 @@ cờ ZZ0000ZZ để đánh dấu nó có BE.
 BE cũng đặt cờ để bỏ qua thời gian tạm dừng và ngừng hoạt động của PM. Điều này cho phép
 BE hoạt động ở chế độ không có máy chủ trong đó máy chủ CPU không truyền dữ liệu
 giống như một cuộc gọi điện thoại BT :-
-::
+:::::::::::::::::::::::::::::::::::::::
 
 *************
   PCM0 <--------------> * * <----DAI0-----> Tai nghe Codec
@@ -251,7 +251,7 @@ ví dụ. DSP chuyển đổi tất cả các thông số hw FE để chạy ở
 DAI0. Điều này có nghĩa là tất cả FE hw_params phải được sửa trong trình điều khiển máy để
 DAI0 để DAI chạy ở cấu hình mong muốn bất kể FE
 cấu hình.
-::
+:::::::::
 
 int tĩnh dai0_fixup(struct snd_soc_pcm_runtime *rtd,
 			cấu trúc snd_pcm_hw_params *params)
@@ -279,7 +279,7 @@ Kết nối biểu đồ widget
 Các liên kết BE DAI thường sẽ được kết nối với biểu đồ tại thời điểm khởi tạo
 bởi lõi ASoC DAPM. Tuy nhiên, nếu codec BE hoặc BE DAI là giả thì điều này
 phải được đặt rõ ràng trong trình điều khiển: -
-::
+:::::::::::::::::::::::::::::::::::::::::::::::
 
 /* BE cho tai nghe codec - DAI0 là giả và được quản lý bởi DSP FW */
   {"DAI0 CODEC IN", NULL, "AIF1 Capture"},
@@ -287,7 +287,7 @@ phải được đặt rõ ràng trong trình điều khiển: -
 
 
 Viết trình điều khiển DPCM DSP
-=========================
+==============================
 
 Trình điều khiển DPCM DSP trông giống như trình điều khiển ASoC lớp nền tảng tiêu chuẩn
 kết hợp với các phần tử từ trình điều khiển lớp codec. Trình điều khiển nền tảng DSP phải
@@ -308,7 +308,7 @@ thực hiện :-
 Mục 6 rất quan trọng để định tuyến âm thanh bên ngoài DSP. AIF cần phải có
 được xác định cho từng BE và từng hướng luồng. ví dụ: đối với BE DAI0 ở trên, chúng tôi sẽ
 có :-
-::
+:::::
 
 SND_SOC_DAPM_AIF_IN("DAI0 RX", NULL, 0, SND_SOC_NOPM, 0, 0),
   SND_SOC_DAPM_AIF_OUT("DAI0 TX", NULL, 0, SND_SOC_NOPM, 0, 0),
@@ -318,11 +318,11 @@ trình điều khiển thành phần (ví dụ: biểu đồ codec).
 
 
 Luồng PCM không có máy chủ
-====================
+==========================
 
 Luồng PCM không có máy chủ là luồng không được định tuyến qua máy chủ CPU. Một
 ví dụ về điều này là một cuộc gọi điện thoại từ thiết bị cầm tay đến modem.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 *************
   PCM0 <--------------> * * <----DAI0-----> Tai nghe Codec
@@ -356,11 +356,11 @@ Máy chủ có thể kiểm soát liên kết không có máy chủ bằng cách
 
 
 Liên kết CODEC <-> CODEC
---------------------
+------------------------
 
 Liên kết DAI này được bật khi DAPM phát hiện đường dẫn hợp lệ trong biểu đồ DAPM.
 Trình điều khiển máy đặt một số tham số bổ sung cho liên kết DAI, tức là.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 cấu trúc const tĩnh snd_soc_pcm_stream dai_params = {
 	.format = SNDRV_PCM_FMTBIT_S32_LE,
@@ -392,7 +392,7 @@ còn hiệu lực.
 
 
 FE không có máy chủ
------------
+-------------------
 
 (Các) liên kết DAI được kích hoạt bởi FE không đọc hoặc ghi bất kỳ dữ liệu PCM nào.
 Điều này có nghĩa là tạo một FE mới được kết nối bằng đường dẫn ảo tới cả hai

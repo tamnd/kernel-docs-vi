@@ -17,7 +17,7 @@ FAILOVER
 ========
 
 Tổng quan
-========
+=========
 
 Mô-đun chuyển đổi dự phòng cung cấp giao diện chung cho trình điều khiển song song
 để đăng ký một netdev và một tập hợp các hoạt động có phiên bản chuyển đổi dự phòng. hoạt động

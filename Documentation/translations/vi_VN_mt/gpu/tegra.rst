@@ -39,7 +39,7 @@ có ba phần:
     GPU và công cụ video thông qua Host1x.
 
 Cơ sở hạ tầng trình điều khiển
-=====================
+==============================
 
 Các máy khách Host1x khác nhau cần được liên kết với nhau thành một thiết bị logic trong
 để giới thiệu chức năng của chúng tới người dùng. Cơ sở hạ tầng hỗ trợ
@@ -67,20 +67,20 @@ Tham khảo cơ sở hạ tầng Host1x
    :export:
 
 Tham khảo điểm đồng bộ Host1x
---------------------------
+-----------------------------
 
 .. kernel-doc:: drivers/gpu/host1x/syncpt.c
    :export:
 
 Trình điều khiển KMS
-==========
+====================
 
 Phần cứng hiển thị hầu như vẫn tương thích ngược trên nhiều thiết bị khác nhau.
 Các thế hệ Tegra SoC, cho đến Tegra186 đã giới thiệu một số thay đổi
 gây khó khăn cho việc hỗ trợ với trình điều khiển được tham số hóa.
 
 Bộ điều khiển hiển thị
--------------------
+----------------------
 
 Tegra SoC có hai bộ điều khiển hiển thị, mỗi bộ điều khiển có thể được liên kết với
 bằng không hoặc nhiều đầu ra. Đầu ra cũng có thể chia sẻ một bộ điều khiển hiển thị duy nhất, nhưng
@@ -147,7 +147,7 @@ bảng điều khiển cho các yếu tố hình thức máy tính xách tay. Te
 hỗ trợ, mặc dù điều này hiện không được triển khai trong trình điều khiển drm/tegra.
 
 Giao diện không gian người dùng
-===================
+===============================
 
 Giao diện không gian người dùng được cung cấp bởi drm/tegra cho phép các ứng dụng tạo
 Bộ đệm GEM, truy cập và kiểm soát các điểm đồng bộ cũng như gửi luồng lệnh
@@ -165,7 +165,7 @@ Sau khi đối tượng bộ đệm GEM được tạo, bộ nhớ của nó có
 IOCTL.
 
 Điểm đồng bộ
-----------
+------------
 
 Giá trị hiện tại của một điểm đồng bộ có thể thu được bằng cách thực hiện lệnh
 ZZ0000ZZ IOCTL. Tăng điểm đồng bộ đạt được

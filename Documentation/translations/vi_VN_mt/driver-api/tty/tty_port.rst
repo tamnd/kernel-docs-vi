@@ -30,14 +30,14 @@ Chức năng cổng TTY
 ==================
 
 Khởi tạo và hủy diệt
---------------
+--------------------
 
 .. kernel-doc::  drivers/tty/tty_port.c
    :identifiers: tty_port_init tty_port_destroy
         tty_port_get tty_port_put
 
 Người trợ giúp mở/đóng/gác máy
--------------------------
+------------------------------
 
 .. kernel-doc::  drivers/tty/tty_port.c
    :identifiers: tty_port_install tty_port_open tty_port_block_til_ready
@@ -45,13 +45,13 @@ Người trợ giúp mở/đóng/gác máy
         tty_port_shutdown
 
 Tái chiết khấu TTY
----------------
+------------------
 
 .. kernel-doc::  drivers/tty/tty_port.c
    :identifiers: tty_port_tty_get tty_port_tty_set
 
 Người trợ giúp TTY
------------
+------------------
 
 .. kernel-doc::  include/linux/tty_port.h
    :identifiers: tty_port_tty_hangup tty_port_tty_vhangup
@@ -59,7 +59,7 @@ Người trợ giúp TTY
    :identifiers: tty_port_tty_wakeup
 
 Tín hiệu modem
--------------
+--------------
 
 .. kernel-doc::  drivers/tty/tty_port.c
    :identifiers: tty_port_carrier_raised tty_port_raise_dtr_rts

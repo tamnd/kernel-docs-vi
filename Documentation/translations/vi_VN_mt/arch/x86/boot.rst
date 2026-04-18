@@ -181,7 +181,7 @@ bố trí bộ nhớ như sau được đề xuất ::
 
 
 Tiêu đề hạt nhân chế độ thực
-===========================
+============================
 
 Trong văn bản sau đây và bất kỳ vị trí nào trong chuỗi khởi động kernel, "a
 ngành" đề cập đến 512 byte.  Nó độc lập với khu vực thực tế
@@ -265,7 +265,7 @@ cài đặt các trường trong tiêu đề, bạn phải đảm bảo chỉ đ
 
 
 Chi tiết về trường tiêu đề
-========================
+==========================
 
 Đối với mỗi trường, một số thông tin từ kernel đến bootloader
 ("đọc"), một số dự kiến sẽ được bộ nạp khởi động điền vào
@@ -947,7 +947,7 @@ Trường này là phần bù từ phần đầu của ảnh hạt nhân đến 
 
 
 Thông tin hạt nhân
-===============
+==================
 
 Mối quan hệ giữa các tiêu đề tương tự với các dữ liệu khác nhau
 phần::
@@ -1015,19 +1015,19 @@ Bằng cách này, kernel_info là một blob độc lập.
 
 
 Chi tiết về các trường kernel_info
-=================================
+==================================
 
 =====================
 Tên trường: tiêu đề
 Độ lệch/kích thước: 0x0000/4
-=====================
+============================
 
 Chứa số ma thuật "LToP" (0x506f544c).
 
 =====================
 Tên trường: kích thước
 Độ lệch/kích thước: 0x0004/4
-=====================
+============================
 
 Trường này chứa kích thước của kernel_info bao gồm kernel_info.header.
   Nó không tính kích thước kernel_info.kernel_info_var_len_data. Trường này nên được
@@ -1037,7 +1037,7 @@ Trường này chứa kích thước của kernel_info bao gồm kernel_info.hea
 =====================
 Tên trường: size_total
 Độ lệch/kích thước: 0x0008/4
-=====================
+============================
 
 Trường này chứa kích thước của kernel_info bao gồm kernel_info.header
   và kernel_info.kernel_info_var_len_data.
@@ -1195,7 +1195,7 @@ strcpy(0x90000 + cmd_line_offset, cmdline);
 
 
 Đang tải phần còn lại của hạt nhân
-==============================
+==================================
 
 Hạt nhân 32 bit (không phải chế độ thực) bắt đầu ở offset (setup_sects + 1) * 512
 trong tệp kernel (một lần nữa, nếu setup_sects == 0 thì giá trị thực là 4.)
@@ -1334,7 +1334,7 @@ Sau khi hook xong bạn nên nhảy tới địa chỉ
 
 
 Giao thức khởi động 32-bit
-====================
+==========================
 
 Đối với máy có một số BIOS mới ngoài BIOS cũ, chẳng hạn như EFI,
 LinuxBIOS, v.v. và kexec, mã thiết lập chế độ thực 16 bit trong kernel
@@ -1372,7 +1372,7 @@ phải là __BOOT_DS; ngắt phải bị vô hiệu hóa; %esi phải giữ căn
 địa chỉ của struct boot_params; %ebp, %edi và %ebx phải bằng 0.
 
 Giao thức khởi động 64-bit
-====================
+==========================
 
 Đối với máy có cpu 64bit và kernel 64bit, chúng ta có thể sử dụng bootloader 64bit
 và chúng ta cần một giao thức khởi động 64-bit.
@@ -1411,7 +1411,7 @@ phải là __BOOT_DS; ngắt phải bị vô hiệu hóa; %rsi phải giữ châ
 địa chỉ của struct boot_params.
 
 Giao thức chuyển giao EFI (không dùng nữa)
-==================================
+==========================================
 
 Giao thức này cho phép bộ tải khởi động trì hoãn việc khởi tạo EFI
 cuống khởi động. Cần có bộ tải khởi động để tải kernel/initrd

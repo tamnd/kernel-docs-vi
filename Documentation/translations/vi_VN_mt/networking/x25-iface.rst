@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Giao diện trình điều khiển thiết bị X.25
-============================
+========================================
 
 Phiên bản 1.1
 
@@ -35,7 +35,7 @@ phần còn lại của skbuff, nếu có thêm thông tin.
 
 
 Lớp gói tới trình điều khiển thiết bị
------------------------------
+-------------------------------------
 
 Byte đầu tiên = 0x00 (X25_IFACE_DATA)
 
@@ -59,7 +59,7 @@ Thông số LAPB. Để được xác định.
 
 
 Trình điều khiển thiết bị cho lớp gói
------------------------------
+-------------------------------------
 
 Byte đầu tiên = 0x00 (X25_IFACE_DATA)
 
@@ -82,7 +82,7 @@ Thông số LAPB. Để được xác định.
 
 
 Yêu cầu đối với trình điều khiển thiết bị
-----------------------------------
+-----------------------------------------
 
 Các gói không được sắp xếp lại hoặc bị loại bỏ khi phân phối giữa
 Lớp gói và trình điều khiển thiết bị.

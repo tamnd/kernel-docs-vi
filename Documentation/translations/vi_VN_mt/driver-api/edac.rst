@@ -16,7 +16,7 @@ Thiết bị phát hiện và sửa lỗi (EDAC)
 =============================================
 
 Các khái niệm chính được sử dụng tại hệ thống con EDAC
-----------------------------------------
+------------------------------------------------------
 
 Có một số điều cần lưu ý mà không hề rõ ràng chút nào, như
 *sockets, *bộ ổ cắm*, *banks*, *rows*, *hàng chọn chip*, *kênh*,
@@ -132,7 +132,7 @@ kết nối được gọi là "interposer". Vì vậy, đặc điểm của HBM
 gần như không thể phân biệt được với RAM tích hợp trên chip.
 
 Bộ điều khiển bộ nhớ
-------------------
+--------------------
 
 Hầu hết lõi EDAC đều tập trung vào việc phát hiện lỗi Bộ điều khiển bộ nhớ.
 ZZ0000ZZ. Nó sử dụng nội bộ cấu trúc ZZ0001ZZ
@@ -144,7 +144,7 @@ trình điều khiển. Chỉ lõi EDAC mới được phép chạm vào nó.
 .. kernel-doc:: drivers/edac/edac_mc.h
 
 Bộ điều khiển PCI
----------------
+-----------------
 
 Hệ thống con EDAC cung cấp cơ chế xử lý bộ điều khiển PCI bằng cách gọi
 ZZ0000ZZ. Nó sẽ sử dụng cấu trúc
@@ -203,7 +203,7 @@ thư mục L1 và L2 sẽ là "edac_device_block's"
 
 
 Hỗ trợ hệ thống không đồng nhất
-----------------------------
+-------------------------------
 
 Một hệ thống không đồng nhất AMD được xây dựng bằng cách kết nối các kết cấu dữ liệu của
 cả CPU và GPU thông qua các liên kết xGMI tùy chỉnh. Vì vậy, kết cấu dữ liệu trên

@@ -55,7 +55,7 @@ một cái được sử dụng nội bộ bởi lõi mạng:
 
 
 Phần II: Kiểm soát các tính năng được kích hoạt
-=====================================
+===============================================
 
 Khi bộ tính năng hiện tại (netdev->features) được thay đổi, bộ tính năng mới
 được tính toán và lọc bằng cách gọi lại ndo_fix_features

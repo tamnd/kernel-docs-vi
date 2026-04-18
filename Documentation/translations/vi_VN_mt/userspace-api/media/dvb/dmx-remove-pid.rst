@@ -50,7 +50,7 @@ bằng ZZ0000ZZ, được tạo thông qua một trong hai
 ZZ0001ZZ hoặc ZZ0002ZZ.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

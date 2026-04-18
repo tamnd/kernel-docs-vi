@@ -36,25 +36,25 @@ và có thể được thay đổi bất cứ lúc nào.
    :identifiers: net_bridge_vlan
 
 Cầu nối uAPI
-===========
+============
 
 uAPI cầu Linux hiện đại được truy cập thông qua giao diện Netlink. Bạn có thể tìm thấy
 bên dưới các tệp nơi các thuộc tính liên kết mạng của cổng cầu và cổng cầu được xác định.
 
 Thuộc tính liên kết mạng cầu nối
--------------------------
+--------------------------------
 
 .. kernel-doc:: include/uapi/linux/if_link.h
    :doc: Bridge enum definition
 
 Thuộc tính liên kết mạng của cổng cầu
-------------------------------
+-------------------------------------
 
 .. kernel-doc:: include/uapi/linux/if_link.h
    :doc: Bridge port enum definition
 
 hệ thống cầu nối
-------------
+----------------
 
 Giao diện sysfs không được dùng nữa và không nên mở rộng nếu mới
 các tùy chọn được thêm vào.
@@ -150,7 +150,7 @@ Cấu hình đúng các tham số STP, chẳng hạn như mức độ ưu tiên 
 Cầu Gốc.
 
 Không gian người dùng Trình trợ giúp STP
----------------------
+----------------------------------------
 
 Không gian người dùng STP trợ giúp ZZ0003ZZ là một chương trình để kiểm soát xem có nên sử dụng hay không
 cây bao trùm chế độ người dùng. ZZ0000ZZ là
@@ -159,7 +159,7 @@ cây bao trùm chế độ người dùng. ZZ0000ZZ là
 0 hoặc bật chế độ kernel_stp nếu lệnh đó trả về bất kỳ giá trị nào khác.
 
 Lựa chọn chế độ STP
-------------------
+-------------------
 
 Thuộc tính cầu nối ZZ0000ZZ cho phép kiểm soát rõ ràng cách thức
 STP hoạt động khi được bật, bỏ qua trình trợ giúp ZZ0001ZZ
@@ -209,7 +209,7 @@ nó sẽ bắt đầu chuyển tiếp các khung tới các đích thích hợp 
 địa chỉ MAC đích và thẻ VLAN (cả hai đều phải khớp).
 
 Đa phương tiện
-=========
+==============
 
 Trình điều khiển cầu Linux có hỗ trợ multicast cho phép nó xử lý Internet
 Giao thức quản lý nhóm (IGMP) hoặc Multicast Listener Discovery (MLD)
@@ -217,7 +217,7 @@ tin nhắn và chuyển tiếp các gói dữ liệu multicast một cách hiệ
 trình điều khiển hỗ trợ IGMPv2/IGMPv3 và MLDv1/MLDv2.
 
 Theo dõi đa phương tiện
-------------------
+-----------------------
 
 Multicast snooping là một công nghệ mạng cho phép chuyển mạch mạng
 để quản lý lưu lượng phát đa hướng một cách thông minh trong mạng cục bộ (LAN).
@@ -255,14 +255,14 @@ do đó chỉ bị ràng buộc bởi độ trễ truyền gói trong đa truy c
 mạng và thời gian xử lý trong thiết bị.
 
 Các tính năng phát đa hướng khác
-------------------------
+--------------------------------
 
 Cầu Linux cũng hỗ trợ ZZ0000ZZ,
 bị tắt theo mặc định nhưng có thể được bật. Và ZZ0001ZZ,
 giúp xác định vị trí của các bộ định tuyến multicast.
 
 chuyển đổi
-=========
+==========
 
 Linux Bridge Switchdev là một tính năng trong nhân Linux giúp mở rộng
 khả năng của cầu nối Linux truyền thống để hoạt động hiệu quả hơn với
@@ -280,7 +280,7 @@ hạt nhân.
 Vui lòng xem tài liệu ZZ0000ZZ để biết thêm chi tiết.
 
 Bộ lọc mạng
-=========
+===========
 
 Mô-đun bộ lọc mạng cầu nối là một tính năng cũ cho phép lọc cầu nối
 các gói có iptables và ip6tables. Việc sử dụng nó không được khuyến khích. Người dùng nên
@@ -316,7 +316,7 @@ bảng ip(6) để lọc các gói được chuyển tiếp bởi cầu nối ho
 giao thông. Để lọc lớp liên kết thuần túy, mô-đun này không cần thiết.
 
 Các tính năng khác
-==============
+==================
 
 Cầu Linux cũng hỗ trợ ZZ0000ZZ,
 ZZ0001ZZ,
@@ -328,7 +328,7 @@ FAQ
 ===
 
 Cây cầu có tác dụng gì?
-----------------------
+-----------------------
 
 Một cây cầu chuyển tiếp lưu lượng truy cập giữa nhiều giao diện mạng một cách minh bạch.
 Trong tiếng Anh đơn giản, điều này có nghĩa là một cây cầu kết nối hai hoặc nhiều vật lý
@@ -342,7 +342,7 @@ Như vậy, chức năng bắc cầu là giao thức độc lập và cần có
 không gặp khó khăn gì khi chuyển tiếp IPX, NetBEUI, IP, IPv6, v.v.
 
 Thông tin liên hệ
-============
+=================
 
 Mã hiện được duy trì bởi Roopa Prabhu <roopa@nvidia.com> và
 Nikolay Aleksandrov <razor@blackwall.org>. Lỗi cầu và cải tiến

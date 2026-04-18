@@ -43,7 +43,7 @@ thông tin về lớp giữa SCSI.
 ==========================================================
 
 1.1 cấu trúc scsi_cmnd
---------------------
+----------------------
 
 Mỗi lệnh SCSI được biểu diễn bằng struct scsi_cmnd (== scmd).  A
 scmd có hai list_head để liên kết chính nó thành danh sách.  Hai là
@@ -55,7 +55,7 @@ thảo luận.
 
 
 1.2 Làm thế nào để hoàn thành scmd?
---------------------------------
+-----------------------------------
 
 Khi LLDD có được scmd, LLDD sẽ hoàn thành
 lệnh bằng cách gọi lại cuộc gọi lại scsi_done được truyền từ lớp giữa khi
@@ -97,7 +97,7 @@ scsi_eh_scmd_add(scmd) được gọi cho lệnh.  Xem
 
 
 1.2.2 Hoàn thành scmd khi hết thời gian chờ
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trình xử lý thời gian chờ là scsi_timeout().  Khi hết thời gian chờ, chức năng này
 
@@ -137,7 +137,7 @@ Nếu không thì scsi_eh_scmd_add() sẽ được gọi cho lệnh.
  Xem [1-4] để biết thêm thông tin.
 
 1.4 EH tiếp quản như thế nào
----------------------
+----------------------------
 
 scmds nhập EH qua scsi_eh_scmd_add(), thực hiện như sau.
 
@@ -175,7 +175,7 @@ quên đi - hết thời gian chờ sau.
 
 
 2. SCSI EH hoạt động như thế nào
-====================
+================================
 
 LLDD có thể thực hiện các hành động EH của SCSI theo một trong hai cách sau
 cách.
@@ -206,10 +206,10 @@ gọi scsi_restart_Operations(), trong đó
 
 
 2.1 EH thông qua các lệnh gọi lại chi tiết
--------------------------------------
+------------------------------------------
 
 2.1.1 Tổng quan
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 Nếu eh_strategy_handler() không xuất hiện, lớp giữa SCSI sẽ chịu trách nhiệm
 xử lý lỗi lái xe.  Mục tiêu của EH là hai - tạo LLDD, máy chủ và
@@ -433,7 +433,7 @@ Tại thời điểm này, tất cả các scmds đều được phục hồi (h
 
 
 2.2 EH thông qua Transportt->eh_strategy_handler()
-------------------------------------------------
+--------------------------------------------------
 
 Transportt->eh_strategy_handler() được gọi thay cho
 scsi_unjam_host() và nó chịu trách nhiệm cho toàn bộ quá trình khôi phục.
@@ -459,7 +459,7 @@ Các điều kiện sau đây đúng khi truy cập vào trình xử lý.
 
 
 2.2.2 Đăng điều kiện vận chuyển->eh_strategy_handler() SCSI của lớp giữa
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Các điều kiện sau đây phải đúng khi thoát khỏi trình xử lý.
 
@@ -475,7 +475,7 @@ Các điều kiện sau đây phải đúng khi thoát khỏi trình xử lý.
 
 
 2.2.3 Những điều cần xem xét
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Biết rằng các scmds đã hết thời gian vẫn hoạt động ở các lớp thấp hơn.  làm
    các lớp thấp hơn hãy quên chúng đi trước khi làm bất cứ điều gì khác với

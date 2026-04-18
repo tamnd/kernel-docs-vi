@@ -154,7 +154,7 @@ bạn có thể hiển thị công khai các bản sao.
 .. _fdl-section3:
 
 3. COPYING TRONG QUANTITY
-======================
+=========================
 
 Nếu bạn xuất bản bản in của ZZ0000ZZ
 đánh số lớn hơn 100 và thông báo giấy phép của Tài liệu yêu cầu
@@ -359,7 +359,7 @@ phần có tựa đề "Cống hiến". Bạn phải xóa tất cả các phần
 .. _fdl-section6:
 
 6. COLLECTIONS CỦA DOCUMENTS
-===========================
+============================
 
 Bạn có thể tạo một bộ sưu tập bao gồm
 ZZ0000ZZ và các tài liệu khác được phát hành theo điều này
@@ -430,7 +430,7 @@ chấm dứt miễn là các bên đó vẫn tuân thủ đầy đủ.
 .. _fdl-section10:
 
 10. FUTURE REVISIONS CỦA THIS LICENSE
-====================================
+=====================================
 
 ZZ0000ZZ
 có thể xuất bản các phiên bản sửa đổi mới của Giấy phép Tài liệu Miễn phí GNU

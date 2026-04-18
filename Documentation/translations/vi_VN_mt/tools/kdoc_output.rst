@@ -17,7 +17,7 @@ Giai đoạn đầu ra kernel-doc
 ===========================
 
 Trình xử lý đầu ra cho các trang man và ReST
-=====================================
+============================================
 
 .. automodule:: lib.python.kdoc.kdoc_output
    :members:

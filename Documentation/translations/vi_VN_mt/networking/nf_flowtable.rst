@@ -22,7 +22,7 @@ cũng cung cấp hỗ trợ giảm tải phần cứng. Hỗ trợ lưu lượng
 IPv4 và IPv6 cũng như các giao thức TCP và UDP lớp 4.
 
 Tổng quan
---------
+---------
 
 Khi gói đầu tiên của luồng được chuyển tiếp IP thành công
 đường dẫn, từ gói thứ hai trở đi, bạn có thể quyết định giảm tải luồng tới
@@ -142,7 +142,7 @@ Bạn không cần thêm các thiết bị PPPoE và VLAN vào flowtable của m
 thay vào đó, thiết bị thực là đủ để bảng lưu lượng theo dõi luồng của bạn.
 
 Chuyển tiếp cầu nối và IP
-------------------------
+-------------------------
 
 Kể từ Linux kernel 5.13, bạn có thể thêm các cổng bridge vào flowtable. các
 Cơ sở hạ tầng có thể lưu chuyển phát hiện cấu trúc liên kết đằng sau thiết bị cầu. Cái này
@@ -193,7 +193,7 @@ bảng inet x {
 Hỗ trợ bộ đếm có sẵn kể từ nhân Linux 5.7.
 
 Giảm tải phần cứng
-----------------
+------------------
 
 Nếu thiết bị mạng của bạn cung cấp hỗ trợ giảm tải phần cứng, bạn có thể bật nó bằng cách
 có nghĩa là cờ 'giảm tải' trong định nghĩa bảng lưu lượng của bạn, ví dụ:

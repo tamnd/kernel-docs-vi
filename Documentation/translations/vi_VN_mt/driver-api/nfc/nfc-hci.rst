@@ -20,7 +20,7 @@ Phần phụ trợ HCI cho Lõi NFC
 - Liên hệ: eric.lapuyade@intel.com, samuel.ortiz@intel.com
 
 Tổng quan
--------
+---------
 
 Lớp HCI triển khai phần lớn thông số kỹ thuật ETSI TS 102 622 V10.2.0. Nó
 cho phép dễ dàng viết trình điều khiển NFC dựa trên HCI. Lớp HCI chạy dưới dạng lõi NFC
@@ -65,7 +65,7 @@ thực hiện, các đường ống được ẩn hoàn toàn. API công khai ch
 mà không biết đường ống kết nối với nó.
 
 Giao diện trình điều khiển
-----------------
+--------------------------
 
 Một trình điều khiển thường được viết thành hai phần: quản lý liên kết vật lý và
 quản lý HCI. Điều này làm cho việc duy trì trình điều khiển cho chip dễ dàng hơn
@@ -201,7 +201,7 @@ Một lần nữa, hãy lưu ý rằng llc không xử lý liên kết vật lý
 dễ dàng kết hợp bất kỳ liên kết vật lý nào với bất kỳ llc nào cho trình điều khiển chip nhất định.
 
 Trình điều khiển đi kèm
-----------------
+-----------------------
 
 Trình điều khiển dựa trên HCI dành cho NXP PN544, được kết nối qua bus I2C và sử dụng
 shdlc được bao gồm.
@@ -278,7 +278,7 @@ Quy trình làm việc giống nhau, ngoại trừ lệnh gọi API sẽ trả v
 lệnh gọi lại sẽ được gọi với kết quả từ ngữ cảnh SMW.
 
 Quy trình làm việc nhận sự kiện hoặc lệnh HCI
-------------------------------------------
+---------------------------------------------
 
 Các lệnh hoặc sự kiện HCI không được gửi đi từ ngữ cảnh SMW. Thay vào đó, họ
 được xếp hàng tới HCI rx_queue và sẽ được gửi đi từ nhân viên HCI rx

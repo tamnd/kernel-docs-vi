@@ -31,7 +31,7 @@ cần thực hiện các thao tác, hãy sử dụng Giao diện bộ mã hóa v
 phát triển) được khuyến khích mạnh mẽ.
 
 Các quy ước và ký hiệu được sử dụng trong tài liệu này
-===============================================
+======================================================
 
 1. Các quy tắc chung của V4L2 API được áp dụng nếu không được chỉ định trong tài liệu này
    mặt khác.
@@ -55,12 +55,12 @@ Các quy ước và ký hiệu được sử dụng trong tài liệu này
    hàng đợi chứa dữ liệu thu được từ quá trình xử lý bộ đệm A.
 
 Thuật ngữ
-========
+=========
 
 Tham khảo ZZ0000ZZ.
 
 Máy trạng thái
-=============
+==============
 
 .. kernel-render:: DOT
    :alt: DOT digraph of encoder state machine
@@ -567,7 +567,7 @@ tham số chính xác ở khung cụ thể, sử dụng Yêu cầu API
 (ZZ0000ZZ) nên được xem xét nếu được bộ mã hóa hỗ trợ.
 
 Làm khô hạn
-=====
+===========
 
 Để đảm bảo rằng tất cả các bộ đệm ZZ0000ZZ được xếp hàng đợi đã được xử lý và
 bộ đệm ZZ0001ZZ liên quan được cung cấp cho máy khách, máy khách phải tuân theo
@@ -679,7 +679,7 @@ ZZ0000ZZ
    using :c:func:`VIDIOC_TRY_ENCODER_CMD`.
 
 Cài lại
-=====
+=======
 
 Máy khách có thể muốn yêu cầu bộ mã hóa khởi tạo lại quá trình mã hóa, vì vậy
 dữ liệu luồng sau trở nên độc lập với dữ liệu luồng

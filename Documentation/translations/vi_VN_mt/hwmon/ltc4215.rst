@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ltc4215
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -38,7 +38,7 @@ từ một bảng nối đa năng trực tiếp.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị LTC4215, do thực tế là một số
 trong số các địa chỉ có thể không thân thiện với việc thăm dò. Bạn sẽ phải
@@ -52,7 +52,7 @@ $ modprobe ltc4215
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 LTC4215 có các giới hạn tích hợp về quá áp, thiếu điện áp và
 cảnh báo dòng chảy ngầm. Điều này làm cho rất có thể tài liệu tham khảo

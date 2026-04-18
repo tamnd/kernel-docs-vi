@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển TechnoTrend/Hauppauge DEC USB
-====================================
+==============================================
 
 Trạng thái trình điều khiển
--------------
+---------------------------
 
 Được hỗ trợ:
 
@@ -48,7 +48,7 @@ Lấy phần sụn
 
 
 Đang tải chương trình cơ sở Hotplug
-------------------------
+-----------------------------------
 
 Vì hạt nhân 2.6, phần sụn được tải tại thời điểm mô-đun trình điều khiển
 được tải.

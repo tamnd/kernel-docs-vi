@@ -31,14 +31,14 @@ Bên ngoài cây hạt nhân, nó mặc định tuân theo các quy tắc hoàn 
 Lệnh ZZ0000ZZ.
 
 Điều kiện tiên quyết
-=============
+====================
 
 Tập lệnh dựa trên các chức năng trợ giúp do dự án ZZ0000ZZ cung cấp.
 Hãy đảm bảo nó được cài đặt trên hệ thống của bạn. Trên hầu hết các bản phân phối, bạn có thể
 cài đặt gói ZZ0001ZZ thông qua trình quản lý gói tiêu chuẩn.
 
 Cách sử dụng
-==========
+============
 
 Bạn có thể lấy nguồn tập lệnh trực tiếp ::
 
@@ -51,7 +51,7 @@ $ mkdir -p ~/.local/share/bash-completion/completions
   $ cp scripts/bash-completion/make ~/.local/share/bash-completion/completions/
 
 Chi tiết
-=======
+========
 
 Việc hoàn thành bổ sung cho Kbuild được kích hoạt trong các trường hợp sau:
 

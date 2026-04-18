@@ -23,7 +23,7 @@ số chủ đề có thể hữu ích cho các nhà phát triển muốn trở t
 một phần thường xuyên của quá trình phát triển nhân Linux.
 
 Quản lý các bản vá bằng git
--------------------------
+---------------------------
 
 Việc sử dụng kiểm soát phiên bản phân tán cho kernel bắt đầu vào đầu năm 2002,
 khi Linus lần đầu tiên bắt đầu chơi với BitKeeper độc quyền
@@ -163,7 +163,7 @@ chắc chắn rằng bạn đã nhớ đẩy những thay đổi đó lên máy 
 .. _development_advancedtopics_reviews:
 
 Xem lại các bản vá
------------------
+------------------
 
 Một số độc giả chắc chắn sẽ phản đối việc đặt phần này bằng "nâng cao
 chủ đề" với lý do ngay cả những nhà phát triển kernel mới vào nghề cũng nên

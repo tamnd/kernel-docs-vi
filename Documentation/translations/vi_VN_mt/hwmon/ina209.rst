@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ina209
-====================
+================================
 
 Chip được hỗ trợ:
 
@@ -42,7 +42,7 @@ hệ số hiệu chuẩn để chia tỷ lệ các giá trị dòng điện và 
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Chip INA209 có cấu hình cao cả thông qua kết nối phần cứng và thông qua
 xe buýt I2C. Xem bảng dữ liệu để biết chi tiết.

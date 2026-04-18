@@ -16,7 +16,7 @@ tài xế bttv
 ===============
 
 bttv và âm thanh mini hướng dẫn
--------------------------
+-------------------------------
 
 Hiện có rất nhiều bo mạch dựa trên bt848/849/878/879 khác nhau.
 Làm video thường xuyên không phải là vấn đề lớn vì việc này đã được xử lý
@@ -54,7 +54,7 @@ cài đặt máy trộn quá.  Ví dụ: ALSA có mọi thứ bị tắt tiếng
 
 
 Cách âm thanh hoạt động chi tiết
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Vẫn không hoạt động?  Có vẻ như cần phải hack một số trình điều khiển.
 Dưới đây là mô tả tự làm cho bạn.

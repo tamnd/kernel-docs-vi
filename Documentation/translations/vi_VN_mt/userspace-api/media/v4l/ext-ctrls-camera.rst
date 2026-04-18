@@ -27,7 +27,7 @@ kỹ thuật số) của một thiết bị như ống kính hoặc cảm biến
 .. _camera-control-id:
 
 ID điều khiển camera
-==================
+====================
 
 ZZ0001ZZ
     Bộ mô tả lớp Camera. Đang gọi

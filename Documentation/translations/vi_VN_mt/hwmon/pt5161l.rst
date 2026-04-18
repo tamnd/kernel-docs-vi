@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân pt5161l
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -38,7 +38,7 @@ ZZ0000ZZ
 Giao thức truyền thông được sử dụng dựa trên tiêu chuẩn I2C/SMBus.
 
 Mục nhập hệ thống
-----------------
+-----------------
 
 ====================================================================
 temp1_input Nhiệt độ đo được (tính bằng mili độ C)

@@ -95,7 +95,7 @@ giao thức truy cập.
 
 
 Giao diện của các trình điều khiển
-============================
+==================================
 
 Không giống như các trình điều khiển trước đây, các trình điều khiển này không còn là thiết bị ký tự nữa,
 nhưng giờ đây chúng là giao diện mạng hạt nhân thực sự. Do đó, việc cài đặt là
@@ -108,7 +108,7 @@ me cho WAMPES cho phép gắn trực tiếp giao diện mạng kernel.
 
 
 Cấu hình trình điều khiển
-======================
+=========================
 
 Mỗi khi một trình điều khiển được chèn vào kernel, nó phải biết cái nào
 modem nó sẽ truy cập vào cổng nào. Điều này có thể được thực hiện với setbaycom
@@ -137,7 +137,7 @@ Lưu ý rằng cả hai tiện ích đều diễn giải các giá trị hơi kh
 
 
 Phần cứng DCD so với Phần mềm DCD
-================================
+=================================
 
 Để tránh va chạm trên không, người lái xe phải biết khi nào kênh đang hoạt động
 bận rộn. Đây là nhiệm vụ của mạch/phần mềm DCD. Người lái xe có thể
@@ -163,7 +163,7 @@ picpar modem picpar có phần cứng DCD tích hợp, có hiệu suất cao
 
 
 Khả năng tương thích với phần còn lại của nhân Linux
-===============================================
+====================================================
 
 Trình điều khiển nối tiếp và trình điều khiển nối tiếp baycom cạnh tranh
 cho cùng một tài nguyên phần cứng. Tất nhiên chỉ có một người lái xe có thể truy cập vào một địa chỉ nhất định

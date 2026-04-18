@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hồ sơ mục nhập của người bảo trì hệ thống con tài liệu
-================================================
+======================================================
 
 "Hệ thống con" tài liệu là điểm điều phối trung tâm cho
 tài liệu của kernel và cơ sở hạ tầng liên quan.  Nó bao gồm
@@ -32,7 +32,7 @@ Danh sách gửi thư cho tài liệu là linux-doc@vger.kernel.org.  Bản vá 
 nên được thực hiện dựa trên cây tài liệu tiếp theo bất cứ khi nào có thể.
 
 Gửi phụ lục danh sách kiểm tra
--------------------------
+------------------------------
 
 Khi thực hiện thay đổi tài liệu, bạn thực sự nên xây dựng
 tài liệu và đảm bảo rằng không có lỗi hoặc cảnh báo mới nào được phát hiện
@@ -47,7 +47,7 @@ người mới bắt đầu), người lập trình không gian người dùng, 
 và các nhà phân phối.
 
 Ngày chu kỳ chính
----------------
+-----------------
 
 Các bản vá có thể được gửi bất cứ lúc nào, nhưng phản hồi sẽ chậm hơn bình thường trong thời gian
 cửa sổ hợp nhất.  Cây tài liệu có xu hướng đóng muộn trước khi hợp nhất

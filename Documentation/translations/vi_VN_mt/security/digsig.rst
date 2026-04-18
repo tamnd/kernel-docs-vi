@@ -90,7 +90,7 @@ digsig_verify() - xác minh chữ ký số bằng khóa chung
 			  const char *data, int datalen);
 
 Tiện ích không gian người dùng
-====================
+==============================
 
 Các tiện ích quản lý khóa và ký tên evm-utils cung cấp chức năng
 để tạo chữ ký, tải khóa vào khóa kernel.

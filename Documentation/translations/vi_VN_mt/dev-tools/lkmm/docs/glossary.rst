@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thuật ngữ
---------
+---------
 
 Nghĩa đen bao gồm ZZ0000ZZ.
 

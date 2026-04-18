@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân isl28022
-======================
+==================================
 
 Chip được hỗ trợ:
 
@@ -37,7 +37,7 @@ ISL28022 là màn hình nguồn có giao diện I2C. Các thiết bị giám sá
 điện áp, dòng điện qua điện trở shunt và công suất tính toán.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
@@ -54,7 +54,7 @@ Cho phép dải điện áp shunt là 40, 80, 160 hoặc 320mV
 Phạm vi điện áp bus là cố định 60V.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Tất cả các thuộc tính là chỉ đọc.
 

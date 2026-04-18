@@ -74,7 +74,7 @@ Ví dụ
 --------
 
 Lau dưới dạng máy tự động lai
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ví dụ 'wip' (đánh thức trong chế độ phủ đầu) được giới thiệu dưới dạng máy tự động xác định
 cũng có thể được mô tả như sau:
@@ -197,7 +197,7 @@ ZZ0003ZZ sau ngưỡng. Mô hình này thực sự ở trạng thái không hợ
 ngay khi một tác vụ sắp chết đói, thay vì khi tác vụ sắp đói đó cuối cùng đã chạy.
 
 Máy tự động lai trong C
----------------------
+-----------------------
 
 Định nghĩa của automata lai trong C chủ yếu dựa trên tính xác định
 máy tự động một. Cụ thể, chúng tôi thêm tập hợp các biến môi trường và
@@ -304,7 +304,7 @@ sự chậm trễ phát sinh để chờ sự kiện tiếp theo có thể chấ
 thay cho các bất biến, như đã thấy trong ví dụ gian hàng.
 
 Định dạng Graphviz .dot
---------------------
+-----------------------
 
 Ngoài ra, biểu diễn Graphviz của automata lai là một phần mở rộng của
 automata tất định một. Cụ thể, có thể cung cấp vệ sĩ trong sự kiện
@@ -342,7 +342,7 @@ trạng thái chữ ghép_automaton {
   }
 
 Tài liệu tham khảo
-----------
+------------------
 
 Một cuốn sách bao gồm việc kiểm tra mô hình và automata tính thời gian là::
 

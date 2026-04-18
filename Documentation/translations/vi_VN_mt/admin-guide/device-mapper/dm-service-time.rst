@@ -58,7 +58,7 @@ Trạng thái cho mỗi đường dẫn:
 
 
 Thuật toán
-=========
+==========
 
 dm-service-time thêm kích thước I/O vào 'kích thước trong chuyến bay' khi I/O được
 được gửi đi và trừ đi khi hoàn thành.

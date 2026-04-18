@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adt7470
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -56,7 +56,7 @@ mục đích truy vấn định kỳ các cảm biến nhiệt độ, do đó ch
 chỉ đọc một lần mỗi phút.
 
 Tính năng đặc biệt
-----------------
+------------------
 
 ADT7470 có ADC 8 bit và có khả năng đo nhiệt độ với 1
 độ phân giải độ C.
@@ -101,7 +101,7 @@ Tần số PWM được làm tròn đến tần số gần nhất trong số:
 * 22,5 kHz
 
 Ghi chú
------
+-------
 
 Đầu vào nhiệt độ không còn cần phải được đọc định kỳ từ không gian người dùng trong
 thứ tự cho thuật toán pwm tự động chạy.  Đây là trường hợp trước đây

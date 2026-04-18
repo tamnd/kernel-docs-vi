@@ -17,7 +17,7 @@ Hệ thống Linux I2C
 ==================
 
 Tổng quan
-========
+=========
 
 Cấu trúc liên kết I2C có thể phức tạp do sự tồn tại của I2C MUX
 (Bộ ghép kênh I2C). Linux
@@ -31,13 +31,13 @@ hữu ích và cần thiết để sử dụng ZZ0000ZZ cho mục đích phát t
 gỡ lỗi.
 
 Đối tượng mục tiêu
----------------
+------------------
 
 Những người cần sử dụng Linux shell để tương tác với hệ thống con I2C trên hệ thống
 Linux đang chạy trên đó.
 
 Điều kiện tiên quyết
--------------
+--------------------
 
 1. Kiến thức chung về các lệnh và hoạt động của hệ thống tệp shell Linux.
 
@@ -69,7 +69,7 @@ Thuật ngữ
 Đầu tiên chúng ta hãy định nghĩa một số thuật ngữ để tránh nhầm lẫn ở các phần sau.
 
 (Vật lý) Bộ điều khiển bus I2C
------------------------------
+------------------------------
 
 Hệ thống phần cứng mà nhân Linux đang chạy có thể có nhiều
 bộ điều khiển bus I2C vật lý. Bộ điều khiển là phần cứng và vật lý, và
@@ -80,14 +80,14 @@ hoạt động cho các hệ thống khác nhau. Thuật ngữ này không giớ
 chỉ hạt nhân.
 
 Số vật lý của xe buýt I2C
------------------------
+-------------------------
 
 Đối với mỗi bộ điều khiển bus I2C vật lý, nhà cung cấp hệ thống có thể chỉ định một bộ điều khiển vật lý
 số cho mỗi bộ điều khiển. Ví dụ: bộ điều khiển bus I2C đầu tiên có
 địa chỉ thanh ghi thấp nhất có thể được gọi là ZZ0000ZZ.
 
 Xe buýt I2C hợp lý
----------------
+------------------
 
 Mỗi số bus I2C bạn thấy trong Linux I2C Sysfs đều là một bus I2C hợp lý với một
 số được giao. Điều này tương tự với thực tế là mã phần mềm thường
@@ -100,13 +100,13 @@ sẽ chuyển I2C MUX cho bạn sang kênh thích hợp như một phần của
 trừu tượng.
 
 Xe buýt I2C vật lý
-----------------
+------------------
 
 Nếu bus I2C logic là sự trừu tượng trực tiếp của bộ điều khiển bus I2C vật lý,
 chúng ta hãy gọi nó là bus I2C vật lý.
 
 hãy cẩn thận
-------
+------------
 
 Đây có thể là phần khó hiểu đối với những người chỉ biết về I2C vật lý
 thiết kế của một bảng. Thực tế có thể đổi tên số vật lý của bus I2C
@@ -302,7 +302,7 @@ số bus logic của kênh 0 của MUX trên bus 3 và 37 sẽ là
 số bus logic của kênh 7 của MUX trên bus 3.
 
 Thiết bị I2C
-===========
+============
 
 Trong các phần trước, chúng tôi chủ yếu đề cập đến bus I2C. Trong phần này chúng ta hãy xem
 những gì chúng ta có thể học được từ thư mục thiết bị I2C có tên liên kết ở định dạng
@@ -311,7 +311,7 @@ số thập phân, trong khi phần ZZ0002ZZ là số hex của địa chỉ I2C
 của từng thiết bị.
 
 Nội dung thư mục thiết bị I2C
-----------------------------
+-----------------------------
 
 Bên trong mỗi thư mục thiết bị I2C có một tệp có tên ZZ0000ZZ.
 Tập tin này cho biết tên thiết bị được sử dụng cho trình điều khiển kernel
@@ -346,7 +346,7 @@ Tùy thuộc vào thiết bị I2C là gì và trình điều khiển hạt nhâ
 thiết bị, chúng tôi có thể có nội dung khác trong thư mục thiết bị.
 
 Thiết bị I2C MUX
---------------
+----------------
 
 Mặc dù bạn có thể đã biết điều này trong các phần trước, nhưng thiết bị I2C MUX
 sẽ có liên kết tượng trưng ZZ0000ZZ bên trong thư mục thiết bị của nó.
@@ -363,7 +363,7 @@ Các liên kết tượng trưng này trỏ đến các thư mục bus I2C logic
   lrwxrwxrwx ... 73-0072/channel-7 -> ../i2c-85
 
 Thiết bị cảm biến I2C / Hwmon
--------------------------
+-----------------------------
 
 Thiết bị cảm biến I2C cũng thường thấy. Nếu chúng bị ràng buộc bởi kernel hwmon
 (Giám sát phần cứng) thành công, bạn sẽ thấy thư mục ZZ0000ZZ
@@ -383,6 +383,6 @@ Sysfs cho thiết bị cảm biến I2C::
 ../hwmon/sysfs-interface.rst
 
 Khởi tạo thiết bị I2C trong I2C Sysfs
-------------------------------------
+-------------------------------------
 
 Tham khảo phần "Phương pháp 4: Khởi tạo từ không gian người dùng" của instantiating-devices.rst

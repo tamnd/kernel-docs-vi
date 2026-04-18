@@ -64,7 +64,7 @@ NOTE! Khóa xoay chỉ an toàn khi ZZ0000ZZ sử dụng chính khóa đó
 ----
 
 Bài học 2: spinlocks của người đọc-người viết.
-==================================
+==============================================
 
 Nếu việc truy cập dữ liệu của bạn có kiểu mẫu rất tự nhiên mà bạn thường có xu hướng
 để đọc chủ yếu từ các biến được chia sẻ, khóa trình đọc-ghi

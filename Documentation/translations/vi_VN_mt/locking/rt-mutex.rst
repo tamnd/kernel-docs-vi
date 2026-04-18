@@ -25,7 +25,7 @@ Công nghệ này được phát triển trong cây -rt và được sắp xếp
 hỗ trợ pthread_mutex.
 
 Nguyên tắc cơ bản:
------------------
+------------------
 
 RT-mutexes mở rộng ngữ nghĩa của các mutex đơn giản theo mức độ ưu tiên
 giao thức kế thừa.

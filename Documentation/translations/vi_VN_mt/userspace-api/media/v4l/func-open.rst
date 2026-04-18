@@ -65,7 +65,7 @@ trình điều khiển, chúng sẽ được đặt lại về giá trị mặc 
 trạng thái không xác định.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, ZZ0000ZZ trả về bộ mô tả tệp mới. Bị lỗi
 -1 được trả về và biến ZZ0001ZZ được đặt thích hợp.

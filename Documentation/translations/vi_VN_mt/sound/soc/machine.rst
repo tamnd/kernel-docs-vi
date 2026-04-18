@@ -24,7 +24,7 @@ ngắt, xung nhịp, giắc cắm và bộ điều chỉnh điện áp.
 Trình điều khiển máy có thể chứa codec và mã dành riêng cho nền tảng. Nó đăng ký
 hệ thống con âm thanh với hạt nhân là thiết bị nền tảng và được biểu thị bằng
 cấu trúc sau: -
-::
+:::::::::::::::
 
 /* Máy SoC */
   cấu trúc snd_soc_card {
@@ -57,7 +57,7 @@ thăm dò/loại bỏ là tùy chọn. Thực hiện bất kỳ thăm dò máy c
 
 
 đình chỉ()/tiếp tục()
-------------------
+---------------------
 Trình điều khiển máy có phiên bản tạm dừng và tiếp tục trước và sau để lưu ý
 của bất kỳ tác vụ âm thanh nào của máy phải được thực hiện trước hoặc sau codec, DAI
 và DMA bị tạm dừng và tiếp tục lại. Không bắt buộc.
@@ -71,7 +71,7 @@ khởi tạo, ví dụ: bản đồ âm thanh của máy có thể được kế
 bản đồ, các chân codec không được kết nối có thể được đặt như vậy.
 
 struct snd_soc_dai_link được sử dụng để thiết lập từng DAI trong máy của bạn. ví dụ.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 /* keo giao diện âm thanh kỹ thuật số corgi - kết nối codec <--> CPU */
   cấu trúc tĩnh snd_soc_dai_link corgi_dai = {
@@ -98,7 +98,7 @@ SND_SOC_DAILINK_DEFS(wm2200_cpu_dsp,
 	DAILINK_COMP_ARRAY(COMP_PLATFORM("samsung-i2s.0")));
 
 struct snd_soc_card sau đó thiết lập máy với DAI của nó. ví dụ.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 /*trình điều khiển máy âm thanh corgi */
   cấu trúc tĩnh snd_soc_card snd_soc_corgi = {
@@ -113,7 +113,7 @@ chẳng hạn như codec, CPU và nền tảng đều được thăm dò. Nếu 
 được thăm dò thành công, card âm thanh sẽ được đăng ký.
 
 Bản đồ công suất máy
------------------
+--------------------
 
 Trình điều khiển máy có thể tùy ý mở rộng bản đồ nguồn codec và trở thành một
 bản đồ công suất âm thanh của hệ thống con âm thanh. Điều này cho phép tự động bật/tắt nguồn

@@ -74,14 +74,14 @@ cơ quan giám sát, cảm nhận một công tắc, v.v.
 
 
 Thuộc tính GPIO phổ biến
-======================
+========================
 
 Các thuộc tính này được đáp ứng thông qua tất cả các tài liệu khác của giao diện GPIO
 và việc hiểu chúng sẽ rất hữu ích, đặc biệt nếu bạn cần xác định GPIO
 ánh xạ.
 
 Hoạt động-Cao và Hoạt động-Thấp
---------------------------
+-------------------------------
 Điều tự nhiên khi cho rằng GPIO đang "hoạt động" khi tín hiệu đầu ra của nó là 1
 ("cao") và không hoạt động khi ở mức 0 ("thấp"). Tuy nhiên trong thực tế tín hiệu của
 GPIO có thể bị đảo ngược trước khi đến đích hoặc thiết bị có thể quyết định

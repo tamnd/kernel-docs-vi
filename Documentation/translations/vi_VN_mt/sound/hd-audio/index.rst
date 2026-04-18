@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Âm thanh HD
-========
+===========
 
 .. toctree::
    :maxdepth: 2

@@ -17,7 +17,7 @@ Hệ thống Linux 64-bit Kiến trúc điện gọi ABI
 ====================================================
 
 cuộc gọi chung
-=======
+==============
 
 Lời mời
 ----------
@@ -42,7 +42,7 @@ Số cuộc gọi hệ thống được chỉ định trong r0.
 Có tối đa 6 tham số nguyên cho một tòa nhà cao tầng, được truyền trong r3-r8.
 
 Giá trị trả về
-------------
+--------------
 - Đối với lệnh sc, cả giá trị và điều kiện lỗi đều được trả về.
   cr0.SO là tình trạng lỗi và r3 là giá trị trả về. Khi cr0.SO là
   rõ ràng, syscall đã thành công và r3 là giá trị trả về. Khi cr0.SO được đặt,
@@ -54,7 +54,7 @@ Giá trị trả về
   trong trường hợp đó giá trị lỗi là giá trị trả về phủ định.
 
 ngăn xếp
------
+--------
 Cuộc gọi hệ thống không sửa đổi khung ngăn xếp của người gọi. Ví dụ: người gọi
 Các trường lưu khung LR và CR không được sử dụng.
 
@@ -144,7 +144,7 @@ Tham số và giá trị trả về
 r0 không được sử dụng làm đầu vào. Vsyscall được chọn theo địa chỉ của nó.
 
 ngăn xếp
------
+--------
 Vsyscall có thể hoặc không thể sử dụng vùng lưu khung ngăn xếp của người gọi.
 
 Đăng ký quy định bảo quản

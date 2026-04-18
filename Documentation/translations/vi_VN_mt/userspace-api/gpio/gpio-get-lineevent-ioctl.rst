@@ -87,7 +87,7 @@ và các cạnh rơi xuống.
 Yêu cầu cấu hình không hợp lệ là một lỗi (ZZ0000ZZ).
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 và ZZ0000ZZ chứa tệp
 mô tả cho yêu cầu.

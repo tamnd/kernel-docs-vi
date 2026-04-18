@@ -34,7 +34,7 @@ Hệ thống con CAPI.
 
 
 Chế độ xem cấp cao
-===============
+==================
 
 OpenCAPI xác định Lớp liên kết dữ liệu (DL) và Lớp giao dịch (TL), để
 được thực hiện trên một liên kết vật lý. Bất kỳ bộ xử lý hoặc thiết bị nào
@@ -65,7 +65,7 @@ việc triển khai DL và TL có thể bắt đầu chia sẻ bộ nhớ.
 
 
 Khám phá thiết bị
-================
+=================
 
 OpenCAPI dựa trên không gian cấu hình giống PCI, được triển khai trên
 thiết bị. Vì vậy, máy chủ có thể khám phá AFU bằng cách truy vấn không gian cấu hình.
@@ -107,7 +107,7 @@ Xử lý đối tượng 64-bit, có thể được chuyển tới AFU.
 
 
 thiết bị char
-============
+=============
 
 Trình điều khiển tạo một thiết bị char cho mỗi AFU được tìm thấy trên thiết bị vật lý
 thiết bị. Một thiết bị vật lý có thể có nhiều chức năng và mỗi chức năng
@@ -127,7 +127,7 @@ thiết bị mang nhiều bản sao của cùng một AFU.
 
 
 Lớp hệ thống
-===========
+============
 
 Một lớp ocxl được thêm vào cho các thiết bị đại diện cho AFU. Xem
 /sys/class/ocxl. Bố cục được mô tả trong
@@ -136,7 +136,7 @@ Tài liệu/ABI/thử nghiệm/sysfs-class-ocxl
 
 
 Người dùng API
-========
+==============
 
 mở
 ----

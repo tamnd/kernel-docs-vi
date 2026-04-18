@@ -166,7 +166,7 @@ Chúng tôi luôn nghĩ về sự bù đắp của mình như thể không có g
 chúng sau đó, trước khi truy cập vào vùng bộ nhớ.
 
 Lưu ý về độ dài bộ đệm không phải là bội số của 4
-----------------------------------------
+-------------------------------------------------
 
 Để giải quyết các vấn đề về bố cục bộ nhớ trong đó các nhóm 4 byte được sắp xếp "nhỏ".
 endian" so với nhau, nhưng là "big endian" trong chính nhóm đó,
@@ -237,7 +237,7 @@ QUIRK_LITTLE_ENDIAN | QUIRK_LSW32_IS_FIRST:
  28 29 30 |   Nhóm 7 (đáng kể nhất)
 
 Mục đích sử dụng
-------------
+----------------
 
 Trình điều khiển chọn sử dụng API này trước tiên cần xác định cái nào trong 3 cái trên
 các kết hợp ngẫu nhiên (tổng cộng là 8) khớp với tài liệu phần cứng
@@ -246,7 +246,7 @@ mô tả.
 Có 3 kiểu sử dụng được hỗ trợ, được trình bày chi tiết bên dưới.
 
 đóng gói()
-^^^^^^^^^
+^^^^^^^^^^
 
 Chức năng API này không được dùng nữa.
 

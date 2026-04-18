@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân sht4x
-===================
+===============================
 
 Chip được hỗ trợ:
 
@@ -39,14 +39,14 @@ và cảm biến nhiệt độ. Nhiệt độ được đo bằng độ C, tươ
 được chia tỷ lệ theo 1000, tức là giá trị của 31,5 độ C là 31500.
 
 Ghi chú sử dụng
------------
+---------------
 
 Thiết bị giao tiếp với giao thức I2C. Cảm biến có thể có I2C
 địa chỉ 0x44. Xem Documentation/i2c/instantiating-devices.rst để biết các phương thức
 để khởi tạo thiết bị.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ================================================================
 temp1_input Nhiệt độ đo được tính bằng mili độ C

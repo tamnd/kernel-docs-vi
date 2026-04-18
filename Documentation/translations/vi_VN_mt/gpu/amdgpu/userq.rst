@@ -132,7 +132,7 @@ di chuyển bộ đệm đến nơi cần thiết, cập nhật bảng trang GPU
 vô hiệu hóa TLB, sau đó tiếp tục hàng đợi của người dùng.
 
 Tương tác với hàng đợi hạt nhân
-==============================
+===============================
 
 Tùy thuộc vào IP và chương trình cơ sở lập lịch, bạn có thể kích hoạt hàng đợi kernel
 và hàng đợi người dùng cùng một lúc, tuy nhiên, bạn bị giới hạn bởi các khe HQD.
@@ -148,7 +148,7 @@ UMD có thể truy vấn thông tin này thông qua INFO IOCTL và xác định 
 hàng đợi kernel hoặc hàng đợi người dùng cho mỗi IP.
 
 Đặt lại hàng đợi
-============
+================
 
 Đối với hầu hết các động cơ, hàng đợi có thể được đặt lại riêng lẻ.  GFX, tính toán và SDMA
 hàng đợi có thể được thiết lập lại riêng lẻ.  Khi hàng đợi bị treo được phát hiện, nó có thể
@@ -203,7 +203,7 @@ USERQ_WAIT
 USERQ_WAIT IOCTL được sử dụng để cung cấp danh sách đối tượng đồng bộ hóa cần chờ.
 
 Hàng đợi hạt nhân và người dùng
-======================
+===============================
 
 Để xác thực và kiểm tra hiệu suất một cách chính xác, chúng tôi có tùy chọn trình điều khiển để
 chọn loại hàng đợi nào được bật (hàng đợi kernel, hàng đợi người dùng hoặc cả hai).

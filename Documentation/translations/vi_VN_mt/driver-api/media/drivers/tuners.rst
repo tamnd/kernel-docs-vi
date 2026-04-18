@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển bộ chỉnh
-=============
+=========================
 
 Lập trình bộ chỉnh đơn giản
-------------------------
+---------------------------
 
 Có một số loại API lập trình Tuner.
 Chúng khác nhau chủ yếu ở byte chuyển mạch băng tần.
@@ -28,7 +28,7 @@ Chúng khác nhau chủ yếu ở byte chuyển mạch băng tần.
 - M= PHILIPS_MK3 (VHF_LO=0x01, VHF_HI=0x02, UHF=0x04, đài=0x19)
 
 Nhà sản xuất bộ chỉnh
--------------------
+---------------------
 
 - Nhận dạng Samsung Tuner: (ví dụ TCPM9091PD27)
 

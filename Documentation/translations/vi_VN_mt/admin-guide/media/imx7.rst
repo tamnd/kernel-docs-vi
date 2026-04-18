@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển quay video i.MX7
-==========================
+=================================
 
 Giới thiệu
 ------------
@@ -73,7 +73,7 @@ bảng nguồn định tuyến các khung hình video trực tiếp đến bộ 
 được định tuyến đến một nút thiết bị chụp.
 
 Ghi chú sử dụng
------------
+---------------
 
 Để hỗ trợ cấu hình và tương thích ngược với các ứng dụng V4L2
 quyền truy cập chỉ được điều khiển từ các nút thiết bị video, giao diện của thiết bị chụp
@@ -228,6 +228,6 @@ Sau khi truyền phát này có thể bắt đầu:
 	                -> "csi":0 [ENABLED,IMMUTABLE]
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. [#f1] https://www.nxp.com/docs/en/reference-manual/IMX7SRM.pdf

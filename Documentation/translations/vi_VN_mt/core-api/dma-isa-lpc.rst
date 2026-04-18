@@ -96,7 +96,7 @@ tác giả trình điều khiển nhưng phụ thuộc vào những gì phần c
 thông số kỹ thuật hoặc thử nghiệm các kênh khác nhau.
 
 Truyền dữ liệu
--------------
+--------------
 
 Bây giờ là phần hay nhất, việc chuyển DMA thực tế. :)
 
@@ -157,7 +157,7 @@ dư lượng = dma_get_residue(kênh);
 Release_dma_lock(cờ);
 
 Tạm dừng/tiếp tục
---------------
+-----------------
 
 Trách nhiệm của người lái xe là đảm bảo rằng máy không bị
 bị tạm dừng trong khi quá trình chuyển DMA đang được tiến hành. Ngoài ra, tất cả các cài đặt DMA

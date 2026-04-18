@@ -165,7 +165,7 @@ không hỗ trợ chúng sẽ trả về mã lỗi ZZ0004ZZ.
 	the standards set in the ``standards`` field.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

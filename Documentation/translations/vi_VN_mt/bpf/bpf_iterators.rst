@@ -509,7 +509,7 @@ int main(int argc, const char * const * argv)
   }
 
 Các dòng sau đây là đầu ra của chương trình.
-::
+::::::::::::::::::::::::::::::::::::::::::::
 
 PID 1859
 

@@ -20,7 +20,7 @@ MEMBARRIER_CMD_{PRIVATE,GLOBAL}_EXPEDITED - Yêu cầu về kiến ​​trúc
 =====================================================================
 
 Rào cản bộ nhớ trước khi cập nhật rq->curr
-----------------------------------------
+------------------------------------------
 
 Các lệnh MEMBARRIER_CMD_PRIVATE_EXPEDITED và MEMBARRIER_CMD_GLOBAL_EXPEDITED
 yêu cầu mỗi kiến trúc phải có hàng rào bộ nhớ đầy đủ sau khi đến từ
@@ -30,7 +30,7 @@ rào cản ở gần lối ra cuộc gọi hệ thống màng chắn, cf.
 membarrier_{private,global__expedited().
 
 Rào cản bộ nhớ sau khi cập nhật rq->curr
----------------------------------------
+----------------------------------------
 
 Các lệnh MEMBARRIER_CMD_PRIVATE_EXPEDITED và MEMBARRIER_CMD_GLOBAL_EXPEDITED
 yêu cầu mỗi kiến trúc phải có hàng rào bộ nhớ đầy đủ sau khi cập nhật rq->curr,

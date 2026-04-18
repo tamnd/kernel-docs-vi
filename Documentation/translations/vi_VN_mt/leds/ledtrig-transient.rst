@@ -145,7 +145,7 @@ trạng thái không nhất thời là nghịch đảo của trạng thái nhấ
 	======================================================================
 
 Những gì không được hỗ trợ
-=====================
+==========================
 
 - Kích hoạt bộ hẹn giờ là một lần và kéo dài và/hoặc rút ngắn bộ hẹn giờ
   không được hỗ trợ.

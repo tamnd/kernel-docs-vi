@@ -45,7 +45,7 @@ kernel/scheduler/completion.c.
 
 
 Cách sử dụng:
-------
+-------------
 
 Có ba phần chính khi sử dụng sự hoàn thành:
 
@@ -197,7 +197,7 @@ hầu hết các trường hợp bạn có thể không muốn gọi điều nà
 
 
 Các biến thể wait_for_completion*() có sẵn:
-------------------------------------------
+-------------------------------------------
 
 Tất cả các biến thể bên dưới đều có trạng thái trả về và trạng thái này cần được kiểm tra trong
 hầu hết(/tất cả) trường hợp - trong trường hợp bạn cố tình không kiểm tra trạng thái

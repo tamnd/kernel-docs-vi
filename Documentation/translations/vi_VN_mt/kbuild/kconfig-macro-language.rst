@@ -105,7 +105,7 @@ Khi chúng ta nói "biến" theo nghĩa rộng, nó bao gồm "hàm do người 
 
 
 Các chức năng tích hợp
-------------------
+----------------------
 
 Giống như Make, Kconfig cung cấp một số chức năng tích hợp sẵn. Mỗi chức năng đều có một
 số lượng đối số cụ thể.
@@ -209,7 +209,7 @@ dấu phẩy := ,
 
 
 Hãy cẩn thận
--------
+------------
 
 Không thể mở rộng một biến (hoặc hàm) trên các mã thông báo. Vì vậy, bạn không thể sử dụng
 một biến làm cách viết tắt của một biểu thức bao gồm nhiều mã thông báo.

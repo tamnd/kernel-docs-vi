@@ -118,7 +118,7 @@ Hình ảnh mặc định được chọn bởi trình bao bọc khởi động 
 tại Makefile để xem mục tiêu hình ảnh mặc định nào có sẵn.
 
 Nó được xây dựng như thế nào
----------------
+----------------------------
 Arch/powerpc được thiết kế để hỗ trợ các hạt nhân đa nền tảng, có nghĩa là
 rằng một hình ảnh vmlinux có thể được khởi động trên nhiều bảng mục tiêu khác nhau.
 Điều đó cũng có nghĩa là trình bao bọc khởi động phải có khả năng bao bọc cho nhiều loại

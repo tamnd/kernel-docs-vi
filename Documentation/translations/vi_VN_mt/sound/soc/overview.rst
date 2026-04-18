@@ -39,7 +39,7 @@ có một số hạn chế: -
 
 
 Thiết kế ASoC
-===========
+=============
 
 Lớp ASoC được thiết kế để giải quyết những vấn đề này và cung cấp các tính năng sau:
 tính năng: -

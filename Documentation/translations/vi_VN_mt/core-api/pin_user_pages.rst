@@ -19,7 +19,7 @@ pin_user_pages() và các cuộc gọi liên quan
 .. contents:: :local:
 
 Tổng quan
-========
+=========
 
 Tài liệu này mô tả các chức năng sau::
 
@@ -60,7 +60,7 @@ FOLL_PIN là điều kiện tiên quyết để có được FOLL_LONGTERM. Mộ
 FOLL_LONGTERM là trường hợp cụ thể, hạn chế hơn của FOLL_PIN.
 
 Những cờ nào được đặt bởi mỗi trình bao bọc
-===================================
+===========================================
 
 Đối với các hàm pin_user_pages*() này, FOLL_PIN được HOẶC với bất kỳ gup nào
 cờ người gọi cung cấp. Người gọi được yêu cầu chuyển vào một cấu trúc không null
@@ -99,7 +99,7 @@ chức năng
  get_user_pages_remote FOLL_GET đôi khi được thiết lập nội bộ bởi chức năng này.
 
 Theo dõi các trang được ghim bởi dma
-=========================
+====================================
 
 Một số hạn chế thiết kế chính và giải pháp để theo dõi được ghim bởi dma
 trang:
@@ -135,13 +135,13 @@ bộ đếm tăng 10 bit mỗi lần.
   pin_user_page() và các nội dung liên quan, phải được sử dụng.
 
 FOLL_PIN, FOLL_GET, FOLL_LONGTERM: khi nào nên sử dụng cờ nào
-==========================================================
+=============================================================
 
 Cảm ơn Jan Kara, Vlastimil Babka và một số người -mm khác đã mô tả
 những loại này:
 
 CASE 1: IO trực tiếp (DIO)
------------------------
+--------------------------
 Có các tham chiếu GUP đến các trang đang phân phối
 như bộ đệm DIO. Những bộ đệm này cần thiết trong một thời gian tương đối ngắn (vì vậy chúng
 không phải là "lâu dài"). Không có sự đồng bộ hóa đặc biệt nào với folio_mkclean() hoặc
@@ -209,7 +209,7 @@ INCORRECT (sử dụng các cuộc gọi FOLL_GET):
     đặt_page()
 
 folio_maybe_dma_pinned(): toàn bộ ý nghĩa của việc ghim
-====================================================
+=======================================================
 
 Mục đích chung của việc đánh dấu các folio là "DMA-pinned" hoặc "gup-pinned" là để có thể
 để truy vấn "đây có phải là folio DMA được ghim không?" Điều đó cho phép mã như folio_mkclean()
@@ -237,7 +237,7 @@ trường hợp hạn chế có FOLL_PIN làm điều kiện tiên quyết: trư
 sẽ được ghim lâu dài và dữ liệu của ai sẽ được truy cập.
 
 Kiểm tra đơn vị
-============
+===============
 Tập tin này::
 
 công cụ/kiểm tra/selftests/mm/gup_test.c
@@ -288,7 +288,7 @@ các lĩnh vực và để báo cáo tốt hơn về các folio lớn nói chung
 đối với những tờ giấy lớn, số lượng pin chính xác sẽ được báo cáo.
 
 Tài liệu tham khảo
-==========
+==================
 
 * ZZ0000ZZ
 * ZZ0001ZZ

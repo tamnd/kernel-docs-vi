@@ -29,7 +29,7 @@ Nội dung
 - Hỗ trợ
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 
 Để biết thêm thông tin về cách xác định bộ điều hợp của bạn, hãy truy cập Bộ điều hợp &
 Hướng dẫn nhận dạng tài xế tại:
@@ -59,7 +59,7 @@ NOTES:
         ZZ0000ZZ
 
 Tự động phủ định
--------
+----------------
 
 (Chỉ được hỗ trợ trên các bộ điều hợp có kết nối bằng đồng)
 
@@ -75,7 +75,7 @@ NOTE:
        thông tin về tham số AutoNeg.
 
 song công
-------
+---------
 
 (Chỉ được hỗ trợ trên các bộ điều hợp có kết nối bằng đồng)
 
@@ -89,7 +89,7 @@ một hoặc hai chiều.  Nếu cả Duplex và đối tác liên kết đều
 song công.
 
 Kiểm soát dòng chảy
------------
+-------------------
 
 :Phạm vi hợp lệ: 0-3 (0=không, 1=chỉ Rx, 2=chỉ Tx, 3=Rx&Tx)
 : Giá trị mặc định: Đọc cài đặt điều khiển luồng từ EEPROM
@@ -98,7 +98,7 @@ Tham số này điều khiển việc tạo tự động (Tx) và phản hồi (
 tới các khung Ethernet PAUSE.
 
 Gián đoạn ThrottleRate
----------------------
+----------------------
 
 (không được hỗ trợ trên các bộ điều hợp dựa trên Intel(R) 82542, 82543 hoặc 82544)
 
@@ -253,7 +253,7 @@ cùng với RxIntDelay, có thể cải thiện lưu lượng truy cập trong m
 điều kiện.
 
 Tốc độ
------
+------
 
 (Tham số này chỉ được hỗ trợ trên các bộ điều hợp có kết nối bằng đồng.)
 
@@ -441,7 +441,7 @@ Bộ điều hợp máy chủ Intel(R) PRO/1000 Gigabit
      Kết nối mạng Intel(R) PRO/1000 PM
 
 công cụ đạo đức
--------
+---------------
 
 Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
   chẩn đoán cũng như hiển thị thông tin thống kê.  công cụ đạo đức
@@ -451,7 +451,7 @@ Bản phát hành mới nhất của ethtool có thể được tìm thấy từ
   ZZ0000ZZ
 
 Kích hoạt Wake trên LAN (WoL)
---------------------------
+-----------------------------
 
 WoL được cấu hình thông qua tiện ích ethtool.
 

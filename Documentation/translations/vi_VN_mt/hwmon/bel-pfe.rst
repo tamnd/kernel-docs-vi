@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân bel-pfe
-======================
+=================================
 
 Chip được hỗ trợ:
 
@@ -57,7 +57,7 @@ Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiể
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
@@ -71,13 +71,13 @@ $ modprobe bel-pfe
 
 
 Hỗ trợ dữ liệu nền tảng
----------------------
+-----------------------
 
 Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ====================================================================================
 curr1_label "iin"

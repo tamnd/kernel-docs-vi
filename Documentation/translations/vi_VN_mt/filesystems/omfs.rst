@@ -17,7 +17,7 @@ Hệ thống tập tin MPEG được tối ưu hóa (OMFS)
 ============================================
 
 Tổng quan
-========
+=========
 
 OMFS là hệ thống tệp được SonicBlue tạo để sử dụng trong ReplayTV DVR
 và máy nghe nhạc Rio Karma MP3.  Hệ thống tập tin dựa trên phạm vi, sử dụng
@@ -41,7 +41,7 @@ ZZ0000ZZ
 Hướng dẫn được bao gồm trong README của nó.
 
 Tùy chọn
-=======
+========
 
 OMFS hỗ trợ các tùy chọn thời gian gắn kết sau:
 
@@ -54,7 +54,7 @@ OMFS hỗ trợ các tùy chọn thời gian gắn kết sau:
     ========================================================
 
 Định dạng đĩa
-===========
+=============
 
 OMFS phân biệt giữa "khối hệ thống" và khối dữ liệu thông thường.  Khối hệ thống
 nhóm bao gồm thông tin siêu khối, siêu dữ liệu tệp, cấu trúc thư mục,

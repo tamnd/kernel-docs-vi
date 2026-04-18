@@ -36,10 +36,10 @@ ZZ0000ZZ và ZZ0001ZZ không hỗ trợ
 ZZ0002ZZ.
 
 Cách sử dụng
-=====
+============
 
 Hạt nhân BPF
-----------
+------------
 
 bpf_map_push_elem()
 ~~~~~~~~~~~~~~~~~~~
@@ -78,7 +78,7 @@ ngăn xếp. Trả về ZZ0001ZZ nếu thành công hoặc trả về lỗi âm 
 
 
 Không gian người dùng
----------
+---------------------
 
 bpf_map_update_elem()
 ~~~~~~~~~~~~~~~~~~~~~
@@ -121,7 +121,7 @@ Ví dụ
 ========
 
 Hạt nhân BPF
-----------
+------------
 
 Đoạn mã này cho biết cách khai báo hàng đợi trong chương trình BPF:
 
@@ -135,7 +135,7 @@ Hạt nhân BPF
 
 
 Không gian người dùng
----------
+---------------------
 
 Đoạn mã này cho thấy cách sử dụng API cấp thấp của libbpf để tạo hàng đợi từ
 không gian người dùng:
@@ -154,6 +154,6 @@ không gian người dùng:
 
 
 Tài liệu tham khảo
-==========
+==================
 
 ZZ0000ZZ

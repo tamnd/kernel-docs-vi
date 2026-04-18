@@ -17,7 +17,7 @@ Trình điều khiển BNO055
 =================================
 
 1. Tổng quan
-===========
+============
 
 Trình điều khiển này hỗ trợ IMU Bosch BNO055 (trên cả bus nối tiếp và I2C).
 

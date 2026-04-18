@@ -23,7 +23,7 @@ Thiết bị mở và đóng
 .. _v4l2_hardware_control:
 
 Điều khiển thiết bị ngoại vi phần cứng thông qua V4L2
-==========================================
+=====================================================
 
 Phần cứng được hỗ trợ bằng uAPI V4L2 thường bao gồm nhiều
 thiết bị hoặc thiết bị ngoại vi, mỗi thiết bị đều có trình điều khiển riêng.
@@ -71,7 +71,7 @@ ZZ0001ZZ.
 .. _v4l2_device_naming:
 
 Đặt tên nút thiết bị V4L2
-=======================
+=========================
 
 Trình điều khiển V4L2 được triển khai dưới dạng mô-đun hạt nhân, được tải thủ công bởi
 quản trị viên hệ thống hoặc tự động khi thiết bị được phát hiện lần đầu tiên.
@@ -157,7 +157,7 @@ tên thiết bị thông thường.
 .. _related:
 
 Thiết bị liên quan
-===============
+==================
 
 Thiết bị có thể hỗ trợ một số chức năng. Ví dụ: quay video, VBI
 hỗ trợ thu thập và vô tuyến.
@@ -219,7 +219,7 @@ mô tả. Ứng dụng có thể yêu cầu đặc quyền truy cập bổ sung 
 cơ chế ưu tiên được mô tả trong ZZ0000ZZ.
 
 Luồng dữ liệu được chia sẻ
-===================
+==========================
 
 Trình điều khiển V4L2 không được hỗ trợ nhiều ứng dụng đọc hoặc ghi
 cùng một luồng dữ liệu trên một thiết bị bằng cách sao chép bộ đệm, ghép kênh thời gian

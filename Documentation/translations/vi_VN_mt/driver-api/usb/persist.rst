@@ -15,7 +15,7 @@
 .. _usb-persist:
 
 Sự tồn tại của thiết bị USB trong quá trình tạm dừng hệ thống
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :Tác giả: Alan Stern <stern@rowland.harvard.edu>
 :Ngày: 2 tháng 9 năm 2006 (Cập nhật 25 tháng 2 năm 2008)
@@ -129,7 +129,7 @@ những thiết bị thực sự quan trọng.
 
 
 Đây có phải là giải pháp tốt nhất?
-==========================
+==================================
 
 Có lẽ là không.  Có thể cho rằng, việc theo dõi các hệ thống tập tin được gắn kết và
 ánh xạ bộ nhớ qua các lần ngắt kết nối thiết bị phải được xử lý bởi một
@@ -150,7 +150,7 @@ các loại thiết bị khác, chẳng hạn như giao diện mạng.
 
 
 WARNING: USB-kiên trì có thể nguy hiểm!!
-=======================================
+========================================
 
 Khi khôi phục phiên cấp nguồn bị gián đoạn, kernel sẽ hoạt động tốt nhất
 để đảm bảo thiết bị USB không bị thay đổi; tức là giống nhau

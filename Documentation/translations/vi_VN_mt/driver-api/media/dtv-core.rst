@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thiết bị truyền hình kỹ thuật số (DVB)
-------------------------
+--------------------------------------
 
 Các thiết bị TV kỹ thuật số được triển khai bởi một số trình điều khiển khác nhau:
 

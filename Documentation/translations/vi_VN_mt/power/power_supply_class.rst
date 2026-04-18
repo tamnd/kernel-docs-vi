@@ -59,7 +59,7 @@ và xử lý các thuộc tính.
 
 
 Đơn vị
-~~~~~
+~~~~~~
 Trích dẫn bao gồm/linux/power_supply.h:
 
 Tất cả điện áp, dòng điện, điện tích, năng lượng, thời gian và nhiệt độ tính bằng µV,
@@ -256,7 +256,7 @@ nút pin có tên tương ứng với các thành phần trong enum power_supply
 
 
 Hỏi đáp
-~~~
+~~~~~~~
 
 Hỏi:
    Thuộc tính POWER_SUPPLY_PROP_XYZ ở đâu?

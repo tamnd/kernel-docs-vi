@@ -151,7 +151,7 @@ chức năng. Các giá trị trả về hợp lệ là:
 ================================================
 LAPB_OK LAPB hủy đăng ký thành công.
 LAPB_BADTOKEN Mã thông báo LAPB không hợp lệ/không xác định.
-================================================
+============================================================
 
 ::
 
@@ -164,7 +164,7 @@ là:
 ==============================================
 LAPB_OK LAPB getparms đã thành công.
 LAPB_BADTOKEN Mã thông báo LAPB không hợp lệ/không xác định.
-==============================================
+============================================================
 
 ::
 
@@ -234,10 +234,10 @@ Các giá trị trả về hợp lệ là:
 ===========================================
 LAPB_OK LAPB đã chấp nhận dữ liệu.
 LAPB_BADTOKEN Mã thông báo LAPB không hợp lệ/không xác định.
-===========================================
+============================================================
 
 Cuộc gọi lại
----------
+------------
 
 Các lệnh gọi lại này là các chức năng do trình điều khiển thiết bị cung cấp cho LAPB
 module để gọi khi một sự kiện xảy ra. Họ đã được đăng ký với LAPB

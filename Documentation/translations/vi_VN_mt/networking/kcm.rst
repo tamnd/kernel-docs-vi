@@ -52,7 +52,7 @@ các hoạt động trong các ổ cắm khác nhau có thể được thực hi
 đồng bộ hóa giữa các luồng trong không gian người dùng.
 
 Bộ ghép kênh
-===========
+============
 
 Bộ ghép kênh cung cấp khả năng điều khiển thông điệp. Trên đường truyền, các thông điệp
 được ghi trên ổ cắm KCM được gửi nguyên tử trên ổ cắm TCP thích hợp.
@@ -67,7 +67,7 @@ Tương tự, trong đường dẫn nhận, các tin nhắn được xây dựng
 tin nhắn khi nhận cũng như thông tin cụ thể về kết nối khác dành cho KCM.
 
 Ngữ nghĩa của chế độ kết nối
-========================
+============================
 
 Mỗi bộ ghép kênh giả định rằng tất cả các kết nối TCP được đính kèm đều giống nhau
 đích và có thể sử dụng các kết nối khác nhau để cân bằng tải khi
@@ -75,7 +75,7 @@ truyền tải. Các cuộc gọi gửi và nhận thông thường (bao gồm s
 có thể được sử dụng để gửi và nhận tin nhắn từ ổ cắm KCM.
 
 Các loại ổ cắm
-============
+==============
 
 KCM hỗ trợ các loại ổ cắm SOCK_DGRAM và SOCK_SEQPACKET.
 
@@ -120,7 +120,7 @@ bởi SO_RCVTIMEO). Nếu hết thời gian trước khi quá trình lắp ráp 
 (ETIMEDOUT) được đăng trên ổ cắm.
 
 Giao diện người dùng
-==============
+====================
 
 Tạo bộ ghép kênh
 ----------------------
@@ -213,7 +213,7 @@ int giá trị = 1;
 setsockopt(kcmfd, SOL_KCM, KCM_RECV_DISABLE, &val, sizeof(val))
 
 Các chương trình BPF để phân định tin nhắn
-------------------------------------
+------------------------------------------
 
 Các chương trình BPF có thể được biên dịch bằng chương trình phụ trợ BPF LLVM. Ví dụ,
 chương trình BPF để phân tích cú pháp Thrift là::
@@ -230,7 +230,7 @@ SEC("socket_kcm")
 char _license[] SEC("giấy phép") = "GPL";
 
 Sử dụng trong các ứng dụng
-===================
+==========================
 
 KCM tăng tốc các giao thức lớp ứng dụng. Cụ thể là nó cho phép
 các ứng dụng sử dụng giao diện dựa trên tin nhắn để gửi và nhận
@@ -255,7 +255,7 @@ Trong cấu hình MxN, nhiều kết nối được thiết lập tới
 cùng một điểm đến. Chúng được sử dụng để cân bằng tải đơn giản.
 
 Phân nhóm tin nhắn
-----------------
+------------------
 
 Mục đích chính của KCM là cân bằng tải giữa các ổ cắm KCM và do đó
 chủ đề trong một trường hợp sử dụng danh nghĩa. Cân bằng tải hoàn hảo, đó là lái

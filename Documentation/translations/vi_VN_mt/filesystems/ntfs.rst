@@ -25,7 +25,7 @@ Trình điều khiển hệ thống tập tin Linux NTFS
 
 
 Tổng quan
-========
+=========
 
 NTFS là trình điều khiển hệ thống tệp nhân Linux cung cấp khả năng đọc và ghi đầy đủ
 hỗ trợ cho khối lượng NTFS. Nó được thiết kế cho hiệu suất cao, hiện đại
@@ -47,7 +47,7 @@ ZZ0000ZZ
 
 
 Tùy chọn gắn kết được hỗ trợ
-=======================
+============================
 
 Trình điều khiển NTFS hỗ trợ các tùy chọn gắn kết sau:
 

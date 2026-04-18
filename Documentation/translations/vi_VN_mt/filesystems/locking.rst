@@ -27,7 +27,7 @@ có thể sử dụng khác biệt (1).
 Điều hiện đang thiếu ở đây: thao tác ổ cắm. Alexey?
 
 nha khoa_hoạt động
-=================
+==================
 
 nguyên mẫu::
 
@@ -378,7 +378,7 @@ trực tiếp đến thiết bị khối ZZ0000ZZ.
 ->swap_rw sẽ được gọi cho IO trao đổi nếu SWP_FS_OPS được thiết lập bởi ->swap_activate().
 
 tập tin_lock_hoạt động
-====================
+======================
 
 nguyên mẫu::
 
@@ -476,7 +476,7 @@ swap_slot_free_notify được gọi bằng swap_lock và đôi khi là khóa tr
 
 
 hoạt động tập tin
-===============
+=================
 
 nguyên mẫu::
 

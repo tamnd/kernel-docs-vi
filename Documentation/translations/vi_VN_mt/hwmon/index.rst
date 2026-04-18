@@ -26,7 +26,7 @@ Giám sát phần cứng
    userspace-tools
 
 Trình điều khiển hạt nhân giám sát phần cứng
-==================================
+============================================
 
 .. toctree::
    :maxdepth: 1

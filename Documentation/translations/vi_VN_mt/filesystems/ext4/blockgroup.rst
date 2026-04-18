@@ -16,7 +16,7 @@ Nhóm khối
 ------------
 
 Cách trình bày
-~~~~~~
+~~~~~~~~~~~~~~
 
 Bố cục của một nhóm khối tiêu chuẩn xấp xỉ như sau (mỗi khối
 của các trường này được thảo luận trong một phần riêng bên dưới):

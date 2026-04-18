@@ -111,7 +111,7 @@ have not included the options dependencies.
    work, therefore  by default use ``make O=.kunit menuconfig``.
 
 Định cấu hình, xây dựng và chạy thử nghiệm
-========================================
+==========================================
 
 Nếu muốn thực hiện các thay đổi thủ công đối với quy trình xây dựng KUnit, chúng tôi
 có thể chạy một phần của quá trình xây dựng KUnit một cách độc lập.
@@ -141,7 +141,7 @@ Lệnh ZZ0000ZZ được thảo luận trong phần: ZZ0001ZZ,
 tương đương với việc chạy tuần tự ba lệnh trên.
 
 Phân tích kết quả kiểm tra
-====================
+==========================
 
 Đầu ra kiểm tra KUnit hiển thị kết quả trong TAP (Giao thức kiểm tra mọi thứ)
 định dạng. Khi chạy thử nghiệm, kunit_tool phân tích kết quả này và in
@@ -180,7 +180,7 @@ ví dụ: nếu chúng tôi chỉ muốn chạy thử nghiệm tài nguyên KUni
 .. _kunit-on-qemu:
 
 Chạy thử nghiệm trên QEMU
-=====================
+=========================
 
 kunit_tool hỗ trợ chạy thử nghiệm trên qemu cũng như
 thông qua UML. Để chạy thử nghiệm trên qemu, theo mặc định, nó cần có hai cờ:

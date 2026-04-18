@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân cgbc-hwmon
-========================
+====================================
 
 Chip được hỗ trợ:
 
@@ -30,7 +30,7 @@ Trình điều khiển này cho phép hỗ trợ giám sát cho Bộ điều khi
 Bộ điều khiển này được nhúng trên SoM x86 của Congatec.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Danh sách mục sysfs sau đây chứa tất cả các cảm biến được xác định trong Bảng
 Người điều khiển. Các cảm biến có sẵn trong sysfs phụ thuộc vào SoM và

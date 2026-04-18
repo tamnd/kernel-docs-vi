@@ -52,7 +52,7 @@ dễ dàng hơn; Ngoài ra, thông tin có thể hữu ích khi gỡ lỗi
 các vấn đề về hiệu suất.
 
 Tổng quan
-========
+=========
 
 Giao diện ZZ0000ZZ thu hẹp khoảng cách này. Đường dẫn của phần cứng là
 được mô hình hóa dưới dạng biểu đồ của các bảng trận đấu/hành động. Mỗi bảng đại diện cho một nội dung cụ thể
@@ -74,7 +74,7 @@ trong một chuỗi (có thể ảnh hưởng đến độ trễ của đường
 lọc các bảng mới sẽ được tạo để mô tả các vùng đó.
 
 Người mẫu
-=====
+=========
 
 Mô hình ZZ0000ZZ giới thiệu một số đối tượng:
 
@@ -116,7 +116,7 @@ Trình điều khiển nên thực hiện các thao tác sau cho mỗi bảng:
     bị vô hiệu hóa.
 
 Tiêu đề/Trường
-------------
+--------------
 
 Theo cách tương tự, các tiêu đề và trường P4 được sử dụng để mô tả
 hành vi. Có một chút khác biệt giữa các tiêu đề giao thức tiêu chuẩn
@@ -133,7 +133,7 @@ các bảng Định tuyến và Chuyển tiếp Ảo (VRF) khác nhau có thể 
 chỉ số bảng định tuyến nội bộ.
 
 Cuộc thi đấu
------
+------------
 
 Các trận đấu được giữ nguyên và gần với hoạt động của phần cứng. Các loại kết hợp như
 LPM không được hỗ trợ do đây chính xác là quy trình chúng tôi mong muốn
@@ -149,7 +149,7 @@ xác định lĩnh vực cụ thể. Hơn nữa, chỉ mục tiêu đề phải 
 gói (đường hầm).
 
 Hoạt động
-------
+---------
 
 Tương tự như khớp, các thao tác được giữ nguyên và gần với phần cứng
 hoạt động. Ví dụ:
@@ -160,7 +160,7 @@ hoạt động. Ví dụ:
   * ZZ0003ZZ: Xóa tiêu đề.
 
 Lối vào
------
+-------
 
 Các mục của một bảng cụ thể có thể được kết xuất theo yêu cầu. Mỗi mục nhập là
 được xác định bằng một chỉ mục và các thuộc tính của nó được mô tả bằng một danh sách
@@ -204,7 +204,7 @@ Trường ZZ0000ZZ được sử dụng để kết nối hai bảng LPM.
     }
 
 Máy chủ cục bộ
-----------
+--------------
 
 Trong trường hợp các tuyến đường địa phương, việc tra cứu LPM đã giải quyết được lối ra
 giao diện bộ định tuyến (RIF), tuy nhiên địa chỉ MAC chính xác vẫn chưa được biết. Địa phương

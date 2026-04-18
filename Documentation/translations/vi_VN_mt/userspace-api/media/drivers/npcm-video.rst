@@ -15,7 +15,7 @@
 .. include:: <isonum.txt>
 
 Trình điều khiển video NPCM
-=================
+===========================
 
 Trình điều khiển này được sử dụng để điều khiển công cụ Quay video/Phân biệt video (VCD)
 và Công cụ nén mã hóa (ECE) có trên SoC Nuvoton NPCM. VCD có thể
@@ -23,7 +23,7 @@ chụp một khung hình từ đầu vào video kỹ thuật số và so sánh h
 ECE có thể nén dữ liệu khung thành định dạng HEXTILE.
 
 Điều khiển dành riêng cho người lái xe
-------------------------
+--------------------------------------
 
 V4L2_CID_NPCM_CAPTURE_MODE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,7 +51,7 @@ V4L2_CID_NPCM_RECT_COUNT
 Nếu sử dụng định dạng V4L2_PIX_FMT_HEXTILE, VCD sẽ thu thập dữ liệu khung và sau đó là ECE
 sẽ nén dữ liệu thành hình chữ nhật HEXTILE và lưu trữ chúng trong video V4L2
 bộ đệm với bố cục được xác định trong Giao thức bộ đệm khung từ xa:
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 (RFC 6143, ZZ0000ZZ
 
@@ -72,7 +72,7 @@ gọi control ZZ0000ZZ để lấy số HEXTILE
 hình chữ nhật trong bộ đệm này.
 
 Tài liệu tham khảo
-----------
+------------------
 bao gồm/uapi/linux/npcm-video.h
 
 ZZ0000ZZ ZZ0001ZZ 2022 Công nghệ Nuvoton

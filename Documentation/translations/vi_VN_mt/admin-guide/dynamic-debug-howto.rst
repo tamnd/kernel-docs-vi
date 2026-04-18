@@ -247,7 +247,7 @@ Lưu ý regrec ZZ0000ZZ khớp với thông số cờ.
 
 
 Thông báo gỡ lỗi trong quá trình khởi động
-==================================
+==========================================
 
 Để kích hoạt các thông báo gỡ lỗi cho mã lõi và các mô-đun tích hợp trong quá trình
 quá trình khởi động, ngay cả trước khi tồn tại không gian người dùng và debugf, hãy sử dụng
@@ -275,7 +275,7 @@ thời gian khởi động, không có hiệu lực, nhưng sẽ được xử l
 
 
 Thông báo gỡ lỗi tại thời điểm khởi tạo mô-đun
-============================================
+==============================================
 
 Khi ZZ0000ZZ được gọi, modprobe sẽ quét ZZ0001ZZ để tìm
 ZZ0002ZZ, tách ZZ0003ZZ và chuyển chúng vào kernel cùng với
@@ -376,7 +376,7 @@ mô-đun mà bạn muốn gỡ lỗi động sau này.
 
 
 Hạt nhân ZZ0000ZZ API
-==================
+=====================
 
 Các chức năng sau đây được phân loại và có thể điều khiển được khi động
 gỡ lỗi được bật::

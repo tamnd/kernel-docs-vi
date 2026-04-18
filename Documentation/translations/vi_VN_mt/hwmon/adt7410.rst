@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adt7410
-=====================
+=================================
 
 Chip được hỗ trợ:
 

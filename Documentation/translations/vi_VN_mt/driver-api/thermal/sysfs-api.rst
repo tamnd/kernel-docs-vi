@@ -43,7 +43,7 @@ nhiệt độ) và thiết bị điều tiết thích hợp.
 - ZZ0001ZZ biểu thị bất kỳ số dương nào bắt đầu từ 1
 
 1. chức năng giao diện trình điều khiển sysfs nhiệt
-===========================================
+===================================================
 
 1.1 Giao diện thiết bị vùng nhiệt
 ---------------------------------
@@ -409,10 +409,10 @@ phương thức, cấu trúc I/F sys sẽ được xây dựng như thế này::
     |---temp1_crit: 100000
 
 4. Xuất API biểu tượng
-=====================
+======================
 
 4.1. get_tz_xu hướng
------------------
+--------------------
 
 Hàm này trả về xu hướng của vùng nhiệt, tức là tốc độ thay đổi
 nhiệt độ của vùng nhiệt. Lý tưởng nhất là trình điều khiển cảm biến nhiệt
@@ -428,7 +428,7 @@ thiết bị. Nó đặt thiết bị làm mát về trạng thái làm mát sâ
 có thể.
 
 5. Sự kiện quan trọng
-==================
+=====================
 
 Trong trường hợp vượt qua nhiệt độ chuyến đi quan trọng, khung nhiệt
 sẽ kích hoạt tắt nguồn bảo vệ phần cứng (tắt máy) hoặc khởi động lại,

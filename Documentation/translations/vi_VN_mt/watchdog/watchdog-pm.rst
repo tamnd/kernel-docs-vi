@@ -27,7 +27,7 @@ xử lý để đảm bảo hành vi thống nhất cho các hệ thống Linux.
 
 
 Ping trên sơ yếu lý lịch
---------------
+------------------------
 Khi tiếp tục, bộ đếm thời gian theo dõi sẽ được đặt lại về giá trị đã chọn để cung cấp
 không gian người dùng đủ thời gian để tiếp tục. [1] [2]
 

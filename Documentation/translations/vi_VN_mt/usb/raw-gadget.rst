@@ -55,7 +55,7 @@ Lớp tiện ích USB cho không gian người dùng. Sự khác biệt chính l
    một.
 
 Giao diện không gian người dùng
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Người dùng có thể tương tác với Raw Gadget bằng cách mở ZZ0000ZZ và
 phát hành cuộc gọi ioctl; xem các nhận xét trong include/uapi/linux/usb/raw_gadget.h
@@ -93,7 +93,7 @@ làm mờ bằng cách có một tòa nhà cao tầng duy nhất xử lý đầy
 tính năng phải được giữ trong việc thực hiện.
 
 Những cải tiến tiềm năng trong tương lai
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Hỗ trợ I/O ZZ0000ZZ. Đây sẽ là một phương thức hoạt động khác, trong đó
   Tiện ích thô sẽ không đợi cho đến khi hoàn thành từng yêu cầu USB.

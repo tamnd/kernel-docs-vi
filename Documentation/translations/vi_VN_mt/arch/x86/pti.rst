@@ -17,7 +17,7 @@ Cách ly bảng trang (PTI)
 =============================
 
 Tổng quan
-========
+=========
 
 Cách ly bảng trang (pti, trước đây gọi là KAISER [1]_) là một
 biện pháp đối phó chống lại các cuộc tấn công vào địa chỉ người dùng/kernel dùng chung
@@ -72,7 +72,7 @@ bảng trang không gian người dùng để quản lý.  Một PTE để khóa
 các bit được truy cập, các bit bẩn, v.v...
 
 Trên không
-========
+==========
 
 Bảo vệ chống lại các cuộc tấn công kênh bên là quan trọng.  Nhưng,
 sự bảo vệ này phải trả giá:
@@ -135,7 +135,7 @@ Một. CR3 thao tác chuyển đổi giữa các bản sao bảng trang
      ghi vào lần sử dụng tiếp theo của mỗi PCID.
 
 Công việc có thể có trong tương lai
-====================
+===================================
 1. Chúng ta có thể cẩn thận hơn về việc không thực sự viết thư cho CR3
    trừ khi giá trị của nó thực sự thay đổi.
 2. Cho phép bật/tắt PTI trong thời gian chạy ngoài

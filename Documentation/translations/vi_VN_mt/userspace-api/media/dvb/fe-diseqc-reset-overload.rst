@@ -47,7 +47,7 @@ quyền truy cập đọc/ghi vào thiết bị. Cuộc gọi này không có hi
 được tắt nguồn bằng tay. Không phải tất cả các bộ điều hợp TV kỹ thuật số đều hỗ trợ ioctl này.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

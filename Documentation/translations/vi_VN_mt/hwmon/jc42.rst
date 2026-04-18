@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân jc42
-==================
+==============================
 
 Chip được hỗ trợ:
 
@@ -149,7 +149,7 @@ có khả năng là nó đã khóa các thanh ghi, tức là giới hạn nhiệ
 không thể thay đổi được.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =======================================================================
 nhiệt độ temp1_input (RO)

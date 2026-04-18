@@ -22,7 +22,7 @@ Trình điều khiển nối tiếp tiện ích Linux v2.0
 
 
 Giấy phép và Tuyên bố từ chối trách nhiệm
-----------------------
+-----------------------------------------
 Chương trình này là phần mềm miễn phí; bạn có thể phân phối lại nó và/hoặc
 sửa đổi nó theo các điều khoản của Giấy phép Công cộng GNU như
 được xuất bản bởi Tổ chức Phần mềm Tự do; hoặc phiên bản 2 của
@@ -46,7 +46,7 @@ vui lòng liên hệ với Al Borchers tại alborchers@steinerpoint.com.
 
 
 Điều kiện tiên quyết
--------------
+--------------------
 Các phiên bản của trình điều khiển nối tiếp tiện ích có sẵn cho
 2.4 nhân Linux, nhưng tài liệu này giả sử bạn đang sử dụng
 phiên bản 2.3 trở lên của trình điều khiển nối tiếp tiện ích trong phiên bản 2.6
@@ -66,7 +66,7 @@ Các nút /dev khớp với các tệp sysfs /sys/class/tty.
 
 
 Tổng quan
---------
+---------
 Trình điều khiển nối tiếp tiện ích là trình điều khiển tiện ích Linux USB, thiết bị USB
 tài xế phụ.  Nó chạy trên hệ thống Linux có phía thiết bị USB
 phần cứng; ví dụ: PDA, hệ thống Linux nhúng hoặc PC
@@ -120,7 +120,7 @@ tính năng của các thiết bị nối tiếp thông thường.
 
 
 Cài đặt Trình điều khiển Nối tiếp Tiện ích
------------------------------------
+------------------------------------------
 Để sử dụng trình điều khiển nối tiếp tiện ích, bạn phải định cấu hình tiện ích Linux
 hạt nhân bên cho "Hỗ trợ các tiện ích USB", cho "Thiết bị ngoại vi USB
 Controller" (ví dụ: net2280) và cho "Tiện ích nối tiếp"
@@ -167,7 +167,7 @@ hướng dẫn bên dưới để cài đặt trình điều khiển phía máy 
 
 
 Cài đặt Trình điều khiển Windows Host ACM
---------------------------------------
+-----------------------------------------
 Để sử dụng trình điều khiển Windows ACM, bạn phải có "linux-cdc-acm.inf"
 tập tin (được cung cấp cùng với tài liệu này) hỗ trợ tất cả các phiên bản gần đây
 của Windows.
@@ -197,7 +197,7 @@ trên mục nhập "Sê-ri Tiện ích" trong "Trình quản lý thiết bị" v
 
 
 Cài đặt trình điều khiển ACM của máy chủ Linux
-------------------------------------
+----------------------------------------------
 Để sử dụng trình điều khiển Linux ACM, bạn phải định cấu hình phía máy chủ Linux
 kernel cho "Hỗ trợ USB phía máy chủ" và cho "Modem USB (CDC ACM)
 hỗ trợ".
@@ -229,7 +229,7 @@ mô-đun "acm" đã được tải.
 
 
 Cài đặt Trình điều khiển nối tiếp USB chung của máy chủ Linux
----------------------------------------------------
+-------------------------------------------------------------
 Để sử dụng trình điều khiển nối tiếp USB chung của Linux, bạn phải định cấu hình
 Nhân phía máy chủ Linux dành cho "Hỗ trợ USB phía máy chủ", dành cho "USB
 Hỗ trợ Bộ chuyển đổi nối tiếp" và cho "Trình điều khiển nối tiếp chung USB".
@@ -268,7 +268,7 @@ nhật ký hệ thống có nội dung như "Bộ chuyển đổi nối tiếp t
 
 
 Thử nghiệm với Minicom hoặc HyperTerminal
--------------------------------------
+-----------------------------------------
 Sau khi cả trình điều khiển nối tiếp tiện ích và trình điều khiển máy chủ đều được cài đặt,
 và cáp USB kết nối thiết bị tiện ích với máy chủ, bạn nên
 có thể giao tiếp qua USB giữa tiện ích và hệ thống máy chủ.

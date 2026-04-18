@@ -140,7 +140,7 @@ c) Trên các hệ thống dựa trên Nvidia Southbridge: kernel sẽ cố gắ
      và tìm ra cổng nào có thiết bị gỡ lỗi được kết nối.
 
 Kiểm tra
-=======
+========
 
 Bạn có thể kiểm tra đầu ra bằng cách sử dụng Earlyprintk=dbgp,keep và Provoking
 thông điệp kernel trên hệ thống máy chủ/đích. Bạn có thể kích động một điều vô hại

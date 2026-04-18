@@ -94,7 +94,7 @@ dữ liệu liệt kê nhất quán nếu ứng dụng không thực hiện bấ
 các lệnh gọi ioctl khác trong khi nó chạy bảng liệt kê kích thước khung hình.
 
 Cấu trúc
-=======
+========
 
 Trong các cấu trúc bên dưới, ZZ0000ZZ biểu thị một giá trị phải được điền bởi
 ứng dụng, ZZ0001ZZ biểu thị các giá trị mà trình điều khiển điền vào.
@@ -200,7 +200,7 @@ Enum
       - Step-wise defined frame size.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

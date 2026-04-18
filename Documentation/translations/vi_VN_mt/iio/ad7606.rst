@@ -20,7 +20,7 @@ Trình điều khiển ADC cho Analog Devices Inc. AD7606 và các thiết bị 
 là ZZ0000ZZ.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 Các chip sau được hỗ trợ bởi trình điều khiển này:
 
@@ -30,16 +30,16 @@ Các chip sau được hỗ trợ bởi trình điều khiển này:
 * ZZ0003ZZ
 
 Các tính năng được hỗ trợ
-==================
+=========================
 
 Chế độ nối dây SPI
-----------------
+------------------
 
 Các ADC này có thể xuất dữ liệu trên một số dòng SDO (1/2/4/8). Người lái xe
 hiện chỉ hỗ trợ 1 dòng SDO.
 
 Hệ thống dây giảm tải SPI
-------------------
+-------------------------
 Khi được sử dụng với bộ giảm tải SPI, cấu hình nối dây được hỗ trợ là:
 
 .. code-block::
@@ -68,14 +68,14 @@ ZZ0003ZZ.
 
 
 Chế độ nối dây song song
---------------------
+------------------------
 
 Ngoài ra còn có một giao diện song song, với 16 dòng (có thể giảm xuống còn 8 inch).
 chế độ byte). Giao diện song song được chọn bằng cách khai báo thiết bị là
 nền tảng trong cây thiết bị (không xác định nút io-backends, xem bên dưới).
 
 Chế độ phụ trợ IIO
-----------------
+------------------
 
 Chế độ này cho phép đạt được tốc độ lấy mẫu tốt nhất, nhưng nó yêu cầu một bộ điều khiển bên ngoài.
 phần cứng (ví dụ HDL hoặc APU) để xử lý giao tiếp cấp thấp.
@@ -111,7 +111,7 @@ Việc triển khai này nhúng IP tương thích phụ trợ IIO (adi-axi-adc) 
 
 
 Chế độ phần mềm và phần cứng
----------------------------
+----------------------------
 
 Mặc dù tất cả các bộ phận của dòng AD7606/AD7616 đều có thể được cấu hình bằng GPIO, một số
 chúng có thể được cấu hình bằng cách sử dụng register.
@@ -140,7 +140,7 @@ Việc chuyển đổi có thể được kích hoạt bằng hai cách riêng b
    kiểm soát tần số của PWM. Trình kích hoạt này chỉ được bật cho iio-backend.
 
 Điện áp tham chiếu
------------------
+------------------
 
 Có thể hỗ trợ 2 nguồn điện áp tham chiếu:
 
@@ -151,14 +151,14 @@ Nguồn được xác định bởi cây thiết bị. Nếu có ZZ0000ZZ,
 thì tham chiếu bên ngoài sẽ được sử dụng, nếu không thì tham chiếu bên trong sẽ được sử dụng.
 
 Lấy mẫu quá mức
-------------
+---------------
 
 Dòng này hỗ trợ lấy mẫu quá mức để cải thiện SNR.
 Trong chế độ phần mềm, có các tỷ lệ sau:
 1 (vô hiệu hóa quá mức)/2/4/8/16/32/64/128/256.
 
 Các tính năng chưa được triển khai
-----------------------
+----------------------------------
 
 - 2/4/8 dòng SDO
 - Chỉ báo CRC
@@ -181,7 +181,7 @@ Khi giảm tải SPI đang được sử dụng, một số thuộc tính sẽ k
   ví dụ: thuộc tính ZZ0003ZZ.
 
 Bộ đệm thiết bị
-==============
+===============
 
 Bộ đệm kích hoạt IIO
 --------------------

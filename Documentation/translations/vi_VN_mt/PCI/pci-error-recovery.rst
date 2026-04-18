@@ -76,7 +76,7 @@ cơ chế xử lý lỗi bus SCSI và reset bus SCSI.
 
 
 Thiết kế chi tiết
-===============
+=================
 
 Chi tiết thiết kế và triển khai bên dưới, dựa trên chuỗi
 thảo luận qua email công khai với Ben Herrenschmidt, khoảng ngày 5 tháng 4 năm 2005.
@@ -274,13 +274,13 @@ Nếu bất kỳ trình điều khiển nào trả về PCI_ERS_RESULT_NEED_RESE
 tiến tới STEP 4 (Đặt lại khe cắm)
 
 STEP 3: Đặt lại liên kết
-------------------
+------------------------
 Nền tảng đặt lại liên kết.  Đây là một bước cụ thể của PCIe
 và được thực hiện bất cứ khi nào một lỗi nghiêm trọng được phát hiện có thể
 "giải quyết" bằng cách đặt lại liên kết.
 
 STEP 4: Đặt lại khe cắm
-------------------
+-----------------------
 
 Để đáp ứng giá trị trả về của PCI_ERS_RESULT_NEED_RESET,
 nền tảng sẽ thực hiện thiết lập lại vị trí trên (các) thiết bị PCI được yêu cầu.
@@ -381,7 +381,7 @@ Thất bại).
    đặt lại nếu trình điều khiển trả về PCI_ERS_RESULT_DISCONNECT.
    Tuy nhiên, có lẽ nên như vậy.
 STEP 5: Tiếp tục hoạt động
--------------------------
+--------------------------
 Nền tảng sẽ gọi lại hàm gọi lại Resume() trên tất cả các thiết bị bị ảnh hưởng
 tài xế nếu tất cả tài xế trên đoạn đường đã quay trở lại
 PCI_ERS_RESULT_RECOVERED từ một trong 3 lần gọi lại trước đó.
@@ -417,7 +417,7 @@ lỗi phần mềm.
 
 
 Phần kết luận; Nhận xét chung
----------------------------
+-----------------------------
 Cách gọi lại là chính sách nền tảng. Một nền tảng với
 không có khả năng đặt lại khe cắm có thể chỉ muốn "bỏ qua" các trình điều khiển không thể
 khôi phục (ngắt kết nối chúng) và cố gắng để các thẻ khác trên cùng phân khúc
@@ -474,4 +474,4 @@ Nghĩa là, việc khôi phục API chỉ yêu cầu:
 
    - trình điều khiển/cxl/pci.c
 Sự kết thúc
--------
+-----------

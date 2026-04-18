@@ -36,7 +36,7 @@ bộ nhớ hệ thống. Trình điều khiển nova-core phải thiết lập l
 chương trình cơ sở của nó thông qua DMA và khởi động CPU của nó.
 
 Mức độ an ninh của Falcon
-======================
+=========================
 Falcons có thể chạy ở chế độ Không bảo mật (NS), Bảo mật nhẹ (LS) hoặc Bảo mật nặng (HS)
 chế độ.
 
@@ -51,7 +51,7 @@ GSP ở chế độ HS. FRTS, bao gồm việc thiết lập và tải nội dun
 lưu trữ CPU hoặc LS ucode.
 
 Bảo mật nhẹ (LS hoặc PL2) và Không bảo mật (NS hoặc PL0)
------------------------------------------------------
+--------------------------------------------------------
 Các chế độ này kém an toàn hơn HS. Giống như HS, LS hoặc NS ucode nhị phân cũng
 thường bao gồm một chữ ký trong đó. Để tải chương trình cơ sở ở chế độ LS hoặc NS lên máy
 Falcon, một Falcon khác cần chạy ở chế độ HS, chế độ này cũng thiết lập
@@ -62,7 +62,7 @@ ví dụ: sau khi đặt lại trên Ampe, FWSEC chạy trên GSP, sau đó tả
 động cơ devinit lên PMU ở chế độ LS.
 
 Gốc rễ của việc thiết lập niềm tin
----------------------------
+----------------------------------
 Để thiết lập nguồn gốc của sự tin cậy, mã chạy trên Falcon phải bất biến và
 được nối cứng vào bộ nhớ chỉ đọc (ROM). Điều này tuân theo các tiêu chuẩn của ngành đối với
 xác minh phần sụn. Mã này được gọi là Boot ROM (BROM). Lõi nova
@@ -102,7 +102,7 @@ Ví dụ: trên Ampere GPU, quy trình xác minh khởi động là:
      running its own GSP-RM LS ucode.
 
 Hệ thống con bộ nhớ Falcon và động cơ DMA
-======================================
+=========================================
 Chim ưng có bộ nhớ dữ liệu và lệnh riêng biệt (IMEM/DMEM)
 và chứa một công cụ DMA nhỏ gọi là FBDMA (Framebuffer DMA).
 DMA chuyển đến/từ bộ nhớ IMEM/DMEM bên trong Falcon thông qua FBIF

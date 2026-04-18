@@ -13,17 +13,17 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thiết bị điều khiển phương tiện
-------------------------
+-------------------------------
 
 Bộ điều khiển phương tiện
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Không gian người dùng bộ điều khiển phương tiện API được ghi lại trong
 ZZ0000ZZ. Tài liệu này tập trung
 về việc triển khai phía hạt nhân của khung truyền thông.
 
 Mô hình thiết bị truyền thông trừu tượng
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Khám phá cấu trúc liên kết bên trong thiết bị và định cấu hình nó khi chạy là một trong những
 mục tiêu của khuôn khổ truyền thông. Để đạt được điều này, các thiết bị phần cứng
@@ -46,7 +46,7 @@ trên cùng một thực thể hoặc trên các thực thể khác nhau. Luồn
 đệm vào một miếng đệm bồn rửa.
 
 Thiết bị truyền thông
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 Một thiết bị đa phương tiện được đại diện bởi một cấu trúc media_device
 dụ, được xác định trong ZZ0001ZZ.
@@ -97,7 +97,7 @@ và loại bỏ chúng bằng cách gọi:
 ZZ0001ZZ.
 
 Miếng đệm
-^^^^
+^^^^^^^^^
 Các miếng đệm được biểu diễn bằng một thể hiện struct media_pad,
 được xác định trong ZZ0000ZZ. Mỗi thực thể lưu trữ các miếng đệm của nó trong
 một mảng miếng đệm được quản lý bởi trình điều khiển thực thể. Trình điều khiển thường nhúng mảng vào
@@ -121,7 +121,7 @@ ZZ0001ZZ chỉ ra rằng bảng hỗ trợ tìm nguồn dữ liệu.
   be set for each pad.
 
 Liên kết
-^^^^^
+^^^^^^^^
 
 Các liên kết được thể hiện bằng một thể hiện struct media_link,
 được xác định trong ZZ0000ZZ. Có hai loại liên kết:
@@ -154,7 +154,7 @@ các giá trị hợp lệ được mô tả tại ZZ0000ZZ và
 ZZ0001ZZ.
 
 Truyền tải đồ thị
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 Khung phương tiện cung cấp các API để duyệt qua các biểu đồ phương tiện, định vị các kết nối
 thực thể và liên kết.
@@ -179,7 +179,7 @@ ZZ0002ZZ và
 ZZ0003ZZ).
 
 Sử dụng số lượng và xử lý sức mạnh
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Do sự khác biệt lớn giữa các trình điều khiển về quản lý năng lượng
 nhu cầu, bộ điều khiển phương tiện không thực hiện quản lý nguồn điện. Tuy nhiên,
@@ -194,13 +194,13 @@ trình điều khiển phương tiện và không được
 Khóa ZZ0001ZZ.\ ZZ0003ZZ.
 
 Thiết lập liên kết
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 Thuộc tính liên kết có thể được sửa đổi trong thời gian chạy bằng cách gọi
 ZZ0000ZZ.
 
 Đường ống và luồng truyền thông
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Luồng phương tiện là luồng pixel hoặc siêu dữ liệu có nguồn gốc từ một hoặc nhiều
 các thiết bị nguồn (chẳng hạn như cảm biến) và truyền qua các miếng đệm thực thể phương tiện
@@ -250,7 +250,7 @@ trường media_entity streaming_count để tìm hiểu xem một thực thể 
 thao tác phải được thực hiện với media_device graph_mutex được giữ.
 
 Xác thực liên kết
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 Xác thực liên kết được thực hiện bởi ZZ0000ZZ
 đối với bất kỳ thực thể nào có miếng đệm chìm trong đường ống. các
@@ -265,7 +265,7 @@ chức năng trợ giúp để cung cấp khả năng truy cập dễ dàng cho 
 cuối cùng cung cấp cách sử dụng lệnh gọi lại dành riêng cho trình điều khiển.
 
 Truyền tải đường ống
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Khi một đường ống đã được xây dựng bằng ZZ0000ZZ,
 trình điều khiển có thể lặp lại các thực thể hoặc phần đệm trong quy trình bằng
@@ -304,7 +304,7 @@ như một bước bổ sung:
    media_pipeline_entity_iter_cleanup(&iter);
 
 Bộ phân bổ thiết bị điều khiển phương tiện API
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Khi thiết bị đa phương tiện thuộc về nhiều trình điều khiển, phương tiện được chia sẻ
 thiết bị được phân bổ với thiết bị cấu trúc dùng chung làm chìa khóa để tra cứu.

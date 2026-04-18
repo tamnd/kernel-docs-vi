@@ -62,7 +62,7 @@ dữ liệu = kmalloc(sizeof(*data), GFP_KERNEL);
 Điều này đặt số lần đếm trong kref thành 1.
 
 quy tắc Kref
-==========
+============
 
 Khi bạn đã có kref được khởi tạo, bạn phải làm theo những điều sau
 quy tắc:

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân npcm750-pwm-fan
-=============================
+=========================================
 
 Chip được hỗ trợ:
 

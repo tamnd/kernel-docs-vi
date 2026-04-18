@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Dòng trình điều khiển hạt nhân-pem
-=========================
+==================================
 
 Các thiết bị được hỗ trợ:
 
@@ -43,7 +43,7 @@ Không thể sử dụng trình điều khiển PMBus.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị Lineage CPL vì không có đăng ký
 có thể được sử dụng một cách an toàn để nhận dạng chip. Bạn sẽ phải khởi tạo
@@ -61,7 +61,7 @@ trình điều khiển sang trình điều khiển bộ chọn chính pca9541 I2
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Tất cả các thiết bị Lineage CPL đều báo cáo điện áp đầu ra và nhiệt độ thiết bị cũng như
 báo động về điện áp đầu ra, nhiệt độ, điện áp đầu vào, dòng điện đầu vào, nguồn điện đầu vào,

@@ -17,7 +17,7 @@
 ==================================
 
 Tổng quan
-========
+=========
 
 Dòng sản phẩm Qualcomm Cloud AI 80/AIC080 là phiên bản phái sinh của AIC100.
 Số lượng NSP và tốc độ xung nhịp được giảm xuống để phù hợp với tài nguyên

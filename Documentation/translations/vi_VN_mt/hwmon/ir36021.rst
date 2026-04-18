@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ir36021
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -35,7 +35,7 @@ IR36021 là bộ điều khiển Buck nhiều pha kỹ thuật số hai vòng đ
 điểm tải ứng dụng.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng.

@@ -39,7 +39,7 @@ theo thời gian, nhưng phần lớn chúng sẽ vẫn ở dạng văn bản th
 .. _sphinx_install:
 
 Cài đặt nhân sư
-==============
+===============
 
 Các đánh dấu ReST hiện được sử dụng bởi Tài liệu/tệp có nghĩa là
 được xây dựng với ZZ0000ZZ phiên bản 3.4.3 trở lên.
@@ -69,7 +69,7 @@ mở shell mới bạn cần chạy lại lệnh này để vào lại lúc
 môi trường ảo trước khi xây dựng tài liệu.
 
 Đầu ra hình ảnh
-------------
+---------------
 
 Hệ thống xây dựng tài liệu kernel chứa phần mở rộng
 xử lý hình ảnh ở cả hai định dạng GraphViz và SVG (xem ZZ0000ZZ).
@@ -80,7 +80,7 @@ vẫn xây dựng tài liệu nhưng sẽ không bao gồm bất kỳ hình ản
 đầu ra.
 
 Bản dựng PDF và LaTeX
---------------------
+---------------------
 
 Các bản dựng như vậy hiện chỉ được hỗ trợ với Sphinx phiên bản 2.4 trở lên.
 
@@ -91,7 +91,7 @@ Các gói ZZ0000ZZ cung cấp bộ chức năng tối thiểu
 required for ZZ0001ZZ to work.
 
 Biểu thức toán học trong HTML
-------------------------
+-----------------------------
 
 Một số trang ReST chứa các biểu thức toán học. Do cách hoạt động của Sphinx,
 những biểu thức đó được viết bằng ký hiệu LaTeX.
@@ -146,7 +146,7 @@ ZZ0000ZZ
 	Sử dụng bao bì hệ điều hành cho Sphinx thay vì môi trường ảo Python.
 
 Cài đặt phiên bản tối thiểu Sphinx
----------------------------------
+----------------------------------
 
 Khi thay đổi hệ thống xây dựng Sphinx, điều quan trọng là phải đảm bảo rằng
 phiên bản tối thiểu vẫn sẽ được hỗ trợ. Ngày nay, nó là
@@ -170,7 +170,7 @@ tùy chọn xây dựng tài liệu cho một loạt phiên bản Sphinx.
 
 
 Xây dựng nhân sư
-============
+================
 
 Cách thông thường để tạo tài liệu là chạy ZZ0000ZZ hoặc
 ZZ0001ZZ. Ngoài ra còn có các định dạng khác: xem tài liệu
@@ -213,7 +213,7 @@ thư mục con bạn có thể chỉ định.
 	  documents, especially for kernel releases 5.18 and later.
 
 Lựa chọn Trình kết xuất Toán học
------------------------
+--------------------------------
 
 Kể từ phiên bản kernel 6.1, mathjax hoạt động như một trình kết xuất toán học dự phòng cho
 đầu ra html.\ [#sph1_8]_
@@ -360,7 +360,7 @@ ZZ0000ZZ để biết thêm chi tiết.
    https://docutils.sourceforge.io/docs/user/rst/quickref.html#tables
 
 liệt kê các bảng
-~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Các định dạng bảng danh sách có thể hữu ích cho các bảng không dễ đặt
 ở định dạng nghệ thuật Sphinx ASCII thông thường.  Các định dạng này gần như
@@ -482,7 +482,7 @@ cam kết 72bf4f1767f0
 .. _sphinx_kfigure:
 
 Số liệu & Hình ảnh
-================
+==================
 
 Nếu bạn muốn thêm hình ảnh, bạn nên sử dụng ZZ0001ZZ và
 Chỉ thị ZZ0002ZZ. Ví dụ. để chèn một hình có khả năng mở rộng

@@ -40,7 +40,7 @@ những hạng mục quan trọng nhưng chưa đầy đủ; nếu bạn thấy 
 cải thiện tài liệu, xin vui lòng không giữ lại!
 
 Giải quyết các cảnh báo
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Việc xây dựng tài liệu hiện đang cung cấp một số lượng không thể tin được
 cảnh báo.  Khi bạn có nhiều đến thế, bạn cũng có thể không có gì cả;
@@ -175,7 +175,7 @@ xây dựng tài liệu trừ khi chúng được đặt trong một tài liệu
 
 
 Sửa lỗi đánh máy
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Sửa lỗi đánh máy hoặc định dạng trong tài liệu một cách nhanh chóng
 cách để tìm ra cách tạo và gửi các bản vá, và đó là một cách hữu ích
@@ -240,7 +240,7 @@ Bằng cách đó, ít nhất những độc giả kiên nhẫn của chúng tô
 tài liệu có thể khiến họ lạc lối.
 
 Sự mạch lạc của tài liệu
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Những người xưa ở đây sẽ nhớ những cuốn sách về Linux xuất hiện trên
 các kệ vào những năm 1990.  Chúng chỉ đơn giản là bộ sưu tập tài liệu
@@ -287,7 +287,7 @@ lãnh thổ.  Mong đợi rất nhiều ý kiến ​​và thảo luận thậm
 những thay đổi rõ ràng.  Than ôi, đó là bản chất của thế giới chúng ta đang sống.
 
 Bản dựng PDF không phải LaTeX
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Đây rõ ràng là một nhiệm vụ không hề tầm thường đối với những người có nhiều thời gian và
 Kỹ năng Python.  Chuỗi công cụ Sphinx tương đối nhỏ và tốt

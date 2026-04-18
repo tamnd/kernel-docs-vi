@@ -31,7 +31,7 @@ yêu cầu. Hai phần đầu tiên mô tả các khái niệm về Có thể ph
 về những điều cần cân nhắc khi bật SRIOV trên IODA2.
 
 1. Giới thiệu về Điểm cuối có thể phân vùng
-==========================================
+===========================================
 
 Điểm cuối có thể phân vùng (PE) là một cách để nhóm các tài nguyên khác nhau
 được liên kết với một thiết bị hoặc một bộ thiết bị để cung cấp sự cách ly giữa
@@ -172,7 +172,7 @@ Chúng tôi muốn điều tra việc sử dụng các cửa sổ M64 bổ sung 
     có lý, nhưng chúng tôi vẫn chưa làm được điều đó.
 
 3. Những điều cần cân nhắc đối với SR-IOV trên PowerKVM
-========================================
+=======================================================
 
 * Nền SR-IOV
 

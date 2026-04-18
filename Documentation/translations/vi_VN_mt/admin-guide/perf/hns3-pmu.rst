@@ -26,7 +26,7 @@ HNS3 PMU hỗ trợ thu thập số liệu thống kê hiệu suất như băng 
 Mỗi HNS3 PMU hỗ trợ 8 sự kiện phần cứng.
 
 Trình điều khiển HNS3 PMU
-===============
+=========================
 
 Trình điều khiển HNS3 PMU đăng ký PMU hoàn hảo với tên sicl id của nó.::
 

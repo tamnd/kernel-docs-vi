@@ -19,7 +19,7 @@ trình điều khiển pds fwctl
 :Tác giả: Shannon Nelson
 
 Tổng quan
-========
+=========
 
 Thiết bị PDS Core cung cấp dịch vụ fwctl thông qua
 thiết bị phụ trợ có tên pds_core.fwctl.N.  Trình điều khiển pds_fwctl liên kết với
@@ -43,7 +43,7 @@ các giá trị vào các giá trị phạm vi FWCTL, sau đó có thể đượ
 yêu cầu của người dùng trong phạm vi.
 
 pds_fwctl Người dùng API
-==================
+========================
 
 Mỗi yêu cầu RPC bao gồm điểm cuối đích và id hoạt động, đồng thời trong
 và ra độ dài bộ đệm và con trỏ.  Người lái xe xác minh sự tồn tại

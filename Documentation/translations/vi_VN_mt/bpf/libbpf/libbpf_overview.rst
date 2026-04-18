@@ -42,7 +42,7 @@ hiểu biết về khả năng và lợi thế của libbpf cũng như cách nó
 bạn phát triển các ứng dụng BPF một cách hiệu quả.
 
 API libbpf và vòng đời ứng dụng BPF
-==================================
+===================================
 
 Một ứng dụng BPF bao gồm một hoặc nhiều chương trình BPF (có thể hợp tác hoặc
 hoàn toàn độc lập), bản đồ BPF và các biến toàn cục. Toàn cầu
@@ -79,7 +79,7 @@ chu kỳ:
   bị phá hủy và tất cả tài nguyên mà ứng dụng BPF sử dụng sẽ được giải phóng.
 
 Tệp bộ xương đối tượng BPF
-========================
+==========================
 
 Bộ xương BPF là một giao diện thay thế cho API libbpf để làm việc với BPF
 đồ vật. Mã Skeleton trừu tượng hóa các API libbpf chung một cách đáng kể
@@ -108,7 +108,7 @@ bộ xương được sử dụng. Đây là một tính năng tiện lợi bổ
 mã rườm rà.
 
 Ưu điểm khác của việc sử dụng tệp Skeleton
----------------------------------------
+------------------------------------------
 
 * Bộ xương BPF cung cấp giao diện cho các chương trình không gian người dùng hoạt động với BPF
   các biến toàn cục. Bộ nhớ mã khung ánh xạ các biến toàn cục dưới dạng cấu trúc
@@ -127,7 +127,7 @@ mã rườm rà.
   bộ xương và tệp đối tượng BPF luôn được đồng bộ hóa.
 
 Người trợ giúp BPF
-===========
+==================
 
 libbpf cung cấp các API phía BPF mà các chương trình BPF có thể sử dụng để tương tác với
 hệ thống. Định nghĩa trình trợ giúp BPF cho phép các nhà phát triển sử dụng chúng trong mã BPF như
@@ -139,7 +139,7 @@ bản đồ, thao tác các gói mạng, v.v.
 giá trị trả về, hãy xem trang man ZZ0000ZZ.
 
 BPF CO-RE (Biên dịch một lần – Chạy mọi nơi)
-=========================================
+============================================
 
 Các chương trình BPF hoạt động trong không gian kernel và có quyền truy cập vào bộ nhớ và dữ liệu kernel
 các cấu trúc. Một hạn chế mà các ứng dụng BPF gặp phải là thiếu
@@ -229,7 +229,7 @@ phần không gian của ứng dụng BPF dễ dàng hơn. Lưu ý rằng bản 
 vẫn phải được viết bằng chữ C.
 
 ghi nhật ký libbpf
-==============
+==================
 
 Theo mặc định, libbpf ghi các thông báo thông tin và cảnh báo vào stderr. các
 độ dài của các thông báo này có thể được kiểm soát bằng cách thiết lập môi trường

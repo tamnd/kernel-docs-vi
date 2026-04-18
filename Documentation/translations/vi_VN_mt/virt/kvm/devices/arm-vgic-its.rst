@@ -136,7 +136,7 @@ Lỗi:
     ======= =========================================================
 
 Trình tự khôi phục ITS:
----------------------
+-----------------------
 
 Phải tuân theo thứ tự sau khi khôi phục GIC, ITS và
 Bài tập KVM_IRQFD:
@@ -211,7 +211,7 @@ bit: ZZ0000ZZ 47 ... 16 ZZ0001ZZ
  - ICID là ID bộ sưu tập
 
 Trạng thái đặt lại ITS:
-----------------
+-----------------------
 
 RESET trả ITS về trạng thái giống như khi được tạo lần đầu tiên và
 được khởi tạo. Khi lệnh RESET trả về, những điều sau đây là

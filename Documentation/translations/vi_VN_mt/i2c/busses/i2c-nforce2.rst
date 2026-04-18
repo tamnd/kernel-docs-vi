@@ -58,7 +58,7 @@ thì trình điều khiển này sẽ hỗ trợ SMBuses trên bo mạch chủ c
 
 
 Ghi chú
------
+-------
 
 Bộ điều hợp SMBus trong chipset nForce2 có vẻ rất giống với
 Bộ chuyển đổi SMBus 2.0 trong cầu nam AMD-8111. Tuy nhiên, tôi chỉ có thể nhận được

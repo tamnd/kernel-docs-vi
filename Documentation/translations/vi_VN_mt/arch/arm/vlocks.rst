@@ -39,7 +39,7 @@ không có người chiến thắng nào được chọn và cuộc bầu cử d
 
 
 Thuật toán
----------
+----------
 
 Cách dễ nhất để giải thích thuật toán vlocks là sử dụng một số mã giả::
 
@@ -216,7 +216,7 @@ Giấy phép, như được định nghĩa trong linux/COPYING.
 
 
 Tài liệu tham khảo
-----------
+------------------
 
 [1] Lamport, L. "Giải pháp mới về lập trình đồng thời của Dijkstra
     Vấn đề", Truyền thông của ACM 17, 8 (tháng 8 năm 1974), 453-455.

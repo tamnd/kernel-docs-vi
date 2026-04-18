@@ -30,7 +30,7 @@ Sự cố ZZ0000ZZ
 ----------------------------------
 
 tính năng x87
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 Không giống như hầu hết các bit tính năng CPUID khác, CPUID[EAX=7,ECX=0]:EBX[6]
 (FDP_EXCPTN_ONLY) và CPUID[EAX=7,ECX=0]:EBX]13] (ZERO_FCS_FDS) là

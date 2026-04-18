@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân fsp3y
-======================
+===============================
 Các thiết bị được hỗ trợ:
   * 3Y POWER YH-5151E
   * 3Y POWER YM-2151E
@@ -25,7 +25,7 @@ Sự miêu tả
 Trình điều khiển này triển khai hỗ trợ hạn chế cho hai thiết bị 3Y POWER.
 
 Mục nhập hệ thống
--------------
+-----------------
 * điện áp đầu vào in1_input
   * in2_input điện áp đầu ra 12V
   * in3_input điện áp đầu ra 5V

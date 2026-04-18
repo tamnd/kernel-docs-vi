@@ -37,7 +37,7 @@ Nút cổng
 ==========
 
 Tổng quan
--------
+---------
 
 Đối với mỗi đầu nối USB Type-C dưới sự kiểm soát tác nhân mux trên hệ thống, sẽ có
 là một nút con riêng biệt trong nút thiết bị tác nhân mux PMC. Những nút đó không
@@ -77,7 +77,7 @@ Phạm vi (_SB.PCI0.PMC.MUX)
 	}
 
 Thuộc tính thiết bị _DSD cụ thể của tác nhân Mux
------------------------------------------
+------------------------------------------------
 
 Số cổng
 ~~~~~~~~~~~~

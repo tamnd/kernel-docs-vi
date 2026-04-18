@@ -31,7 +31,7 @@ và cách viết mã như vậy!
 
 
 Định nghĩa về quyền truy cập không được căn chỉnh
-=====================================
+=================================================
 
 Truy cập bộ nhớ không được phân bổ xảy ra khi bạn cố đọc N byte dữ liệu bắt đầu
 từ một địa chỉ không chia hết cho N (tức là addr % N != 0).
@@ -48,7 +48,7 @@ xử lý các loại như u16, u32 và u64.
 
 
 Căn chỉnh tự nhiên
-=================
+==================
 
 Quy tắc được đề cập ở trên hình thành nên cái mà chúng tôi gọi là sự liên kết tự nhiên:
 Khi truy cập N byte bộ nhớ, địa chỉ bộ nhớ cơ sở phải bằng nhau
@@ -64,7 +64,7 @@ viết mã thỏa mãn yêu cầu căn chỉnh tự nhiên là cách dễ nhất
 
 
 Tại sao quyền truy cập không được căn chỉnh là xấu
-===========================
+==================================================
 
 Tác động của việc thực hiện truy cập bộ nhớ không được phân bổ khác nhau tùy theo kiến trúc
 đến kiến trúc. Sẽ thật dễ dàng để viết toàn bộ tài liệu về sự khác biệt
@@ -88,7 +88,7 @@ nền tảng và sẽ gây ra vấn đề về hiệu suất trên những nền
 
 
 Mã không gây ra quyền truy cập không được phân bổ
-=========================================
+=================================================
 
 Lúc đầu, các khái niệm trên có vẻ hơi khó liên hệ với thực tế.
 thực hành mã hóa. Suy cho cùng, bạn không có nhiều quyền kiểm soát
@@ -157,7 +157,7 @@ phần đệm cấu trúc là quan trọng.
 
 
 Mã gây ra quyền truy cập không được căn chỉnh
-=================================
+=============================================
 
 Với ý nghĩ trên, chúng ta hãy chuyển sang một ví dụ thực tế về hàm
 có thể gây ra truy cập bộ nhớ không được phân bổ. Chức năng sau đây được thực hiện
@@ -214,7 +214,7 @@ vấn đề liên quan đến:
 
 
 Tránh truy cập không được sắp xếp
-===========================
+=================================
 
 Cách dễ nhất để tránh quyền truy cập chưa được phân bổ là sử dụng get_unaligned() và
 macro put_unaligned() được cung cấp bởi tệp tiêu đề <linux/unaligned.h>.

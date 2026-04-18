@@ -37,7 +37,7 @@ Memory-barriers.txt và Atomic_t.txt cung cấp thêm thông tin cơ bản cho
 thứ tự bộ nhớ nói chung và cho các hoạt động nguyên tử nói riêng.
 
 Các loại thứ tự bộ nhớ có liên quan
-=================================
+===================================
 
 .. note:: The following section only covers some of the memory
    ordering types that are relevant for the atomics and reference
@@ -88,7 +88,7 @@ So sánh các chức năng
 =======================
 
 trường hợp 1) - hoạt động không phải "Đọc/Sửa đổi/Ghi" (RMW)
--------------------------------------------
+------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -101,7 +101,7 @@ Thay đổi đảm bảo thứ tự bộ nhớ:
 
 
 trường hợp 2) - hoạt động không phải "Đọc/Sửa đổi/Ghi" (RMW) với thứ tự phát hành
------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -113,7 +113,7 @@ Thay đổi đảm bảo thứ tự bộ nhớ:
 
 
 trường hợp 3) - các hoạt động dựa trên gia tăng không trả về giá trị
---------------------------------------------------
+--------------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -125,7 +125,7 @@ Thay đổi đảm bảo thứ tự bộ nhớ:
 * không có (cả hai đều không có thứ tự)
 
 trường hợp 4) - các hoạt động RMW dựa trên giảm dần không trả về giá trị
-------------------------------------------------------
+------------------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -137,7 +137,7 @@ Thay đổi đảm bảo thứ tự bộ nhớ:
 
 
 trường hợp 5) - các hoạt động RMW dựa trên gia số trả về một giá trị
------------------------------------------------------
+--------------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -153,7 +153,7 @@ Thứ tự bộ nhớ đảm bảo thay đổi:
 
 
 trường hợp 6) - các hoạt động RMW dựa trên mức tăng với thứ tự thu được trả về một giá trị
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -166,7 +166,7 @@ Thứ tự bộ nhớ đảm bảo thay đổi:
 
 
 trường hợp 7) - các hoạt động RMW dựa trên mức giảm dec/phụ chung trả về một giá trị
----------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -179,7 +179,7 @@ Thứ tự bộ nhớ đảm bảo thay đổi:
 
 
 trường hợp 8) các hoạt động RMW dựa trên mức giảm khác trả về một giá trị
----------------------------------------------------------
+-------------------------------------------------------------------------
 
 Thay đổi chức năng:
 
@@ -194,7 +194,7 @@ Thứ tự bộ nhớ đảm bảo thay đổi:
 
 
 trường hợp 9) - RMW dựa trên khóa
-------------------------
+---------------------------------
 
 Thay đổi chức năng:
 

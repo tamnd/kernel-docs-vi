@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Chức năng điều chỉnh và cấu trúc dữ liệu
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/tuner.h
 

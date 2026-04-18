@@ -23,7 +23,7 @@ các phần phụ có sẵn có thể được nhìn thấy dưới đây.
 
 
 Thông tin chung cho tác giả trình điều khiển
-======================================
+============================================
 
 Phần này bao gồm các tài liệu mà vào lúc này hay lúc khác sẽ được
 được hầu hết các nhà phát triển làm việc trên trình điều khiển thiết bị quan tâm.
@@ -84,7 +84,7 @@ Tài liệu cấp độ xe buýt
 
 
 API dành riêng cho hệ thống con
-=======================
+===============================
 
 .. toctree::
    :maxdepth: 1

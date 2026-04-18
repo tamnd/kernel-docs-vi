@@ -75,7 +75,7 @@ Xem Tài liệu/mạng/devlink/ionic.rst để biết thêm thông tin
 trên dữ liệu thông tin nhà phát triển devlink.
 
 Kích hoạt trình điều khiển
-===================
+==========================
 
 Trình điều khiển được kích hoạt thông qua hệ thống cấu hình kernel tiêu chuẩn,
 sử dụng lệnh tạo ::
@@ -91,7 +91,7 @@ Trình điều khiển nằm trong cấu trúc menu tại:
           -> Hỗ trợ Pensando Ethernet IONIC
 
 Cấu hình trình điều khiển
-======================
+=========================
 
 MTU
 ---
@@ -119,7 +119,7 @@ Hỗ trợ cho XDP bao gồm những điều cơ bản, cộng với khung Jumbo
 ndo_xmit.  Hiện tại không có hỗ trợ nào cho ổ cắm không sao chép hoặc giảm tải CTNH.
 
 Hỗ trợ RDMA thông qua thiết bị phụ trợ
-=================================
+======================================
 
 Trình điều khiển ion hỗ trợ chức năng RDMA (Truy cập bộ nhớ trực tiếp từ xa)
 thông qua khung thiết bị phụ trợ Linux khi được phần sụn quảng cáo.
@@ -131,7 +131,7 @@ Thống kê
 ==========
 
 Số liệu thống kê phần cứng cơ bản
---------------------
+---------------------------------
 
 Các lệnh ZZ0000ZZ, ZZ0001ZZ và ZZ0002ZZ hiển thị
 một bộ số liệu thống kê giới hạn được lấy trực tiếp từ phần sụn.  Ví dụ::

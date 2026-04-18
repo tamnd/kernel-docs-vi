@@ -40,7 +40,7 @@ tận dụng động cơ DMA của thiết bị.
 .. contents:: :local:
 
 Các vấn đề khi sử dụng bộ cấp phát bộ nhớ dành riêng cho thiết bị
-====================================================
+=================================================================
 
 Các thiết bị có dung lượng bộ nhớ trên bo mạch lớn (vài gigabyte) như GPU
 trước đây đã quản lý bộ nhớ của họ thông qua các API dành riêng cho trình điều khiển.
@@ -116,7 +116,7 @@ bộ nhớ trong khi thiết bị đang sử dụng nó (chặn truy cập CPU k
 
 
 Không gian địa chỉ được chia sẻ và di chuyển
-==================================
+============================================
 
 HMM dự định cung cấp hai tính năng chính. Đầu tiên là chia sẻ địa chỉ
 khoảng trống bằng cách sao chép bảng trang CPU trong bảng trang thiết bị sao cho giống nhau
@@ -272,7 +272,7 @@ không biết về sự khác biệt. Chúng ta chỉ cần đảm bảo rằng 
 ánh xạ các trang đó từ phía CPU.
 
 Di chuyển đến và đi từ bộ nhớ thiết bị
-===================================
+======================================
 
 Vì CPU không thể truy cập trực tiếp vào bộ nhớ thiết bị nên trình điều khiển thiết bị phải
 sử dụng phần cứng DMA hoặc hướng dẫn tải/lưu trữ cụ thể của thiết bị để di chuyển dữ liệu.
@@ -409,7 +409,7 @@ Bước này thay thế mục nhập bảng trang di chuyển đặc biệt bằ
 Bây giờ khóa có thể được mở.
 
 Bộ nhớ truy cập độc quyền
-=======================
+=========================
 
 Một số thiết bị có các tính năng như bit PTE nguyên tử có thể được sử dụng để thực hiện
 truy cập nguyên tử vào bộ nhớ hệ thống. Để hỗ trợ các hoạt động nguyên tử cho một mạng ảo được chia sẻ

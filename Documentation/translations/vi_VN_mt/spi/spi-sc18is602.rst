@@ -38,7 +38,7 @@ Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết chi tiế
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này yêu cầu trình điều khiển bộ chuyển đổi I2C để hỗ trợ các tin nhắn I2C thô. I2C
 trình điều khiển bộ điều hợp chỉ có thể xử lý giao thức SMBus không được hỗ trợ.

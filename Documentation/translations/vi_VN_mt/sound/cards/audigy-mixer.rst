@@ -28,7 +28,7 @@ Trình điều khiển ALSA lập trình phần chip này theo mã mặc định
 
 
 Điều khiển máy trộn kỹ thuật số
-======================
+===============================
 
 Các điều khiển này được xây dựng bằng hướng dẫn DSP. Họ cung cấp mở rộng
 chức năng. Chỉ mô tả mã tích hợp mặc định trong trình điều khiển ALSA
@@ -59,44 +59,44 @@ Xe buýt FX
 	và bộ vi điều khiển DSP có thể hoạt động với tổng kết quả.
 
 name='PCM Khối lượng phát lại phía trước',index=0
-----------------------------------------
+-------------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ PCM FX-bus phía trước bên trái và bên phải
 ắc quy. ALSA sử dụng ắc quy 8 và 9 cho mặt trước bên trái và bên phải PCM 
 mẫu để phát lại 5.1. Các mẫu kết quả được chuyển tiếp đến các loa phía trước.
 
 name='PCM Âm lượng phát lại âm thanh vòm',index=0
--------------------------------------------
+-------------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ xung quanh trái và phải PCM FX-bus
 ắc quy. ALSA sử dụng bộ tích lũy 2 và 3 cho âm thanh vòm trái và phải PCM 
 mẫu để phát lại 5.1. Các mẫu kết quả được chuyển tiếp đến xung quanh (phía sau)
 loa.
 
 name='PCM Âm lượng phát lại bên',index=0
----------------------------------------
+----------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ PCM FX-bus bên trái và bên phải
 ắc quy. ALSA sử dụng ắc quy 14 và 15 cho bên trái và bên phải PCM
 mẫu để phát lại 7.1. Các mẫu kết quả được chuyển tiếp đến các loa bên.
 
 name='PCM Âm lượng phát lại trung tâm',index=0
------------------------------------------
+----------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ bộ tích lũy FX-bus PCM trung tâm.
 ALSA sử dụng bộ tích lũy 6 cho các mẫu PCM trung tâm để phát lại 5.1. kết quả
 mẫu được chuyển tiếp đến loa trung tâm.
 
 name='PCM LFE Khối lượng phát lại',index=0
---------------------------------------
+------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm mẫu cho bộ tích lũy FX-bus LFE PCM. 
 ALSA sử dụng bộ tích lũy 7 cho các mẫu LFE PCM để phát lại 5.1. kết quả
 mẫu được chuyển tiếp đến loa siêu trầm.
 
 name='PCM Khối lượng phát lại',index=0
-----------------------------------
+--------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ bus FX PCM bên trái và bên phải
 ắc quy. ALSA sử dụng bộ tích lũy 0 và 1 cho các mẫu PCM trái và phải cho
 phát lại âm thanh nổi. Các mẫu kết quả được chuyển tiếp đến các loa phía trước.
 
 name='PCM Khối lượng chụp',index=0
----------------------------------
+----------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ bus FX PCM bên trái và bên phải
 ắc quy. ALSA sử dụng bộ tích lũy 0 và 1 cho các mẫu PCM trái và phải cho
 phát lại âm thanh nổi. Kết quả được chuyển tiếp đến thiết bị PCM chụp tiêu chuẩn.
@@ -114,7 +114,7 @@ Các điều khiển này được sử dụng để làm suy giảm các mẫu 
 Kết quả được chuyển tiếp đến thiết bị PCM chụp tiêu chuẩn.
 
 name='Âm lượng phát lại micrô',index=0
-----------------------------------
+--------------------------------------
 Điều khiển này được sử dụng để giảm âm lượng mẫu từ đầu vào Mic trái và phải của
 bộ giải mã AC97. Các mẫu kết quả được chuyển tiếp đến bộ trộn âm thanh nổi ảo.
 
@@ -127,7 +127,7 @@ Các mẫu gốc cũng được chuyển tiếp đến thiết bị Mic capture 
 16bit/8KHz mono) không có điều khiển âm lượng.
 
 name='Khối lượng phát lại CD của Audigy',index=0
-----------------------------------------
+------------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ trái và phải IEC958 TTL
 đầu vào kỹ thuật số (thường được sử dụng bởi ổ CDROM). Các mẫu kết quả được
 được chuyển tiếp đến bộ trộn âm thanh nổi ảo.
@@ -139,7 +139,7 @@ name='Audigy CD Capture Volume',index=0
 đến thiết bị PCM chụp tiêu chuẩn.
 
 name='IEC958 Khối lượng phát lại quang học',index=0
----------------------------------------------
+---------------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ quang học IEC958 trái và phải
 đầu vào kỹ thuật số. Các mẫu kết quả được chuyển tiếp đến bộ trộn âm thanh nổi ảo.
 
@@ -149,30 +149,30 @@ name='IEC958 Khối lượng chụp quang',index=0
 đầu vào kỹ thuật số. Kết quả được chuyển tiếp đến thiết bị PCM chụp tiêu chuẩn.
 
 name='Khối lượng phát lại Line2',index=0
-------------------------------------
+----------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ trái và phải I2S ADC
 đầu vào (trên AudigyDrive). Các mẫu kết quả được chuyển tiếp đến máy ảo
 máy trộn âm thanh nổi.
 
 name='Khối lượng chụp Line2',index=1
------------------------------------
+------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ trái và phải I2S ADC
 đầu vào (trên AudigyDrive). Kết quả được chuyển tiếp đến bản chụp tiêu chuẩn
 Thiết bị PCM.
 
 name='Khối lượng phát lại hỗn hợp tương tự',index=0
------------------------------------------
+---------------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ trái và phải I2S ADC
 đầu vào từ Philips ADC. Các mẫu kết quả được chuyển tiếp đến máy ảo
 máy trộn âm thanh nổi. Nó chứa sự pha trộn từ các nguồn analog như CD, Line In, Aux, ....
 
 name='Khối lượng thu thập hỗn hợp tương tự',index=1
-----------------------------------------
+---------------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ trái và phải I2S ADC
 đầu vào Philips ADC. Kết quả được chuyển tiếp đến thiết bị PCM chụp tiêu chuẩn.
 
 name='Âm lượng phát lại Aux2',index=0
------------------------------------
+-------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ trái và phải I2S ADC
 đầu vào (trên AudigyDrive). Các mẫu kết quả được chuyển tiếp đến máy ảo
 máy trộn âm thanh nổi.
@@ -184,63 +184,63 @@ name='Âm lượng chụp Aux2',index=1
 Thiết bị PCM.
 
 name='Khối lượng phát lại phía trước',index=0
-------------------------------------
+---------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến các loa phía trước.
 
 name='Âm lượng phát lại âm thanh vòm',index=0
----------------------------------------
+---------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến loa vòm (phía sau).
 
 name='Khối lượng phát lại bên cạnh',index=0
------------------------------------
+-------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến các loa bên.
 
 name='Khối lượng phát lại ở giữa',index=0
--------------------------------------
+-----------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến loa trung tâm.
 
 name='LFE Khối lượng phát lại',index=0
-----------------------------------
+--------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến loa siêu trầm.
 
 name='Điều khiển giai điệu - Chuyển đổi',index=0
-------------------------------------
+------------------------------------------------
 Điều khiển này bật hoặc tắt điều khiển âm thanh. Các mẫu được chuyển đến
 đầu ra loa bị ảnh hưởng.
 
 name='Điều khiển giai điệu - Âm trầm',index=0
-----------------------------------
+---------------------------------------------
 Điều khiển này đặt cường độ âm trầm. Không có giá trị trung lập!!
 Khi mã điều khiển âm thanh được kích hoạt, các mẫu luôn được sửa đổi.
 Giá trị gần nhất với tín hiệu thuần là 20.
 
 name='Điều khiển giai điệu - Treble',index=0
-------------------------------------
+--------------------------------------------
 Điều khiển này đặt cường độ âm bổng. Không có giá trị trung lập!!
 Khi mã điều khiển âm thanh được kích hoạt, các mẫu luôn được sửa đổi.
 Giá trị gần nhất với tín hiệu thuần là 20.
 
 name='Khối lượng phát lại chính',index=0
--------------------------------------
+----------------------------------------
 Điều khiển này được sử dụng để giảm âm lượng các mẫu được chuyển tiếp đến đầu ra loa.
 
 name='IEC958 Công tắc phát lại quang học thô',index=0
--------------------------------------------------
+-----------------------------------------------------
 Nếu công tắc này bật thì các mẫu dành cho kỹ thuật số IEC958 (S/PDIF)
 đầu ra chỉ được lấy từ thiết bị iec958 ALSA PCM thô (sử dụng
 bộ tích lũy 20 và 21 cho PCM trái và phải theo mặc định).
 
 
 Điều khiển liên quan đến luồng PCM
-===========================
+==================================
 
 name='EMU10K1 PCM Khối lượng',chỉ số 0-31
-------------------------------------
+-----------------------------------------
 Suy giảm âm lượng kênh trong phạm vi 0-0x1fffd. Giá trị trung bình (không
 suy giảm) là mặc định. Ánh xạ kênh cho ba giá trị là
 như sau:
@@ -250,7 +250,7 @@ như sau:
 * 2 - phải, mặc định 0xffff (không suy giảm)
 
 name='EMU10K1 PCM Gửi định tuyến',chỉ mục 0-31
-------------------------------------------
+----------------------------------------------
 Điều khiển này chỉ định đích - bộ tích lũy FX-bus. Có 24
 các giá trị trong ánh xạ này:
 
@@ -283,7 +283,7 @@ các giá trị trong ánh xạ này:
 nhiều lần (điều đó có nghĩa là 0=0 && 1=0 là sự kết hợp không hợp lệ).
  
 name='EMU10K1 PCM Gửi khối lượng',chỉ số 0-31
------------------------------------------
+---------------------------------------------
 Nó chỉ định mức suy giảm (lượng) cho điểm đến nhất định trong phạm vi 0-255.
 Bản đồ kênh như sau:
 

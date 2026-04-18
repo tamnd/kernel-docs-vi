@@ -31,7 +31,7 @@ giống như cách chúng tương tác với TPM trên hệ thống vật lý. M
 container có phần mềm mô phỏng độc đáo TPM của riêng nó.
 
 Thiết kế
-======
+========
 
 Để cung cấp phần mềm mô phỏng TPM cho mỗi vùng chứa, vùng chứa
 ngăn xếp quản lý cần tạo một cặp thiết bị bao gồm máy khách TPM

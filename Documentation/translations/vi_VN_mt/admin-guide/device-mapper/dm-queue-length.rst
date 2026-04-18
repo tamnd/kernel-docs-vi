@@ -39,7 +39,7 @@ Trạng thái cho mỗi đường dẫn: <status> <fail-count> <in-flight>
 
 
 Thuật toán
-=========
+==========
 
 dm-queue-length tăng/giảm 'trong chuyến bay' khi I/O được thực hiện
 được gửi/hoàn thành tương ứng.

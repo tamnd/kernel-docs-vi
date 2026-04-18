@@ -47,7 +47,7 @@ Sự miêu tả
 Trả về thông tin về tất cả các khe giải mã.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công, 0 được trả về và ZZ0000ZZ được điền.
 

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 rỉ sét
-====
+======
 
 Tài liệu liên quan đến Rust trong kernel. Để bắt đầu sử dụng Rust
 trong kernel, vui lòng đọc hướng dẫn quick-start.rst.

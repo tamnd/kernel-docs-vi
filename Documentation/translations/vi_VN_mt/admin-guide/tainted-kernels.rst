@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 hạt bị nhiễm độc
----------------
+----------------
 
 Hạt nhân sẽ tự đánh dấu là 'bị nhiễm độc' khi có điều gì đó xảy ra có thể là
 có liên quan sau này khi điều tra vấn đề. Đừng lo lắng quá về điều này,
@@ -33,7 +33,7 @@ kiểm tra trạng thái bị nhiễm độc trong thời gian chạy thông qua
 
 
 Cờ bị nhiễm độc trong các thông báo lỗi, lỗi hoặc hoảng loạn
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Bạn tìm thấy trạng thái bị nhiễm độc ở gần đầu dòng bắt đầu bằng 'CPU:'; nếu hoặc
 lý do hạt nhân bị nhiễm độc được hiển thị sau ID tiến trình ('PID:') và phần rút gọn
@@ -59,7 +59,7 @@ hạt nhân trước đó đã bị nhiễm độc do Mô-đun độc quyền (Z
 
 
 Giải mã trạng thái bị nhiễm độc trong thời gian chạy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Trong thời gian chạy, bạn có thể truy vấn trạng thái bị nhiễm độc bằng cách đọc
 ZZ0000ZZ. Nếu điều đó trả về ZZ0001ZZ thì kernel không

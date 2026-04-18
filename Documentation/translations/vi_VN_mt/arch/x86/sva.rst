@@ -41,7 +41,7 @@ Bảng trang CPU. Thiết bị phải sử dụng lại ATS để tìm nạp
 dịch trước khi sử dụng.
 
 Hàng công việc phần cứng được chia sẻ
-==========================
+=====================================
 
 Không giống như Ảo hóa I/O gốc đơn (SR-IOV), giấy phép IOV (SIOV) có thể mở rộng
 việc sử dụng Hàng đợi công việc chung (SWQ) của cả ứng dụng và Virtual
@@ -74,7 +74,7 @@ cho phần cứng và cũng cho phép phần cứng nhận biết được bối
 để thực hiện các thao tác I/O thông qua việc sử dụng PASID.
 
 Gắn thẻ không gian địa chỉ quy trình
-=============================
+====================================
 
 MSR trong phạm vi luồng mới (IA32_PASID) cung cấp kết nối giữa
 quy trình người dùng và phần còn lại của phần cứng. Khi một ứng dụng đầu tiên
@@ -283,7 +283,7 @@ mục TLB của thiết bị có thể đã được lưu vào bộ nhớ đệm
 hệ điều hành.
 
 Tài liệu tham khảo
-==========
+==================
 
 VT-D:
 ZZ0000ZZ

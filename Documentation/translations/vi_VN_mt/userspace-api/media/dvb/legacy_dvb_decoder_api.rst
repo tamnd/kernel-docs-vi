@@ -46,7 +46,7 @@ Khả năng truy vấn hiếm khi được sử dụng vì chúng đã được 
 .. _legacy_dvb_decoder_formats:
 
 Định dạng dữ liệu
-============
+=================
 
 API được thiết kế cho DVB và các hệ thống phát sóng tương thích.
 Vì thực tế đó, các định dạng dữ liệu được hỗ trợ duy nhất là ISO/IEC 13818-1

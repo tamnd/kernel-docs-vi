@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 ABI đã loại bỏ các ký hiệu
-===================
+==========================
 
 .. kernel-abi:: removed
    :no-files:

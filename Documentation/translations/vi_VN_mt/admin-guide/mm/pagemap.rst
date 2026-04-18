@@ -165,7 +165,7 @@ Mô tả ngắn cho cờ trang
     Trang này được sử dụng như một bảng trang.
 
 Cờ trang liên quan đến IO
----------------------
+-------------------------
 
 1 - ERROR
    Đã xảy ra lỗi IO.
@@ -179,7 +179,7 @@ Cờ trang liên quan đến IO
    Trang đang được đồng bộ hóa vào đĩa.
 
 Cờ trang liên quan đến LRU
-----------------------
+--------------------------
 
 5 - LRU
    Trang này nằm trong một trong các danh sách LRU.
@@ -206,7 +206,7 @@ Công cụ loại trang trong thư mục tools/mm có thể được sử dụng
 trên các lá cờ.
 
 Ngoại lệ cho bộ nhớ dùng chung
-============================
+==============================
 
 Các mục trong bảng trang cho các trang được chia sẻ sẽ bị xóa khi các trang bị cắt hoặc
 bị tráo đổi. Điều này làm cho các trang bị tráo đổi không thể phân biệt được với các trang chưa bao giờ được phân bổ
@@ -228,7 +228,7 @@ mincore() có thể phân biệt giữa các trang trong bộ nhớ (hiện tạ
 cache) và hết bộ nhớ (bị tráo đổi hoặc không có/không được phân bổ).
 
 Ghi chú khác
-===========
+============
 
 Việc đọc từ bất kỳ tệp nào sẽ trả về -EINVAL nếu bạn không bắt đầu
 việc đọc trên ranh giới 8 byte (ví dụ: nếu bạn tìm kiếm số byte lẻ
@@ -240,7 +240,7 @@ sau lần đầu tiên loại bỏ các bit bẩn mềm. Kể từ Linux 4.2, ch
 cờ vô điều kiện.
 
 Quét sơ đồ trang IOCTL
-==================
+======================
 
 ZZ0000ZZ IOCTL trên tệp bản đồ trang có thể được sử dụng để lấy hoặc tùy chọn
 xóa thông tin về các mục trong bảng trang. Các hoạt động sau đây được hỗ trợ

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển cánh tay Mali-C55 ISP
-=======================
+======================================
 
 Trình điều khiển Arm Mali-C55 ISP thực hiện một điều khiển dành riêng cho trình điều khiển:
 

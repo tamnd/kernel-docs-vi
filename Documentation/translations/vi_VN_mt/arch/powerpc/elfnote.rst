@@ -49,7 +49,7 @@ hạt nhân không được chạy nếu khả năng giám sát của PowerPC kh
 hoặc bit có khả năng Ultravisor không được đặt.
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. [#f1] arch/powerpc/include/asm/elfnote.h
 

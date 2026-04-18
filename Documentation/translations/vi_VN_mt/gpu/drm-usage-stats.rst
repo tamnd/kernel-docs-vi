@@ -46,21 +46,21 @@ có thể.
 - Kiểu dữ liệu của giá trị được cố định như được xác định trong đặc tả.
 
 Các loại khóa
----------
+-------------
 
 1. Bắt buộc, được chuẩn hóa đầy đủ.
 2. Tùy chọn, tiêu chuẩn hóa đầy đủ.
 3. Trình điều khiển cụ thể.
 
 Các kiểu dữ liệu
-----------
+----------------
 
 - <uint> - Số nguyên không dấu mà không xác định giá trị tối đa.
 - <keystr> - Chuỗi không bao gồm bất kỳ ký tự dành riêng hoặc khoảng trắng nào được xác định ở trên.
 - <valstr> - Chuỗi.
 
 Các khóa được tiêu chuẩn hóa đầy đủ bắt buộc
----------------------------------
+--------------------------------------------
 
 - trình điều khiển drm: <valstr>
 
@@ -68,7 +68,7 @@ Chuỗi sẽ chứa tên trình điều khiển này đã đăng ký thông qua 
 Cấu trúc dữ liệu ZZ0000ZZ.
 
 Các phím được chuẩn hóa đầy đủ tùy chọn
---------------------------------
+---------------------------------------
 
 Nhận dạng
 ^^^^^^^^^^^^^^
@@ -223,7 +223,7 @@ không được cung cấp bởi drm_show_fdinfo().  Nhưng ngay cả số liệ
 được ghi lại ở trên và nếu có thể, hãy căn chỉnh với các trình điều khiển khác.
 
 Triển khai cụ thể của trình điều khiển
--------------------------------
+--------------------------------------
 
 * ZZ0000ZZ
 * ZZ0001ZZ

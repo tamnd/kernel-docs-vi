@@ -50,7 +50,7 @@ vì vậy phương pháp như vậy có thể đầy hứa hẹn nhưng cần nh
 xác định xem nó có khả thi hay không.
 
 Phương pháp làm tròn
-----------------
+--------------------
 
 Tiêu chuẩn IEEE xác định 4 chế độ làm tròn.  Vòng đến gần nhất là
 mặc định, nhưng cũng được phép làm tròn đến + hoặc - vô cùng hoặc làm tròn về 0.

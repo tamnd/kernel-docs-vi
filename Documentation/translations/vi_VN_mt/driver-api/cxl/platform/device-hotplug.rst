@@ -30,7 +30,7 @@ Tài liệu này bao gồm một số ví dụ về các tài nguyên đó, như
 được coi là đầy đủ.
 
 Loại bỏ nóng
-==========
+============
 Việc gỡ nóng thiết bị thường yêu cầu gỡ bỏ phần mềm một cách cẩn thận
 cấu trúc (vùng bộ nhớ, trình điều khiển liên quan) quản lý các thiết bị này.
 
@@ -39,7 +39,7 @@ có khả năng khiến hệ thống phải kiểm tra máy (hoặc ít nhất l
 quyền truy cập bị giới hạn trong không gian người dùng).
 
 Thêm nóng thiết bị bộ nhớ
-=====================
+=========================
 Một thiết bị có mặt khi khởi động có thể được liên kết với Cửa sổ bộ nhớ cố định CXL
 được báo cáo trong ZZ0000ZZ.  CFMWS đó có thể phù hợp với kích thước của
 thiết bị, nhưng cấu trúc của CEDT CFMWS được xác định theo nền tảng.
@@ -50,7 +50,7 @@ có đủ không gian HPA để mô tả thiết bị đó.
 Có một vài tình huống phổ biến cần xem xét.
 
 Thiết bị bộ nhớ điểm cuối duy nhất có mặt khi khởi động
----------------------------------------------
+-------------------------------------------------------
 Một thiết bị có mặt khi khởi động có thể có dung lượng được báo cáo trong
 ZZ0000ZZ.  Nếu một thiết bị bị tháo ra và một thiết bị mới được cắm nóng,
 dung lượng của thiết bị mới sẽ bị giới hạn ở dung lượng CFMWS ban đầu.
@@ -85,7 +85,7 @@ Việc giới hạn kích thước ở mức dung lượng đặt trước khi k
 để thay thế dung lượng đã có khi khởi động.
 
 Không có thiết bị CXL nào hiện diện khi khởi động
------------------------------
+-------------------------------------------------
 Khi không có thiết bị bộ nhớ CXL nào xuất hiện khi khởi động, một số nền tảng sẽ bỏ qua CFMWS
 trong ZZ0000ZZ.  Khi điều này xảy ra, không thể thêm nóng.
 

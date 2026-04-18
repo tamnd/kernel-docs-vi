@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tài liệu dành riêng cho trình điều khiển
-=============================
+========================================
 
 Phần này cung cấp thông tin về các thiết bị khác nhau được hỗ trợ bởi
 Nhân Linux, các giao thức và chi tiết trình điều khiển của chúng.

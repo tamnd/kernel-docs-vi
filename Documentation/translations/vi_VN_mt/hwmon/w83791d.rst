@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w83791d
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -137,7 +137,7 @@ Trình điều khiển đọc các giá trị chip phần cứng tối đa ba gi
 Mã chế độ người dùng yêu cầu giá trị thường xuyên hơn sẽ nhận được các giá trị được lưu trong bộ nhớ đệm.
 
 tập tin /sys
-----------
+------------
 Giao diện sysfs được ghi lại trong tệp 'giao diện sysfs'. Chỉ
 các tùy chọn dành riêng cho chip được ghi lại ở đây.
 
@@ -161,7 +161,7 @@ temp[1-3]_tolerance dung sai nhiệt độ cho chế độ Thermal Cruise.
 ====================================================================================
 
 Bitmap cảnh báo so với bitmask beep_mask
------------------------------------
+----------------------------------------
 
 Đối với mã kế thừa sử dụng các tệp cảnh báo và beep_mask:
 

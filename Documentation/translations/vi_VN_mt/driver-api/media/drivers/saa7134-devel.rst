@@ -13,13 +13,13 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển saa7134
-==================
+========================
 
 Tác giả Gerd Hoffmann
 
 
 Các biến thể của thẻ:
-----------------
+---------------------
 
 Thẻ có thể sử dụng một trong hai tinh thể này (xtal):
 
@@ -73,7 +73,7 @@ Phần này được viết bởi: Peter Missel <peter.missel@onlinehome.de>
     - GP07.00 nc
 
 Tín dụng
--------
+--------
 
 andrew.stevens@philips.com + werner.leeb@philips.com đã cung cấp
 thông số phần cứng và bảng mẫu saa7134.

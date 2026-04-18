@@ -42,7 +42,7 @@ những gì cần phải làm để viết lớp keo cho thiết bị của riê
 .. _musb-basics:
 
 Khái niệm cơ bản về Linux MUSB
-=================
+==============================
 
 Để bắt đầu về chủ đề này, vui lòng đọc Thông tin cơ bản về USB khi di chuyển (xem
 Resources) cung cấp phần giới thiệu về hoạt động USB OTG tại
@@ -431,7 +431,7 @@ IRQ đến từ phần cứng bộ điều khiển. Trình xử lý ngắt bây 
 .. _musb-dev-platform-data:
 
 Dữ liệu nền tảng thiết bị
-====================
+=========================
 
 Để viết lớp keo MUSB, bạn cần có một số dữ liệu
 mô tả khả năng phần cứng của phần cứng bộ điều khiển của bạn, trong đó
@@ -583,7 +583,7 @@ ZZ0000ZZ.
 .. _musb-dev-quirks:
 
 Quirks của thiết bị
-=============
+===================
 
 Hoàn thành dữ liệu nền tảng dành riêng cho thiết bị của bạn, bạn cũng có thể cần
 để viết một số mã trong lớp keo để xử lý một số thiết bị cụ thể
@@ -697,7 +697,7 @@ các bản sửa lỗi đủ chung chung để cung cấp khả năng xử lý v
 cuối cùng đối với phần cứng bộ điều khiển khác.
 
 Phần kết luận
-==========
+=============
 
 Viết một lớp keo Linux MUSB sẽ là một nhiệm vụ dễ tiếp cận hơn, vì
 tài liệu này cố gắng trình bày chi tiết về bài tập này.
@@ -719,7 +719,7 @@ Tôi cũng muốn cảm ơn cộng đồng Qi-Hardware nói chung vì
 hướng dẫn và hỗ trợ vui vẻ.
 
 Tài nguyên
-=========
+==========
 
 USB Trang chủ: ZZ0000ZZ
 

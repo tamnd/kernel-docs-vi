@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Ký hiệu ổn định ABI
-==================
+===================
 
 Ghi lại các giao diện mà nhà phát triển đã xác định là ổn định.
 

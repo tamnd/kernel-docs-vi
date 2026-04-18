@@ -57,7 +57,7 @@ cây không được liệt kê ở đó.
 .. _describe_changes:
 
 Mô tả những thay đổi của bạn
----------------------
+----------------------------
 
 Mô tả vấn đề của bạn.  Cho dù bản vá của bạn là bản sửa lỗi một dòng hay
 5000 dòng của một tính năng mới, chắc chắn phải có một vấn đề tiềm ẩn nào đó
@@ -180,7 +180,7 @@ $ git log -1 --pretty=sửa 54a4f0239f2e
 .. _split_changes:
 
 Tách biệt các thay đổi của bạn
----------------------
+------------------------------
 
 Tách mỗi ZZ0000ZZ thành một bản vá riêng.
 
@@ -213,7 +213,7 @@ sau đó chỉ đăng khoảng 15 bài mỗi lần và chờ xem xét và tích 
 
 
 Kiểu-kiểm tra các thay đổi của bạn
-------------------------
+----------------------------------
 
 Kiểm tra bản vá của bạn để biết các vi phạm kiểu cơ bản, chi tiết về chúng có thể
 được tìm thấy trong Tài liệu/process/coding-style.rst.
@@ -290,7 +290,7 @@ linux-api@vger.kernel.org.
 
 
 Không có MIME, không có liên kết, không nén, không có tệp đính kèm.  Chỉ là văn bản đơn giản
--------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 Linus và các nhà phát triển kernel khác cần có khả năng đọc và bình luận
 về những thay đổi bạn đang gửi.  Điều quan trọng đối với kernel
@@ -322,7 +322,7 @@ Xem Documentation/process/email-clients.rst để biết các gợi ý về các
 ứng dụng e-mail của bạn để nó gửi các bản vá của bạn nguyên vẹn.
 
 Trả lời các bình luận đánh giá
---------------------------
+------------------------------
 
 Bản vá của bạn gần như chắc chắn sẽ nhận được nhận xét từ người đánh giá về các cách thức
 bản vá nào có thể được cải thiện, dưới hình thức trả lời email của bạn. Bạn phải
@@ -348,7 +348,7 @@ khách hàng và nghi thức trong danh sách gửi thư.
 .. _interleaved_replies:
 
 Sử dụng các câu trả lời xen kẽ được cắt bớt trong các cuộc thảo luận qua email
-----------------------------------------------------
+------------------------------------------------------------------------------
 Việc đăng bài hàng đầu không được khuyến khích trong quá trình phát triển nhân Linux
 các cuộc thảo luận. Các câu trả lời xen kẽ (hoặc "nội tuyến") khiến cuộc trò chuyện trở nên thú vị hơn
 dễ theo dõi hơn. Để biết thêm chi tiết xem:
@@ -408,7 +408,7 @@ ZZ0000ZZ sẽ tự động thực hiện việc này cho bạn.
 
 
 Ký tên vào tác phẩm của bạn - Giấy chứng nhận xuất xứ của nhà phát triển
-------------------------------------------------------
+------------------------------------------------------------------------
 
 Để cải thiện việc theo dõi xem ai đã làm gì, đặc biệt là với các bản vá có thể
 thấm đến nơi an nghỉ cuối cùng trong hạt nhân thông qua nhiều
@@ -421,7 +421,7 @@ chuyển nó dưới dạng bản vá nguồn mở.  Các quy tắc khá đơn g
 có thể chứng nhận dưới đây:
 
 Giấy chứng nhận xuất xứ của nhà phát triển 1.1
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Bằng việc đóng góp cho dự án này, tôi chứng nhận rằng:
 
@@ -468,7 +468,7 @@ mục SoB đầu tiên báo hiệu quyền tác giả chính của một tác gi
 
 
 Khi nào nên sử dụng Acked-by:, Cc:, và Co-develop-by:
-------------------------------------------------
+-----------------------------------------------------
 
 Thẻ Signed-off-by: chỉ ra rằng người ký đã tham gia vào
 sự phát triển của bản vá hoặc anh ấy/cô ấy đang trong quá trình phân phối bản vá.
@@ -551,7 +551,7 @@ Từ: Từ tác giả <from@author.example.org>
 
 
 Sử dụng Người báo cáo:, Người kiểm tra:, Người đánh giá:, Người đề xuất: và Bản sửa lỗi:
-----------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 Thẻ Người báo cáo ghi công cho những người tìm thấy lỗi và báo cáo lỗi đó.
 hy vọng sẽ truyền cảm hứng cho họ để giúp chúng tôi một lần nữa trong tương lai. Thẻ này nhằm mục đích
@@ -571,7 +571,7 @@ Người đánh giá: thay vào đó, chỉ ra rằng bản vá đã được xe
 chấp nhận được theo Tuyên bố của Người đánh giá:
 
 Tuyên bố giám sát của người đánh giá
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Bằng cách cung cấp thẻ Người đánh giá: của tôi, tôi tuyên bố rằng:
 
@@ -636,7 +636,7 @@ lưu ý rằng người ký (tức là người nộp và người duy trì) có
 .. _tagging_people:
 
 Gắn thẻ mọi người cần có sự cho phép
-----------------------------------
+------------------------------------
 
 Hãy cẩn thận khi thêm các thẻ nói trên vào bản vá của bạn, vì tất cả
 ngoại trừ Cc:, Người báo cáo:, và Người gợi ý: cần có sự cho phép rõ ràng của
@@ -649,7 +649,7 @@ bugzilla.kernel.org theo nghĩa này là một nơi công cộng, nhưng địa 
 đã sử dụng chúng trong những đóng góp trước đó.
 
 Sử dụng Được hỗ trợ bởi:
-------------------
+------------------------
 
 Nếu bạn sử dụng bất kỳ loại công cụ mã hóa nâng cao nào khi tạo bản vá của mình,
 bạn cần thừa nhận việc sử dụng đó bằng cách thêm thẻ Được hỗ trợ.  Thất bại trong việc
@@ -760,7 +760,7 @@ ví dụ:
 Từ: Tác giả bản vá (Công ty) <author@example.com>
 
 Nội dung giải thích
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 Cơ quan giải trình sẽ cam kết nguồn vĩnh viễn
 nhật ký thay đổi, do đó sẽ có ý nghĩa đối với người đọc thành thạo, những người đã có kinh nghiệm lâu năm
@@ -779,7 +779,7 @@ ai đó đang tìm kiếm bản vá có thể tìm thấy nó. Như trong ZZ0000
 .. _backtraces:
 
 Dấu vết quay lại trong thông điệp cam kết
-"""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""
 
 Dấu vết quay lại giúp ghi lại chuỗi cuộc gọi dẫn đến sự cố. Tuy nhiên,
 không phải tất cả các dấu vết quay lại đều hữu ích. Ví dụ: chuỗi cuộc gọi khởi động sớm là
@@ -926,7 +926,7 @@ trợ giúp những việc như theo dõi các phần phụ thuộc, chạy bả
 với việc định dạng và gửi thư.
 
 Tài liệu tham khảo
-----------
+------------------
 
 Andrew Morton, "Bản vá hoàn hảo" (tpp).
   <ZZ0000ZZ

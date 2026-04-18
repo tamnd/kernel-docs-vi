@@ -72,7 +72,7 @@ muốn xem nguồn đầy đủ cho mô-đun này có thể tìm thấy nó tạ
 ZZ0000ZZ
 
 create_proc_entry không được dùng nữa
-============================
+=====================================
 
 Lưu ý rằng bài viết trên sử dụng create_proc_entry đã bị xóa trong
 hạt nhân 3.10. Các phiên bản hiện tại yêu cầu cập nhật sau::
@@ -237,7 +237,7 @@ nó thường sẽ như vậy.
 
 
 Đầu ra được định dạng
-================
+=====================
 
 Mã seq_file quản lý việc định vị trong đầu ra được tạo bởi
 iterator và đưa nó vào bộ đệm của người dùng. Nhưng để điều đó có hiệu quả thì
@@ -282,7 +282,7 @@ bị loại bỏ và hàm seq_show sẽ cố gắng phân bổ một phần lớ
 
 
 Làm cho tất cả hoạt động
-==================
+========================
 
 Cho đến nay, chúng ta đã có một tập hợp các hàm hữu ích có thể tạo ra đầu ra trong phạm vi
 seq_file, nhưng chúng tôi vẫn chưa biến chúng thành một tệp mà người dùng
@@ -372,7 +372,7 @@ Và đó là khá nhiều nó.
 
 
 danh sách seq_list
-========
+==================
 
 Nếu tệp của bạn sẽ lặp qua danh sách liên kết, bạn có thể tìm thấy những
 thói quen hữu ích::
@@ -390,7 +390,7 @@ Người trợ giúp ZZ0000ZZ có con trỏ tới cấu trúc list_head thích h
 
 
 Phiên bản cực kỳ đơn giản
-========================
+=========================
 
 Đối với các tệp ảo cực kỳ đơn giản, thậm chí còn có giao diện dễ dàng hơn.  A
 mô-đun chỉ có thể định nghĩa hàm show(), hàm này sẽ tạo ra tất cả

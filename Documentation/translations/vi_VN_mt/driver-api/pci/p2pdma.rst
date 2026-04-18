@@ -102,7 +102,7 @@ trong trường hợp thẻ NVMe đang sử dụng không hỗ trợ CMB.
 
 
 Trình điều khiển của nhà cung cấp
-----------------
+---------------------------------
 
 Nhà cung cấp chỉ cần đăng ký BAR (hoặc một phần của BAR)
 dưới dạng tài nguyên P2P DMA sử dụng ZZ0000ZZ.
@@ -119,7 +119,7 @@ thường sẽ là bộ nhớ P2P. Công việc trong tương lai có thể sẽ
 
 
 Trình điều khiển máy khách
---------------
+--------------------------
 
 Trình điều khiển máy khách chỉ phải sử dụng ánh xạ API ZZ0000ZZ
 và ZZ0001ZZ hoạt động như bình thường và việc triển khai
@@ -127,7 +127,7 @@ sẽ làm điều đúng đắn cho bộ nhớ có khả năng P2P.
 
 
 Trình điều khiển dàn nhạc
---------------------
+-------------------------
 
 Nhiệm vụ đầu tiên mà trình điều khiển dàn nhạc phải làm là biên soạn một danh sách
 tất cả các thiết bị khách sẽ tham gia vào một giao dịch nhất định. cho
@@ -150,7 +150,7 @@ và ZZ0003ZZ là các chức năng tiện lợi cho
 phân bổ danh sách thu thập phân tán với bộ nhớ P2P.
 
 Hãy cẩn thận về trang cấu trúc
--------------------
+------------------------------
 
 Mặc dù các trang MEMORY_DEVICE_PCI_P2PDMA có thể được cài đặt trong VMAs,
 pin_user_pages() và các liên quan sẽ không trả lại chúng trừ khi FOLL_PCI_P2PDMA được đặt.
@@ -165,7 +165,7 @@ truy cập xảy ra.
 
 
 Cách sử dụng với DMABUF
-=================
+=======================
 
 DMABUF cung cấp một giải pháp thay thế cho cấu trúc dựa trên trang ở trên
 hệ thống máy khách/nhà cung cấp/người điều phối và nên được sử dụng khi trang cấu trúc

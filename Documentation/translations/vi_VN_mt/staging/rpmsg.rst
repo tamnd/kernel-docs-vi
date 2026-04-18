@@ -78,7 +78,7 @@ với tải trọng của tin nhắn gửi đến).
 
 
 Người dùng API
-========
+==============
 
 ::
 
@@ -230,7 +230,7 @@ Trả về 0 nếu thành công và giá trị lỗi thích hợp nếu thất b
 
 
 Cách sử dụng điển hình
-=============
+======================
 
 Sau đây là trình điều khiển RPMSG đơn giản, gửi thông báo "Xin chào!" tin nhắn
 trên thăm dò() và bất cứ khi nào nó nhận được tin nhắn đến, nó sẽ hủy

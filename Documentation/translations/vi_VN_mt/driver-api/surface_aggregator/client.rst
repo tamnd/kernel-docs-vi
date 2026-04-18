@@ -48,7 +48,7 @@ Viết trình điều khiển máy khách
 
 
 Tổng quan
-========
+=========
 
 Trình điều khiển máy khách có thể được thiết lập theo hai cách chính, tùy thuộc vào cách
 thiết bị tương ứng được cung cấp cho hệ thống. Chúng tôi đặc biệt
@@ -59,7 +59,7 @@ cơ chế khác, như được thảo luận thêm dưới đây.
 
 
 Trình điều khiển máy khách không phải SSAM
-=======================
+==========================================
 
 Mọi giao tiếp với SAM EC được xử lý thông qua ZZ0000ZZ
 đại diện cho EC đó cho kernel. Trình điều khiển nhắm mục tiêu thiết bị không phải SSAM (và
@@ -127,7 +127,7 @@ cha mẹ khác nhau.
 
 
 Trình điều khiển máy khách SSAM
-===================
+===============================
 
 Trình điều khiển thiết bị máy khách SSAM về bản chất không khác gì các thiết bị khác
 các loại trình điều khiển. Chúng được biểu diễn thông qua ZZ0002ZZ và liên kết với một
@@ -168,7 +168,7 @@ người lái xe.
 
 
 Thực hiện các yêu cầu đồng bộ
-===========================
+=============================
 
 Các yêu cầu đồng bộ (hiện tại) là hình thức chính do máy chủ khởi tạo
 liên lạc với EC. Có một số cách để xác định và thực hiện

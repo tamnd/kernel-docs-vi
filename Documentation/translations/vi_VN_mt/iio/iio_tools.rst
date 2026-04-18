@@ -17,7 +17,7 @@ Công cụ giao tiếp IIO
 =======================
 
 1. Công cụ hạt nhân Linux
-=====================
+=========================
 
 Hạt nhân Linux cung cấp một số công cụ không gian người dùng có thể được sử dụng để truy xuất dữ liệu
 từ hệ thống IIO:

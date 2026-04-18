@@ -48,7 +48,7 @@ EXT_TRANS: bật dịch mở rộng (0/1: mặc định 0 [tắt])
 ============= ====================================================================
 
 Biên dịch cấu hình thời gian
-==========================
+============================
 
 (đi vào AHA152X trong trình điều khiển/scsi/Makefile):
 
@@ -133,7 +133,7 @@ Nếu bạn sử dụng cả hai lựa chọn thay thế thì lựa chọn đầ
 
 
 Ghi chú về EXT_TRANS
-==================
+====================
 
 SCSI sử dụng số khối để đánh địa chỉ các khối/cung trên thiết bị.
 BIOS sử dụng sơ đồ địa chỉ hình trụ/đầu/sector (C/H/S)
@@ -195,7 +195,7 @@ hình học đúng trong hầu hết các trường hợp:
 
 
 Tài liệu tham khảo được sử dụng
-===============
+===============================
 
 "Thông số kỹ thuật chip AIC-6260 SCSI", Tập đoàn Adaptec.
 

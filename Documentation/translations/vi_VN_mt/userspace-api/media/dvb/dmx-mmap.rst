@@ -102,7 +102,7 @@ ZZ0001ZZ ioctl trước khi chúng có thể được truy vấn.
 Để hủy ánh xạ bộ đệm, chức năng ZZ0000ZZ được sử dụng.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, ZZ0000ZZ trả về một con trỏ tới bộ đệm được ánh xạ. Bật
 lỗi ZZ0001ZZ (-1) được trả về và biến ZZ0002ZZ được đặt

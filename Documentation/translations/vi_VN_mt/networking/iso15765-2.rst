@@ -17,7 +17,7 @@ ISO 15765-2 (ISO-TP)
 ======================
 
 Tổng quan
-========
+=========
 
 ISO 15765-2, còn được gọi là ISO-TP, là giao thức truyền tải được xác định cụ thể
 để liên lạc chẩn đoán trên CAN. Nó được sử dụng rộng rãi trong ô tô
@@ -30,7 +30,7 @@ Mạng CAN sử dụng SAE J1939 làm lớp liên kết dữ liệu (tuy nhiên,
 yêu cầu).
 
 Thông số kỹ thuật được sử dụng
--------------------
+------------------------------
 
 * ISO 15765-2:2024 : Phương tiện giao thông đường bộ - Giao tiếp chẩn đoán qua Bộ điều khiển
   Mạng khu vực (DoCAN). Phần 2: Giao thức vận chuyển và các dịch vụ lớp mạng.
@@ -60,7 +60,7 @@ Ba định dạng địa chỉ khác nhau có thể được sử dụng:
   byte bổ sung là như nhau.
 
 Giao thức vận chuyển và các loại khung liên quan
----------------------------------------------
+------------------------------------------------
 
 Khi truyền dữ liệu bằng giao thức ISO-TP, tải trọng có thể vừa
 bên trong một tin nhắn CAN duy nhất hay không, đồng thời xem xét chi phí hoạt động của giao thức
@@ -77,7 +77,7 @@ xác nhận từ người nhận, sau đó sẽ gửi Kiểm soát luồng khác
 frame để thông báo cho người gửi về tính khả dụng của nó để nhận thêm dữ liệu.
 
 Cách sử dụng ISO-TP
-=================
+===================
 
 Giống như các giao thức CAN khác, hỗ trợ ngăn xếp ISO-TP được tích hợp vào
 Hệ thống con mạng Linux cho bus CAN, hay còn gọi là. Linux-CAN hoặc SocketCAN và
@@ -233,7 +233,7 @@ trong đó cấu trúc ZZ0000ZZ có nội dung sau:
   cờ ZZ0001ZZ được chỉ định.
 
 Tùy chọn kiểm soát luồng
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các tùy chọn Kiểm soát luồng (FC) có thể được chuyển bằng cách sử dụng tên lựa chọn ZZ0000ZZ
 để cung cấp các tham số liên lạc để nhận PDU ISO-TP.
@@ -265,7 +265,7 @@ trong đó cấu trúc ZZ0000ZZ có nội dung sau:
 * ZZ0000ZZ: số lượng khung chờ tối đa được cung cấp trong các khung điều khiển luồng.
 
 Tùy chọn lớp liên kết
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Các tùy chọn Lớp liên kết (LL) có thể được chuyển bằng tên optname ZZ0000ZZ:
 
@@ -342,7 +342,7 @@ Lỗi
 Các lỗi sau được báo cáo tới không gian người dùng:
 
 Lỗi đường dẫn RX
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 ============= =====================================================================
 -ETIMEDOUT hết thời gian nhận dữ liệu
@@ -351,7 +351,7 @@ Lỗi đường dẫn RX
 ============= =====================================================================
 
 Lỗi đường dẫn TX
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 =================================================================================
 -ECOMM hết thời gian tiếp nhận điều khiển luồng
@@ -363,7 +363,7 @@ Ví dụ
 ========
 
 Ví dụ về nút cơ bản
-------------------
+-------------------
 
 Ví dụ sau triển khai một nút sử dụng địa chỉ vật lý "bình thường", với
 ID RX bằng 0x18DAF142 và ID TX bằng 0x18DA42F1. Tất cả các tùy chọn còn lại

@@ -23,7 +23,7 @@ Giao diện HWMON
    :doc: hwmon
 
 GPU sysfs Giao diện trạng thái nguồn
-================================
+====================================
 
 Bộ điều khiển nguồn GPU được hiển thị thông qua các tệp sysfs.
 
@@ -85,7 +85,7 @@ gpu_metrics
    :doc: gpu_metrics
 
 đường cong quạt
----------
+---------------
 
 .. kernel-doc:: drivers/gpu/drm/amd/pm/amdgpu_pm.c
    :doc: fan_curve
@@ -121,7 +121,7 @@ fan_zero_rpm_enable
    :doc: fan_zero_rpm_enable
 
 fan_zero_vòng/phút_stop_nhiệt độ
------------------------------
+--------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/amd/pm/amdgpu_pm.c
    :doc: fan_zero_rpm_stop_temperature

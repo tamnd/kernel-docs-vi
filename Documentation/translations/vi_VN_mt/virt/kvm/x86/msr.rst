@@ -25,7 +25,7 @@ Các MSR tùy chỉnh có một phạm vi dành riêng cho chúng, bắt đầu 
 nhưng chúng không được dùng nữa và việc sử dụng chúng không được khuyến khích.
 
 Danh sách MSR tùy chỉnh
----------------
+-----------------------
 
 Danh sách MSR tùy chỉnh được hỗ trợ hiện tại là:
 

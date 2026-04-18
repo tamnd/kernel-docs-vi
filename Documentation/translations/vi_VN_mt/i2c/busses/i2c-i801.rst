@@ -122,7 +122,7 @@ Bộ điều khiển SMBus.
 
 
 Hỗ trợ cuộc gọi quy trình
---------------------
+-------------------------
 
 Cuộc gọi quy trình khối được hỗ trợ trên các chip 82801EB (ICH5) và mới hơn.
 

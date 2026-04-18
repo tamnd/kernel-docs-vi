@@ -19,7 +19,7 @@ Trình điều khiển TPS6594 PFSM của Texas Instruments
 Tác giả: Julien Panis (jpanis@baylibre.com)
 
 Tổng quan
-========
+=========
 
 Nói đúng ra, PFSM (Máy trạng thái hữu hạn có thể định cấu hình trước) không phải là
 phần cứng. Nó là một đoạn mã.
@@ -32,7 +32,7 @@ Trình điều khiển PFSM có thể được sử dụng để kích hoạt ch
 tiểu bang. Nó cũng cung cấp quyền truy cập R/W vào các thanh ghi thiết bị.
 
 Chip được hỗ trợ
----------------
+----------------
 
 -tps6594-q1
 -tps6593-q1
@@ -44,12 +44,12 @@ Vị trí tài xế
 trình điều khiển/misc/tps6594-pfsm.c
 
 Định nghĩa loại trình điều khiển
-=======================
+================================
 
 bao gồm/uapi/linux/tps6594_pfsm.h
 
 Trình điều khiển IOCTL
-=============
+======================
 
 ZZ0000ZZ
 Tất cả tài nguyên của thiết bị đều bị tắt nguồn. Bộ xử lý đã tắt và
@@ -79,7 +79,7 @@ vẫn tràn đầy năng lượng, trong khi tất cả các miền khác đều
 tổng công suất hệ thống.
 
 Sử dụng trình điều khiển
-============
+========================
 
 Xem PFSM có sẵn::
 
@@ -94,6 +94,6 @@ Xem các sự kiện PFSM::
 # cat /proc/ngắt
 
 Ví dụ về mã không gian người dùng
-----------------------
+---------------------------------
 
 mẫu/pfsm/pfsm-wakeup.c

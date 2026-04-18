@@ -27,7 +27,7 @@ HiSilicon SoC đóng gói nhiều khuôn CPU và IO. Mỗi cụm CPU
 hai HHA (0 - 1) và bốn DDRC (0 - 3), tương ứng.
 
 Trình điều khiển PMU không lõi của HiSilicon SoC
--------------------------------
+------------------------------------------------
 
 Mỗi thiết bị PMU có các thanh ghi riêng để đếm sự kiện, điều khiển và
 ngắt và trình điều khiển PMU sẽ đăng ký trình điều khiển PMU hoàn hảo như L3C,

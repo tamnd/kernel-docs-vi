@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Màn hình ứng dụng thời gian thực
-==============================
+================================
 
 - Tên: rtapp
 - Loại: hộp đựng nhiều màn hình
@@ -41,7 +41,7 @@ lý do gây ra độ trễ không mong muốn với các ứng dụng thời gia
 nhiều màn hình phụ được mô tả trong các phần sau.
 
 Theo dõi lỗi trang
-+++++++++++++++++
+++++++++++++++++++
 
 Màn hình ZZ0000ZZ báo cáo các lỗi trang gây ra tác vụ theo thời gian thực. của nó
 đặc điểm kỹ thuật là::
@@ -58,7 +58,7 @@ sử dụng chương trình thực hiện ZZ0000ZZ) để hạt nhân thực thi
 nhiều bộ nhớ vật lý nhất có thể.
 
 Theo dõi giấc ngủ
-+++++++++++++
++++++++++++++++++
 
 Màn hình ZZ0000ZZ báo cáo các luồng thời gian thực đang ngủ theo cách có thể
 gây ra độ trễ không mong muốn. Các ứng dụng thời gian thực chỉ nên đặt thời gian thực

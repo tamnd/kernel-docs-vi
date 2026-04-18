@@ -22,7 +22,7 @@ Thuộc tính được sử dụng trên hệ thống phân phối vệ tinh
 .. _dvbs-params:
 
 Hệ thống phân phối DVB-S
-=====================
+========================
 
 Các tham số sau hợp lệ cho DVB-S:
 
@@ -59,7 +59,7 @@ Việc triển khai trong tương lai có thể thêm hai tham số còn thiếu
 .. _dvbs2-params:
 
 Hệ thống phân phối DVB-S2
-======================
+=========================
 
 Ngoài tất cả các tham số hợp lệ cho DVB-S, DVB-S2 còn hỗ trợ
 các thông số sau:
@@ -81,7 +81,7 @@ cũng có hiệu lực.
 .. _turbo-params:
 
 Hệ thống phân phối mã Turbo
-==========================
+===========================
 
 Ngoài tất cả các tham số hợp lệ cho DVB-S, mã turbo hỗ trợ
 các thông số sau:
@@ -92,7 +92,7 @@ các thông số sau:
 .. _isdbs-params:
 
 Hệ thống phân phối ISDB-S
-======================
+=========================
 
 Các tham số sau hợp lệ cho ISDB-S:
 

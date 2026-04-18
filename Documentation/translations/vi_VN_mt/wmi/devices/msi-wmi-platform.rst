@@ -155,7 +155,7 @@ và 31 byte dữ liệu đầu ra, ý nghĩa nếu phụ thuộc vào tính năn
    This is a firmware bug that needs to be handled inside the driver itself.
 
 Phương thức WMI Get_EC()
--------------------
+------------------------
 
 Trả về thông tin bộ điều khiển được nhúng, tính năng phụ được chọn không thành vấn đề. Đầu ra
 dữ liệu chứa một byte cờ và chuỗi phiên bản phần mềm điều khiển 28 byte.
@@ -169,7 +169,7 @@ tín hiệu bit cuối cùng nếu nền tảng là nền tảng Tigerlake.
 Phần mềm MSI dường như chỉ sử dụng giao diện này khi bit cuối cùng được đặt.
 
 Phương thức WMI Get_Fan()
---------------------
+-------------------------
 
 Cảm biến tốc độ quạt có thể được truy cập bằng cách chọn tính năng phụ ZZ0000ZZ. Dữ liệu đầu ra chứa
 tối đa bốn số đọc tốc độ quạt 16 bit ở định dạng big-endian. Hầu hết các máy không hỗ trợ tất cả
@@ -182,7 +182,7 @@ RPM = 480000 / <đọc tốc độ quạt>
 Nếu số đọc tốc độ quạt bằng 0 thì quạt RPM cũng bằng 0.
 
 Phương thức WMI Get_WMI()
---------------------
+-------------------------
 
 Trả về phiên bản của giao diện ACPI WMI, tính năng phụ được chọn không thành vấn đề.
 Dữ liệu đầu ra chứa hai byte, byte đầu tiên chứa phiên bản chính và byte cuối cùng

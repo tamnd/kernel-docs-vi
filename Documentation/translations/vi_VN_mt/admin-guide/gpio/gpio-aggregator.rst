@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Bộ tổng hợp GPIO
-===============
+================
 
 Bộ tổng hợp GPIO cung cấp cơ chế tổng hợp các GPIO và hiển thị chúng dưới dạng
 một gpio_chip mới.  Điều này hỗ trợ các trường hợp sử dụng sau.
@@ -189,7 +189,7 @@ Lệnh cấu hình mẫu
 
 
 Trình điều khiển GPIO chung
--------------------
+---------------------------
 
 Bộ tổng hợp GPIO cũng có thể được sử dụng làm trình điều khiển chung cho một công việc đơn giản
 Thiết bị vận hành GPIO được mô tả trong DT, không có trình điều khiển trong nhân chuyên dụng.

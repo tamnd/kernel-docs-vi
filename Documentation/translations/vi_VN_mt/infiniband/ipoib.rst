@@ -45,7 +45,7 @@ Việc tạo/xóa giao diện con cũng có thể được thực hiện bằng 
   rtnl_link_ops, trong đó trẻ em được tạo bằng cách sử dụng một trong hai cách sẽ hoạt động giống nhau.
 
 Datagram và chế độ được kết nối
-===========================
+===============================
 
 Trình điều khiển IPoIB hỗ trợ hai chế độ hoạt động: datagram và
   được kết nối.  Chế độ được thiết lập và đọc qua giao diện
@@ -69,7 +69,7 @@ Trong chế độ datagram, việc truyền tải IB UD (Datagram không đáng 
   ngăn xếp mạng để sử dụng UD MTU nhỏ hơn cho những người hàng xóm này.
 
 Giảm tải không quốc tịch
-==================
+========================
 
 Nếu IB HW hỗ trợ giảm tải không trạng thái IPoIB, IPoIB sẽ quảng cáo
   Tổng kiểm tra TCP/IP và/hoặc khả năng giảm tải Gửi lớn (LSO) tới
@@ -117,7 +117,7 @@ CONFIG_INFINIBAND_IPOIB_DEBUG_DATA cho phép đầu ra gỡ lỗi nhiều hơn n
   hiệu suất, bởi vì nó thêm các bài kiểm tra vào đường dẫn nhanh.
 
 Tài liệu tham khảo
-==========
+==================
 
 Truyền IP qua InfiniBand (IPoIB) (RFC 4391)
     ZZ0000ZZ

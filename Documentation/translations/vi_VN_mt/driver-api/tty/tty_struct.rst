@@ -57,25 +57,25 @@ Cài đặt
    :identifiers: tty_put_char
 
 Bắt đầu & Dừng
-============
+==============
 
 .. kernel-doc:: drivers/tty/tty_io.c
    :identifiers: start_tty stop_tty
 
 Thức dậy
-======
+========
 
 .. kernel-doc:: drivers/tty/tty_io.c
    :identifiers: tty_wakeup
 
 Cúp máy
-======
+=======
 
 .. kernel-doc:: drivers/tty/tty_io.c
    :identifiers: tty_hangup tty_vhangup tty_hung_up_p
 
 linh tinh
-====
+=========
 
 .. kernel-doc:: drivers/tty/tty_io.c
    :identifiers: tty_do_resize
@@ -87,7 +87,7 @@ Cờ cấu trúc TTY
    :identifiers: tty_struct_flags
 
 Tham khảo cấu trúc TTY
-====================
+======================
 
 .. kernel-doc:: include/linux/tty.h
    :identifiers: tty_struct

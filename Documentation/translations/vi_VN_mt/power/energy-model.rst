@@ -17,7 +17,7 @@ Mô hình năng lượng của thiết bị
 ===============================
 
 1. Tổng quan
------------
+------------
 
 Khung Mô hình Năng lượng (EM) đóng vai trò là giao diện giữa những người lái xe biết
 năng lượng tiêu thụ của các thiết bị ở các mức hiệu suất khác nhau và hạt nhân
@@ -110,10 +110,10 @@ hoặc thuộc tính hệ thống.
 
 
 2. API cốt lõi
-------------
+--------------
 
 2.1 Tùy chọn cấu hình
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 CONFIG_ENERGY_MODEL phải được kích hoạt để sử dụng khung EM.
 
@@ -216,7 +216,7 @@ hoặc trong Phần 2.5
 
 
 2.4 Sửa đổi thời gian chạy
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trình điều khiển sẵn sàng cập nhật EM khi chạy nên sử dụng phần mềm chuyên dụng sau
 chức năng phân bổ một phiên bản mới của EM đã sửa đổi. API được liệt kê

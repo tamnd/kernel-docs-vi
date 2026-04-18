@@ -26,7 +26,7 @@ ZZ0000ZZ và ZZ0001ZZ đề cập đến trạng thái của CPU mà linux nhìn
 
 
 CPU Hotplug trên hệ thống vật lý - CPU không có khi khởi động
-----------------------------------------------------------
+-------------------------------------------------------------
 
 Các hệ thống vật lý cần đánh dấu CPU là ZZ0000ZZ chứ không phải ZZ0001ZZ là
 là ZZ0002ZZ. Một ví dụ là một máy có ổ cắm kép, trong đó gói
@@ -53,7 +53,7 @@ Các bảng ACPI của arm64 giả định rằng mọi thứ được mô tả 
 
 
 CPU Hotplug trên hệ thống ảo - CPU không được bật khi khởi động
----------------------------------------------------------
+---------------------------------------------------------------
 
 Hệ thống ảo có ưu điểm là tất cả các thuộc tính của hệ thống sẽ
 từng có có thể được mô tả khi khởi động. Không có cân nhắc về miền quyền lực

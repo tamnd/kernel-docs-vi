@@ -19,7 +19,7 @@ Trình điều khiển ADXL380
 Trình điều khiển này hỗ trợ ADXL380/382 của Thiết bị Analog trên bus SPI/I2C.
 
 1. Thiết bị được hỗ trợ
-====================
+=======================
 
 * ZZ0000ZZ
 * ZZ0001ZZ
@@ -29,7 +29,7 @@ phạm vi đo có thể lựa chọn ADXL380 hỗ trợ ±4 g, ±8 g và ±16 g
 phạm vi và ADXL382 hỗ trợ các phạm vi ±15 g, ±30 g và ±60 g.
 
 2. Thuộc tính thiết bị
-====================
+======================
 
 Các phép đo gia tốc luôn được cung cấp.
 
@@ -93,7 +93,7 @@ ZZ0003ZZ Cấu hình tần số lấy mẫu có sẵn. |
 +------------------------------+-------------------------------------------------------+
 
 Các giá trị được xử lý của kênh
--------------------------
+-------------------------------
 
 Giá trị kênh có thể được đọc từ thuộc tính _raw của nó. Giá trị trả về là
 giá trị thô như được báo cáo bởi các thiết bị. Để có được giá trị được xử lý của kênh,
@@ -183,7 +183,7 @@ Hiển thị giá trị kênh gia tốc:
         2000
 
 3. Bộ đệm thiết bị
-=================
+==================
 
 Trình điều khiển này hỗ trợ bộ đệm IIO.
 

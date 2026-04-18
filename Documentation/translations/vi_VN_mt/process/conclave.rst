@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tính liên tục của dự án hạt nhân Linux
-===============================
+======================================
 
 Dự án phát triển nhân Linux được phân phối rộng rãi, với hơn
 100 người bảo trì, mỗi người làm việc để duy trì các thay đổi của riêng mình

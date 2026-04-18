@@ -69,7 +69,7 @@ request_firmware_nowait
    :functions: request_firmware_nowait
 
 Tối ưu hóa đặc biệt khi khởi động lại
-===============================
+=====================================
 
 Một số thiết bị có sẵn tính năng tối ưu hóa để cho phép sử dụng chương trình cơ sở
 được giữ lại trong quá trình khởi động lại hệ thống. Khi sử dụng những tối ưu hóa như vậy, trình điều khiển
@@ -83,7 +83,7 @@ firmware_request_cache()
    :functions: firmware_request_cache
 
 yêu cầu sử dụng driver firmware API dự kiến
-========================================
+===========================================
 
 Sau khi có cuộc gọi API trả về, bạn xử lý chương trình cơ sở và sau đó giải phóng
 phần sụn. Ví dụ: nếu bạn đã sử dụng request_firmware() và nó trả về,

@@ -117,10 +117,10 @@ một mặt phẳng khác và do đó kế thừa bất kỳ sự chia tỷ lệ
 mặt phẳng mẹ.
 
 Trường hợp sử dụng
-=========
+==================
 
 Phát lại hình ảnh trong hình (PIP) - Chiến lược lớp lót
------------------------------------------------------
+-------------------------------------------------------
 
 Việc phát lại video phải được thực hiện bằng cách sử dụng "mặt phẳng chính làm lớp nền" MPO
 chiến lược. Đây là cấu hình 2 mặt phẳng:

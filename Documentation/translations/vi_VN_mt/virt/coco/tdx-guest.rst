@@ -55,7 +55,7 @@ một IOCTL CMD mới sẽ được tạo để xử lý nó. Để giữ tên I
 nhất quán, một chỉ mục kiểu con được thêm vào như một phần của IOCTL CMD.
 
 Thẩm quyền giải quyết
----------
+---------------------
 
 Tài liệu tham khảo TDX được thu thập tại đây:
 

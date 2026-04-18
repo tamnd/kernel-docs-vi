@@ -23,7 +23,7 @@ Tài liệu này mô tả ngắn gọn giao diện do Linux cung cấp cho khôn
 để bật ngăn xếp bóng cho các ứng dụng chế độ người dùng trên RISC-V.
 
 1. Tổng quan về tính năng
---------------------
+-------------------------
 
 Các vấn đề hỏng bộ nhớ thường dẫn đến sự cố.  Tuy nhiên, trong
 dưới bàn tay của một kẻ thù sáng tạo, những vấn đề này có thể dẫn đến nhiều hậu quả khác nhau.
@@ -147,7 +147,7 @@ Nhân Linux sẽ coi đây là ZZ0000ZZ với mã =
 ZZ0001ZZ và tuân theo quy trình truyền tín hiệu thông thường.
 
 6. Mã thông báo ngăn xếp bóng
------------------------
+-----------------------------
 
 Không được phép lưu trữ thông thường trên ngăn xếp bóng tối và do đó không thể
 bị giả mạo thông qua việc viết đi lạc tùy ý.  Tuy nhiên, một phương pháp
@@ -187,7 +187,7 @@ chắc chắn rằng có một ZZ0003ZZ hợp lệ ngoài
 gọi ZZ0002ZZ.
 
 7. Ngăn xếp bóng tín hiệu
------------------------
+-------------------------
 Cấu trúc sau đã được thêm vào sigcontext cho RISC-V::
 
 cấu trúc __sc_riscv_cfi_state {

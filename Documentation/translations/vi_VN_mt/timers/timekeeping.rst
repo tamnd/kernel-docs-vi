@@ -97,7 +97,7 @@ vẫn đơn điệu.
 
 
 Sự kiện đồng hồ
-------------
+---------------
 
 Các sự kiện đồng hồ là sự đảo ngược về mặt khái niệm của các nguồn đồng hồ: chúng lấy một
 giá trị đặc tả thời gian mong muốn và tính toán các giá trị để chọc vào
@@ -172,7 +172,7 @@ bật tùy chọn CONFIG_HAVE_UNSTABLE_SCHED_CLOCK. Đây là một khía cạnh
 
 
 Bộ định thời gian trễ (chỉ một số kiến ​​trúc)
---------------------------------------
+----------------------------------------------
 
 Trên các hệ thống có tần số CPU thay đổi, các hàm delay() khác nhau của kernel
 đôi khi sẽ cư xử kỳ lạ. Về cơ bản những độ trễ này thường sử dụng phần cứng

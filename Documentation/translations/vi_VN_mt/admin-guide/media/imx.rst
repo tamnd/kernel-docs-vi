@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển quay video i.MX
-=========================
+================================
 
 Giới thiệu
 ------------
@@ -85,7 +85,7 @@ hướng dẫn sử dụng [#f1]_ và [#f2]_.
 
 
 Đặc trưng
---------
+---------
 
 Một số tính năng của trình điều khiển này bao gồm:
 
@@ -115,7 +115,7 @@ Một số tính năng của trình điều khiển này bao gồm:
 
 
 Cấu trúc liên kết
---------
+-----------------
 
 Phần sau đây hiển thị các cấu trúc liên kết phương tiện cho i.MX6Q SabreSD và
 i.MX6Q SabreAuto. Tham khảo các sơ đồ này trong phần mô tả thực thể
@@ -235,7 +235,7 @@ là seq-bt, interlaced-tb nếu phần đệm nguồn là seq-tb).
 Đối với các sự kiện do ipuX_csiY tạo ra, hãy xem ref:ZZ0000ZZ.
 
 Cắt xén trong ipuX_csiY
----------------------
+-----------------------
 
 CSI hỗ trợ cắt các khung cảm biến thô đến. Đây là
 được triển khai trong các thực thể ipuX_csiY tại sink pad, bằng cách sử dụng
@@ -262,7 +262,7 @@ kích thước thành 320x240 (giả sử ipu1_csi0 được liên kết với i
    media-ctl -V "'ipu1_csi0':0[compose:(0,0)/320x240]"
 
 Bỏ qua khung hình trong ipuX_csiY
----------------------------
+---------------------------------
 
 CSI hỗ trợ giảm tốc độ khung hình bằng cách bỏ qua khung hình. khung
 tốc độ giảm dần được chỉ định bằng cách đặt khoảng thời gian khung hình ở
@@ -279,7 +279,7 @@ giảm một nửa ở bảng nguồn đầu ra IDMAC:
    media-ctl -V "'ipu1_csi0':2[fmt:UYVY2X8/640x480@1/30]"
 
 Giám sát khoảng thời gian khung trong ipuX_csiY
------------------------------------
+-----------------------------------------------
 
 Xem giới thiệu:ZZ0000ZZ.
 
@@ -377,7 +377,7 @@ trên kênh ảo mipi csi-2, do đó ipuX_csiY_mux được hiển thị trong
 dấu ngoặc đơn.
 
 Quay video chưa được xử lý:
---------------------------
+---------------------------
 
 Gửi khung hình trực tiếp từ cảm biến đến nút giao diện thiết bị máy ảnh, với
 không có chuyển đổi, thông qua bảng nguồn ipuX_csiY IDMAC:
@@ -385,7 +385,7 @@ không có chuyển đổi, thông qua bảng nguồn ipuX_csiY IDMAC:
 -> ipuX_csiY:2 -> chụp ipuX_csiY
 
 Chuyển đổi trực tiếp IC:
-----------------------
+------------------------
 
 Đường dẫn này sử dụng thực thể mã hóa tiền xử lý để định tuyến các khung trực tiếp
 từ CSI đến IC, để thực hiện mở rộng độ phân giải lên tới 1024x1024,
@@ -404,7 +404,7 @@ tỷ lệ lên tới 1024x1024, CSC, lật và xoay:
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Để hỗ trợ cấu hình và tương thích ngược với V4L2
 các ứng dụng chỉ truy cập điều khiển từ các nút thiết bị video,
@@ -473,7 +473,7 @@ Sau đó, quá trình truyền phát có thể bắt đầu độc lập trên c
 các nút, bao gồm cả mặt phẳng.
 
 i.MX6Q SabreAuto với bộ giải mã ADV7180
--------------------------------------
+---------------------------------------
 
 Trên i.MX6Q SabreAuto, bộ giải mã ADV7180 SD tích hợp được kết nối với
 đầu vào bus song song trên mux video nội bộ tới IPU1 CSI0.
@@ -531,7 +531,7 @@ Nền tảng này chấp nhận đầu vào tương tự Video tổng hợp cho 
 Ain1 (đầu nối J42).
 
 i.MX6DL SabreAuto với bộ giải mã ADV7180
---------------------------------------
+----------------------------------------
 
 Trên i.MX6DL SabreAuto, bộ giải mã ADV7180 SD tích hợp được kết nối với
 đầu vào bus song song trên mux video nội bộ tới IPU1 CSI0.
@@ -692,7 +692,7 @@ Bắt đầu truyền phát qua Gstreamer và gửi nội dung tới màn hình:
    gst-launch-1.0 v4l2src device=/dev/video1 ! kmssink
 
 Sự cố đã biết
-------------
+-------------
 
 1. Khi sử dụng điều khiển xoay 90 hoặc 270 độ ở độ phân giải chụp
    gần giới hạn bộ thay đổi IC là 1024x1024 và kết hợp với mặt phẳng
@@ -703,14 +703,14 @@ Sự cố đã biết
 
 
 Danh sách tập tin
----------
+-----------------
 
 trình điều khiển/dàn dựng/media/imx/
 bao gồm/media/imx.h
 bao gồm/linux/imx-media.h
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. [#f1] http://www.nxp.com/assets/documents/data/en/reference-manuals/IMX6DQRM.pdf
 .. [#f2] http://www.nxp.com/assets/documents/data/en/reference-manuals/IMX6SDLRM.pdf

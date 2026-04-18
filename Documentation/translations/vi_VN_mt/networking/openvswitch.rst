@@ -39,7 +39,7 @@ các gói cùng loại hoàn toàn nằm trong kernel).
 
 
 Khả năng tương thích của phím luồng
-----------------------
+-----------------------------------
 
 Các giao thức mạng phát triển theo thời gian.  Các giao thức mới trở nên quan trọng
 và các giao thức hiện có mất đi sự nổi bật của chúng.  Đối với vSwitch mở
@@ -81,7 +81,7 @@ các phần sau đây đi vào chi tiết.
 
 
 Định dạng khóa luồng
----------------
+--------------------
 
 Khóa luồng được truyền qua ổ cắm Netlink dưới dạng một chuỗi Netlink
 thuộc tính.  Một số thuộc tính đại diện cho siêu dữ liệu gói, được định nghĩa là bất kỳ
@@ -107,7 +107,7 @@ in_port(1), eth(...), eth_type(0x0800), ipv4(...), tcp(...)
 
 
 Định dạng khóa luồng ký tự đại diện
---------------------------
+-----------------------------------
 
 Luồng ký tự đại diện được mô tả bằng hai chuỗi thuộc tính Netlink
 được chuyển qua ổ cắm Netlink. Một khóa luồng, chính xác như được mô tả ở trên, và một
@@ -147,7 +147,7 @@ một số nhưng không phải tất cả trong số họ. Tuy nhiên, hành vi
 
 
 Mã định danh luồng duy nhất
------------------------
+---------------------------
 
 Một cách thay thế cho việc sử dụng phần khớp ban đầu của khóa làm tay cầm cho
 nhận dạng luồng là mã định danh luồng duy nhất hoặc "UFID". UFID là tùy chọn
@@ -160,7 +160,7 @@ phím luồng nếu UFID được chỉ định.
 
 
 Quy tắc cơ bản để phát triển các khóa luồng
----------------------------------
+-------------------------------------------
 
 Cần phải cẩn thận để thực sự duy trì tiến và lùi
 khả năng tương thích cho các ứng dụng tuân theo các quy tắc được liệt kê bên dưới
@@ -214,7 +214,7 @@ và do đó sẽ không hiểu sai chúng.  (Ngoài ra, eth_type bên ngoài
 vẫn là 0x8100, không đổi thành 0x0800.)
 
 Xử lý các gói không đúng định dạng
---------------------------
+----------------------------------
 
 Đừng bỏ các gói trong kernel vì các tiêu đề giao thức không đúng định dạng, xấu
 tổng kiểm tra, v.v. Điều này sẽ ngăn không gian người dùng triển khai
@@ -249,7 +249,7 @@ Do đó, khóa luồng trong ví dụ thứ hai này chỉ ra rõ ràng một
 VLAN TCI bị thiếu hoặc không đúng định dạng.
 
 Các quy tắc khác
------------
+----------------
 
 Các quy tắc khác cho khóa luồng ít tinh tế hơn nhiều:
 

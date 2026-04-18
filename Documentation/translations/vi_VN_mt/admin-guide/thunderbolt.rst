@@ -34,7 +34,7 @@ trình quản lý kết nối phần mềm chỉ hỗ trợ mức bảo mật ZZ
 dự kiến ​​sẽ đi kèm với lớp bảo vệ DMA dựa trên IOMMU.
 
 Mức độ bảo mật và cách sử dụng chúng
------------------------------------
+------------------------------------
 Giao diện được trình bày ở đây không dành cho người dùng cuối. Thay vào đó
 phải là một công cụ không gian người dùng xử lý tất cả các chi tiết cấp thấp, giữ
 cơ sở dữ liệu về các thiết bị được ủy quyền và nhắc nhở người dùng về các kết nối mới.
@@ -209,7 +209,7 @@ tuân theo quy tắc ZZ0002ZZ::
 ACTION=="thêm", SUBSYSTEM=="thunderbolt", ATTRS{iommu_dma_protection}=="1", ATTR{authorized}=="0", ATTR{authorized}="1"
 
 Nâng cấp NVM trên thiết bị Thunderbolt, máy chủ hoặc bộ đếm thời gian
-----------------------------------------------------
+---------------------------------------------------------------------
 Vì hầu hết các chức năng được xử lý trong phần sụn chạy trên
 bộ điều khiển máy chủ hoặc một thiết bị, điều quan trọng là phần sụn có thể
 đã nâng cấp lên bản mới nhất khi các lỗi có thể xảy ra trong đó đã được sửa.
@@ -289,7 +289,7 @@ phụ thuộc vào thứ tự chúng được đăng ký trong hệ thống con 
 tên là mã định danh được hệ thống con NVMem thêm vào.
 
 Nâng cấp bộ định thời gian trên bo mạch NVM khi không có cáp kết nối
----------------------------------------------------------------
+--------------------------------------------------------------------
 Nếu nền tảng hỗ trợ, có thể nâng cấp bộ hẹn giờ NVM
 chương trình cơ sở ngay cả khi không có gì kết nối với USB4
 cổng. Trong trường hợp này, thiết bị ZZ0000ZZ có hai đặc biệt
@@ -318,7 +318,7 @@ trạng thái chức năng một lần nữa::
 # echo 0 > /sys/bus/thunderbolt/devices/0-0/usb4_port1/offline
 
 Nâng cấp NVM khi bộ điều khiển máy chủ ở chế độ an toàn
---------------------------------------------------
+-------------------------------------------------------
 Nếu NVM hiện tại không được xác thực chính xác (hoặc bị thiếu),
 bộ điều khiển máy chủ chuyển sang chế độ an toàn, điều đó có nghĩa là chỉ có sẵn
 chức năng đang nhấp nháy một hình ảnh NVM mới. Khi ở chế độ này, việc đọc
@@ -386,7 +386,7 @@ bạn có thể sử dụng các công cụ không gian người dùng tiêu chu
 định cấu hình giao diện hoặc để GUI của bạn tự động xử lý nó.
 
 Sức mạnh cưỡng bức
--------------
+------------------
 Nhiều OEM bao gồm một phương pháp có thể được sử dụng để tăng sức mạnh của
 Bộ điều khiển Thunderbolt sang trạng thái "Bật" ngay cả khi không có gì được kết nối.
 Nếu được máy của bạn hỗ trợ, điều này sẽ được hiển thị bởi bus WMI với

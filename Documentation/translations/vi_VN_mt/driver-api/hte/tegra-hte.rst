@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển nhà cung cấp hạt nhân HTE
-==========================
+==========================================
 
 Sự miêu tả
 -----------

@@ -17,7 +17,7 @@ Ghi chú triển khai LC-trie
 ===============================
 
 Các loại nút
-----------
+------------
 lá
 	Một nút cuối có dữ liệu. Cái này có một bản sao của khóa liên quan, cùng với
 	với 'hlist' với các mục trong bảng định tuyến được sắp xếp theo độ dài tiền tố.
@@ -28,7 +28,7 @@ nút trie hoặc tnode
 	được lập chỉ mục thông qua một tập hợp con của khóa. Xem Nén mức.
 
 Giải thích một số khái niệm
-------------------------
+---------------------------
 Bit (tnode)
 	Số bit trong đoạn khóa được sử dụng để lập chỉ mục vào
 	mảng con - "chỉ mục con". Xem Nén mức.

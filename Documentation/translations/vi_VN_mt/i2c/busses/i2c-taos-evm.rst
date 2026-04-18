@@ -34,7 +34,7 @@ Các thiết bị hiện được hỗ trợ là:
 
 
 Sử dụng trình điều khiển này
------------------
+----------------------------
 
 Để sử dụng trình điều khiển này, bạn sẽ cần trình điều khiển dịch vụ và
 công cụ inputattach, là một phần của gói input-utils. Sau đây

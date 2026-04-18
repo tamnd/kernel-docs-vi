@@ -101,7 +101,7 @@ Các hoạt động sau đây có thể được thực hiện trên yêu cầu 
    Cấu hình lại dòng <gpio-v2-line-set-config-ioctl>
 
 Các loại
-=====
+========
 
 Phần này chứa các cấu trúc và enum được tham chiếu bởi API v2,
 như được định nghĩa trong ZZ0000ZZ.

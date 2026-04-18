@@ -114,7 +114,7 @@ bộ đệm khung sang bảng điều khiển VGA và ngược lại, tính năn
 để biết thêm chi tiết.)
 
 Ghi chú dành cho nhà phát triển
-====================
+===============================
 
 do_take_over_console() hiện được chia thành::
 
@@ -126,7 +126,7 @@ hoàn toàn không bị ràng buộc để cuộc gọi này thành công. con_i
 trình điều khiển có bị ràng buộc hay không.
 
 Hướng dẫn dành cho người viết trình điều khiển bảng điều khiển
-=====================================
+==============================================================
 
 Để liên kết và hủy liên kết khỏi bảng điều khiển hoạt động bình thường,
 trình điều khiển bảng điều khiển phải tuân theo các nguyên tắc sau:

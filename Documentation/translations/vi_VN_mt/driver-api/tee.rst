@@ -40,7 +40,7 @@ Sau đó, trình điều khiển máy khách TEE có thể giao tiếp với Ứ
 được liệt kê trong include/linux/tee_drv.h.
 
 Ví dụ về trình điều khiển máy khách TEE
--------------------------
+---------------------------------------
 
 Giả sử trình điều khiển máy khách TEE cần giao tiếp với Ứng dụng đáng tin cậy
 có UUID: ZZ0000ZZ nên đăng ký lái xe

@@ -155,7 +155,7 @@ Vào tháng 9 năm 2008, IB_USER_MAD_ABI_VERSION sẽ được tăng lên
   tập tin issm.
 
 tập tin /dev
-==========
+============
 
 Để tự động tạo các tập tin thiết bị ký tự phù hợp với
   udev, một quy tắc như::

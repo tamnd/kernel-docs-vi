@@ -31,7 +31,7 @@ hiện tại, hầu hết các môi trường bảo mật cứng nhắc đều y
 phần cứng TPM, đây là trường hợp sử dụng được thảo luận ở đây.
 
 Các cuộc tấn công theo dõi và thay đổi nhằm vào xe buýt
------------------------------------------------
+-------------------------------------------------------
 
 Công nghệ tiên tiến hiện nay để theo dõi phần cứng ZZ0000ZZ
 bộ chuyển đổi là một thiết bị bên ngoài đơn giản có thể được cài đặt trong
@@ -50,7 +50,7 @@ khả năng thiết lập lại có thể được kiểm soát bởi kẻ tấn
 xe buýt, vì vậy chúng ta sẽ thảo luận về một số khả năng gián đoạn bên dưới.
 
 Đo lường (PCR) Tính toàn vẹn
----------------------------
+----------------------------
 
 Vì kẻ tấn công có thể gửi lệnh của riêng chúng tới TPM nên chúng có thể
 gửi PCR tùy ý mở rộng và do đó làm gián đoạn hệ thống đo lường,
@@ -120,7 +120,7 @@ biết có một kẻ can thiệp vào hệ thống của bạn (và bất kỳ 
 trong quá trình khởi động có thể đã bị rò rỉ).
 
 Xếp chồng niềm tin
---------------
+------------------
 
 Trong kịch bản chính rỗng hiện tại, TPM phải hoàn toàn
 được xóa trước khi chuyển nó cho người tiêu dùng tiếp theo.  Tuy nhiên hạt nhân
@@ -164,7 +164,7 @@ bảo vệ việc niêm phong khóa và giải mã tham số để bảo vệ vi
 và tạo số ngẫu nhiên.
 
 Chứng nhận khóa chính Null trong không gian người dùng
-===========================================
+======================================================
 
 Mỗi TPM đều được cung cấp kèm theo một vài chứng chỉ X.509 cho
 khóa chứng thực chính.  Tài liệu này giả định rằng Elliptic

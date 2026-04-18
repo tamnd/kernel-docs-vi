@@ -37,7 +37,7 @@ thuộc tính hiện có:
 * ZZ0001ZZ, kích hoạt chụp bộ đệm.
 
 Thiết lập bộ đệm IIO
-================
+====================
 
 Thông tin meta liên quan đến việc đọc kênh được đặt trong bộ đệm là
 được gọi là phần tử quét. Các bit quan trọng cấu hình các phần tử quét là
@@ -134,7 +134,7 @@ không hỗ trợ chụp đệm. Trong trường hợp này sẽ không có mụ
 kênh trong thư mục scan_elements.
 
 Thêm chi tiết
-============
+=============
 .. kernel-doc:: include/linux/iio/buffer.h
 .. kernel-doc:: drivers/iio/industrialio-buffer.c
    :export:

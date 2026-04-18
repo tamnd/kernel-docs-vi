@@ -111,7 +111,7 @@ khóa. Các trường này được coi là hợp lệ mọi lúc và có thể
 
 
 Trình điều khiển xe buýt chuyển tiếp
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Bằng cách xác định các hàm bao bọc, việc chuyển đổi sang mô hình mới có thể được thực hiện
 được thực hiện dễ dàng hơn. Trình điều khiển có thể bỏ qua cấu trúc chung hoàn toàn và
@@ -126,7 +126,7 @@ việc chuyển đổi trình điều khiển sang mô hình mới sẽ giảm b
 thông tin lớp học được thêm vào.
 
 Truy cập
-~~~~~~
+~~~~~~~~
 
 Khi đối tượng đã được đăng ký, nó có thể truy cập vào các trường chung của
 đối tượng, như khóa và danh sách thiết bị::
@@ -156,7 +156,7 @@ hỗ trợ.
 
 
 Cuộc gọi lại
-~~~~~~~~~
+~~~~~~~~~~~~
 
 ::
 

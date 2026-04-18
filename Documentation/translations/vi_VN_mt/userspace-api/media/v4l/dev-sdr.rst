@@ -71,7 +71,7 @@ không được hỗ trợ.
 
 
 Đàm phán định dạng dữ liệu
-=======================
+==========================
 
 Thiết bị SDR sử dụng ioctls ZZ0000ZZ để chọn
 định dạng chụp và đầu ra. Cả độ phân giải lấy mẫu và dữ liệu

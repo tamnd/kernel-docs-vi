@@ -59,5 +59,5 @@ Nội bộ hệ thống con PECI
 .. kernel-doc:: drivers/peci/request.c
 
 Trình điều khiển PECI CPU API
--------------------
+-----------------------------
 .. kernel-doc:: drivers/peci/cpu.c

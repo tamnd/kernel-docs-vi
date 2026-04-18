@@ -17,7 +17,7 @@ API quản lý bộ nhớ
 ========================
 
 Truy cập bộ nhớ không gian người dùng
-========================
+=====================================
 
 .. kernel-doc:: arch/x86/include/asm/uaccess.h
    :internal:
@@ -70,7 +70,7 @@ Bộ đệm phiến
 ===========================
 
 Sơ đồ tập tin
--------
+-------------
 
 .. kernel-doc:: mm/filemap.c
    :export:

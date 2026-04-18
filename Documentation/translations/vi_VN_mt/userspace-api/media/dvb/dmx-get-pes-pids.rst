@@ -64,7 +64,7 @@ pids[DMX_PES_PCR] 4 Đồng hồ chương trình đầu tiên Tham khảo PID
 	Kernel.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

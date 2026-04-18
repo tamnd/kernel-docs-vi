@@ -24,7 +24,7 @@ năm 1964. Chúng được hỗ trợ bởi nhân Linux dưới tên "s390". Cá
 tài liệu mô tả cách kiểm tra BPF trên máy khách s390 QEMU.
 
 2. Thiết lập một lần
-*****************
+********************
 
 Những điều sau đây là cần thiết để xây dựng và chạy bộ thử nghiệm:
 
@@ -205,7 +205,7 @@ cài đặt các gói bổ sung, nó có thể được cấu hình bằng cách
 dhclient eth0
 
 7. Liên kết
-********
+***********
 
 Tài liệu này là sự tổng hợp các kỹ thuật có tính toàn diện hơn
 mô tả có thể được tìm thấy bằng cách làm theo các liên kết sau:

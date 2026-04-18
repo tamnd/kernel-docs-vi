@@ -48,7 +48,7 @@ CA_SET_DESCR được sử dụng để cấp nguồn cho các khe CA của bộ
 phím (gọi là từ điều khiển).
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

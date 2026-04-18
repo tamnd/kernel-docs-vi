@@ -57,7 +57,7 @@ bộ đệm tròn bên trong của trình điều khiển tới ZZ0000ZZ. Lượ
    data that fails on CRC check will be silently ignored.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

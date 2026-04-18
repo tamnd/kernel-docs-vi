@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adm9240
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -105,7 +105,7 @@ Báo động nhiệt độ được xác nhận khi nhiệt độ vượt quá g
 và bị xóa khi nhiệt độ giảm xuống dưới giá trị temp1_max_hyst.
 
 Tốc độ quạt
----------
+-----------
 Hai đầu vào tacho quạt được cung cấp, cổng ADM9240 có tần số 22,5kHz bên trong
 đồng hồ thông qua bộ chia đến bộ đếm 8 bit. Tốc độ quạt (rpm) được tính bằng:
 
@@ -146,7 +146,7 @@ Bộ chia đồng hồ quạt tự động
     phạm vi, điều này sẽ xảy ra trong một vài chu kỳ đo.
 
 Đầu ra tương tự
--------------
+---------------
 Đầu ra analog cung cấp tín hiệu từ 0 đến 1,25 volt dành cho thiết bị bên ngoài
 mạch khuếch đại tốc độ quạt. Đầu ra analog được đặt ở giá trị tối đa trên
 bật nguồn hoặc thiết lập lại. Điều này không ảnh hưởng nhiều đến bài kiểm tra Intel SE440BX-2.
@@ -177,12 +177,12 @@ Một cảnh báo sẽ được xác nhận khi có bất kỳ điện áp nào 
 Trình điều khiển báo cáo và chấp nhận giới hạn điện áp được chia theo bảng trên.
 
 Màn hình VID
------------
+------------
 Con chip có năm đầu vào để đọc VID 5 bit và báo cáo giá trị mV
 dựa trên loại CPU được phát hiện.
 
 Xâm nhập khung gầm
------------------
+------------------
 Một cảnh báo được xác nhận khi chân CI hoạt động ở mức cao. ADM9240
 Bảng dữ liệu có một ví dụ về hoạt động của cảm biến nhiệt độ bên ngoài
 cái chốt này. Trên Intel SE440BX-2, tiêu đề Chassis Intrusion là

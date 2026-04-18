@@ -33,13 +33,13 @@ các thành phần kích hoạt chéo như CTI và CTM. Các cài đặt hệ th
 
 
 Khái niệm cơ bản
-==============
+================
 
 Phần này giới thiệu các khái niệm cơ bản về cấu hình hệ thống CoreSight.
 
 
 Đặc trưng
---------
+---------
 
 Tính năng là một tập hợp lập trình được đặt tên cho thiết bị CoreSight. Lập trình
 phụ thuộc vào thiết bị và có thể được xác định theo các giá trị thanh ghi tuyệt đối,
@@ -101,7 +101,7 @@ các giá trị.
 
 
 Giá trị đặt trước
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Các giá trị đặt trước là các bộ giá trị tham số có thể lựa chọn dễ dàng cho các tính năng
 mà cấu hình sử dụng. Số lượng giá trị trong một bộ đặt trước, bằng

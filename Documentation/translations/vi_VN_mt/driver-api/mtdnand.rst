@@ -42,7 +42,7 @@ thành viên cấu trúc có một mô tả ngắn được đánh dấu bằng 
 số nhận dạng.
 
 Mã định danh chức năng [XXX]
---------------------------
+----------------------------
 
 Các chức năng được đánh dấu bằng mã định danh [XXX] trong nhận xét ngắn.
 Các mã định danh giải thích cách sử dụng và phạm vi của các chức năng. Đang theo dõi
@@ -76,7 +76,7 @@ Các chức năng mặc định cung cấp chức năng liên quan đến phần
    chức năng phù hợp với loại chip được phát hiện.
 
 Mã định danh thành viên cấu trúc [XXX]
--------------------------------
+--------------------------------------
 
 Các thành viên cấu trúc được đánh dấu bằng mã định danh [XXX] trong nhận xét. các
 định danh giải thích cách sử dụng và phạm vi của các thành viên. Đang theo dõi
@@ -109,14 +109,14 @@ Các thành viên tùy chọn có thể nắm giữ thông tin liên quan đến
    Mã trình điều khiển NAND chung không sử dụng thông tin này.
 
 Trình điều khiển bảng cơ bản
-==================
+============================
 
 Đối với hầu hết các bảng, chỉ cần cung cấp những thông tin cơ bản là đủ
 hoạt động và điền vào một số thành viên thực sự phụ thuộc vào hội đồng quản trị trong nand
 cấu trúc mô tả chip
 
 Định nghĩa cơ bản
--------------
+-----------------
 
 Ít nhất bạn phải cung cấp cấu trúc nand_chip và bộ lưu trữ cho
 địa chỉ chip được ánh xạ. Bạn có thể phân bổ cấu trúc nand_chip
@@ -142,7 +142,7 @@ cấu trúc tĩnh nand_chip board_chip;
 
 
 Phân vùng xác định
------------------
+------------------
 
 Nếu bạn muốn chia thiết bị của mình thành các phân vùng, hãy xác định một
 sơ đồ phân vùng phù hợp với bảng của bạn.
@@ -161,7 +161,7 @@ sơ đồ phân vùng phù hợp với bảng của bạn.
 
 
 Chức năng điều khiển phần cứng
--------------------------
+------------------------------
 
 Chức năng điều khiển phần cứng cung cấp quyền truy cập vào các chân điều khiển của
 (Các) chip NAND. Việc truy cập có thể được thực hiện bằng các chân GPIO hoặc bằng các dòng địa chỉ.
@@ -203,7 +203,7 @@ static void board_hwcontrol(struct mtd_info *mtd, int cmd)
 
 
 Chức năng sẵn sàng của thiết bị
----------------------
+-------------------------------
 
 Nếu giao diện phần cứng có sẵn chân bận của chip NAND
 được kết nối với GPIO hoặc chân I/O có thể truy cập khác, chức năng này được sử dụng
@@ -279,7 +279,7 @@ out_ior:
 
 
 Chức năng thoát
--------------
+---------------
 
 Chức năng thoát chỉ cần thiết nếu trình điều khiển được biên dịch dưới dạng
 mô-đun. Nó giải phóng tất cả các tài nguyên được giữ bởi trình điều khiển chip và
@@ -306,7 +306,7 @@ hủy đăng ký các phân vùng trong lớp MTD.
 
 
 Chức năng điều khiển bảng nâng cao
-===============================
+==================================
 
 Chương này mô tả chức năng nâng cao của trình điều khiển NAND.
 Để biết danh sách các chức năng có thể bị ghi đè bởi trình điều khiển bo mạch, hãy xem
@@ -486,7 +486,7 @@ bảng khối xấu dựa trên ram cho phép truy cập nhanh hơn mọi khi
 kiểm tra thông tin khối xấu trên chính chip flash.
 
 Bảng dựa trên flash
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Có thể mong muốn hoặc cần thiết phải giữ một bảng khối xấu trong FLASH. cho
 Chip AG-AND điều này là bắt buộc vì chúng không có dấu hiệu xấu của nhà máy
@@ -520,7 +520,7 @@ tùy chọn là
 - Dự trữ 4 khối ở cuối chip
 
 Bảng do người dùng xác định
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các bảng do người dùng xác định được tạo bằng cách điền vào nand_bbt_descr
 cấu trúc và lưu trữ con trỏ trong thành viên cấu trúc nand_chip
@@ -612,7 +612,7 @@ Trong trường hợp khối chứa bảng khối xấu có chứa
    mẫu nhận dạng bảng khối.
 
 Vị trí khu vực dự phòng (tự động)
---------------------------
+---------------------------------
 
 Trình điều khiển nand thực hiện các khả năng khác nhau để đặt vị trí của
 dữ liệu hệ thống tập tin trong khu vực dự phòng,
@@ -668,7 +668,7 @@ Mảng oobfree xác định các khu vực trong khu vực dự phòng có thể
    được kết thúc bằng mục nhập {0, 0}.
 
 Vị trí được xác định bởi trình điều khiển fs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hàm gọi cung cấp một con trỏ tới cấu trúc nand_oobinfo
 trong đó xác định vị trí ecc. Để ghi, người gọi phải cung cấp một
@@ -702,10 +702,10 @@ Nếu vùng đệm dự phòng là NULL thì chỉ việc đặt ECC được th
 theo sơ đồ dựng sẵn mặc định.
 
 Các sơ đồ mặc định về vị trí tự động của khu vực dự phòng
-----------------------------------------
+---------------------------------------------------------
 
 Kích thước trang 256 byte
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ===================================================================================
 Bình luận nội dung bù đắp
@@ -724,7 +724,7 @@ Bình luận nội dung bù đắp
 ===================================================================================
 
 Kích thước trang 512 byte
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ============== =====================================================================
@@ -751,7 +751,7 @@ Bình luận nội dung bù đắp
 ============== =====================================================================
 
 Kích thước trang 2048 byte
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ============ ========================================================================
 Bình luận nội dung bù đắp
@@ -813,7 +813,7 @@ Bình luận nội dung bù đắp
 ============ ========================================================================
 
 Hỗ trợ hệ thống tập tin
-==================
+=======================
 
 Trình điều khiển NAND cung cấp tất cả các chức năng cần thiết cho hệ thống tệp thông qua
 giao diện MTD.
@@ -833,7 +833,7 @@ chức năng bố trí khu vực được mô tả ở một trong những phầ
 chương.
 
 Công cụ
-=====
+=======
 
 Dự án MTD cung cấp một số công cụ hữu ích để xử lý NAND Flash.
 
@@ -857,7 +857,7 @@ Hằng số tùy chọn chip
 ---------------------
 
 Các hằng số cho bảng id chip
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các hằng số này được định nghĩa trong rawand.h. Chúng được OR-ed cùng nhau để
 mô tả chức năng của chip::
@@ -879,7 +879,7 @@ mô tả chức năng của chip::
 
 
 Các hằng số cho các tùy chọn thời gian chạy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các hằng số này được định nghĩa trong rawand.h. Chúng được OR-ed cùng nhau để
 mô tả chức năng::
@@ -910,7 +910,7 @@ Sử dụng các hằng số này để chọn thuật toán ECC::
 
 
 Các hằng số liên quan đến điều khiển phần cứng
-----------------------------------
+----------------------------------------------
 
 Các hằng số này mô tả chức năng truy cập phần cứng được yêu cầu khi
 Chức năng điều khiển phần cứng cụ thể của bo mạch được gọi là::
@@ -934,7 +934,7 @@ Chức năng điều khiển phần cứng cụ thể của bo mạch được g
 
 
 Các hằng số liên quan đến bảng khối xấu
----------------------------------
+---------------------------------------
 
 Các hằng số này mô tả các tùy chọn được sử dụng cho bảng khối xấu
 mô tả::
@@ -976,7 +976,7 @@ lời giải thích.
    :internal:
 
 Chức năng công cộng được cung cấp
-=========================
+=================================
 
 Chương này chứa tài liệu được tạo tự động của kernel NAND
 Các hàm API được xuất. Mỗi chức năng có một mô tả ngắn
@@ -987,7 +987,7 @@ gợi ý" để được giải thích.
    :export:
 
 Chức năng nội bộ được cung cấp
-===========================
+==============================
 
 Chương này chứa tài liệu được tạo tự động của trình điều khiển NAND
 các chức năng nội tại. Mỗi chức năng có một mô tả ngắn gọn
@@ -1002,7 +1002,7 @@ có liên quan cho một nhà phát triển trình điều khiển bảng.
    :internal:
 
 Tín dụng
-=======
+========
 
 Những người sau đây đã đóng góp cho trình điều khiển NAND:
 

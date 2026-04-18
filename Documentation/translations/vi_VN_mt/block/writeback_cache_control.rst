@@ -45,7 +45,7 @@ trình trợ giúp blkdev_issue_flush() để xóa bộ nhớ đệm thuần tú
 
 
 Truy cập đơn vị bắt buộc
-------------------
+------------------------
 
 Cờ REQ_FUA có thể được OR chỉnh sửa thành cờ r/w của tiểu sử được gửi từ
 hệ thống tập tin và sẽ đảm bảo rằng việc hoàn thành I/O cho yêu cầu này chỉ
@@ -53,7 +53,7 @@ hệ thống tập tin và sẽ đảm bảo rằng việc hoàn thành I/O cho 
 
 
 Chi tiết triển khai cho hệ thống tập tin
---------------------------------------
+----------------------------------------
 
 Hệ thống tập tin có thể chỉ cần đặt các bit REQ_PREFLUSH và REQ_FUA và không cần phải
 lo lắng liệu các thiết bị cơ bản có cần xóa bộ nhớ đệm rõ ràng hay không và cách
@@ -61,7 +61,7 @@ Quyền truy cập đơn vị bắt buộc được triển khai.  Cờ REQ_PREF
 cả hai đều có thể được đặt trên một tiểu sử.
 
 Cài đặt tính năng cho trình điều khiển khối
-----------------------------------
+-------------------------------------------
 
 Đối với các thiết bị không hỗ trợ bộ đệm ghi dễ bay hơi thì không có trình điều khiển
 cần hỗ trợ, lớp khối sẽ hoàn thành các yêu cầu REQ_PREFLUSH trống trước
@@ -82,7 +82,7 @@ BLK_FEAT_FUA
 cờ trong trường tính năng của cấu trúc queue_limits.
 
 Chi tiết triển khai cho trình điều khiển khối dựa trên sinh học
---------------------------------------------------
+---------------------------------------------------------------
 
 Đối với trình điều khiển dựa trên sinh học, bit REQ_PREFLUSH và REQ_FUA chỉ được chuyển tới
 trình điều khiển nếu trình điều khiển đặt cờ BLK_FEAT_WRITE_CACHE và trình điều khiển
@@ -97,7 +97,7 @@ các thiết bị và việc xóa toàn bộ cần phải được triển khai 
 Bộ bit REQ_PREFLUSH.
 
 Chi tiết triển khai cho trình điều khiển blk-mq
------------------------------------------
+-----------------------------------------------
 
 Khi cờ BLK_FEAT_WRITE_CACHE được đặt, REQ_OP_WRITE | Yêu cầu REQ_PREFLUSH
 với tải trọng sẽ tự động được chuyển thành chuỗi REQ_OP_FLUSH

@@ -237,7 +237,7 @@ thực thi mà không có đầu ra::
 $ sudo dmsetup tin nhắn dust1 0 listbadblocks
 
 Danh sách lệnh tin nhắn
----------------------
+-----------------------
 
 Dưới đây là danh sách các tin nhắn có thể được gửi đến thiết bị bụi:
 
@@ -267,7 +267,7 @@ Khi hoàn tất, hãy tháo thiết bị bằng lệnh "dmsetup Remove" ::
 $ sudo dmsetup loại bỏ bụi1
 
 Chế độ im lặng
-----------
+--------------
 
 Khi chạy thử với nhiều khối xấu, có thể nên tránh
 ghi nhật ký quá mức (từ các khối xấu được thêm vào, xóa hoặc "ánh xạ lại").
@@ -294,7 +294,7 @@ $ sudo dmsetup trạng thái bụi1
 (Sự hiện diện của "tiết tiết" biểu thị việc ghi nhật ký bình thường.)
 
 "Tại sao không...?"
--------------
+-------------------
 
 scsi_debug có chế độ "lỗi trung bình" có thể không đọc được trên một
 khu vực được chỉ định (khu vực 0x1234, được mã hóa cứng trong mã nguồn), nhưng

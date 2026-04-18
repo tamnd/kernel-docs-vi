@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Màn hình wwnr
-============
+=============
 
 - Tên: wwrn - thức dậy khi không chạy
 - Loại: máy tự động xác định theo nhiệm vụ
@@ -55,5 +55,5 @@ Và sau đó hãy tưởng tượng một chiếc IRQ xảy ra ở giữa dòng 
 - Để kiểm tra lò phản ứng.
 
 Đặc điểm kỹ thuật
--------------
+-----------------
 Tệp Grapviz Dot trong tools/verification/models/wwnr.dot

@@ -22,7 +22,7 @@ Trình điều khiển thiết bị AMD/Pensando Linux VFIO PCI
 Bản quyền(c) 2023 Advanced Micro Devices, Inc.
 
 Tổng quan
-========
+=========
 
 Mô-đun ZZ0000ZZ là trình điều khiển PCI hỗ trợ Di chuyển trực tiếp
 các thiết bị Chức năng ảo (VF) có khả năng trong phần cứng DSC.
@@ -65,7 +65,7 @@ Sau khi thực hiện các bước trên, một tệp trong /dev/vfio/<iommu_gro
 
 
 Kích hoạt trình điều khiển
-===================
+==========================
 
 Trình điều khiển được kích hoạt thông qua hệ thống cấu hình kernel tiêu chuẩn,
 sử dụng lệnh tạo ::

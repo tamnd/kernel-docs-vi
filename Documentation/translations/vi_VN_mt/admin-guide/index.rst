@@ -149,7 +149,7 @@ Quản trị lớp khối và hệ thống tập tin
    xfs
 
 Hướng dẫn dành riêng cho thiết bị
-----------------------
+---------------------------------
 
 Cách định cấu hình phần cứng trong hệ thống Linux của bạn.
 
@@ -181,7 +181,7 @@ Cách định cấu hình phần cứng trong hệ thống Linux của bạn.
    video-output
 
 Phân tích khối lượng công việc
------------------
+------------------------------
 
 Đây là sự khởi đầu của một phần với thông tin quan tâm đến
 nhà phát triển ứng dụng và nhà tích hợp hệ thống thực hiện phân tích

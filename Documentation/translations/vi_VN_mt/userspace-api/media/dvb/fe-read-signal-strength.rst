@@ -51,7 +51,7 @@ hiện được nhận bởi giao diện người dùng. Đối với lệnh nà
 vào thiết bị là đủ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

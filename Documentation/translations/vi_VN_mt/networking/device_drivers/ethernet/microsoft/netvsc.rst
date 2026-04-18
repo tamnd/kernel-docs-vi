@@ -17,16 +17,16 @@ Trình điều khiển mạng Hyper-V
 =============================
 
 Khả năng tương thích
-=============
+====================
 
 Trình điều khiển này tương thích với Windows Server 2012 R2, 2016 và
 Windows 10.
 
 Đặc trưng
-========
+=========
 
 Giảm tải tổng kiểm tra
-----------------
+----------------------
 Trình điều khiển netvsc hỗ trợ giảm tải tổng kiểm tra miễn là
   Phiên bản máy chủ Hyper-V có. Windows Server 2016 và Azure
   hỗ trợ giảm tải tổng kiểm tra cho TCP và UDP cho cả IPv4 và
@@ -61,7 +61,7 @@ ethtool -N eth0 rx-flow-hash udp4 sd
 ethtool -n eth0 rx-flow-hash udp4
 
 Giảm tải nhận chung, hay còn gọi là GRO
---------------------------------
+---------------------------------------
 Trình điều khiển hỗ trợ GRO và được bật theo mặc định. GRO kết hợp lại
   giống như các gói và giảm đáng kể việc sử dụng CPU trong Rx nặng
   tải.

@@ -13,17 +13,17 @@
    review) được đặt trong thư mục vi_VN/.
 
 Truyền hình kỹ thuật số Chức năng chung
----------------------------
+---------------------------------------
 
 Thiết bị DVB
-~~~~~~~~~~~
+~~~~~~~~~~~~
 
 Các chức năng này chịu trách nhiệm xử lý các nút thiết bị DVB.
 
 .. kernel-doc:: include/media/dvbdev.h
 
 Bộ đệm vòng truyền hình kỹ thuật số
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Những quy trình đó thực hiện các bộ đệm vòng được sử dụng để xử lý dữ liệu truyền hình kỹ thuật số và
 sao chép nó từ/đến không gian người dùng.
@@ -60,6 +60,6 @@ sao chép nó từ/đến không gian người dùng.
 .. kernel-doc:: include/media/dvb_ringbuffer.h
 
 Bộ xử lý TV kỹ thuật số VB2
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: include/media/dvb_vb2.h

@@ -22,7 +22,7 @@ Giao diện phản hồi phần cứng để lập lịch Hetero Core trên nề
 :Tác giả: Mario Limonciello <mario.limonciello@amd.com>
 
 Tổng quan
---------
+---------
 
 Việc triển khai lõi không đồng nhất AMD bao gồm nhiều hơn một
 lớp kiến trúc và CPU bao gồm các lõi có hiệu quả và
@@ -44,7 +44,7 @@ lõi vật lý. Mật độ lõi được cải thiện này sẽ có tác dụn
 tác động hiệu suất.
 
 Trình điều khiển lõi không đồng nhất AMD
------------------------------
+----------------------------------------
 
 Trình điều khiển ZZ0000ZZ mang đến cho hệ điều hành hiệu suất và năng lượng
 dữ liệu về khả năng hiệu quả cho từng CPU trong hệ thống. Bộ lập lịch có thể sử dụng

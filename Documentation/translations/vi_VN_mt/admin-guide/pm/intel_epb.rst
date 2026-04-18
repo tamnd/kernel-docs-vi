@@ -27,7 +27,7 @@ Gợi ý xu hướng năng lượng và hiệu suất của Intel
    :doc: overview
 
 Thuộc tính thiên vị năng lượng và hiệu suất Intel trong ZZ0000ZZ
-========================================================
+================================================================
 
 Giá trị Gợi ý Xu hướng Năng lượng và Hiệu suất Intel (EPB) cho CPU (logic) nhất định
 có thể được kiểm tra hoặc cập nhật thông qua thuộc tính (tệp) ZZ0001ZZ trong

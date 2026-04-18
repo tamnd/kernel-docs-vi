@@ -37,7 +37,7 @@ security_sctp_assoc_request()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Chuyển ZZ0000ZZ và ZZ0001ZZ của gói INIT liên kết tới
 mô-đun bảo mật. Trả về 0 nếu thành công, lỗi nếu thất bại.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @asoc - con trỏ tới cấu trúc liên kết sctp.
     @skb - con trỏ tới skbuff của gói liên kết.
@@ -49,7 +49,7 @@ Chuyển một hoặc nhiều địa chỉ ipv4/ipv6 tới mô-đun bảo mật 
 dựa trên ZZ0000ZZ sẽ dẫn đến liên kết hoặc kết nối
 service như được hiển thị trong bảng kiểm tra quyền bên dưới.
 Trả về 0 nếu thành công, lỗi nếu thất bại.
-::
+::::::::::::::::::::::::::::::::::::::::::
 
 @sk - Con trỏ tới cấu trúc vớ.
     @optname - Tên của tùy chọn để xác thực.
@@ -124,7 +124,7 @@ security_sctp_sk_clone()
 Được gọi bất cứ khi nào một ổ cắm mới được tạo bởi ZZ0000ZZ\(2)
 (tức là ổ cắm kiểu TCP) hoặc khi ổ cắm bị 'bóc', ví dụ như không gian người dùng
 gọi ZZ0001ZZ\(3).
-::
+:::::::::::::::::
 
 @asoc - con trỏ tới cấu trúc liên kết sctp hiện tại.
     @sk - con trỏ tới cấu trúc vớ hiện tại.
@@ -146,7 +146,7 @@ Móc bảo mật dùng để thành lập Hiệp hội
 Sơ đồ sau đây cho thấy việc sử dụng ZZ0000ZZ,
 ZZ0001ZZ, ZZ0002ZZ khi
 thành lập một hiệp hội.
-::
+:::::::::::::::::::::::
 
 Điểm cuối SCTP "A" SCTP điểm cuối "Z"
       =====================================
@@ -215,7 +215,7 @@ security_sctp_assoc_request()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Chuyển ZZ0000ZZ và ZZ0001ZZ của gói INIT liên kết tới
 mô-đun bảo mật. Trả về 0 nếu thành công, lỗi nếu thất bại.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @asoc - con trỏ tới cấu trúc liên kết sctp.
     @skb - con trỏ tới skbuff của gói liên kết.
@@ -274,7 +274,7 @@ socket) hoặc khi ổ cắm bị 'bóc', ví dụ: các cuộc gọi vùng ngư
 ZZ0004ZZ\(3). ZZ0000ZZ sẽ thiết lập mới
 socket sid và ngang hàng với cái có trong ZZ0001ZZ và
 ZZ0002ZZ tương ứng.
-::
+:::::::::::::::::::
 
 @asoc - con trỏ tới cấu trúc liên kết sctp hiện tại.
     @sk - con trỏ tới cấu trúc vớ hiện tại.
@@ -291,7 +291,7 @@ với điều đó trong ZZ0000ZZ::
 
 
 Tuyên bố chính sách
------------------
+-------------------
 Lớp và quyền sau đây để hỗ trợ SCTP có sẵn trong
 hạt nhân::
 
@@ -312,7 +312,7 @@ portcon sctp 1024-1036 system_u:object_r:sctp_ports_t:s0
 
 
 Ghi nhãn ngang hàng SCTP
-------------------
+------------------------
 Ổ cắm SCTP sẽ chỉ có một nhãn ngang hàng được gán cho nó. Đây sẽ là
 được giao trong quá trình thành lập hiệp hội đầu tiên. Hơn nữa
 các liên kết trên ổ cắm này sẽ có nhãn ngang hàng gói của chúng so với

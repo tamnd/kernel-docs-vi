@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tập tin mồ côi
------------
+--------------
 
 Trong unix có thể có các nút không được liên kết khỏi hệ thống phân cấp thư mục nhưng
 vẫn còn sống vì chúng được mở. Trong trường hợp gặp sự cố, hệ thống tập tin phải

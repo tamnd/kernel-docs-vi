@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Coretemp trình điều khiển hạt nhân
-======================
+==================================
 
 Chip được hỗ trợ:
   * Tất cả bộ xử lý Intel Core và Atom có Cảm biến Nhiệt Kỹ thuật số (DTS)

@@ -17,7 +17,7 @@ Khung kiểm tra MMC
 ===========================
 
 Tổng quan
-========
+=========
 
 Khung ZZ0000ZZ được thiết kế để kiểm tra hiệu suất và độ tin cậy của trình điều khiển bộ điều khiển máy chủ và tất cả các thiết bị được xử lý bởi hệ thống con MMC. Điều này không chỉ bao gồm các thiết bị MMC mà còn bao gồm thẻ SD và các thiết bị khác được hệ thống con hỗ trợ.
 
@@ -101,7 +101,7 @@ Sau khi liên kết, bạn sẽ thấy một dòng trong nhật ký kernel cho b
 
 
 Cách sử dụng - Mục gỡ lỗi
-=======================
+=========================
 
 Khi khung ZZ0000ZZ được bật, bạn có thể tương tác với các mục gỡ lỗi sau nằm trong ZZ0001ZZ:
 
@@ -275,7 +275,7 @@ Các thử nghiệm có sẵn được liệt kê trong bảng dưới đây:
 +------+--------------------------------+---------------------------------------------+
 
 Kết quả kiểm tra
-============
+================
 
 Kết quả kiểm tra được ghi vào nhật ký kernel. Mỗi bài kiểm tra ghi lại thời điểm bắt đầu, kết thúc và kết quả của bài kiểm tra. Các kết quả có thể là:
 
@@ -286,7 +286,7 @@ Kết quả kiểm tra được ghi vào nhật ký kernel. Mỗi bài kiểm tr
 - ZZ0004ZZ: Đã xảy ra lỗi trong quá trình kiểm tra.
 
 Ví dụ đầu ra nhật ký hạt nhân
-=========================
+=============================
 
 Khi chạy thử nghiệm, bạn sẽ thấy các mục nhật ký tương tự như sau trong nhật ký kernel:
 

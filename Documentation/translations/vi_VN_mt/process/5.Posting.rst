@@ -29,7 +29,7 @@ và ZZ0001ZZ.
 
 
 Khi nào đăng bài
-------------
+----------------
 
 Luôn có sự cám dỗ để tránh đăng các bản vá trước khi chúng được tung ra.
 hoàn toàn “sẵn sàng”.  Đối với các bản vá đơn giản, đó không phải là vấn đề.  Nếu
@@ -148,7 +148,7 @@ xong.  Tuy nhiên, khi được thực hiện đúng cách, đó là thời gian
 
 
 Định dạng bản vá và nhật ký thay đổi
--------------------------------
+------------------------------------
 
 Vậy là bây giờ bạn đã có một loạt bản vá hoàn hảo để đăng, nhưng công việc còn dang dở.
 vẫn chưa xong hẳn.  Mỗi bản vá cần được định dạng thành một thông báo

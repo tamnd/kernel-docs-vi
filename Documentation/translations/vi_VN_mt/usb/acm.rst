@@ -21,7 +21,7 @@ Bản quyền (c) 1999 Vojtech Pavlik <vojtech@suse.cz>
 Được tài trợ bởi SuSE
 
 0. Tuyên bố từ chối trách nhiệm
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Chương trình này là phần mềm miễn phí; bạn có thể phân phối lại nó và/hoặc sửa đổi nó
 theo các điều khoản của Giấy phép Công cộng GNU do Free
 Quỹ phần mềm; phiên bản 2 của Giấy phép hoặc (tùy theo lựa chọn của bạn)
@@ -44,7 +44,7 @@ Ucitelska 1576, Praha 8, 182 00 Cộng hòa Séc
 trong gói: Xem tệp COPYING.
 
 1. Cách sử dụng
-~~~~~~~~
+~~~~~~~~~~~~~~~
 Trình điều khiển/usb/class/cdc-acm.c hoạt động với modem USB và thiết bị đầu cuối USB ISDN
 các bộ điều hợp phù hợp với Lớp thiết bị liên lạc bus nối tiếp vạn năng
 Thông số kỹ thuật của Mô hình điều khiển trừu tượng (USB CDC ACM).
@@ -80,7 +80,7 @@ Sau đó, [các] modem sẽ có thể truy cập được. Bạn sẽ có thể 
 minicom, ppp và mgetty với họ.
 
 2. Xác minh rằng nó hoạt động
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Bước đầu tiên là kiểm tra/sys/kernel/debug/usb/devices, nó sẽ trông như thế này
 như thế này::

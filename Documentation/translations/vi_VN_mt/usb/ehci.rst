@@ -67,7 +67,7 @@ Người ta tin rằng nó có thể thực hiện tất cả các phép thuật
 các hệ thống có vấn đề ánh xạ DMA thú vị.
 
 Các loại chuyển khoản
---------------
+---------------------
 
 Tại thời điểm viết bài này, người lái xe phải thoải mái xử lý mọi điều khiển, số lượng lớn,
 và truyền gián đoạn, bao gồm các yêu cầu tới các thiết bị USB 1.1 thông qua
@@ -83,7 +83,7 @@ vì EHCI thể hiện những thứ này bằng cấu trúc dữ liệu khác.  
 hầu hết các thiết bị âm thanh và video USB không thể kết nối với xe buýt tốc độ cao.
 
 Hành vi của người lái xe
----------------
+------------------------
 
 Chuyển tất cả các loại có thể được xếp hàng đợi.  Điều này có nghĩa là việc chuyển giao quyền kiểm soát
 từ trình điều khiển trên một giao diện (hoặc thông qua usbfs) sẽ không can thiệp vào
@@ -105,7 +105,7 @@ và ngăn chặn việc sử dụng khoảng thời gian thăm dò ít hơn mộ
 
 
 Sử dụng bởi
-======
+===========
 
 Giả sử bạn có bộ điều khiển EHCI (trên thẻ hoặc bo mạch chủ PCI)
 và đã biên dịch trình điều khiển này dưới dạng một mô-đun, tải cái này như sau ::

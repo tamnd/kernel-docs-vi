@@ -29,7 +29,7 @@ Nội dung
 -ZZ0003ZZ
 
 Tổng quan
-========
+=========
 
 Có một số nhóm bộ đếm dựa trên vị trí bộ đếm đang được đếm. trong
 Ngoài ra, mỗi nhóm bộ đếm có thể có các loại bộ đếm khác nhau.
@@ -99,7 +99,7 @@ Bộ đếm cổng ưu tiên
   Một tập hợp các bộ đếm cổng vật lý, theo mức độ ưu tiên trên mỗi cổng.
 
 Các loại
-=====
+========
 
 Bộ đếm được chia thành ba loại.
 

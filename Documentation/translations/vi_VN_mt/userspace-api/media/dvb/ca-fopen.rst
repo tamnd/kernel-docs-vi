@@ -74,7 +74,7 @@ nỗ lực mở thiết bị ở chế độ này sẽ không thành công và m
 sẽ được trả lại.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

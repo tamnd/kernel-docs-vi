@@ -28,7 +28,7 @@ tuân theo cách DRM để tạo danh sách TODO; để biết thêm thông tin,
 'Tài liệu/gpu/todo.rst'.
 
 Sự cố về Gitlab
-=============
+===============
 
 Người dùng có thể báo cáo các sự cố liên quan đến GPU AMD tại:
 
@@ -58,7 +58,7 @@ biên soạn
 ===========
 
 Sửa các cảnh báo biên dịch
-------------------------
+--------------------------
 
 Kích hoạt mức cảnh báo W1 hoặc W2 trong quá trình biên dịch kernel và cố gắng sửa lỗi
 vấn đề ở phía màn hình.
@@ -66,7 +66,7 @@ vấn đề ở phía màn hình.
 Cấp độ: Người mới bắt đầu
 
 Khắc phục sự cố biên dịch khi sử dụng kiến ​​trúc um
--------------------------------------------------
+----------------------------------------------------
 
 Linux có tính năng Linux ở chế độ người dùng (UML) và kernel có thể được biên dịch thành
 kiến trúc ZZ0000ZZ. Biên dịch cho ZZ0001ZZ có thể mang lại nhiều lợi thế
@@ -76,10 +76,10 @@ khu vực mà chúng ta cần khắc phục.
 Trình độ: Trung cấp
 
 Tái cấu trúc mã
-=============
+===============
 
 Thêm tiền tố vào các hàm DC để cải thiện việc gỡ lỗi bằng ftrace
------------------------------------------------------------
+----------------------------------------------------------------
 
 Tính năng gỡ lỗi Ftrace (kiểm tra 'Tài liệu/trace/ftrace.rst') là một
 cách tuyệt vời để kiểm tra đường dẫn mã khi các nhà phát triển cố gắng hiểu ý nghĩa của một
@@ -130,7 +130,7 @@ Tài liệu
 =============
 
 Mở rộng kernel-doc
------------------
+------------------
 
 Nhiều hàm DC không có kernel-doc thích hợp; hiểu chức năng và
 thêm tài liệu là một cách tuyệt vời để tìm hiểu thêm về trình điều khiển amdgpu và
@@ -146,7 +146,7 @@ phần nêu bật một số tính năng hiển thị thú vị nhất có thể
 với người trợ giúp nhà phát triển không gian người dùng.
 
 Kích hoạt lớp lót
----------------
+-----------------
 
 Màn hình AMD có tính năng này được gọi là lớp lót (bạn có thể đọc thêm tại
 'Documentation/gpu/amdgpu/display/mpo-overview.rst') nhằm mục đích

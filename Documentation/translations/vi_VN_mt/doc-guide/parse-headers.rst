@@ -30,7 +30,7 @@ về cách sử dụng nó bên trong cây Kernel.
 .. _parse_headers:
 
 công cụ/docs/parse_headers.py
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NAME
 ****

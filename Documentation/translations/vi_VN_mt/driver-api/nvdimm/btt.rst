@@ -88,7 +88,7 @@ Cửa hàng ủng hộ +-------> Đấu trường
 
 
 Một. Bản đồ BTT
---------------
+---------------
 
 Bản đồ là một bảng tra cứu/chỉ dẫn đơn giản ánh xạ LBA tới một bảng nội bộ
 khối. Mỗi mục bản đồ là 32 bit. Hai bit quan trọng nhất là đặc biệt
@@ -181,7 +181,7 @@ có nhiều CPU hơn số làn tối đa có sẵn, hơn số làn
 
 
 d. Cấu trúc dữ liệu trong bộ nhớ: Bảng theo dõi đọc (RTT)
-------------------------------------------------------
+---------------------------------------------------------
 
 Hãy xem xét trường hợp chúng ta có hai luồng, một luồng đọc và luồng kia,
 viết. Chúng ta có thể gặp phải điều kiện trong đó luồng tác giả lấy một khối trống để thực hiện
@@ -202,7 +202,7 @@ RTT vì sự hiện diện của nó. Nếu khối miễn phí của bản đồ
 
 
 đ. Cấu trúc dữ liệu trong bộ nhớ: khóa bản đồ
---------------------------------------
+---------------------------------------------
 
 Hãy xem xét trường hợp hai luồng tác giả đang ghi vào cùng một LBA. Có thể có
 là một cuộc đua theo trình tự các bước sau::
@@ -284,7 +284,7 @@ trạng thái duy nhất sử dụng cờ trong khối thông tin.
 
 
 5. Cách sử dụng
-========
+===============
 
 BTT có thể được thiết lập trên bất kỳ đĩa (không gian tên) nào được hệ thống con libnvdimm hiển thị
 (chế độ pmem hoặc blk). Cách dễ nhất để thiết lập một không gian tên như vậy là sử dụng

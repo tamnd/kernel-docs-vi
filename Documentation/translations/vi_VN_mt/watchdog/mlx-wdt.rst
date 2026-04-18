@@ -17,7 +17,7 @@ Trình điều khiển cơ quan giám sát Mellanox
 ==========================================
 
 cho các thiết bị chuyển mạch hệ thống dựa trên x86
-=============================
+==================================================
 
 Trình điều khiển này cung cấp chức năng giám sát cho nhiều loại Mellanox
 Hệ thống chuyển mạch Ethernet và Infiniband.

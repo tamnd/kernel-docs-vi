@@ -15,7 +15,7 @@
 .. _rcu_barrier:
 
 RCU và các mô-đun không thể tải được
-==========================
+====================================
 
 [Được xuất bản lần đầu trên LWN ngày 14 tháng 1 năm 2007: ZZ0000ZZ
 
@@ -41,7 +41,7 @@ kfree(p);
 
 
 Đang tải các mô-đun sử dụng call_rcu()
--------------------------------------
+--------------------------------------
 
 Nhưng điều gì sẽ xảy ra nếu hàm p_callback() được xác định trong một mô-đun không thể tải được?
 

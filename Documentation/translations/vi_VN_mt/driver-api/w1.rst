@@ -30,7 +30,7 @@ Chức năng API của hạt nhân W1.
    :internal:
 
 trình điều khiển/w1/w1.c
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Chức năng cốt lõi của W1.
 
@@ -38,7 +38,7 @@ Chức năng cốt lõi của W1.
    :internal:
 
 trình điều khiển/w1/w1_family.c
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cho phép đăng ký hoạt động nhóm thiết bị.
 
@@ -46,7 +46,7 @@ Cho phép đăng ký hoạt động nhóm thiết bị.
    :export:
 
 trình điều khiển/w1/w1_internal.h
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Khởi tạo nội bộ W1 cho các thiết bị chính.
 
@@ -54,7 +54,7 @@ Khởi tạo nội bộ W1 cho các thiết bị chính.
    :internal:
 
 trình điều khiển/w1/w1_int.c
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Khởi tạo nội bộ W1 cho các thiết bị chính.
 
@@ -62,7 +62,7 @@ Khởi tạo nội bộ W1 cho các thiết bị chính.
    :export:
 
 trình điều khiển/w1/w1_netlink.h
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các cấu trúc và lệnh của liên kết mạng bên ngoài W1 API.
 
@@ -70,7 +70,7 @@ Các cấu trúc và lệnh của liên kết mạng bên ngoài W1 API.
    :internal:
 
 trình điều khiển/w1/w1_io.c
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Đầu vào/đầu ra W1.
 

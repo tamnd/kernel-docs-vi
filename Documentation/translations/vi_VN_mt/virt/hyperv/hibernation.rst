@@ -39,7 +39,7 @@ các lệnh như "systemctl hibernate" được chạy trực tiếp từ một
 dòng lệnh hoặc để phản hồi các sự kiện như đóng nắp máy tính xách tay.
 
 Những điều cần cân nhắc khi ngủ đông VM khách
----------------------------------------
+---------------------------------------------
 Khách Linux trên Hyper-V cũng có thể ở chế độ ngủ đông, trong trường hợp đó
 phần cứng là phần cứng ảo được Hyper-V cung cấp cho máy ảo khách.
 Chỉ có VM khách được nhắm mục tiêu ở chế độ ngủ đông, trong khi các VM khách khác và
@@ -79,7 +79,7 @@ và thất bại có thể xảy ra.
 
 
 Kích hoạt chế độ ngủ đông VM khách
------------------------------
+----------------------------------
 Chế độ ngủ đông của máy ảo khách Hyper-V bị tắt theo mặc định vì
 chế độ ngủ đông không tương thích với tính năng bổ sung nóng bộ nhớ, như được cung cấp bởi
 Trình điều khiển bóng bay Hyper-V. Nếu hot-add được sử dụng và VM ngủ đông, nó
@@ -103,7 +103,7 @@ Linux hỗ trợ trạng thái ngủ ACPI trên x86, nhưng không hỗ trợ tr
 Chế độ ngủ đông VM khách không khả dụng trên Hyper-V cho arm64.
 
 Bắt đầu chế độ ngủ đông VM khách
--------------------------------
+--------------------------------
 Máy ảo khách có thể tự bắt đầu chế độ ngủ đông bằng Linux tiêu chuẩn
 phương pháp ghi "đĩa" vào /sys/power/state hoặc hệ thống khởi động lại
 gọi. Là một lớp bổ sung, các máy khách Linux trên Hyper-V hỗ trợ
@@ -116,7 +116,7 @@ phải được cung cấp trong VM xử lý sự kiện này và bắt đầu
 ngủ đông.
 
 Xử lý thiết bị VMBus trong chế độ ngủ đông và tiếp tục
---------------------------------------------------
+------------------------------------------------------
 Trình điều khiển xe buýt VMBus và trình điều khiển thiết bị VMBus riêng lẻ,
 thực hiện các chức năng tạm dừng và tiếp tục được gọi là một phần của
 Sự phối hợp của chế độ ngủ đông và khôi phục chế độ ngủ đông của Linux.
@@ -207,7 +207,7 @@ Trình tự ngủ đông chi tiết
    S4. Giờ ngủ đông đã hoàn tất.
 
 Trình tự sơ yếu lý lịch chi tiết
-------------------------
+--------------------------------
 1. VM khách khởi động vào phiên bản hệ điều hành Linux mới. Trong quá trình khởi động,
    kết nối VMBus cấp cao nhất được thiết lập và tổng hợp
    các thiết bị được kích hoạt. Điều này xảy ra thông qua các đường dẫn bình thường không
@@ -231,7 +231,7 @@ Trình tự sơ yếu lý lịch chi tiết
    chạy bình thường từ hình ảnh ngủ đông.
 
 Cặp khóa-giá trị (KVP) Sự bất thường của thiết bị giả
---------------------------------------------
+-----------------------------------------------------
 Thiết bị VMBus KVP hoạt động khác với các thiết bị giả khác
 được cung cấp bởi Hyper-V.  Khi kênh chính KVP bị đóng, Hyper-V
 gửi một tin nhắn hủy bỏ, khiến tất cả dấu tích của thiết bị bị xóa
@@ -277,7 +277,7 @@ Kết nối VMBus được thiết lập lại, VF được cung cấp trên
 kết nối được thiết lập lại mà không cần sự can thiệp của trình điều khiển NIC tổng hợp.
 
 Thiết bị UIO
------------
+------------
 Một thiết bị VMBus có thể được tiếp xúc với không gian người dùng bằng Hyper-V UIO
 trình điều khiển (uio_hv_generic.c) để trình điều khiển không gian người dùng có thể kiểm soát và
 vận hành thiết bị. Tuy nhiên, trình điều khiển VMBus UIO không hỗ trợ
@@ -287,7 +287,7 @@ và Linux tiếp tục chạy bình thường. Việc sử dụng phổ biến n
 Trình điều khiển UIO dành cho mạng DPDK, nhưng cũng có những cách sử dụng khác.
 
 Tiếp tục trên một máy ảo khác
---------------------------
+-----------------------------
 Kịch bản này xảy ra trong đám mây công cộng Azure ở trạng thái ngủ đông
 VM của khách hàng chỉ tồn tại dưới dạng cấu hình và ổ đĩa đã lưu -- VM không
 còn tồn tại trên bất kỳ máy chủ Hyper-V nào. Khi VM của khách hàng được tiếp tục, một

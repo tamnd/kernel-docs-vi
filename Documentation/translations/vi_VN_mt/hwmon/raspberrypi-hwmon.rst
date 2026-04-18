@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân Raspberrypi-hwmon
-===============================
+===========================================
 
 Các bảng được hỗ trợ:
 
@@ -32,7 +32,7 @@ Trình điều khiển này thăm dò định kỳ thuộc tính hộp thư củ
 điều kiện điện áp thấp.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ============================================
 in0_lcrit_alarm Báo động điện áp thấp

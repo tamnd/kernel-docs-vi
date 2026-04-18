@@ -51,7 +51,7 @@ Người lái xe có thể yêu cầu mức độ ưu tiên, đặc biệt là t
 những cái như pxa_Camera có thông lượng (lớn).
 
 Thiết kế
-======
+========
 a) Kênh ảo
 Khái niệm tương tự như trong trình điều khiển sa11x0, tức là. một tài xế đã được chỉ định một "ảo
 kênh" được liên kết với đường dây của người yêu cầu và kênh DMA vật lý được

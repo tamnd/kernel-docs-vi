@@ -31,7 +31,7 @@ Tất cả bốn kênh cũng có thể được điều khiển bằng các chư
   Để biết chi tiết, vui lòng tham khảo phần 'firmware' trong leds-lp55xx.txt
 
 Thuộc tính thiết bị
-================
+===================
 
 động cơ_mux
   3 Động cơ được phân bổ trong LP5562, nhưng số lượng kênh là 4.
@@ -79,7 +79,7 @@ echo 1 hoặc 2 hoặc 3 > /sys/bus/i2c/devices/xxxx/select_engine
     echo 1 > /sys/bus/i2c/devices/xxxx/run_engine
 
 Cách tải các mẫu được xác định trước
-===================================
+====================================
 
 Vui lòng tham khảo 'leds-lp55xx.txt"
 
@@ -90,7 +90,7 @@ Giống như LP5521 và LP5523/55231, LP5562 cung cấp các cài đặt hiện 
   'led_current' và 'max_current' được sử dụng.
 
 Ví dụ về dữ liệu Nền tảng
-========================
+=========================
 
 ::
 

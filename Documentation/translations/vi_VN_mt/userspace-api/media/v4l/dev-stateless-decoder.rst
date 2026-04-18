@@ -381,7 +381,7 @@ có thể ví dụ đóng bộ mô tả tệp DMABUF của bộ đệm khung tha
 sau này sẽ không cần chúng nữa.
 
 Đang tìm kiếm
-=======
+=============
 Để tìm kiếm, khách hàng chỉ cần gửi yêu cầu bằng cách sử dụng bộ đệm đầu vào
 tương ứng với vị trí luồng mới. Tuy nhiên nó phải nhận thức được rằng
 độ phân giải có thể đã thay đổi và tuân theo trình tự thay đổi độ phân giải động trong
@@ -393,14 +393,14 @@ Sau đó, máy khách có thể tự do bỏ qua mọi bộ đệm ZZ0000ZZ đư
 từ vị trí tìm kiếm trước.
 
 Tạm dừng
-=======
+========
 
 Để tạm dừng, khách hàng chỉ cần ngừng xếp hàng bộ đệm trên ZZ0000ZZ
 xếp hàng. Không có dữ liệu dòng byte nguồn thì không có dữ liệu để xử lý và codec
 sẽ vẫn nhàn rỗi.
 
 Thay đổi độ phân giải động
-=========================
+==========================
 
 Nếu máy khách phát hiện sự thay đổi độ phân giải trong luồng, nó sẽ cần thực hiện
 trình tự khởi tạo lại với độ phân giải mới:
@@ -426,7 +426,7 @@ trình tự khởi tạo lại với độ phân giải mới:
    được chọn trên hàng đợi ZZ0002ZZ.
 
 Làm khô hạn
-=====
+===========
 
 Nếu yêu cầu được gửi lần cuối dẫn đến bộ đệm ZZ0000ZZ bị
 được giữ bằng cách sử dụng cờ ZZ0001ZZ, sau đó

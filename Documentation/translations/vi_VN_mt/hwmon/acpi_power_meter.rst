@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Power_meter trình điều khiển hạt nhân
-=========================
+=====================================
 
 Trình điều khiển này nói chuyện với đồng hồ đo điện ACPI 4.0.
 
@@ -38,7 +38,7 @@ Giao diện sysfs phù hợp với thông số kỹ thuật được nêu trong 
 của Tài liệu/hwmon/sysfs-interface.rst.
 
 Tính năng đặc biệt
-----------------
+------------------
 
 Núm ZZ0000ZZ cho biết nguồn điện có phải là pin hay không.
 Cả ZZ0001ZZ phải được đặt trước khi các điểm ngắt hoạt động.

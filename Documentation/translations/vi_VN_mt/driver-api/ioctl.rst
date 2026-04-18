@@ -64,7 +64,7 @@ kiểu dữ liệu
 
 
 Phiên bản giao diện
-==================
+===================
 
 Một số hệ thống con sử dụng số phiên bản trong cấu trúc dữ liệu để gây quá tải
 các mệnh lệnh với những cách giải thích khác nhau về đối số.
@@ -96,7 +96,7 @@ tự chế độ, điều này không còn cần thiết nữa, nhưng nó có t
 hãy cân nhắc khi chuyển các bản sửa lỗi sang các hạt nhân cũ hơn.
 
 Dấu thời gian
-==========
+=============
 
 Theo truyền thống, dấu thời gian và giá trị thời gian chờ được chuyển dưới dạng ZZ0000ZZ hoặc ZZ0001ZZ, nhưng đây là vấn đề vì
 định nghĩa không tương thích của các cấu trúc này trong không gian người dùng sau
@@ -123,7 +123,7 @@ ktime_get_real_ns() có thể được sử dụng cho dấu thời gian CLOCK_R
 cần phải liên tục trong quá trình khởi động lại hoặc giữa nhiều máy.
 
 Chế độ tương thích 32-bit
-==================
+=========================
 
 Để hỗ trợ không gian người dùng 32-bit chạy trên máy 64-bit, mỗi
 hệ thống con hoặc trình điều khiển triển khai trình xử lý gọi lại ioctl cũng phải
@@ -220,7 +220,7 @@ không gian.  Điều này thường được thực hiện bằng cách gọi m
 các thành viên cá nhân.
 
 Trừu tượng hóa hệ thống con
-======================
+===========================
 
 Trong khi một số trình điều khiển thiết bị triển khai chức năng ioctl của riêng chúng thì hầu hết
 các hệ thống con thực hiện cùng một lệnh cho nhiều trình điều khiển.  Lý tưởng nhất là
@@ -242,7 +242,7 @@ thông qua các con trỏ hạt nhân thông thường.
   giữa nhiều trình điều khiển hơn là khi nó chỉ được sử dụng trong một trình điều khiển duy nhất.
 
 Các lựa chọn thay thế cho ioctl
-=====================
+===============================
 
 Có nhiều trường hợp ioctl không phải là giải pháp tốt nhất cho
 vấn đề. Các lựa chọn thay thế bao gồm:

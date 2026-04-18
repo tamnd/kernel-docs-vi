@@ -44,7 +44,7 @@ số mục nhập thiết bị là 1.
 khi khởi động bất kể nó có ở chế độ DP MST hay không.
 
 Danh sách kết nối
-===============
+=================
 DP MST sử dụng lại mã danh sách kết nối. Mã có thể được sử dụng lại vì
 các mục thiết bị trên cùng một pin có cùng danh sách kết nối.
 
@@ -76,7 +76,7 @@ khi màn hình được cắm nóng.
 
 
 Xây dựng Jack
-----------
+-------------
 
 - dyn_pcm_sign
 
@@ -88,12 +88,12 @@ Sử dụng hda_jack và gán tĩnh spec->pcm_rec[pcm_idx].jack = jack->jack.
 
 
 Kích hoạt sự kiện không được yêu cầu
---------------------------
+------------------------------------
 Kích hoạt sự kiện không được yêu cầu nếu !acomp.
 
 
 Giám sát việc xử lý sự kiện Hotplug
-------------------------------
+-----------------------------------
 - acomp
 
 pin_eld_notify() -> check_presence_and_report() -> hdmi_ Present_sense() ->
@@ -112,4 +112,4 @@ Sử dụng trực tiếp snd_jack_report() trên spec->pcm_rec[pcm_idx].jack ch
 
 
 Những người khác sẽ được bổ sung sau
-========================
+====================================

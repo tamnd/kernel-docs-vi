@@ -34,7 +34,7 @@ I915_MEMORY_CLASS_DEVICE.
    :functions: __drm_i915_gem_create_ext
 
 Thuộc tính thăm dò_cpu_visible_size
----------------------------------
+-----------------------------------
 Thuộc tính struct__drm_i915_memory_zone mới trả về tổng kích thước của
 Phần có thể truy cập CPU cho khu vực cụ thể. Điều này chỉ nên
 áp dụng cho I915_MEMORY_CLASS_DEVICE. Chúng tôi cũng báo cáo

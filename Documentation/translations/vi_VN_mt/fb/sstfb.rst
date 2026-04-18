@@ -54,7 +54,7 @@ gửi cho tôi một bản báo cáo :)
 
 
 Cách sử dụng mô-đun
-============
+===================
 
 .. warning::
 
@@ -102,7 +102,7 @@ liên kết tty với bộ đệm khung cũ để có thể xóa mô-đun.
 
 
 Tùy chọn hạt nhân/mô-đun
-----------------------
+------------------------
 
 Bạn có thể chuyển một số tùy chọn cho mô-đun sstfb và thông qua kernel
 dòng lệnh khi trình điều khiển được biên dịch trong:
@@ -152,7 +152,7 @@ dev=x dev:x Đính kèm driver vào số thiết bị x.
 ================ ===================================================================
 
 Công cụ
-=====
+=======
 
 Những công cụ này chủ yếu nhằm mục đích gỡ lỗi, nhưng bạn có thể
 tìm thấy một số trong những điều thú vị:
@@ -201,7 +201,7 @@ Lỗi
   phần cứng làm ... những điều bất thường trong 24/32 bpp.
 
 việc cần làm
-====
+============
 
 - Bỏ đoạn trước đi.
 - Mua thêm cà phê đi.

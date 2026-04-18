@@ -32,7 +32,7 @@ trong không gian hạt nhân (ksmbd). Điều này cũng cho phép tích hợp 
 giao diện cho tất cả các hoạt động tập tin.
 
 ksmbd (daemon hạt nhân)
----------------------
+-----------------------
 
 Khi daemon máy chủ được khởi động, nó sẽ khởi động một luồng forker
 (ksmbd/tên giao diện) tại thời điểm khởi tạo và mở cổng chuyên dụng 445
@@ -59,7 +59,7 @@ chia sẻ được quản lý tối ưu bởi kernel mặc định và tối ưu
 hiệu suất bằng cách xử lý song song các lệnh của máy khách.
 
 ksmbd.mountd (daemon không gian người dùng)
---------------------------------
+-------------------------------------------
 
 ksmbd.mountd là một quá trình không gian người dùng để chuyển tài khoản người dùng và mật khẩu
 được đăng ký bằng ksmbd.adduser (một phần của tiện ích dành cho không gian người dùng). Hơn nữa nó
@@ -73,7 +73,7 @@ và được chuyển tới luồng nhân liên quan cho máy khách.
 
 
 Trạng thái tính năng KSMBD
-====================
+==========================
 
 =====================================================================================
 Tên tính năng Trạng thái
@@ -131,7 +131,7 @@ Hỗ trợ ký kết SMB3.1.1 GMAC Được lên kế hoạch cho tương lai.
 
 
 Làm thế nào để chạy
-==========
+===================
 
 1. Tải xuống ksmbd-tools(ZZ0000ZZ và
    biên dịch chúng.
@@ -179,7 +179,7 @@ Tắt máy KSMBD
 	# sudo ksmbd.control -s
 
 Cách bật tính năng in gỡ lỗi
-==========================
+============================
 
 Mỗi lớp
 /sys/class/ksmbd-control/gỡ lỗi

@@ -67,10 +67,10 @@ hàng đợi được netdev hỗ trợ.
     Both the map key and map value size must be 4 bytes.
 
 Cách sử dụng
-=====
+============
 
 Hạt nhân BPF
-----------
+------------
 bpf_redirect_map()
 ^^^^^^^^^^^^^^^^^^
 .. code-block:: c
@@ -96,7 +96,7 @@ Có thể truy xuất các tham chiếu mục nhập XSK thuộc loại ZZ0000ZZ
 Người trợ giúp ZZ0001ZZ.
 
 Không gian người dùng
-----------
+---------------------
 .. note::
     XSK entries can only be updated/deleted from user space and not from
     a BPF program. Trying to call these functions from a kernel BPF program will
@@ -146,7 +146,7 @@ thất bại.
 Ví dụ
 ========
 hạt nhân
-------
+--------
 
 Đoạn mã sau đây cho thấy cách khai báo ZZ0000ZZ được gọi
 ZZ0001ZZ và cách chuyển hướng gói đến XSK.
@@ -172,7 +172,7 @@ ZZ0001ZZ và cách chuyển hướng gói đến XSK.
 	}
 
 Không gian người dùng
-----------
+---------------------
 
 Đoạn mã sau đây cho biết cách cập nhật XSKMAP với mục nhập XSK.
 

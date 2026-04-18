@@ -17,7 +17,7 @@ autofs - cách thức hoạt động
 ============================
 
 Mục đích
-=======
+========
 
 Mục tiêu của autofs là cung cấp dịch vụ lắp đặt theo yêu cầu và không có cuộc đua
 tự động ngắt kết nối các hệ thống tập tin khác.  Điều này cung cấp hai
@@ -39,7 +39,7 @@ tự động ngắt kết nối các hệ thống tập tin khác.  Điều này
    lần đầu tiên truy cập một tên.
 
 Bối cảnh
-=======
+========
 
 Mô-đun hệ thống tập tin "autofs" chỉ là một phần của hệ thống autofs.
 Cũng cần có một chương trình không gian người dùng để tra cứu tên
@@ -54,7 +54,7 @@ loại hệ thống tập tin.  Một số hệ thống tập tin "autofs" có t
 mỗi cái có thể được quản lý riêng biệt hoặc tất cả được quản lý bởi cùng một daemon.
 
 Nội dung
-=======
+========
 
 Một hệ thống tập tin autofs có thể chứa 3 loại đối tượng: thư mục,
 liên kết tượng trưng và bẫy gắn kết.  Bẫy gắn kết là các thư mục có
@@ -213,7 +213,7 @@ bắt đầu hoặc đang được xem xét, nếu không nó sẽ trả về 0.
 
 
 Điểm gắn kết hết hạn
-=================
+====================
 
 VFS có cơ chế tự động hết hạn các giá treo không sử dụng,
 vì nó có thể làm hết hạn mọi thông tin nha khoa chưa được sử dụng từ dcache.
@@ -538,7 +538,7 @@ thay vì giả sử ZZ0001ZZ và lệnh ZZ0004ZZ này
 tương ứng với ZZ0005ZZ.
 
 Chế độ catatonic
-==============
+================
 
 Như đã đề cập, ngàm autofs có thể vào chế độ "catatonic".  Cái này
 xảy ra nếu quá trình ghi vào ống thông báo không thành công hoặc nếu nó bị lỗi
@@ -577,7 +577,7 @@ người dùng hệ thống có thể tùy ý sử dụng nó.
 gắn kết khỏi sự cân nhắc khi đọc danh sách gắn kết.
 
 autofs, không gian tên và gắn kết được chia sẻ
-======================================
+==============================================
 
 Với các liên kết gắn kết và không gian tên, có thể tự động
 hệ thống tập tin xuất hiện ở nhiều nơi trong một hoặc nhiều hệ thống tập tin

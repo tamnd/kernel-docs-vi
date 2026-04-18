@@ -30,13 +30,13 @@ Biến bóng
    :export:
 
 Thay đổi trạng thái hệ thống
-====================
+============================
 
 .. kernel-doc:: kernel/livepatch/state.c
    :export:
 
 Các loại đối tượng
-============
+==================
 
 .. kernel-doc:: include/linux/livepatch.h
    :identifiers: klp_patch klp_object klp_func klp_callbacks klp_state

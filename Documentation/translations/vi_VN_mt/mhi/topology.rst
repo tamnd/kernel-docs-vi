@@ -20,7 +20,7 @@ Tài liệu này cung cấp thông tin về mô hình cấu trúc liên kết MH
 biểu diễn trong kernel.
 
 Bộ điều khiển MHI
---------------
+-----------------
 
 Trình điều khiển bộ điều khiển MHI quản lý sự tương tác với các thiết bị khách MHI
 chẳng hạn như modem ngoài và chipset WiFi. Nó cũng là chủ xe buýt MHI
@@ -39,7 +39,7 @@ Dưới đây là vai trò của trình điều khiển bộ điều khiển MHI
 * Bắt đầu tạm dừng và tiếp tục hoạt động quản lý nguồn điện của thiết bị.
 
 Thiết bị MHI
-----------
+------------
 
 Thiết bị MHI là thiết bị logic liên kết với tối đa hai kênh MHI
 cho giao tiếp hai chiều. Khi MHI ở trạng thái bật nguồn, MHI
@@ -52,7 +52,7 @@ Mỗi thiết bị được hỗ trợ được liệt kê trong::
 /sys/bus/mhi/thiết bị/
 
 Trình điều khiển MHI
-----------
+--------------------
 
 Trình điều khiển MHI là trình điều khiển máy khách liên kết với một hoặc nhiều thiết bị MHI. MHI
 trình điều khiển gửi và nhận các gói giao thức lớp trên như gói IP,

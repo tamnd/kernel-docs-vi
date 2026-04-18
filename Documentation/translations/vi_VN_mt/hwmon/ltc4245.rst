@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ltc4245
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -39,7 +39,7 @@ PCI Express.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị LTC4245, do thực tế là một số
 trong số các địa chỉ có thể không thân thiện với việc thăm dò. Bạn sẽ phải
@@ -53,7 +53,7 @@ $ modprobe ltc4245
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 LTC4245 có các giới hạn tích hợp cho các cảnh báo hiện tại trên và dưới. Cái này
 làm cho rất có thể mạch tham chiếu sẽ được sử dụng.
@@ -105,7 +105,7 @@ power4_input Mức sử dụng điện năng Vee (-12v) (mW)
 
 
 Lưu ý 1
-------
+-------
 
 Nếu bạn đã định cấu hình trình điều khiển NOT để lấy mẫu tất cả các chân GPIO dưới dạng analog
 điện áp thì các thuộc tính sysfs in10_input và in11_input sẽ không được

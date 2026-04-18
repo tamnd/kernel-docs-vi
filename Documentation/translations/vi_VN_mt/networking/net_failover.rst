@@ -17,7 +17,7 @@ NET_FAILOVER
 =============
 
 Tổng quan
-========
+=========
 
 Trình điều khiển net_failover cung cấp cơ chế chuyển đổi dự phòng tự động thông qua API
 để tạo và hủy một netdev chuyển đổi dự phòng chính và quản lý một mạng chính và
@@ -38,7 +38,7 @@ VF được đính kèm trực tiếp bằng cách chuyển sang đường dẫn
 đã được rút phích cắm.
 
 Đường dẫn dữ liệu tăng tốc virtio-net: chế độ STANDBY
-=============================================
+=====================================================
 
 net_failover cho phép đường dẫn dữ liệu được tăng tốc được điều khiển bởi hypervisor tới virtio-net
 kích hoạt máy ảo một cách minh bạch mà không có/tối thiểu những thay đổi về không gian người dùng dành cho khách.
@@ -48,7 +48,7 @@ tính năng trên giao diện virtio-net và gán cùng một địa chỉ MAC c
 giao diện virtio-net và VF.
 
 Dưới đây là đoạn mã libvirt XML ví dụ hiển thị cấu hình như vậy:
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 <loại giao diện='mạng'>
     <địa chỉ mac='52:54:00:00:12:53'/>
@@ -83,7 +83,7 @@ trỏ đến tên bí danh được khai báo cho thiết bị virtio-net.
 
 Khởi động VM với cấu hình trên sẽ dẫn đến 3 lỗi sau
 giao diện được tạo trong VM:
-::
+::::::::::::::::::::::::::::
 
 4: ens10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc trạng thái noqueue UP nhóm mặc định qlen 1000
       liên kết/ether 52:54:00:00:12:53 brd ff:ff:ff:ff:ff:ff
@@ -122,7 +122,7 @@ Hình ảnh đám mây Debian::
 
 
 Di chuyển trực tiếp máy ảo với SR-IOV VF & virtio-net ở chế độ STANDBY
-==================================================================
+======================================================================
 
 net_failover cũng cho phép hỗ trợ di chuyển trực tiếp do hypervisor kiểm soát
 với các máy ảo có thiết bị SR-IOV VF được gắn trực tiếp bằng cách tự động chuyển đổi dự phòng sang
@@ -133,7 +133,7 @@ trình ảo hóa nguồn. Lưu ý: Giả định rằng VM được kết nối 
 cầu phần mềm 'br0' có một VF duy nhất được gắn vào cùng với vnet
 thiết bị vào VM. Đây không phải là VF được chuyển qua VM (xem trong
 tệp vf.xml).
-::
+::::::::::::
 
 # cat vf.xml
   <loại giao diện='hostdev' được quản lý='có'>

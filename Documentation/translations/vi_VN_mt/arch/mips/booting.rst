@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Khởi động cây thiết bị BMIPS
-------------------------
+----------------------------
 
 Một số bộ nạp khởi động chỉ hỗ trợ một điểm vào duy nhất, khi bắt đầu
   hình ảnh hạt nhân.  Các bộ tải khởi động khác sẽ chuyển đến địa chỉ bắt đầu ELF.

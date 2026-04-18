@@ -94,7 +94,7 @@ hiểu hành vi của các hệ thống con.
 Hướng dẫn ZZ0000ZZ.
 
 Gỡ lỗiFS
--------
+--------
 
 Công cụ này cho phép bạn kết xuất hoặc sửa đổi các giá trị bên trong của trình điều khiển thành các tệp
 trong một hệ thống tập tin tùy chỉnh.
@@ -103,7 +103,7 @@ trong một hệ thống tập tin tùy chỉnh.
 Hướng dẫn ZZ0000ZZ.
 
 Hiệu suất & lựa chọn thay thế
--------------------
+-----------------------------
 
 Công cụ đo lường các số liệu thống kê khác nhau trên hệ thống đang chạy nhằm chẩn đoán sự cố.
 
@@ -142,7 +142,7 @@ Người dùng 1,502318000 giây
 Tính khả dụng của các sự kiện và số liệu tùy thuộc vào hệ thống bạn đang chạy.
 
 Kiểm tra lỗi và phân tích hoảng loạn
--------------------------------
+------------------------------------
 
 Các tùy chọn cấu hình hạt nhân khác nhau để tăng cường khả năng phát hiện lỗi của Linux
 Hạt nhân với chi phí giảm hiệu suất.

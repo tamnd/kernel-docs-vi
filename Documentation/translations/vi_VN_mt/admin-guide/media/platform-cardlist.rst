@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển nền tảng
-================
+=========================
 
 Có một số trình điều khiển tập trung vào việc cung cấp hỗ trợ cho
 chức năng đã được bao gồm trong bo mạch chính và không
@@ -89,7 +89,7 @@ Bộ điều khiển thời gian video xilinx-vtc Xilinx
 ===================================================================================
 
 Bộ chuyển đổi MMC/SDIO DVB
----------------------
+--------------------------
 
 ======= ===============================================
 Tên tài xế

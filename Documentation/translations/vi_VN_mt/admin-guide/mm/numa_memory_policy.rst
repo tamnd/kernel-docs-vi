@@ -17,7 +17,7 @@ Chính sách bộ nhớ NUMA
 ======================
 
 Chính sách bộ nhớ NUMA là gì?
-============================
+=============================
 
 Trong nhân Linux, "chính sách bộ nhớ" xác định hạt nhân sẽ từ nút nào
 phân bổ bộ nhớ trong hệ thống NUMA hoặc trong hệ thống NUMA mô phỏng.  Linux có
@@ -36,10 +36,10 @@ cả CPUset và chính sách đều được áp dụng cho một tác vụ, cá
 bên dưới để biết thêm chi tiết.
 
 Khái niệm chính sách bộ nhớ
-======================
+===========================
 
 Phạm vi chính sách bộ nhớ
-------------------------
+-------------------------
 
 Nhân Linux hỗ trợ _scopes_ chính sách bộ nhớ, được mô tả ở đây từ
 tổng quát nhất đến cụ thể nhất:
@@ -172,7 +172,7 @@ Cơ sở hạ tầng chính sách dùng chung hỗ trợ các chính sách khác
 	một hoặc nhiều phạm vi của khu vực.
 
 Các thành phần của chính sách bộ nhớ
------------------------------
+------------------------------------
 
 Chính sách bộ nhớ NUMA bao gồm một "chế độ", các cờ chế độ tùy chọn và
 một tập hợp các nút tùy chọn.  Chế độ xác định hành vi của
@@ -427,7 +427,7 @@ Vì việc đếm tham chiếu bổ sung này và vì chúng ta phải tra cứu
 .. _memory_policy_apis:
 
 API chính sách bộ nhớ
-==================
+=====================
 
 Linux hỗ trợ 4 lệnh gọi hệ thống để kiểm soát chính sách bộ nhớ.  Những chiếc APIS này
 luôn chỉ ảnh hưởng đến tác vụ gọi, không gian địa chỉ của tác vụ gọi hoặc
@@ -496,7 +496,7 @@ thực thi CPU.
 
 
 Giao diện dòng lệnh chính sách bộ nhớ
-====================================
+=====================================
 
 Mặc dù không hoàn toàn là một phần của việc triển khai chính sách bộ nhớ của Linux,
 một công cụ dòng lệnh, numactl(8), tồn tại cho phép một người:

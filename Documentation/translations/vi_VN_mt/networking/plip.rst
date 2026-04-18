@@ -71,14 +71,14 @@ PLIP dễ dàng hoạt động tốt hơn các card Ethernet....(ôi, tôi đang
 ZZ0000ZZ đang bị trễ. EOB)
 
 Chi tiết trình điều khiển PLIP
--------------------
+------------------------------
 
 Trình điều khiển Linux PLIP là một triển khai của giao thức Crynwr gốc,
 sử dụng hệ thống con cổng song song của hạt nhân để thực hiện đúng cách
 chia sẻ các cổng song song giữa PLIP và các dịch vụ khác.
 
 IRQ và thời gian chờ kích hoạt
-=========================
+==============================
 
 Khi một cổng song song được sử dụng cho trình điều khiển PLIP có IRQ được cấu hình cho nó,
 Trình điều khiển PLIP được báo hiệu bất cứ khi nào dữ liệu được gửi tới nó qua cáp, chẳng hạn như
@@ -169,7 +169,7 @@ Nếu cáp bạn đang sử dụng có tấm chắn kim loại thì nó phải
 chỉ được kết nối với vỏ DB-25 kim loại ở một đầu.
 
 Chế độ truyền song song 1
-========================
+=========================
 
 Phương thức truyền dữ liệu thứ hai dựa trên cả hai máy có
 Các cổng song song hai chiều, thay vì ZZ0000ZZ chỉ có đầu ra
@@ -203,7 +203,7 @@ Một lần nữa, nếu cáp bạn đang sử dụng có tấm chắn kim loạ
 chỉ được kết nối với vỏ DB-25 kim loại ở một đầu.
 
 Giao thức truyền PLIP Chế độ 0
-=============================
+==============================
 
 Trình điều khiển PLIP tương thích với chuyển cổng song song "Crynwr"
 tiêu chuẩn ở Chế độ 0. Tiêu chuẩn đó chỉ định giao thức sau::

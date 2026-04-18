@@ -17,11 +17,11 @@ Trình điều khiển ALSA BT87x
 ===========================
 
 giới thiệu
-=====
+==========
 
 Bạn có thể nhận thấy rằng thẻ Grabber bt878 thực sự có
 Chức năng ZZ0000ZZ PCI:
-::
+:::::::::::::::::::::::
 
 $ lspci
   [ ... ]
@@ -43,7 +43,7 @@ với thẻ của bạn.
 
 
 Trạng thái trình điều khiển
-=============
+===========================
 
 Hiện tài xế đã ổn định.  Tuy nhiên, nó không biết về nhiều card TV,
 và nó từ chối nạp những thẻ mà nó không biết.
@@ -60,7 +60,7 @@ hoặc không, để các phiên bản tương lai của trình điều khiển 
 
 
 Chế độ âm thanh
-===========
+===============
 
 Con chip biết hai chế độ khác nhau (kỹ thuật số/analog).  snd-bt87x
 đăng ký hai thiết bị PCM, một thiết bị cho mỗi chế độ.  Chúng không thể được sử dụng tại
@@ -68,7 +68,7 @@ cùng một lúc.
 
 
 Chế độ âm thanh kỹ thuật số
-==================
+===========================
 
 Thiết bị đầu tiên (hw:X,0) cung cấp cho bạn âm thanh nổi 16 bit.  mẫu
 tỷ lệ phụ thuộc vào nguồn bên ngoài cung cấp Bt87x bằng kỹ thuật số
@@ -76,7 +76,7 @@ tỷ lệ phụ thuộc vào nguồn bên ngoài cung cấp Bt87x bằng kỹ th
 
 
 Chế độ âm thanh analog (A/D)
-=======================
+============================
 
 Thiết bị thứ hai (hw:X,1) cung cấp cho bạn âm thanh đơn âm 8 hoặc 16 bit.  Được hỗ trợ
 tốc độ mẫu nằm trong khoảng từ 119466 đến 448000 Hz (vâng, những con số này là

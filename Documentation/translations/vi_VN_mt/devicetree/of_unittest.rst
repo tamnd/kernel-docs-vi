@@ -37,7 +37,7 @@ hầu hết các trình điều khiển thiết bị trong các trường hợp 
 
 
 2. Đầu ra dài dòng (EXPECT)
-==========================
+===========================
 
 Nếu unittest phát hiện vấn đề, nó sẽ in cảnh báo hoặc thông báo lỗi tới
 bảng điều khiển.  Unittest cũng kích hoạt các thông báo cảnh báo và lỗi từ các
@@ -58,7 +58,7 @@ từ 'scripts/dtc/of_unittest_expect --help'.
 
 
 3. Dữ liệu thử nghiệm
-============
+=====================
 
 Tệp Nguồn cây thiết bị (drivers/of/unittest-data/testcases.dtso) chứa
 dữ liệu kiểm tra cần thiết để thực hiện các bài kiểm tra đơn vị tự động trong
@@ -88,7 +88,7 @@ liên kết vào hình ảnh hạt nhân.
 
 
 3.1. Thêm dữ liệu thử nghiệm
--------------------------
+----------------------------
 
 Cấu trúc cây thiết bị không phẳng:
 

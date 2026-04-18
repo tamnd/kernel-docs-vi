@@ -272,7 +272,7 @@ phân bổ (bao gồm các bit ZZ0004ZZ và ZZ0005ZZ).
 Trường ZZ0006ZZ phải bằng 0.
 
 Bên trong hạt nhân
-================
+==================
 
 Có một số luồng gói có thể có trong ngăn xếp MCTP:
 
@@ -318,7 +318,7 @@ mctp_pkttype_receive()
 	   -> sock_queue_rcv_skb()
 
 Hoàn tiền chính
--------------
+---------------
 
 * phím được giới thiệu bởi:
 

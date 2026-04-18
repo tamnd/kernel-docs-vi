@@ -105,7 +105,7 @@ vẫn tồn tại trực tiếp trên đèn flash. Bạn cũng có thể tìm th
 
 
 Chỉ mục UBIFS & Bộ đệm nút cây
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các thực thể UBIFS flash cơ bản được gọi là ZZ0004ZZ. UBIFS biết nhiều loại khác nhau
 của các nút. Ví dụ. các nút dữ liệu (ZZ0000ZZ) lưu trữ các đoạn tệp
@@ -223,7 +223,7 @@ tính xác thực và tính toàn vẹn của siêu dữ liệu và nội dung t
 
 
 Mô hình mối đe dọa
-------------
+------------------
 
 Xác thực UBIFS cho phép phát hiện sửa đổi dữ liệu ngoại tuyến. Trong khi nó
 không ngăn chặn điều đó, nó cho phép mã (đáng tin cậy) kiểm tra tính toàn vẹn và
@@ -432,7 +432,7 @@ Cách tiếp cận tương tự như cách tiếp cận được đề xuất ch
 
 
 Tiện ích mở rộng trong tương lai
-=================
+================================
 
 Trong một số trường hợp nhất định khi nhà cung cấp muốn cung cấp hệ thống tệp được xác thực
 hình ảnh cho khách hàng, có thể thực hiện được điều đó mà không cần chia sẻ bí mật
@@ -445,7 +445,7 @@ sau đó sẽ phải được cung cấp trước theo cách thông thường.
 
 
 Tài liệu tham khảo
-==========
+==================
 
 [CRYPTSETUP2] ZZ0000ZZ
 

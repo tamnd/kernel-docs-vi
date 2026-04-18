@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển pvrusb2
-==================
+========================
 
 Tác giả: Mike Isely <isely@pobox.com>
 
@@ -79,7 +79,7 @@ muốn đặt một vài biến môi trường kiểm soát trước theo thứ 
 ở đây để nhận xét giải thích cách thực hiện điều đó.
 
 Danh sách tập tin nguồn/tổng ​​quan về chức năng
---------------------------------------
+------------------------------------------------
 
 (Lưu ý: Thuật ngữ "mô-đun" được sử dụng dưới đây thường đề cập đến một cách lỏng lẻo
 các đơn vị chức năng được xác định trong trình điều khiển pvrusb2 và không có

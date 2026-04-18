@@ -122,7 +122,7 @@ như hiển thị máy chủ và bộ định tuyến ILA::
 
 
 Xử lý tổng kiểm tra vận chuyển
-===========================
+==============================
 
 Khi một địa chỉ được dịch bởi ILA, tổng kiểm tra vận chuyển được đóng gói
 bao gồm địa chỉ đã dịch trong tiêu đề giả có thể được hiển thị
@@ -155,7 +155,7 @@ khôi phục mã định danh như ban đầu nó được gửi.
 
 
 Các loại định danh
-================
+==================
 
 ILA xác định các loại mã định danh khác nhau cho các trường hợp sử dụng khác nhau.
 
@@ -179,7 +179,7 @@ Trong quá trình triển khai hiện tại của kernel ILA chỉ có các mã 
 
 
 Định dạng định danh
-==================
+===================
 
 Kernel ILA hỗ trợ hai trường tùy chọn trong mã định danh để định dạng:
 "C-bit" và "loại định danh". Sự hiện diện của các trường này được xác định

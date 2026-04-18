@@ -25,10 +25,10 @@ cấu hình và phần bên trong của NTB bằng cách sử dụng các điể
 Tài liệu/PCI/endpoint/pci-vntb-function.rst
 
 Thiết bị đầu cuối
-===============
+=================
 
 Thiết bị điều khiển điểm cuối
----------------------------
+-----------------------------
 
 Để tìm danh sách các thiết bị điều khiển điểm cuối trong hệ thống::
 
@@ -41,7 +41,7 @@ Nếu PCI_ENDPOINT_CONFIGFS được bật::
           5f010000.pcie_ep
 
 Trình điều khiển chức năng điểm cuối
--------------------------
+------------------------------------
 
 Để tìm danh sách trình điều khiển chức năng điểm cuối trong hệ thống::
 
@@ -124,7 +124,7 @@ Cấu hình mẫu cho trình điều khiển NTB ảo cho bus PCI ảo::
 	# echo 0x10 > hàm/pci_epf_vntb/func1/pci_epf_vntb.0/vbus_number
 
 Liên kết thiết bị pci-epf-vntb với bộ điều khiển EP
---------------------------------------------
+---------------------------------------------------
 
 Thiết bị chức năng NTB phải được gắn vào bộ điều khiển điểm cuối PCI
 được kết nối với máy chủ.
@@ -136,7 +136,7 @@ thiết lập một liên kết với máy chủ.
 
 
 Bắt đầu liên kết
---------------
+----------------
 
 Để thiết bị đầu cuối thiết lập liên kết với máy chủ, _start_
 trường phải được điền bằng '1'. Đối với NTB, cả bộ điều khiển điểm cuối PCI
@@ -145,10 +145,10 @@ nên thiết lập liên kết với máy chủ (imx8 không cần bước này)
 # echo 1 > bộ điều khiển/5f010000.pcie_ep/bắt đầu
 
 Thiết bị phức tạp Root
-==================
+======================
 
 Đầu ra lspci ở phía máy chủ
--------------------------
+---------------------------
 
 Lưu ý rằng các thiết bị được liệt kê ở đây tương ứng với các giá trị được điền vào
 Phần "Tạo thiết bị pci-epf-vntb" ở trên::
@@ -170,7 +170,7 @@ Phần "Tạo thiết bị pci-epf-vntb" ở trên::
         10:00.0 Lớp chưa được chỉ định [ffff]: Dawicontrol Computersysteme GmbH Device 1234 (rev ff)
 
 Sử dụng thiết bị ntb_hw_epf
------------------------
+---------------------------
 
 Phần mềm phía máy chủ tuân theo kiến ​​trúc phần mềm NTB tiêu chuẩn trong Linux.
 Tất cả các tiện ích NTB phía máy khách hiện có như NTB Transport Client và NTB

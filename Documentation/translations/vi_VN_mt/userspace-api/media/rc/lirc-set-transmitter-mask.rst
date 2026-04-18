@@ -57,7 +57,7 @@ không có quá nhiều bộ chuyển đổi thì ioctl này trả về số lư
 các bộ chuyển tiếp có sẵn và không làm gì khác.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

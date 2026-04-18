@@ -90,7 +90,7 @@ Nếu bạn làm theo cách thứ hai, bạn phải tải mô-đun mỗi lần b
   /dev/net/tun đang được mở.
 
 3. Giao diện chương trình
-====================
+=========================
 
 3.1 Phân bổ thiết bị mạng
 -----------------------------
@@ -131,7 +131,7 @@ if( (err = ioctl(fd, TUNSETIFF, (void *) &ifr)) < 0 ){
   }
 
 3.2 Định dạng khung
-----------------
+-------------------
 
 Nếu cờ IFF_NO_PI không được đặt thì mỗi định dạng khung là::
 
@@ -140,7 +140,7 @@ Cờ [2 byte]
      Khung giao thức thô (IP, IPv6, v.v.).
 
 3.3 Giao diện tuntap nhiều hàng đợi
--------------------------------
+-----------------------------------
 
 Từ phiên bản 3.8, Linux hỗ trợ tuntap nhiều hàng đợi có thể sử dụng nhiều
 bộ mô tả tệp (hàng đợi) để song song hóa việc gửi hoặc nhận các gói. các
@@ -220,7 +220,7 @@ trả về ioctl(fd, TUNSETQUEUE, (void *)&ifr);
   }
 
 Trình điều khiển thiết bị Universal TUN/TAP Câu hỏi thường gặp
-=========================================================
+==============================================================
 
 1. Trình điều khiển TUN/TAP hỗ trợ những nền tảng nào?
 

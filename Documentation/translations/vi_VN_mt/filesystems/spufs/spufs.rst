@@ -40,7 +40,7 @@ Mỗi bối cảnh SPU được thể hiện bằng một thư mục chứa mộ
 
 
 Tùy chọn gắn kết
-=============
+================
 
 uid=<uid>
               đặt người dùng sở hữu điểm gắn kết, mặc định là 0 (root).
@@ -50,7 +50,7 @@ gid=<gid>
 
 
 Tập tin
-=====
+=======
 
 Các tập tin trong spufs chủ yếu tuân theo hành vi tiêu chuẩn của các hệ thống thông thường.
        lệnh gọi tem như đọc(2) hoặc viết(2), nhưng thường chỉ hỗ trợ một tập hợp con của

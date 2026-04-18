@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân nzxt-smart2
-=========================
+=====================================
 
 Các thiết bị được hỗ trợ:
 
@@ -34,7 +34,7 @@ Ngoài ra máy còn có cảm biến chống ồn nhưng hình như cảm biến
 vô dụng (và rất không chính xác), vì vậy việc hỗ trợ cho nó cũng không được triển khai.
 
 Ghi chú sử dụng
------------
+---------------
 
 Thiết bị sẽ được tự động phát hiện và trình điều khiển sẽ tự động tải.
 
@@ -52,7 +52,7 @@ giao diện không có vấn đề được biết đến.
 .. _liquidctl: https://github.com/liquidctl/liquidctl
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =====================================================================================
 fan[1-3]_input Giám sát tốc độ quạt (tính bằng vòng/phút).

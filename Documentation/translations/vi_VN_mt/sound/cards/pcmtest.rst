@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển kiểm tra PCM ảo
-===========================
+================================
 
 Trình điều khiển kiểm tra PCM ảo mô phỏng thiết bị PCM chung và có thể được sử dụng cho
 kiểm tra/làm mờ các ứng dụng ALSA trong không gian người dùng, cũng như để kiểm tra/làm mờ các ứng dụng
@@ -21,7 +21,7 @@ lớp giữa PCM. Ngoài ra, nó có thể được sử dụng để mô phỏn
 sự cố với thiết bị PCM.
 
 Người lái xe này có thể làm gì?
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Lúc này người lái xe có thể làm những việc sau:
 	* Mô phỏng cả quá trình chụp và phát lại
@@ -110,7 +110,7 @@ Lỗi có thể được đưa vào các lệnh gọi lại PCM sau:
 	* kích hoạt (EINVAL)
 
 Kiểm tra phát lại
--------------
+-----------------
 
 Trình điều khiển này cũng có thể được sử dụng để kiểm tra chức năng phát lại - mỗi khi bạn
 ghi dữ liệu phát lại vào thiết bị PCM 'pcmtest' và đóng nó lại, trình điều khiển sẽ kiểm tra
@@ -119,7 +119,7 @@ debugfs cho mỗi kênh). Nếu nội dung bộ đệm phát lại đại diện
 mẫu, mục gỡ lỗi 'pc_test' được đặt thành '1'. Nếu không, trình điều khiển sẽ đặt nó thành '0'.
 
 kiểm tra xác định lại ioctl
------------------------
+---------------------------
 
 Trình điều khiển xác định lại ioctl 'đặt lại', mặc định cho tất cả các thiết bị PCM. Để kiểm tra
 chức năng này, chúng tôi có thể kích hoạt thiết lập lại ioctl và kiểm tra các bản gỡ lỗi 'ioctl_test'

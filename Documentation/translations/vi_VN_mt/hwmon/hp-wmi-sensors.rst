@@ -129,7 +129,7 @@ và các đối tượng ZZ0001ZZ WMI, khác nhau giữa các hệ thống.
 Xem [#]_ để biết thêm chi tiết và định nghĩa Định dạng đối tượng được quản lý (MOF).
 
 Các vấn đề và hạn chế đã biết
-============================
+=============================
 
 - Nếu trình điều khiển hp-wmi hiện có dành cho hệ thống HP không dành cho doanh nghiệp đã có sẵn
   được tải, các thuộc tính ZZ0000ZZ sẽ không khả dụng ngay cả trên các hệ thống
@@ -145,7 +145,7 @@ Các vấn đề và hạn chế đã biết
   các loại không rõ hwmon sẽ không được hỗ trợ.
 
 Tài liệu tham khảo
-==========
+==================
 
 .. [#] Hewlett-Packard Development Company, L.P.,
        "HP Client Management Interface Technical White Paper", 2005. [Online].

@@ -107,7 +107,7 @@ bị xóa khỏi mọi trình điều khiển được đính kèm với nó. Vi
 không được phép.
 
 Truy cập tài nguyên kế thừa thông qua sysfs
-----------------------------------------
+-------------------------------------------
 
 Cổng I/O kế thừa và tài nguyên bộ nhớ ISA cũng được cung cấp trong sysfs nếu
 nền tảng cơ bản hỗ trợ chúng.  Chúng nằm trong hệ thống phân cấp lớp PCI,

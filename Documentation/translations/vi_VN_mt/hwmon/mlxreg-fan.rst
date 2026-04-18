@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân mlxreg-fan
-========================
+====================================
 
 Cung cấp khả năng điều khiển FAN cho các hệ thống Mellanox tiếp theo:
 
@@ -66,7 +66,7 @@ Trình điều khiển đưa quạt tới không gian người dùng thông qua 
 giao diện sysfs của nhiệt.
 
 /sys tập tin trong hệ thống con hwmon
------------------------------
+-------------------------------------
 
 ================== =========================================================
 fan[1-12]_fault Tệp RO cho máy đo tốc độ TACH1-TACH12 chỉ báo lỗi

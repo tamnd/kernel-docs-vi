@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân latepanda-sigma-ec
-=================================
+============================================
 
 Các hệ thống được hỗ trợ:
 
@@ -64,7 +64,7 @@ ZZ0000ZZ (bool, mặc định là sai)
     yêu cầu nhà cung cấp DMI phải khớp tên sản phẩm và tên nhà cung cấp.
 
 Những hạn chế đã biết
------------------
+---------------------
 
 * Kiểm soát tốc độ quạt không được hỗ trợ. Quạt luôn ở chế độ EC
   điều khiển tự động.

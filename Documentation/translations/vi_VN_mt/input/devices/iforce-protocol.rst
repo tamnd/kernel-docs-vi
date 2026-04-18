@@ -68,7 +68,7 @@ khung và hỏng dữ liệu được xử lý hoặc không đáng kể.
 Đầu tiên mình mô tả các hiệu ứng được thiết bị gửi tới máy tính
 
 Trạng thái đầu vào của thiết bị
-==================
+===============================
 
 Gói này được sử dụng để cho biết trạng thái của mỗi nút và giá trị của mỗi nút.
 trục::
@@ -86,7 +86,7 @@ OP= 01 cho cần điều khiển, 03 cho bánh xe
     07 bánh lái
 
 Trạng thái hiệu ứng thiết bị
-=====================
+============================
 
 ::
 
@@ -148,10 +148,10 @@ OP= 01
 
 
 Thông số dựa trên thời gian
----------------------
+---------------------------
 
 Tấn công và mờ dần
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -174,7 +174,7 @@ OP= 03
     02 cấp độ. Byte đã ký.
 
 Tính định kỳ
-^^^^^^^^^^^
+^^^^^^^^^^^^
 
 ::
 
@@ -207,7 +207,7 @@ giá trị tối đa là 64 (100 thập phân), tối thiểu là 9c.
 Đối với dải chết, giá trị tối thiểu là 0, tối đa là 03E8.
 
 Điều khiển
---------
+----------
 
 ::
 
@@ -221,11 +221,11 @@ OP= 41
     02 Số lần lặp n.
 
 Ban đầu
-----
+-------
 
 
 Tính năng truy vấn
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 ::
 
 OP= ff
@@ -237,7 +237,7 @@ OP= ff
     trong đó LEN = 1 + chiều dài (VALUE_QUERIED)
 
 Kích thước ram truy vấn
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -259,7 +259,7 @@ cùng một lúc (một byte)
 ff 02 4e 14 CS sẽ đại diện cho 20 hiệu ứng.
 
 Id của nhà cung cấp
-~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -268,7 +268,7 @@ QUERY = 4d ('Nhà sản xuất)
 Truy vấn nhà cung cấp'id (2 byte)
 
 Mã sản phẩm
-~~~~~~~~~~
+~~~~~~~~~~~
 
 ::
 
@@ -286,7 +286,7 @@ QUERY = 4f ('O'pen)
 Không có dữ liệu được trả lại.
 
 Đóng thiết bị
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 ::
 
@@ -295,7 +295,7 @@ QUERY = 43 ('C')thua
 Không có dữ liệu được trả lại.
 
 Hiệu ứng truy vấn
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -305,7 +305,7 @@ Gửi loại hiệu ứng.
 Trả về khác 0 nếu được hỗ trợ (2 byte)
 
 Phiên bản phần mềm
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -317,7 +317,7 @@ Khởi tạo thiết bị
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Đặt điều khiển
-~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 .. note::
     Device dependent, can be different on different models!
@@ -335,7 +335,7 @@ OP= 40 <idx> <val> [<val>]
        Idx 05 Đặt ngưỡng bão hòa trục (0..2048)
 
 Đặt trạng thái hiệu ứng
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -347,7 +347,7 @@ OP= 42 <giá trị>
        Bit 0 Dừng tất cả các hiệu ứng
 
 Đặt tổng thể
-~~~~~~~~~~~
+~~~~~~~~~~~~
 
 ::
 
@@ -371,7 +371,7 @@ là dung lượng bộ nhớ rõ ràng cần thiết cho mỗi bộ tham số:
  - tương tác : 08
 
 Phụ lục: Nghiên cứu quy trình như thế nào?
-====================================
+==========================================
 
 1. Tạo hiệu ứng bằng trình chỉnh sửa lực được cung cấp cùng với DirectX SDK hoặc
 sử dụng Immersion Studio (có sẵn miễn phí trên trang web của họ trong phần dành cho nhà phát triển:

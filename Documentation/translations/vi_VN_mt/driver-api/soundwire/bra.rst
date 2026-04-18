@@ -169,7 +169,7 @@ Thông số kỹ thuật SoundWire Mỗi thiết bị phải được xử lý b
 các luồng, có thể song song - các liên kết thực sự độc lập.
 
 Các tính năng không được hỗ trợ
---------------------
+-------------------------------
 
 Đặc tả Truy cập Đăng ký Hàng loạt cung cấp một số
 các khả năng không được hỗ trợ trong các triển khai đã biết, chẳng hạn như:
@@ -281,7 +281,7 @@ Chức năng này chờ toàn bộ tin nhắn được cung cấp bởi
       chỉ có một mã trả lại sẽ được cung cấp.
 
 Sử dụng bản đồ Regmap
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Trình điều khiển codec hiện tại dựa vào regmap để tải chương trình cơ sở về
 Thiết bị ngoại vi. regmap hiển thị giao diện không đồng bộ tương tự như
@@ -293,7 +293,7 @@ trường hợp sau.
 Việc tích hợp regmap sẽ được xử lý ở bước thứ hai.
 
 Mô hình luồng BRA
-----------------
+-----------------
 
 Để truyền âm thanh thông thường, trình điều khiển máy sẽ hiển thị dailink
 kết nối CPU DAI(s) và Codec DAI(s).
@@ -330,7 +330,7 @@ Model này không cần hỗ trợ BRA:
        khái niệm tổng hợp đa liên kết được cho phép bởi các liên kết DAI thông thường.
 
 Hỗ trợ âm thanh DMA
------------------
+-------------------
 
 Một số DMA, chẳng hạn như HDaudio, yêu cầu phải có trường định dạng âm thanh.
 thiết lập. Định dạng này lần lượt được sử dụng để xác định các cụm có thể chấp nhận được. BPT/BRA

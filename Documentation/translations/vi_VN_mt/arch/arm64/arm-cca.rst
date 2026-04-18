@@ -52,7 +52,7 @@ từ vị khách của Vương quốc, RMM nếu không sẽ ngăn cản Thế g
 từ việc thực hiện những thay đổi này.
 
 Linux như một vị khách thực sự
-----------------------
+------------------------------
 
 Để chạy Linux với tư cách là khách trong Vương quốc, phải cung cấp những thông tin sau
 bằng VMM hoặc bằng ZZ0000ZZ chạy trong Vương quốc trước Linux:
@@ -77,5 +77,5 @@ bằng VMM hoặc bằng ZZ0000ZZ chạy trong Vương quốc trước Linux:
    cung cấp các trang đó dưới dạng các trang không được bảo vệ.
 
 Tài liệu tham khảo
-----------
+------------------
 [1] ZZ0000ZZ

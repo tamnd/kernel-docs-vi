@@ -38,7 +38,7 @@ Nhóm làm việc vì công việc của họ chỉ định giao thức rất ph
 cảm ơn nhóm Samba vì lời khuyên và sự động viên kỹ thuật của họ.
 
 Người đóng góp bản vá
-------------------
+---------------------
 
 - Zwane Mwaikambo
 - Andi Kleen
@@ -70,7 +70,7 @@ Người đóng góp bản vá
 
 
 Trường hợp thử nghiệm và người đóng góp Báo cáo lỗi
--------------------------------------
+---------------------------------------------------
 Cảm ơn những người trong cộng đồng đã gửi báo cáo lỗi chi tiết
 và gỡ lỗi các vấn đề họ đã tìm thấy: Jochen Dolze, David Blaine,
 Rene Scharfe, Martin Josefsson, Alexander Wild, Anthony Liguori,

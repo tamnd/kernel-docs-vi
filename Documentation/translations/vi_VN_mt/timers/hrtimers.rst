@@ -145,7 +145,7 @@ biểu diễn nano giây (tại thời điểm biên dịch). Điều này đã 
 bối cảnh của công việc Y2038.)
 
 giờ - làm tròn các giá trị bộ đếm thời gian
------------------------------------
+-------------------------------------------
 
 mã giờ sẽ làm tròn các sự kiện hẹn giờ thành đồng hồ có độ phân giải thấp hơn
 bởi vì nó phải như vậy. Nếu không nó sẽ không làm tròn nhân tạo chút nào.

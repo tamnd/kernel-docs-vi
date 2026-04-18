@@ -77,7 +77,7 @@ Liên kết # ip thêm liên kết wpan0 tên lowpan0 loại lowpan
 3. Xuất hiện giao diện “lowpan0”
 
 Trình điều khiển
-=======
+================
 
 Giống như WiFi, có một số loại thiết bị triển khai IEEE 802.15.4.
 1) 'HardMAC'. Lớp MAC được triển khai trong chính thiết bị, thiết bị
@@ -122,14 +122,14 @@ Xem tiêu đề include/net/mac802154.h và một số trình điều khiển tr
 trình điều khiển/net/ieee802154/.
 
 Trình điều khiển giả
-------------
+--------------------
 
 Ngoài ra còn có sẵn trình điều khiển mô phỏng một thiết bị thực với
 Giao diện SoftMAC (fakelb - IEEE 802.15.4 loopback driver). Tùy chọn này
 cung cấp khả năng kiểm tra và gỡ lỗi ngăn xếp mà không cần sử dụng phần cứng thực.
 
 Trình điều khiển thiết bị API
-==================
+=============================
 
 include/net/mac802154.h xác định các hàm sau:
 

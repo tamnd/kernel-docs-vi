@@ -230,7 +230,7 @@ nếu [ -d "$1" ]
    The above script gets them in the right order.
 
 Hình ảnh initramfs bên ngoài:
---------------------------
+-----------------------------
 
 Nếu kernel đã bật hỗ trợ initrd thì kho lưu trữ cpio.gz bên ngoài cũng có thể
 được chuyển vào kernel 2.6 thay cho initrd.  Trong trường hợp này, hạt nhân
@@ -248,7 +248,7 @@ kho lưu trữ initramfs tích hợp sẵn.  Một số nhà phân phối cũng 
 một hình ảnh hạt nhân với các hình ảnh initramfs dành riêng cho nhiệm vụ mà không cần biên dịch lại.
 
 Nội dung của initramfs:
-----------------------
+-----------------------
 
 Kho lưu trữ initramfs là một hệ thống tập tin gốc độc lập hoàn chỉnh dành cho Linux.
 Nếu bạn chưa hiểu thư viện, thiết bị và đường dẫn dùng chung
@@ -296,7 +296,7 @@ Khi gỡ lỗi hệ thống tập tin gốc thông thường, thật tuyệt khi
 vừa hữu ích.
 
 Tại sao cpio chứ không phải tar?
--------------------------
+--------------------------------
 
 Quyết định này được đưa ra vào tháng 12 năm 2001. Cuộc thảo luận bắt đầu ở đây:
 
@@ -351,7 +351,7 @@ giải thích lý do của mình:
 và quan trọng nhất là thiết kế và triển khai mã initramfs.
 
 Định hướng tương lai:
-------------------
+---------------------
 
 Ngày nay (2.6.16), initramfs luôn được biên dịch nhưng không phải lúc nào cũng được sử dụng.  các
 kernel quay trở lại mã khởi động kế thừa chỉ đạt được nếu initramfs thực hiện

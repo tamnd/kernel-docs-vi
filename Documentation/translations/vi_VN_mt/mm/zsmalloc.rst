@@ -45,7 +45,7 @@ là rất nhỏ. Vì vậy, việc sử dụng bộ nhớ được cấp phát p
 API dựa trên tay cầm thích hợp.
 
 chỉ số
-====
+======
 
 Với CONFIG_ZSMALLOC_STAT, chúng ta có thể xem thông tin nội bộ của zsmalloc thông qua
 ZZ0000ZZ. Đây là một mẫu đầu ra stat ::
@@ -234,7 +234,7 @@ số trang trên mỗi zspage số lớp kích thước (cụm) hình mờ lớp
 
 
 Một thử nghiệm tổng hợp
-----------------
+-----------------------
 
 zram làm nơi lưu trữ tạo phẩm xây dựng (biên dịch nhân Linux).
 

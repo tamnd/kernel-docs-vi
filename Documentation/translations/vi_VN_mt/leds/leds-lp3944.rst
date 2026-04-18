@@ -53,7 +53,7 @@ LP3944 có thể được tìm thấy trên điện thoại thông minh Motorola
 
 
 Ghi chú
------
+-------
 Con chip này được sử dụng chủ yếu trong các bối cảnh nhúng, vì vậy trình điều khiển này mong đợi nó
 đã đăng ký bằng cơ chế i2c_board_info.
 

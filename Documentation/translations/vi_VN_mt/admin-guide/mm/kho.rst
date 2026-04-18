@@ -24,7 +24,7 @@ ZZ0000ZZ. Nếu bạn chưa đọc
 họ chưa, hãy làm như vậy ngay bây giờ.
 
 Điều kiện tiên quyết
-=============
+====================
 
 KHO khả dụng khi kernel được biên dịch bằng ZZ0000ZZ
 đặt thành y. Mỗi nhà sản xuất KHO có thể có tùy chọn cấu hình riêng mà bạn

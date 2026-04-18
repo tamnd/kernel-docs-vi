@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 V4L2 các chức năng và cấu trúc dữ liệu phổ biến
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/v4l2-common.h
 

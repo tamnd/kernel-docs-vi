@@ -48,7 +48,7 @@ Trả về thông tin về một khe CA được xác định bởi
 ZZ0000ZZ.slot_num.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công, 0 được trả về và ZZ0000ZZ được điền.
 

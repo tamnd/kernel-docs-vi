@@ -17,7 +17,7 @@ Trình điều khiển giao diện người dùng
 *************************************
 
 Tiêu đề đính kèm Frontend
-***********************
+*************************
 
 .. Keep it on alphabetic order
 

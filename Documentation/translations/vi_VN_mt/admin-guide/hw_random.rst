@@ -70,7 +70,7 @@ Trình điều khiển phần cứng cho Bộ tạo số ngẫu nhiên Intel/AMD
 
 
 Giới thiệu về phần cứng Intel RNG, từ bảng dữ liệu trung tâm chương trình cơ sở
-=============================================================
+===============================================================================
 
 Trung tâm chương trình cơ sở tích hợp Trình tạo số ngẫu nhiên (RNG)
 sử dụng nhiễu nhiệt được tạo ra từ lượng tử ngẫu nhiên vốn có
@@ -81,7 +81,7 @@ truy cập vào RNG của chúng tôi để sử dụng làm tính năng bảo m
 RNG chỉ được sử dụng với hệ thống ở trạng thái hiện tại của hệ điều hành.
 
 Ghi chú của Trình điều khiển Intel RNG
-======================
+======================================
 
 FIXME: thăm dò ủng hộ(2)
 
@@ -100,7 +100,7 @@ FIXME: thăm dò ủng hộ(2)
 	   succeed.
 
 Chi tiết tài xế
-==============
+===============
 
 Dựa trên:
 	Bảng dữ liệu Trung tâm chương trình cơ sở Intel 82802AB/82802AC (FWH)

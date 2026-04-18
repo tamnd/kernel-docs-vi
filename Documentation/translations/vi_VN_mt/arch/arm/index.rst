@@ -38,7 +38,7 @@ Kiến trúc ARM
    features
 
 Tài liệu dành riêng cho SoC
-======================
+===========================
 
 .. toctree::
    :maxdepth: 1

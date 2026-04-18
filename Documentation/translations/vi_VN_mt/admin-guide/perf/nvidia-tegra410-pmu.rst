@@ -28,7 +28,7 @@ các số liệu như băng thông bộ nhớ, độ trễ và mức sử dụng
 * NV-DLink
 
 Trình điều khiển PMU
-----------
+--------------------
 
 Trình điều khiển PMU mô tả các sự kiện và cấu hình có sẵn của mỗi PMU trong
 sysfs. Vui lòng xem các phần bên dưới để biết đường dẫn sysfs của từng PMU. thích

@@ -38,7 +38,7 @@ Nó có tính năng:
 -DFSDM
 
 Tài nguyên
----------
+----------
 
 Bảng dữ liệu và tài liệu tham khảo được cung cấp công khai trên trang web ST (STM32H750_).
 

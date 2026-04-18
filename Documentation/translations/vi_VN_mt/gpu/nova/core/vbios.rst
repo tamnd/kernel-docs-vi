@@ -179,7 +179,7 @@ Bố cục VBIOS đại khái là một loạt các hình ảnh được ghép n
    For more explanations of acronyms, see the detailed descriptions in `vbios.rs`.
 
 Tra cứu dữ liệu Falcon
-------------------
+----------------------
 Một phần quan trọng của mã trích xuất VBIOS (vbios.rs) là tìm vị trí của
 Dữ liệu chim ưng trong VBIOS chứa bảng tra cứu PMU. Bảng tra cứu này là
 được sử dụng để tìm ucode Falcon cần thiết dựa trên ID ứng dụng.

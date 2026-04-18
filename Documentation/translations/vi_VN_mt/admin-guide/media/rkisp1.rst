@@ -42,7 +42,7 @@ Các phiên bản đang được sử dụng là:
 - RKISP1_V13: được sử dụng ít nhất trong rk1808
 
 Cấu trúc liên kết
-========
+=================
 .. _rkisp1_topology_graph:
 
 .. kernel-figure:: rkisp1.dot
@@ -83,7 +83,7 @@ ZZ0001ZZ ZZ0000ZZ.
 
 
 rkisp1_resizer_mainpath, rkisp1_resizer_selfpath - Bộ thay đổi kích thước Nút thiết bị phụ
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 Đó là các thực thể thay đổi kích thước cho đường dẫn chính và đường dẫn tự thân. Những thực thể đó
 có thể chia tỷ lệ khung hình lên xuống và cũng có thể thay đổi mẫu YUV (ví dụ:
 YUV4:2:2 -> YUV4:2:0). Họ cũng có khả năng cắt xén trên tấm đệm chìm.
@@ -200,7 +200,7 @@ Do đó, các khung chụp sẽ không trải qua thuật toán 3A và
 có thể sẽ không có chất lượng tốt và thậm chí có thể trông sẫm màu và xanh lục.
 
 Định cấu hình lượng tử hóa
-========================
+==========================
 
 Trình điều khiển hỗ trợ lượng tử hóa giới hạn và toàn phạm vi trên các định dạng YUV,
 trong đó giới hạn là mặc định.

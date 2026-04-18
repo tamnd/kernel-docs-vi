@@ -90,6 +90,6 @@ ZZ0004ZZ.
 	params->data_size += sizeof(struct mali_c55_params_sensor_off_preshading);
 
 Loại dữ liệu uAPI của Mali-C55
-============================
+==============================
 
 .. kernel-doc:: include/uapi/linux/media/arm/mali-c55-config.h

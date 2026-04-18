@@ -33,7 +33,7 @@ một tệp cụ thể trong sysfs). Trình kích hoạt có thể bắt đầu 
 cảm biến và nó cũng có thể hoàn toàn không liên quan đến chính cảm biến.
 
 Giao diện sysfs kích hoạt IIO
-===========================
+=============================
 
 Có hai vị trí trong sysfs liên quan đến trình kích hoạt:
 
@@ -54,7 +54,7 @@ Có hai vị trí trong sysfs liên quan đến trình kích hoạt:
   Tệp ZZ0001ZZ.
 
 Thiết lập kích hoạt IIO
-=================
+=======================
 
 Hãy xem một ví dụ đơn giản về cách thiết lập trình kích hoạt để trình điều khiển sử dụng::
 
@@ -75,7 +75,7 @@ struct iio_trigger *trig;
       iio_trigger_register(trig);
 
 Hoạt động kích hoạt IIO
-===============
+=======================
 
 * struct iio_trigger_ops — cấu trúc hoạt động của iio_trigger.
 
@@ -86,7 +86,7 @@ Lưu ý rằng trình kích hoạt có một tập hợp các thao tác được
   kích hoạt được thay đổi.
 
 Thêm chi tiết
-============
+=============
 .. kernel-doc:: include/linux/iio/trigger.h
 .. kernel-doc:: drivers/iio/industrialio-trigger.c
    :export:

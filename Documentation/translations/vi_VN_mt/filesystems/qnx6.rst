@@ -20,12 +20,12 @@ Qnx6fs được sử dụng bởi các phiên bản hệ điều hành QNX mới
 Nó được giới thiệu trong QNX 6.4.0 và được sử dụng mặc định kể từ 6.4.1.
 
 Lựa chọn
-======
+========
 
 mmi_fs Hệ thống tập tin gắn kết như được sử dụng chẳng hạn bởi hệ thống Audi MMI 3G
 
 Đặc điểm kỹ thuật
-=============
+=================
 
 qnx6fs chia sẻ nhiều thuộc tính với hệ thống tệp Unix truyền thống. Nó có
 khái niệm về khối, inode và thư mục.
@@ -134,7 +134,7 @@ Với số inode longfilename đó, cây longfilename có thể được duyệt
 bắt đầu với các con trỏ nút gốc superblock longfilename.
 
 Các tập tin đặc biệt
--------------
+--------------------
 
 Liên kết tượng trưng cũng là đối tượng hệ thống tập tin có nút. Họ đã có một thông tin cụ thể
 bit trong trường chế độ inode xác định chúng là liên kết tượng trưng.
@@ -163,7 +163,7 @@ Nếu cấu trúc đó phù hợp với tất cả các kích thước khối đ
 là giới hạn 510 byte cho tên tệp thực tế được lưu trữ.
 
 Bản đồ bit
-------
+----------
 
 Bitmap phân bổ hệ thống tập tin qnx6fs được lưu trữ trong cây dưới bitmap
 nút gốc trong siêu khối và mỗi bit trong bitmap đại diện cho một
@@ -177,7 +177,7 @@ Các bit ở cuối khối bitmap cuối cùng được đặt thành 1, nếu t
 nhỏ hơn không gian địa chỉ trong bitmap.
 
 Khu vực hệ thống bitmap
-------------------
+-----------------------
 
 Bản thân bitmap được chia thành ba phần.
 

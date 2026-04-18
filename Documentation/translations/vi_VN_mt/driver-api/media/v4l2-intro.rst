@@ -47,7 +47,7 @@ thẻ chụp PCI và trình bày cách sử dụng trình điều khiển V4L2
 khuôn khổ. Nó có thể được sử dụng làm mẫu cho trình điều khiển quay video PCI thực sự.
 
 Cấu trúc của trình điều khiển V4L
--------------------------
+---------------------------------
 
 Tất cả các trình điều khiển có cấu trúc sau:
 

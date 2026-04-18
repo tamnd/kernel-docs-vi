@@ -15,7 +15,7 @@
 .. _media-controller-model:
 
 Mẫu thiết bị đa phương tiện
-==================
+===========================
 
 Khám phá cấu trúc liên kết bên trong của thiết bị và định cấu hình nó khi chạy,
 là một trong những mục tiêu của bộ điều khiển phương tiện API. Để đạt được điều này,

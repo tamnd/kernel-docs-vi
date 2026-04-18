@@ -55,7 +55,7 @@ chỉ định bố cục thành phần màu.
 
 
 2. Thể loại và hình ảnh
---------------------
+-----------------------
 
 Các pixel được lưu trữ trong bộ nhớ ở các định dạng phụ thuộc vào phần cứng. Ứng dụng cần
 biết về định dạng lưu trữ pixel để ghi dữ liệu hình ảnh vào

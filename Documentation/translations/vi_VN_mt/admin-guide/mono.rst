@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hỗ trợ hạt nhân nhị phân Mono(tm) cho Linux
------------------------------------------
+-------------------------------------------
 
 Để định cấu hình Linux nhằm tự động thực thi các tệp nhị phân .NET dựa trên Mono
 (ở dạng tệp .exe) mà không cần sử dụng CLR đơn sắc

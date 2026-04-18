@@ -18,7 +18,7 @@ MSG_ZEROCOPY
 =============
 
 giới thiệu
-=====
+==========
 
 Cờ MSG_ZEROCOPY cho phép tránh sao chép đối với các cuộc gọi gửi ổ cắm.
 Tính năng này hiện được triển khai cho TCP, UDP và VSOCK (với
@@ -51,7 +51,7 @@ vậy thì tầm thường như việc chuyền cờ thôi.
 
 
 Thêm thông tin
----------
+--------------
 
 Phần lớn tài liệu này được lấy từ một bài báo dài hơn được trình bày tại
 netdev 2.1. Để biết thêm thông tin sâu hơn, hãy xem bài báo đó và nói chuyện,
@@ -75,7 +75,7 @@ Chuyển cờ MSG_ZEROCOPY là bước rõ ràng nhất để kích hoạt tính
 tránh né, nhưng không phải là duy nhất.
 
 Thiết lập ổ cắm
-------------
+---------------
 
 Hạt nhân được cho phép khi các ứng dụng chuyển các cờ không xác định tới
 gửi cuộc gọi hệ thống. Theo mặc định, nó chỉ đơn giản là bỏ qua những điều này. Để tránh kích hoạt
@@ -88,7 +88,7 @@ if (setsockopt(fd, SOL_SOCKET, SO_ZEROCOPY, &one, sizeof(one)))
 		error(1, errno, "setsockopt zerocopy");
 
 Quá trình lây truyền
-------------
+--------------------
 
 Bản thân sự thay đổi để gửi (hoặc sendto, sendmsg, sendmmsg) là không đáng kể.
 Vượt qua lá cờ mới.
@@ -103,7 +103,7 @@ các trang bị khóa.
 
 
 Trộn lẫn tránh sao chép và sao chép
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nhiều khối lượng công việc có sự kết hợp giữa bộ đệm lớn và nhỏ. Bởi vì sao chép
 việc tránh né tốn kém hơn so với việc sao chép các gói nhỏ,
@@ -220,7 +220,7 @@ printf("đã hoàn thành: %u..%u\n", serr->ee_info, serr->ee_data);
 
 
 Bản sao hoãn lại
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Truyền cờ MSG_ZEROCOPY là một gợi ý cho kernel để áp dụng bản sao
 tránh và một hợp đồng rằng kernel sẽ xếp hàng hoàn thành
@@ -263,7 +263,7 @@ bao gồm việc lặp vào các ổ cắm gói (ví dụ: tcpdump) và các thi
 Đường dẫn dữ liệu được gửi đến ổ cắm cục bộ giống như đối với ổ cắm không cục bộ.
 
 Kiểm tra
-=======
+========
 
 Mã ví dụ thực tế hơn có thể được tìm thấy trong nguồn kernel bên dưới
 công cụ/kiểm tra/selftests/net/msg_zerocopy.c.

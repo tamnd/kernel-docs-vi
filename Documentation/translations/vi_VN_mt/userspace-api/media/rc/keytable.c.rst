@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 tập tin: uapi/v4l/keytable.c
-=========================
+============================
 
 .. code-block:: c
 

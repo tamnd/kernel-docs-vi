@@ -17,7 +17,7 @@ lỗi người dùng
 ==============
 
 Khách quan
-=========
+==========
 
 Lỗi người dùng cho phép thực hiện phân trang theo yêu cầu từ vùng người dùng
 và nói chung hơn là chúng cho phép người dùng kiểm soát nhiều thứ khác nhau
@@ -27,7 +27,7 @@ Ví dụ: lỗi do người dùng cho phép triển khai đúng cách và tối 
 của thủ thuật ZZ0000ZZ.
 
 Thiết kế
-======
+========
 
 Không gian người dùng tạo một userfaultfd mới, khởi tạo nó và đăng ký một hoặc nhiều
 vùng bộ nhớ ảo với nó. Sau đó, bất kỳ lỗi trang nào xảy ra trong
@@ -152,7 +152,7 @@ có thể được kích hoạt ngay trước khi bản đồ vùng người dù
 trang bị lỗi do người dùng.
 
 Giải quyết lỗi người dùng
---------------------
+-------------------------
 
 Có ba cách cơ bản để giải quyết lỗi do người dùng:
 

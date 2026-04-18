@@ -31,11 +31,11 @@ viết bài này, không có trình điều khiển flash xenon sử dụng giao
 .. _flash-controls-use-cases:
 
 Các trường hợp sử dụng được hỗ trợ
-===================
+==================================
 
 
 Đèn flash LED không đồng bộ (nhấp nháy phần mềm)
-------------------------------------------
+------------------------------------------------
 
 Đèn flash LED không đồng bộ được máy chủ điều khiển trực tiếp dưới dạng
 cảm biến. Người chủ trì phải bật đèn flash trước khi tiếp xúc với đèn flash.
@@ -46,7 +46,7 @@ Ví dụ về thiết bị như vậy: Nokia N900.
 
 
 Đèn flash LED được đồng bộ hóa (nhấp nháy phần cứng)
-----------------------------------------
+----------------------------------------------------
 
 Đèn flash LED được đồng bộ hóa được máy chủ lập trình sẵn (nguồn và
 hết thời gian chờ) nhưng được điều khiển bởi cảm biến thông qua tín hiệu nhấp nháy từ
@@ -57,7 +57,7 @@ thường phải được cung cấp cho cảm biến.
 
 
 LED flash như đèn pin
-------------------
+---------------------
 
 Đèn flash LED có thể được sử dụng làm đèn pin kết hợp với trường hợp sử dụng khác
 liên quan đến máy ảnh hoặc cá nhân.
@@ -66,7 +66,7 @@ liên quan đến máy ảnh hoặc cá nhân.
 .. _flash-control-id:
 
 ID điều khiển flash
------------------
+-------------------
 
 ZZ0000ZZ
     Bộ mô tả lớp FLASH.

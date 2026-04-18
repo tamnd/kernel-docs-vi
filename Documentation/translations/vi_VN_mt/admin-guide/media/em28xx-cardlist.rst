@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Danh sách thẻ EM28xx
-=================
+====================
 
 .. tabularcolumns:: |p{1.4cm}|p{10.0cm}|p{1.9cm}|p{4.2cm}|
 

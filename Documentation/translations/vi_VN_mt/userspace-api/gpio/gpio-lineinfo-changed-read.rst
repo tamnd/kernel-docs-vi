@@ -90,7 +90,7 @@ có thể đọc được bằng ZZ0001ZZ hoặc tương đương.
 Lần đầu tiên được thêm vào trong 5.7.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, số byte được đọc sẽ là bội số của kích thước của
 một sự kiện ZZ0000ZZ.

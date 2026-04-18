@@ -15,7 +15,7 @@
 .. include:: <isonum.txt>
 
 Trình điều khiển hạt nhân dell-smm-hwmon
-============================
+========================================
 
 :Bản quyền: ZZ0000ZZ 2002-2005 Massimo Dal Zotto <dz@debian.org>
 :Bản quyền: ZZ0001ZZ 2019 Giovanni Mascellani <gio@debian.org>
@@ -238,7 +238,7 @@ Trình xử lý SMM có thể báo hiệu lỗi bằng một trong hai cách:
 - cài đặt cờ mang (chỉ giao diện SMM cũ)
 
 Giao diện SMM kế thừa
---------------------
+---------------------
 
 Khi sử dụng giao diện SMM cũ, SMM được kích hoạt bằng cách ghi byte có trọng số thấp nhất
 của mã lệnh tới các ioport đặc biệt ZZ0000ZZ và ZZ0001ZZ. Giao diện này không

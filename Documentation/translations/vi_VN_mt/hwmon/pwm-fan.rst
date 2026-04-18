@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân pwm-fan
-=====================
+=================================
 
 Trình điều khiển này cho phép sử dụng mô-đun PWM để điều khiển quạt. Nó sử dụng
 giao diện PWM chung do đó nó độc lập với phần cứng. Nó có thể được sử dụng trên

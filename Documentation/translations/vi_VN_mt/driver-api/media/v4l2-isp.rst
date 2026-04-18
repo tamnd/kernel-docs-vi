@@ -57,5 +57,5 @@ bộ đệm nhận được từ không gian người dùng có sẵn trong
 trình điều khiển/phương tiện/v4l2-core/v4l2-isp.c
 
 Tài liệu hỗ trợ trình điều khiển V4L2 ISP
-=====================================
+=========================================
 .. kernel-doc:: include/media/v4l2-isp.h

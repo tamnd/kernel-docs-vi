@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thiết bị Polytouch dựa trên EDT ft5x06
-----------------------------------
+--------------------------------------
 
 Trình điều khiển edt-ft5x06 rất hữu ích cho dòng điện dung EDT "Polytouch"
 màn hình cảm ứng. Lưu ý rằng ZZ0000ZZ phù hợp với các thiết bị khác dựa trên

@@ -19,7 +19,7 @@ bộ mã hóa quay - trình điều khiển chung cho các thiết bị được
 :Tác giả: Daniel Mack <daniel@caiaq.de>, tháng 2 năm 2009
 
 Chức năng
---------
+---------
 
 Bộ mã hóa quay là thiết bị được kết nối với CPU hoặc thiết bị khác
 thiết bị ngoại vi có hai dây. Các đầu ra được dịch pha 90 độ

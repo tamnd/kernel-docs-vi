@@ -41,10 +41,10 @@ sử dụng điều này sẽ tăng hiệu suất và dễ sử dụng vì các 
 sẽ không bắt buộc phải sử dụng các chức năng trợ giúp để truy cập và thay đổi dữ liệu.
 
 Cách sử dụng
-=====
+============
 
 Hạt nhân BPF
-----------
+------------
 
 bpf_map_lookup_elem()
 ~~~~~~~~~~~~~~~~~~~~~
@@ -103,7 +103,7 @@ Kể từ phiên bản kernel 5.1, cơ sở hạ tầng BPF cung cấp ZZ0000ZZ
 để đồng bộ hóa quyền truy cập.
 
 Không gian người dùng
----------
+---------------------
 
 Truy cập từ không gian người dùng sử dụng API libbpf có cùng tên như trên, với
 bản đồ được xác định bởi ZZ0000ZZ của nó.
@@ -115,7 +115,7 @@ Vui lòng xem thư mục ZZ0000ZZ để biết chức năng
 ví dụ. Các mẫu mã bên dưới minh họa cách sử dụng API.
 
 Hạt nhân BPF
-----------
+------------
 
 Đoạn mã này cho thấy cách khai báo một mảng trong chương trình BPF.
 
@@ -151,7 +151,7 @@ Chương trình BPF ví dụ này cho thấy cách truy cập một phần tử 
     }
 
 Không gian người dùng
----------
+---------------------
 
 BPF_MAP_TYPE_ARRAY
 ~~~~~~~~~~~~~~~~~~

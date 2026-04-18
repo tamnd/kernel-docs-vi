@@ -21,7 +21,7 @@ các cơ chế trong lớp sunrpc được sử dụng, đặc biệt,
 để xác thực NFS.
 
 Bộ nhớ đệm
-======
+==========
 
 Bộ nhớ đệm thay thế bảng xuất cũ và cho phép
 nhiều giá trị khác nhau để làm bộ nhớ đệm.
@@ -120,7 +120,7 @@ int cache_parse(struct cache_detail \*cd, char \*buf, int len)
    được làm sạch để loại bỏ dữ liệu cũ.
 
 Sử dụng bộ đệm
--------------
+--------------
 
 Để tìm giá trị trong bộ đệm, hãy gọi sunrpc_cache_lookup_rcu truyền con trỏ
 tới cache_head trong một mục mẫu có điền các trường 'key'.
@@ -214,7 +214,7 @@ lấy một mục bộ đệm và mã hóa yêu cầu vào bộ đệm
   failed lookup meant a definite 'no'.
 
 định dạng yêu cầu/phản hồi
------------------------
+--------------------------
 
 Mặc dù mỗi bộ đệm có thể tự do sử dụng định dạng riêng cho các yêu cầu
 và phản hồi qua kênh, những điều sau đây được khuyến nghị là

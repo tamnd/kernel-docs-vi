@@ -38,7 +38,7 @@ Nghĩa là - không có tài nguyên nào được phân bổ cũng như không 
 được ánh xạ sau khi gọi lại hoàn tất.
 
 Cuộc gọi lại được ánh xạ
----------------
+------------------------
 
 Nếu tài nguyên cần được phân bổ cho mỗi ánh xạ hoặc trạng thái như tham chiếu
 số lượng cần được thao tác, việc này nên được thực hiện bằng ZZ0000ZZ
@@ -53,7 +53,7 @@ trở nên không được ánh xạ và lỗi được trả về cho người 
 nguồn lực cần được phân bổ và việc phân bổ đó có thể thất bại.
 
 Cách sử dụng
-==========
+============
 
 Trong cấu trúc file_Operation của trình điều khiển của bạn, hãy chỉ định ZZ0000ZZ
 gọi lại thay vì gọi ZZ0001ZZ, ví dụ: cho ext4:
@@ -145,7 +145,7 @@ và sử dụng một trong (trong đó ZZ0003ZZ là con trỏ tới struct vm_a
   cờ được chỉ định bởi danh sách được phân tách bằng dấu phẩy, ví dụ: -ZZ0007ZZ.
 
 hành động
-=======
+=========
 
 Bây giờ bạn có thể dễ dàng thực hiện các hành động trên bản đồ sau khi được thiết lập bởi
 sử dụng các hàm trợ giúp đơn giản được gọi dựa trên struct vm_area_desc

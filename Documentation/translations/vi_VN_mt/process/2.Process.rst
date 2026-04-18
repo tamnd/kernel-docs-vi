@@ -15,7 +15,7 @@
 .. _development_process:
 
 Quá trình phát triển diễn ra như thế nào
-=================================
+========================================
 
 Việc phát triển nhân Linux vào đầu những năm 1990 là một công việc khá lỏng lẻo,
 với số lượng tương đối nhỏ người dùng và nhà phát triển tham gia.  Với một
@@ -217,7 +217,7 @@ bước.  Cách tiếp cận này luôn dẫn đến sự thất vọng cho mọ
 có liên quan.
 
 Làm thế nào các bản vá vào Kernel
--------------------------------
+---------------------------------
 
 Chỉ có một người có thể hợp nhất các bản vá vào kernel chính
 kho lưu trữ: Linus Torvalds. Nhưng, ví dụ, trong số hơn 9.500 bản vá
@@ -264,7 +264,7 @@ thông thường là con đường đúng đắn để đi.
 
 
 Cây tiếp theo
-----------
+-------------
 
 Chuỗi cây hệ thống con hướng dẫn dòng các bản vá vào kernel,
 nhưng nó cũng đặt ra một câu hỏi thú vị: nếu ai đó muốn nhìn
@@ -346,7 +346,7 @@ một trình điều khiển đường chính thích hợp.
 
 
 Công cụ
------
+-------
 
 Như có thể thấy từ văn bản trên, quá trình phát triển kernel phụ thuộc vào
 phụ thuộc nhiều vào khả năng tập hợp các bộ sưu tập các bản vá ở nhiều dạng khác nhau
@@ -393,7 +393,7 @@ chăn là công cụ tốt nhất cho công việc.
 
 
 Danh sách gửi thư
--------------
+-----------------
 
 Rất nhiều công việc phát triển nhân Linux được thực hiện bằng cách gửi thư
 danh sách.  Thật khó để trở thành một thành viên đầy đủ chức năng của cộng đồng

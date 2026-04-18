@@ -78,7 +78,7 @@ mô tả. Mặc dù bộ đệm thường được tuần hoàn nhưng các ứn
 một bộ mô tả DMABUF khác nhau ở mỗi lệnh gọi ZZ0001ZZ.
 
 Ví dụ: Xếp hàng DMABUF sử dụng mặt phẳng đơn API
-===============================================
+================================================
 
 .. code-block:: c
 
@@ -101,7 +101,7 @@ Ví dụ: Xếp hàng DMABUF sử dụng mặt phẳng đơn API
     }
 
 Ví dụ 3.6. Xếp hàng DMABUF sử dụng nhiều mặt phẳng API
-==================================================
+======================================================
 
 .. code-block:: c
 

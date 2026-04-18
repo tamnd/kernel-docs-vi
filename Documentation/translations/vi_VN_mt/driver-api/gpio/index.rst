@@ -32,7 +32,7 @@ Nội dung:
    pca953x
 
 Cốt lõi
-====
+=======
 
 .. kernel-doc:: include/linux/gpio/driver.h
    :internal:
@@ -53,13 +53,13 @@ Hỗ trợ cây thiết bị
    :export:
 
 API do thiết bị quản lý
-==================
+=======================
 
 .. kernel-doc:: drivers/gpio/gpiolib-devres.c
    :export:
 
 người trợ giúp sysfs
-=============
+====================
 
 .. kernel-doc:: drivers/gpio/gpiolib-sysfs.c
    :export:

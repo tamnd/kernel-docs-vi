@@ -391,7 +391,7 @@ không có phần đệm giữa mỗi thành phần. Một nhóm gồm 4 thành 
 .. _V4L2-PIX-FMT-MM21:
 
 Lát gạch NV12
-----------
+-------------
 
 Các định dạng YUV 4:2:0 bán phẳng, sử dụng ốp lát macroblock. Mặt phẳng sắc độ là
 lấy mẫu phụ theo 2 theo mỗi hướng. Các vạch Chroma chứa một nửa số
@@ -466,7 +466,7 @@ hai mặt phẳng không kề nhau.
 .. _V4L2-PIX-FMT-MT2110R:
 
 Lát gạch NV15
-----------
+-------------
 
 ZZ0000ZZ Định dạng YUV 4:2:0 10 bit bán phẳng, sử dụng ô xếp 4x4.
 Tất cả các thành phần được đóng gói mà không có bất kỳ phần đệm nào giữa nhau.
@@ -849,7 +849,7 @@ số đường thẳng như mặt phẳng luma.
 .. _V4L2-PIX-FMT-P010-4L4:
 
 P010 và P010 lát gạch
--------------------
+---------------------
 
 P010 giống như NV12 với 10 bit cho mỗi thành phần, được mở rộng thành 16 bit.
 Dữ liệu ở 10 bit cao, số 0 ở 6 bit thấp, được sắp xếp theo thứ tự endian nhỏ.
@@ -971,7 +971,7 @@ Dữ liệu ở 12 bit cao, số 0 ở 4 bit thấp, được sắp xếp theo t
 
 
 Định dạng YUV phẳng hoàn toàn
-========================
+=============================
 
 Các định dạng này lưu trữ các thành phần Y, Cb và Cr trong ba mặt phẳng riêng biệt. các
 mặt phẳng độ sáng xuất hiện trước và thứ tự của hai mặt phẳng sắc độ khác nhau giữa

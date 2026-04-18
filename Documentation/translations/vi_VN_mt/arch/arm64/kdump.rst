@@ -62,7 +62,7 @@ thất bại nếu đã bị chiếm đóng.
 
 
 2) hạt nhân=kích thước
--------------------
+----------------------
 
 Vùng bộ nhớ Crashkernel sẽ được dành riêng ở bất kỳ vị trí nào có sẵn
 theo thứ tự tìm kiếm:
@@ -81,7 +81,7 @@ Lưu ý: Crashkernel=size là tùy chọn được đề xuất cho kernel Crash
 cho một nền tảng cụ thể.
 
 3) kernelkernel=kích thước,kernel cao=kích thước,thấp
----------------------------------------------
+-----------------------------------------------------
 
 Crashkernel=size,(high|low) là phần bổ sung quan trọng cho
 Crashkernel=kích thước. Chúng cho phép người dùng chỉ định lượng bộ nhớ cần

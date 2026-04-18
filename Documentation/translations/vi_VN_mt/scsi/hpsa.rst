@@ -26,7 +26,7 @@ sự phức tạp và loại bỏ sự phức tạp đó là một trong những
 để hpsa tồn tại.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 - Mảng thông minh P212
 - Mảng thông minh P410
@@ -49,13 +49,13 @@ chế độ, mỗi lần hoàn thành lệnh yêu cầu ngắt, trong khi với 
 hoàn thành lệnh được chỉ định bởi một ngắt duy nhất.
 
 Các mục cụ thể của HPSA trong /sys
-=============================
+==================================
 
 Ngoài các thuộc tính SCSI chung có sẵn trong /sys, hpsa còn hỗ trợ
   các thuộc tính sau:
 
 Thuộc tính máy chủ cụ thể của HPSA
-=============================
+==================================
 
   ::
 
@@ -95,7 +95,7 @@ Thuộc tính chỉ đọc "có thể đặt lại" cho biết liệu một
   không thể tôn vinh tham số kernel reset_devices làm thiết bị kết xuất.
 
 Thuộc tính đĩa cụ thể của HPSA
------------------------------
+------------------------------
 
   ::
 
@@ -115,7 +115,7 @@ root@host:/sys/class/scsi_disk/4:0:0:0/device# cat Unique_id
 	RAID 0
 
 Ioctls cụ thể của HPSA
-====================
+======================
 
 Để tương thích với các ứng dụng được viết cho trình điều khiển cciss, nhiều, nhưng
   không phải tất cả ioctls được trình điều khiển cciss hỗ trợ cũng được hỗ trợ bởi

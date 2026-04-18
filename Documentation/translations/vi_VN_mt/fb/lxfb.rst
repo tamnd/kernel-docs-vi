@@ -33,7 +33,7 @@ Nhược điểm:
 
 
 Làm thế nào để sử dụng nó?
-==============
+==========================
 
 Việc chuyển đổi chế độ được thực hiện bằng cách sử dụng lxfb.mode_option=<độ phân giải>... boot
 tham số hoặc sử dụng chương trình ZZ0000ZZ.

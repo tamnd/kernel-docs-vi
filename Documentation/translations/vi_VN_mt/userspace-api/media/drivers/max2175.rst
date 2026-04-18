@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển bộ điều chỉnh bit MAX2175 RF tích hợp Maxim
-================================================
+============================================================
 
 Trình điều khiển MAX2175 thực hiện các điều khiển dành riêng cho trình điều khiển sau:
 

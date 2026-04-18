@@ -25,7 +25,7 @@ Thiết bị chặn vòng lặp được khoanh vùng
 
 
 1) Tổng quan
------------
+------------
 
 Trình điều khiển thiết bị khối vòng lặp được khoanh vùng (zloop) cho phép người dùng tạo một khối được khoanh vùng
 thiết bị sử dụng một tệp thông thường cho mỗi vùng làm bộ nhớ đệm. Trình điều khiển này không
@@ -56,7 +56,7 @@ số lượng tối đa các vùng mở và hoạt động.
 Không cần có công cụ người dùng nào để tạo và xóa các thiết bị zloop.
 
 2) Tạo một thiết bị được khoanh vùng
---------------------------
+------------------------------------
 
 Khi mô-đun zloop được tải (hoặc nếu zloop được biên dịch trong kernel),
 tệp thiết bị ký tự /dev/zloop-control có thể được sử dụng để thêm thiết bị zloop.
@@ -127,7 +127,7 @@ loại bỏ_write_cache Loại bỏ tất cả dữ liệu không được lưu 
 ==================================================================================
 
 3) Xóa thiết bị được khoanh vùng
---------------------------
+--------------------------------
 
 Việc xóa một thiết bị khối vòng lặp được khoanh vùng không sử dụng được thực hiện bằng cách đưa ra lệnh "xóa"
 lệnh tới /dev/zloop-control, chỉ định ID của thiết bị cần xóa ::

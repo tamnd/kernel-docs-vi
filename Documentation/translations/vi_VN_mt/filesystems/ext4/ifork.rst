@@ -21,7 +21,7 @@ các tập tin và thư mục thông thường sẽ sử dụng nó để lập 
 thông tin và các tập tin đặc biệt sẽ sử dụng nó cho các mục đích đặc biệt.
 
 Liên kết tượng trưng
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 Mục tiêu của một liên kết tượng trưng sẽ được lưu trữ trong trường này nếu mục tiêu
 chuỗi dài dưới 60 byte. Mặt khác, phạm vi hoặc khối
@@ -199,7 +199,7 @@ ZZ0000ZZ dài 4 byte:
      - Checksum of the extent block, crc32c(uuid+inum+igeneration+extentblock)
 
 Dữ liệu nội tuyến
-~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Nếu tính năng dữ liệu nội tuyến được bật cho hệ thống tệp và cờ là
 được đặt cho inode, có thể 60 byte đầu tiên của tệp

@@ -81,7 +81,7 @@ chế độ đã chỉ định. Điều này ngụ ý rằng phần cứng tươ
 điều đó có thể.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, ZZ0000ZZ trả về bộ mô tả tệp mới.
 Nếu có lỗi, -1 được trả về và biến ZZ0001ZZ được đặt thích hợp.

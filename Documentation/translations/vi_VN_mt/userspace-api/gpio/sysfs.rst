@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Giao diện Sysfs GPIO cho không gian người dùng
-==================================
+==============================================
 
 .. warning::
    This API is obsoleted by the chardev.rst and the ABI documentation has
@@ -55,7 +55,7 @@ Trình điều khiển GPIO có thể là tất cả những gì hệ thống th
    I MEAN IT. REALLY.
 
 Đường dẫn trong Sysfs
---------------
+---------------------
 Có ba loại mục trong /sys/class/gpio:
 
 - Giao diện điều khiển được sử dụng để kiểm soát không gian người dùng đối với GPIO;

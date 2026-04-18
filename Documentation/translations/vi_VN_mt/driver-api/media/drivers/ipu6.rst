@@ -85,7 +85,7 @@ IPC.
 .. c:function:: int ipu6_buttress_authenticate(...)
 
 Đồng bộ hẹn giờ toàn cầu
------------------
+------------------------
 
 Trình điều khiển IPU6 khởi tạo luồng đồng bộ hóa Cảng Hammock mỗi lần nó
 bắt đầu hoạt động của máy ảnh. IPU6 sẽ đồng bộ hóa bộ đếm nội bộ trong
@@ -111,7 +111,7 @@ các mục trong bảng trang cho mỗi thao tác DMA và vô hiệu hóa MMU TL
 hủy bản đồ và miễn phí.
 
 Định dạng tập tin phần sụn
-====================
+==========================
 
 Phần sụn IPU6 có định dạng tệp Thư mục phân vùng mã (CPD). CPD
 chương trình cơ sở chứa tiêu đề CPD, một số mục và thành phần CPD. CPD
@@ -126,7 +126,7 @@ phần mềm nhị phân.
 
 
 Giao diện hệ thống
-================
+==================
 
 Trình điều khiển IPU6 giao tiếp với phần sụn thông qua Syscom ABI. Syscom là một
 cơ chế giao tiếp giữa các bộ xử lý giữa bộ xử lý vô hướng IPU và
@@ -147,13 +147,13 @@ khởi tạo trạng thái Syscom, sau đó trình điều khiển có thể yê
 thiết lập thanh ghi trạng thái điều khiển bộ xử lý vô hướng.
 
 Hệ thống đầu vào
-============
+================
 
 Hệ thống đầu vào IPU6 bao gồm MIPI D-PHY và một số máy thu CSI-2.  Nó có thể
 chụp dữ liệu pixel hình ảnh từ cảm biến máy ảnh hoặc các thiết bị đầu ra MIPI CSI-2 khác.
 
 Lập bản đồ làn đường cổng D-PHY và CSI-2
------------------------------------
+----------------------------------------
 
 IPU6 tích hợp các IP D-PHY khác nhau trên các SoC khác nhau, trên Tiger Lake và
 Hồ Alder, IPU6 tích hợp MCD10 D-PHY, IPU6SE trên Hồ Jasper tích hợp JSL

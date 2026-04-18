@@ -296,7 +296,7 @@ Mô tả mặt nạ
 ===== =====================================================================
 
 Dọn dẹp thiết bị video
---------------------
+----------------------
 
 Khi các nút thiết bị video phải được loại bỏ, trong quá trình dỡ tải
 của trình điều khiển hoặc do thiết bị USB bị ngắt kết nối thì bạn nên
@@ -326,7 +326,7 @@ ZZ0000ZZ
 
 
 chức năng trợ giúp
-----------------
+------------------
 
 Có một số chức năng trợ giúp hữu ích:
 

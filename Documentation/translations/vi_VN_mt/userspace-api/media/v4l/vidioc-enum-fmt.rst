@@ -265,7 +265,7 @@ Bất kể giá trị của trường ZZ0000ZZ, hình ảnh được liệt kê
         always return ``EINVAL`` without clearing this flag.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

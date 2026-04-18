@@ -64,7 +64,7 @@ thay đổi trạng thái của phần cứng giao diện người dùng. Nó đ
 Giá trị ZZ0000ZZ trên mặt nạ bit
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

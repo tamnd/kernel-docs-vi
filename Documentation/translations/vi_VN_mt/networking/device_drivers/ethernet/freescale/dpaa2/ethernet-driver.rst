@@ -23,13 +23,13 @@ Trình điều khiển Ethernet DPAA2
 Tệp này cung cấp tài liệu cho trình điều khiển Ethernet Freescale DPAA2.
 
 Nền tảng được hỗ trợ
-===================
+====================
 Trình điều khiển này cung cấp hỗ trợ kết nối mạng cho SoC Freescale DPAA2, ví dụ:
 LS2080A, LS2088A, LS1088A.
 
 
 Tổng quan về kiến ​​trúc
-=====================
+========================
 Không giống như các NIC thông thường, trong kiến trúc DPAA2 không có khối phần cứng duy nhất
 đại diện cho giao diện mạng; thay vào đó, một số tài nguyên phần cứng riêng biệt
 đồng ý cung cấp chức năng kết nối mạng:
@@ -178,7 +178,7 @@ linh hoạt trong thời gian chạy, thông qua API đối tượng DPAA2.
 
 
 Tính năng & Giảm tải
-===================
+====================
 Giảm tải tổng kiểm tra phần cứng được hỗ trợ cho TCP và UDP qua khung IPv4/6.
 Việc giảm tải tổng kiểm tra có thể được cấu hình độc lập trên RX và TX thông qua
 ethtool.

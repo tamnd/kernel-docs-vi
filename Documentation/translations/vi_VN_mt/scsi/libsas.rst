@@ -289,7 +289,7 @@ return sas_register_ha(&my_ha->sas_ha);
 (2) SAS 1.1 không xác định I_T Nexus Reset TMF.
 
 Sự kiện
-======
+=======
 
 Các sự kiện là ZZ0000ZZ a SAS LLDD thông báo cho lớp SAS
 của bất cứ điều gì.  LLDD không có phương pháp hay cách nào khác để nói
@@ -426,7 +426,7 @@ nội dung của cấu trúc domain_device, nhưng nó không bao giờ tạo
 hoặc phá hủy một.
 
 Quản lý mở rộng từ Không gian người dùng
-===================================
+========================================
 
 Trong mỗi thư mục mở rộng trong sysfs, có một tệp có tên
 "smp_portal".  Nó là một tệp thuộc tính sysfs nhị phân,

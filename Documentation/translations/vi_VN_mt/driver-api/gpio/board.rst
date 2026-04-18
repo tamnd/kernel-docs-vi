@@ -25,7 +25,7 @@ mô tả cách bố trí phần cứng của nó. Hiện tại, ánh xạ có th
 cây, ACPI và dữ liệu nền tảng.
 
 Cây thiết bị
------------
+------------
 GPIO có thể dễ dàng được ánh xạ tới các thiết bị và chức năng trong cây thiết bị. các
 cách chính xác để thực hiện điều đó phụ thuộc vào bộ điều khiển GPIO cung cấp GPIO, xem phần
 ràng buộc cây thiết bị cho bộ điều khiển của bạn.
@@ -187,7 +187,7 @@ thay thế cho việc sử dụng platform_data trên các hệ thống cũ.
 Tài liệu/driver-api/gpio/legacy-boards.rst.
 
 Dữ liệu nền tảng
--------------
+----------------
 Cuối cùng, GPIO có thể được liên kết với các thiết bị và chức năng sử dụng dữ liệu nền tảng. Ban
 các tệp muốn làm như vậy cần phải bao gồm tiêu đề sau::
 

@@ -118,7 +118,7 @@ cn_msg [tiêu đề tin nhắn của trình kết nối chính] chứa u32 seq v
 lĩnh vực.
 
 Sử dụng không gian người dùng
-===============
+=============================
 
 2.6.14 có triển khai ổ cắm liên kết mạng mới, theo mặc định thì không
 cho phép mọi người gửi dữ liệu đến các nhóm liên kết mạng khác 1.

@@ -23,7 +23,7 @@ Linux VFS
 =============
 
 Các loại hệ thống tập tin
---------------------
+-------------------------
 
 .. kernel-doc:: include/linux/fs.h
    :internal:
@@ -53,7 +53,7 @@ Xử lý nút
    :export:
 
 Khóa tập tin
-----------
+------------
 
 .. kernel-doc:: fs/locks.c
    :export:
@@ -62,7 +62,7 @@ Khóa tập tin
    :internal:
 
 Các chức năng khác
----------------
+------------------
 
 .. kernel-doc:: fs/mpage.c
    :export:
@@ -116,7 +116,7 @@ Các chức năng khác
    :export:
 
 Hệ thống tập tin Proc
-===================
+=====================
 
 giao diện sysctl
 ----------------
@@ -125,7 +125,7 @@ giao diện sysctl
    :export:
 
 giao diện hệ thống tập tin proc
--------------------------
+-------------------------------
 
 .. kernel-doc:: fs/proc/base.c
    :internal:
@@ -143,7 +143,7 @@ giao diện sự kiện (epoll)
    :internal:
 
 Hệ thống tập tin để xuất các đối tượng hạt nhân
-===========================================
+===============================================
 
 .. kernel-doc:: fs/sysfs/file.c
    :export:
@@ -152,7 +152,7 @@ Hệ thống tập tin để xuất các đối tượng hạt nhân
    :export:
 
 Hệ thống tập tin debugfs
-======================
+========================
 
 giao diện gỡ lỗi
 -----------------

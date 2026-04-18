@@ -17,7 +17,7 @@
 .. _media-ccs-uapi:
 
 Trình điều khiển cảm biến máy ảnh MIPI CCS
-=============================
+==========================================
 
 Trình điều khiển cảm biến máy ảnh MIPI CCS là trình điều khiển chung dành cho tuân thủ ZZ0000ZZ
 cảm biến máy ảnh. Nó hiển thị ba thiết bị phụ đại diện cho mảng pixel,
@@ -29,7 +29,7 @@ giao diện dựa trên các khả năng tồn tại trong phần cứng.
 Xem thêm ZZ0000ZZ.
 
 Thiết bị phụ Pixel Array
-----------------------
+------------------------
 
 Thiết bị phụ mảng pixel cũng đại diện cho ma trận pixel của cảm biến máy ảnh
 như chức năng cắt tương tự có trong nhiều thiết bị tương thích. Tương tự
@@ -38,7 +38,7 @@ thực thể. Kích thước của ma trận pixel có thể thu được bằng
 Mục tiêu ZZ0001ZZ.
 
 thùng đựng rác
-------
+--------------
 
 Thiết bị phụ binner đại diện cho chức năng tạo thùng trên cảm biến. cho
 mục đích đó, mục tiêu lựa chọn ZZ0000ZZ được hỗ trợ trên
@@ -49,7 +49,7 @@ bảng nguồn (1) hiển thị một hình chữ nhật chọn vùng cắt kỹ
 cắt ở cuối dòng và khung.
 
 Bộ chia tỷ lệ
-------
+-------------
 
 Thiết bị phụ của bộ chia tỷ lệ đại diện cho chức năng cắt xén và chia tỷ lệ kỹ thuật số của
 cảm biến. Mục tiêu lựa chọn V4L2 ZZ0000ZZ được sử dụng để
@@ -62,7 +62,7 @@ một hình chữ nhật lựa chọn cắt xén kỹ thuật số khác chỉ c
 đường và khung.
 
 Cắt kỹ thuật số và tương tự
--------------------------
+---------------------------
 
 Chức năng cắt xén kỹ thuật số được gọi là cắt xén hoạt động hiệu quả bằng cách
 đánh rơi một số dữ liệu trên sàn nhà. Mặt khác, cắt xén tương tự có nghĩa là
@@ -72,13 +72,13 @@ hình chữ nhật lựa chọn được cấu hình để chỉ định cắt x
 ảnh hưởng đến thời gian của thiết bị và có thể cả về mức tiêu thụ điện năng.
 
 Kiểm soát riêng tư
-----------------
+------------------
 
 Trình điều khiển MIPI CCS thực hiện một số điều khiển riêng dưới
 ZZ0000ZZ để điều khiển cảm biến máy ảnh tương thích MIPI CCS.
 
 Mô hình khuếch đại tương tự
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CCS xác định mô hình khuếch đại tương tự trong đó mức tăng có thể được tính bằng cách sử dụng
 công thức sau:
@@ -97,7 +97,7 @@ Mức tăng tương tự (ZZ0000ZZ trong công thức) được điều khiển 
 ZZ0001ZZ trong trường hợp này.
 
 Mô hình khuếch đại tương tự thay thế
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CCS xác định một mô hình khuếch đại tương tự khác gọi là khuếch đại tương tự thay thế. trong
 trường hợp này, công thức tính mức tăng thực tế bao gồm tuyến tính và

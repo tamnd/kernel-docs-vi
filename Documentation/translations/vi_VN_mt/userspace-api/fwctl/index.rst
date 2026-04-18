@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Kiểm soát phần mềm cơ sở (FWCTL) Không gian người dùng API
-======================================
+==========================================================
 
 Một khung xác định một bộ quy tắc giới hạn chung cho phép không gian người dùng
 để xây dựng và thực thi RPC một cách an toàn bên trong phần sụn của thiết bị.

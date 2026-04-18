@@ -27,7 +27,7 @@ tác giả:
 --------------------------------------------------------------------------------
 
 Các cấu trúc được sử dụng bởi thiết bị đệm khung API
-==============================================
+====================================================
 
 Các cấu trúc sau đây đóng một vai trò trong trò chơi của các thiết bị đệm khung. Họ
 được định nghĩa trong <linux/fb.h>.
@@ -67,7 +67,7 @@ Thông tin phụ thuộc vào thiết bị xác định duy nhất chế độ v
 
 
 Hình ảnh được sử dụng bởi thiết bị đệm khung API
-===========================================
+================================================
 
 
 Đơn sắc (FB_VISUAL_MONO01 và FB_VISUAL_MONO10)
@@ -83,18 +83,18 @@ giá trị và màu đó được hiển thị.
 
 
 Màu sắc trung thực (FB_VISUAL_TRUECOLOR)
---------------------------------
+----------------------------------------
 Giá trị pixel được chia thành các trường màu đỏ, xanh lục và xanh lam.
 
 
 Màu trực tiếp (FB_VISUAL_DIRECTCOLOR)
-------------------------------------
+-------------------------------------
 Giá trị pixel được chia thành các trường màu đỏ, xanh lục và xanh lam, mỗi trường
 được tra cứu trong các bảng tra cứu màu đỏ, xanh lá cây và xanh dương riêng biệt.
 
 
 Màn hình thang độ xám
-------------------
+---------------------
 Thang độ xám và thang độ xám tĩnh là các biến thể đặc biệt của màu giả và thang độ tĩnh.
 màu giả, trong đó các thành phần màu đỏ, xanh lá cây và xanh dương luôn bằng nhau
 lẫn nhau.

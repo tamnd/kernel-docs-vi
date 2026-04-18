@@ -55,7 +55,7 @@ sang mã PCI, trong đó mã chung được tăng cường khi cần với các 
 của các thiết bị.
 
 Khả năng tự động phát hiện của thiết bị PMBus
-========================================
+=============================================
 
 Đối với các thiết bị PMBus chung, mã trong pmbus.c sẽ cố gắng tự động phát hiện tất cả các thiết bị được hỗ trợ
 Lệnh PMBus. Tính năng tự động phát hiện có phần hạn chế vì đơn giản là có quá
@@ -81,7 +81,7 @@ trình điều khiển/hwmon/pmbus/pmbus.h. Ngoài API nội bộ, pmbus.h còn 
 lệnh PMBus tiêu chuẩn và lệnh PMBus ảo.
 
 Các lệnh PMBus tiêu chuẩn
------------------------
+-------------------------
 
 Các lệnh PMBUs tiêu chuẩn (giá trị lệnh 0x00 đến 0xff) được xác định trong PMBU
 đặc điểm kỹ thuật.
@@ -118,7 +118,7 @@ hoặc ghi các thanh ghi ảo (nói cách khác, mã lõi PMBus sẽ không bao
 gửi lệnh ảo đến chip).
 
 Thông tin trình điều khiển PMBus
-------------------------
+--------------------------------
 
 Thông tin trình điều khiển PMBus, được xác định trong struct pmbus_driver_info, là phương tiện chính
 để trình điều khiển dành riêng cho thiết bị truyền thông tin đến trình điều khiển PMBus cốt lõi.
@@ -148,7 +148,7 @@ Chức năng API
 =============
 
 Chức năng được cung cấp bởi trình điều khiển chip
----------------------------------
+-------------------------------------------------
 
 Tất cả các hàm trả về giá trị trả về của lệnh (đọc) hoặc 0 (ghi) nếu
 thành công. Giá trị trả về -ENODATA cho biết không có nhà sản xuất
@@ -216,7 +216,7 @@ nếu trình điều khiển chip hỗ trợ nhiều chip và chức năng của
 (pmbus.c).
 
 Các chức năng được xuất bởi trình điều khiển lõi
----------------------------------
+------------------------------------------------
 
 Trình điều khiển chip dự kiến sẽ sử dụng các chức năng sau để đọc hoặc ghi
 Đăng ký PMBus. Trình điều khiển chip cũng có thể sử dụng lệnh I2C trực tiếp. Nếu trực tiếp I2C
@@ -309,7 +309,7 @@ Trả về con trỏ tới struct pmbus_driver_info khi được chuyển tới 
 
 
 Dữ liệu nền tảng trình điều khiển PMBus
-==========================
+=======================================
 
 Dữ liệu nền tảng PMBus được xác định trong include/linux/pmbus.h. Dữ liệu nền tảng
 hiện cung cấp trường cờ với bốn bit được sử dụng ::

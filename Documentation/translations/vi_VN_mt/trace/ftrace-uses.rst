@@ -123,7 +123,7 @@ Nguyên mẫu của hàm gọi lại như sau (kể từ v4.14):
 	chứa rác hoặc NULL.
 
 Bảo vệ cuộc gọi lại của bạn
-=====================
+===========================
 
 Vì các hàm có thể được gọi từ bất cứ đâu và có thể một hàm
 được gọi bằng một cuộc gọi lại cũng có thể được theo dõi và gọi lại cuộc gọi lại đó,

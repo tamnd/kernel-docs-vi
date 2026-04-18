@@ -23,7 +23,7 @@ Ngày 25 tháng 4 năm 2013
 
 
 Tổng quan
-========
+=========
 
 Tiện ích Linux USB là một thiết bị có UDC (Bộ điều khiển thiết bị USB) và có thể
 được kết nối với Máy chủ USB để mở rộng nó với các chức năng bổ sung như nối tiếp
@@ -57,7 +57,7 @@ Yêu cầu
 
 
 Cách sử dụng
-=====
+============
 
 (Bài viết gốc mô tả chức năng đầu tiên
 có sẵn thông qua configfs có thể được nhìn thấy ở đây:

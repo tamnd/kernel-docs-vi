@@ -22,7 +22,7 @@ ZZ0000ZZ mặc định (và dự phòng). Nó cố gắng
 xử lý các ký tự theo POSIX.
 
 Chức năng bên ngoài
-==================
+===================
 
 .. kernel-doc:: drivers/tty/n_tty.c
    :export:

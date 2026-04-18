@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Quy tắc về cách truy cập thông tin trong sysfs
-===========================================
+==============================================
 
 Các sysfs xuất kernel xuất chi tiết triển khai kernel nội bộ
 và phụ thuộc vào cấu trúc và cách bố trí hạt nhân bên trong. Nó đã được thỏa thuận

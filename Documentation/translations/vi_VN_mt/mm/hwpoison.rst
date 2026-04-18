@@ -86,7 +86,7 @@ giết muộn
 	Lưu ý một số trang luôn được xử lý dưới dạng tiêu diệt muộn.
 
 Kiểm soát người dùng
-============
+====================
 
 vm.memory_failure_recovery
 	Xem sysctl.txt
@@ -118,7 +118,7 @@ PR_MCE_KILL_GET
 	trở lại chế độ hiện tại
 
 Kiểm tra
-=======
+========
 
 * madvise(MADV_HWPOISON, ....) (với quyền root) - Đầu độc một trang trong
   quá trình thử nghiệm
@@ -175,7 +175,7 @@ x86 có mce-tiêm, mce-test
 Một số chương trình kiểm tra độc tố di động trong mce-test, xem bên dưới.
 
 Tài liệu tham khảo
-==========
+==================
 
 ZZ0000ZZ
 	Trình bày tổng quan từ LinuxCon 09

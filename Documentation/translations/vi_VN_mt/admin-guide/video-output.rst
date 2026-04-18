@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Điều khiển bộ chuyển đổi đầu ra video
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 2006 luming.yu@intel.com
 

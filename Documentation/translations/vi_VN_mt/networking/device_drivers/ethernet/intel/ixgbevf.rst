@@ -35,7 +35,7 @@ với Linux.
 
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 Trình điều khiển tương thích với các thiết bị dựa trên những điều sau:
 
 * Bộ điều khiển Ethernet Intel(R) 82598
@@ -51,7 +51,7 @@ trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel
 ZZ0000ZZ
 
 Sự cố đã biết/Khắc phục sự cố
-============================
+=============================
 
 SR-IOV yêu cầu nền tảng và hệ điều hành hỗ trợ chính xác.
 

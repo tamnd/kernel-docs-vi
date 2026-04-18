@@ -42,7 +42,7 @@ Sự miêu tả
 Cuộc gọi hệ thống này sẽ đóng thiết bị CA đã mở trước đó.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

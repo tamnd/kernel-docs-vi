@@ -22,7 +22,7 @@ Linas Vepstas <linas@austin.ibm.com>
 
 
 Tổng quan:
----------
+----------
 Máy tính pSeries và iSeries dựa trên IBM POWER bao gồm bus PCI
 chip điều khiển có khả năng mở rộng để phát hiện và
 báo cáo nhiều tình trạng lỗi bus PCI.  Những tính năng này
@@ -46,7 +46,7 @@ có thể chứa các tính năng tương tự.
 
 
 Nguyên nhân gây ra lỗi EEH
---------------------
+--------------------------
 EEH ban đầu được thiết kế để bảo vệ khỏi lỗi phần cứng, chẳng hạn như
 như thẻ PCI chết vì nóng, ẩm, bụi, rung và xấu
 kết nối điện. Phần lớn các lỗi EEH được thấy trong
@@ -201,7 +201,7 @@ sự kiện (ví dụ: gọi "ifup eth0" cho thẻ ethernet).
 
 
 Tắt thiết bị và sự kiện trong không gian người dùng
--------------------------------------
+---------------------------------------------------
 Phần này ghi lại những gì xảy ra khi khe cắm pci không được định cấu hình,
 tập trung vào cách tắt trình điều khiển thiết bị và cách thức
 các sự kiện được gửi đến các tập lệnh không gian người dùng.
@@ -309,7 +309,7 @@ rpa_php_unconfig_pci_adapter() { // trong rpaphp_pci.c
 
 
 Ưu và nhược điểm của thiết kế hiện tại
--------------------------------------
+--------------------------------------
 Có một số vấn đề với thiết kế khôi phục phần mềm EEH hiện tại,
 có thể được giải quyết trong các lần sửa đổi trong tương lai.  Nhưng trước tiên, hãy lưu ý rằng
 Điểm cộng lớn của thiết kế hiện tại là không cần thực hiện thay đổi nào đối với

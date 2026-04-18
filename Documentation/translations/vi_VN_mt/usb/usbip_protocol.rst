@@ -17,7 +17,7 @@ Giao thức USB/IP
 =================
 
 Ngành kiến ​​​​trúc
-============
+===================
 
 Giao thức USB/IP tuân theo kiến ​​trúc máy chủ/máy khách. Máy chủ xuất
 Thiết bị USB và khách hàng nhập chúng. Trình điều khiển thiết bị cho xuất khẩu
@@ -144,7 +144,7 @@ Các trường nằm trong thứ tự byte mạng (big endian) có nghĩa là qu
 byte (MSB) được lưu trữ ở địa chỉ thấp nhất.
 
 Phiên bản giao thức
-================
+===================
 
 Phiên bản USBIP được ghi lại là v1.1.1. Sự biểu diễn nhị phân của điều này
 phiên bản trong tiêu đề thư là 0x0111.
@@ -152,7 +152,7 @@ phiên bản trong tiêu đề thư là 0x0111.
 Điều này được xác định trong tools/usb/usbip/configure.ac
 
 Định dạng tin nhắn
-==============
+==================
 
 OP_REQ_DEVLIST:
 	Truy xuất danh sách các thiết bị USB đã xuất.

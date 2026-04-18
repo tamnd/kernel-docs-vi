@@ -20,7 +20,7 @@ Tài liệu này là hướng dẫn bắt đầu nhanh để sử dụng giao th
 thông số kỹ thuật. Để biết mô tả chi tiết hơn về thông số kỹ thuật, hãy xem ZZ0000ZZ.
 
 CLI đơn giản
-==========
+============
 
 Kernel đi kèm với một công cụ CLI đơn giản sẽ hữu ích khi
 phát triển mã liên quan đến Netlink. Công cụ này được triển khai bằng Python
@@ -99,7 +99,7 @@ ZZ0000ZZ chứa triển khai thư viện C
 ZZ0001ZZ để tạo các trình bao bọc liên kết mạng dễ sử dụng.
 
 Thông tin cơ bản về YNL
-----------
+-----------------------
 
 Thư viện YNL bao gồm hai phần - mã chung (chức năng
 tiền tố của ZZ0000ZZ) và mã được tạo tự động cho mỗi họ (có tiền tố

@@ -31,7 +31,7 @@ Trình điều khiển TLAN cho Linux
 
 
 I. Thiết bị được hỗ trợ
-====================
+=======================
 
 Chỉ các thiết bị PCI mới hoạt động với trình điều khiển này.
 
@@ -70,7 +70,7 @@ Thiết bị "Nettelligent 10 T/2 PCI UTP/Coax" (b012) chưa được kiểm tra
 
 
 II. Tùy chọn trình điều khiển
-==================
+=============================
 
 1. Bạn có thể thêm debug=x vào cuối dòng insmod để có được
 	   thông báo gỡ lỗi, trong đó x là trường bit trong đó các bit có nghĩa là
@@ -136,7 +136,7 @@ Bây giờ eth0 sẽ sử dụng auto-neg và eth1 sẽ bị buộc phải ở m
 
 
 III. Những điều cần thử nếu bạn gặp vấn đề
-=======================================
+==========================================
 
 1. Đảm bảo id PCI của thẻ của bạn nằm trong số được liệt kê trong
 	   phần I ở trên.

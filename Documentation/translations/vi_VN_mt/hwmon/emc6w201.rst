@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân emc6w201
-======================
+==================================
 
 Chip được hỗ trợ:
 
@@ -52,7 +52,7 @@ nhiệt độ và tốc độ quạt. Giới hạn có thể được thay đổ
 
 
 Các hệ thống đã biết với EMC6W201
----------------------------
+---------------------------------
 
 EMC6W201 là một thiết bị hiếm, chỉ có trên một số hệ thống, được sản xuất tại
 2005 và 2006. Các hệ thống đã biết với thiết bị này:

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân stef48h28
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -47,12 +47,12 @@ tắt máy nhiệt và giao diện PMBus để đo từ xa và trạng thái
 báo cáo.
 
 Hỗ trợ dữ liệu nền tảng
----------------------
+-----------------------
 
 Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ====================================================================================
 in1_label "vin".

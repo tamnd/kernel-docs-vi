@@ -17,7 +17,7 @@ s390 (IBM Z) Kết xuất ảo hóa được bảo vệ
 ===============================================
 
 Bản tóm tắt
--------
+-----------
 
 Kết xuất VM là một công cụ thiết yếu để gỡ lỗi các vấn đề bên trong
 nó. Điều này đặc biệt đúng khi một máy ảo được bảo vệ gặp rắc rối như

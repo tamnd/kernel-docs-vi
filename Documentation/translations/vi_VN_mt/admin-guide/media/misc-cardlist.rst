@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển Firewire
-===============
+=========================
 
 Hệ thống con phương tiện cũng cung cấp trình điều khiển firewire cho TV kỹ thuật số:
 
@@ -24,7 +24,7 @@ firetv FireDTV và FloppyDTV
 ======= =======================
 
 Trình điều khiển thử nghiệm
-============
+===========================
 
 Để kiểm tra các ứng dụng không gian người dùng, có một số ảo
 trình điều khiển, với chức năng cung cấp kiểm tra, mô phỏng phần cứng thực

@@ -17,7 +17,7 @@ Giao diện mô hình trình điều khiển S/390
 ========================================
 
 1. Thiết bị CCW
---------------
+---------------
 
 Tất cả các thiết bị có thể được đánh địa chỉ bằng ccw đều được gọi là 'thiết bị CCW' -
 ngay cả khi chúng không thực sự được điều khiển bởi ccws.
@@ -255,7 +255,7 @@ thông tin về ngắt từ tham số irb.
 
 
 thiết bị nhóm 1.3 ccw
---------------------
+---------------------
 
 Cơ chế ccwgroup được thiết kế để xử lý các thiết bị bao gồm nhiều ccw
 các thiết bị, như qeth hoặc ctc.
@@ -307,7 +307,7 @@ cmg
        - Nhóm đo kênh.
 
 3. Thiết bị hệ thống
------------------
+--------------------
 
 3.1 xpram
 ---------
@@ -315,7 +315,7 @@ cmg
 xpram hiển thị dưới thiết bị/hệ thống/dưới dạng 'xpram'.
 
 3,2 bộ vi xử lý
---------
+---------------
 
 Đối với mỗi CPU, một thư mục được tạo trong devices/system/cpu/. Mỗi CPU có một
 thuộc tính 'trực tuyến' có thể là 0 hoặc 1.

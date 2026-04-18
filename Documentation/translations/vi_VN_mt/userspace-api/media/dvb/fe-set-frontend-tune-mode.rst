@@ -57,7 +57,7 @@ Cho phép cài đặt cờ chế độ bộ điều chỉnh ở giao diện ngư
 Chế độ ZZ0000ZZ
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

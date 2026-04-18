@@ -67,7 +67,7 @@ Nhược điểm:
  * Không rõ tương lai của fbdev sẽ như thế nào trước sự nổi lên của KMS/DRM.
 
 Làm thế nào để sử dụng nó?
-==============
+==========================
 
 Udlfb, khi được tải dưới dạng mô-đun, sẽ phù hợp với tất cả thế hệ USB 2.0
 Chip DisplayLink (dòng Alex và Ollie). Sau đó nó sẽ cố gắng đọc EDID
@@ -95,7 +95,7 @@ bộ đệm khung cần thông tin thiệt hại). Những thông báo thiệt h
 udlfb để xử lý hiệu quả các pixel đã thay đổi.
 
 Tùy chọn mô-đun
-==============
+===============
 
 Cấu hình đặc biệt cho udlfb thường không cần thiết. Có một vài
 tùy chọn, tuy nhiên.

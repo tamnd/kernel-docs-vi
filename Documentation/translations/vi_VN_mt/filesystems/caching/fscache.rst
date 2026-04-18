@@ -17,7 +17,7 @@ Bộ nhớ đệm hệ thống tập tin chung
 =================================
 
 Tổng quan
-========
+=========
 
 Cơ sở này là một bộ nhớ đệm có mục đích chung cho các hệ thống tập tin mạng, mặc dù nó
 cũng có thể được sử dụng để lưu vào bộ nhớ đệm những thứ khác, chẳng hạn như hệ thống tệp ISO9660.
@@ -232,7 +232,7 @@ Netfslib cũng sẽ thêm một số bộ đếm số liệu thống kê của r
 
 
 Danh sách bộ đệm
-==========
+================
 
 FS-Cache cung cấp danh sách cookie bộ đệm:
 
@@ -263,7 +263,7 @@ Trạng thái có thể là (-) Không hoạt động, (P) đang sửa chữa, (
 
 
 Danh sách tập
-===========
+=============
 
 FS-Cache cung cấp danh sách các cookie khối lượng:
 
@@ -291,7 +291,7 @@ nơi các cột ở:
 
 
 Danh sách cookie
-===========
+================
 
 FS-Cache cung cấp danh sách cookie:
 

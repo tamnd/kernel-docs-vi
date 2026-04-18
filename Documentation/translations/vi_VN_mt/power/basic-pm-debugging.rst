@@ -19,7 +19,7 @@ Gỡ lỗi chế độ ngủ đông và tạm dừng
 (C) 2007 Rafael J. Wysocki <rjw@sisk.pl>, GPL
 
 1. Kiểm tra chế độ ngủ đông (còn gọi là tạm dừng vào đĩa hoặc STD)
-===================================================
+==================================================================
 
 Để kiểm tra xem chế độ ngủ đông có hoạt động hay không, bạn có thể thử chế độ ngủ đông ở chế độ "khởi động lại"::
 

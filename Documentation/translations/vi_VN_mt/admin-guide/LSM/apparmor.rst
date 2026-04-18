@@ -57,7 +57,7 @@ Tài liệu
 Tài liệu có thể được tìm thấy trên wiki, được liên kết bên dưới.
 
 Liên kết
-=====
+========
 
 Danh sách gửi thư - apparmor@lists.ubuntu.com
 

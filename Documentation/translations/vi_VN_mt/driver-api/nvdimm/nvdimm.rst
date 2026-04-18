@@ -58,7 +58,7 @@ Phiên bản 13
 
 
 Thuật ngữ
-========
+=========
 
 PMEM:
   Phạm vi địa chỉ vật lý hệ thống trong đó việc ghi được diễn ra liên tục.  A
@@ -102,7 +102,7 @@ LABEL:
 
 
 Tổng quan
-========
+=========
 
 Hệ thống con LIBNVDIMM cung cấp hỗ trợ cho PMEM được mô tả bởi nền tảng
 chương trình cơ sở hoặc trình điều khiển thiết bị. Trên các hệ thống dựa trên ACPI, phần sụn nền tảng
@@ -158,7 +158,7 @@ có thể được gắn ngay vào nd_pmem. Chế độ sau này được gọi 
 không có nhãn hoặc "di sản".
 
 PMEM-REGION, Lĩnh vực nguyên tử và DAX
--------------------------------------
+--------------------------------------
 
 Đối với trường hợp ứng dụng hoặc hệ thống tập tin vẫn cần khu vực nguyên tử
 bản cập nhật đảm bảo nó có thể đăng ký BTT trên thiết bị hoặc phân vùng PMEM.  Xem
@@ -166,7 +166,7 @@ LIBNVDIMM/NDCTL: Bảng dịch khối "btt"
 
 
 Ví dụ về nền tảng NVDIMM
-=======================
+========================
 
 Trong phần còn lại của tài liệu này, sơ đồ sau sẽ là
 được tham chiếu cho bất kỳ ví dụ nào về bố cục sysfs ::
@@ -209,7 +209,7 @@ Bus này được cung cấp bởi kernel bên dưới thiết bị
 
 
 Mô hình thiết bị hạt nhân LIBNVDIMM và không gian người dùng LIBNDCTL API
-========================================================
+=========================================================================
 
 Phần sau đây là mô tả về bố cục hệ thống LIBNVDIMM và một
 sơ đồ phân cấp đối tượng tương ứng khi được xem qua LIBNDCTL
@@ -218,7 +218,7 @@ Nền tảng NVDIMM cũng là bus LIBNVDIMM được sử dụng trong thiết b
 kiểm tra.
 
 LIBNDCTL: Bối cảnh
------------------
+------------------
 
 Mỗi lệnh gọi API trong thư viện LIBNDCTL đều yêu cầu một ngữ cảnh chứa
 tham số ghi nhật ký và trạng thái phiên bản thư viện khác.  Thư viện là
@@ -239,7 +239,7 @@ if (ndctl_new(&ctx) == 0)
 		trả lại NULL;
 
 LIBNVDIMM/LIBNDCTL: Xe buýt
------------------------
+---------------------------
 
 Xe buýt có mối quan hệ 1:1 với NFIT.  Kỳ vọng hiện tại đối với
 Các hệ thống dựa trên ACPI là chỉ có một NFIT toàn cầu.
@@ -249,7 +249,7 @@ chúng tôi sử dụng khả năng này để kiểm tra nhiều cấu hình NF
 kiểm tra.
 
 LIBNVDIMM: thiết bị lớp điều khiển trong /sys/class
----------------------------------------------
+---------------------------------------------------
 
 Thiết bị ký tự này chấp nhận tin nhắn DSM để chuyển đến DIMM
 được xác định bởi tay cầm NFIT của nó::
@@ -262,7 +262,7 @@ Thiết bị ký tự này chấp nhận tin nhắn DSM để chuyển đến DI
 
 
 LIBNVDIMM: xe buýt
---------------
+------------------
 
 ::
 
@@ -291,7 +291,7 @@ cấu trúc nvdimm_bus *nvdimm_bus_register(struct device *parent,
 	`-- chờ_thăm dò
 
 LIBNDCTL: ví dụ về liệt kê xe buýt
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tìm tay cầm xe buýt mô tả xe buýt từ Nền tảng NVDIMM mẫu::
 
@@ -389,7 +389,7 @@ trả lại NULL;
 dimm = get_dimm_by_handle(bus, DIMM_HANDLE(0, 0, 0, 0, 0));
 
 LIBNVDIMM/LIBNDCTL: Khu vực
---------------------------
+---------------------------
 
 Một thiết bị REGION chung được đăng ký cho mỗi bộ xen kẽ PMEM /
 phạm vi. Theo ví dụ, có 2 vùng PMEM trên "nfit_test.0"
@@ -459,14 +459,14 @@ ndctl_khu vực_foreach(xe buýt, khu vực) {
 
 
 LIBNVDIMM/LIBNDCTL: Không gian tên
------------------------------
+----------------------------------
 
 Một REGION, sau khi giải quyết các ranh giới, bề mặt được chỉ định của DPA và LABEL
 một hoặc nhiều thiết bị "không gian tên".  Sự xuất hiện của một thiết bị "không gian tên" hiện nay
 kích hoạt trình điều khiển nd_pmem tải và đăng ký thiết bị đĩa/khối.
 
 LIBNVDIMM: không gian tên
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Đây là bố cục mẫu từ 2 loại NAMESPACE chính trong đó namespace0.0
 đại diện cho DIMM được hỗ trợ bởi thông tin PMEM (lưu ý rằng nó có thuộc tính 'uuid') và
@@ -500,7 +500,7 @@ thuộc tính do không hỗ trợ LABEL)
 	`-- sự kiện
 
 LIBNDCTL: ví dụ về liệt kê không gian tên
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Các không gian tên được lập chỉ mục tương ứng với vùng cha của chúng, ví dụ bên dưới.
 Các chỉ mục này chủ yếu là tĩnh từ lúc khởi động này sang lần khởi động khác, nhưng hệ thống con tạo ra
 không có sự đảm bảo nào về vấn đề này.  Đối với một mã định danh không gian tên tĩnh, hãy sử dụng nó
@@ -521,7 +521,7 @@ trả lại NULL;
   }
 
 LIBNDCTL: ví dụ về tạo không gian tên
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Các không gian tên nhàn rỗi được kernel tự động tạo nếu một
 khu vực có đủ dung lượng khả dụng để tạo một không gian tên mới.
@@ -552,7 +552,7 @@ ndctl_namespace_set_alt_name(ndns, tên nhà phát triển);
 
 
 Tại sao thuật ngữ "không gian tên"?
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Tại sao không dùng "âm lượng" chẳng hạn?  "khối lượng" có nguy cơ gây nhầm lẫn
        ND (hệ thống con libnvdimm) cho trình quản lý âm lượng như trình ánh xạ thiết bị.

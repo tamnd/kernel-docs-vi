@@ -187,7 +187,7 @@ int dev_pm_qos_remove_notifier(thiết bị, trình thông báo, loại):
 
 
 Dung sai độ trễ trạng thái hoạt động
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Loại PM QoS của thiết bị này được sử dụng để hỗ trợ các hệ thống trong đó phần cứng có thể chuyển đổi
 sang các chế độ vận hành tiết kiệm năng lượng một cách nhanh chóng.  Trong các hệ thống đó, nếu hoạt động

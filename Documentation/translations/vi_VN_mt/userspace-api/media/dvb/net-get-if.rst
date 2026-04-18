@@ -52,7 +52,7 @@ kiểu đóng gói được sử dụng trên giao diện đó. Nếu giao diệ
 ZZ0003ZZ có mã lỗi ZZ0004ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, 0 được trả về và ZZ0000ZZ được điền.
 

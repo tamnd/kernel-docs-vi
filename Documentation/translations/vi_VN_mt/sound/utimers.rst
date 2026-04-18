@@ -19,7 +19,7 @@ Bộ hẹn giờ theo không gian người dùng
 :Tác giả: Ivan Orlov <ivan.orlov0322@gmail.com>
 
 Lời nói đầu
-=======
+===========
 
 Tài liệu này mô tả bộ định thời theo không gian người dùng: bộ định thời ALSA ảo
 có thể được tạo và kiểm soát bởi các ứng dụng không gian người dùng bằng cách sử dụng
@@ -31,14 +31,14 @@ chúng tôi có một ứng dụng mạng gửi khung tới một thiết bị s
 và một ứng dụng âm thanh khác đang nghe ở đầu bên kia của snd-aloop).
 
 Bật bộ hẹn giờ theo không gian người dùng
-================================
+=========================================
 
 Bộ hẹn giờ điều khiển theo không gian người dùng có thể được kích hoạt trong kernel bằng cách sử dụng
 Tùy chọn cấu hình ZZ0000ZZ. Nó phụ thuộc vào
 Tùy chọn ZZ0001ZZ, vì vậy nó cũng nên được kích hoạt.
 
 Bộ hẹn giờ điều khiển theo không gian người dùng API
-===========================
+====================================================
 
 Ứng dụng không gian người dùng có thể tạo bộ hẹn giờ ALSA điều khiển không gian người dùng bằng cách
 thực hiện lệnh gọi ZZ0000ZZ ioctl trên
@@ -106,7 +106,7 @@ Có thể tìm thấy ví dụ chi tiết hơn về việc tạo và đánh dấ
 trong bản tự kiểm tra ALSA của utimer.
 
 Bộ hẹn giờ điều khiển theo không gian người dùng và snd-aloop
--------------------------------------
+-------------------------------------------------------------
 
 Bộ hẹn giờ điều khiển theo không gian người dùng có thể dễ dàng sử dụng với mô-đun ZZ0000ZZ
 khi đồng bộ hai ứng dụng âm thanh ở hai đầu của thiết bị ảo

@@ -20,7 +20,7 @@ Nhóm trang API
    :doc: page_pool allocator
 
 Tổng quan về kiến ​​trúc
-=====================
+========================
 
 .. code-block:: none
 
@@ -84,7 +84,7 @@ một trang sẽ không có điều kiện chủng tộc là đủ.
    :identifiers: page_pool_put_page_bulk page_pool_get_stats
 
 Đồng bộ hóa DMA
---------
+---------------
 Driver luôn chịu trách nhiệm đồng bộ các trang cho CPU.
 Trình điều khiển cũng có thể chọn đảm nhận việc đồng bộ hóa cho thiết bị
 hoặc đặt cờ ZZ0000ZZ để yêu cầu các trang đó
@@ -165,7 +165,7 @@ Sự đăng ký
         goto err_out;
 
 Máy thăm dò NAPI
------------
+----------------
 
 
 .. code-block:: c
@@ -187,7 +187,7 @@ Máy thăm dò NAPI
     }
 
 Thống kê
------
+--------
 
 .. code-block:: c
 
@@ -202,7 +202,7 @@ Thống kê
 	#endif
 
 Dỡ bỏ trình điều khiển
--------------
+----------------------
 
 .. code-block:: c
 

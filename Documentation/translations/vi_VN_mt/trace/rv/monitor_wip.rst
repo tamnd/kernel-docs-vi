@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Lau màn hình
-===========
+============
 
 - Tên: wip - đánh thức trong ưu tiên
 - Loại: máy tự động xác định trên mỗi CPU
@@ -65,5 +65,5 @@ Vấn đề này đã được báo cáo và thảo luận ở đây:
   ZZ0000ZZ
 
 Đặc điểm kỹ thuật
--------------
+-----------------
 Tệp Grapviz Dot trong tools/verification/models/wip.dot

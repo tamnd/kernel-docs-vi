@@ -85,14 +85,14 @@ MC và được thực hiện trực tiếp bằng cách sử dụng các vùng 
 Đối tượng DPIO.
 
 Tổng quan về đối tượng DPAA2
-=========================
+============================
 
 Phần này cung cấp tổng quan ngắn gọn về một số đối tượng DPAA2 chính.
 Một kịch bản đơn giản được mô tả minh họa các đối tượng liên quan
 trong việc tạo ra một giao diện mạng.
 
 DPRC (Bộ chứa tài nguyên đường dẫn dữ liệu)
-----------------------------------
+-------------------------------------------
 
 DPRC là một đối tượng chứa tất cả các đối tượng khác
 các loại đối tượng DPAA2.  Trong sơ đồ ví dụ bên dưới có
@@ -187,7 +187,7 @@ hỗ trợ và tóm tắt các tài nguyên chính của đối tượng (vùng 
 và IRQ).
 
 DPMAC (Đường dẫn dữ liệu Ethernet MAC)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Đại diện cho Ethernet MAC, một thiết bị phần cứng kết nối với Ethernet
 PHY và cho phép truyền và nhận khung Ethernet vật lý.
 
@@ -197,7 +197,7 @@ PHY và cho phép truyền và nhận khung Ethernet vật lý.
   Cấu hình IRQ, bật, đặt lại
 
 DPNI (Giao diện mạng đường dẫn dữ liệu)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Chứa hàng đợi TX/RX, cấu hình giao diện mạng và vùng đệm RX
 các cơ chế cấu hình.  Hàng đợi TX/RX nằm trong bộ nhớ và được xác định
 theo số hàng đợi.
@@ -208,7 +208,7 @@ theo số hàng đợi.
   phân tích/phân loại cấu hình, cấu hình IRQ, bật, đặt lại
 
 DPIO (I/O đường dẫn dữ liệu)
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Cung cấp giao diện cho enqueue và dequeue
 các gói và thực hiện các hoạt động quản lý vùng đệm phần cứng.  DPAA2
 kiến trúc tách biệt cơ chế truy cập hàng đợi (đối tượng DPIO)
@@ -225,7 +225,7 @@ dự kiến sẽ được chia sẻ bởi các trình điều khiển DPAA2 khá
 - lệnh: Cấu hình IRQ, bật, đặt lại
 
 DPBP (Nhóm đệm đường dẫn dữ liệu)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Đại diện cho một vùng đệm phần cứng.
 
 - Vùng MMIO: không có
@@ -285,7 +285,7 @@ cùng một vùng chứa/DPRC có chung 'id thiết bị'.
 
 
 Tổng quan về trình điều khiển Linux DPAA2
-============================
+=========================================
 
 Phần này cung cấp tổng quan về trình điều khiển nhân Linux cho
 DPAA2-- 1) trình điều khiển xe buýt và "cơ sở hạ tầng DPAA2" liên quan
@@ -337,7 +337,7 @@ của mỗi trình điều khiển sau.
 Một mô tả ngắn gọn về mỗi trình điều khiển được cung cấp dưới đây.
 
 Tài xế xe buýt MC
--------------
+-----------------
 Trình điều khiển MC-bus là trình điều khiển nền tảng và được thăm dò từ một
 nút trong cây thiết bị (tương thích "fsl,qoriq-mc") được truyền vào bằng boot
 phần sụn.  Nó chịu trách nhiệm khởi động kernel DPAA2
@@ -358,14 +358,14 @@ Bạn có thể tham khảo các giao diện liên kết/hủy liên kết sysfs
 ZZ0001ZZ.
 
 Trình điều khiển DPRC
------------
+---------------------
 Trình điều khiển DPRC được liên kết với các đối tượng DPRC và quản lý thời gian chạy
 của một trường hợp xe buýt.  Nó thực hiện quét bus ban đầu của DPRC
 và xử lý các ngắt cho các sự kiện của vùng chứa chẳng hạn như cắm nóng bằng
 quét lại DPRC.
 
 Bộ phân bổ
----------
+----------
 Một số đối tượng nhất định như DPMCP và DPBP là chung và có thể thay thế được,
 và được thiết kế để sử dụng bởi những người lái xe khác.  Ví dụ,
 trình điều khiển Ethernet DPAA2 cần:
@@ -379,7 +379,7 @@ Bộ cấp phát duy trì một tập hợp các đối tượng có sẵn cho
 phân bổ bởi trình điều khiển DPAA2 khác.
 
 Trình điều khiển DPIO
------------
+---------------------
 Trình điều khiển DPIO được liên kết với các đối tượng DPIO và cung cấp các dịch vụ cho phép
 các trình điều khiển khác như trình điều khiển Ethernet để sắp xếp và loại bỏ dữ liệu cho
 đối tượng tương ứng của chúng.
@@ -402,14 +402,14 @@ hoạt động trong hạt nhân-- Ethernet, mật mã, nén,
 v.v.
 
 Trình điều khiển Ethernet
----------------
+-------------------------
 Trình điều khiển Ethernet được liên kết với DPNI và triển khai kernel
 giao diện cần thiết để kết nối giao diện mạng DPAA2 với
 ngăn xếp mạng.
 Mỗi DPNI tương ứng với giao diện mạng Linux.
 
 Trình điều khiển MAC
-----------
+--------------------
 Ethernet PHY là một thành phần cụ thể trên bo mạch, ngoài chip và được quản lý
 bằng trình điều khiển PHY thích hợp thông qua bus mdio.  Trình điều khiển MAC
 đóng vai trò là proxy giữa trình điều khiển PHY và

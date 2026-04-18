@@ -69,11 +69,11 @@ Trình điều khiển giao diện mạng Linux ver. 2,00 <hạt nhân 2.3.48>
 
 
 1. Bộ điều hợp Ethernet Cirrus Logic LAN CS8900/CS8920
-===================================================
+======================================================
 
 
 1.1. Tổng quan về sản phẩm
-=====================
+==========================
 
 Bộ điều hợp Ethernet ISA dựa trên CS8900 của Cirrus Logic theo sau
 Tiêu chuẩn IEEE 802.3 và hỗ trợ hoạt động song công một nửa hoặc hoàn toàn trên bus ISA
@@ -90,7 +90,7 @@ cấu hình cả hai loại bộ điều hợp.
 
 
 1.2. Mô tả trình điều khiển
-=======================
+===========================
 
 Trình điều khiển Bộ điều hợp Ethernet CS8900/CS8920 dành cho Linux hỗ trợ Linux
 v2.3.48 hoặc kernel cao hơn.  Nó có thể được biên dịch trực tiếp vào kernel
@@ -179,7 +179,7 @@ cài đặt bộ điều hợp dựa trên CS8900 và cấu hình mặc định 
 
 
 2.1. Cấu hình bộ điều hợp dựa trên CS8900
----------------------------------------
+-----------------------------------------
 
 Bộ điều hợp dựa trên CS8900 được vận chuyển từ Cirrus Logic đã được định cấu hình
 với các cài đặt "mặc định" sau::
@@ -200,7 +200,7 @@ Tiện ích cài đặt CS8900/20.
 
 
 2.2. Cấu hình bộ điều hợp dựa trên CS8920
----------------------------------------
+-----------------------------------------
 
 Bộ điều hợp dựa trên CS8920 được vận chuyển từ Cirrus Logic được định cấu hình là Plug
 và bật Play (PnP).  Tuy nhiên, vì trình điều khiển cs89x0 thực hiện NOT
@@ -225,7 +225,7 @@ giao tiếp với bộ chuyển đổi.
 
 
 3. Tải Trình điều khiển dưới dạng Mô-đun
-=================================
+========================================
 
 Nếu trình điều khiển được biên dịch dưới dạng mô-đun có thể tải, bạn có thể tải mô-đun trình điều khiển
 bằng lệnh 'modprobe'.  Nhiều tham số cấu hình của bộ chuyển đổi có thể
@@ -362,7 +362,7 @@ Kích thước bộ đệm DMA Rx được gắn cứng tới 16 kbyte ở chế
 
 
 4. Biên dịch trình điều khiển
-=======================
+=============================
 
 Trình điều khiển cs89x0 có thể được biên dịch trực tiếp vào kernel hoặc được biên dịch thành
 một mô-đun trình điều khiển thiết bị có thể tải được.
@@ -382,14 +382,14 @@ loạt.  Hỗ trợ DMA hiện là một phần vô điều kiện của trình 
 ==============================
 
 5.1. Khiếm khuyết và hạn chế đã biết
-----------------------------------
+------------------------------------
 
 Tham khảo tệp RELEASE.TXT được phân phối như một phần của kho lưu trữ này để biết danh sách
 các lỗi đã biết, các hạn chế của trình điều khiển và cách khắc phục.
 
 
 5.2. Kiểm tra bộ chuyển đổi
-------------------------
+---------------------------
 
 Khi bộ điều hợp đã được cài đặt và định cấu hình, tùy chọn chẩn đoán của
 Tiện ích Cài đặt CS8900/20 có thể được sử dụng để kiểm tra chức năng của
@@ -420,7 +420,7 @@ Tiện ích).
 
 
 5.2.1. Tự kiểm tra chẩn đoán
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Quá trình tự kiểm tra chẩn đoán sẽ kiểm tra chức năng cơ bản của bộ chuyển đổi cũng như
 khả năng giao tiếp trên bus ISA dựa trên tài nguyên hệ thống
@@ -512,7 +512,7 @@ Người trả lời.
 
 
 5.3. Sử dụng đèn LED của Bộ chuyển đổi
------------------------------
+--------------------------------------
 
 Bộ điều hợp 2 và 3 phương tiện có hai đèn LED hiển thị ở mặt sau của bo mạch
 nằm gần đầu nối 10Base-T.
@@ -585,7 +585,7 @@ Thiết bị địa chỉ I/O Thiết bị IRQ
 ====================
 
 6.1. Liên hệ với bộ phận hỗ trợ kỹ thuật của Cirrus Logic
-------------------------------------------------
+---------------------------------------------------------
 
 Bạn có thể liên hệ với bộ phận Hỗ trợ Ứng dụng Kỹ thuật CS89XX của Cirrus Logic tại::
 
@@ -597,7 +597,7 @@ Bạn có thể liên hệ với bộ phận Hỗ trợ Ứng dụng Kỹ thuậ
 
 
 6.2. Thông tin cần thiết trước khi liên hệ với bộ phận hỗ trợ kỹ thuật
--------------------------------------------------------------
+----------------------------------------------------------------------
 
 Trước khi liên hệ với Cirrus Logic để được hỗ trợ kỹ thuật, hãy chuẩn bị cung cấp
 Càng nhiều thông tin sau càng tốt.
@@ -631,7 +631,7 @@ Càng nhiều thông tin sau càng tốt.
 
 
 6.3 Lấy phiên bản trình điều khiển mới nhất
----------------------------------------
+-------------------------------------------
 
 Bạn có thể tải trình điều khiển và phần mềm hỗ trợ CS89XX mới nhất từ Cirrus Logic's
 Trang web.  Bạn cũng có thể liên hệ với bộ phận Hỗ trợ Kỹ thuật của Cirrus Logic (email:
@@ -643,7 +643,7 @@ trình điều khiển mới nhất và các ấn phẩm kỹ thuật.
 
 
 6.4. Người bảo trì hiện tại
------------------------
+---------------------------
 
 Vào tháng 2 năm 2000, việc bảo trì trình điều khiển này do Andrew đảm nhận
 Morton.

@@ -41,7 +41,7 @@ có sẵn trong nguồn nhân Linux dưới
 ZZ0000ZZ.
 
 Thuật ngữ
---------
+---------
 
 Bộ điều chỉnh API sử dụng một số thuật ngữ có thể không quen thuộc:
 
@@ -70,7 +70,7 @@ Một IC chứa nhiều bộ điều chỉnh và thường có các bộ điều
     đến sự kết hợp giữa PSU và cầu nam trong hệ thống máy tính để bàn.
 
 Giao diện trình điều khiển tiêu dùng
-=========================
+====================================
 
 Điều này cung cấp một API tương tự cho khung đồng hồ hạt nhân. Người tiêu dùng
 trình điều khiển sử dụng ZZ0000ZZ và
@@ -87,7 +87,7 @@ Phiên bản sơ khai của API này được cung cấp khi khung điều chỉ
 không được sử dụng để giảm thiểu nhu cầu sử dụng ifdefs.
 
 Kích hoạt và vô hiệu hóa
-----------------------
+------------------------
 
 Bộ điều chỉnh API cung cấp tính năng tham chiếu cho phép và vô hiệu hóa
 cơ quan quản lý. Các thiết bị tiêu dùng sử dụng ZZ0000ZZ và
@@ -118,12 +118,12 @@ cần phải có một giá trị chính xác, cả giá trị tối thiểu và
 giống hệt nhau.
 
 Cuộc gọi lại
----------
+------------
 
 Cuộc gọi lại cũng có thể được đăng ký cho các sự kiện như lỗi quy định.
 
 Giao diện điều khiển bộ điều chỉnh
-==========================
+==================================
 
 Trình điều khiển cho chip điều chỉnh đăng ký bộ điều chỉnh với bộ điều chỉnh
 cốt lõi, cung cấp các cấu trúc hoạt động cho cốt lõi. Giao diện thông báo

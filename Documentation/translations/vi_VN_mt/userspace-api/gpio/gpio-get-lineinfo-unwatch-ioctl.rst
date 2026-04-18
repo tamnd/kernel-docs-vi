@@ -53,7 +53,7 @@ Việc bỏ xem một dòng chưa được xem là một lỗi (ZZ0000ZZ).
 Lần đầu tiên được thêm vào trong 5.7.
 
 Giá trị trả về
-============
+==============
 
 Về thành công 0.
 

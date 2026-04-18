@@ -19,7 +19,7 @@ Theo dõi thời gian khởi động
 :Tác giả: Masami Hiramatsu <mhiramat@kernel.org>
 
 Tổng quan
-========
+=========
 
 Theo dõi thời gian khởi động cho phép người dùng theo dõi quá trình thời gian khởi động bao gồm
 khởi tạo thiết bị với đầy đủ tính năng của ftrace bao gồm mỗi sự kiện
@@ -29,7 +29,7 @@ Vì dòng lệnh kernel không đủ để kiểm soát các tính năng phức 
 cái này sử dụng tệp bootconfig để mô tả lập trình tính năng theo dõi.
 
 Các tùy chọn trong Boot Config
-==========================
+==============================
 
 Đây là danh sách các tùy chọn có sẵn để theo dõi thời gian khởi động trong
 tập tin cấu hình khởi động [1]_. Tất cả các tùy chọn đều nằm trong "ftrace." hoặc "hạt nhân."
@@ -40,7 +40,7 @@ với "hạt nhân." tiền tố [2]_.
 .. [2] See :ref:`Documentation/admin-guide/kernel-parameters.rst <kernelparameters>`
 
 Tùy chọn toàn cầu Ftrace
----------------------
+------------------------
 
 Các tùy chọn toàn cầu của Ftrace có "kernel". tiền tố trong cấu hình khởi động, có nghĩa là
 các tùy chọn này được chuyển như một phần của dòng lệnh kế thừa kernel.
@@ -66,7 +66,7 @@ kernel.fgraph_notraces = FILTER[, FILTER2...]
 
 
 Tùy chọn Ftrace cho mỗi phiên bản
----------------------------
+---------------------------------
 
 Các tùy chọn này có thể được sử dụng cho từng phiên bản bao gồm nút ftrace toàn cầu.
 
@@ -104,7 +104,7 @@ ftrace.[instance.INSTANCE.]ftrace.notraces
 
 
 Tùy chọn Ftrace cho mỗi sự kiện
-------------------------
+-------------------------------
 
 Các tùy chọn này đang thiết lập các tùy chọn cho mỗi sự kiện.
 
@@ -202,7 +202,7 @@ tùy chọn nếu tùy chọn 'hành động' có hành động biểu đồ.
 
 
 Khi nào bắt đầu
-=============
+===============
 
 Tất cả các tùy chọn theo dõi thời gian khởi động bắt đầu bằng ZZ0000ZZ sẽ được bật tại
 kết thúc core_initcall. Điều này có nghĩa là bạn có thể theo dõi các sự kiện từ postcore_initcall.

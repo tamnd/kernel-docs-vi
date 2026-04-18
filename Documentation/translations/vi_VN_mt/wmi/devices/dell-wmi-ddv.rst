@@ -106,12 +106,12 @@ ZZ0000ZZ, vì vậy các phương pháp liên quan đến pin chưa được xá
 có khả năng tuân theo tiêu chuẩn này theo một cách nào đó.
 
 Phương thức WMI GetBatteryDesignCapacity()
--------------------------------------
+------------------------------------------
 
 Trả về dung lượng thiết kế của pin tính bằng mAh dưới dạng u16.
 
 Phương thức WMI PinFullCharge()
-------------------------------
+-------------------------------
 
 Trả về dung lượng sạc đầy của pin tính bằng mAh dưới dạng u16.
 
@@ -121,7 +121,7 @@ Phương thức WMI PinSản xuấtName()
 Trả về tên nhà sản xuất của pin dưới dạng chuỗi ASCII.
 
 Phương thức WMI BatterySản xuấtDate()
------------------------------------
+-------------------------------------
 
 Trả về ngày sản xuất của pin là u16.
 Ngày được mã hóa theo cách sau:
@@ -131,12 +131,12 @@ Ngày được mã hóa theo cách sau:
 - bit 9 đến 15 chứa năm sản xuất bị sai lệch bởi năm 1980.
 
 Phương thức WMI BatterySerialNumber()
---------------------------------
+-------------------------------------
 
 Trả về số sê-ri của pin là u16.
 
 Phương thức WMI BatteryChemistryValue()
-----------------------------------
+---------------------------------------
 
 Trả về thành phần hóa học của pin dưới dạng chuỗi ASCII.
 Các giá trị được biết là:
@@ -144,23 +144,23 @@ Các giá trị được biết là:
 - "Li-I" cho Li-Ion
 
 Phương thức WMI BatteryTemperature()
--------------------------------
+------------------------------------
 
 Trả về nhiệt độ của pin theo độ 10 kelvin dưới dạng u16.
 
 Phương thức WMI Battery Current()
----------------------------
+---------------------------------
 
 Trả về dòng điện hiện tại của pin tính bằng mA dưới dạng s16.
 Giá trị âm cho biết đang xả.
 
 Phương thức WMI PinĐiện áp()
----------------------------
+----------------------------
 
 Trả về dòng điện áp của pin tính bằng mV dưới dạng u16.
 
 Phương pháp WMI BatterySản xuấtAccess()
--------------------------------------
+---------------------------------------
 
 Trả về trạng thái sức khỏe của pin là u16.
 Tình trạng sức khỏe được mã hóa theo cách sau:
@@ -198,22 +198,22 @@ Các mã lỗi sau đây hợp lệ cho lỗi quá dòng:
  - quá dòng trong quá trình xả (ZZ0001ZZ)
 
 Phương thức WMI BatteryRelativeStateOfCharge()
------------------------------------------
+----------------------------------------------
 
 Trả về dung lượng của pin theo phần trăm dưới dạng u16.
 
 Phương thức WMI BatteryCycleCount()
-------------------------------
+-----------------------------------
 
 Trả về số chu kỳ của pin là u16.
 
 Phương thức WMI PinePPID()
--------------------------
+--------------------------
 
 Trả về ePPID của pin dưới dạng chuỗi ASCII.
 
 Phương pháp WMI BatteryeRawAnalyticsStart()
---------------------------------------
+-------------------------------------------
 
 Thực hiện phân tích pin và trả về mã trạng thái:
 
@@ -225,7 +225,7 @@ Thực hiện phân tích pin và trả về mã trạng thái:
    The meaning of this method is still largely unknown.
 
 Phương pháp WMI BatteryeRawAnalytics()
----------------------------------
+--------------------------------------
 
 Trả về bộ đệm thường chứa 12 khối dữ liệu phân tích.
 Các khối đó chứa:
@@ -237,12 +237,12 @@ Các khối đó chứa:
    The meaning of this method is still largely unknown.
 
 Phương thức WMI BatteryDesignVoltage()
----------------------------------
+--------------------------------------
 
 Trả về điện áp thiết kế của pin tính bằng mV dưới dạng u16.
 
 Phương pháp WMI BatteryeRawAnalyticsABlock()
----------------------------------------
+--------------------------------------------
 
 Trả về một khối dữ liệu phân tích, với byte thứ hai
 của chỉ mục đang được sử dụng để chọn số khối.
@@ -253,12 +253,12 @@ ZZ0000ZZ
    The meaning of this method is still largely unknown.
 
 Phương thức WMI ReturnVersion()
---------------------------
+-------------------------------
 
 Trả về phiên bản giao diện WMI dưới dạng u32.
 
 Phương thức WMI FanSensorInformation()
----------------------------------
+--------------------------------------
 
 Trả về bộ đệm chứa các mục cảm biến quạt, đã kết thúc
 với một chiếc ZZ0000ZZ duy nhất.
@@ -268,7 +268,7 @@ Những mục đó có chứa:
 - tốc độ quạt trong RPM (endian nhỏ u16)
 
 Phương thức WMI ThermalSensorInformation()
--------------------------------------
+------------------------------------------
 
 Trả về bộ đệm chứa các mục cảm biến nhiệt, đã kết thúc
 với một chiếc ZZ0000ZZ duy nhất.

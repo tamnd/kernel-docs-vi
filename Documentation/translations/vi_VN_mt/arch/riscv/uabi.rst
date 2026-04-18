@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Người dùng Linux RISC-V ABI
-=====================
+===========================
 
 Thứ tự chuỗi ISA trong /proc/cpuinfo
 ------------------------------------
@@ -57,7 +57,7 @@ Một chuỗi ví dụ theo thứ tự là::
 rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
 
 Dòng "isa" và "hart isa" trong /proc/cpuinfo
--------------------------------------------
+--------------------------------------------
 
 Dòng "isa" trong /proc/cpuinfo mô tả mẫu số chung thấp nhất của
 Các phần mở rộng RISC-V ISA được kernel nhận dạng và triển khai trên tất cả các trái tim. các

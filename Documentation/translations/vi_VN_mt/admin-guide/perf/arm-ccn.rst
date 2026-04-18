@@ -22,7 +22,7 @@ vì vậy các nút (thiết bị) 0 và 1 được kết nối với điểm ch
 nút 2 và 3 đến điểm giao nhau 1, v.v.
 
 Trình điều khiển PMU (hoàn hảo)
------------------
+-------------------------------
 
 Trình điều khiển CCN đăng ký trình điều khiển PMU hoàn hảo, cung cấp
 mô tả các sự kiện có sẵn và các tùy chọn cấu hình

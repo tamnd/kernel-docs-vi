@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân Ampere(R)'s Altra(R) SMpro hwmon
-==============================================
+==========================================================
 
 Chip được hỗ trợ:
 
@@ -40,7 +40,7 @@ Giao diện cung cấp các thanh ghi để truy vấn các cảm biến khác n
 giá trị của chúng sau đó được trình điều khiển này xuất sang không gian người dùng.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển tạo ít nhất hai tệp sysfs cho mỗi cảm biến.
 
@@ -54,7 +54,7 @@ Khi SoC bị tắt, trình điều khiển sẽ không đọc được các than
 trả lại ZZ0000ZZ.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các tệp sysfs sau được hỗ trợ:
 

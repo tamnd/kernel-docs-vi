@@ -26,7 +26,7 @@ Giao diện điều khiển và chèn lỗi RAS debugfs/sysfs
    :doc: AMDGPU RAS debugfs control interface
 
 Hành vi khởi động lại RAS đối với các lỗi không thể phục hồi
-============================================
+============================================================
 
 .. kernel-doc:: drivers/gpu/drm/amd/amdgpu/amdgpu_ras.c
    :doc: AMDGPU RAS Reboot Behavior for Unrecoverable Errors
@@ -44,7 +44,7 @@ Giao diện gỡ lỗi RAS EEPROM
    :doc: AMDGPU RAS debugfs EEPROM table reset interface
 
 RAS VRAM Giao diện hệ thống trang xấu
-==================================
+=====================================
 
 .. kernel-doc:: drivers/gpu/drm/amd/amdgpu/amdgpu_ras.c
    :doc: AMDGPU RAS sysfs gpu_vram_bad_pages Interface

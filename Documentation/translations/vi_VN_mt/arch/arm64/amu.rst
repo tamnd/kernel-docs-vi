@@ -27,7 +27,7 @@ hỗ trợ trong AArch64 Linux.
 
 
 Tổng quan về kiến ​​trúc
----------------------
+------------------------
 
 Tiện ích mở rộng giám sát hoạt động là một tiện ích mở rộng tùy chọn được giới thiệu bởi
 Kiến trúc ARMv8.4 CPU.
@@ -109,7 +109,7 @@ Bạn có thể tìm thấy thông tin chi tiết tại: Arch/arm64/include/asm/
 
 
 Quyền truy cập không gian người dùng
-----------------
+------------------------------------
 
 Hiện tại, quyền truy cập từ không gian người dùng vào các thanh ghi AMU bị vô hiệu hóa do:
 

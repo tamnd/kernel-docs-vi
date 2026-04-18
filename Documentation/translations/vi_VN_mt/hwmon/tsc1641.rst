@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân tsc1641
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -40,7 +40,7 @@ giao diện là I2C/SMbus. TSC1641 cho phép xác nhận một số cảnh báo
 về điện áp, dòng điện, công suất và nhiệt độ.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển TSC1641 yêu cầu giá trị của điện trở shunt bên ngoài để
 tính toán chính xác các phép đo dòng điện và công suất. Giá trị điện trở trong
@@ -69,7 +69,7 @@ Nhiệt độ -40C đến +125C
 =====================================================================================
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ======================================================================================
 điện áp bus in0_input (mV)

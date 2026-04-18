@@ -25,7 +25,7 @@ Thiết bị trung gian VFIO
 
 
 Các thiết bị trung gian I/O chức năng ảo (VFIO)[1]
-===============================================
+==================================================
 
 Số trường hợp sử dụng để ảo hóa các thiết bị DMA không được tích hợp sẵn
 Khả năng của SR_IOV ngày càng tăng. Trước đây, để ảo hóa các thiết bị như vậy,
@@ -96,7 +96,7 @@ giao diện:
 * Giao diện trình điều khiển thiết bị vật lý
 
 Giao diện đăng ký cho trình điều khiển xe buýt qua trung gian
-------------------------------------------------
+-------------------------------------------------------------
 
 Giao diện đăng ký cho trình điều khiển thiết bị qua trung gian cung cấp các thông tin sau
 cấu trúc đại diện cho trình điều khiển của thiết bị được trung gian::
@@ -147,7 +147,7 @@ void mdev_unregister_parent(struct mdev_parent *parent);
 Việc này sẽ hủy liên kết và hủy tất cả các mdev đã tạo và xóa các tệp sysfs.
 
 Giao diện quản lý thiết bị qua trung gian thông qua sysfs
-==================================================
+=========================================================
 
 Giao diện quản lý thông qua sysfs cho phép phần mềm không gian người dùng, chẳng hạn như
 libvirt, để truy vấn và định cấu hình các thiết bị trung gian theo kiểu bất khả tri về phần cứng.
@@ -159,7 +159,7 @@ trình điều khiển của thiết bị để hỗ trợ các tính năng như
 * Nhiều thiết bị trung gian từ các thiết bị vật lý khác nhau
 
 Các liên kết trong Thư mục lớp mdev_bus
--------------------------------------
+---------------------------------------
 Thư mục /sys/class/mdev_bus/ chứa các liên kết đến các thiết bị đã được đăng ký
 với trình điều khiển lõi mdev.
 
@@ -254,7 +254,7 @@ Ví dụ::
 # echo 1 > /sys/bus/mdev/devices/$mdev_UUID/remove
 
 Thiết bị trung gian Phích cắm nóng
-------------------------
+----------------------------------
 
 Các thiết bị trung gian có thể được tạo và chỉ định trong thời gian chạy. Quy trình làm nóng
 cắm thiết bị trung gian cũng giống như quy trình cắm nóng thiết bị PCI.
@@ -278,7 +278,7 @@ các mô-đun phụ trợ IOMMU khác, chẳng hạn như mô-đun PPC64 sPAPR, 
 hai hàm gọi lại này.
 
 Tài liệu tham khảo
-==========
+==================
 
 1. Xem Tài liệu/driver-api/vfio.rst để biết thêm thông tin về VFIO.
 2. struct mdev_driver trong include/linux/mdev.h

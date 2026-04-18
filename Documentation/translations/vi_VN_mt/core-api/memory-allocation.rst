@@ -41,7 +41,7 @@ Tất nhiên có những trường hợp khi các API phân bổ khác và GFP k
 phải sử dụng cờ.
 
 Nhận cờ trang miễn phí
-===================
+======================
 
 Cờ GFP kiểm soát hành vi của bộ cấp phát. Họ kể ký ức nào
 các vùng có thể được sử dụng, người cấp phát nên cố gắng tìm vùng trống như thế nào

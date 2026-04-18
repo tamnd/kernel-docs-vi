@@ -102,7 +102,7 @@ ZZ0001ZZ hoặc ZZ0002ZZ. ZZ0003ZZ
 và sử dụng nó làm đầu vào cho ZZ0004ZZ sau này.
 
 Cú pháp cơ bản
-------------
+--------------
 
 Khoảng trắng/tab hàng đầu bị bỏ qua. Nếu ký tự tiếp theo là ZZ0000ZZ hoặc kết thúc
 của dòng đã đạt được thì toàn bộ dòng sẽ bị bỏ qua. Nếu không thì một lệnh
@@ -332,7 +332,7 @@ ZZ0000ZZ
     điều kiện. Điều này phụ thuộc vào việc thực hiện.
 
 Xung tùy chỉnh
--------------
+--------------
 
 ZZ0000ZZ
     Điều này xác định khoảng thời gian tính bằng micro giây mà xung tùy chỉnh kéo
@@ -356,7 +356,7 @@ ZZ0000ZZ
     Truyền một xung tùy chỉnh ngay khi bus CEC không hoạt động.
 
 Xung trục trặc
--------------
+--------------
 
 Điều này mô phỏng những gì xảy ra nếu tín hiệu trên đường CEC bị giả
 xung. Thông thường, điều này xảy ra sau cạnh giảm hoặc tăng ở nơi có

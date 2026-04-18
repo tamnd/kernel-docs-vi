@@ -35,7 +35,7 @@ có tập tin thiết bị của riêng mình (/dev/ttyUSB0,/dev/ttyUSB1,...)
 
 
 Làm thế nào để điều chỉnh tốc độ đầu đọc?
-=============================
+=========================================
 
 Một vài tham số có thể được sử dụng khi tải
  Để sử dụng các tham số, chỉ cần dỡ bỏ mô-đun nếu nó
@@ -90,7 +90,7 @@ tăng cường modprobe=195
 
 
 Ghi chú cuối cùng
-==========
+=================
 
 Đừng lo lắng về cài đặt nối tiếp, mô phỏng nối tiếp
  là một sự trừu tượng, vì vậy việc sử dụng bất kỳ cài đặt tốc độ hoặc tính chẵn lẻ nào sẽ

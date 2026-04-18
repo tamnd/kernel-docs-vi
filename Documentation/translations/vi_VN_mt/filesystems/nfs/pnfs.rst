@@ -24,7 +24,7 @@ chúng ta cần tham khảo số lượng.
 
 
 cấu trúc pnfs_layout_hdr
-======================
+========================
 
 Lệnh trực tuyến LAYOUTGET tương ứng với struct
 pnfs_layout_segment, thường được gọi bằng tên biến lseg.
@@ -58,7 +58,7 @@ Mã băm được sao chép từ cơ sở mã nfsd.  Một cuộc thảo luận 
 băm và các biến thể của thuật toán này có thể được tìm thấy ZZ0000ZZ
 
 bộ đệm máy chủ dữ liệu
-=================
+======================
 
 thiết bị trình điều khiển tệp đề cập đến các máy chủ dữ liệu, được lưu giữ trong một mô-đun
 bộ nhớ đệm cấp độ.  Tham chiếu của nó được giữ trong suốt thời gian tồn tại của deviceid
@@ -73,7 +73,7 @@ bị xóa khỏi danh sách của pnfs_layout_hdr, NFS_LAYOUT_DESTROYED
 bit được thiết lập, ngăn không cho bất kỳ lseg mới nào được thêm vào.
 
 trình điều khiển bố trí
-==============
+=======================
 
 PNFS sử dụng cái được gọi là trình điều khiển bố cục. STD xác định 4 cơ bản
 các loại bố cục: "tệp", "đối tượng", "khối" và "tệp linh hoạt". Đối với mỗi
@@ -86,6 +86,6 @@ Mã trình điều khiển bố cục khối nằm trong thư mục fs/nfs/block
 Mã trình điều khiển bố cục Flexfiles nằm trong: thư mục fs/nfs/flexfilelayout/..
 
 thiết lập bố cục khối
-===================
+=====================
 
 TODO: Ghi lại nhu cầu thiết lập của trình điều khiển bố cục khối

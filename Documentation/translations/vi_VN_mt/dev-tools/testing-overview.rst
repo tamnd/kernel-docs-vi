@@ -130,7 +130,7 @@ Một số công cụ này tích hợp với KUnit hoặc kselftest và sẽ
 tự động thất bại trong các bài kiểm tra nếu phát hiện thấy sự cố.
 
 Công cụ phân tích tĩnh
-=====================
+======================
 
 Ngoài việc kiểm tra kernel đang chạy, người ta còn có thể phân tích mã nguồn kernel
 trực tiếp (ZZ0000ZZ) bằng công cụ ZZ0001ZZ. Các công cụ
@@ -162,7 +162,7 @@ Tuy nhiên, hãy cẩn thận rằng các công cụ phân tích tĩnh bị ản
 Các lỗi và cảnh báo cần được đánh giá cẩn thận trước khi cố gắng khắc phục chúng.
 
 Khi nào nên sử dụng Sparse và Smatch
------------------------------
+------------------------------------
 
 Kiểm tra kiểu thưa thớt, chẳng hạn như xác minh rằng các biến chú thích không
 gây ra lỗi endianness, phát hiện những nơi sử dụng con trỏ ZZ0000ZZ không đúng cách,

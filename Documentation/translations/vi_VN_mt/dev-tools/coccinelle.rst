@@ -176,7 +176,7 @@ giá trị được truyền trở lại và giá trị trả về của ZZ0000Z
 lệnh nắm bắt giá trị trả về này.
 
 Sử dụng Coccinelle với một bản vá ngữ nghĩa duy nhất
----------------------------------------------
+----------------------------------------------------
 
 Biến tạo tùy chọn COCCI có thể được sử dụng để kiểm tra một
 bản vá ngữ nghĩa. Trong trường hợp đó, biến phải được khởi tạo bằng
@@ -346,7 +346,7 @@ một trong những công cụ này, và theo tệp cocci được sử dụng,
 spatch có thể tiến hành toàn bộ cơ sở mã nhanh hơn.
 
 Tùy chọn cụ thể của bản vá SmPL
----------------------------
+-------------------------------
 
 Các bản vá SmPL có thể có yêu cầu riêng đối với các tùy chọn được thông qua
 tới Coccinelle. Các tùy chọn dành riêng cho bản vá SmPL có thể được cung cấp bởi
@@ -355,7 +355,7 @@ cung cấp chúng ở đầu bản vá SmPL, ví dụ::
 // Tùy chọn: --no-includes --include-headers
 
 Yêu cầu về bản vá SmPL của Coccinelle
-----------------------------------
+-------------------------------------
 
 Khi các tính năng của Coccinelle được bổ sung thêm một số bản vá SmPL nâng cao hơn
 có thể yêu cầu các phiên bản mới hơn của Coccinelle. Nếu bản vá SmPL yêu cầu
@@ -365,7 +365,7 @@ làm ví dụ nếu yêu cầu ít nhất Coccinelle >= 1.0.5::
 // Yêu cầu: 1.0.5
 
 Đề xuất các bản vá ngữ nghĩa mới
-------------------------------
+--------------------------------
 
 Các bản vá ngữ nghĩa mới có thể được đề xuất và gửi bởi kernel
 nhà phát triển. Để rõ ràng, chúng nên được tổ chức theo

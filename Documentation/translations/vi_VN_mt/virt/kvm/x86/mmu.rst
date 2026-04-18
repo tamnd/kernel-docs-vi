@@ -50,7 +50,7 @@ Mã mmu cố gắng đáp ứng các yêu cầu sau:
                tránh phân bổ nhiều trang hoặc GFP_ATOMIC
 
 Từ viết tắt
-========
+===========
 
 ==== ==========================================================================
 số khung trang chủ pfn
@@ -111,7 +111,7 @@ bộ nhớ, bộ nhớ hỗ trợ tập tin và bộ nhớ thiết bị.  Bộ n
 chủ bất cứ lúc nào.
 
 Sự kiện
-======
+=======
 
 Mmu được điều khiển bởi các sự kiện, một số từ khách, một số từ chủ nhà.
 
@@ -300,13 +300,13 @@ Shadow pages contain the following information:
     may contain pages from both TDP MMU and shadow MMU.
 
 Bản đồ ngược
-===========
+============
 
 Mmu duy trì ánh xạ ngược, nhờ đó tất cả các điểm ánh xạ một trang có thể được
 đạt được gfn của nó.  Điều này được sử dụng, ví dụ, khi hoán đổi một trang.
 
 Các trang được đồng bộ hóa và không đồng bộ hóa
-=====================================
+===============================================
 
 Khách sử dụng hai sự kiện để đồng bộ hóa bảng tlb và bảng trang của mình: tlb tuôn ra
 và vô hiệu hóa trang (invlpg).
@@ -329,7 +329,7 @@ các trang trên một tlb tuôn ra.
 
 
 Phản ứng với các sự kiện
-==================
+========================
 
 - lỗi trang khách (hoặc lỗi trang npt, hoặc vi phạm ept)
 
@@ -475,7 +475,7 @@ một spte lớn.  Các khung ở cuối khe nhớ chưa được căn chỉnh c
 tăng cao một cách giả tạo ->disallow_lpages để chúng không bao giờ có thể được khởi tạo.
 
 Vô hiệu hóa nhanh chóng các sptes MMIO
-===============================
+======================================
 
 Như đã đề cập trong phần "Phản ứng với các sự kiện" ở trên, kvm sẽ lưu vào bộ nhớ đệm MMIO
 thông tin trong lá sptes.  Khi một khe nhớ mới được thêm vào hoặc một khe nhớ hiện có

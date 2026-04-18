@@ -39,7 +39,7 @@ Nếu bạn thấy một cái gì đó như thế này ::
 trong ZZ0000ZZ của bạn thì trình điều khiển này dành cho chipset của bạn.
 
 Hỗ trợ cuộc gọi quy trình
---------------------
+-------------------------
 
 Được hỗ trợ.
 
@@ -50,7 +50,7 @@ Hỗ trợ SMBus 2.0
 chế độ hoặc thông báo máy chủ chưa được triển khai.
 
 Ghi chú
------
+-------
 
 Lưu ý rằng đối với 8111, có hai bộ điều hợp SMBus. Bộ chuyển đổi SMBus 2.0
 được hỗ trợ bởi trình điều khiển này và bộ điều hợp SMBus 1.0 được hỗ trợ bởi

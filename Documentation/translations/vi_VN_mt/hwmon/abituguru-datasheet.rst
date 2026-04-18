@@ -93,7 +93,7 @@ viết địa chỉ. Địa chỉ ghi luôn nhiều hơn một (1) địa chỉ 
 
 
 uGuru đã sẵn sàng
------------
+-----------------
 
 Trước khi bạn có thể đọc hoặc viết vào uGuru, trước tiên bạn phải đặt uGuru
 ở chế độ "sẵn sàng".
@@ -175,10 +175,10 @@ một lúc rồi thử lại.
 
 
 Bản đồ địa chỉ
-===========
+==============
 
 Báo động ngân hàng 0x20 (R)
---------------------
+---------------------------
 Ngân hàng này chứa 0 cảm biến, địa chỉ cảm biến sẽ bị bỏ qua (nhưng phải được
 đã viết) chỉ cần sử dụng 0. Ngân hàng 0x20 chứa 3 byte:
 
@@ -224,7 +224,7 @@ Cảm biến nhiệt độ cũng sử dụng thang đo tuyến tính, số đọ
 
 
 Cài đặt Ngân hàng Cảm biến 0x22 Ngân hàng1 (R) và Cài đặt Ngân hàng Cảm biến Ngân hàng 0x231 (W)
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 
 Các ngân hàng đó chứa 16 cảm biến, mỗi cảm biến chứa 3 byte. Mỗi
 bộ 3 byte chứa các cài đặt cho cảm biến có cùng cảm biến
@@ -303,7 +303,7 @@ byte 4:
 
 
 Cảm biến Ngân hàng 0x26 Giá trị / Số đọc Ngân hàng2 (R)
----------------------------------------------
+-------------------------------------------------------
 
 Ngân hàng này chứa 6 cảm biến (AFAIK), mỗi cảm biến chứa 1 byte.
 
@@ -317,7 +317,7 @@ Byte 0:
 
 
 Bộ cảm biến Bank 0x27 Cài đặt Bank2 (R) và Bộ cảm biến Bank 0x28 Cài đặt Bank2 (W)
------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
 Các ngân hàng đó chứa 6 cảm biến (AFAIK), mỗi cảm biến chứa 2 byte.
 
@@ -338,7 +338,7 @@ Byte 1:
 
 
 Cảnh báo cho người ưa mạo hiểm
-===========================
+==============================
 
 Một lời cảnh báo cho những ai muốn thử nghiệm và xem liệu họ có thể tìm ra
 điện áp/đồng hồ lập trình ra, tôi thử đọc và chỉ đọc ngân hàng

@@ -139,7 +139,7 @@ sẽ bị hủy bỏ.
         được phân bổ và chuyển cho cả ZZ0002ZZ và ZZ0003ZZ.
 
 Kích thước dữ liệu nhập và xử lý thoát trên cùng một chức năng
-======================================================
+==============================================================
 
 Vì dữ liệu đầu vào được truyền qua ngăn xếp trên mỗi tác vụ và nó có kích thước giới hạn,
 kích thước dữ liệu đầu vào trên mỗi đầu dò được giới hạn ở ZZ0000ZZ. Bạn cũng cần
@@ -150,7 +150,7 @@ bạn nên giữ số lượng fprobe trên cùng một chức năng càng nhỏ
 có thể.
 
 Chia sẻ các cuộc gọi lại với kprobes
-================================
+====================================
 
 Vì độ an toàn đệ quy của fprobe (và ftrace) hơi khác một chút
 từ kprobes, điều này có thể gây ra sự cố nếu người dùng muốn chạy tương tự

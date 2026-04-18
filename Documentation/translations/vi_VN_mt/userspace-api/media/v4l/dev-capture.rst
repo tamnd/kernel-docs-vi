@@ -58,7 +58,7 @@ ZZ0005ZZ ioctls phải được hỗ trợ bởi tất cả video
 các thiết bị chụp.
 
 Thỏa thuận định dạng hình ảnh
-========================
+=============================
 
 Kết quả của thao tác chụp được xác định bằng cách cắt xén và hình ảnh
 các thông số định dạng Trước đây hãy chọn một vùng của hình ảnh video để

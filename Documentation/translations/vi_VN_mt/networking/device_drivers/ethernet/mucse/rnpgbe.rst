@@ -22,7 +22,7 @@ Nội dung
 - Xác định bộ chuyển đổi của bạn
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 Trình điều khiển tương thích với các thiết bị dựa trên những điều sau:
 
 * Bộ điều khiển Ethernet MUCSE(R) Dòng N210

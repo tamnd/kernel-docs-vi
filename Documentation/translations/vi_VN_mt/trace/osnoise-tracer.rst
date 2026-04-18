@@ -55,7 +55,7 @@ in tổng của tất cả tiếng ồn, tiếng ồn đơn tối đa, tỷ lệ
 có sẵn cho luồng và bộ đếm cho các nguồn nhiễu.
 
 Cách sử dụng
------
+------------
 
 Viết văn bản ASCII "osnoise" vào tệp current_tracer của
 hệ thống theo dõi (thường được gắn tại /sys/kernel/tracing).
@@ -130,7 +130,7 @@ Trình theo dõi có một tập hợp các tùy chọn bên trong thư mục os
    tùy chọn DEAFAULTS đặc biệt sẽ đặt lại tất cả các tùy chọn về giá trị mặc định.
 
 Tùy chọn theo dõi
---------------
+-----------------
 
 Tệp osnoise/options hiển thị một tập hợp các tùy chọn cấu hình bật/tắt cho
 máy theo dõi tiếng ồn. Các tùy chọn này là:
@@ -187,7 +187,7 @@ trước và sau khi thực hiện bất kỳ sự can thiệp nào. Điều nà
 cách tiếp cận: đo chủ đề và truy tìm.
 
 Chạy bộ theo dõi osnoise mà không cần khối lượng công việc
----------------------------------------
+----------------------------------------------------------
 
 Bằng cách bật trình theo dõi tiếng ồn với bộ tùy chọn NO_OSNOISE_WORKLOAD,
 osnoise: tracepoint dùng để đo thời gian thực hiện của

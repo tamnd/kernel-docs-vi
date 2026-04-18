@@ -99,7 +99,7 @@ ZZ0000ZZ
 .. kernel-figure:: dcn3_cm_drm_current.svg
 
 Thuộc tính chế độ hòa trộn
-=====================
+==========================
 
 Chế độ hòa trộn pixel là thuộc tính bố cục mặt phẳng DRM của ZZ0000ZZ được sử dụng để
 mô tả cách các pixel từ mặt phẳng tiền cảnh (fg) được kết hợp với

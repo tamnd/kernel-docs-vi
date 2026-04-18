@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Quảng cáo trình điều khiển hạt nhân7828
-=====================
+=======================================
 
 Chip được hỗ trợ:
 
@@ -39,7 +39,7 @@ tác giả:
 	- Guillaume Roguez <guillaume.roguez@savoirfairelinux.com>
 
 Dữ liệu nền tảng
--------------
+----------------
 
 Trình điều khiển ads7828 chấp nhận cấu trúc ads7828_platform_data tùy chọn (được xác định
 trong include/linux/platform_data/ads7828.h). Các trường cấu trúc là:

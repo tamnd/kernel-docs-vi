@@ -308,7 +308,7 @@ và ZZ0000ZZ::
 
 
 Khả năng tương thích ngược
-======================
+==========================
 
 Trình điều khiển cần điều khiển 0.x API khá hạn chế và việc sử dụng nó không được dùng nữa.
 Tuy nhiên, trình điều khiển cung cấp khả năng tương thích ngược. Dưới đây là tóm tắt nhanh::
@@ -352,7 +352,7 @@ không cố gắng tương thích với giao diện đó.
 
 
 Ghi chú cuối cùng
-===========
+=================
 
 ::
 

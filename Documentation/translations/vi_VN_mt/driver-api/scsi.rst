@@ -23,7 +23,7 @@ Giới thiệu
 ============
 
 Giao thức vs xe buýt
----------------
+--------------------
 
 Ngày xửa ngày xưa, Giao diện hệ thống máy tính nhỏ đã định nghĩa cả
 bus I/O song song và giao thức dữ liệu để kết nối nhiều loại
@@ -90,7 +90,7 @@ sg (SCSI Chung)
 sg (sg.o)
 
 ch (Trình thay đổi phương tiện SCSI)
------------------------
+------------------------------------
 
 ch (ch.c)
 
@@ -107,7 +107,7 @@ bao gồm/scsi/scsi_device.h
    :internal:
 
 trình điều khiển/scsi/scsi.c
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tệp chính cho lớp giữa SCSI.
 
@@ -115,7 +115,7 @@ Tệp chính cho lớp giữa SCSI.
    :export:
 
 trình điều khiển/scsi/scsicam.c
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hỗ trợ ZZ0000ZZ
 các chức năng, để sử dụng với HDIO_GETGEO, v.v.
@@ -124,7 +124,7 @@ các chức năng, để sử dụng với HDIO_GETGEO, v.v.
    :export:
 
 trình điều khiển/scsi/scsi_error.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các thói quen xử lý lỗi/hết thời gian chờ SCSI phổ biến.
 
@@ -132,7 +132,7 @@ Các thói quen xử lý lỗi/hết thời gian chờ SCSI phổ biến.
    :export:
 
 trình điều khiển/scsi/scsi_devinfo.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Quản lý scsi_dev_info_list, theo dõi danh sách đen và danh sách trắng
 thiết bị.
@@ -141,7 +141,7 @@ thiết bị.
    :export:
 
 trình điều khiển/scsi/scsi_ioctl.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Xử lý các lệnh gọi ioctl() cho thiết bị SCSI.
 
@@ -149,7 +149,7 @@ Xử lý các lệnh gọi ioctl() cho thiết bị SCSI.
    :export:
 
 trình điều khiển/scsi/scsi_lib.c
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Thư viện xếp hàng SCSI.
 
@@ -157,7 +157,7 @@ Thư viện xếp hàng SCSI.
    :export:
 
 trình điều khiển/scsi/scsi_lib_dma.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các chức năng thư viện SCSI tùy thuộc vào DMA (thu thập phân tán bản đồ và hủy bản đồ
 danh sách).
@@ -166,7 +166,7 @@ danh sách).
    :export:
 
 trình điều khiển/scsi/scsi_proc.c
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các chức năng trong tệp này cung cấp giao diện giữa tệp PROC
 hệ thống và trình điều khiển thiết bị SCSI Nó chủ yếu được sử dụng để gỡ lỗi,
@@ -176,7 +176,7 @@ hệ thống ống nước để quản lý /proc/scsi/\*
 .. kernel-doc:: drivers/scsi/scsi_proc.c
 
 trình điều khiển/scsi/scsi_netlink.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cơ sở hạ tầng để cung cấp các sự kiện không đồng bộ từ quá trình vận chuyển đến không gian người dùng thông qua
 netlink, sử dụng một giao thức NETLINK_SCSITRANSPORT duy nhất cho tất cả
@@ -187,7 +187,7 @@ vận chuyển. Xem ZZ0000ZZ
    :internal:
 
 trình điều khiển/scsi/scsi_scan.c
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Quét máy chủ để xác định thiết bị nào (nếu có) được đính kèm. các
 Thuật toán quét/thăm dò chung như sau, có ngoại lệ đối với
@@ -206,13 +206,13 @@ mặt khác, quét tuần tự các LUN cho đến khi đạt mức tối đa ho
    :export:
 
 trình điều khiển/scsi/scsi_sysctl.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Thiết lập mục sysctl: "/dev/scsi/logging_level"
 (DEV_SCSI_LOGGING_LEVEL) đặt/trả về scsi_logging_level.
 
 trình điều khiển/scsi/scsi_sysfs.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các thói quen giao diện sysfs của SCSI.
 
@@ -220,7 +220,7 @@ Các thói quen giao diện sysfs của SCSI.
    :export:
 
 trình điều khiển/scsi/hosts.c
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Giao diện trình điều khiển SCSI cấp trung đến cấp thấp
 
@@ -228,7 +228,7 @@ Giao diện trình điều khiển SCSI cấp trung đến cấp thấp
    :export:
 
 trình điều khiển/scsi/scsi_common.c
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 chức năng hỗ trợ chung
 
@@ -242,7 +242,7 @@ Các lớp vận chuyển là thư viện dịch vụ dành cho trình điều k
 lớp hiển thị các thuộc tính vận chuyển trong sysfs.
 
 Vận chuyển kênh sợi quang
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tệp driver/scsi/scsi_transport_fc.c xác định các thuộc tính vận chuyển
 cho Kênh Sợi Quang.
@@ -261,7 +261,7 @@ kết nối.
    :export:
 
 Lớp vận chuyển SCSI (SAS) được đính kèm nối tiếp
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tệp driver/scsi/scsi_transport_sas.c xác định phương thức vận chuyển
 các thuộc tính cho SCSI được đính kèm nối tiếp, một biến thể của SATA nhắm đến mục tiêu lớn
@@ -315,7 +315,7 @@ Lớp dưới SCSI
 ================
 
 Các loại truyền tải của Bộ điều hợp Bus Máy chủ
---------------------------------
+-----------------------------------------------
 
 Nhiều bộ điều khiển thiết bị hiện đại sử dụng bộ lệnh SCSI làm giao thức để
 giao tiếp với thiết bị của họ thông qua nhiều loại phương tiện vật lý khác nhau
@@ -326,7 +326,7 @@ Trong ngôn ngữ SCSI, một bus có khả năng mang các lệnh SCSI được
 bộ chuyển đổi xe buýt" (HBA).
 
 Gỡ lỗi vận chuyển
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Tệp driver/scsi/scsi_debug.c mô phỏng bộ điều hợp máy chủ có
 số lượng đĩa (hoặc thiết bị giống đĩa) có thể thay đổi được đính kèm, chia sẻ một
@@ -340,7 +340,7 @@ thuộc tính của đĩa SAS.
 Để biết tài liệu, hãy xem ZZ0000ZZ
 
 việc cần làm
-~~~~
+~~~~~~~~~~~~
 
 Song song (nhanh/rộng/siêu) SCSI, USB, SATA, SAS, Kênh sợi quang,
 Thiết bị FireWire, ATAPI, Infiniband, Cổng song song,

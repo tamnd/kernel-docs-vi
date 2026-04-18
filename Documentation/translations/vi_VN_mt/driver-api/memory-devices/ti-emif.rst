@@ -17,7 +17,7 @@ Trình điều khiển bộ điều khiển TI EMIF SDRAM
 ============================================
 
 Tác giả
-======
+=======
 Aneesh V <aneesh@ti.com>
 
 Vị trí
@@ -25,12 +25,12 @@ Vị trí
 trình điều khiển/bộ nhớ/emif.c
 
 SoC được hỗ trợ:
-===============
+================
 TI OMAP44xx
 TI OMAP54xx
 
 Tùy chọn cấu hình menu:
-==================
+=======================
 Trình điều khiển thiết bị
 	Thiết bị bộ nhớ
 		Trình điều khiển EMIF của Texas Instruments
@@ -46,7 +46,7 @@ các thông số và các cài đặt khác trong tần số, điện áp và
 thay đổi nhiệt độ
 
 Dữ liệu nền tảng (xem include/linux/platform_data/emif_plat.h)
-===========================================================
+==============================================================
 Chi tiết thiết bị DDR và phụ thuộc bo mạch khác và phụ thuộc SoC
 thông tin có thể được truyền qua dữ liệu nền tảng (struct emif_platform_data)
 
@@ -58,7 +58,7 @@ thông tin có thể được truyền qua dữ liệu nền tảng (struct emif
 - Loại PHY
 
 Giao diện với thế giới bên ngoài
-===============================
+================================
 Trình điều khiển EMIF đăng ký thông báo thay đổi điện áp và tần số
 ảnh hưởng đến EMIF và thực hiện các hành động thích hợp khi chúng được gọi.
 

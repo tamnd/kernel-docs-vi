@@ -20,7 +20,7 @@ Tài liệu này là tổng quan về các giao dịch I2C cơ bản và kernel
 API để thực hiện chúng.
 
 Chìa khóa ký hiệu
-==============
+=================
 
 ==================================================================================
 S Điều kiện bắt đầu

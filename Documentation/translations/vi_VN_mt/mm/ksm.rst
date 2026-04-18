@@ -23,10 +23,10 @@ và ZZ0001ZZ và ZZ0002ZZ
 Giao diện không gian người dùng của KSM được mô tả trong Tài liệu/admin-guide/mm/ksm.rst
 
 Thiết kế
-======
+========
 
 Tổng quan
---------
+---------
 
 .. kernel-doc:: mm/ksm.c
    :DOC: Overview
@@ -90,7 +90,7 @@ Tần suất quét như vậy được xác định bởi
 ZZ0000ZZ sysfs có thể điều chỉnh được.
 
 Thẩm quyền giải quyết
----------
+---------------------
 .. kernel-doc:: mm/ksm.c
    :functions: mm_slot ksm_scan stable_node rmap_item
 

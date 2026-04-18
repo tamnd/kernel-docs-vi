@@ -33,7 +33,7 @@ Thiết bị ACPI với phương pháp dành riêng cho thiết bị (_DSM).
 tần số đang sử dụng.
 
 Một số điều khoản chung
-==================
+=======================
 
 Nhà sản xuất: bộ phận có thể tạo ra tần số vô tuyến công suất cao
 Người tiêu dùng: thành phần có thể điều chỉnh tần suất sử dụng của nó theo
@@ -60,12 +60,12 @@ GUID được sử dụng cho _DSM là 7B7656CF-DC3D-4C1C-83E9-66E721DE3070.
 * 2: truy xuất các băng tần RF đang sử dụng
 
 Giao diện lập trình điều khiển
-============================
+==============================
 
 .. kernel-doc:: drivers/platform/x86/amd/wbrf.c
 
 Cách sử dụng mẫu
-=============
+================
 
 Dòng chảy dự kiến cho các nhà sản xuất:
 1. Trong quá trình thăm dò, hãy gọi ZZ0000ZZ để kiểm tra xem WBRF có

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân menf21bmc_hwmon
-=============================
+=========================================
 
 Chip được hỗ trợ:
 
@@ -37,7 +37,7 @@ Các cảm biến điện áp được kết nối với đầu vào ADC của B
 Bộ điều khiển Mikro PIC16F917.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này là một phần của trình điều khiển MFD có tên "menf21bmc" và có
 không tự động phát hiện thiết bị.
@@ -46,7 +46,7 @@ Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
 chi tiết.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Tất cả các thuộc tính chỉ đọc
 Giới hạn được đọc một lần bởi người lái xe.

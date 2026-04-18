@@ -256,7 +256,7 @@ nút ZZ0001ZZ tiếp theo 1 được nhả ra trong khi nút 2 vẫn còn
 hoạt động.
 
 Báo cáo đầu ra, đầu vào và tính năng
----------------------------------
+------------------------------------
 
 Các thiết bị HID có thể có Báo cáo đầu vào, như trong ví dụ về chuột, Đầu ra
 Báo cáo và Báo cáo tính năng. “Đầu ra” có nghĩa là thông tin được
@@ -341,7 +341,7 @@ sự kiện ZZ0000ZZ evdev và chuyển động X tương đối được dịch
 vào sự kiện ZZ0001ZZ evdev".
 
 Sự kiện
-======
+=======
 
 Trong Linux, một ZZ0000ZZ được tạo cho mỗi ZZ0001ZZ. Quay lại ví dụ về chuột và lặp lại
 trình tự trong đó một người nhấp và giữ nút 1, sau đó nhấp và giữ
@@ -420,7 +420,7 @@ Lưu ý: nếu ZZ0000ZZ không có sẵn trên hệ thống của bạn, hãy th
 ZZ0001ZZ.
 
 Khi một cái gì đó không hoạt động
-============================
+=================================
 
 Có thể có một số lý do khiến thiết bị không hoạt động
 một cách chính xác. Ví dụ

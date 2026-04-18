@@ -19,7 +19,7 @@ ALSA PCM ánh xạ kênh API
 Takashi Iwai <tiwai@suse.de>
 
 Tổng quan
-=======
+=========
 
 Ánh xạ kênh API cho phép người dùng truy vấn các bản đồ kênh có thể
 và bản đồ kênh hiện tại, cũng có thể tùy ý sửa đổi bản đồ kênh
@@ -46,7 +46,7 @@ lập bản đồ API.
 
 
 Thiết kế
-======
+========
 
 Trên thực tế, "ánh xạ kênh API" không giới thiệu điều gì mới trong
 phối cảnh kernel/không gian người dùng ABI.  Nó chỉ sử dụng cái hiện có
@@ -132,7 +132,7 @@ Các giá trị vị trí kênh khả dụng được xác định trong ZZ0000Z
 Khi luồng PCM có thể cung cấp nhiều bản đồ kênh, bạn có thể
 cung cấp nhiều bản đồ kênh trong loại vùng chứa TLV.  Dữ liệu TLV
 được trả lại sẽ chứa như:
-::
+:::::::::::::::::::::::::
 
 SNDRV_CTL_TLVT_CONTAINER 96
 	    SNDRV_CTL_TLVT_CHMAP_FIXED 4 SNDRV_CHMAP_FC
@@ -142,7 +142,7 @@ SNDRV_CTL_TLVT_CONTAINER 96
 
 Vị trí kênh được cung cấp ở dạng LSB 16 bit.  Các bit trên là
 được sử dụng cho cờ bit.
-::
+::::::::::::::::::::::::
 
 #define SNDRV_CHMAP_POSITION_MASK 0xffff
 	#define SNDRV_CHMAP_PHASE_INVERSE (0x01 << 16)

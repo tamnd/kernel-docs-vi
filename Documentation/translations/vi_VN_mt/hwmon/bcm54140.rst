@@ -33,7 +33,7 @@ AVDDL là điện áp tương tự 1.0V, AVDDH là điện áp tương tự 3,3V
 Cả điện áp và nhiệt độ đều được đo theo kiểu vòng tròn.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ.
 

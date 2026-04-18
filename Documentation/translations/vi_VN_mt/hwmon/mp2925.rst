@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân mp2925
-====================
+================================
 
 Chip được hỗ trợ:
 

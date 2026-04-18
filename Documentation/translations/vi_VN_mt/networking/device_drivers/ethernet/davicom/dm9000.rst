@@ -100,7 +100,7 @@ Dữ liệu nền tảng được xác định trong include/linux/dm9000.h và 
 
 
 Dữ liệu nền tảng
--------------
+----------------
 
 Dữ liệu nền tảng bổ sung cho DM9000 có thể mô tả độ rộng bus IO cho
 thiết bị, cho dù PHY bên ngoài có được gắn vào thiết bị hay không và
@@ -142,7 +142,7 @@ Ký hiệu cấu hình DM9000_FORCE_SIMPLE_PHY_POLL, mục Kconfig
 
 
 PHY Thăm dò trạng thái liên kết
-----------------------
+-------------------------------
 
 Trình điều khiển theo dõi trạng thái liên kết và thông báo cho lõi mạng
 về tính khả dụng của liên kết (nhà cung cấp dịch vụ). Điều này được quản lý bằng một số phương pháp
@@ -177,7 +177,7 @@ bởi cùng một người lái xe. Các tính năng là:
 
 
 công cụ đạo đức
--------
+---------------
 
 Driver hỗ trợ giao diện ethtool để truy cập driver
 thông tin trạng thái, trạng thái PHY và EEPROM.

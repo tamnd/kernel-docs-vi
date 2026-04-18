@@ -27,13 +27,13 @@ giao diện HID hiện có.
 
 
 Khi nào (và tại sao) sử dụng HID-BPF
-=============================
+====================================
 
 Có một số trường hợp sử dụng khi sử dụng HID-BPF thì tốt hơn
 hơn sửa lỗi trình điều khiển hạt nhân tiêu chuẩn:
 
 Vùng chết của cần điều khiển
------------------------
+----------------------------
 
 Giả sử bạn có một cần điều khiển đã cũ, người ta thường thấy nó
 lắc lư quanh điểm trung tính của nó. Điều này thường được lọc tại ứng dụng
@@ -51,7 +51,7 @@ HID-BPF cho phép chương trình không gian người dùng tự tải chương
 chỉ tải API tùy chỉnh khi chúng tôi có người dùng.
 
 Sửa lỗi đơn giản của bộ mô tả báo cáo
----------------------------------
+-------------------------------------
 
 Trong cây HID, một nửa số trình điều khiển chỉ sửa một khóa hoặc một byte
 trong phần mô tả báo cáo. Tất cả các bản sửa lỗi này đều yêu cầu bản vá kernel và
@@ -77,7 +77,7 @@ tác động đến hiệu suất bằng cách đánh thức không gian ngườ
 sự kiện.
 
 Biến một thiết bị thành một thiết bị khác và điều khiển thiết bị đó từ không gian người dùng
-------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 Hạt nhân có ánh xạ tương đối tĩnh các mục HID tới các bit evdev.
 Nó không thể quyết định tự động chuyển đổi một thiết bị nhất định thành một thiết bị khác
@@ -96,7 +96,7 @@ cuộn trong một trang web trải nghiệm người dùng sẽ tốt hơn khi 
 sự kiện ở độ phân giải cao nhất.
 
 Tường lửa
---------
+---------
 
 Điều gì sẽ xảy ra nếu chúng ta muốn ngăn người dùng khác truy cập vào một tính năng cụ thể của một
 thiết bị? (nghĩ rằng điểm vào cập nhật chương trình cơ sở có thể bị hỏng)
@@ -108,7 +108,7 @@ xác nhận nó hay không.
 chương trình kernel/bpf vì chúng tôi có thể chặn bất kỳ lệnh nào đến.
 
 Truy tìm
--------
+--------
 
 Cách sử dụng cuối cùng là truy tìm các sự kiện và tất cả những điều thú vị mà chúng tôi có thể làm BPF tóm tắt
 và phân tích các sự kiện.
@@ -123,7 +123,7 @@ của các vấn đề:
    để hiểu chuyện gì đang xảy ra.
 
 Chế độ xem cấp cao của HID-BPF
-==========================
+==============================
 
 Ý tưởng chính đằng sau HID-BPF là nó hoạt động ở một mảng mức byte.
 Do đó, tất cả phân tích cú pháp của báo cáo HID và bộ mô tả báo cáo HID
@@ -159,7 +159,7 @@ những bản sửa lỗi HID-BPF đó. ZZ0002ZZ cũng có khả năng xử lý 
 đối tượng tùy thuộc vào kernel mà người dùng đang chạy.
 
 Các loại chương trình có sẵn
-===========================
+============================
 
 HID-BPF được xây dựng "trên cùng" của BPF, nghĩa là chúng tôi sử dụng phương thức bpf struct_ops để
 tuyên bố các chương trình của chúng tôi.
@@ -189,7 +189,7 @@ Lưu ý rằng ZZ0000ZZ có thể được khai báo là có thể ngủ đượ
 
 
 Nhà phát triển API:
-==============
+===================
 
 ZZ0000ZZ có sẵn cho HID-BPF:
 -------------------------------------
@@ -199,25 +199,25 @@ ZZ0000ZZ có sẵn cho HID-BPF:
 
 
 Cấu trúc dữ liệu API của người dùng có sẵn trong các chương trình:
------------------------------------------------
+------------------------------------------------------------------
 
 .. kernel-doc:: include/linux/hid_bpf.h
    :identifiers: hid_bpf_ctx
 
 API có sẵn có thể được sử dụng trong tất cả các chương trình HID-BPF struct_ops:
-------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 .. kernel-doc:: drivers/hid/bpf/hid_bpf_dispatch.c
    :identifiers: hid_bpf_get_data
 
 API có sẵn có thể được sử dụng trong các chương trình syscall HID-BPF hoặc trong các chương trình HID-BPF struct_ops có thể ngủ:
--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 
 .. kernel-doc:: drivers/hid/bpf/hid_bpf_dispatch.c
    :identifiers: hid_bpf_hw_request hid_bpf_hw_output_report hid_bpf_input_report hid_bpf_try_input_report hid_bpf_allocate_context hid_bpf_release_context
 
 Tổng quan chung về chương trình HID-BPF
-=====================================
+=======================================
 
 Truy cập dữ liệu gắn liền với ngữ cảnh
 ------------------------------------------
@@ -255,7 +255,7 @@ nếu (!x)
 ZZ0000ZZ tăng X thêm một */
 
 Tác dụng của chương trình HID-BPF
----------------------------
+---------------------------------
 
 Đối với tất cả các loại tệp đính kèm HID-BPF ngoại trừ ZZ0000ZZ, một số eBPF
 các chương trình có thể được gắn vào cùng một thiết bị. Nếu cấu trúc HID-BPF có
@@ -328,7 +328,7 @@ Chủ sở hữu trước đó có thể sẽ ghim liên kết struct_ops trong 
 thay thế nó thông qua các hoạt động bpf bình thường.
 
 Đính kèm chương trình bpf vào thiết bị
-===================================
+======================================
 
 Bây giờ chúng tôi sử dụng tệp đính kèm struct_ops tiêu chuẩn thông qua ZZ0000ZZ.
 Nhưng vì chúng ta cần đính kèm struct_ops vào thiết bị HID chuyên dụng, nên người gọi
@@ -356,7 +356,7 @@ Việc phân tích bộ mô tả báo cáo là trách nhiệm của lập trình
 thành phần tải chương trình eBPF.
 
 Một ví dụ (gần như) hoàn chỉnh về thiết bị HID nâng cao BPF
-=========================================================
+===========================================================
 
 ZZ0000ZZ
 

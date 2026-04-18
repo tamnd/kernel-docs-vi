@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân pc87427
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -58,7 +58,7 @@ giới hạn. Một cảnh báo khác được kích hoạt nếu tốc độ qu
 
 
 Kiểm soát tốc độ quạt
------------------
+---------------------
 
 Tốc độ quạt có thể được điều khiển bằng đầu ra PWM. Có 4 chế độ có thể:
 luôn tắt, luôn bật, thủ công và tự động. Cái sau không được hỗ trợ

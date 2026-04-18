@@ -46,7 +46,7 @@ Các ứng dụng khác được mô tả trong các bài viết sau:
 	  ZZ0004ZZ
 
 Cách sử dụng
-=====
+============
 
 Đối với máy chủ tập tin từ xa::
 
@@ -66,7 +66,7 @@ thuộc tính "mount_tag" được liên kết. Thẻ gắn kết có sẵn có 
 được nhìn thấy bằng cách đọc các tệp /sys/bus/virtio/drivers/9pnet_virtio/virtio<n>/mount_tag.
 
 Cách sử dụng USBG
-==========
+=================
 
 Để gắn FS 9p trên Máy chủ USB có thể truy cập được qua tiện ích khi chạy::
 
@@ -80,7 +80,7 @@ trong đó <device> là thẻ được liên kết bởi tiện ích usb vận c
 Nó được xác định bởi tên cá thể configfs.
 
 Ví dụ về USBG
-============
+=============
 
 Máy chủ USB xuất hệ thống tệp, trong khi tiện ích trên thiết bị USB
 bên làm cho nó có thể gắn kết được.
@@ -121,7 +121,7 @@ Một trường hợp sử dụng là sử dụng nó như một giải pháp th
 sự phát triển của các thiết bị Linux nhúng.
 
 Tùy chọn
-=======
+========
 
 ============== =====================================================================
   trans=name chọn phương tiện di chuyển thay thế.  Các tùy chọn hợp lệ là
@@ -263,7 +263,7 @@ từ hành vi hệ thống tập tin cục bộ.
    bộ đệm với số lượng byte được yêu cầu hoặc đạt đến cuối tệp.
 
 Tài nguyên
-=========
+==========
 
 Thông số kỹ thuật giao thức được duy trì trên github:
 ZZ0000ZZ

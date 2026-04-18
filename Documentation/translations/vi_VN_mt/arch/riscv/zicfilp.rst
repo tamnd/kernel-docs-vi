@@ -23,7 +23,7 @@ Tài liệu này mô tả ngắn gọn giao diện do Linux cung cấp cho khôn
 để bật theo dõi nhánh gián tiếp cho các ứng dụng ở chế độ người dùng trên RISC-V.
 
 1. Tổng quan về tính năng
---------------------
+-------------------------
 
 Các vấn đề hỏng bộ nhớ thường dẫn đến sự cố.  Tuy nhiên, trong
 bàn tay của một kẻ thù sáng tạo, những điều này có thể dẫn đến nhiều loại
@@ -133,7 +133,7 @@ Bit ZZ0002ZZ sẽ được thiết lập.
 
 
 5. vi phạm liên quan đến theo dõi chi nhánh gián tiếp
---------------------------------------------------
+-----------------------------------------------------
 
 Liên quan đến theo dõi chi nhánh gián tiếp, CPU đưa ra một phần mềm
 kiểm tra ngoại lệ trong các điều kiện sau:

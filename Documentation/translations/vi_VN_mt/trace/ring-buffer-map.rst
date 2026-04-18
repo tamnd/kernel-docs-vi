@@ -19,13 +19,13 @@
 :Tác giả: Vincent Donnefort <vdonnefort@google.com>
 
 Tổng quan
-========
+=========
 Bản đồ bộ nhớ đệm vòng Tracefs cung cấp một phương pháp hiệu quả để truyền dữ liệu
 vì không cần sao chép bộ nhớ. Ứng dụng ánh xạ bộ đệm vòng trở thành
 sau đó là người tiêu dùng cho bộ đệm vòng đó, theo cách tương tự như trace_pipe.
 
 Thiết lập ánh xạ bộ nhớ
-====================
+=======================
 Ánh xạ hoạt động với mmap() của giao diện trace_pipe_raw.
 
 Trang hệ thống đầu tiên của ánh xạ chứa số liệu thống kê về bộ đệm vòng và

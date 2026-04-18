@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân max127
-====================
+================================
 
 Tác giả:
 
@@ -39,7 +39,7 @@ MAX127 có giao diện nối tiếp tương thích I2C 2 dây cho phép
 giao tiếp giữa nhiều thiết bị sử dụng đường SDA và SCL.
 
 Giao diện hệ thống
----------------
+------------------
 
 ==================================================================================
   in[0-7]_input Điện áp đầu vào (tính bằng mV) của kênh tương ứng.

@@ -15,7 +15,7 @@
 .. _managementstyle:
 
 Phong cách quản lý hạt nhân Linux
-=============================
+=================================
 
 Đây là một tài liệu ngắn mô tả ưu tiên (hoặc tạo thành, tùy thuộc vào
 vào người bạn hỏi) kiểu quản lý cho nhân linux.  Nó có nghĩa là
@@ -46,7 +46,7 @@ Dù sao, đây là:
 .. _decisions:
 
 1) Quyết định
-------------
+-------------
 
 Mọi người đều nghĩ rằng các nhà quản lý đưa ra quyết định và việc ra quyết định đó là
 quan trọng.  Quyết định càng lớn và đau đớn thì càng lớn
@@ -148,7 +148,7 @@ có mùi như hoa hồng, và bạn đã tránh được một quyết định k
 
 
 2) Con người
----------
+------------
 
 Hầu hết mọi người đều là những kẻ ngốc và trở thành người quản lý đồng nghĩa với việc bạn sẽ phải giải quyết
 với nó, và có lẽ quan trọng hơn là ZZ0000ZZ phải giải quyết
@@ -254,7 +254,7 @@ bạn đã tuân theo các quy tắc trước đó, bạn sẽ khá giỏi khi n
 
 
 5) Những điều cần tránh
-------------------
+-----------------------
 
 Có một điều mà mọi người thậm chí còn ghét hơn cả việc bị gọi là "d*ckhead",
 và điều đó đang được gọi là "d*ckhead" với giọng điệu tôn nghiêm.  các
@@ -287,7 +287,7 @@ có về những lời chỉ trích.
 
 
 6) Tại sao lại là tôi?
-----------
+----------------------
 
 Vì trách nhiệm chính của bạn dường như là chịu trách nhiệm cho người khác
 những sai lầm của mọi người và làm cho mọi người khác thấy rõ ràng một cách đau đớn rằng

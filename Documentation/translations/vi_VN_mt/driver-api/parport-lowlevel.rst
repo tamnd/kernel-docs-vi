@@ -118,10 +118,10 @@ các yếu tố'.
 
 
 Chức năng toàn cầu
-================
+==================
 
 parport_register_driver - đăng ký trình điều khiển thiết bị với parport
----------------------------------------------------------------
+-----------------------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -260,7 +260,7 @@ parport_unregister_driver, parport_register_device, parport_enumerate
 
 
 parport_unregister_driver - yêu cầu parport quên trình điều khiển này
---------------------------------------------------------------------
+---------------------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -374,7 +374,7 @@ parport_register_driver, parport_unregister_driver
 
 
 parport_register_device - đăng ký để sử dụng một cổng
-------------------------------------------------
+-----------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -518,7 +518,7 @@ parport_unregister_device, parport_claim
 
 
 parport_unregister_device - kết thúc bằng cách sử dụng một cổng
------------------------------------------------
+---------------------------------------------------------------
 
 SYNPOPSIS
 
@@ -644,7 +644,7 @@ Change_mode, parport_claim, parport_claim_or_block, parport_yield
 
 
 parport_yield, parport_yield_blocking - tạm thời giải phóng một cổng song song
----------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -727,7 +727,7 @@ parport_poll_peripheral
 
 
 parport_poll_peripheral - chờ dòng trạng thái, trong usec
---------------------------------------------------------
+---------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -753,7 +753,7 @@ RETURN VALUE
  -EINTR một tín hiệu đang chờ xử lý
       0 các dòng trạng thái trong mặt nạ có giá trị bằng val
       Đã hết thời gian 1 lần trong khi chờ đợi (usec micro giây đã trôi qua)
-========================================================================
+============================================================================
 
 SEE ALSO
 ^^^^^^^^
@@ -824,7 +824,7 @@ parport_read, parport_write
 
 
 parport_read - đọc dữ liệu từ thiết bị
-------------------------------------
+--------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -854,7 +854,7 @@ parport_write, parport_negotiate
 
 
 parport_write - ghi dữ liệu vào thiết bị
-------------------------------------
+----------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1021,7 +1021,7 @@ parport_open, parport_device_id
 
 
 parport_find_class - tìm thiết bị theo lớp của nó
------------------------------------------------
+-------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1079,7 +1079,7 @@ parport_find_device, parport_open, parport_device_id
 
 
 parport_find_device - tìm thiết bị theo lớp của nó
-------------------------------------------------
+--------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1122,7 +1122,7 @@ parport_find_class, parport_open, parport_device_id
 
 
 parport_set_timeout - đặt thời gian chờ không hoạt động
-------------------------------------------------
+-------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1209,7 +1209,7 @@ ghi_dữ liệu, trạng thái đọc, điều khiển ghi
 
 
 port->ops->write_data - ghi vào thanh ghi dữ liệu
------------------------------------------------
+-------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1344,7 +1344,7 @@ dữ liệu đọc, dữ liệu ghi, trạng thái đọc, điều khiển từ 
 
 
 port->ops->frob_control - ghi các bit thanh ghi điều khiển
------------------------------------------------------
+----------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1443,7 +1443,7 @@ kích hoạt_irq
 
 
 port->ops->data_forward - bật trình điều khiển dữ liệu
----------------------------------------------
+------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1502,7 +1502,7 @@ dữ liệu_forward
 
 
 port->ops->epp_write_data - ghi dữ liệu EPP
-------------------------------------------
+-------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1541,7 +1541,7 @@ epp_read_data, epp_write_addr, epp_read_addr
 
 
 port->ops->epp_read_data - đọc dữ liệu EPP
-----------------------------------------
+------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1770,7 +1770,7 @@ ecp_read_data, ecp_write_data
 
 
 port->ops->nibble_read_data - đọc một khối dữ liệu ở chế độ nibble
------------------------------------------------------------------
+------------------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^
@@ -1805,7 +1805,7 @@ byte_read_data, compat_write_data
 
 
 port->ops->byte_read_data - đọc một khối dữ liệu ở chế độ byte
--------------------------------------------------------------
+--------------------------------------------------------------
 
 SYNOPSIS
 ^^^^^^^^

@@ -472,7 +472,7 @@ Masix:
      - ??
 
 Kích thước nút
-~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 Trong ext2 và ext3, kích thước cấu trúc inode được cố định ở mức 128 byte
 (ZZ0000ZZ) và mỗi nút có kích thước bản ghi đĩa là
@@ -505,7 +505,7 @@ ZZ0002ZZ. Để lấy byte
 ZZ0003ZZ.
 
 Dấu thời gian Inode
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Bốn dấu thời gian được ghi ở 128 byte thấp hơn của nút
 cấu trúc -- thời gian thay đổi inode (ctime), thời gian truy cập (atime), dữ liệu

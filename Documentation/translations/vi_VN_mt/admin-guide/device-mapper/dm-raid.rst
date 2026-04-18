@@ -163,7 +163,7 @@ A2 A1 A3 A1 A2 A2 A1 A4 A3
 		A4 A3 A6 A4 A5 A6 A5 A8 A7
 		A6 A5 A9 A7 A8 A10 A9 A12 A11
 		..  ..               ..   ..   ..         ..   ..   ..   ..
-=========================================
+=============================================================
 
 Nếu 'raid10_copies 2' và 'độ lệch raid10_format', thì
 		bố trí cho 2, 3 và 4 thiết bị là:
@@ -178,7 +178,7 @@ Nếu 'raid10_copies 2' và 'độ lệch raid10_format', thì
 		A5 A6 A7 A8 A9 A9 A10 A11 A12
 		A6 A5 A9 A7 A8 A10 A9 A12 A11
 		..  ..         ..  ..  ..         ..  ..  ..  ..
-=====================================
+==================================================
 
 Ở đây chúng ta thấy bố cục gần giống với 'RAID1E - Tích hợp
 		Phản chiếu sọc bù đắp'.
@@ -263,7 +263,7 @@ Bảng mẫu
 
 
 Đầu ra trạng thái
--------------
+-----------------
 'Bảng dmsetup' hiển thị bảng được sử dụng để xây dựng ánh xạ.
 Các thông số tùy chọn luôn được in theo thứ tự liệt kê
 ở trên với "sync" hoặc "nosync" luôn xuất ra trước cái kia
@@ -340,7 +340,7 @@ nhàn rỗi
 
 
 Giao diện tin nhắn
------------------
+------------------
 Mục tiêu dm-raid sẽ chấp nhận một số hành động nhất định thông qua giao diện 'tin nhắn'.
 ('man dmsetup' để biết thêm thông tin về giao diện tin nhắn.) Những hành động này
 bao gồm:
@@ -387,7 +387,7 @@ ngày càng được đưa vào danh sách trắng trong kernel và do đó có 
 
 
 Hỗ trợ tiếp quản/định hình lại
-------------------------
+------------------------------
 Mục tiêu thực sự hỗ trợ hai loại chuyển đổi MDRAID này:
 
 o Takeover: Chuyển đổi một mảng từ cấp độ RAID này sang cấp độ khác
@@ -424,7 +424,7 @@ raid10 xa: không thể
 Ví dụ về dòng bảng:
 
 ### raid1 -> raid5
-#
+##################
 Giới hạn thiết bị # 2 trong raid1.
 Tính cách # raid5 chỉ có thể lên đồ 2 như raid1.
 # Reshape sau khi tiếp quản để chuyển sang bố cục raid5 đầy đủ
@@ -432,7 +432,7 @@ Tính cách # raid5 chỉ có thể lên đồ 2 như raid1.
 0 1960886272 đột kích raid1 3 0 vùng_size 2048 2 /dev/dm-0 /dev/dm-1 /dev/dm-2 /dev/dm-3
 
 # dm-0 và dm-2 là ví dụ: Các thiết bị siêu dữ liệu lớn 4MiB, dm-1 và dm-3 phải có kích thước tối thiểu là 1960886272.
-#
+#####################################################################################################################
 Dòng # Table tiếp quản raid5
 
 0 1960886272 đột kích raid5 3 0 vùng_size 2048 2 /dev/dm-0 /dev/dm-1 /dev/dm-2 /dev/dm-3
@@ -440,7 +440,7 @@ Dòng # Table tiếp quản raid5
 # Add yêu cầu không gian định hình lại không đúng chỗ cho phần đầu của 2 thiết bị dữ liệu nhất định,
 # allocate một bộ siêu dữ liệu/thiết bị dữ liệu khác có cùng kích thước cho không gian chẵn lẻ
 # and zero 4K đầu tiên của thiết bị siêu dữ liệu.
-#
+#################################################
 Bảng # Example về việc bổ sung không gian định hình lại vị trí ngoài vị trí cho một thiết bị dữ liệu, ví dụ: dm-1
 
 0 8192 tuyến tính 8:0 0 1960903888 # <- phải là đoạn không gian trống
@@ -453,7 +453,7 @@ Bảng # Mapping cho ví dụ: việc định hình lại raid5_rs khiến kích
 
 
 Lịch sử phiên bản
----------------
+-----------------
 
 ::
 

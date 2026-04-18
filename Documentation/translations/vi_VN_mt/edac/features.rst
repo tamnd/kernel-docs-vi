@@ -105,7 +105,7 @@ Thiết kế cấp cao được minh họa trong sơ đồ sau::
    các lỗi bộ nhớ đã được sửa sẽ được báo cáo trong một khoảng thời gian ngắn.
 
 Tính năng RAS
-------------
+-------------
 1. Xóa bộ nhớ
 
 Tính năng xóa bộ nhớ được ghi lại trong ZZ0000ZZ.

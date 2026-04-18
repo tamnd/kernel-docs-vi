@@ -45,7 +45,7 @@ Cuộc gọi ioctl này được sử dụng để bắt đầu hoạt động l
 thông qua ioctl gọi ZZ0000ZZ hoặc ZZ0001ZZ.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

@@ -108,7 +108,7 @@ Thứ hai, đảm bảo kernel được cấu hình bằng CONFIG_DRM_ACCEL.
   thiết lập cấu trúc con trỏ hoạt động chức năng chính xác.
 
 Tài liệu tham khảo bên ngoài
-===================
+============================
 
 chủ đề email
 -------------

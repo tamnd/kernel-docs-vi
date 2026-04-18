@@ -50,7 +50,7 @@ chức năng này không được gọi là kích thước bộ đệm của byt
 đã sử dụng.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

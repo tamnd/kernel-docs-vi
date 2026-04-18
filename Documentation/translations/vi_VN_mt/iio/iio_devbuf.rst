@@ -17,7 +17,7 @@ Bộ đệm thiết bị IIO công nghiệp
 ================================
 
 1. Tổng quan
-===========
+============
 
 Lõi I/O công nghiệp cung cấp một cách để thu thập dữ liệu liên tục dựa trên
 nguồn kích hoạt. Nhiều kênh dữ liệu có thể được đọc cùng một lúc từ
@@ -72,7 +72,7 @@ ghi dữ liệu vào. Trong trường hợp bộ đệm đầu vào, điều nà
 có sẵn để đọc.
 
 Quét các phần tử
--------------
+----------------
 
 Thông tin meta liên quan đến dữ liệu kênh được đặt trong bộ đệm được gọi là
 một phần tử quét Các thuộc tính của phần tử quét được trình bày dưới đây.

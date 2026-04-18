@@ -115,7 +115,7 @@ không hoạt động đúng cách
 
 
 Các vấn đề cụ thể về phần cứng
-------------------------
+------------------------------
 
 Trình điều khiển này sẽ từ chối tải trên hệ thống IBM bằng Intel PIIX4 SMBus.
 Một số máy này có RFID EEPROM (24RF08) được kết nối với SMBus,

@@ -16,7 +16,7 @@ Hỗ trợ nhịp IP BRA
 ----------------------
 
 Yêu cầu về định dạng
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 IP Cadence dựa trên PDI0 cho TX và PDI1 cho RX. Các nhu cầu dữ liệu
 được định dạng theo các quy ước sau:
@@ -36,7 +36,7 @@ IP Cadence dựa trên PDI0 cho TX và PDI1 cho RX. Các nhu cầu dữ liệu
       phần mềm sẽ loại bỏ phần đệm được phần cứng thêm vào.
 
 Định dạng ví dụ
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Bảng sau thể hiện trình tự được cung cấp cho PDI0 cho một
 lệnh ghi theo sau là lệnh đọc.

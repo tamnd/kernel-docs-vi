@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân intel-m10-bmc-hwmon
-=================================
+=============================================
 
 Chip được hỗ trợ:
 

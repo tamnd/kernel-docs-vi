@@ -45,7 +45,7 @@ Sự miêu tả
 Nhận thông tin có sẵn công khai cho một chip GPIO cụ thể.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 và ZZ0000ZZ được điền thông tin chip.
 

@@ -37,7 +37,7 @@ Mọi đóng góp phải tuân thủ các yêu cầu cấp phép của kernel:
 * Xem Tài liệu/quy trình/license-rules.rst để biết chi tiết
 
 Giấy chứng nhận xuất xứ của nhà phát triển và được ký bởi nhà phát triển
-=================================================
+========================================================================
 
 Tác nhân AI MUST NOT thêm thẻ Đã đăng xuất. Chỉ có con người mới có thể hợp pháp
 chứng nhận Giấy chứng nhận xuất xứ của nhà phát triển (DCO). Người nộp đơn là con người

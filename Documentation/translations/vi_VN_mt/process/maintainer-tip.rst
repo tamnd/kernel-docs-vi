@@ -138,7 +138,7 @@ chữ in hoa và phải được viết bằng giọng điệu mệnh lệnh.
 
 
 Nhật ký thay đổi
-^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 Áp dụng các quy tắc chung về nhật ký thay đổi trong ZZ0000ZZ.
 
@@ -252,7 +252,7 @@ CPU0 CPU1
 
 
 Tham chiếu chức năng trong nhật ký thay đổi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Khi một chức năng được đề cập trong nhật ký thay đổi, nội dung văn bản hoặc
 dòng chủ đề, vui lòng sử dụng định dạng 'function_name()'. Bỏ qua
@@ -271,7 +271,7 @@ booking_count() chỉ được gọi từ booking_stats(). làm cho nó
 
 
 Dấu vết quay lại trong nhật ký thay đổi
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Xem ZZ0000ZZ.
 
@@ -425,12 +425,12 @@ bugzilla ZZ0000ZZ và đính kèm bản sao của các tài liệu này
 nhật ký thay đổi.
 
 Gửi lại bản vá hoặc lời nhắc
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Xem ZZ0000ZZ.
 
 Hợp nhất cửa sổ
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 Xin đừng mong đợi các bản vá sẽ được xem xét hoặc hợp nhất theo mẹo
 người bảo trì xung quanh hoặc trong cửa sổ hợp nhất.  Cây cối đã đóng cửa
@@ -466,7 +466,7 @@ loạt để thử nghiệm. Cách thông thường để cung cấp điều nà
 thư của loạt bản vá.
 
 Kiểm tra
-^^^^^^^
+^^^^^^^^
 
 Mã phải được kiểm tra trước khi gửi cho người bảo trì tiền boa.  Bất cứ điều gì
 ngoài những thay đổi nhỏ nên được xây dựng, khởi động và thử nghiệm với
@@ -483,10 +483,10 @@ trên các kiến trúc khác.
 .. _maintainer-tip-coding-style:
 
 Ghi chú kiểu mã hóa
-------------------
+-------------------
 
 Phong cách bình luận
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Các câu trong nhận xét bắt đầu bằng chữ in hoa.
 
@@ -816,7 +816,7 @@ nếu (!id) {
 	...
 
 Không gian tên
-^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Không gian tên hàm/biến cải thiện khả năng đọc và cho phép dễ dàng
 gắp. Các không gian tên này là tiền tố chuỗi để hiển thị trên toàn cầu

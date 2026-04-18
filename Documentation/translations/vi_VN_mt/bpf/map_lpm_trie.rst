@@ -43,10 +43,10 @@ Loại giá trị được lưu trữ trong bộ ba LPM có thể là bất kỳ
    ``BPF_F_NO_PREALLOC`` flag.
 
 Cách sử dụng
-=====
+============
 
 Hạt nhân BPF
-----------
+------------
 
 bpf_map_lookup_elem()
 ~~~~~~~~~~~~~~~~~~~~~
@@ -94,7 +94,7 @@ người giúp đỡ. Người trợ giúp này sẽ trả về 0 nếu thành c
 của sự thất bại.
 
 Không gian người dùng
----------
+---------------------
 
 Truy cập từ không gian người dùng sử dụng API libbpf có cùng tên như trên, với
 bản đồ được xác định bởi ZZ0000ZZ.
@@ -126,7 +126,7 @@ LPM thử sử dụng từ không gian người dùng. Các đoạn mã dưới 
 Cách sử dụng API.
 
 Hạt nhân BPF
-----------
+------------
 
 Đoạn mã BPF sau đây cho biết cách khai báo bộ ba LPM mới cho IPv4
 tiền tố địa chỉ:
@@ -164,7 +164,7 @@ tiền tố địa chỉ:
     }
 
 Không gian người dùng
----------
+---------------------
 
 Đoạn mã sau đây cho biết cách chèn mục nhập tiền tố IPv4 vào một
 LPM thử:

@@ -17,7 +17,7 @@ AF_XDP
 ======
 
 Tổng quan
-========
+=========
 
 AF_XDP là họ địa chỉ được tối ưu hóa cho hiệu suất cao
 xử lý gói tin.
@@ -100,7 +100,7 @@ mã để cung cấp hiệu suất tốt hơn, nhưng vẫn còn một bản sao
 dữ liệu vào không gian người dùng.
 
 Khái niệm
-========
+=========
 
 Để sử dụng ổ cắm AF_XDP, một số đối tượng liên quan cần
 để được thiết lập. Những đối tượng này và các lựa chọn của chúng được giải thích trong phần
@@ -265,7 +265,7 @@ thất bại với một lỗi. Ngược lại, cờ XDP_ZEROCOPY sẽ buộc
 chuyển sang chế độ không sao chép hoặc bị lỗi.
 
 Cờ liên kết XDP_SHARED_UMEM
--------------------------
+---------------------------
 
 Cờ này cho phép bạn liên kết nhiều ổ cắm với cùng một UMEM. Nó
 hoạt động trên cùng một id hàng đợi, giữa các id hàng đợi và giữa
@@ -357,7 +357,7 @@ và thiết bị, cũng như giữa các hàng đợi trên cùng một thiết 
 các thiết bị cùng một lúc.
 
 Cờ liên kết XDP_USE_NEED_WAKEUP
------------------------------
+-------------------------------
 
 Tùy chọn này thêm hỗ trợ cho một cờ mới có tên là need_wakeup.
 có trong vòng FILL và vòng TX, các vòng dành cho người dùng
@@ -564,7 +564,7 @@ Có thể tìm thấy một chương trình ví dụ cho từng hỗ trợ đa b
 sau này trong tài liệu này.
 
 Cách sử dụng
------
+------------
 
 Để sử dụng ổ cắm AF_XDP, cần có hai phần. Không gian người dùng
 ứng dụng và chương trình XDP. Để có ví dụ thiết lập và sử dụng hoàn chỉnh,
@@ -643,7 +643,7 @@ Nhưng vui lòng sử dụng các hàm libbpf vì chúng được tối ưu hóa
 sử dụng. Sẽ làm cho cuộc sống của bạn dễ dàng hơn.
 
 Cách sử dụng Multi-Buffer Rx
----------------------
+----------------------------
 
 Đây là một ví dụ mã giả đường dẫn Rx đơn giản (sử dụng giao diện libxdp
 để đơn giản). Đường dẫn lỗi đã được loại trừ để giữ cho nó ngắn gọn:
@@ -683,7 +683,7 @@ Cách sử dụng Multi-Buffer Rx
     }
 
 Cách sử dụng Multi-Buffer Tx
----------------------
+----------------------------
 
 Dưới đây là một ví dụ về mã giả đường dẫn Tx (sử dụng giao diện libxdp cho
 đơn giản) bỏ qua rằng umem có kích thước hữu hạn và chúng ta
@@ -760,7 +760,7 @@ giá trị trả về:
 hãy xem công cụ/kiểm tra/selftests/bpf/xskxceiver.c.
 
 Hỗ trợ nhiều bộ đệm cho trình điều khiển không sao chép
-------------------------------------------
+-------------------------------------------------------
 
 Trình điều khiển không sao chép thường sử dụng API theo đợt cho Rx và Tx
 xử lý. Lưu ý rằng lô Tx API đảm bảo rằng nó sẽ cung cấp
@@ -852,7 +852,7 @@ Hỏi: Các gói tin của tôi đôi khi bị hỏng. Có chuyện gì vậy?
    Cờ XDP_SHARED_UMEM.
 
 Tín dụng
-=======
+========
 
 - Björn Töpel (lõi AF_XDP)
 - Magnus Karlsson (lõi AF_XDP)

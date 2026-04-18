@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân g762
-==================
+==============================
 
 Bộ điều khiển tốc độ quạt GMT G762 PWM được kết nối trực tiếp với quạt
 và thực hiện điều khiển tốc độ quạt theo vòng kín hoặc vòng hở. Hai

@@ -52,7 +52,7 @@ cách duy nhất để truyền các tham số thời gian cấu hình sớm cho
 dòng lệnh.
 
 Giao diện hệ thống
-===============
+==================
 
 Trình điều khiển ZZ0000ZZ hiển thị các thuộc tính ZZ0001ZZ sau trong
 ZZ0002ZZ:
@@ -76,7 +76,7 @@ Tính năng hạ cấp C1 liên quan đến việc hạ cấp sâu phần mềm 
 .. _intel-idle-enumeration-of-states:
 
 Bảng liệt kê các trạng thái nhàn rỗi
-==========================
+====================================
 
 Mỗi giá trị gợi ý ZZ0000ZZ được bộ xử lý hiểu là giấy phép để
 tự cấu hình lại theo một cách nhất định để tiết kiệm năng lượng.  Bộ xử lý
@@ -288,7 +288,7 @@ không đáp ứng, trình điều khiển bỏ qua toàn bộ tham số ZZ0006Z
 .. _intel-idle-core-and-package-idle-states:
 
 Cấp độ cốt lõi và gói của trạng thái nhàn rỗi
-======================================
+=============================================
 
 Thông thường, trong bộ xử lý hỗ trợ lệnh ZZ0000ZZ có (tại
 ít nhất) hai mức trạng thái không hoạt động (hoặc trạng thái C).  Một cấp độ, được gọi là
@@ -331,7 +331,7 @@ Giá trị gợi ý ZZ0007ZZ (như ZZ0008ZZ).
 
 
 Tài liệu tham khảo
-==========
+==================
 
 .. [1] *Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 2B*,
        https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-2b-manual.html

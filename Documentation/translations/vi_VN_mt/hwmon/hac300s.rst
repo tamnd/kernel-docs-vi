@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân hac300s
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -38,7 +38,7 @@ Thiết bị có đầu vào 90-264VAC và 2 đầu ra danh định có điện 
 5V mà chúng có thể cung cấp tương ứng lên tới 25A và 2,5A.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ======= ==============================================
 Curr1 Dòng điện đầu ra

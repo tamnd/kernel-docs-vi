@@ -24,7 +24,7 @@ Tệp này ghi lại 'cấu trúc đa liên kết' được giới thiệu vào 
 bộ xử lý Skylake và gần đây đã được mở rộng trên các nền tảng Intel mới hơn
 
 Ánh xạ liên kết hiện có của HDaudio (bổ sung 2015 trong SkyLake)
-========================================================
+================================================================
 
 Codec HDAudio bên ngoài được xử lý bằng link #0, trong khi codec iDISP
 đối với HDMI/DisplayPort được xử lý bằng liên kết #1.
@@ -91,7 +91,7 @@ Cấu trúc cơ bản của codec HDaudio
                            +--------------+
 
 Ánh xạ liên kết mở rộng SoundWire HDaudio
-=======================================
+=========================================
 
 Liên kết mở rộng SoundWire được xác định khi LCAP.ALT=1 và
 LEPTR.ID=0.
@@ -183,7 +183,7 @@ Cấu trúc mở rộng cho SoundWire (giả sử 4 IP quản lý)
 
 
 Ánh xạ liên kết mở rộng DMIC HDaudio
-==================================
+====================================
 
 Liên kết mở rộng DMIC được xác định khi LCAP.ALT=1 và
 LEPTR.ID=0xC1 được đặt.
@@ -254,7 +254,7 @@ Cấu trúc mở rộng cho DMIC
 
 
 Ánh xạ liên kết mở rộng SSP HDaudio
-=================================
+===================================
 
 Liên kết mở rộng DMIC được xác định khi LCAP.ALT=1 và
 LEPTR.ID=0xC0 được đặt.

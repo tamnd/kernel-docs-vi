@@ -46,7 +46,7 @@ Documentation/i2c/functionity.rst để biết chi tiết.
 
 
 Chìa khóa ký hiệu
-==============
+=================
 
 ==================================================================================
 S Điều kiện bắt đầu
@@ -174,7 +174,7 @@ xung quanh (không tuân thủ SMBus, nhưng rất phổ biến.)
 
 
 Cuộc gọi xử lý SMBus
-==================
+====================
 
 Lệnh này chọn một thanh ghi thiết bị (thông qua byte Comm), gửi
 16 bit dữ liệu vào nó và đọc lại 16 bit dữ liệu ::
@@ -219,7 +219,7 @@ Cờ chức năng: I2C_FUNC_SMBUS_WRITE_BLOCK_DATA
 
 
 Ghi khối SMBus - Cuộc gọi quy trình đọc khối
-===========================================
+============================================
 
 SMBus Block Write - Cuộc gọi xử lý đọc khối đã được giới thiệu trong
 Bản sửa đổi 2.0 của thông số kỹ thuật.
@@ -234,7 +234,7 @@ Cờ chức năng: I2C_FUNC_SMBUS_BLOCK_PROC_CALL
 
 
 Thông báo máy chủ SMBus
-=================
+=======================
 
 Lệnh này được gửi từ thiết bị SMBus đóng vai trò là thiết bị chủ tới
 Máy chủ SMBus hoạt động như một nô lệ.
@@ -279,7 +279,7 @@ yêu cầu tổng kiểm tra PEC.
 
 
 Cảnh báo SMBus
-===========
+==============
 
 Cảnh báo SMBus đã được giới thiệu trong Bản sửa đổi 1.0 của thông số kỹ thuật.
 

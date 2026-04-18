@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân nsa320_hwmon
-==========================
+======================================
 
 Chip được hỗ trợ:
 
@@ -60,7 +60,7 @@ fan1_tốc độ quạt đầu vào
 ================================
 
 Ghi chú
------
+-------
 
 Thời gian truy cập được sử dụng trong trình điều khiển giống như được sử dụng trong Zyxel
 hạt nhân được cung cấp. Thử nghiệm đã chỉ ra rằng nếu độ trễ giữa việc chọn chip và

@@ -32,7 +32,7 @@ trang web chính thức: ZZ0000ZZ.
 
 
 Trường hợp sử dụng
-=========
+==================
 
 Nhờ MPTCP, có thể sử dụng nhiều đường dẫn song song hoặc đồng thời
 mang lại những trường hợp sử dụng mới so với TCP:
@@ -47,7 +47,7 @@ mang lại những trường hợp sử dụng mới so với TCP:
 
 
 Khái niệm
-========
+=========
 
 Về mặt kỹ thuật, khi một ổ cắm mới được tạo bằng giao thức ZZ0000ZZ
 (dành riêng cho Linux), ZZ0003ZZ (hoặc ZZ0004ZZ) được tạo. ZZ0005ZZ này bao gồm
@@ -65,7 +65,7 @@ Hành vi này được thực hiện nhờ hai thành phần bên trong: trình 
 bộ lập lịch gói.
 
 Trình quản lý đường dẫn
-------------
+-----------------------
 
 Trình quản lý đường dẫn chịu trách nhiệm về ZZ0002ZZ, từ việc tạo đến xóa, đồng thời
 thông báo địa chỉ. Thông thường, phía khách hàng sẽ khởi tạo các luồng con,
@@ -156,7 +156,7 @@ nếu MPTCP hiện đang được sử dụng: giá trị sẽ được đặt t
 
 
 Lựa chọn thiết kế
-==============
+=================
 
 Một loại ổ cắm mới đã được thêm cho MPTCP dành cho ổ cắm hướng về không gian người dùng. các
 kernel chịu trách nhiệm tạo các ổ cắm dòng con: chúng là các ổ cắm TCP trong đó

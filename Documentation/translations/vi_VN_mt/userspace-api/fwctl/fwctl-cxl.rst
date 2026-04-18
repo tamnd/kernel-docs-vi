@@ -19,7 +19,7 @@ trình điều khiển fwctl cxl
 :Tác giả: Dave Jiang
 
 Tổng quan
-========
+=========
 
 Thông số CXL xác định một tập hợp các lệnh có thể được gửi tới hộp thư của một
 Thiết bị hoặc công tắc CXL. Nó cũng chừa chỗ cho các lệnh cụ thể của nhà cung cấp
@@ -48,12 +48,12 @@ thay đổi bằng thiết lập lại nguội" hoặc "thay đổi cấu hình 
 Chính sách truy cập fwctl phải là FWCTL_RPC_DEBUG_WRITE trở lên.
 
 fwctl cxl Người dùng API
-==================
+========================
 
 .. kernel-doc:: include/uapi/fwctl/cxl.h
 
 1. Truy vấn thông tin driver
---------------------
+----------------------------
 
 Bước đầu tiên của ứng dụng là phát hành ioctl(FWCTL_CMD_INFO). thành công
 việc gọi ioctl ngụ ý khả năng Tính năng đang hoạt động và
@@ -81,7 +81,7 @@ Lệnh "Đặt tính năng" sẽ kích hoạt. Điều đó sẽ thông báo cho
 hệ thống có được cấu hình để cho phép lệnh "Đặt tính năng" hay không.
 
 Ví dụ về mã của Tính năng Nhận
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: c
 
@@ -147,7 +147,7 @@ Hãy xem thư mục kiểm tra CXL CLI
 
 
 hạt nhân fwctl cxl API
-====================
+======================
 
 .. kernel-doc:: drivers/cxl/core/features.c
    :export:

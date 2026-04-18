@@ -123,7 +123,7 @@ tập tin.
 
 
 1.1. Tổng quan về tính năng
--------------------------
+---------------------------
 Bản phát hành hiện tại (1.1.2) hỗ trợ các tính năng sau:
 
 + Chế độ BSS (Cơ sở hạ tầng, Được quản lý)
@@ -200,7 +200,7 @@ chế độ
 
 
 1.3. Phương thức riêng tư mở rộng không dây
----------------------------------------
+-------------------------------------------
 
 Là một giao diện được thiết kế để xử lý phần cứng chung, có một số
 các khả năng không được hiển thị thông qua giao diện Công cụ không dây thông thường.  Như
@@ -297,7 +297,7 @@ cấp độ, chỉ áp dụng cho một trường hợp cụ thể duy nhất.
 
 
 1.4.1 Tệp trợ giúp Sysfs cấp trình điều khiển
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Đối với các tệp cấp trình điều khiển, hãy tìm trong /sys/bus/pci/drivers/ipw2200/
 
@@ -367,7 +367,7 @@ viết -
 
 
 1.5. Các kênh được hỗ trợ
------------------------
+-------------------------
 
 Khi tải Trình điều khiển Intel(R) PRO/Wireless 2915ABG cho Linux, một
 thông báo cho biết mã địa lý được phát hiện và số 802.11
@@ -436,21 +436,21 @@ Ví dụ:
 iwconfig eth1 chế độ thử nghiệm đặc biệt essid kênh 2
 
 2.3. Hợp nhất các mạng Ad-Hoc
-----------------------------
+-----------------------------
 
 
 3. Tương tác với các công cụ không dây
-==================================
+======================================
 
 3.1 chế độ iwconfig
------------------
+-------------------
 
 Khi định cấu hình chế độ của bộ điều hợp, tất cả các tham số được định cấu hình trong thời gian chạy
 được đặt lại về giá trị được sử dụng khi mô-đun được tải.  Điều này bao gồm
 kênh, tốc độ, ESSID, v.v.
 
 3.2 cảm biến iwconfig
------------------
+---------------------
 
 Lệnh 'iwconfig ethX sens XX' sẽ không đặt độ nhạy tín hiệu
 ngưỡng, như được mô tả trong tài liệu iwconfig, mà là số
@@ -511,7 +511,7 @@ ZZ0000ZZ
 
 
 7. Giấy phép
-==========
+============
 
 Bản quyền ZZ0000ZZ 2003 - 2006 Tập đoàn Intel. Mọi quyền được bảo lưu.
 

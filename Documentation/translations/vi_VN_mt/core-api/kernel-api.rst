@@ -58,7 +58,7 @@ Thao tác chuỗi
                vmemdup_user strndup_user memdup_user_nul
 
 Các chức năng thư viện hạt nhân cơ bản
-==============================
+======================================
 
 Nhân Linux cung cấp nhiều chức năng tiện ích cơ bản hơn.
 
@@ -120,7 +120,7 @@ Sắp xếp
    :export:
 
 Tìm kiếm văn bản
---------------
+----------------
 
 .. kernel-doc:: lib/textsearch.c
    :doc: ts_intro
@@ -133,7 +133,7 @@ Tìm kiếm văn bản
                textsearch_get_pattern textsearch_get_pattern_len
 
 CRC và các hàm toán học trong Linux
-===============================
+===================================
 
 Kiểm tra tràn số học
 ----------------------------
@@ -167,13 +167,13 @@ Chức năng CRC
 .. kernel-doc:: include/linux/crc64.h
 
 Nhật ký cơ sở 2 và chức năng nguồn
-------------------------------
+----------------------------------
 
 .. kernel-doc:: include/linux/log2.h
    :internal:
 
 Nhật ký số nguyên và chức năng nguồn
--------------------------------
+------------------------------------
 
 .. kernel-doc:: include/linux/int_log.h
 
@@ -220,14 +220,14 @@ giao diện kfifo
    :internal:
 
 hỗ trợ giao diện chuyển tiếp
-=======================
+============================
 
 Hỗ trợ giao diện chuyển tiếp được thiết kế để cung cấp một cơ chế hiệu quả
 cho các công cụ và phương tiện để chuyển tiếp lượng lớn dữ liệu từ hạt nhân
 không gian sang không gian người dùng.
 
 giao diện chuyển tiếp
----------------
+---------------------
 
 .. kernel-doc:: kernel/relay.c
    :export:
@@ -239,7 +239,7 @@ Hỗ trợ mô-đun
 ==============
 
 Tự động tải mô-đun hạt nhân
---------------------------
+---------------------------
 
 .. kernel-doc:: kernel/module/kmod.c
    :export:
@@ -251,7 +251,7 @@ Gỡ lỗi mô-đun
    :doc: module debugging statistics overview
 
 dup_failed_modules - theo dõi các mô-đun bị lỗi trùng lặp
-****************************************************
+*********************************************************
 
 .. kernel-doc:: kernel/module/stats.c
    :doc: dup_failed_modules - tracks duplicate failed modules
@@ -301,7 +301,7 @@ Khung bảo mật
    :export:
 
 Giao diện kiểm tra
-================
+==================
 
 .. kernel-doc:: kernel/audit.c
    :export:
@@ -359,7 +359,7 @@ Chặn thiết bị
    :export:
 
 thiết bị than
-============
+=============
 
 .. kernel-doc:: fs/char_dev.c
    :export:
@@ -407,7 +407,7 @@ Nguyên thủy đồng bộ hóa
 ==========================
 
 Cập nhật đọc-sao chép (RCU)
-----------------------
+---------------------------
 
 .. kernel-doc:: include/linux/rcupdate.h
 

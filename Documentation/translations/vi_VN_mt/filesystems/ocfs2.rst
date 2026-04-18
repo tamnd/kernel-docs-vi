@@ -31,7 +31,7 @@ Danh sách gửi thư OCFS2: ZZ0002ZZ
 Tất cả các mã bản quyền 2005 Oracle trừ khi có ghi chú khác.
 
 Tín dụng
-=======
+========
 
 Rất nhiều mã được lấy từ ext3 và các dự án khác.
 
@@ -47,14 +47,14 @@ Các tác giả theo thứ tự bảng chữ cái:
 - Hổ Dương <tiger.yang@oracle.com>
 
 Hãy cẩn thận
-=======
+============
 Các tính năng mà OCFS2 chưa hỗ trợ:
 
 - Thông báo thay đổi thư mục (F_NOTIFY)
 	- Bộ nhớ đệm phân tán (F_SETLEASE/F_GETLEASE/break_lease)
 
 Tùy chọn gắn kết
-=============
+================
 
 OCFS2 hỗ trợ các tùy chọn gắn kết sau:
 

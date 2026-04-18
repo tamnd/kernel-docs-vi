@@ -25,7 +25,7 @@ nơi thu thập thông tin này.
 
 
 Cuộc gọi hệ thống
-============
+=================
 
 .. toctree::
    :maxdepth: 1
@@ -38,7 +38,7 @@ Cuộc gọi hệ thống
    rseq
 
 Giao diện liên quan đến bảo mật
-===========================
+===============================
 
 .. toctree::
    :maxdepth: 1

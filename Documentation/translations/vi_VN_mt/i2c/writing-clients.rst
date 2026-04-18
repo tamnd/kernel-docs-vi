@@ -77,7 +77,7 @@ bên dưới.
 
 
 Dữ liệu khách hàng bổ sung
-=================
+==========================
 
 Mỗi cấu trúc máy khách có một trường ZZ0000ZZ đặc biệt có thể trỏ tới bất kỳ cấu trúc máy khách nào.
 cấu trúc cả.  Bạn nên sử dụng điều này để giữ dữ liệu dành riêng cho thiết bị.
@@ -149,7 +149,7 @@ thông tin cụ thể để hoạt động chính xác.
 
 
 Liên kết thiết bị/trình điều khiển
----------------------
+----------------------------------
 
 Cơ sở hạ tầng hệ thống, thường là mã khởi tạo dành riêng cho bo mạch hoặc
 chương trình cơ sở khởi động, báo cáo những thiết bị I2C tồn tại.  Ví dụ, có thể có
@@ -210,7 +210,7 @@ tài liệu tham khảo để sử dụng sau này.
 
 
 Phát hiện thiết bị
-----------------
+------------------
 
 Cơ chế phát hiện thiết bị có một số nhược điểm.
 Bạn cần một số cách đáng tin cậy để xác định các thiết bị được hỗ trợ
@@ -236,7 +236,7 @@ vì thiết bị không thể tồn tại ở thiết bị gốc trong mô hình
 
 
 Đang khởi tạo trình điều khiển
-=======================
+==============================
 
 Khi kernel được khởi động hoặc khi mô-đun trình điều khiển foo của bạn được chèn vào,
 bạn phải thực hiện một số khởi tạo. May mắn thay, chỉ cần đăng ký
@@ -280,7 +280,7 @@ Thông tin tài xế
 
 
 Quản lý nguồn điện
-================
+==================
 
 Nếu thiết bị I2C của bạn cần xử lý đặc biệt khi hệ thống ở mức thấp
 trạng thái nguồn - như đặt bộ thu phát vào chế độ năng lượng thấp hoặc

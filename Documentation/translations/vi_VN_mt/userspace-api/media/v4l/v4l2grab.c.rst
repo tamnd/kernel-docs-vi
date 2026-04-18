@@ -15,7 +15,7 @@
 .. c:namespace:: V4L
 
 tập tin: media/v4l/v4l2grab.c
-==========================
+=============================
 
 .. code-block:: c
 

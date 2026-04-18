@@ -156,19 +156,19 @@ Bảo vệ
 * [X] CXL IDE (được gộp bởi TSP)
 
 Tổng hợp bộ nhớ
---------------
+---------------
 
 * [1] Hotplug của LD (thông qua hotplug PCI)
 * [0] Hỗ trợ thiết bị công suất động (DCD)
 
 Chia sẻ nhiều máy chủ
-------------------
+---------------------
 
 * [0] Bộ nhớ chia sẻ gắn kết phần cứng
 * [0] Bộ nhớ chia sẻ kết hợp được quản lý bằng phần mềm
 
 Bộ nhớ nhiều máy chủ
------------------
+--------------------
 
 * [0] Hỗ trợ thiết bị năng lực động
 * [0] Chia sẻ
@@ -182,12 +182,12 @@ Máy gia tốc
 * [0] ID bộ đệm CXL.cache 256b (CXL 3.0)
 
 Hỗ trợ luồng người dùng
------------------
+-----------------------
 
 * [2] Tiêm & thải độc theo vùng bù trừ
 
 Chi tiết
-=======
+========
 
 .. _extended-linear:
 

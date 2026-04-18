@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân qnap-mcu-hwmon
-============================
+========================================
 
 Trình điều khiển này cho phép sử dụng tính năng giám sát phần cứng và điều khiển quạt
 của MCU được sử dụng trên một số thiết bị lưu trữ gắn mạng QNAP.

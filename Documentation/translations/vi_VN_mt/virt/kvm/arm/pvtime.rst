@@ -61,7 +61,7 @@ miền. Tổng cộng 16 byte từ IPA được trả về được đảm bảo
 PV_TIME_ST trả về cấu trúc cho việc gọi VCPU.
 
 Thời gian bị đánh cắp
------------
+---------------------
 
 Cấu trúc được chỉ ra bởi siêu lệnh PV_TIME_ST như sau:
 

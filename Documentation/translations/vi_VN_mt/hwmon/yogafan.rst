@@ -68,7 +68,7 @@ Bộ lọc RLLag là mô hình độ trễ bậc nhất theo thời gian rời r
     về tần suất bỏ phiếu.
 
 Tạm dừng và tiếp tục
-------------------
+--------------------
 
 Trình điều khiển sử dụng đồng hồ thời gian khởi động (ktime_get_boottime()) để tính toán
 lấy mẫu delta. Điều này đảm bảo rằng thời gian dành cho việc tạm dừng hệ thống được tính đến
@@ -77,7 +77,7 @@ bộ lọc tự động đặt lại về giá trị phần cứng hiện tại 
 báo cáo dữ liệu RPM "ma" từ trước trạng thái ngủ.
 
 Cách sử dụng
------
+------------
 
 Trình điều khiển hiển thị các thuộc tính hwmon sysfs tiêu chuẩn:
 
@@ -131,7 +131,7 @@ METHODOLOGY & IDENTIFICATION:
 
 
 Tài liệu tham khảo
-----------
+------------------
 
 1. Tài liệu ZZ0000ZZ về cách 8-bit và 16-bit
    các trường được truy cập trong OperationRegions.

@@ -80,7 +80,7 @@ tài liệu cho các chức năng có sự khác biệt. Nó không
 bằng cách sử dụng lệnh ZZ0001ZZ của lệnh gọi hệ thống fcntl.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

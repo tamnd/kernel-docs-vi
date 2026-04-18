@@ -39,7 +39,7 @@ Khung DTPM cung cấp một giao diện thống nhất để hoạt động trê
 nguồn điện của thiết bị.
 
 Tổng quan
-========
+=========
 
 Khung DTPM dựa vào khung powercap để tạo ra
 các mục powercap trong thư mục sysfs và triển khai phần phụ trợ
@@ -118,7 +118,7 @@ Các nút trung gian tổng hợp thông tin nguồn và cho phép
 đặt giới hạn công suất dựa trên trọng lượng của các nút.
 
 Không gian người dùng API
-==============
+=========================
 
 Như đã nêu trong phần tổng quan, khung DTPM được xây dựng dựa trên
 khung powercap. Như vậy giao diện sysfs là như nhau, mời bạn tham khảo
@@ -154,10 +154,10 @@ Hạn chế
    hạn chế về mặt thời gian.
 
 Hạt nhân API
-==========
+============
 
 Tổng quan
---------
+---------
 
 Khung DTPM không có hỗ trợ phụ trợ giới hạn năng lượng. Đó là
 chung và cung cấp một bộ API để cho phép các trình điều khiển khác nhau

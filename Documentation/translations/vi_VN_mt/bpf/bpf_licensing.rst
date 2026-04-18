@@ -44,7 +44,7 @@ Việc sử dụng tập lệnh eBPF yêu cầu triển khai mã trong cả khô
 và không gian người dùng.
 
 Trong hạt nhân Linux
----------------
+--------------------
 
 Việc triển khai tham chiếu của trình thông dịch eBPF và các tính năng kịp thời khác nhau
 trình biên dịch là một phần của Linux và được cấp phép GPLv2. Việc thực hiện
@@ -52,7 +52,7 @@ Các chức năng trợ giúp eBPF cũng được cấp phép GPLv2. Phiên dị
 và trình xác minh được gọi là thời gian chạy eBPF.
 
 Trong không gian người dùng
--------------
+---------------------------
 
 Ngoài ra còn có các triển khai thời gian chạy eBPF (trình thông dịch, JIT, trình trợ giúp
 chức năng) dưới
@@ -61,19 +61,19 @@ MIT (ZZ0001ZZ và
 BSD (ZZ0002ZZ
 
 trong CTNH
------
+----------
 
 CTNH có thể chọn thực thi lệnh eBPF nguyên bản và cung cấp thời gian chạy eBPF
 trong CTNH hoặc thông qua việc sử dụng chương trình cơ sở triển khai có giấy phép độc quyền.
 
 Trong các hệ điều hành khác
---------------------------
+---------------------------
 
 Các triển khai hạt nhân hoặc không gian người dùng khác của tập lệnh eBPF và thời gian chạy
 có thể có giấy phép độc quyền.
 
 Sử dụng các chương trình BPF trong nhân Linux
-======================================
+=============================================
 
 Hạt nhân Linux (trong khi là GPLv2) cho phép liên kết các mô-đun hạt nhân độc quyền
 theo các quy tắc sau:
@@ -99,7 +99,7 @@ Hạn chế tương tự áp dụng cho các chương trình BPF gọi hàm kern
 trực tiếp qua giao diện không ổn định còn được gọi là "kfunc".
 
 Đóng gói các chương trình BPF với các ứng dụng không gian người dùng
-====================================================
+====================================================================
 
 Nói chung, các ứng dụng được cấp phép độc quyền và các chương trình BPF được cấp phép GPL
 được viết cho nhân Linux trong cùng một gói có thể cùng tồn tại vì chúng

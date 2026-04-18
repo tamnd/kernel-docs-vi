@@ -291,7 +291,7 @@ mảng mong muốn với các phần tử biểu đồ phương tiện.
 	  this array to zero.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

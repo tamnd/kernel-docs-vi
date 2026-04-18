@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Người quản lý FPGA
-============
+==================
 
 Tổng quan
---------
+---------
 
 Lõi trình quản lý FPGA xuất một tập hợp các hàm để lập trình FPGA với
 một hình ảnh.  API là nhà sản xuất bất khả tri.  Tất cả các chi tiết cụ thể của nhà sản xuất là
@@ -135,7 +135,7 @@ và trả về mã loại enum fpga_mgr_states.  Nó không dẫn đến một s
 ở trạng thái.
 
 API để triển khai trình điều khiển Trình quản lý FPGA mới
-----------------------------------------------
+---------------------------------------------------------
 
 * ZZ0001ZZ - Giá trị cho ZZ0000ZZ.
 * struct fpga_manager - cấu trúc trình quản lý FPGA

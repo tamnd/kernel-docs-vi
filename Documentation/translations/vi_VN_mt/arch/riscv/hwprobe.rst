@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Giao diện thăm dò phần cứng RISC-V
----------------------------------
+----------------------------------
 
 Giao diện thăm dò phần cứng RISC-V dựa trên một tòa nhà chung cư duy nhất,
 được định nghĩa trong <asm/hwprobe.h>::

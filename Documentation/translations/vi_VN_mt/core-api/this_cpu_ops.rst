@@ -76,7 +76,7 @@ this_cpu_read(pcp)
 
 
 Hoạt động bên trong của hoạt động this_cpu
-------------------------------------
+------------------------------------------
 
 Trên x86, các thanh ghi phân đoạn fs: hoặc gs: chứa cơ sở của
 mỗi khu vực cpu. Sau đó có thể chỉ cần sử dụng ghi đè phân đoạn
@@ -199,7 +199,7 @@ lạ lùng.
 
 
 Hoạt động trên một trường của cấu trúc mỗi CPU
---------------------------------------------
+----------------------------------------------
 
 Giả sử chúng ta có cấu trúc percpu ::
 
@@ -239,7 +239,7 @@ z = pp->n++;
 
 
 Các biến thể của this_cpu ops
-------------------------
+-----------------------------
 
 ops this_cpu bị gián đoạn an toàn. Một số kiến trúc không hỗ trợ
 những hoạt động này trên mỗi CPU cục bộ. Trong trường hợp đó hoạt động phải được
@@ -293,7 +293,7 @@ this_cpu_read() và bạn bè được sử dụng.
 
 
 Truy cập từ xa vào dữ liệu trên mỗi CPU
-------------------------------
+---------------------------------------
 
 Cấu trúc dữ liệu trên mỗi CPU được thiết kế để chỉ sử dụng bởi một CPU.
 Nếu bạn sử dụng các biến như dự định, this_cpu_ops() được đảm bảo

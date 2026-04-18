@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thông báo tin nhắn
-==============
+==================
 
 Định nghĩa thuật toán phân loại tin nhắn
-------------------------------------
+----------------------------------------
 
 .. kernel-doc:: include/crypto/hash.h
    :doc: Message Digest Algorithm Definitions
@@ -25,7 +25,7 @@ Thông báo tin nhắn
    :functions: hash_alg_common ahash_alg shash_alg
 
 Thông báo thông báo không đồng bộ API
--------------------------------
+-------------------------------------
 
 .. kernel-doc:: include/crypto/hash.h
    :doc: Asynchronous Message Digest API

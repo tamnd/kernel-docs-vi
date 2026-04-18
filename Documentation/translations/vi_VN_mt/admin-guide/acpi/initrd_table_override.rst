@@ -17,7 +17,7 @@ Nâng cấp bảng ACPI qua initrd
 ====================================
 
 Chuyện này là về cái gì vậy
-==================
+===========================
 
 Nếu tùy chọn biên dịch ACPI_TABLE_UPGRADE là đúng, có thể
 nâng cấp môi trường thực thi ACPI được xác định bởi các bảng ACPI
@@ -42,7 +42,7 @@ Cả hai đều có thể được thực hiện là tốt.
 
 
 Cái này dùng để làm gì
-================
+======================
 
 Khiếu nại với nền tảng/nhà cung cấp BIOS của bạn nếu bạn phát hiện ra một lỗi quá nghiêm trọng
 rằng một cách giải quyết khác không được chấp nhận trong nhân Linux. Và cơ sở này
@@ -61,7 +61,7 @@ thay đổi với initrds không được thiết bị.
 
 
 Nó hoạt động như thế nào
-================
+========================
 ::
 
 # Extract các bảng ACPI của máy:
@@ -111,7 +111,7 @@ cũng như các bảng ACPI tĩnh.
 
 
 Nơi lấy công cụ không gian người dùng
-=================================
+=====================================
 
 iasl và acpixtract là một phần của dự án ACPICA của Intel:
 ZZ0000ZZ

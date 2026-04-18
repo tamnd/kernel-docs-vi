@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân peci-dimmtemp
-===========================
+=======================================
 
 Chip được hỗ trợ:
 	Một trong các CPU máy chủ Intel được liệt kê bên dưới được kết nối với bus PECI.

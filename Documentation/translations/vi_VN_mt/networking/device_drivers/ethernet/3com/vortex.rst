@@ -261,7 +261,7 @@ toàn cầu_enable_wol=N
   mảng ZZ0000ZZ ở trên sẽ ghi đè mọi cài đặt này.
 
 Lựa chọn phương tiện
----------------
+--------------------
 
 Một số NIC cũ hơn như dòng 3c590 và 3c900 có
 Giao diện 10base2 và AUI.
@@ -282,7 +282,7 @@ các loại phương tiện truyền thông khác không xảy ra.
 
 
 Lỗi truyền, thanh ghi trạng thái Tx 82
--------------------------------------
+--------------------------------------
 
 Đây là một lỗi phổ biến hầu như luôn xảy ra do một máy chủ khác trên
 cùng một mạng đang ở chế độ song công hoàn toàn, trong khi máy chủ này ở chế độ
@@ -330,7 +330,7 @@ ftp://ftp.3com.com/pub/nic/3c90x/3c90xx2.exe
 
 
 Ghi chú tự động đàm phán
----------------------
+------------------------
 
 Người lái xe sử dụng nhịp tim một phút để thích ứng với những thay đổi trong
   môi trường LAN bên ngoài nếu liên kết hoạt động và 5 giây nếu liên kết không hoạt động.

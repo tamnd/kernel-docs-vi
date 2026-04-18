@@ -32,7 +32,7 @@ khóa mã hóa HDCP cho phần cứng đồ họa Intel.
 
 
 trình điều khiển mei_hdcp
----------------
+-------------------------
 .. kernel-doc:: drivers/misc/mei/hdcp/mei_hdcp.c
     :doc: MEI_HDCP Client Driver
 

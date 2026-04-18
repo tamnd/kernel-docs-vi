@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển kiểm tra GPIO
-===================
+==============================
 
 .. note::
 
@@ -29,7 +29,7 @@ sử dụng giao diện thiết bị ký tự GPIO tiêu chuẩn cũng như thao
 sử dụng cấu trúc thư mục debugfs chuyên dụng.
 
 Tạo chip mô phỏng bằng cách sử dụng thông số mô-đun
---------------------------------------------
+---------------------------------------------------
 
 Khi tải trình điều khiển gpio-mockup, một số tham số có thể được chuyển tới
 mô-đun.

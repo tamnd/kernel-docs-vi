@@ -23,7 +23,7 @@ các đối tượng sử dụng phân bổ SLAB_TYPESAFE_BY_RCU.
 Vui lòng đọc những điều cơ bản trong listRCU.rst.
 
 Sử dụng 'null'
-=============
+==============
 
 Sử dụng các trình tạo đặc biệt (được gọi là 'null') là một cách thuận tiện
 để giải quyết vấn đề sau.
@@ -42,7 +42,7 @@ các đối tượng có loại dưới đây.
   };
 
 1) Thuật toán tra cứu
--------------------
+---------------------
 
 ::
 
@@ -130,7 +130,7 @@ phát hiện thực tế là nó đã bỏ sót các mục sau trong chuỗi ban
 
 
 3) Thuật toán loại bỏ
---------------------
+---------------------
 
 Không có gì đặc biệt ở đây, chúng ta có thể sử dụng tính năng xóa danh sách RCU tiêu chuẩn.
 Nhưng nhờ SLAB_TYPESAFE_BY_RCU, hãy cẩn thận một đối tượng đã xóa có thể được sử dụng lại
@@ -169,7 +169,7 @@ Lưu ý rằng việc sử dụng hlist_nulls có nghĩa là loại trường 'o
 
 
 1) thuật toán tra cứu
--------------------
+---------------------
 
 ::
 

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w83792d
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -142,16 +142,16 @@ Các vấn đề đã biết:
 	  liên hệ với chúng tôi.
 
 Điều khiển quạt
------------
+---------------
 
 Chế độ thủ công
------------
+---------------
 
 Hoạt động như mong đợi. Bạn chỉ cần chỉ định giá trị PWM/DC mong muốn (tốc độ quạt)
 trong pwm# file thích hợp.
 
 Hành trình nhiệt
---------------
+----------------
 
 Ở chế độ này, W83792D cung cấp hệ thống Smart Fan để tự động điều khiển
 tốc độ quạt để giữ nhiệt độ của CPU và hệ thống trong phạm vi cụ thể
@@ -175,7 +175,7 @@ từ từ về 0 hoặc giá trị dừng đặt trước cho đến khi nhiệt
 giới hạn. (Việc xử lý giá trị dừng đặt trước chưa được triển khai trong trình điều khiển)
 
 Quạt thông minh II
-------------
+------------------
 
 W83792D còn cung cấp chế độ đặc biệt cho quạt. Bốn điểm nhiệt độ là
 có sẵn. Khi cảm biến nhiệt độ liên quan phát hiện nhiệt độ trong cài đặt trước
@@ -185,7 +185,7 @@ cho mỗi người hâm mộ.
 
 
 tập tin /sys
-----------
+------------
 
 pwm[1-7]
 	- tệp này lưu trữ chu kỳ nhiệm vụ PWM hoặc giá trị DC (tốc độ quạt) trong phạm vi:

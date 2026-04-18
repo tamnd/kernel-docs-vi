@@ -134,7 +134,7 @@ trình điều khiển phần mềm. Một số chi tiết về con số kỳ di
 Walkera_Wk-0701_PCM.pdf.
 
 Tính toán tổng kiểm tra
---------------------
+-----------------------
 
 Tóm tắt giá trị bát phân trong nibble phải giống với giá trị bát phân trong tổng kiểm tra
 nibble (chỉ sử dụng 3 bit đầu tiên). Giá trị nhị phân cho tổng kiểm tra là

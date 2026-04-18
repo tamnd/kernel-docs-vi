@@ -67,7 +67,7 @@ Hàng đợi của CPU và hàng đợi bận rộn nhất mới được tìm t
 được tính toán trong khi duyệt qua các nhóm của miền được lập lịch này.
 
 Triển khai các miền theo lịch trình
-==========================
+===================================
 
 Miền "cơ sở" sẽ "trải rộng" cấp độ đầu tiên của hệ thống phân cấp. Trong trường hợp
 của SMT, bạn sẽ mở rộng tất cả các anh chị em của CPU vật lý, với mỗi nhóm là

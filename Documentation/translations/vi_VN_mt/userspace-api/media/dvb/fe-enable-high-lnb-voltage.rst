@@ -54,7 +54,7 @@ Chọn mức DC đầu ra giữa điện áp LNBf bình thường hoặc LNBf ca
 điện áp.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

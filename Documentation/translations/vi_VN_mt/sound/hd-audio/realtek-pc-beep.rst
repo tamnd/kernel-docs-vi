@@ -63,7 +63,7 @@ Vòng lặp ngược 1Ah đến 14h (S): 1 bit
   cài đặt vào 14h và xuất hiện bất cứ khi nào 14h được định cấu hình làm đầu ra.
 
 Sơ đồ đường dẫn
-=============
+===============
 
 Lựa chọn đầu vào 1Ah (DIV là bộ chia tiếng bíp PC được đặt trên NID 01h)::
 

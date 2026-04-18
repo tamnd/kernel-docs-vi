@@ -17,13 +17,13 @@ Trình điều khiển WorkBiT NinjaSCSI-3/32Bi cho Linux
 ===================================================
 
 1. Bình luận
-==========
+============
 
 Đây là công ty Workbit (ZZ0000ZZ NinjaSCSI-3
 cho Linux.
 
 2. Môi trường Linux của tôi
-=======================
+===========================
 
 :Nhân Linux: 2.4.7 / 2.2.19
 :pcmcia-cs: 3.1.27
@@ -143,7 +143,7 @@ hoặc::
 Xem README.nin_cs .
 
 5. Thận trọng
-==========
+=============
 
 Nếu bạn đẩy thẻ ra khi thực hiện một số thao tác cho thiết bị SCSI của mình hoặc tạm dừng
 máy tính của bạn, bạn gặp phải một số lỗi ZZ0000ZZ như hỏng đĩa.
@@ -152,13 +152,13 @@ Nó hoạt động tốt khi tôi sử dụng trình điều khiển này đúng
 dữ liệu của bạn. Vui lòng sao lưu dữ liệu của bạn khi bạn sử dụng trình điều khiển này.
 
 6. Lỗi đã biết
-=============
+==============
 
 Trong kernel 2.4, bạn không thể sử dụng đĩa quang 640 MB. Lỗi này xuất phát từ
 Trình điều khiển SCSI cấp cao.
 
 7. Kiểm tra
-==========
+===========
 
 Vui lòng gửi cho tôi một số báo cáo (báo cáo lỗi, v.v.) của phần mềm này.
 Khi bạn gửi báo cáo, xin vui lòng cho tôi biết những điều này hoặc nhiều hơn nữa.

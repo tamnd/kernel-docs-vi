@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Ghi chú quá trình phát triển cụ thể của cây hệ thống con và người bảo trì
-================================================================
+=========================================================================
 
 Mục đích của tài liệu này là cung cấp thông tin cụ thể về hệ thống con
 bổ sung cho sổ tay quy trình phát triển chung

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân Lochnagar
-=======================
+===================================
 
 Các hệ thống được hỗ trợ:
   * Logic Xiếc: Lochnagar 2

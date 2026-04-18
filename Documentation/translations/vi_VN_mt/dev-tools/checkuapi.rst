@@ -21,7 +21,7 @@ kiểm tra các tệp tiêu đề UAPI để biết khả năng tương thích n
 cây git.
 
 Tùy chọn
-=======
+========
 
 Phần này sẽ mô tả các tùy chọn mà ZZ0000ZZ sử dụng
 có thể được chạy.
@@ -60,7 +60,7 @@ Ví dụ
 ========
 
 Cách sử dụng cơ bản
------------
+-------------------
 
 Trước tiên, hãy thử thực hiện thay đổi đối với tệp tiêu đề UAPI mà rõ ràng
 sẽ không phá vỡ không gian người dùng::
@@ -214,7 +214,7 @@ Ngoài ra, chúng tôi cũng có thể chạy với ZZ0000ZZ. Điều này sẽ 
 tham chiếu cơ sở đến ZZ0001ZZ để tập lệnh sẽ so sánh nó với ZZ0002ZZ.
 
 Tiêu đề dành riêng cho kiến ​​trúc
------------------------------
+----------------------------------
 
 Hãy xem xét sự thay đổi này::
 
@@ -351,7 +351,7 @@ Việc xóa tiêu đề UAPI được coi là một thay đổi đột phá và 
 sẽ gắn cờ nó như vậy.
 
 Kiểm tra khả năng tương thích UAPI lịch sử
-------------------------------------
+------------------------------------------
 
 Bạn có thể sử dụng các tùy chọn ZZ0000ZZ và ZZ0001ZZ để kiểm tra các phần khác nhau của
 cây git. Ví dụ: để kiểm tra tất cả các tệp tiêu đề UAPI đã thay đổi giữa các thẻ
@@ -374,13 +374,13 @@ mãi mãi, đây là một kết quả đáng báo động. Điều này đưa c
 hãy cẩn thận.
 
 Hãy cẩn thận
-=======
+============
 
 Trình kiểm tra UAPI không đưa ra giả định nào về ý định của tác giả, vì vậy một số
 các loại thay đổi có thể bị gắn cờ ngay cả khi chúng cố tình phá vỡ UAPI.
 
 Loại bỏ để tái cấu trúc hoặc ngừng sử dụng
----------------------------------------
+------------------------------------------
 
 Đôi khi trình điều khiển cho phần cứng rất cũ bị xóa, chẳng hạn như trong ví dụ này::
 
@@ -473,7 +473,7 @@ Tại thời điểm này, không có cách nào để lọc những loại thay
 nhận thức được điều này có thể là dương tính giả.
 
 Bản tóm tắt
--------
+-----------
 
 Mặc dù nhiều loại kết quả dương tính giả được tập lệnh lọc ra,
 có thể có một số trường hợp tập lệnh đánh dấu sự thay đổi

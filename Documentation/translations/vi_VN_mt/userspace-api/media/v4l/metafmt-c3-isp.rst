@@ -95,6 +95,6 @@ thành viên data_size của ZZ0004ZZ. Ví dụ:
 	params->data_size += sizeof(struct c3_isp_params_awb_config);
 
 Các loại dữ liệu uAPI của Amlogic C3 ISP
-===============================
+========================================
 
 .. kernel-doc:: include/uapi/linux/media/amlogic/c3-isp-config.h

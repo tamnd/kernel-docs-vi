@@ -49,7 +49,7 @@ Nhận phản hồi từ lệnh DiSEqC 2.0.
 Tin nhắn nhận được được lưu trữ tại bộ đệm được chỉ định bởi ZZ0000ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

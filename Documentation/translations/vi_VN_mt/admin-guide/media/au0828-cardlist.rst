@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Danh sách thẻ AU0828
-=================
+====================
 
 .. tabularcolumns:: |p{1.4cm}|p{6.5cm}|p{10.0cm}|
 

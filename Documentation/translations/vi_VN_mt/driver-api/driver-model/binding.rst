@@ -24,7 +24,7 @@ cấu trúc, hầu hết các ràng buộc có thể diễn ra bằng cách sử
 
 
 xe buýt
-~~~
+~~~~~~~
 
 Cấu trúc kiểu bus chứa danh sách tất cả các thiết bị trên bus đó
 gõ vào hệ thống. Khi device_register được gọi cho một thiết bị, nó là
@@ -35,7 +35,7 @@ hai sự kiện kích hoạt liên kết trình điều khiển.
 
 
 thiết bị_đăng ký
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Khi một thiết bị mới được thêm vào, danh sách trình điều khiển của xe buýt sẽ được lặp lại
 để tìm một cái hỗ trợ nó. Để xác định được điều đó, thiết bị
@@ -116,7 +116,7 @@ một. Thiết bị bị xóa khỏi danh sách đó và các liên kết tượ
 
 
 Ghi đè trình điều khiển
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Không gian người dùng có thể ghi đè kết hợp tiêu chuẩn bằng cách viết tên trình điều khiển vào
 thuộc tính sysfs ZZ0000ZZ của thiết bị.  Khi cài thì chỉ có driver thôi

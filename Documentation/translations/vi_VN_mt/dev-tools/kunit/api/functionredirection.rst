@@ -17,7 +17,7 @@ Chuyển hướng chức năng API
 ===========================
 
 Tổng quan
-========
+=========
 
 Khi viết bài kiểm thử đơn vị, điều quan trọng là có thể tách biệt mã đang được
 được thử nghiệm từ các phần khác của kernel. Điều này đảm bảo độ tin cậy của bài kiểm tra

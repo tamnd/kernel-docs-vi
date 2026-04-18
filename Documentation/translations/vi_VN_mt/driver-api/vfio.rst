@@ -281,7 +281,7 @@ giao diện được mô tả bên dưới và quyền truy cập gốc thông q
 các giao diện được cung cấp.
 
 Cdev thiết bị VFIO
-----------------
+------------------
 
 Theo truyền thống, người dùng mua thiết bị fd thông qua VFIO_GROUP_GET_DEVICE_FD
 trong nhóm VFIO.
@@ -313,7 +313,7 @@ cờ.  Việc vi phạm yêu cầu về quyền sở hữu này sẽ không thà
 VFIO_DEVICE_BIND_IOMMUFD ioctl, cổng truy cập toàn bộ thiết bị.
 
 Ví dụ về cdev thiết bị
--------------------
+----------------------
 
 Giả sử người dùng muốn truy cập thiết bị PCI 0000:6a:01.0::
 
@@ -479,7 +479,7 @@ container_of().
 	  cuộc gọi lại này ngay cả trước khi gọi tới open_device().
 
 Ghi chú triển khai sPAPR của PPC64
--------------------------------
+----------------------------------
 
 Việc triển khai này có một số chi tiết cụ thể:
 

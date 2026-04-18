@@ -13,6 +13,6 @@
    review) được đặt trong thư mục vi_VN/.
 
 Các kiểu dữ liệu uAPI giao diện người dùng
-========================
+==========================================
 
 .. kernel-doc:: include/uapi/linux/dvb/frontend.h

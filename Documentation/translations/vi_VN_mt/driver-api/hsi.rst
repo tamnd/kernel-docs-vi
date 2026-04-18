@@ -52,7 +52,7 @@ khuôn di động và CA cho các tín hiệu đi ngược lại.
     +-------------+ +---------------+
 
 Hệ thống con HSI trong Linux
--------------------------
+----------------------------
 
 Trong nhân Linux, hệ thống con hsi được cho là sẽ được sử dụng cho các thiết bị HSI.
 Hệ thống con hsi chứa các trình điều khiển cho bộ điều khiển hsi bao gồm hỗ trợ cho

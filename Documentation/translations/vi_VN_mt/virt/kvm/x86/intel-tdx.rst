@@ -17,7 +17,7 @@ Phần mở rộng miền tin cậy của Intel (TDX)
 =========================================
 
 Tổng quan
-========
+=========
 Tiện ích mở rộng miền tin cậy của Intel (TDX) bảo vệ các máy ảo khách bí mật khỏi
 máy chủ và các cuộc tấn công vật lý.  Mô-đun phần mềm được chứng nhận CPU có tên là 'TDX
 module' chạy bên trong phạm vi cách ly CPU mới để cung cấp các chức năng cho
@@ -275,6 +275,6 @@ luồng điều khiển như sau:
 #. Chạy VCPU
 
 Tài liệu tham khảo
-==========
+==================
 
 ZZ0000ZZ

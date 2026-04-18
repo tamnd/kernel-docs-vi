@@ -13,19 +13,19 @@
    review) được đặt trong thư mục vi_VN/.
 
 cấu trúc sk_buff
-==============
+================
 
 ZZ0000ZZ là cấu trúc mạng chính đại diện cho
 một gói.
 
 Hình học sk_buff cơ bản
-----------------------
+-----------------------
 
 .. kernel-doc:: include/linux/skbuff.h
    :doc: Basic sk_buff geometry
 
 Skbs được chia sẻ và bản sao skb
---------------------------
+--------------------------------
 
 ZZ0000ZZ là một lần đếm lại đơn giản cho phép nhiều thực thể
 để duy trì cấu trúc sk_buff. skbs có ZZ0001ZZ được giới thiệu
@@ -37,13 +37,13 @@ skb_clone() cho phép sao chép nhanh skbs. Không có bộ đệm dữ liệu n
 dữ liệu gói (tức là bản sao).
 
 dataref và skbs không tiêu đề
----------------------------
+-----------------------------
 
 .. kernel-doc:: include/linux/skbuff.h
    :doc: dataref and headerless skbs
 
 Thông tin tổng kiểm tra
---------------------
+-----------------------
 
 .. kernel-doc:: include/linux/skbuff.h
    :doc: skb checksums

@@ -25,7 +25,7 @@ nó cung cấp một số chi tiết kỹ thuật về việc triển khai nội
 có thể hữu ích cho các nhà phát triển và bảo trì kernel.
 
 Tổng quan
-========
+=========
 
 Hệ thống con L2TP của kernel triển khai đường dẫn dữ liệu cho L2TPv2 và
 L2TPv3. L2TPv2 được truyền qua UDP. L2TPv3 được truyền qua UDP hoặc
@@ -67,7 +67,7 @@ API L2TP
 Phần này ghi lại từng không gian người dùng API của hệ thống con L2TP.
 
 Ổ cắm đường hầm
---------------
+---------------
 
 L2TPv2 luôn sử dụng UDP. L2TPv3 có thể sử dụng đóng gói UDP hoặc IP.
 
@@ -388,7 +388,7 @@ RECVSEQ - 0 => số thứ tự nhận gói là tùy chọn
 LNSMODE - 0 => đóng vai trò LAC.
             - 1 => đóng vai trò LNS.
 REORDERTO sắp xếp lại thời gian chờ (tính bằng mili giây). Nếu là 0, đừng cố sắp xếp lại.
-==========================================================================
+=========================================================================================
 
 Ngoài ioctls PPP tiêu chuẩn, PPPIOCGL2TPSTATS được cung cấp
 để truy xuất số liệu thống kê về đường hầm và phiên từ kernel bằng cách sử dụng
@@ -548,7 +548,7 @@ Kênh PPP với các loại kênh PPP khác, chẳng hạn như PPPoE.
 Xem thêm thông tin chi tiết về phía PPP trong ppp_generic.rst.
 
 API chỉ có L2TPv2 cũ
--------------------
+--------------------
 
 Khi L2TP lần đầu tiên được thêm vào nhân Linux ở phiên bản 2.6.23, nó
 chỉ triển khai L2TPv2 và không bao gồm netlink API. Thay vào đó,
@@ -574,7 +574,7 @@ Các ứng dụng L2TPv2 nên sử dụng liên kết mạng để tạo đườ
 phiên, sau đó tạo ổ cắm PPPoL2TP cho phiên.
 
 Đường hầm L2TPv3 không được quản lý
-------------------------
+-----------------------------------
 
 Hệ thống con L2TP kernel cũng hỗ trợ L2TPv3 tĩnh (không được quản lý)
 đường hầm. Đường hầm không được quản lý không có ổ cắm đường hầm không gian người dùng và
@@ -636,7 +636,7 @@ khi không gian người dùng đóng ổ cắm.
 ZZ0001ZZ.
 
 Đường hầm
--------
+---------
 
 Hạt nhân giữ bối cảnh struct l2tp_tunnel trên mỗi đường hầm L2TP. các
 l2tp_tunnel luôn được liên kết với ổ cắm UDP hoặc L2TP/IP và
@@ -775,7 +775,7 @@ Việc triển khai hiện tại có một số hạn chế:
      được thực hiện.
 
 Kiểm tra
--------
+--------
 
 Các tính năng Ethernet L2TPv3 không được quản lý được kiểm tra bằng phần mềm tích hợp sẵn của kernel
 tự kiểm tra. Xem ZZ0000ZZ.

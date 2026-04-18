@@ -26,7 +26,7 @@ các luồng nhân được kiểm soát trong quá trình ngủ đông hoặc t
 kiến trúc).
 
 II. Nó hoạt động như thế nào?
-=====================
+=============================
 
 Có một cờ cho mỗi nhiệm vụ (PF_NOFREEZE) và ba trạng thái cho mỗi nhiệm vụ
 (TASK_FROZEN, TASK_FREEZABLE và __TASK_FREEZABLE_UNSAFE) được sử dụng cho việc đó.
@@ -95,7 +95,7 @@ __refrigerator() và tiếp tục chạy.
 
 
 Cơ sở lý luận đằng sau các chức năng xử lý việc đóng băng và rã đông các nhiệm vụ
--------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
 đóng băng_processes():
   - chỉ đóng băng các tác vụ trong không gian người dùng
@@ -115,7 +115,7 @@ tan_processes():
 
 
 III. Những chủ đề hạt nhân nào có thể đóng băng được?
-========================================
+=====================================================
 
 Các luồng hạt nhân không thể đóng băng theo mặc định.  Tuy nhiên, một luồng hạt nhân có thể xóa
 PF_NOFREEZE cho chính nó bằng cách gọi set_freezable() (việc đặt lại PF_NOFREEZE
@@ -124,7 +124,7 @@ và phải gọi try_to_freeze() hoặc các biến thể của wait_event_freez
 nơi thích hợp.
 
 IV. Tại sao chúng tôi làm điều đó?
-======================
+==================================
 
 Nói chung, có một số lý do để sử dụng tính năng đóng băng nhiệm vụ:
 
@@ -194,7 +194,7 @@ thiết bị trong khi nó bị treo.
    đã thay đổi và có thể bắt đầu hoạt động không chính xác vì lý do đó.
 
 V. Có bất kỳ vấn đề nào liên quan đến việc đóng băng nhiệm vụ không?
-===========================================================
+====================================================================
 
 Vâng, có.
 
@@ -236,7 +236,7 @@ Nếu việc giữ chúng là không thực tế, chẳng hạn như do kích th
 Tài liệu/driver-api/pm/notifiers.rst.
 
 VI. Có biện pháp phòng ngừa nào cần được thực hiện để ngăn chặn sự cố đóng băng không?
-=======================================================================
+======================================================================================
 
 Vâng, có.
 

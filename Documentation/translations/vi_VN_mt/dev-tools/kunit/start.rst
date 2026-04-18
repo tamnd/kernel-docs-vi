@@ -26,7 +26,7 @@ KUnit có các phần phụ thuộc giống như nhân Linux. Miễn là bạn c
 xây dựng kernel, bạn có thể chạy KUnit.
 
 Chạy thử nghiệm với kunit_tool
-=============================
+==============================
 kunit_tool is a Python script, which configures and builds a kernel, runs
 kiểm tra và định dạng kết quả kiểm tra. Từ kho kernel, bạn
 có thể chạy kunit_tool:
@@ -132,7 +132,7 @@ d. Nếu bạn thay đổi ZZ0000ZZ, kunit.py sẽ kích hoạt việc xây dự
 		cp .kunit/defconfig .kunit/.kunitconfig
 
 Lọc các bài kiểm tra theo tên
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Nếu bạn muốn cụ thể hơn những gì Kconfig có thể cung cấp thì cũng có thể
 để chọn những thử nghiệm nào sẽ thực hiện khi khởi động bằng cách chuyển bộ lọc toàn cầu
 (đọc hướng dẫn về mẫu trong trang ZZ0000ZZ).
@@ -158,7 +158,7 @@ c. sử dụng các ký tự đại diện (ZZ0000ZZ) để chạy bất kỳ tr
 ./tools/testing/kunit/kunit.py chạy "ZZ0000ZZ64*"
 
 Chạy thử nghiệm mà không có KUnit Wrapper
-=======================================
+=========================================
 Nếu bạn không muốn sử dụng KUnit Wrapper (ví dụ: bạn muốn mã
 đang được thử nghiệm để tích hợp với các hệ thống khác hoặc sử dụng một/
 kiến trúc hoặc cấu hình không được hỗ trợ), KUnit có thể được đưa vào
@@ -181,7 +181,7 @@ Các bài kiểm tra KUnit và KUnit có thể được biên dịch thành các
 sẽ chạy khi mô-đun được tải.
 
 Đang chạy thử nghiệm (không có KUnit Wrapper)
--------------------------------------
+---------------------------------------------
 Xây dựng và chạy kernel của bạn. Trong nhật ký kernel, kết quả kiểm tra được in
 ra ở định dạng TAP. Điều này sẽ chỉ xảy ra theo mặc định nếu KUnit/tests
 được tích hợp sẵn. Nếu không thì mô-đun sẽ cần phải được tải.
@@ -190,7 +190,7 @@ ra ở định dạng TAP. Điều này sẽ chỉ xảy ra theo mặc định n
    Some lines and/or data may get interspersed in the TAP output.
 
 Viết bài kiểm tra đầu tiên của bạn
-=======================
+==================================
 Trong kho kernel của bạn, hãy thêm một số mã mà chúng tôi có thể kiểm tra.
 
 1. Tạo một tệp ZZ0000ZZ, bao gồm:
@@ -309,7 +309,7 @@ Bạn sẽ thấy lỗi sau:
 Xin chúc mừng! Bạn vừa viết bài kiểm tra KUnit đầu tiên của mình.
 
 Các bước tiếp theo
-==========
+==================
 
 Nếu bạn quan tâm đến việc sử dụng một số tính năng nâng cao hơn của kunit.py,
 hãy xem Tài liệu/dev-tools/kunit/run_wrapper.rst

@@ -17,7 +17,7 @@ Nguyên tắc hạt nhân cho nội dung do công cụ tạo
 ================================================
 
 Mục đích
-=======
+========
 
 Những người đóng góp hạt nhân đã và đang sử dụng công cụ để tạo ra các đóng góp
 trong một thời gian dài. Những công cụ này có thể tăng khối lượng đóng góp.
@@ -31,7 +31,7 @@ cho phép mọi người làm việc hiệu quả hơn đồng thời duy trì m
 mức độ tin cậy giữa người gửi và người đánh giá.
 
 Ngoài phạm vi
-============
+=============
 
 Những nguyên tắc này không áp dụng cho các công cụ thực hiện những chỉnh sửa nhỏ đối với
 nội dung có sẵn. Chúng cũng không liên quan đến công cụ hỗ trợ
@@ -49,7 +49,7 @@ hãy cân nhắc xem điều đó có giúp ích cho việc đánh giá đóng g
 biết về công cụ bạn đã sử dụng.
 
 Trong phạm vi
-========
+=============
 
 Những nguyên tắc này áp dụng khi một lượng nội dung có ý nghĩa trong kernel
 đóng góp không được viết bởi một người trong chuỗi Đã ký,

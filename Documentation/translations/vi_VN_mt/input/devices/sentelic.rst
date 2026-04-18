@@ -24,7 +24,7 @@ Bàn di chuột Sentelic
 :Cập nhật lần cuối: Dec-07-2011
 
 Bàn phím cảm biến ngón tay Chế độ Intellimouse (bánh xe cuộn, nút thứ 4 và thứ 5)
-============================================================================
+=================================================================================
 
 A) MSID 4: Chế độ bánh xe cuộn cộng với trang Chuyển tiếp (nút thứ 4) và Lùi lại
    trang (nút thứ 5)
@@ -731,7 +731,7 @@ ID cử chỉ được hỗ trợ:
 	======= ======================================
 
 Đăng ký danh sách
-================
+=================
 
 Các thanh ghi được biểu diễn bằng các giá trị 16 bit. 8 bit cao hơn thể hiện
 địa chỉ trang và 8 bit thấp hơn biểu thị độ lệch tương đối trong

@@ -33,7 +33,7 @@ cạm bẫy
 ---------
 
 Phong cách mã hóa
-************
+*****************
 
 Hạt nhân từ lâu đã có kiểu mã hóa tiêu chuẩn, được mô tả trong
 ZZ0000ZZ.  Đối với phần lớn

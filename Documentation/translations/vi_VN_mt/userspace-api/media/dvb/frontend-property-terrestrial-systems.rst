@@ -22,7 +22,7 @@ Thuộc tính sử dụng trên hệ thống phân phối trên mặt đất
 .. _dvbt-params:
 
 Hệ thống phân phối DVB-T
-=====================
+========================
 
 Các tham số sau hợp lệ cho DVB-T:
 
@@ -61,7 +61,7 @@ cũng có hiệu lực.
 .. _dvbt2-params:
 
 Hệ thống phân phối DVB-T2
-======================
+=========================
 
 Hỗ trợ DVB-T2 hiện đang trong giai đoạn phát triển ban đầu, vì vậy
 mong đợi rằng phần này có thể phát triển và trở nên chi tiết hơn theo thời gian.
@@ -105,7 +105,7 @@ cũng có hiệu lực.
 .. _isdbt:
 
 Hệ thống phân phối ISDB-T
-======================
+=========================
 
 Tiện ích mở rộng ISDB-T/ISDB-Tsb API này sẽ phản ánh tất cả thông tin cần thiết
 để điều chỉnh bất kỳ phần cứng ISDB-T/ISDB-Tsb nào. Tất nhiên có thể một số
@@ -194,7 +194,7 @@ cũng có hiệu lực.
 .. _atsc-params:
 
 Hệ thống phân phối ATSC
-====================
+=======================
 
 Các tham số sau hợp lệ cho ATSC:
 
@@ -219,7 +219,7 @@ cũng có hiệu lực.
 .. _atscmh-params:
 
 Hệ thống phân phối ATSC-MH
-=======================
+==========================
 
 Các tham số sau hợp lệ cho ATSC-MH:
 
@@ -272,7 +272,7 @@ cũng có hiệu lực.
 .. _dtmb-params:
 
 Hệ thống phân phối DTMB
-====================
+=======================
 
 Các tham số sau hợp lệ cho DTMB:
 

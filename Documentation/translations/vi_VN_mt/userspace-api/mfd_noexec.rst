@@ -46,7 +46,7 @@ việc sử dụng các memfd thực thi và của kẻ tấn công [3].
    di chuyển và thực thi MFD không thể thực thi.
 
 Người dùng API
-========
+==============
 ZZ0000ZZ
 
 ZZ0000ZZ
@@ -64,7 +64,7 @@ Lưu ý:
 
 
 Hệ thống:
-========
+=========
 ZZ0000ZZ
 
 pid mới được đặt tên sysctl vm.memfd_noexec có 3 giá trị:

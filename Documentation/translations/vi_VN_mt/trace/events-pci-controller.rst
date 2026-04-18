@@ -17,7 +17,7 @@
 =============================================
 
 Tổng quan
-========
+=========
 Hệ thống theo dõi bộ điều khiển PCI cung cấp các điểm theo dõi để giám sát bộ điều khiển
 thông tin cấp độ cho mục đích gỡ lỗi. Các sự kiện thường hiển thị ở đây:
 
@@ -32,7 +32,7 @@ pcie_ltssm_state_transition
 ---------------------------
 
 Giám sát quá trình chuyển đổi trạng thái PCIe LTSSM bao gồm thông tin trạng thái và tốc độ
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 pcie_ltssm_state_transition "dev: %s trạng thái: %s rate: %s\n"
 

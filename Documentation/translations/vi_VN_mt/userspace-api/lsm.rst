@@ -62,7 +62,7 @@ Hệ thống tập tin Proc cung cấp giá trị này trong ZZ0001ZZ.
 Điều này được hỗ trợ bởi mô-đun bảo mật SELinux.
 
 Giao diện hạt nhân
-================
+==================
 
 Đặt thuộc tính bảo mật của quy trình hiện tại
 -----------------------------------------------
@@ -71,7 +71,7 @@ Giao diện hạt nhân
     :identifiers: sys_lsm_set_self_attr
 
 Nhận các thuộc tính bảo mật được chỉ định của quy trình hiện tại
-------------------------------------------------------------
+----------------------------------------------------------------
 
 .. kernel-doc:: security/lsm_syscalls.c
     :identifiers: sys_lsm_get_self_attr

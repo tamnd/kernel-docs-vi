@@ -90,7 +90,7 @@ các mô-đun hạt nhân được hỗ trợ bởi cơ chế này.
 
 
 Cấu hình cụ thể của mô-đun
------------------------
+--------------------------
 
 Cấu hình kernel Gcov cho các mô-đun cụ thể được mô tả bên dưới:
 
@@ -101,7 +101,7 @@ CONFIG_GCOV_PROFILE_RDS:
 
 
 Tập tin
------
+-------
 
 Hỗ trợ kernel gcov tạo các tệp sau trong debugfs:
 
@@ -142,7 +142,7 @@ mô-đun bằng cách ghi vào tệp dữ liệu của nó hoặc tệp đặt l
 
 
 Máy xây dựng và thử nghiệm riêng biệt
----------------------------------
+-------------------------------------
 
 Cơ sở hạ tầng lược tả hạt nhân gcov được thiết kế để hoạt động vượt trội
 hộp dành cho các thiết lập trong đó hạt nhân được xây dựng và chạy trên cùng một máy. trong
@@ -195,7 +195,7 @@ Thiết lập thư mục ví dụ trên máy xây dựng::
 
 
 Lưu ý về trình biên dịch
------------------
+------------------------
 
 Các công cụ gcov GCC và LLVM không nhất thiết phải tương thích. Sử dụng gcov_ để làm việc với
 Các tệp .gcno và .gcda do GCC tạo và sử dụng llvm-cov_ cho Clang.

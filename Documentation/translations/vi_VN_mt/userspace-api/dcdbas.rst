@@ -17,7 +17,7 @@ Trình điều khiển cơ sở quản lý hệ thống Dell
 ============================================
 
 Tổng quan
-========
+=========
 
 Trình điều khiển cơ sở quản lý hệ thống Dell cung cấp giao diện sysfs cho
 phần mềm quản lý hệ thống như Dell OpenManager để thực hiện hệ thống
@@ -63,7 +63,7 @@ SMI sử dụng trình điều khiển này:
 
 
 Hành động điều khiển máy chủ
-===================
+============================
 
 Dell OpenManager hỗ trợ tính năng điều khiển máy chủ cho phép quản trị viên
 để thực hiện một chu trình cấp nguồn hoặc tắt nguồn hệ thống sau khi hệ điều hành kết thúc
@@ -90,7 +90,7 @@ tắt nguồn hành động điều khiển máy chủ bằng trình điều khi
 
 
 Điều khiển máy chủ Loại SMI
-=====================
+===========================
 
 Bảng sau hiển thị giá trị cần ghi vào Host_control_smi_type tới
 thực hiện chu kỳ nguồn hoặc tắt nguồn hành động điều khiển máy chủ:

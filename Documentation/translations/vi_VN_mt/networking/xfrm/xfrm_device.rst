@@ -23,7 +23,7 @@ Leon Romanovsky <leonro@nvidia.com>
 
 
 Tổng quan
-========
+=========
 
 IPsec là một tính năng hữu ích để bảo mật lưu lượng mạng, nhưng
 chi phí tính toán cao: liên kết 10Gbps có thể dễ dàng bị hạ xuống
@@ -75,7 +75,7 @@ ip x p thêm src 14.0.0.70 dst 14.0.0.52 giảm tải gói thư mục dev eth4 t
 
 
 Lệnh gọi lại để triển khai
-======================
+==========================
 
 ::
 

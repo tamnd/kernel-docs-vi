@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình phát hiện rò rỉ bộ nhớ hạt nhân
-===========================
+=====================================
 
 Kmemleak cung cấp cách phát hiện rò rỉ bộ nhớ kernel có thể xảy ra trong
 tương tự như ZZ0001ZZ,
@@ -23,7 +23,7 @@ Công cụ Valgrind (ZZ0000ZZ) để phát hiện rò rỉ bộ nhớ trong
 các ứng dụng không gian người dùng.
 
 Cách sử dụng
------
+------------
 
 CONFIG_DEBUG_KMEMLEAK trong "Kernel hack" phải được bật. Một hạt nhân
 luồng quét bộ nhớ cứ sau 10 phút (theo mặc định) và in
@@ -91,7 +91,7 @@ Nếu bạn gặp phải các lỗi như "Lỗi khi ghi vào thiết bị xuất
 Đối số không hợp lệ", hãy đảm bảo kmemleak được bật đúng cách.
 
 Thuật toán cơ bản
----------------
+-----------------
 
 Việc phân bổ bộ nhớ thông qua ZZ0000ZZ, ZZ0001ZZ,
 ZZ0002ZZ và
@@ -149,7 +149,7 @@ Sau đó, như thường lệ, bạn sẽ nhận được báo cáo của mình 
 # cat/sys/kernel/gỡ lỗi/kmemleak
 
 Giải phóng các đối tượng nội bộ kmemleak
----------------------------------
+----------------------------------------
 
 Để cho phép truy cập vào các rò rỉ bộ nhớ được phát hiện trước đó sau khi kmemleak bị rò rỉ
 bị người dùng vô hiệu hóa hoặc do lỗi nghiêm trọng, các đối tượng kmemleak nội bộ
@@ -238,7 +238,7 @@ macro hoặc con trỏ được lưu trữ ở vị trí không được kmemlea
 Phân bổ trang và ioremap không được theo dõi.
 
 Kiểm tra bằng kmemleak-test
---------------------------
+---------------------------
 
 Để kiểm tra xem bạn đã thiết lập xong để sử dụng kmemleak chưa, bạn có thể sử dụng kmemleak-test
 module, một mô-đun cố tình làm rò rỉ bộ nhớ. Đặt CONFIG_SAMPLE_KMEMLEAK

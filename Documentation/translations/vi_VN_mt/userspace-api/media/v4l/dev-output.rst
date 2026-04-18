@@ -56,7 +56,7 @@ ZZ0005ZZ ioctls phải được hỗ trợ bởi tất cả video
 các thiết bị đầu ra.
 
 Thỏa thuận định dạng hình ảnh
-========================
+=============================
 
 Đầu ra được xác định bởi các thông số cắt xén và định dạng hình ảnh. các
 trước đây hãy chọn một vùng của hình ảnh video nơi hình ảnh sẽ xuất hiện,

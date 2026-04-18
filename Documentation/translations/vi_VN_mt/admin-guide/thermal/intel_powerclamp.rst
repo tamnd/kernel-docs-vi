@@ -66,7 +66,7 @@ hiển thị về việc đưa CPU ngoại tuyến hoặc điều chỉnh đồn
 
 
 THEORY CỦA OPERATION
-===================
+====================
 
 Tiêm nhàn rỗi
 --------------
@@ -233,7 +233,7 @@ không xâm phạm vào bộ lập lịch hoặc mã lõi IRQ.
 
 
 CPU Trực tuyến/Ngoại tuyến
-------------------
+--------------------------
 Các luồng nhân Per-CPU được khởi động/dừng khi nhận
 thông báo về các hoạt động cắm nóng CPU. Trình điều khiển intel_powerclamp
 theo dõi việc kẹp các luồng nhân, ngay cả sau khi chúng được di chuyển
@@ -266,7 +266,7 @@ tỷ lệ được cập nhật ít thường xuyên hơn nhiều so với việ
 tần số.
 
 Khả năng mở rộng
------------
+----------------
 Các thử nghiệm cũng cho thấy sự khác biệt nhỏ nhưng có thể đo lường được giữa 4P/8P.
 Hệ thống Ivy Bridge và máy chủ Westmere 80P có tỷ lệ nhàn rỗi dưới 50%.
 Cần phải bồi thường nhiều hơn cho Westmere với cùng số tiền
@@ -280,7 +280,7 @@ bộ đếm được tổng hợp trên mỗi luồng đếm CPU được sinh r
 CPU).
 
 Cách sử dụng và giao diện
-====================
+=========================
 Trình điều khiển powerclamp được đăng ký vào lớp nhiệt chung dưới dạng
 thiết bị làm mát. Hiện tại, nó không bị ràng buộc với bất kỳ vùng nhiệt nào::
 

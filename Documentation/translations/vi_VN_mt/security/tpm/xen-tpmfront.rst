@@ -42,7 +42,7 @@ IBM và tập đoàn Intel.
 
 
 Tổng quan về thiết kế
----------------
+---------------------
 
 Kiến trúc của vTPM được mô tả dưới đây:
 

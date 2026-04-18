@@ -264,7 +264,7 @@ Các công cụ để kiểm tra dump sẽ giống như công cụ
 được sử dụng cho kdump.
 
 Cách bật kết xuất được hỗ trợ bởi chương trình cơ sở (FADump):
-----------------------------------------------
+--------------------------------------------------------------
 
 1. Đặt tùy chọn cấu hình CONFIG_FA_DUMP=y và xây dựng kernel.
 2. Khởi động vào kernel linux với tùy chọn dòng lệnh kernel 'fadump=on'.

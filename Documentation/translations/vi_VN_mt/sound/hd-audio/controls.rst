@@ -47,7 +47,7 @@ Khi có cả hai giắc cắm tai nghe và đầu ra, nó sẽ mang lại
 
 
 Bộ giải mã IDT/Sigmatel
--------------------
+-----------------------
 
 Vòng lặp tương tự
   Điều khiển này cho phép/vô hiệu hóa mạch vòng lặp tương tự.  Cái này
@@ -74,7 +74,7 @@ Chế độ Jack Mic, Chế độ Jack Line, v.v.
 
 
 Bộ giải mã VIA
-----------
+--------------
 
 Thông minh 5.1
   Một điều khiển enum để phân công lại các giắc cắm đa I/O cho đầu ra âm thanh vòm.
@@ -120,7 +120,7 @@ Chế độ tự động tắt tiếng
 
 
 Bộ giải mã tương tự
---------------
+-------------------
 
 Chế độ kênh
   Đây là điều khiển enum để thay đổi thiết lập kênh vòm,

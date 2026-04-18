@@ -70,7 +70,7 @@ gpio-handle-set-line-values-ioctl.rst.
 Lần đầu tiên được thêm vào trong 5.5.
 
 Giá trị trả về
-============
+==============
 
 Về thành công 0.
 

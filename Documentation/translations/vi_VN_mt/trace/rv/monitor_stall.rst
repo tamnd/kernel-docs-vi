@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Màn hình gian hàng
-=============
+==================
 
 - Tên: gian hàng - giám sát tác vụ bị đình trệ
 - Loại: máy tự động lai theo nhiệm vụ
@@ -53,5 +53,5 @@ Ngưỡng có thể được cấu hình như một tham số bằng cách khở
 ZZ0001ZZ.
 
 Đặc điểm kỹ thuật
--------------
+-----------------
 Tệp Graphviz Dot trong tools/verification/models/stall.dot

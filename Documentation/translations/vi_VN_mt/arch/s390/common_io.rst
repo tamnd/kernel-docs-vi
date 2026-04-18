@@ -66,7 +66,7 @@ Theo mặc định, không có thiết bị nào bị bỏ qua.
 
 
 /mục nhập thủ tục
--------------
+-----------------
 
 * /proc/cio_ignore
 

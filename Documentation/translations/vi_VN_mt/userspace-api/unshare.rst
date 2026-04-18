@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 hủy chia sẻ cuộc gọi hệ thống
-===================
+=============================
 
 Tài liệu này mô tả lệnh gọi hệ thống mới, unshare(). Tài liệu
 cung cấp cái nhìn tổng quan về tính năng, tại sao nó cần thiết, làm thế nào nó có thể
@@ -21,7 +21,7 @@ cung cấp cái nhìn tổng quan về tính năng, tại sao nó cần thiết,
 làm thế nào nó có thể được kiểm tra.
 
 Nhật ký thay đổi
-----------
+----------------
 phiên bản 0.1 Tài liệu ban đầu, Janak Desai (janak@us.ibm.com), 11 tháng 1 năm 2006
 
 Nội dung
@@ -37,7 +37,7 @@ Nội dung
 	9) Công việc tương lai
 
 1) Tổng quan
------------
+------------
 
 Hầu hết các nhân của hệ điều hành cũ đều hỗ trợ tính năng trừu tượng hóa các luồng
 dưới dạng nhiều bối cảnh thực thi trong một quy trình. Những hạt nhân này cung cấp
@@ -75,7 +75,7 @@ từ không gian tên được chia sẻ mặc định. Sau đây liệt kê hai
 nơi có thể sử dụng unshare().
 
 2.1 Không gian tên ngữ cảnh cho mỗi bảo mật
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 unshare() có thể được sử dụng để triển khai các thư mục đa tức thời bằng cách sử dụng
 cơ chế không gian tên cho mỗi tiến trình của kernel. Thư mục đa nghĩa,
@@ -104,7 +104,7 @@ khả năng hủy chia sẻ() sau khi quá trình được tạo có thể rất
 hữu ích.
 
 3) Chi phí
--------
+----------
 
 Để không trùng lặp mã và xử lý thực tế là unshare()
 hoạt động trên một tác vụ đang hoạt động (ngược lại với việc sao chép/phân nhánh làm việc trên một tác vụ mới
@@ -243,7 +243,7 @@ mặt khác thực hiện như sau:
 4) Phát hành một cách thích hợp các cấu trúc ngữ cảnh, chia sẻ, cũ hơn.
 
 7) Thiết kế cấp thấp
--------------------
+--------------------
 
 Việc thực hiện unshare() có thể được nhóm lại thành 4 nhóm khác nhau sau đây:
 các mục:
@@ -271,7 +271,7 @@ cấu trúc trùng lặp với cấu trúc nhiệm vụ mà
 chức năng sao chép đã được gọi.
 
 7.2) chức năng dịch vụ cuộc gọi hệ thống unshare()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Kiểm tra cờ
 	 Buộc cờ ngụ ý. Nếu CLONE_THREAD được đặt bắt buộc CLONE_VM.
@@ -302,13 +302,13 @@ hàm dup_* để phân bổ và sao chép cấu trúc và trả về
 một con trỏ tới nó.
 
 7.4) Cuối cùng
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 Sửa đổi mã cụ thể của kiến trúc một cách thích hợp để đăng ký
 cuộc gọi hệ thống mới.
 
 8) Đặc điểm kỹ thuật kiểm tra
----------------------
+-----------------------------
 
 Việc kiểm tra unshare() sẽ kiểm tra những điều sau:
 
@@ -334,7 +334,7 @@ Việc kiểm tra unshare() sẽ kiểm tra những điều sau:
      rằng không có lỗi hoặc bị treo.
 
 9) Công việc tương lai
---------------
+----------------------
 
 Việc triển khai unshare() hiện tại không cho phép hủy chia sẻ
 tín hiệu và bộ xử lý tín hiệu. Tín hiệu ban đầu rất phức tạp và

@@ -24,7 +24,7 @@ CPU Quản lý thời gian nhàn rỗi
 
 
 Hệ thống con quản lý thời gian nhàn rỗi CPU
-==================================
+===========================================
 
 Mỗi khi một trong các CPU logic trong hệ thống (các thực thể xuất hiện
 tìm nạp và thực hiện các hướng dẫn: luồng phần cứng, nếu có hoặc bộ xử lý
@@ -51,7 +51,7 @@ ZZ0003ZZ cung cấp một khuôn khổ chung cho chúng.
 
 
 CPU Bộ điều chỉnh thời gian nhàn rỗi
-=======================
+====================================
 
 Bộ điều chỉnh thời gian nhàn rỗi CPU (ZZ0000ZZ) là một gói mã chính sách được gọi khi
 một trong những CPU logic trong hệ thống không hoạt động.  Vai trò của nó là
@@ -169,7 +169,7 @@ chức năng.
 
 
 Trình điều khiển quản lý thời gian nhàn rỗi CPU
-================================
+===============================================
 
 Trình điều khiển quản lý thời gian nhàn rỗi CPU (ZZ0000ZZ) cung cấp giao diện giữa
 các bộ phận khác của ZZ0001ZZ và phần cứng.

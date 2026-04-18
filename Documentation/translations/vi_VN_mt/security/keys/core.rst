@@ -34,7 +34,7 @@ Tài liệu này có các phần sau:
 
 
 Tổng quan chính
-============
+===============
 
 Trong ngữ cảnh này, các khóa đại diện cho các đơn vị dữ liệu mật mã, xác thực
 mã thông báo, dây móc khóa, v.v.. Chúng được thể hiện trong kernel bằng khóa struct.
@@ -121,7 +121,7 @@ phần "Thu gom rác".
 
 
 Tổng quan về dịch vụ chính
-====================
+==========================
 
 Dịch vụ mã khóa cung cấp một số tính năng ngoài khóa:
 
@@ -365,7 +365,7 @@ tập tin thích hợp.
 
 
 Giao diện cuộc gọi hệ thống không gian người dùng
-===============================
+=================================================
 
 Không gian người dùng có thể thao tác trực tiếp với các khóa thông qua ba lệnh gọi tổng hợp mới: add_key,
 request_key và keyctl. Cái sau cung cấp một số chức năng cho
@@ -1102,7 +1102,7 @@ Nếu khóa đã xem bị xóa, thông báo watch_notification cơ bản sẽ đ
 
 
 Dịch vụ hạt nhân
-===============
+================
 
 Các dịch vụ kernel để quản lý khóa khá đơn giản để xử lý. Họ có thể
 được chia thành hai khu vực: khóa và loại khóa.
@@ -1340,7 +1340,7 @@ tìm kiếm một chuỗi khóa cụ thể, vì vậy việc sử dụng chuỗi
 
 
 Lưu ý khi truy cập nội dung tải trọng
-===================================
+=====================================
 
 Tải trọng đơn giản nhất chỉ là dữ liệu được lưu trữ trực tiếp trong key->payload.  Trong này
 trong trường hợp này, không cần phải sử dụng RCU hoặc khóa khi truy cập vào tải trọng.

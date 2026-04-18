@@ -41,7 +41,7 @@ Nhược điểm:
 
 
 Làm thế nào để sử dụng nó?
-==============
+==========================
 
 Việc chuyển đổi chế độ được thực hiện bằng tham số khởi động vga=....  Đọc
 Tài liệu/admin-guide/svga.rst để biết chi tiết.
@@ -108,7 +108,7 @@ với bảng điều khiển bị hỏng (và vesafb không thể làm gì về 
 
 
 Tốc độ làm mới
-=============
+==============
 
 Không có cách nào để thay đổi chế độ video vesafb và/hoặc thời gian sau
 khởi động linux.  Nếu bạn không hài lòng với tốc độ làm mới 60 Hz, bạn
@@ -179,10 +179,10 @@ mtrr:n Thiết lập các thanh ghi phạm vi loại bộ nhớ cho bộ đệm 
 
 Nếu bạn thấy thông tin sau trong dmesg, hãy chọn loại phù hợp với
           cái cũ. Trong ví dụ này, hãy sử dụng "mtrr:2".
-...
+........................................................
 mtrr: gõ không khớp cho e0000000,8000000 cũ: viết lại mới:
 	  kết hợp viết
-...
+...............
 
 nomtrr vô hiệu hóa mtrr
 

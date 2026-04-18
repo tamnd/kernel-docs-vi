@@ -17,7 +17,7 @@ Tài liệu driver cho điện thoại Yealink USB-p1k
 ====================================================
 
 Trạng thái
-======
+==========
 
 P1k là điện thoại USB 1.1 tương đối rẻ với:
 
@@ -33,7 +33,7 @@ P1k là điện thoại USB 1.1 tương đối rẻ với:
 
 
 tính năng bàn phím
-=================
+==================
 
 Ánh xạ hiện tại trong kernel được cung cấp bởi map_p1k_to_key
 chức năng::
@@ -57,7 +57,7 @@ trên nút.
 
 
 Tính năng LCD
-============
+=============
 
 LCD được chia và sắp xếp dưới dạng màn hình 3 dòng::
 
@@ -99,7 +99,7 @@ Biểu tượng hoặc chữ tượng hình:
 
 
 Sử dụng trình điều khiển
-============
+========================
 
 Đối với vùng người dùng, các giao diện sau có sẵn bằng giao diện sysfs ::
 
@@ -173,7 +173,7 @@ mèo ./get_icons
 
 
 hiện/ẩn biểu tượng
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 Việc ghi vào các tệp này sẽ cập nhật trạng thái của biểu tượng.
 Mỗi lần chỉ có thể cập nhật một biểu tượng.
@@ -197,7 +197,7 @@ echo -n RINGTONE > /sys/..../show_icon
 
 
 Tính năng âm thanh
-==============
+==================
 
 Âm thanh được hỗ trợ bởi trình điều khiển ALSA: snd_usb_audio
 

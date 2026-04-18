@@ -21,7 +21,7 @@ Tài liệu cắm và chạy Linux
 
 
 Tổng quan
---------
+---------
 
 Plug and Play cung cấp phương tiện phát hiện và thiết lập tài nguyên cho các thiết bị cũ hoặc
 nếu không thì các thiết bị không thể cấu hình được.  Lớp Plug and Play của Linux cung cấp những 
@@ -29,7 +29,7 @@ dịch vụ cho các trình điều khiển tương thích.
 
 
 Giao diện người dùng
-------------------
+--------------------
 
 Giao diện người dùng Plug and Play của Linux cung cấp phương tiện để kích hoạt các thiết bị PnP
 dành cho trình điều khiển cấp độ người dùng và cũ không hỗ trợ Linux Plug and Play.  các 
@@ -42,7 +42,7 @@ thư mục của thiết bị:
 - tài nguyên - hiển thị tài nguyên hiện được phân bổ và cho phép thay đổi tài nguyên
 
 kích hoạt một thiết bị
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -51,7 +51,7 @@ kích hoạt một thiết bị
 điều này sẽ gọi hệ thống cấu hình tài nguyên tự động để kích hoạt thiết bị
 
 kích hoạt thiết bị theo cách thủ công
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -63,7 +63,7 @@ kích hoạt thiết bị theo cách thủ công
 		 năng động = bây giờ
 
 vô hiệu hóa một thiết bị
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -206,12 +206,12 @@ pnp_add_id
 
 
 Trình điều khiển Plug and Play Linux
----------------------------
+------------------------------------
 
 Phần này chứa thông tin dành cho các nhà phát triển trình điều khiển Linux PnP.
 
 Con đường mới
-^^^^^^^^^^^
+^^^^^^^^^^^^^
 
 1. trước tiên hãy lập danh sách EISA IDS được hỗ trợ
 
@@ -285,7 +285,7 @@ int tĩnh __init serial8250_pnp_init(void)
 	}
 
 Con đường cũ
-^^^^^^^^^^^
+^^^^^^^^^^^^
 
 Một loạt các chức năng tương thích đã được tạo ra để giúp bạn dễ dàng chuyển đổi
 Trình điều khiển ISAPNP.  Chúng chỉ nên phục vụ như một giải pháp tạm thời.

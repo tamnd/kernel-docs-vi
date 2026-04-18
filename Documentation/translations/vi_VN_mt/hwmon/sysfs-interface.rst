@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tiêu chuẩn đặt tên và định dạng dữ liệu cho file sysfs
-================================================
+======================================================
 
 Thư viện libsensors cung cấp giao diện cho dữ liệu cảm biến thô
 thông qua giao diện sysfs. Kể từ lm-sensors 3.0.0, libsensors là
@@ -80,7 +80,7 @@ giá trị mong muốn phải được viết, lưu ý rằng các chuỗi khôn
 phần "giải thích ghi thuộc tính sysfs" ở cuối tệp này.
 
 Quyền truy cập thuộc tính
-----------------
+-------------------------
 
 Thuộc tính sysfs giám sát phần cứng được hiển thị theo không gian người dùng không hạn chế
 ứng dụng. Vì lý do này, tất cả các thuộc tính ABI tiêu chuẩn sẽ là thế giới

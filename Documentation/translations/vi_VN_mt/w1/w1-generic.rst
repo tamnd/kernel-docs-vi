@@ -82,7 +82,7 @@ Bạn có thể gọi các phương thức trên bằng cách đọc các tệp 
 
 
 Trình điều khiển chính w1 cần triển khai những gì?
------------------------------------------------
+--------------------------------------------------
 
 Trình điều khiển cho bus master w1 phải cung cấp tối thiểu hai chức năng.
 
@@ -97,7 +97,7 @@ Xem định nghĩa struct w1_bus_master trong w1.h để biết chi tiết.
 
 
 giao diện sysfs chính của w1
--------------------------
+----------------------------
 
 ====================================================================================
 <xx-xxxxxxxxxxxx> Thư mục của thiết bị được tìm thấy. Định dạng là

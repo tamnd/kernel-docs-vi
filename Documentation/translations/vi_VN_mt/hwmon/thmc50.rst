@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân thmc50
-=====================
+================================
 
 Chip được hỗ trợ:
 
@@ -80,7 +80,7 @@ chế độ có thêm nhiệt độ từ xa với tham số adm1022_temp3.
 Triệu chứng điển hình của việc cài đặt sai là quạt bị buộc phải chạy hết tốc độ.
 
 Tính năng trình điều khiển
----------------
+--------------------------
 
 Trình điều khiển cung cấp tới ba nhiệt độ:
 

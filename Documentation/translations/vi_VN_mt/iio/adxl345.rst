@@ -19,7 +19,7 @@ Trình điều khiển ADXL345
 Trình điều khiển này hỗ trợ ADXL345/375 của Thiết bị Analog trên bus SPI/I2C.
 
 1. Thiết bị được hỗ trợ
-====================
+=======================
 
 * ZZ0000ZZ
 * ZZ0001ZZ
@@ -28,7 +28,7 @@ ADXL345 là máy đo gia tốc 3 trục, công suất thấp, có thể lựa ch
 các phạm vi đo. ADXL345 hỗ trợ các phạm vi ±2 g, ±4 g, ±8 g và ±16 g.
 
 2. Thuộc tính thiết bị
-====================
+======================
 
 Mỗi thiết bị IIO, có một thư mục thiết bị trong ZZ0000ZZ,
 trong đó X là chỉ số IIO của thiết bị. Dưới các thư mục này chứa một bộ
@@ -84,7 +84,7 @@ ZZ0001ZZ Mét trên giây bình phương |
 +--------------------------------------+-----------------------------+
 
 Sự kiện cảm biến
--------------
+----------------
 
 Các sự kiện IIO cụ thể được kích hoạt bởi các ngắt tương ứng của chúng. Cảm biến
 trình điều khiển không hỗ trợ hoặc không hỗ trợ một dòng ngắt hoạt động (INT), có thể lựa chọn
@@ -391,7 +391,7 @@ Hoạt động và không hoạt động thuộc về nhau và biểu thị các
         ...
 
 3. Bộ đệm thiết bị
-=================
+==================
 
 Trình điều khiển này hỗ trợ bộ đệm IIO.
 

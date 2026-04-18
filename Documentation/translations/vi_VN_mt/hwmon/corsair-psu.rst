@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân corsair-psu
-=========================
+=====================================
 
 Các thiết bị được hỗ trợ:
 
@@ -56,7 +56,7 @@ mức sử dụng năng lượng và 4 cảm biến cho mức hiện tại và t
 như thời gian hoạt động.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =====================================================================================
 curr1_input Tổng mức sử dụng hiện tại
@@ -90,7 +90,7 @@ temp2_crit Giá trị tới hạn tối đa của nhiệt độ của trường 
 =====================================================================================
 
 Ghi chú sử dụng
------------
+---------------
 
 Nó là thiết bị USB HID nên được tự động phát hiện, hỗ trợ trao đổi nóng và
 một số thiết bị cùng một lúc.

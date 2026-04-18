@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân aquacomputer-d5next
-=================================
+=============================================
 
 Các thiết bị được hỗ trợ:
 
@@ -96,13 +96,13 @@ Tùy thuộc vào thiết bị, không phải tất cả các mục sysfs và de
 Việc ghi vào cảm biến nhiệt độ ảo hiện không được hỗ trợ.
 
 ghi chú sử dụng
------------
+---------------
 
 Các thiết bị giao tiếp qua báo cáo HID. Trình điều khiển được tải tự động bởi
 kernel và hỗ trợ hotswapping.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =====================================================================================
 temp[1-20]_input Cảm biến nhiệt độ vật lý/ảo (tính bằng mili độ C)

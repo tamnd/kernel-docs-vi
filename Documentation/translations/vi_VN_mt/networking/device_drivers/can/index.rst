@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển thiết bị Mạng khu vực điều khiển (CAN)
-============================================
+=======================================================
 
 Trình điều khiển thiết bị cho thiết bị CAN.
 

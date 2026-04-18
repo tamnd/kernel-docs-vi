@@ -17,7 +17,7 @@ Bộ điều chỉnh bộ điều chỉnh cấp phát điện
 =========================================
 
 Điểm chuyến đi
------------
+--------------
 
 Bộ điều tốc hoạt động tối ưu với hai điểm ngắt thụ động sau:
 
@@ -31,7 +31,7 @@ Bộ điều tốc hoạt động tối ưu với hai điểm ngắt thụ độ
     vùng nhiệt.
 
 Bộ điều khiển PID
---------------
+-----------------
 
 Bộ điều chỉnh phân bổ quyền lực thực hiện một
 Bộ điều khiển đạo hàm tỉ lệ-tích phân (bộ điều khiển PID) với
@@ -192,7 +192,7 @@ ZZ0000ZZ cấu hình hằng số thuật ngữ đạo hàm của vòng lặp PID
 nên để nó làm mặc định: 0.
 
 Công suất thiết bị làm mát API
-========================
+==============================
 
 Các thiết bị làm mát được điều khiển bởi bộ điều tốc này phải cung cấp thêm
 "quyền lực" API trong ZZ0000ZZ của họ.  Nó bao gồm ba hoạt động:
@@ -257,7 +257,7 @@ phụ thuộc vào các yếu tố bên ngoài có thể thay đổi nên chức
 chuyển đổi tốt nhất dựa trên "hoàn cảnh hiện tại".
 
 Trọng lượng thiết bị làm mát
-----------------------
+----------------------------
 
 Trọng lượng là một cơ chế để thiên vị sự phân bổ giữa các hệ thống làm mát
 thiết bị.  Chúng thể hiện hiệu suất năng lượng tương đối của các loại khác nhau
@@ -287,7 +287,7 @@ nhanh hơn tích tắc khung nhiệt thông thường (do bị gián đoạn tro
 ví dụ) vì nó sẽ phản ứng thái quá.
 
 Yêu cầu về mô hình năng lượng
-=========================
+=============================
 
 Một điều quan trọng khác là thang đo nhất quán của các giá trị công suất
 được cung cấp bởi các thiết bị làm mát. Tất cả các thiết bị làm mát trong một

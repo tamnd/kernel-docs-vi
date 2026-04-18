@@ -74,6 +74,6 @@ Thống kê ISP
 Hỗ trợ định dạng thống kê chung chưa được triển khai trong Video4Linux2.
 
 Các loại dữ liệu uAPI V4L2 ISP
-========================
+==============================
 
 .. kernel-doc:: include/uapi/linux/media/v4l2-isp.h

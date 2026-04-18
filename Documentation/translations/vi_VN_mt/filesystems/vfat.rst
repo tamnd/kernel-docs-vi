@@ -274,7 +274,7 @@ ZZ0000ZZ
 các thử nghiệm về tính năng mới hoặc tính năng chưa được thử nghiệm sẽ được đánh giá cao.
 
 NOTES TRÊN THE STRUCTURE CỦA THE VFAT FILESYSTEM
-=============================================
+================================================
 Tài liệu này được cung cấp bởi Galen C. Hunt gchunt@cs.rochester.edu và
 được chú thích nhẹ nhàng bởi Gordon Chaffee.
 

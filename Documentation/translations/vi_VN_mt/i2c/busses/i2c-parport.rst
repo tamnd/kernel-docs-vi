@@ -53,7 +53,7 @@ Hỗ trợ cảnh báo SMBus có sẵn trên các bộ điều hợp có dòng n
 
 
 Xây dựng bộ chuyển đổi của riêng bạn
--------------------------
+------------------------------------
 
 Nếu bạn muốn xây dựng bộ điều hợp cổng song song i2c của riêng mình, đây là
 một lược đồ điện tử mẫu (tín dụng thuộc về Sylvain Munaut)::
@@ -154,7 +154,7 @@ bộ điều hợp làm được, do đó bạn thậm chí sẽ không phải t
 
 
 Trình điều khiển tương tự (nhưng khác)
--------------------------------
+--------------------------------------
 
 Trình điều khiển này là NOT giống như trình điều khiển i2c-pport được tìm thấy trong i2c
 gói. Trình điều khiển i2c-pport sử dụng các tính năng cổng song song hiện đại để
@@ -191,7 +191,7 @@ nhiều hơn nữa, sử dụng /dev/velleman.
 
 
 Bộ chuyển đổi cổng song song One For All JP1
--------------------------------------
+--------------------------------------------
 
 Dự án JP1 xoay quanh một bộ điều khiển từ xa hiển thị
 bus I2C cấu hình bên trong EEPROM của họ hoạt động thông qua 6 chân

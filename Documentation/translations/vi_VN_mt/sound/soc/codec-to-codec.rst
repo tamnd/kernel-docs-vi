@@ -18,7 +18,7 @@ Tạo codec sang codec dai link cho ALSA dapm
 
 Hầu hết luồng âm thanh luôn từ CPU đến codec để hệ thống của bạn
 sẽ trông như dưới đây:
-::
+::::::::::::::::::::::
 
 --------- ---------
   ZZ0000ZZ đại ZZ0001ZZ
@@ -27,7 +27,7 @@ sẽ trông như dưới đây:
    --------- ---------
 
 Trong trường hợp hệ thống của bạn trông như dưới đây:
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ---------
                       ZZ0000ZZ
@@ -60,7 +60,7 @@ nên sử dụng kết nối
 
 dai_link của bạn sẽ xuất hiện như bên dưới trong máy của bạn
 tập tin:
-::
+::::::::
 
 /*
   * luồng pcm này chỉ hỗ trợ 24 bit, 2 kênh và

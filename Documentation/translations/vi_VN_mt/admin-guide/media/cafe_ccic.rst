@@ -40,7 +40,7 @@ Cảm biến được biết là hoạt động với bộ điều khiển này 
 Tiện ích "xawtv" cũng hoạt động; gqcam thì không, không rõ lý do.
 
 Tùy chọn thời gian tải
------------------
+----------------------
 
 Có một số tùy chọn về thời gian tải, hầu hết có thể thay đổi sau
 cũng tải qua sysfs:

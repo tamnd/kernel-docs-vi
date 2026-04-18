@@ -17,7 +17,7 @@ Phần gửi GuC I915/Phần lập lịch DRM
 =============================================
 
 Kế hoạch thượng nguồn
-=============
+=====================
 Đối với kế hoạch tổng thể về việc gửi GuC và tích hợp thượng nguồn
 i915 với bộ lập lịch DRM là:
 
@@ -95,7 +95,7 @@ băng tần được dành riêng cho kernel. Điều này phù hợp với mứ
 cấp độ quá.
 
 Thông số tham khảo:
-----------------
+-------------------
 * ZZ0000ZZ
 * ZZ0001ZZ
 * ZZ0002ZZ
@@ -137,7 +137,7 @@ phiên bản logic đã được trả về và một trường mới,
 drm_i915_engine_info.logic_instance, trả về phiên bản logic.
 
 Tiện ích mở rộng 'set_parallel' để định cấu hình ngữ cảnh cho việc gửi song song
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Tiện ích mở rộng 'set_parallel' định cấu hình một vị trí để gửi song song N BB.
 Đây là bước thiết lập phải được gọi trước khi sử dụng bất kỳ ngữ cảnh nào. Xem
 I915_CONTEXT_ENGINES_EXT_LOAD_BALANCE hoặc I915_CONTEXT_ENGINES_EXT_BOND cho

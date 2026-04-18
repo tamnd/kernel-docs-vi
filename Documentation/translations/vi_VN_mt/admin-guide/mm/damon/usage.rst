@@ -264,7 +264,7 @@ tệp ZZ0015ZZ.
 .. _sysfs_targets:
 
 bối cảnh/<N>/mục tiêu/
----------------------
+----------------------
 
 Ban đầu, thư mục này chỉ có một tệp là ZZ0000ZZ.  Viết một
 số (ZZ0001ZZ) vào file sẽ tạo số lượng thư mục con có tên ZZ0002ZZ
@@ -273,7 +273,7 @@ tới ZZ0003ZZ.  Mỗi thư mục đại diện cho từng mục tiêu giám sá
 .. _sysfs_target:
 
 mục tiêu/<N>/
-------------
+-------------
 
 Trong mỗi thư mục đích, hai tệp (ZZ0000ZZ và ZZ0001ZZ)
 và một thư mục (ZZ0002ZZ) tồn tại.
@@ -292,7 +292,7 @@ một lần nữa, để chúng thể hiện chính xác mảng mục tiêu nộ
 .. _sysfs_regions:
 
 mục tiêu/<N>/khu vực
--------------------
+--------------------
 
 Trong trường hợp bộ hoạt động giám sát ZZ0001ZZ hoặc ZZ0002ZZ, người dùng được
 cần thiết để thiết lập phạm vi địa chỉ mục tiêu giám sát.  Trong trường hợp ZZ0003ZZ
@@ -338,7 +338,7 @@ tới ZZ0003ZZ.  Mỗi thư mục đại diện cho mỗi sơ đồ hoạt độ
 .. _sysfs_scheme:
 
 kế hoạch/<N>/
-------------
+-------------
 
 Trong mỗi thư mục lược đồ, tám thư mục (ZZ0000ZZ, ZZ0001ZZ,
 ZZ0002ZZ, ZZ0003ZZ, ZZ0004ZZ, ZZ0005ZZ, ZZ0006ZZ,
@@ -373,7 +373,7 @@ và ZZ0012ZZ tạo thành một khoảng khép kín.
 .. _sysfs_quotas:
 
 kế hoạch/<N>/hạn ngạch/
--------------------
+-----------------------
 
 Thư mục dành cho ZZ0000ZZ đã cho
 Sơ đồ hoạt động dựa trên DAMON.
@@ -417,7 +417,7 @@ Thư mục ZZ0005ZZ.
 .. _sysfs_schemes_quota_goals:
 
 kế hoạch/<N>/hạn ngạch/mục tiêu/
--------------------------
+--------------------------------
 
 Thư mục dành cho ZZ0000ZZ của hoạt động dựa trên DAMON đã cho
 kế hoạch.
@@ -593,7 +593,7 @@ cụ thể là trong trường hợp sử dụng sau này, người dùng có th
 .. _sysfs_schemes_tried_region:
 
 đã thử_khu vực/<N>/
-------------------
+-------------------
 
 Trong mỗi thư mục vùng, bạn sẽ tìm thấy năm tệp (ZZ0000ZZ, ZZ0001ZZ,
 ZZ0002ZZ, ZZ0003ZZ và ZZ0004ZZ).  Việc đọc các tập tin sẽ

@@ -19,7 +19,7 @@
 .. _panthor-usage-stats:
 
 Triển khai thống kê sử dụng máy khách Panthor DRM
-==============================================
+=================================================
 
 Trình điều khiển drm/Panthor triển khai thông số thống kê sử dụng máy khách DRM như
 được ghi lại trong ZZ0000ZZ.

@@ -56,7 +56,7 @@ $ bridge vlan add dev enp8s0f0 vid 3 pvid
 $ bridge vlan add dev enp8s0f0 vid 3 chưa được gắn thẻ
 
 Chức năng con
-===========
+=============
 
 Chức năng con được sinh ra trên E-switch chỉ được tạo bằng devlink
 thiết bị và theo mặc định tất cả các thiết bị phụ trợ SF đều bị tắt.
@@ -168,7 +168,7 @@ $ cổng devlink hiển thị pci/0000:06:00.0/32768
 $ cổng devlink del pci/0000:06:00.0/32768
 
 Thuộc tính chức năng
-===================
+====================
 
 Trình điều khiển mlx5 cung cấp cơ chế thiết lập các thuộc tính chức năng PCI VF/SF trong
 một cách thống nhất cho SmartNIC và không phải SmartNIC.
@@ -180,13 +180,13 @@ Các thuộc tính chức năng cổng phải được đặt trước khi PCI V
 người lái xe.
 
 Thiết lập địa chỉ MAC
------------------
+---------------------
 
 Trình điều khiển mlx5 hỗ trợ chức năng cổng devlink cơ chế attr để thiết lập MAC
 địa chỉ. (tham khảo Tài liệu/mạng/devlink/devlink-port.rst)
 
 Thiết lập khả năng RoCE
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 Không phải tất cả các thiết bị/SF mlx5 PCI đều yêu cầu khả năng RoCE.
 
 Khi khả năng RoCE bị vô hiệu hóa, nó sẽ tiết kiệm được 1 Mbyte bộ nhớ hệ thống cho mỗi
@@ -196,7 +196,7 @@ Trình điều khiển mlx5 hỗ trợ chức năng cổng devlink cơ chế att
 khả năng. (tham khảo Tài liệu/mạng/devlink/devlink-port.rst)
 
 thiết lập khả năng di chuyển
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Người dùng muốn VF mlx5 PCI có thể thực hiện di chuyển trực tiếp cần phải
 kích hoạt rõ ràng khả năng di chuyển VF.
 
@@ -204,7 +204,7 @@ Trình điều khiển mlx5 hỗ trợ chức năng cổng devlink cơ chế att
 khả năng. (tham khảo Tài liệu/mạng/devlink/devlink-port.rst)
 
 Thiết lập khả năng mã hóa IPsec
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Người dùng muốn VF mlx5 PCI có thể thực hiện việc giảm tải mật mã IPsec cần
 để kích hoạt rõ ràng khả năng VF ipsec_crypto. Kích hoạt khả năng IPsec
 dành cho VF được hỗ trợ bắt đầu với các thiết bị ConnectX6dx trở lên. Khi VF có
@@ -224,7 +224,7 @@ Trình điều khiển mlx5 hỗ trợ chức năng cổng devlink cơ chế att
 khả năng. (tham khảo Tài liệu/mạng/devlink/devlink-port.rst)
 
 Thiết lập trạng thái SF
---------------
+-----------------------
 
 Để sử dụng SF, người dùng phải kích hoạt SF bằng trạng thái chức năng SF
 thuộc tính.

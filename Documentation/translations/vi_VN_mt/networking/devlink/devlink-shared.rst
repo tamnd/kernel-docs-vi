@@ -17,7 +17,7 @@ Phiên bản dùng chung Devlink
 ============================
 
 Tổng quan
-========
+=========
 
 Các phiên bản liên kết phát triển được chia sẻ cho phép nhiều chức năng vật lý (PF) trên cùng một
 chip để chia sẻ một phiên bản liên kết phát triển cho các hoạt động trên toàn chip.
@@ -42,7 +42,7 @@ Thực hiện
 ==============
 
 Ngành kiến ​​​​trúc
-------------
+-------------------
 
 Việc thực hiện sử dụng:
 
@@ -75,7 +75,7 @@ Luồng khởi tạo
    ZZ0000ZZ trước khi đăng ký phiên bản liên kết nhà phát triển PF
 
 Luồng dọn dẹp
-------------
+-------------
 
 1. ZZ0001ZZ khi loại bỏ PF
 2. ZZ0002ZZ ZZ0000ZZ để giải phóng tham chiếu (giảm số lượng tham chiếu)

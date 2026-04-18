@@ -175,7 +175,7 @@ uClibc sử dụng điều này để tăng tốc malloc() và ELF-FDPIC binfmt 
 
 
 Bộ nhớ chia sẻ giữa các quá trình
-==========================
+=================================
 
 Cả bộ nhớ chia sẻ SYSV IPC SHM và bộ nhớ chia sẻ POSIX đều được hỗ trợ trong NOMMU
 chế độ.  Cái trước thông qua cơ chế thông thường, cái sau thông qua các tập tin được tạo
@@ -192,7 +192,7 @@ hỗ trợ futexes (chẳng hạn như ánh xạ chardev I/O).
 
 
 Sơ đồ bản đồ No-MMU
-=============
+===================
 
 Hàm mremap() được hỗ trợ một phần.  Nó có thể thay đổi kích thước của một
 ánh xạ và có thể di chuyển nó [#]_ nếu MREMAP_MAYMOVE được chỉ định và nếu kích thước mới
@@ -214,7 +214,7 @@ hành động trên một bản đồ hoàn chỉnh.
 
 
 Cung cấp hỗ trợ thiết bị nhân vật có thể chia sẻ
-============================================
+================================================
 
 Để cung cấp hỗ trợ thiết bị ký tự có thể chia sẻ, trình điều khiển phải cung cấp một
 hoạt động file->f_op->get_unmapped_area(). Các thói quen mmap() sẽ gọi cái này
@@ -259,7 +259,7 @@ sao chép ánh xạ khác.
 
 
 Cung cấp hỗ trợ tập tin dựa trên bộ nhớ có thể chia sẻ
-==============================================
+======================================================
 
 Việc cung cấp ánh xạ chia sẻ trên các tệp được hỗ trợ bằng bộ nhớ tương tự như việc cung cấp
 hỗ trợ cho các thiết bị ký tự được ánh xạ chung. Sự khác biệt chính là
@@ -276,7 +276,7 @@ cờ bộ nhớ được đặt.
 
 
 Cung cấp hỗ trợ thiết bị khối có thể chia sẻ
-========================================
+============================================
 
 Việc cung cấp ánh xạ chia sẻ trên các tệp thiết bị khối hoàn toàn giống như đối với
 thiết bị nhân vật. Nếu bên dưới không có thiết bị thật thì driver

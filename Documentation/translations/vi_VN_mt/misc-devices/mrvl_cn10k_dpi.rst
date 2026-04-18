@@ -17,7 +17,7 @@ Trình điều khiển giao diện gói Marvell CN10K DMA (DPI)
 ======================================================
 
 Tổng quan
-========
+=========
 
 DPI là khối phần cứng giao diện gói DMA trong silicon CN10K của Marvell.
 Phần cứng DPI bao gồm chức năng vật lý (PF), chức năng ảo của nó,
@@ -43,7 +43,7 @@ Vị trí tài xế
 trình điều khiển/misc/mrvl_cn10k_dpi.c
 
 Trình điều khiển IOCTL
-=============
+======================
 
 ZZ0000ZZ
 ioctl đặt kích thước tải trọng tối đa và tham số kích thước yêu cầu đọc tối đa của
@@ -55,7 +55,7 @@ ioctl đặt kích thước fifo của công cụ DMA và yêu cầu tải tối
 ngưỡng.
 
 Ví dụ về mã không gian người dùng
-=======================
+=================================
 
 Các thiết bị DPI VF được thăm dò và truy cập từ các ứng dụng không gian người dùng bằng cách sử dụng
 trình điều khiển vfio-pci. Dưới đây là một ứng dụng dpi dma mẫu để minh họa trên

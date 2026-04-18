@@ -106,7 +106,7 @@ ZZ0072ZZ ZZ0073ZZ |
 
 
 API nâng cao cho trình điều khiển
-=========================
+=================================
 
 A. Xuất trang cho người dùng với remap_pfn_range, io_remap_pfn_range,
 vmf_insert_pfn.
@@ -130,7 +130,7 @@ như bước 0 ở trên và cũng theo dõi việc sử dụng các trang đó 
 trước khi trang được giải phóng vào nhóm miễn phí.
 
 Hiệu ứng MTRR trên hệ thống PAT / không phải PAT
-=====================================
+================================================
 
 Bảng sau đây cung cấp các tác động của việc sử dụng MTRR kết hợp ghi khi
 sử dụng lệnh gọi ioremap*() trên x86 cho cả hệ thống không phải PAT và PAT. Lý tưởng nhất
@@ -145,7 +145,7 @@ tuy nhiên không được khuyến khích vì loại bộ nhớ hiệu quả đ
 đã xác định việc triển khai nhưng chiến lược này có thể được sử dụng như là phương sách cuối cùng trên các thiết bị
 với các vùng bị giới hạn kích thước trong đó việc kết hợp ghi MTRR sẽ
 nếu không sẽ không có hiệu quả.
-::
+:::::::::::::::::::::::::::::::
 
 ==== ======= === ========================== ========================
   MTRR Non-PAT PAT Giá trị ioremap Linux Loại bộ nhớ hiệu quả

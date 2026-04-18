@@ -99,7 +99,7 @@ ALG := Thuật toán tính toán thông báo sự kiện
  CONFIG_IMA_DISABLE_HTABLE=y.
 
 Trạng thái thiết bị được hỗ trợ:
-========================
+================================
 Những thay đổi trạng thái thiết bị sau đây sẽ kích hoạt các phép đo IMA:
 
 1. Tải bảng
@@ -180,7 +180,7 @@ Khi đó nhật ký đo IMA ASCII sẽ có mục sau:
  target_index=3,target_begin=6,target_len=2,target_name=tuyến tính,target_version=1.4.0,device_name=7:0,start=512;
 
 2. Sơ yếu lý lịch thiết bị:
-------------------
+---------------------------
 Khi một thiết bị bị treo được nối lại, thông tin thiết bị và hàm băm của
 dữ liệu từ lần tải trước của bảng đang hoạt động sẽ được đo.
 
@@ -290,7 +290,7 @@ thì nhật ký đo lường IMA ASCII sẽ có một mục nhập với:
  inactive_table_hash=sha256:75c0dc347063bf474d28a9907037eba060bfe39d8847fc0646d75e149045d545;current_device_capacity=1024;
 
 5. Đổi tên thiết bị:
-------------------
+--------------------
 Khi NAME hoặc UUID của thiết bị bị thay đổi, thông tin thiết bị và NAME và UUID mới sẽ
 được đo.
 
@@ -336,7 +336,7 @@ thì nhật ký đo lường IMA ASCII sẽ có một mục nhập với:
  current_device_capacity=1024;
 
 Các mục tiêu được hỗ trợ:
-==================
+=========================
 
 Các mục tiêu sau được hỗ trợ để đo dữ liệu của họ bằng IMA:
 
@@ -430,7 +430,7 @@ dm_version=4.45.0;
  iv_large_sectors=n,cipher_string=aes-xts-plain64,key_size=32,key_parts=1,key_extra_size=0,key_mac_size=0;
 
 3. tính chính trực
--------------
+------------------
 'target_attributes' (được mô tả như một phần của EVENT_DATA trong 'Tải bảng'
 phần trên) có định dạng dữ liệu sau cho mục tiêu 'toàn vẹn'.
 
@@ -474,7 +474,7 @@ dm_version=4.45.0;
 
 
 4. tuyến tính
-----------
+-------------
 'target_attributes' (được mô tả như một phần của EVENT_DATA trong 'Tải bảng'
 phần trên) có định dạng dữ liệu sau cho mục tiêu 'tuyến tính'.
 
@@ -579,7 +579,7 @@ dm_version=4.45.0;
         path_name_1_1=8:64,is_active_1_1=A,fail_count_1_1=0,path_selector_status_1_1=;
 
 7. đột kích
---------
+-----------
 'target_attributes' (được mô tả như một phần của EVENT_DATA trong 'Tải bảng'
 phần trên) có định dạng dữ liệu sau cho mục tiêu 'đột kích'.
 
@@ -619,7 +619,7 @@ dm_version=4.45.0;
 
 
 8. ảnh chụp nhanh
-------------
+-----------------
 'target_attributes' (được mô tả như một phần của EVENT_DATA trong 'Tải bảng'
 phần trên) có định dạng dữ liệu sau cho mục tiêu 'ảnh chụp nhanh'.
 
@@ -685,7 +685,7 @@ dm_version=4.45.0;
     sọc_1_device_name=253:3,stripe_1_physical_start=2048,stripe_1_status=A;
 
 10. sự thật
-----------
+-----------
 'target_attributes' (được mô tả như một phần của EVENT_DATA trong 'Tải bảng'
 phần trên) có định dạng dữ liệu sau cho mục tiêu 'xác thực'.
 

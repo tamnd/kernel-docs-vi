@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân vt1211
-====================
+================================
 
 Chip được hỗ trợ:
 
@@ -184,7 +184,7 @@ tính toán tempx 1 / (1 / 298,15 - (` (2200 / @ - 1)) / 3435) - 273,15,
 
 
 Kiểm soát tốc độ quạt
------------------
+---------------------
 
 VT1211 cung cấp 2 đầu ra PWM có thể lập trình để điều khiển tốc độ của 2
 người hâm mộ. Viết số 2 vào bất kỳ nút nào trong số hai nút pwm[1-2]_enable sysfs sẽ đặt

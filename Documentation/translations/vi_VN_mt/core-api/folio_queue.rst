@@ -31,7 +31,7 @@ Hàng đợi Folio
 
 
 Tổng quan
-========
+=========
 
 Cấu trúc folio_queue tạo thành một phân đoạn duy nhất trong danh sách các folio được phân đoạn
 có thể được sử dụng để tạo thành bộ đệm I/O.  Như vậy, danh sách có thể được lặp lại
@@ -178,7 +178,7 @@ Các nhãn hiệu có thể được sử dụng cho bất kỳ mục đích nà
 
 
 Lặp lại hàng đợi Folio
-=====================
+======================
 
 Một danh sách các phân đoạn có thể được lặp lại bằng cách sử dụng tiện ích I/O iterator bằng cách sử dụng
 một trình vòng lặp ZZ0000ZZ thuộc loại ZZ0001ZZ.  Trình vòng lặp có thể là
@@ -195,7 +195,7 @@ và các con trỏ trước khi hoàn nguyên khi cần thiết.
 
 
 Các vấn đề về sản xuất/tiêu thụ đồng thời không khóa
-===================================================
+====================================================
 
 Nếu được quản lý hợp lý, danh sách này có thể được nhà sản xuất mở rộng ở phần đầu
 và được người tiêu dùng rút ngắn đồng thời ở phần cuối mà không cần
@@ -216,6 +216,6 @@ con trỏ đầu và đuôi không bị sụp đổ.
 
 
 Tham khảo chức năng API
-======================
+=======================
 
 .. kernel-doc:: include/linux/folio_queue.h

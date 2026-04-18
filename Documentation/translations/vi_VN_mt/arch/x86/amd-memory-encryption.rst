@@ -109,7 +109,7 @@ sẽ không thể kích hoạt mã hóa bộ nhớ, ngay cả khi được đị
 vì vậy theo mặc định hoặc tham số dòng lệnh mem_encrypt=on được chỉ định.
 
 Phân trang lồng nhau an toàn (SNP)
-==========================
+==================================
 
 SEV-SNP giới thiệu các tính năng mới (SEV_FEATURES[1:63]) có thể được kích hoạt
 bởi hypervisor để tăng cường bảo mật. Một số tính năng này cần
@@ -186,7 +186,7 @@ các giá trị để xác định vị trí RMP và xác định kích thước
 bao gồm tất cả bộ nhớ hệ thống để Linux kích hoạt SEV-SNP.
 
 RMP được phân đoạn
--------------
+------------------
 
 Hỗ trợ RMP được phân đoạn là một cách mới để thể hiện bố cục của RMP.
 Hỗ trợ RMP ban đầu yêu cầu bảng RMP phải liền kề trong bộ nhớ.
@@ -260,7 +260,7 @@ Xem thêm chi tiết trong AMD64 APM Tập 2, phần "Bảng bản đồ ngượ
 ID tài liệu: 24593.
 
 Mô-đun dịch vụ VM an toàn (SVSM)
-===============================
+================================
 
 SNP cung cấp một tính năng gọi là Cấp độ đặc quyền của máy ảo (VMPL).
 xác định bốn cấp độ đặc quyền mà phần mềm khách có thể chạy. nhất

@@ -28,7 +28,7 @@ chọn bộ lập lịch io trên cơ sở từng thiết bị.
 ------------------------------------------------------------------------------
 
 read_expire (tính bằng mili giây)
------------------------
+---------------------------------
 
 Mục tiêu của bộ lập lịch io thời hạn là cố gắng đảm bảo bắt đầu
 thời gian phục vụ cho một yêu cầu. Vì chúng tôi tập trung chủ yếu vào độ trễ đọc nên đây là
@@ -38,7 +38,7 @@ mili giây.
 
 
 write_expire (tính bằng mili giây)
------------------------
+----------------------------------
 
 Tương tự như read_expire đã đề cập ở trên, nhưng dành cho ghi.
 

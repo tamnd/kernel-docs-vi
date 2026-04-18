@@ -17,7 +17,7 @@ trao đổi zswap
 ==============
 
 Tổng quan
-========
+=========
 
 Zswap là bộ đệm nén nhẹ dành cho các trang trao đổi. Phải mất các trang
 trong quá trình hoán đổi và cố gắng nén chúng thành một
@@ -61,7 +61,7 @@ lỗi quay trở lại bộ nhớ tất cả các trang bị tráo đổi, kể 
 bể nén.
 
 Thiết kế
-======
+========
 
 Zswap nhận các trang để nén từ hệ thống con trao đổi và có thể
 loại bỏ các trang khỏi vùng nén của chính nó trên cơ sở LRU và ghi chúng lại vào

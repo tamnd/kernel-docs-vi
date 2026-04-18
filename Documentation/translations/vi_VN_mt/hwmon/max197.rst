@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân max197
-====================
+================================
 
 Tác giả:
 
@@ -43,7 +43,7 @@ Phạm vi khả dụng cho MAX197 là {0,-5V} đến 5V và {0,-10V} đến 10V,
 trong khi chúng là {0,-2V} đến 2V và {0,-4V} đến 4V trên MAX199.
 
 Dữ liệu nền tảng
--------------
+----------------
 
 Dữ liệu nền tảng MAX197 (được xác định trong linux/platform_data/max197.h) phải là
 chứa đầy một con trỏ tới hàm chuyển đổi, được định nghĩa như ::
@@ -66,7 +66,7 @@ Kênh 2,1,0 A2,A1,A0
 ======= ===========================================================
 
 Giao diện hệ thống
----------------
+------------------
 
 ==================================================================================
   in[0-7]_input Giá trị chuyển đổi cho kênh tương ứng.

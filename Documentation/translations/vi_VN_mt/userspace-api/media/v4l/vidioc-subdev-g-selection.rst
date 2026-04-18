@@ -72,7 +72,7 @@ mục tiêu là các mục tiêu cấu hình phần cứng. Mục tiêu BOUNDS
 sẽ trả về một hình chữ nhật chứa tất cả các hình chữ nhật thực tế có thể có.
 
 Khám phá các tính năng được hỗ trợ
-------------------------------
+----------------------------------
 
 Để khám phá mục tiêu nào được hỗ trợ, người dùng có thể thực hiện
 ZZ0000ZZ trên chúng. Bất kỳ mục tiêu nào không được hỗ trợ sẽ
@@ -115,7 +115,7 @@ ZZ0000ZZ.
 	the array to zero.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

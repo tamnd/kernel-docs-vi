@@ -91,7 +91,7 @@ CONFIG_CORESIGHT_LINKS_AND_SINKS=y
 Vui lòng tham khảo trợ giúp cấu hình kernel để biết thêm thông tin.
 
 Theo dõi chi tiết với tính năng tạm dừng và tiếp tục AUX
-----------------------------------------------
+--------------------------------------------------------
 
 Arm CoreSight có thể tạo ra một lượng lớn dữ liệu theo dõi phần cứng,
 sẽ dẫn đến tốn kém trong việc ghi lại và khiến người dùng mất tập trung khi xem lại
@@ -122,7 +122,7 @@ bản ghi hoàn hảo -a -e cs_etm/aux-action=start-pause/k \
         -e chu kỳ/aux-action=sơ yếu lý lịch, chu kỳ=1050000/ -- ngủ 1
 
 Kiểm tra hoàn hảo - Xác minh hoạt động hoàn hảo của kernel và không gian người dùng CoreSight
------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 
 Khi bạn chạy thử nghiệm hoàn hảo, nó sẽ tự thực hiện rất nhiều thử nghiệm. Một số trong số đó
 các bài kiểm tra sẽ bao gồm CoreSight (chỉ khi được bật và trên ARM64). bạn

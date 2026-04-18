@@ -33,7 +33,7 @@ Giấy phép Công cộng GNU để biết thêm chi tiết.
 
 
 Tổng quan
---------
+---------
 
 Driver này triển khai hỗ trợ Linux của Silicon Labs (Silabs)
 Giao diện C2 được sử dụng để lập trình trong hệ thống của bộ điều khiển vi mô.
@@ -43,7 +43,7 @@ hoặc bộ chuyển đổi gỡ lỗi EC3. Giải pháp này cũng hữu ích t
 nơi bộ điều khiển vi mô được kết nối thông qua các chân GPIO đặc biệt.
 
 Tài liệu tham khảo
-----------
+------------------
 
 Các tham chiếu chính của Giao diện C2 có tại (ZZ0000ZZ
 Trang web Phòng thí nghiệm Silicon], xem:
@@ -61,7 +61,7 @@ mã này chỉ hỗ trợ lập trình flash nhưng các tiện ích mở rộng
 thêm vào.
 
 Sử dụng trình điều khiển
-----------------
+------------------------
 
 Khi trình điều khiển được tải, bạn có thể sử dụng hỗ trợ sysfs để tải C2port
 thông tin hoặc đọc/ghi flash trong hệ thống::

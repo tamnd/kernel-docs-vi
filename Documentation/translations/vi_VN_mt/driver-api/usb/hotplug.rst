@@ -50,7 +50,7 @@ hiện chỉ khả dụng khi trình điều khiển được liên kết độn
 bạn có được khả năng cắm nóng tốt nhất khi định cấu hình một hệ thống có tính mô-đun cao.
 
 Trình trợ giúp cắm nóng hạt nhân (ZZ0000ZZ)
-=========================================
+===========================================
 
 Có một tham số kernel: ZZ0000ZZ, thông thường
 giữ tên đường dẫn ZZ0001ZZ.  Tham số đó đặt tên cho một chương trình
@@ -71,7 +71,7 @@ Thông tin danh sách gửi thư cũng có sẵn tại trang web đó.
 
 
 Đại lý chính sách USB
-================
+=====================
 
 Hệ thống con USB hiện gọi ZZ0000ZZ khi các thiết bị USB
 được thêm vào hoặc xóa khỏi hệ thống.  Việc gọi được thực hiện bởi kernel
@@ -99,7 +99,7 @@ tận dụng hỗ trợ công cụ khởi tạo mô-đun USB.  Các đại lý s
 
 
 Hỗ trợ các modutils USB
-====================
+=======================
 
 Các phiên bản hiện tại của module-init-tools sẽ tạo tệp ZZ0000ZZ
 chứa các mục từ ZZ0001ZZ của mỗi trình điều khiển.  Như vậy

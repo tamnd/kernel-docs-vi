@@ -73,7 +73,7 @@ nhằm mục đích đầy đủ.
 
 
 2. Kích hoạt và vô hiệu hóa Ngăn xếp điều khiển được bảo vệ
--------------------------------------------------
+-----------------------------------------------------------
 
 * GCS được bật và tắt cho một chuỗi thông qua PR_SET_SHADOW_STACK_STATUS
   prctl(), điều này lấy một đối số cờ duy nhất xác định các tính năng của GCS
@@ -125,7 +125,7 @@ nhằm mục đích đầy đủ.
 
 
 3. Phân bổ ngăn xếp điều khiển được bảo vệ
-----------------------------------------
+------------------------------------------
 
 * Khi GCS được bật cho một luồng, Ngăn xếp điều khiển được bảo vệ mới sẽ được kích hoạt
   được phân bổ cho nó bằng một nửa kích thước ngăn xếp tiêu chuẩn hoặc 2 gigabyte,
@@ -189,7 +189,7 @@ nhằm mục đích đầy đủ.
 
 
 5. Tín hiệu trở lại
------------------
+-------------------
 
 Khi trở về từ bộ xử lý tín hiệu:
 
@@ -213,7 +213,7 @@ Khi trở về từ bộ xử lý tín hiệu:
 
 
 6. phần mở rộng ptrace
----------------------
+----------------------
 
 * Một regset mới NT_ARM_GCS được xác định để sử dụng với PTRACE_GETREGSET và
   PTRACE_SETREGSET.
@@ -225,7 +225,7 @@ Khi trở về từ bộ xử lý tín hiệu:
 
 
 7. Tiện ích mở rộng lõi của ELF
----------------------------
+-------------------------------
 
 * Ghi chú NT_ARM_GCS sẽ được thêm vào mỗi coredump cho mỗi luồng của
   quá trình đổ thải.  Nội dung sẽ tương đương với dữ liệu sẽ
@@ -235,7 +235,7 @@ Khi trở về từ bộ xử lý tín hiệu:
 
 
 8. /proc tiện ích mở rộng
---------------------
+-------------------------
 
 * Các trang Ngăn xếp Điều khiển được Bảo vệ sẽ bao gồm "ss" trong VmFlags của chúng trong
   /proc/<pid>/smaps.

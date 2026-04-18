@@ -17,7 +17,7 @@
 .. Copyright 2006 Bob Copeland <me@bobcopeland.com>
 
 thưa thớt
-======
+=========
 
 Sparse là công cụ kiểm tra ngữ nghĩa cho các chương trình C; nó có thể được sử dụng để tìm một
 số vấn đề tiềm ẩn với mã hạt nhân.  Xem
@@ -28,7 +28,7 @@ các trang chính thức của nó tại ZZ0001ZZ
 
 
 Sử dụng thưa thớt để kiểm tra đánh máy
------------------------------
+--------------------------------------
 
 "__bitwise" là thuộc tính loại, vì vậy bạn phải làm điều gì đó như thế này ::
 
@@ -68,7 +68,7 @@ vs cpu-endian vs bất cứ thứ gì), và có hằng số "0" thực sự _is_
 đặc biệt.
 
 Trở nên thưa thớt
---------------
+-----------------
 
 Bạn có thể lấy tarball của các phiên bản được phát hành mới nhất từ:
 ZZ0000ZZ
@@ -86,7 +86,7 @@ làm
 với tư cách là người dùng thông thường và nó sẽ cài đặt thưa thớt trong thư mục ~/bin của bạn.
 
 Sử dụng thưa thớt
-------------
+-----------------
 
 Thực hiện tạo hạt nhân bằng "make C=1" để chạy thưa thớt trên tất cả các tệp C nhận được
 được biên dịch lại hoặc sử dụng "make C=2" để chạy thưa thớt trên các tệp nếu chúng cần

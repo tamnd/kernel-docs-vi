@@ -31,12 +31,12 @@ Bộ mô tả tệp bảo quản LUO
    :doc: LUO File Descriptors
 
 Dữ liệu toàn cầu về vòng đời của tệp LUO
-====================================
+========================================
 .. kernel-doc:: kernel/liveupdate/luo_flb.c
    :doc: LUO File Lifecycle Bound Global Data
 
 Trình soạn thảo cập nhật trực tiếp ABI
-============================
+======================================
 .. kernel-doc:: include/linux/kho/abi/luo.h
    :doc: Live Update Orchestrator ABI
 
@@ -48,7 +48,7 @@ Các loại mô tả tệp sau đây có thể được giữ nguyên
    ../mm/memfd_preservation
 
 API công khai
-==========
+=============
 .. kernel-doc:: include/linux/liveupdate.h
 
 .. kernel-doc:: include/linux/kho/abi/luo.h

@@ -38,7 +38,7 @@ Tệp Readme cho skfp.o v2.06
 
 
 1. Tổng quan
-===========
+============
 
 README này giải thích cách sử dụng trình điều khiển 'skfp' cho Linux với
 bộ điều hợp mạng.
@@ -57,7 +57,7 @@ Chương 6: Lịch sử phát triển.
 
 
 2. Bộ điều hợp được hỗ trợ
-=====================
+==========================
 
 Trình điều khiển mạng 'skfp' hỗ trợ các bộ điều hợp mạng sau:
 Bộ điều hợp SysKonnect:
@@ -150,7 +150,7 @@ hãy đảm bảo rằng những thông tin sau đây có sẵn:
 
 
 5. Chức năng của đèn LED Adaptor
-===============================
+================================
 
 Chức năng của LED trên bộ điều hợp mạng FDDI là
 	đã thay đổi trong phiên bản SMT v2.82. Với phiên bản SMT mới này màu vàng

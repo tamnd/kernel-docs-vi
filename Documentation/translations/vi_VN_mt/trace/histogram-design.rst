@@ -33,7 +33,7 @@ tracing_map.c.
    generally be truncated - only enough to make the point is displayed.
 
 Tệp sự kiện theo dõi 'hist_debug'
-==============================
+=================================
 
 Nếu kernel được biên dịch với bộ CONFIG_HIST_TRIGGERS_DEBUG, một
 tệp sự kiện có tên 'hist_debug' sẽ xuất hiện trong mỗi sự kiện
@@ -290,7 +290,7 @@ chúng hoặc cập nhật bất cứ thứ gì - những thứ đó chỉ tồn
 xảy ra sau này.
 
 Kiểm tra biểu đồ cơ bản
---------------------
+-----------------------
 
 Đây là một ví dụ tốt để thử.  Nó tạo ra 3 trường giá trị và 2 khóa
 các trường ở đầu ra::
@@ -1111,7 +1111,7 @@ hist_data = struct hist_trigger_data
   FL_VAR_REF = HIST_FIELD_FL_VAR_REF
 
 kiểm tra biến trường hành động trace()
-----------------------------------
+--------------------------------------
 
 Ví dụ này bổ sung vào ví dụ thử nghiệm trước đó bằng cách sử dụng
 của biến Wakeup_lat, nhưng ngoài ra còn tạo ra một vài
@@ -1393,7 +1393,7 @@ hoặc::
           /sys/kernel/tracing/events/sched/sched_switch/trigger
 
 kiểm tra biến trường hành động save()
----------------------------------
+-------------------------------------
 
 Trong ví dụ này, thay vì tạo ra một sự kiện tổng hợp, hàm save()
 hành động được sử dụng để lưu giá trị trường bất cứ khi nào trình xử lý onmax()
@@ -1628,7 +1628,7 @@ Các lệnh bên dưới có thể được sử dụng để dọn dẹp mọi 
 # echo '!hist:keys=pid:ts0=common_timestamp.usecs' >> sự kiện/lập lịch/sched_waking/trigger
 
 Một số trường hợp đặc biệt
-======================
+==========================
 
 Mặc dù phần trên bao gồm những điều cơ bản về phần bên trong của biểu đồ, nhưng có
 là một vài trường hợp đặc biệt cần được thảo luận, vì chúng
@@ -1637,7 +1637,7 @@ biểu đồ và bí danh, cả hai đều được mô tả bên dưới thông
 bằng cách sử dụng tệp hist_debug.
 
 Kiểm tra các biến trường trên các biểu đồ khác
--------------------------------------------
+----------------------------------------------
 
 Ví dụ này tương tự như các ví dụ trước, nhưng trong trường hợp này,
 trình kích hoạt sched_switch tham chiếu trường kích hoạt lịch sử trên một trường khác
@@ -1891,7 +1891,7 @@ Các lệnh bên dưới có thể được sử dụng để dọn dẹp mọi 
 # echo '!wakeup_latency u64 lat; pid_t pid; int prio' >> tổng hợp_events
 
 Kiểm tra bí danh
-----------
+----------------
 
 Ví dụ này rất giống với các ví dụ trước, nhưng chứng tỏ
 cờ bí danh.

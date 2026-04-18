@@ -33,7 +33,7 @@ thư mục /dev, tức là /dev/fb*.
 
 
 1. Góc nhìn của người dùng về /dev/fb*
---------------------------
+--------------------------------------
 
 Theo quan điểm của người dùng, thiết bị đệm khung trông giống như bất kỳ
 thiết bị khác trong/dev. Đó là một thiết bị ký tự sử dụng 29 chính; trẻ vị thành niên
@@ -80,7 +80,7 @@ Sau đó, máy chủ X sẽ sử dụng bộ đệm khung thứ hai.
 
 
 2. Quan điểm của lập trình viên về /dev/fb*
---------------------------------
+-------------------------------------------
 
 Như bạn đã biết, thiết bị đệm khung là một thiết bị bộ nhớ như /dev/mem và
 nó có các tính năng tương tự. Bạn có thể đọc nó, viết nó, tìm kiếm một vị trí nào đó trong
@@ -167,7 +167,7 @@ hoạt động 100% với XF68_FBDev: giá trị đồng hồ được báo cáo
 
 
 5. Thời gian của chế độ video
----------------------
+-----------------------------
 
 Một màn hình vẽ một hình ảnh lên màn hình bằng cách sử dụng chùm tia điện tử (3 electron
 chùm tia cho mô hình màu, 1 chùm tia điện tử cho màn hình đơn sắc). Mặt trước của
@@ -268,7 +268,7 @@ Thiết bị đệm khung mong đợi tất cả thời gian theo chiều ngang 
 
 
 6. Chuyển đổi thời gian của thiết bị đệm khung thông tin giá trị thời gian XFree86
---------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
 Một dòng chế độ XFree86 bao gồm các trường sau::
 
@@ -314,7 +314,7 @@ trong "xc/programs/Xserver/hw/xfree86/doc/modeDB.txt".
 
 
 7. Tài liệu tham khảo
--------------
+---------------------
 
 Để biết thêm thông tin cụ thể về thiết bị đệm khung và
 các ứng dụng, vui lòng tham khảo trang web Linux-fbdev:
@@ -334,7 +334,7 @@ và các tài liệu sau:
 
 
 8. Danh sách gửi thư
----------------
+--------------------
 
 Có một danh sách gửi thư liên quan đến thiết bị đệm khung tại kernel.org:
 linux-fbdev@vger.kernel.org.
@@ -344,7 +344,7 @@ thông tin đăng ký và duyệt lưu trữ.
 
 
 9. Đang tải xuống
---------------
+-----------------
 
 Tất cả các tập tin cần thiết có thể được tìm thấy tại
 
@@ -358,7 +358,7 @@ ZZ0000ZZ
 
 
 10. Tín dụng
------------
+------------
 
 Bài đọc này được viết bởi Geert Uytterhoeven, một phần dựa trên bản gốc
 ZZ0000ZZ của Roman Hodek và Martin Schaller. Phần 6 là

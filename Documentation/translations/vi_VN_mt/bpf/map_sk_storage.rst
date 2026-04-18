@@ -35,10 +35,10 @@ bản đồ hoặc ổ cắm sẽ bị xóa.
     socket-local storage.
 
 Cách sử dụng
-=====
+============
 
 Hạt nhân BPF
-----------
+------------
 
 bpf_sk_storage_get()
 ~~~~~~~~~~~~~~~~~~~~
@@ -71,7 +71,7 @@ Người trợ giúp ZZ0002ZZ. Trả về ZZ0003ZZ khi thành công hoặc âm
 lỗi trong trường hợp thất bại.
 
 Không gian người dùng
-----------
+---------------------
 
 bpf_map_update_elem()
 ~~~~~~~~~~~~~~~~~~~~~
@@ -125,7 +125,7 @@ Ví dụ
 ========
 
 Hạt nhân BPF
-----------
+------------
 
 Đoạn mã này cho biết cách khai báo bộ nhớ cục bộ trong ổ cắm trong chương trình BPF:
 
@@ -167,6 +167,6 @@ Vui lòng xem thư mục ZZ0000ZZ để biết chức năng
 ví dụ.
 
 Tài liệu tham khảo
-==========
+==================
 
 ZZ0000ZZ

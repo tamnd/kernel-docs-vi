@@ -310,7 +310,7 @@ các tham số này để dữ liệu chẵn lẻ khớp chính xác:
 - Căn bậc nhất liên tiếp của đa thức sinh mã là 'x^0'
 
 Định dạng trên đĩa
-==============
+==================
 
 Mã hạt nhân xác thực không đọc tiêu đề siêu dữ liệu xác thực trên đĩa.
 Nó chỉ đọc các khối băm trực tiếp theo tiêu đề.
@@ -331,7 +331,7 @@ có sẵn tại trang wiki của dự án cryptsetup
 ZZ0000ZZ
 
 Trạng thái
-======
+==========
 1. V (cho Hợp lệ) được trả về nếu mọi kiểm tra được thực hiện cho đến nay đều hợp lệ.
    Nếu bất kỳ kiểm tra nào không thành công, C (đối với Tham nhũng) sẽ được trả về.
 2. Số khối được sửa bằng Forward Error Correction.

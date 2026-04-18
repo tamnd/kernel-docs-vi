@@ -54,7 +54,7 @@ Thông tin này có sẵn độc lập với việc đường dây có được 
     value.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 và ZZ0000ZZ được điền thông tin chip.
 

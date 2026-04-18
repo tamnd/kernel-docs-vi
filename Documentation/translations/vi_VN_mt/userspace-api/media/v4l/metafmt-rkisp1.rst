@@ -97,6 +97,6 @@ Các thông số thống kê và cấu hình 3A được mô tả ở đây thư
 công cụ điều chỉnh quan trọng bằng cách sử dụng vòng điều khiển phần mềm.
 
 kiểu dữ liệu uAPI rkisp1
-======================
+========================
 
 .. kernel-doc:: include/uapi/linux/rkisp1-config.h

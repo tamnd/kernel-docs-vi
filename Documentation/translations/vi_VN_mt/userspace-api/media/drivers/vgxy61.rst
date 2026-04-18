@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển cảm biến máy ảnh ST VGXY61
-==============================
+===========================================
 
 Trình điều khiển ST VGXY61 thực hiện các điều khiển sau:
 

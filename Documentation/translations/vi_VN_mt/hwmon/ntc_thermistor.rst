@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ntc_thermistor
-============================
+========================================
 
 Nhiệt điện trở được hỗ trợ từ Murata:
 
@@ -111,7 +111,7 @@ phù hợp hoặc người dùng có thể nhận được điện trở trực 
 cung cấp read_ohm và _not_ cung cấp những cái khác.
 
 Giao diện hệ thống
----------------
+------------------
 
 ================ ====================================================================
 đặt tên cho thuộc tính toàn cầu bắt buộc, tên nhiệt điện trở.

@@ -25,7 +25,7 @@ Chip được hỗ trợ:
 Tác giả: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
 
 Thẩm quyền giải quyết
----------
+---------------------
 
 Hướng dẫn dành cho nhà phát triển phần mềm kiến trúc Intel® 64 và IA-32 (tháng 1 năm 2013):
 Chương 14.6: PACKAGE LEVEL THERMAL MANAGEMENT

@@ -36,7 +36,7 @@ Những điều cần được ghi lại ở đây nhưng chưa có:
 
 
 Giảm tải tổng kiểm tra TX
-===================
+=========================
 
 Giao diện để tải tổng kiểm tra truyền tới một thiết bị được giải thích trong
 chi tiết trong các nhận xét gần đầu include/linux/skbuff.h.
@@ -91,7 +91,7 @@ có nghĩa là gọi skb_csum_hwoffload_help(skb, feature).
 
 
 LCO: Giảm tải tổng kiểm tra cục bộ
-===========================
+==================================
 
 LCO là một kỹ thuật tính toán hiệu quả tổng kiểm tra bên ngoài của một
 datagram được đóng gói khi tổng kiểm tra bên trong sắp được dỡ tải.
@@ -137,7 +137,7 @@ dường như không có cách nào để tránh điều đó mà không phải 
 
 
 RCO: Giảm tải tổng kiểm tra từ xa
-============================
+=================================
 
 RCO là một kỹ thuật để loại bỏ tổng kiểm tra bên trong của một datagram được đóng gói,
 cho phép tổng kiểm tra bên ngoài được giảm tải.  Tuy nhiên, nó bao gồm một

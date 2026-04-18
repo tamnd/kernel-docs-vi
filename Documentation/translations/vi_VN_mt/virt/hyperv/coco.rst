@@ -108,7 +108,7 @@ dù một paravisor đang được sử dụng. Thật đơn giản để xây d
 một trong hai chế độ.
 
 Hiệu ứng Paravisor
------------------
+------------------
 Chạy ở chế độ paravisor ảnh hưởng đến các khu vực sau của nhân Linux chung
 Chức năng CoCo VM:
 
@@ -168,7 +168,7 @@ Chức năng CoCo VM:
   che giấu những sự phức tạp này khỏi hệ điều hành khách.
 
 Siêu cuộc gọi Hyper-V
-------------------
+---------------------
 Khi ở chế độ được bật sáng hoàn toàn, các siêu lệnh do máy khách Linux thực hiện sẽ được định tuyến
 trực tiếp đến bộ ảo hóa, giống như trong máy ảo không phải CoCo. Nhưng ở chế độ paravisor,
 các siêu lệnh thông thường sẽ bẫy paravisor trước tiên, từ đó có thể gọi ra

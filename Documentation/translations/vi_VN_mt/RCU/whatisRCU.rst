@@ -379,7 +379,7 @@ rcu_dereference()
 
 The following diagram shows how each API communicates among the
 reader, updater, and reclaimer.
-::
+:::::::::::::::::::::::::::::::
 
 
 	    rcu_assign_pointer()
@@ -453,7 +453,7 @@ their assorted primitives.
 This section shows a simple use of the core RCU API to protect a
 global pointer to a dynamically allocated structure.  More-typical
 uses of RCU may be found in listRCU.rst and NMI-RCU.rst.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 	struct foo {
 		int a;
@@ -747,7 +747,7 @@ This section presents a "toy" RCU implementation that is based on
 on features such as hotplug CPU and the ability to run in CONFIG_PREEMPTION
 kernels.  The definitions of rcu_dereference() and rcu_assign_pointer()
 are the same as those shown in the preceding section, so they are omitted.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 	void rcu_read_lock(void) { }
 
@@ -812,7 +812,7 @@ Quick Quiz #3:
 Although RCU can be used in many different ways, a very common use of
 RCU is analogous to reader-writer locking.  The following unified
 diff shows how closely related RCU and reader-writer locking can be.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 	@@ -5,5 +5,5 @@ struct el {
 	 	int data;

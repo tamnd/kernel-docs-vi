@@ -42,17 +42,17 @@ XDP bị chặn đối với kích thước khung hình lớn hơn 3KB.
 
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 Để biết thông tin về cách xác định bộ điều hợp của bạn và để có phiên bản Intel mới nhất
 trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel:
 ZZ0000ZZ
 
 
 Ghi chú quan trọng
-===============
+==================
 
 Việc giảm gói có thể xảy ra khi nhận được căng thẳng
--------------------------------------------
+----------------------------------------------------
 Các thiết bị dựa trên Bộ điều khiển Ethernet Intel(R) Series 800 được thiết kế để
 chịu được độ trễ hệ thống ở mức giới hạn trong các giao dịch PCIe và DMA.
 Nếu các giao dịch này mất nhiều thời gian hơn độ trễ có thể chấp nhận được thì nó có thể ảnh hưởng đến
@@ -89,7 +89,7 @@ README để được hướng dẫn cấu hình.
 
 
 Không dỡ trình điều khiển cổng nếu VF có VM đang hoạt động được liên kết với nó
--------------------------------------------------------------
+-------------------------------------------------------------------------------
 Không dỡ trình điều khiển của cổng nếu Chức năng ảo (VF) có chức năng ảo đang hoạt động
 Máy (VM) bị ràng buộc với nó. Làm như vậy sẽ khiến cổng có vẻ bị treo.
 Khi VM tắt hoặc giải phóng VF, lệnh sẽ
@@ -100,7 +100,7 @@ Các tính năng và cấu hình bổ sung
 ======================================
 
 công cụ đạo đức
--------
+---------------
 Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
 chẩn đoán cũng như hiển thị thông tin thống kê. Công cụ đạo đức mới nhất
 Phiên bản này là cần thiết cho chức năng này. Tải xuống tại:
@@ -114,7 +114,7 @@ rx_bytes là "X", thì ethtool (thống kê phần cứng) sẽ hiển thị rx_
 "X+40" (4 byte CRC x 10 gói).
 
 thiết lập lại ethtool
--------------
+---------------------
 Trình điều khiển hỗ trợ 3 loại thiết lập lại:
 
 - Đặt lại PF - chỉ đặt lại các thành phần được liên kết với PF đã cho, không
@@ -231,7 +231,7 @@ của tệp gói DDP mặc định (ice.pkg).
 
 
 Giám đốc luồng Ethernet Intel(R)
--------------------------------
+--------------------------------
 Giám đốc luồng Ethernet Intel thực hiện các tác vụ sau:
 
 - Chỉ đạo nhận các gói theo luồng của chúng đến các hàng đợi khác nhau
@@ -539,7 +539,7 @@ ngược lại. Để thực thi điều này, trình điều khiển sẽ kiể
 
 
 Hiển thị số liệu thống kê VF trên PF
-----------------------------------
+------------------------------------
 Sử dụng lệnh sau để hiển thị số liệu thống kê cho PF và các VF của nó::
 
 # ip -s hiển thị liên kết dev <ethX>
@@ -553,7 +553,7 @@ trong số các VF có thể có và nó sẽ hiển thị số 0 cho tất cả
 
 
 Định cấu hình gắn thẻ VLAN trên các cổng bộ điều hợp đã bật SR-IOV
---------------------------------------------------------
+------------------------------------------------------------------
 Để định cấu hình gắn thẻ VLAN cho các cổng trên bộ điều hợp hỗ trợ SR-IOV, hãy sử dụng
 lệnh sau. Cấu hình VLAN phải được thực hiện trước trình điều khiển VF
 được tải hoặc VM được khởi động. VF không biết thẻ VLAN đang được
@@ -600,7 +600,7 @@ tính năng bảo mật. VM không nhận thức được hạn chế này, vì 
 
 
 VF đáng tin cậy và Chế độ lăng nhăng VF
------------------------------------
+---------------------------------------
 Tính năng này cho phép bạn chỉ định một VF cụ thể là đáng tin cậy và cho phép điều đó
 VF tin cậy yêu cầu chế độ lăng nhăng có chọn lọc trên Chức năng Vật lý (PF).
 
@@ -652,7 +652,7 @@ ví dụ là VF sẽ nhận được tất cả lưu lượng truy cập đượ
 
 
 Phát hiện trình điều khiển độc hại (MDD) cho VF
-----------------------------------------
+-----------------------------------------------
 Một số thiết bị Intel Ethernet sử dụng tính năng Phát hiện trình điều khiển độc hại (MDD) để phát hiện
 lưu lượng truy cập độc hại từ VF và vô hiệu hóa hàng đợi Tx/Rx hoặc loại bỏ hành vi vi phạm
 gói cho đến khi thiết lập lại trình điều khiển VF xảy ra. Bạn có thể xem tin nhắn MDD trong PF
@@ -746,7 +746,7 @@ chuyển đổi.
 
 
 Cầu nối trung tâm dữ liệu (DCB)
---------------------------
+-------------------------------
 NOTE: Hạt nhân giả định rằng TC0 có sẵn và sẽ tắt Luồng ưu tiên
 Điều khiển (PFC) trên thiết bị nếu TC0 không khả dụng. Để khắc phục điều này, hãy đảm bảo TC0 được
 được bật khi thiết lập DCB trên bộ chuyển mạch của bạn.
@@ -794,7 +794,7 @@ NOTE:
 
 
 FW-LLDP (Giao thức khám phá lớp liên kết chương trình cơ sở)
-------------------------------------------------
+------------------------------------------------------------
 Sử dụng ethtool để thay đổi cài đặt FW-LLDP. Cài đặt FW-LLDP dành cho mỗi cổng và
 vẫn tồn tại trên ủng.
 
@@ -816,7 +816,7 @@ hệ điều hành.
 
 
 Kiểm soát dòng chảy
-------------
+-------------------
 Kiểm soát luồng Ethernet (IEEE 802.3x) có thể được cấu hình bằng ethtool để kích hoạt
 nhận và truyền các khung tạm dừng cho băng. Khi truyền được kích hoạt,
 các khung tạm dừng được tạo ra khi bộ đệm gói nhận vượt qua vùng đệm được xác định trước
@@ -914,7 +914,7 @@ Trong đó "24" và "371" là ID VLAN mẫu.
 
 
 Giảm tải không trạng thái đường hầm/lớp phủ
----------------------------------
+-------------------------------------------
 Các đường hầm và lớp phủ được hỗ trợ bao gồm VXLAN, GENEVE và các lớp phủ khác tùy thuộc vào
 cấu hình phần cứng và phần mềm. Giảm tải không trạng thái được bật theo mặc định.
 
@@ -940,7 +940,7 @@ NOTE:
 # ethtool -K <ethX> phân đoạn tx-udp [tắt|bật]
 
 Giao diện chân PTP
------------------
+------------------
 Tất cả các bộ điều hợp đều hỗ trợ giao diện pin PTP tiêu chuẩn. SDP (Pin có thể xác định bằng phần mềm)
 là các chân đơn có cả đầu ra định kỳ và dấu thời gian bên ngoài
 được hỗ trợ. Ngoài ra còn có các chân đầu vào/đầu ra vi sai cụ thể (TIME_SYNC,
@@ -965,7 +965,7 @@ tham khảo tài liệu mô-đun GNSS phần cứng để biết chi tiết cấ
 
 
 Ghi nhật ký chương trình cơ sở (FW)
----------------------
+-----------------------------------
 Trình điều khiển chỉ hỗ trợ ghi nhật ký FW thông qua giao diện debugfs trên PF 0. FW
 chạy trên NIC phải hỗ trợ ghi nhật ký FW; nếu FW không hỗ trợ ghi nhật ký FW
 tệp 'fwlog' sẽ không được tạo trong thư mục Ice debugfs.
@@ -1068,7 +1068,7 @@ là::
 # echo 1 > /sys/kernel/debug/ice/0000\:18\:00.0/fwlog/enable
 
 Truy xuất dữ liệu nhật ký FW
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Dữ liệu nhật ký FW có thể được truy xuất bằng cách đọc từ 'fwlog/data'. Người dùng có thể
 ghi bất kỳ giá trị nào vào 'fwlog/data' để xóa dữ liệu. Dữ liệu chỉ có thể bị xóa
 khi tính năng ghi nhật ký FW bị tắt. Dữ liệu nhật ký FW là một tệp nhị phân được gửi tới
@@ -1083,7 +1083,7 @@ Một ví dụ để xóa dữ liệu là::
 # echo 0 > /sys/kernel/debug/ice/0000\:18\:00.0/fwlog/data
 
 Thay đổi tần suất gửi sự kiện nhật ký tới trình điều khiển
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Trình điều khiển nhận dữ liệu nhật ký FW từ Hàng đợi Nhận của Quản trị viên (ARQ). các
 tần số mà FW gửi các sự kiện ARQ có thể được cấu hình bằng cách ghi vào
 'fwlog/nr_messages'. Phạm vi là 1-128 (1 có nghĩa là đẩy mọi thông điệp tường trình, 128
@@ -1094,7 +1094,7 @@ có nghĩa là chỉ đẩy khi bộ đệm lệnh AQ tối đa đầy). Giá tr
 # echo 50 > /sys/kernel/debug/ice/0000\:18\:00.0/fwlog/nr_messages
 
 Định cấu hình dung lượng bộ nhớ được sử dụng để lưu trữ dữ liệu nhật ký FW
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Trình điều khiển lưu trữ dữ liệu nhật ký FW trong trình điều khiển. Kích thước mặc định của bộ nhớ
 dùng để lưu trữ dữ liệu là 1MB. Một số trường hợp sử dụng có thể yêu cầu nhiều hoặc ít dữ liệu hơn
 người dùng có thể thay đổi dung lượng bộ nhớ được phân bổ cho dữ liệu nhật ký FW.
@@ -1113,7 +1113,7 @@ cài đặt.
 
 
 Kích thước vòng mô tả Rx
------------------------
+------------------------
 Để giảm số lượng gói Rx bị loại bỏ, hãy tăng số lượng Rx
 mô tả cho mỗi vòng Rx bằng ethtool.
 

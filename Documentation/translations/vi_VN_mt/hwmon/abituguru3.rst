@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân abituguru3
-========================
+====================================
 
 Chip được hỗ trợ:
   * Abit uGuru phiên bản 3 (Phần giám sát phần cứng, chỉ đọc)
@@ -79,7 +79,7 @@ Louis Kruger đã tìm cách đảo ngược phần cảm biến của uGuru.
 Nếu không có công việc của anh ấy, người lái xe này sẽ không thể thực hiện được.
 
 Sự cố đã biết
-------------
+-------------
 
 Các bộ phận điều khiển điện áp và tần số của Abit uGuru không được hỗ trợ,
 cũng không ghi bất kỳ cài đặt cảm biến nào và ghi/đọc

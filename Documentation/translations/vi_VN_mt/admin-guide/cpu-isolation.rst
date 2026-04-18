@@ -113,7 +113,7 @@ Yêu cầu
 - CONFIG_CPUSETS=y cho giao diện dựa trên cpuset
 
 sự đánh đổi
-~~~~~~~~~
+~~~~~~~~~~~
 
 Về bản chất, tải hệ thống nhìn chung ít được phân bổ hơn do một số CPU
 được trích xuất từ cân bằng tải toàn cầu.
@@ -146,7 +146,7 @@ Giao diện
   thử ghi đè mối quan hệ nỗ lực tối đa cho các IRQ được quản lý.
 
 Dynticks đầy đủ (còn gọi là nohz_full)
------------------------------
+--------------------------------------
 
 dynticks đầy đủ mở rộng chế độ không tải của dynticks, chế độ này sẽ dừng tích tắc khi
 CPU không hoạt động, đối với các CPU đang chạy một tác vụ duy nhất trong không gian người dùng. Đó là,
@@ -176,7 +176,7 @@ Hạn chế
 
 
 sự đánh đổi
-~~~~~~~~~
+~~~~~~~~~~~
 
 Về mặt chi phí, đây là tính năng cách ly xâm lấn nhất. Đó là
 được cho là được sử dụng khi khối lượng công việc dành phần lớn thời gian của nó trong
@@ -196,7 +196,7 @@ làm việc vì:
   thay mặt cho các CPU bị cô lập.
 
 Danh sách kiểm tra
-=========
+==================
 
 Bạn đã thiết lập từng tính năng cách ly trên nhưng vẫn
 quan sát những cảm giác bồn chồn làm hỏng khối lượng công việc của bạn? Hãy chắc chắn kiểm tra một số
@@ -227,7 +227,7 @@ khối lượng công việc:
 
 
 Ví dụ cách ly hoàn toàn
-======================
+=======================
 
 Trong ví dụ này, hệ thống có 8 CPU và CPU thứ 8 được trang bị đầy đủ
 bị cô lập. Vì CPU bắt đầu từ 0 nên CPU thứ 8 là CPU 7.
@@ -270,7 +270,7 @@ cd /sys/fs/cgroup
   echo "bị cô lập" > cpuset.cpus.partition
 
 Khối lượng công việc của không gian người dùng
-----------------------
+----------------------------------------------
 
 Giả mạo khối lượng công việc thuần túy của không gian người dùng, chương trình bên dưới chạy một hình nộm
 vòng lặp không gian người dùng trên CPU bị cô lập 7.
@@ -307,7 +307,7 @@ Xây dựng nó và lưu cho bước sau:
 # gcc user_loop.c -o user_loop
 
 Trình khởi chạy
-------------
+---------------
 
 Trình khởi chạy bên dưới chạy chương trình trên trong 10 giây và theo dõi
 tiếng ồn phát sinh từ các nhiệm vụ ưu tiên và IRQ.

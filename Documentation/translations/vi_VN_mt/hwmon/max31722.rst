@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân max31722
-======================
+==================================
 
 Chip được hỗ trợ:
 
@@ -46,12 +46,12 @@ Trình điều khiển này bổ sung hỗ trợ cho nhiệt kế Maxim Integrat
 và bộ điều nhiệt chạy trên giao diện SPI.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này sử dụng ACPI để tự động phát hiện thiết bị. Xem ID ACPI ở phần trên.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Thuộc tính sau được hỗ trợ:
 

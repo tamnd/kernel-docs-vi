@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân sht15
-===================
+===============================
 
 tác giả:
 
@@ -73,7 +73,7 @@ Ghi chú:
     khôi phục cấu hình thiết bị trước đó.
 
 Dữ liệu nền tảng
--------------
+----------------
 
 * tổng kiểm tra:
   đặt thành true để bật xác thực CRC cho các bài đọc (mặc định là sai).
@@ -83,7 +83,7 @@ Dữ liệu nền tảng
   cờ để cho biết độ phân giải nhiệt độ/độ ẩm sẽ sử dụng (mặc định là sai).
 
 Giao diện hệ thống
----------------
+------------------
 
 ==================================================================================
 đầu vào nhiệt độ temp1_input

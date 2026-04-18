@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân emc2305
-=====================
+=================================
 
 Chip được hỗ trợ:
    Vi mạch EMC2305, EMC2303, EMC2302, EMC2301

@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Đồng hồ và hẹn giờ
-=================
+==================
 
 cánh tay64
------
+----------
 Trên arm64, Hyper-V ảo hóa bộ đếm hệ thống kiến trúc ARMv8
 và hẹn giờ. Máy ảo khách sử dụng phần cứng ảo hóa này như Linux
 clocksource và clockevents thông qua arm_arch_timer.c tiêu chuẩn

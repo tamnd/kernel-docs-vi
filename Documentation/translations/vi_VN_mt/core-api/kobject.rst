@@ -198,7 +198,7 @@ tay.
 
 
 Số lượng tham chiếu
-================
+===================
 
 Một trong những chức năng chính của kobject là đóng vai trò là bộ đếm tham chiếu
 cho đối tượng mà nó được nhúng vào. Miễn là tham chiếu đến đối tượng
@@ -258,7 +258,7 @@ triển khai một kobject và thuộc tính đơn giản.
 
 
 ktypes và phương thức phát hành
-==========================
+===============================
 
 Một điều quan trọng vẫn còn thiếu trong cuộc thảo luận là điều gì sẽ xảy ra với một
 kobject khi số tham chiếu của nó đạt tới 0. Đoạn mã đã tạo ra
@@ -334,7 +334,7 @@ Con trỏ default_groups là danh sách các thuộc tính mặc định sẽ đ
 
 
 bộ kset
-=====
+=======
 
 Một kset chỉ đơn thuần là một tập hợp các kobject muốn được liên kết với
 lẫn nhau.  Không có hạn chế nào về việc chúng phải cùng loại ktype, nhưng phải
@@ -417,7 +417,7 @@ trước khi thêm kobject, kobject được đăng ký với kset, nhưng
 
 
 Loại bỏ đối tượng
-===============
+=================
 
 Sau khi một kobject được đăng ký thành công với lõi kobject, nó
 phải được dọn sạch khi mã được hoàn thành với nó.  Để làm điều đó, hãy gọi

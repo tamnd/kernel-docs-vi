@@ -20,13 +20,13 @@ ACPI CA có thể tạo đầu ra gỡ lỗi.  Tài liệu này mô tả cách s
 cơ sở vật chất.
 
 Cấu hình thời gian biên dịch
-==========================
+============================
 
 Đầu ra gỡ lỗi ACPI CA được kích hoạt trên toàn cầu bởi CONFIG_ACPI_DEBUG.  Nếu điều này
 tùy chọn cấu hình không được đặt, các thông báo gỡ lỗi thậm chí không được tích hợp vào kernel.
 
 Cấu hình thời gian khởi động và chạy
-================================
+====================================
 
 Khi CONFIG_ACPI_DEBUG=y, bạn có thể chọn thành phần và cấp độ của tin nhắn
 bạn quan tâm. Khi khởi động, hãy sử dụng acpi.debug_layer và
@@ -35,7 +35,7 @@ các tệp debug_layer và debug_level trong /sys/module/acpi/parameters/ để 
 các thông báo gỡ lỗi.
 
 debug_layer (thành phần)
-=======================
+========================
 
 "debug_layer" là mặt nạ chọn các thành phần quan tâm, ví dụ:
 phần cụ thể của trình thông dịch ACPI.  Để xây dựng mặt nạ bit debug_layer, hãy xem
@@ -65,7 +65,7 @@ ACPI_UTILITIES 0x00000001
     ACPI_TOOLS 0x00002000
 
 cấp độ gỡ lỗi
-===========
+=============
 
 "debug_level" là mặt nạ chọn các loại thông báo khác nhau, ví dụ:
 những thứ liên quan đến khởi tạo, thực thi phương thức, thông báo thông tin, v.v.

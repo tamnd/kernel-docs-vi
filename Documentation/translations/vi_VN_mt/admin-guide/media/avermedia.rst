@@ -79,7 +79,7 @@ nó. Sau đó sao chép nó vào /usr/lib/hotplug/firmware hoặc /lib/firmware/
 (tùy thuộc vào cấu hình của hotplug firmware).
 
 Những hạn chế đã biết
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Hiện tại tôi có thể tự tin nói rằng giai điệu giao diện người dùng
 thông qua /dev/dvb/adapter{x}/frontend0 và cung cấp luồng MPEG2

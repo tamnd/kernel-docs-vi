@@ -49,7 +49,7 @@ Cuộc gọi ioctl này cho phép thêm nhiều PID vào bộ lọc luồng truy
 ZZ0001ZZ.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

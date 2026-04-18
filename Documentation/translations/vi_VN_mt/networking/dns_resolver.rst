@@ -27,7 +27,7 @@ Mô-đun bộ giải quyết DNS
 
 
 Tổng quan
-========
+=========
 
 Mô-đun trình phân giải DNS cung cấp một cách để các dịch vụ kernel thực hiện các truy vấn DNS
 bằng cách yêu cầu một khóa thuộc loại khóa dns_resolver.  Những truy vấn này được
@@ -55,7 +55,7 @@ CONFIG_DNS_RESOLVER - tristate "Hỗ trợ bộ giải quyết DNS"
 
 
 Đang thiết lập
-==========
+==============
 
 Để thiết lập cơ sở này, tệp /etc/request-key.conf phải được thay đổi để
 /sbin/request-key có thể chỉ đạo các lệnh gọi lên một cách thích hợp.  Ví dụ, để xử lý
@@ -74,7 +74,7 @@ tạo dns_resolver foo:* * /usr/sbin/dns.foo %k
 
 
 Cách sử dụng
-=====
+============
 
 Để sử dụng cơ sở này, trước tiên phải bao gồm ZZ0000ZZ::
 
@@ -119,7 +119,7 @@ việc sử dụng KEYCTL_KEYRING_CLEAR trên ID khóa.
 
 
 Đọc khóa DNS từ không gian người dùng
-===============================
+=====================================
 
 Các khóa thuộc loại dns_resolver có thể được đọc từ không gian người dùng bằng cách sử dụng keyctl_read() hoặc
 "keyctl đọc/in/ống".

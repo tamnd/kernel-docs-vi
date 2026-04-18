@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển USB
-===========
+====================
 
 Các bảng USB được xác định bằng mã nhận dạng có tên USB ID.
 

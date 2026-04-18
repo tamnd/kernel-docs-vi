@@ -15,7 +15,7 @@
 .. _development_process_main:
 
 Hướng dẫn về quá trình phát triển hạt nhân
-=========================================
+==========================================
 
 Mục đích của tài liệu này là giúp các nhà phát triển (và người quản lý của họ)
 làm việc với cộng đồng phát triển với mức độ thất vọng tối thiểu.  Đó là

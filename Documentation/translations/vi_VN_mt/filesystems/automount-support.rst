@@ -25,7 +25,7 @@ cũng được yêu cầu bởi không gian người dùng.
 
 
 Tự động hóa trong hạt nhân
-======================
+==========================
 
 Xem phần "Mount Traps" của Documentation/filesystems/autofs.rst
 
@@ -49,7 +49,7 @@ Và sau đó nếu bạn nhìn vào danh mục điểm gắn kết, bạn sẽ t
 
 
 Tự động hết hạn điểm gắn kết
-===========================
+============================
 
 Việc tự động hết hạn các điểm gắn kết thật dễ dàng, miễn là bạn đã gắn kết
 điểm gắn kết đã hết hạn trong quy trình tự động đếm được nêu riêng.
@@ -89,7 +89,7 @@ cùng một danh sách hết hạn.
 
 
 Hết hạn theo hướng không gian người dùng
-=======================
+========================================
 
 Thay vào đó, không gian người dùng có thể yêu cầu hết hạn bất kỳ
 điểm gắn kết (mặc dù một số sẽ bị từ chối - ý tưởng của quy trình hiện tại về

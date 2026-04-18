@@ -69,7 +69,7 @@ Loại CIPHER được sử dụng cho các phép biến đổi hoạt động t
 khối tại một thời điểm và không có sự phụ thuộc nào giữa các khối.
 
 Thông tin đăng ký cụ thể
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Việc đăng ký thuật toán [CIPHER] cụ thể trong cấu trúc đó
 trường crypto_alg .cra_type trống. .cra_u.cipher phải là
@@ -120,7 +120,7 @@ hoạt động trên danh sách phân tán dữ liệu được cung cấp cho q
 chức năng. Họ cũng xuất kết quả thành một danh sách phân tán dữ liệu.
 
 Thông tin đăng ký cụ thể
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Việc đăng ký các thuật toán mã hóa đa khối là một trong những
 các quy trình tiêu chuẩn trong toàn bộ mật mã API.
@@ -139,7 +139,7 @@ Cấu trúc skcipher_alg định nghĩa một mật mã đa khối, hay nói chu
 thuật toán mã hóa đối xứng bảo toàn độ dài.
 
 Xử lý danh sách phân tán
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Một số trình điều khiển sẽ muốn sử dụng Generic ScatterWalk trong trường hợp
 phần cứng cần được cung cấp các phần riêng biệt của danh sách phân tán
@@ -245,7 +245,7 @@ thành .init() hoặc .update(), vì có thể không có cơ hội giải phón
 
 
 Thông số cụ thể của chuyển đổi HASH không đồng bộ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Một số trình điều khiển sẽ muốn sử dụng Generic ScatterWalk trong trường hợp
 việc triển khai cần được cung cấp các phần riêng biệt của danh sách phân tán

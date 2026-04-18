@@ -59,7 +59,7 @@ Ví dụ ZZ0000ZZ ::
 [000h 0000 4] Chữ ký: "CEDT" [Bảng khám phá sớm CXL]
 
 Các vấn đề chung
--------------
+----------------
 Hầu hết các lỗi được mô tả ở đây đều dẫn đến việc bộ điều khiển không thể nổi lên mặt nước.
 bộ nhớ dưới dạng thiết bị DAX và/hoặc kmem.
 

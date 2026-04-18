@@ -17,7 +17,7 @@ Phần I915 DG1/LMEM RFC
 ===========================
 
 Kế hoạch thượng nguồn
-=============
+=====================
 Đối với kế hoạch tổng thể để hạ cánh tất cả nội dung DG1 và chuyển nó sang
 thực, với tất cả các bit uAPI là:
 

@@ -67,7 +67,7 @@ thay thế ZZ0000ZZ cho ZZ0001ZZ.  Vì chỉ có
 một dòng được yêu cầu trong trường hợp đó, chỉ một giá trị được trả về trong ZZ0002ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 và ZZ0000ZZ được điền các giá trị được đọc.
 

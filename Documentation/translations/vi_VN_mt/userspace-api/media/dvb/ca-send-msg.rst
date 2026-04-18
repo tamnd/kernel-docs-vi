@@ -52,7 +52,7 @@ Gửi tin nhắn qua mô-đun CI CA.
    to the /dev/adapter?/ca? device node.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

@@ -21,12 +21,12 @@ Tài liệu
 CXL Phiên bản 3.2, Phiên bản 1.0
 
 Giấy phép
--------
+---------
 
 SPDX-Số nhận dạng giấy phép: CC-BY-4.0
 
 Người sáng tạo/Người đóng góp
---------------------
+-----------------------------
 
 - Robert Richter, AMD và cộng sự.
 
@@ -194,7 +194,7 @@ Những thay đổi sau đây đối với đặc điểm kỹ thuật là cần
   | ZZ0000ZZ
 
 Lợi ích của sự thay đổi
-----------------------
+-----------------------
 
 Nếu không có thay đổi, Hệ điều hành có thể không xác định được bộ nhớ
 vùng và Bộ giải mã gốc cho Điểm cuối và bộ giải mã HDM tương ứng của nó.
@@ -202,7 +202,7 @@ Việc tạo vùng sẽ thất bại. Nền tảng có kiến trúc kết nối 
 sẽ không thể thiết lập và sử dụng CXL.
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. [#cxl-spec-3.2] Compute Express Link Specification, Revision 3.2, Version 1.0,
    https://www.computeexpresslink.org/

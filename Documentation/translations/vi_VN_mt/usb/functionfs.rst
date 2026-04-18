@@ -17,7 +17,7 @@ Cách thức hoạt động của FunctionFS
 ==================================
 
 Tổng quan
-========
+=========
 
 Từ quan điểm hạt nhân, nó chỉ là một hàm tổng hợp với một số
 hành vi độc đáo.  Nó chỉ có thể được thêm vào cấu hình USB sau

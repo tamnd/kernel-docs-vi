@@ -17,16 +17,16 @@ Trình điều khiển vai trò kép tốc độ cao ChipIdea
 ==================================================
 
 1. Cách kiểm tra OTG FSM(HNP và SRP)
------------------------------------
+------------------------------------
 
 Để hiển thị cách demo các chức năng OTG HNP và SRP thông qua các tệp đầu vào sys
 với 2 bảng SD Freescale i.MX6Q saber.
 
 1.1 Cách kích hoạt OTG FSM
--------------------------
+--------------------------
 
 1.1.1 Chọn CONFIG_USB_OTG_FSM trong menuconfig, build lại kernel
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Hình ảnh và mô-đun. Nếu bạn muốn kiểm tra một số nội bộ
 biến cho otg fsm, mount debugfs, có 2 file
@@ -36,7 +36,7 @@ mèo /sys/kernel/debug/ci_hdrc.0/otg
 	mèo /sys/kernel/debug/ci_hdrc.0/register
 
 1.1.2 Thêm các mục bên dưới vào tệp dts cho nút điều khiển của bạn
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -44,7 +44,7 @@ otg-rev = <0x0200>;
 	vô hiệu hóa quảng cáo;
 
 1.2 Hoạt động thử nghiệm
--------------------
+------------------------
 
 1) Cấp nguồn cho 2 bảng SD saber Freescale i.MX6Q đã được tải trình điều khiển lớp tiện ích
    (ví dụ: g_mass_storage).

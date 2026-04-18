@@ -25,7 +25,7 @@ GUID cung cấp ngữ cảnh cho các phương pháp khác nhau.
 
 
 Chế độ khác
-----------
+-----------
 
 WMI GUID ZZ0000ZZ
 

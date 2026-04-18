@@ -20,7 +20,7 @@ Chuyển hướng
 XDP_REDIRECT
 ############
 Bản đồ được hỗ trợ
---------------
+------------------
 
 XDP_REDIRECT hoạt động với các loại bản đồ sau:
 
@@ -32,7 +32,7 @@ XDP_REDIRECT hoạt động với các loại bản đồ sau:
 Để biết thêm thông tin về các bản đồ này, vui lòng xem tài liệu bản đồ cụ thể.
 
 Quá trình
--------
+---------
 
 .. kernel-doc:: net/core/filter.c
    :doc: xdp redirect
@@ -78,7 +78,7 @@ một phần của tham số lỗi:
     tracepoint:xdp:xdp_devmap_xmit {@devmap_errno[-args->err] = count();}'
 
 bản ghi hoàn hảo
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 Công cụ hoàn hảo cũng hỗ trợ ghi lại các dấu vết:
 
 .. code-block:: none
@@ -89,6 +89,6 @@ Công cụ hoàn hảo cũng hỗ trợ ghi lại các dấu vết:
         -e xdp:xdp_devmap_xmit
 
 Tài liệu tham khảo
-===========
+==================
 
 -ZZ0000ZZ

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thiết bị Video4Linux
--------------------
+--------------------
 
 .. toctree::
     :maxdepth: 1

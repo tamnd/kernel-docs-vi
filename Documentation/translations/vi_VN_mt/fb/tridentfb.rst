@@ -43,7 +43,7 @@ Các lỗi đã biết:
    chip cũ hơn.
 
 Làm thế nào để sử dụng nó?
-==============
+==========================
 
 Khi khởi động, bạn có thể truyền tham số video ::
 

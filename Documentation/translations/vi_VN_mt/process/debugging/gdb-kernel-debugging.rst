@@ -34,7 +34,7 @@ Yêu cầu
 
 
 Cài đặt
------
+-------
 
 - Tạo máy Linux ảo cho QEMU/KVM (xem www.linux-kvm.org và
   www.qemu.org để biết thêm chi tiết). Để phát triển chéo,
@@ -83,7 +83,7 @@ add-auto-load-safe-path /path/to/linux-build
 
 
 Ví dụ về cách sử dụng trình trợ giúp gdb do Linux cung cấp
-------------------------------------------------
+----------------------------------------------------------
 
 - Tải ký hiệu module (và kernel chính)::
 

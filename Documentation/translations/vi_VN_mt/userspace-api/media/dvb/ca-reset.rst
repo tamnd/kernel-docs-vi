@@ -45,7 +45,7 @@ Sự miêu tả
 được gọi trước khi bắt đầu sử dụng phần cứng CA.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

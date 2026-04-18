@@ -33,7 +33,7 @@ hệ thống tập tin.
 (ZZ0000ZZ
 
 Giao diện netlink hạn ngạch
-=======================
+===========================
 Khi người dùng vượt quá giới hạn mềm, hết thời gian gia hạn hoặc đạt đến giới hạn cứng,
 hệ thống con hạn ngạch theo truyền thống đã in một tin nhắn đến thiết bị đầu cuối kiểm soát của
 quá trình gây ra sự dư thừa. Phương pháp này có nhược điểm là

@@ -113,7 +113,7 @@ _____ +------+
                         +------+
 
 Các bước tiếp theo
-==========
+==================
 
 Khi viết tài liệu này, chỉ các cổng được điều khiển bởi thiết bị PHY mới được
 được hỗ trợ. Các bước tiếp theo sẽ là thêm Netlink API để hiển thị những

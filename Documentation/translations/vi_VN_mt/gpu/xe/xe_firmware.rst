@@ -26,7 +26,7 @@ Bố cục phần sụn
    :doc: GSC-based Firmware Layout
 
 Bố cục bộ nhớ nội dung được bảo vệ (WOPCM) ghi một lần
-==================================================
+======================================================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_wopcm.c
    :doc: Write Once Protected Content Memory (WOPCM) Layout

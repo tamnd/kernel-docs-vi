@@ -13,6 +13,6 @@
    review) được đặt trong thư mục vi_VN/.
 
 Các chức năng và cấu trúc dữ liệu của Media Bus V4L2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/v4l2-mediabus.h

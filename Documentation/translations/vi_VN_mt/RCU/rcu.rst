@@ -15,7 +15,7 @@
 .. _rcu_doc:
 
 Khái niệm RCU
-============
+=============
 
 Ý tưởng cơ bản đằng sau RCU (cập nhật đọc-sao chép) là phân chia các dữ liệu phá hoại
 hoạt động thành hai phần, một phần ngăn không cho bất kỳ ai nhìn thấy dữ liệu

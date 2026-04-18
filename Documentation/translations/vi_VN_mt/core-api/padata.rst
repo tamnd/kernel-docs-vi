@@ -29,10 +29,10 @@ Padata còn hỗ trợ các công việc đa luồng, chia đều công việc t
 cân bằng và phối hợp giữa các luồng.
 
 Chạy các công việc được tuần tự hóa
-=======================
+===================================
 
 Đang khởi tạo
-------------
+-------------
 
 Bước đầu tiên trong việc sử dụng paddata để chạy các công việc được tuần tự hóa là thiết lập một
 Cấu trúc paddata_instance để kiểm soát tổng thể cách thức chạy các công việc::
@@ -90,7 +90,7 @@ Thay đổi mặt nạ CPU là một thao tác tốn kém, vì vậy không nên
 tần số lớn.
 
 Chạy một công việc
--------------
+------------------
 
 Trên thực tế, việc gửi công việc tới phiên bản paddata yêu cầu tạo một
 Cấu trúc paddata_priv, đại diện cho một công việc::
@@ -138,7 +138,7 @@ xuất sắc, nên chuẩn bị sẵn sàng để được gọi lại với cô
 cái trước hoàn thành.
 
 Công việc tuần tự hóa
-----------------
+---------------------
 
 Khi một công việc hoàn thành, song song() (hoặc bất kỳ chức năng nào thực sự kết thúc
 công việc) nên thông báo cho padata về thực tế bằng cách gọi tới ::

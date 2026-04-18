@@ -65,7 +65,7 @@ ZZ0000ZZ
 Tùy chọn này được giới hạn ở kiến ​​trúc X86.
 
 Bản đồ CPU
-========
+==========
 
 ZZ0000ZZ
   Bitmap của các CPU có thể có sẵn trong
@@ -99,7 +99,7 @@ Không bao giờ sử dụng bất cứ thứ gì khác ngoài ZZ0000ZZ để th
 
 
 Sử dụng phích cắm nóng CPU
-=================
+==========================
 
 Tùy chọn kernel ZZ0000ZZ cần được bật. Hiện tại nó đang
 có sẵn trên nhiều kiến trúc bao gồm ARM, MIPS, PowerPC và X86. các
@@ -142,7 +142,7 @@ Sự phối hợp hotplug CPU
 ============================
 
 Trường hợp ngoại tuyến
-----------------
+----------------------
 
 Khi CPU đã được tắt một cách hợp lý các lệnh gọi lại đã đăng ký
 trạng thái cắm nóng sẽ được gọi, bắt đầu bằng ZZ0000ZZ và kết thúc
@@ -163,7 +163,7 @@ trạng thái cắm nóng sẽ được gọi, bắt đầu bằng ZZ0000ZZ và 
 ===================
 
 Máy trạng thái cắm nóng CPU
--------------------------
+---------------------------
 
 Hotplug CPU sử dụng máy trạng thái tầm thường với không gian trạng thái tuyến tính từ
 CPUHP_OFFLINE đến CPUHP_ONLINE. Mỗi tiểu bang có một công ty khởi nghiệp và một công ty phá bỏ
@@ -242,7 +242,7 @@ Các cuộc gọi lại được phép thất bại. Khi một cuộc gọi lạ
   hoạt động bị hủy bỏ và CPU được đưa trở lại trạng thái trước đó.
 
 CPU hoạt động trực tuyến/ngoại tuyến
------------------------------
+------------------------------------
 
 Một hoạt động trực tuyến thành công trông như thế này::
 
@@ -350,7 +350,7 @@ Tạo bọt, rửa sạch và lặp lại. Trong trường hợp này, CPU vẫn
 gỡ lỗi hoặc thậm chí giải quyết tình huống.
 
 Phân bổ một trạng thái
-------------------
+----------------------
 
 Có hai cách để phân bổ trạng thái cắm nóng CPU:
 
@@ -383,7 +383,7 @@ Chỉ các phần PREPARE và ONLINE cung cấp phân bổ động
   phần có yêu cầu đặt hàng rõ ràng.
 
 Thiết lập trạng thái cắm nóng CPU
-----------------------------
+---------------------------------
 
 Mã lõi cung cấp các chức năng sau để thiết lập trạng thái:
 
@@ -483,7 +483,7 @@ Số được trả về là số trạng thái đã được phân bổ. Nếu
   =================================================================================
 
 Loại bỏ trạng thái cắm nóng CPU
-------------------------------
+-------------------------------
 
 Để xóa trạng thái đã thiết lập trước đó, các chức năng sau được cung cấp:
 
@@ -520,7 +520,7 @@ Nếu trạng thái đa phiên bản bị xóa thì người gọi phải xóa t
 trường hợp đầu tiên.
 
 Quản lý phiên bản trạng thái đa phiên bản
-----------------------------------------
+-----------------------------------------
 
 Khi trạng thái đa phiên bản được thiết lập, các phiên bản có thể được thêm vào
 tiểu bang:
@@ -634,7 +634,7 @@ cpuhp_remove_multi_state(trạng thái);
 
 
 Kiểm tra trạng thái cắm nóng
-=========================
+============================
 
 Một cách để xác minh xem trạng thái tùy chỉnh có hoạt động như mong đợi hay không là
 tắt CPU rồi đưa nó lên mạng trở lại. Cũng có thể đặt CPU
@@ -727,7 +727,7 @@ ZZ0000ZZ
   thói quen được gọi là chắc chắn tích cực.
 
 Thông báo không gian người dùng
-=======================
+===============================
 
 Sau khi CPU gửi các sự kiện udev trực tuyến hoặc ngoại tuyến thành công. Một quy tắc udev như::
 

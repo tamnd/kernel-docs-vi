@@ -45,7 +45,7 @@ Model bộ nhớ thiết bị phụ trợ và tuổi thọ
 
 
 Trình điều khiển phụ trợ
-=================
+========================
 
 .. kernel-doc:: include/linux/auxiliary_bus.h
    :identifiers: auxiliary_driver module_auxiliary_driver
@@ -54,7 +54,7 @@ Trình điều khiển phụ trợ
    :identifiers: __auxiliary_driver_register auxiliary_driver_unregister
 
 Cách sử dụng ví dụ
-=============
+==================
 
 .. kernel-doc:: drivers/base/auxiliary.c
    :doc: EXAMPLE

@@ -277,7 +277,7 @@ Tất cả các trường này không đổi sau khi quá trình khởi tạo ho
 nên không cần bảo vệ.
 
 Theo dõi thời gian ân hạn
-'''''''''''''''''''''
+'''''''''''''''''''''''''
 
 Phần này của cấu trúc ZZ0000ZZ được khai báo như sau:
 
@@ -421,7 +421,7 @@ heisenbug đã biến mất.
 .. _grace-period-tracking-1:
 
 Theo dõi thời gian ân hạn
-'''''''''''''''''''''
+'''''''''''''''''''''''''
 
 Phần này của cấu trúc ZZ0000ZZ được khai báo như sau:
 
@@ -841,7 +841,7 @@ Các trường của cấu trúc ZZ0000ZZ được thảo luận riêng lẻ và
 trong các phần sau.
 
 Kết nối với các cấu trúc dữ liệu khác
-'''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''
 
 Phần này của cấu trúc ZZ0000ZZ được khai báo như sau:
 
@@ -866,7 +866,7 @@ không cần loại bỏ bất kỳ cấu trúc ZZ0004ZZ nào mà cờ này khô
 thiết lập.
 
 Theo dõi trạng thái không hoạt động và thời gian gia hạn
-'''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Phần này của cấu trúc ZZ0000ZZ được khai báo như sau:
 
@@ -961,7 +961,7 @@ Cuối cùng, bộ đếm ZZ0000ZZ là số lần gọi lại RCU tối đa
 có thể được gọi vào một thời điểm nhất định.
 
 Xử lý nhàn rỗi Dyntick
-'''''''''''''''''''''
+''''''''''''''''''''''
 
 Phần này của cấu trúc ZZ0000ZZ được khai báo như sau:
 
@@ -1181,7 +1181,7 @@ ZZ0010ZZ
 +--------------------------------------------------------------------------------------- +
 
 Bản tóm tắt
-~~~~~~~
+~~~~~~~~~~~
 
 Vì vậy, trạng thái của RCU được biểu thị bằng cấu trúc ZZ0000ZZ,
 chứa một cây kết hợp các cấu trúc ZZ0001ZZ và ZZ0002ZZ.
@@ -1198,7 +1198,7 @@ Turner, Abhishek Srivastava, Matt Kowalczyk và Serge Hallyn cho
 giúp tôi đưa tài liệu này vào trạng thái dễ đọc hơn.
 
 Tuyên bố pháp lý
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Tác phẩm này thể hiện quan điểm của tác giả và không nhất thiết
 đại diện cho quan điểm của IBM.

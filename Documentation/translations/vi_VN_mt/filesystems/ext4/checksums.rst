@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tổng kiểm tra
----------
+-------------
 
 Bắt đầu từ đầu năm 2012, tổng kiểm tra siêu dữ liệu đã được thêm vào tất cả các ext4 chính.
 và cấu trúc dữ liệu jbd2. Cờ tính năng liên quan là siêu dữ liệu_csum.

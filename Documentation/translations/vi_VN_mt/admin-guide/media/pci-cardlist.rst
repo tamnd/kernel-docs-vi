@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển PCI
-===========
+====================
 
 Các bảng PCI được xác định bằng mã nhận dạng có tên PCI ID. ID PCI
 thực sự được sáng tác bởi hai phần:

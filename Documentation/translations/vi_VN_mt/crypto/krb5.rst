@@ -31,7 +31,7 @@ Mật mã Kerberos V API
   - The krb5enc AEAD algorithm
 
 Tổng quan
-========
+=========
 
 API này cung cấp mật mã kiểu Kerberos 5 để tạo khóa, mã hóa
 và kiểm tra tổng để sử dụng trong các hệ thống tệp mạng và có thể được sử dụng để triển khai
@@ -138,7 +138,7 @@ int crypto_krb5_calc_PRFplus(const struct krb5_enctype *krb5,
 dữ liệu để hạn chế việc sử dụng nó.
 
 Chức năng tiền điện tử
-================
+======================
 
 Khi các khóa đã được lấy, việc mã hóa có thể được thực hiện trên dữ liệu.  các
 người gọi phải để lại những khoảng trống trong bộ đệm để lưu trữ tác nhân gây nhiễu (nếu
@@ -228,7 +228,7 @@ chức năng sẽ chèn một.
 xác minh mọi tổng kiểm tra trong tin nhắn và đưa ra lỗi nếu chúng không khớp.
 
 Chế độ tổng kiểm tra
--------------
+--------------------
 
 Một cặp chức năng được cung cấp để tạo ra tổng kiểm tra trên một tin nhắn và để
 xác minh tổng kiểm tra đó::

@@ -29,7 +29,7 @@ bộ giới hạn, tính năng điều chỉnh và truyền tải RDS.
 .. _fm-tx-control-id:
 
 ID điều khiển FM_TX
-=================
+===================
 
 ZZ0001ZZ
     Bộ mô tả lớp FM_TX. Đang gọi

@@ -52,7 +52,7 @@ không khởi động được và các phương tiện khác để gỡ lỗi (
 có sẵn (sổ tay) hoặc quá chậm đối với thông tin gỡ lỗi mở rộng (như ACPI).
 
 Trình điều khiển
--------
+----------------
 
 Trình điều khiển firewire-ohci trong trình điều khiển/firewire sử dụng vật lý được lọc
 DMA theo mặc định, an toàn hơn nhưng không phù hợp để gỡ lỗi từ xa.
@@ -68,7 +68,7 @@ Gỡ lỗi từ xa qua FireWire sớm khi khởi động) và truyền tham số
 "ohci1394_dma=early" vào kernel được biên dịch lại khi khởi động.
 
 Công cụ
------
+-------
 
 firescope - Được phát triển ban đầu bởi Benjamin Herrenschmidt, Andi Kleen đã port
 từ PowerPC đến x86 và x86_64 và chức năng được thêm vào, firescope giờ đây có thể
@@ -191,7 +191,7 @@ Sau khi gắn vào mục tiêu gỡ lỗi, nhấn Ctrl-D để xem
 Gọi "firescope -h" để biết thêm thông tin về các tùy chọn của firescope.
 
 Ghi chú
------
+-------
 
 Tài liệu và thông số kỹ thuật: ZZ0000ZZ
 

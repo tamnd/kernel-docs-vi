@@ -25,7 +25,7 @@ phù hợp với các mẫu thiết kế này.
 
 
 1. Vùng chứa trạng thái
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Trong khi kernel chứa một số trình điều khiển thiết bị giả định rằng chúng sẽ
 chỉ được thăm dò() một lần trên một hệ thống nhất định (singletons), người ta thường giả sử

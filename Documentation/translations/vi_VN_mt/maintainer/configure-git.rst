@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Định cấu hình Git
-===============
+=================
 
 Chương này mô tả cấu hình git cấp độ người bảo trì.
 

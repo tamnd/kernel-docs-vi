@@ -49,7 +49,7 @@ Ví dụ
 ========
 
 Sự kiện bàn phím
----------------
+----------------
 
 Ví dụ đầu tiên này cho thấy cách tạo một thiết bị ảo mới và cách
 gửi một sự kiện quan trọng. Tất cả các trình xử lý lỗi và nhập mặc định đã bị xóa vì
@@ -124,7 +124,7 @@ vì sự đơn giản.
    }
 
 Chuyển động của chuột
----------------
+---------------------
 
 Ví dụ này cho thấy cách tạo một thiết bị ảo hoạt động giống như một thiết bị vật lý
 chuột.

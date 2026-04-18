@@ -23,7 +23,7 @@ khi cần thiết (hoặc ít nhất là khi chúng tôi cố gắng thêm nó -
 cần thiết).
 
 Hệ thống con cốt lõi
----------------
+--------------------
 
 .. toctree::
    :maxdepth: 1
@@ -37,7 +37,7 @@ Hệ thống con cốt lõi
    locking/index
 
 Giao diện con người
-----------------
+-------------------
 
 .. toctree::
    :maxdepth: 1
@@ -75,7 +75,7 @@ Giao diện lưu trữ
    nvme/index
 
 Các hệ thống con khác
-----------------
+---------------------
 ZZ0000ZZ: ở đây cần có nhiều công việc tổ chức hơn nữa.
 
 .. toctree::

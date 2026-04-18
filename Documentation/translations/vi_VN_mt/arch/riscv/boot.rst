@@ -31,7 +31,7 @@ Yêu cầu và ràng buộc tiền hạt nhân
 Hạt nhân RISC-V yêu cầu các bộ tải khởi động và chương trình cơ sở nền tảng sau:
 
 Đăng ký trạng thái
---------------
+------------------
 
 Hạt nhân RISC-V mong đợi:
 
@@ -39,14 +39,14 @@ Hạt nhân RISC-V mong đợi:
   * ZZ0001ZZ để chứa địa chỉ của cây thiết bị trong bộ nhớ.
 
 Trạng thái CSR
----------
+--------------
 
 Hạt nhân RISC-V mong đợi:
 
 * ZZ0000ZZ: MMU, nếu có, phải bị tắt.
 
 Bộ nhớ dành riêng cho chương trình cơ sở thường trú
--------------------------------------
+---------------------------------------------------
 
 Hạt nhân RISC-V không được ánh xạ bất kỳ bộ nhớ thường trú nào hoặc bộ nhớ được bảo vệ bằng
 PMP, trong ánh xạ trực tiếp, do đó phần sụn phải đánh dấu chính xác các vùng đó
@@ -73,7 +73,7 @@ trong trường hợp này, một cây thiết bị nhỏ vẫn được tạo b
 Phần "EFI sơ khai và cây thiết bị" bên dưới để biết chi tiết về cây thiết bị này.
 
 Mục nhập hạt nhân
-------------
+-----------------
 
 Trên hệ thống SMP, có 2 phương thức để vào kernel:
 
@@ -90,7 +90,7 @@ UEFI
 ----
 
 Bản đồ bộ nhớ UEFI
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 Khi khởi động bằng UEFI, kernel RISC-V sẽ chỉ sử dụng bản đồ bộ nhớ EFI để
 điền vào bộ nhớ hệ thống.
@@ -120,7 +120,7 @@ Yêu cầu và ràng buộc khởi động sớm
 Quá trình khởi động sớm của kernel RISC-V hoạt động theo các ràng buộc sau:
 
 Sơ khai và cây thiết bị EFI
------------------------
+---------------------------
 
 Khi khởi động bằng UEFI, cây thiết bị được EFI bổ sung (hoặc tạo)
 stub có cùng tham số với arm64 được mô tả ở đoạn
@@ -152,7 +152,7 @@ các macro đó trước khi cài đặt ánh xạ ảo cuối cùng phải đư
 đã kiểm tra.
 
 Ánh xạ cây thiết bị qua fixmap
------------------------------
+------------------------------
 
 Vì mảng ZZ0000ZZ được khởi tạo với các địa chỉ ảo được thiết lập
 bởi ZZ0001ZZ và được sử dụng với ánh xạ được thiết lập bởi
@@ -161,7 +161,7 @@ devicetree. Điều này đảm bảo rằng cây thiết bị vẫn có thể t
 ánh xạ.
 
 Thực thi trước MMU
------------------
+------------------
 
 Một vài đoạn mã cần phải chạy trước khi ánh xạ ảo đầu tiên được thực hiện
 được thành lập. Đây là bản cài đặt bản đồ ảo đầu tiên,

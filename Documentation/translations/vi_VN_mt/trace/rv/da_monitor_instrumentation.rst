@@ -62,7 +62,7 @@ phần thiết bị đo đạc chuyển ZZ0000ZZ sang *model
 sự kiện*.
 
 Truy tìm các chức năng gọi lại
---------------------------
+------------------------------
 
 Ba hàm đầu tiên là điểm bắt đầu của trình xử lý *gọi lại
 các chức năng* cho từng sự kiện trong số ba sự kiện từ mô hình xóa sạch. Nhà phát triển
@@ -124,7 +124,7 @@ void xử lý_sched_waking(void *data, struct task_struct *task)
 Và lời giải thích dành cho người đọc như một bài tập.
 
 kích hoạt và vô hiệu hóa chức năng
-----------------------------
+----------------------------------
 
 dot2k tự động tạo hai hàm đặc biệt::
 

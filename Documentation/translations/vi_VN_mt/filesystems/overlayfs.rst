@@ -16,7 +16,7 @@
 Vui lòng xem tệp MAINTAINERS để biết nơi gửi câu hỏi.
 
 Hệ thống tập tin lớp phủ
-==================
+========================
 
 Tài liệu này mô tả một nguyên mẫu cho một cách tiếp cận mới để cung cấp
 chức năng hệ thống tập tin lớp phủ trong Linux (đôi khi được gọi là
@@ -26,7 +26,7 @@ của người khác.
 
 
 Lớp phủ đối tượng
----------------
+-----------------
 
 Cách tiếp cận hệ thống tập tin lớp phủ là 'hỗn hợp', bởi vì các đối tượng
 xuất hiện trong hệ thống tập tin không phải lúc nào cũng có vẻ thuộc về hệ thống tập tin đó.
@@ -176,7 +176,7 @@ phục vụ bất kỳ mục đích nào.  Một thư mục hợp nhất chứa 
 trên tất cả các mục trong readdir trong trường hợp phổ biến.
 
 thư mục đọc
--------
+-----------
 
 Khi yêu cầu 'readdir' được thực hiện trên một thư mục đã hợp nhất, phần trên và
 mỗi thư mục thấp hơn sẽ được đọc và danh sách tên được hợp nhất trong
@@ -273,7 +273,7 @@ tắt tính năng theo dõi chuyển hướng (ví dụ: "redirect_dir=nofollow"
 
 
 Không có thư mục
----------------
+----------------
 
 Các đối tượng không phải là thư mục (tệp, liên kết tượng trưng, ​​thiết bị đặc biệt)
 các tập tin, v.v.) được trình bày từ hệ thống tập tin trên hoặc dưới dưới dạng
@@ -389,7 +389,7 @@ Trong trường hợp sau, dấu hai chấm trong tên thư mục lớp thấp h
 dưới dạng ký tự bát phân (\072) khi được hiển thị trong /proc/self/mountinfo.
 
 Siêu dữ liệu chỉ sao chép lên
----------------------
+-----------------------------
 
 Khi tính năng "siêu sao chép" được bật, lớp phủ sẽ chỉ sao chép
 lên siêu dữ liệu (ngược lại với toàn bộ tệp), khi một thao tác cụ thể về siêu dữ liệu
@@ -423,7 +423,7 @@ xung đột với metacopy=on và sẽ dẫn đến lỗi.
 
 
 Các lớp thấp hơn chỉ có dữ liệu
-----------------------
+-------------------------------
 
 Khi tính năng "siêu sao chép" được bật, tệp thông thường của lớp phủ có thể là một thành phần
 thông tin từ tối đa ba lớp khác nhau:
@@ -474,7 +474,7 @@ fsconfig(fs_fd, FSCONFIG_SET_STRING, "lowdir+", "/l1", 0);
 
 
 Chỉ định các lớp thông qua bộ mô tả tệp
---------------------------------------
+---------------------------------------
 
 Kể từ kernel v6.13, lớp phủ hỗ trợ chỉ định các lớp thông qua bộ mô tả tệp trong
 ngoài việc chỉ định chúng là đường dẫn. Tính năng này có sẵn cho
@@ -537,7 +537,7 @@ hỗ trợ các giá trị này:
     nếu không thì bản sao đầy đủ sẽ được sử dụng.
 
 Chia sẻ và sao chép các lớp
---------------------------
+---------------------------
 
 Các lớp thấp hơn có thể được chia sẻ giữa một số lớp phủ và điều đó thực sự là
 một thực tế rất phổ biến.  Một lớp phủ gắn kết có thể sử dụng cùng một lớp thấp hơn
@@ -577,7 +577,7 @@ sang máy khác.  Với tính năng "chỉ mục", cố gắng gắn kết
 các lớp được sao chép sẽ không thể xác minh được phần xử lý tệp gốc thấp hơn.
 
 Gắn kết lớp phủ lồng nhau
-------------------------
+-------------------------
 
 Có thể sử dụng thư mục thấp hơn được lưu trữ trên lớp phủ
 gắn kết. Đối với các tập tin thông thường, điều này không cần bất kỳ sự chăm sóc đặc biệt nào. Tuy nhiên, các tập tin
@@ -632,7 +632,7 @@ Nếu tính năng này bị tắt, thì đổi tên (2) trên thư mục thấp 
 sẽ thất bại với EXDEV ("Liên kết thiết bị chéo không hợp lệ").
 
 chỉ mục
-`````
+```````
 
 Được bật với tùy chọn gắn kết hoặc tùy chọn mô-đun "index=on" hoặc với
 tùy chọn cấu hình kernel CONFIG_OVERLAY_FS_INDEX=y.
@@ -693,7 +693,7 @@ sẽ không được hợp nhất với thư mục trên.
 
 
 Xuất khẩu NFS
-----------
+-------------
 
 Khi hệ thống tệp cơ bản hỗ trợ xuất NFS và "nfs_export"
 tính năng này được bật, hệ thống tệp lớp phủ có thể được xuất sang NFS.
@@ -845,7 +845,7 @@ tùy chọn hỗ trợ các giá trị sau:
 
 
 Gắn kết dễ bay hơi
---------------
+------------------
 
 Điều này được kích hoạt với tùy chọn gắn kết "dễ bay hơi".  Gắn kết dễ bay hơi không
 đảm bảo sống sót sau một vụ tai nạn.  Khuyến nghị mạnh mẽ rằng không ổn định
@@ -873,7 +873,7 @@ có thể được gỡ bỏ.
 
 
 Người dùng xattr
-----------
+----------------
 
 Tùy chọn gắn kết "-o userxattr" buộc các lớp phủ sử dụng
 "người dùng.lớp phủ." không gian tên xattr thay vì "trusted.overlay.".  Đây là
@@ -881,7 +881,7 @@ hữu ích cho việc gắn các lớp phủ không có đặc quyền.
 
 
 Bộ thử nghiệm
----------
+-------------
 
 Có một bộ thử nghiệm ban đầu được phát triển bởi David Howells và hiện tại
 được duy trì bởi Amir Goldstein tại:

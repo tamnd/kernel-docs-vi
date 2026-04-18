@@ -29,7 +29,7 @@ Thống kê cho các thiết bị zram riêng lẻ được xuất qua các nút
 /sys/block/zram<id>/
 
 Cách sử dụng
-=====
+============
 
 Có một số cách để định cấu hình và quản lý (-s) thiết bị zram:
 

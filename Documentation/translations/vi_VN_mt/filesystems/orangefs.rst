@@ -37,7 +37,7 @@ Các tính năng của Orangefs bao gồm:
 
 
 Lưu trữ danh sách gửi thư
-=====================
+=========================
 
 ZZ0000ZZ
 
@@ -97,7 +97,7 @@ Gắn kết hệ thống tập tin::
 mount -t pvfs2 tcp://localhost:3334/orangefs /pvfsmnt
 
 Nguồn hệ thống tập tin không gian người dùng
-===========================
+============================================
 
 ZZ0000ZZ
 
@@ -195,7 +195,7 @@ Sau đó xfstests có thể được chạy ::
 
 
 Tùy chọn
-=======
+========
 
 Các tùy chọn gắn kết sau đây được chấp nhận:
 
@@ -240,7 +240,7 @@ cat /sys/kernel/debug/orangefs/debug-help
 
 
 Giao thức giữa Mô-đun hạt nhân và không gian người dùng
-============================================
+=======================================================
 
 Orangefs là một hệ thống tập tin không gian người dùng và một mô-đun hạt nhân liên quan.
 Chúng ta sẽ chỉ gọi phần không gian người dùng của Orangefs là "không gian người dùng"
@@ -256,7 +256,7 @@ có thể đọc và ghi vào. Không gian người dùng cũng có thể thao t
 mô-đun hạt nhân thông qua thiết bị giả với ioctl.
 
 Bản đồ Bufmap
-----------
+-------------
 
 Khi khởi động, không gian người dùng phân bổ hai kích thước trang được căn chỉnh (posix_memalign)
 bộ nhớ đệm bị khóa, một bộ dùng cho IO và một bộ dùng cho readdir

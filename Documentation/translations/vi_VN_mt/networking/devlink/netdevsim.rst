@@ -55,7 +55,7 @@ giao diện khu vực devlink hoạt động. Một ảnh chụp nhanh được 
 Tệp gỡ lỗi ZZ0002ZZ được ghi vào.
 
 Tài nguyên
-=========
+==========
 
 Trình điều khiển ZZ0000ZZ hiển thị tài nguyên để kiểm soát số lượng FIB
 các mục nhập, mục nhập quy tắc FIB và các bước nhảy tiếp theo mà trình điều khiển sẽ cho phép.
@@ -70,7 +70,7 @@ các mục nhập, mục nhập quy tắc FIB và các bước nhảy tiếp the
     $ devlink dev reload netdevsim/netdevsim0
 
 Đánh giá đối tượng
-============
+==================
 
 Trình điều khiển ZZ0000ZZ hỗ trợ quản lý đối tượng tỷ lệ, bao gồm:
 
@@ -96,7 +96,7 @@ Ví dụ:
     dev  ethtool  rate_parent  tx_max  tx_share
 
 Bẫy dành riêng cho người lái xe
-=====================
+===============================
 
 .. list-table:: List of Driver-specific Traps Registered by ``netdevsim``
    :widths: 5 5 90

@@ -33,7 +33,7 @@ và các ví dụ.
 
 
 Các phiên bản chính của trình điều khiển sg
-===============================
+===========================================
 Có ba phiên bản chính của sg được tìm thấy trong nhân Linux (lk):
       - sg phiên bản 1 (bản gốc) từ năm 1992 đến đầu năm 1999 (lk 2.2.5).
 	Nó dựa trên cấu trúc giao diện sg_header.
@@ -84,7 +84,7 @@ Chúng bao gồm cdrecord, cdparanoia, SANE và cdrdao.
 
 
 Ánh xạ các phiên bản nhân Linux sang các phiên bản trình điều khiển sg
-======================================================
+======================================================================
 Dưới đây là danh sách các nhân Linux dòng 2.4 đã có phiên bản mới
 của tài xế sg:
 

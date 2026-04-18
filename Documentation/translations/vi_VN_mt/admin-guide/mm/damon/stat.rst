@@ -25,7 +25,7 @@ băng thông bộ nhớ ước tính
 .. _damon_stat_monitoring_accuracy_overhead:
 
 Giám sát độ chính xác và chi phí chung
-================================
+======================================
 
 DAMON_STAT sử dụng khoảng thời gian giám sát ZZ0000ZZ để nâng cao độ chính xác và
 chi phí tối thiểu.  Nó tự động điều chỉnh các khoảng thời gian nhằm đạt 4% quyền truy cập có thể quan sát được

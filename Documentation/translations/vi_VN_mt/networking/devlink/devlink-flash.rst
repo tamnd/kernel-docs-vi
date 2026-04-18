@@ -57,7 +57,7 @@ trình điều khiển cho thiết bị đó phải từ chối bất kỳ sự 
 được thực hiện một cách trung thực.
 
 Đang tải chương trình cơ sở
-================
+===========================
 
 Các thiết bị yêu cầu phần sụn để hoạt động thường lưu trữ nó ở dạng không ổn định.
 bộ nhớ trên bảng, ví dụ: nhấp nháy. Một số thiết bị chỉ lưu trữ phần mềm cơ bản trên

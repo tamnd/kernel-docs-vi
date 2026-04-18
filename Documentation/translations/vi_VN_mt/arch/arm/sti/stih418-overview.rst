@@ -30,6 +30,6 @@ Tính năng
     -VP9
 
 Tác giả tài liệu
----------------
+----------------
 
 Maxime coquelin <maxime.coquelin@st.com>, (c) 2015 ST Vi điện tử

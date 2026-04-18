@@ -270,7 +270,7 @@ Tái phân bổ # Force skb trên eth0
           echo "" > /sys/kernel/debug/fail_skb_realloc/devname
 
 Tùy chọn khởi động
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 Để thêm lỗi trong khi không có debugfs (thời gian khởi động sớm),
 sử dụng tùy chọn khởi động ::
@@ -284,7 +284,7 @@ thất bại=
 	mmc_core.fail_request=<interval>,<xác suất>,<dấu cách>,<lần>
 
 mục nhập thủ tục
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 - /proc/<pid>/fail-nth,
   /proc/self/task/<tid>/fail-nth:
@@ -535,7 +535,7 @@ rmdir tmpmnt
 
 
 Công cụ chạy lệnh với failedlab hoặc failed_page_alloc
-----------------------------------------------------
+------------------------------------------------------
 Để dễ dàng thực hiện các nhiệm vụ nêu trên, chúng ta có thể sử dụng
 công cụ/kiểm tra/lỗi-tiêm/failcmd.sh.  Hãy chạy một lệnh
 "./tools/testing/fault-injection/failcmd.sh --help" để biết thêm thông tin và
@@ -563,7 +563,7 @@ lỗi phân bổ::
 		-- tạo -C công cụ/kiểm tra/selftests/ run_tests
 
 Lỗi hệ thống khi sử dụng failed-nth
----------------------------------
+-----------------------------------
 
 Đoạn mã sau mắc lỗi một cách có hệ thống thứ 0, thứ 1, thứ 2, v.v.
 các khả năng trong lệnh gọi hệ thống socketpair() ::

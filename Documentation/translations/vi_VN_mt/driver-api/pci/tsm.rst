@@ -19,7 +19,7 @@ PCI Trình quản lý bảo mật môi trường thực thi đáng tin cậy (TS
 ================================================================
 
 Giao diện hệ thống con
-====================
+======================
 
 .. kernel-doc:: include/linux/pci-ide.h
    :internal:

@@ -20,7 +20,7 @@ Trình điều khiển AMD Pensando RDMA.
 Bản quyền (C) 2018-2025, Advanced Micro Devices, Inc.
 
 Tổng quan
-========
+=========
 
 Trình điều khiển ionic_rdma cung cấp chức năng Truy cập bộ nhớ trực tiếp từ xa
 dành cho thiết bị AMD Pensando DSC (Thẻ dịch vụ phân phối). Người lái xe này
@@ -38,7 +38,7 @@ Xem Tài liệu/mạng/device_drivers/ethernet/pensando/ionic.rst
 để biết thêm thông tin về cách xác định bộ chuyển đổi.
 
 Kích hoạt trình điều khiển
-===================
+==========================
 
 Trình điều khiển ionic_rdma phụ thuộc vào trình điều khiển ethernet ion.
 Xem Tài liệu/mạng/device_drivers/ethernet/pensando/ionic.rst

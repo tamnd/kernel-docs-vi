@@ -106,7 +106,7 @@ các loại, nó cũng xác nhận tất cả các truy cập được thực hi
 chương trình eBPF.
 
 Đang tải
--------
+--------
 
 Các chương trình eBPF có thể được tải bằng syscall của ZZ0000ZZ
 ZZ0001ZZ hoạt động:

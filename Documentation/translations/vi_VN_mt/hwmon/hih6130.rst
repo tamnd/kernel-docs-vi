@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân hih6130
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -54,6 +54,6 @@ temp1_input
 	đầu vào độ ẩm
 
 Ghi chú
------
+-------
 
 Chế độ lệnh và báo động hiện không được hỗ trợ.

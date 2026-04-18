@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thiết bị cổng song song
-=====================
+=======================
 
 .. kernel-doc:: include/linux/parport.h
    :internal:
@@ -28,7 +28,7 @@ Thiết bị cổng song song
    :internal:
 
 Trình điều khiển 16x50 UART
-=================
+===========================
 
 .. kernel-doc:: drivers/tty/serial/8250/8250_core.c
    :export:

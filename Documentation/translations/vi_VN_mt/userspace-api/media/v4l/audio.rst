@@ -89,7 +89,7 @@ Ví dụ: Thông tin về đầu vào âm thanh hiện tại
 
 
 Ví dụ: Chuyển sang đầu vào âm thanh đầu tiên
-===========================================
+============================================
 
 .. code-block:: c
 

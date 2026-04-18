@@ -134,7 +134,7 @@ sẽ không có EBB PMU nào nữa được phân phối.
 
 
 Bộ xử lý EBB
------------
+------------
 
 Trình xử lý EBB chỉ là mã không gian người dùng thông thường, tuy nhiên nó phải được viết bằng
 phong cách của một trình xử lý ngắt. Khi trình xử lý được nhập vào tất cả các thanh ghi
@@ -145,7 +145,7 @@ Việc xử lý việc này thế nào là tùy thuộc vào chương trình. Đ
 tùy chọn là tạo khung ngắt trên ngăn xếp và lưu các thanh ghi ở đó.
 
 Cái nĩa
-----
+-------
 
 Các sự kiện EBB không được kế thừa qua nhánh. Nếu tiến trình con muốn sử dụng
 EBB nó sẽ mở ra một sự kiện mới cho chính nó. Tương tự trạng thái EBB trong

@@ -13,6 +13,6 @@
    review) được đặt trong thư mục vi_VN/.
 
 V4L2 Bộ nhớ đến các chức năng bộ nhớ và cấu trúc dữ liệu
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/v4l2-mem2mem.h

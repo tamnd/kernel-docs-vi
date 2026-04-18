@@ -17,18 +17,18 @@ Thống kê khóa
 =================
 
 Cái gì
-====
+======
 
 Như tên cho thấy, nó cung cấp số liệu thống kê về ổ khóa.
 
 
 Tại sao
-===
+=======
 
 Bởi vì những thứ như tranh chấp khóa có thể ảnh hưởng nghiêm trọng đến hiệu suất.
 
 Làm sao
-===
+=======
 
 Lockdep đã có các móc nối trong các chức năng khóa và ánh xạ các trường hợp khóa tới
 khóa các lớp học. Chúng tôi xây dựng dựa trên đó (xem Tài liệu/khóa/lockdep-design.rst).
@@ -100,7 +100,7 @@ Cấu hình
 Thống kê khóa được kích hoạt thông qua CONFIG_LOCK_STAT.
 
 Cách sử dụng
------
+------------
 
 Cho phép thu thập số liệu thống kê::
 

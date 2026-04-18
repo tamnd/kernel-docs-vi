@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân sht21
-===================
+===============================
 
 Chip được hỗ trợ:
 
@@ -74,7 +74,7 @@ eic Mã nhận dạng điện tử
 =================== ==================================================================
 
 Ghi chú
------
+-------
 
 Trình điều khiển sử dụng cài đặt độ phân giải mặc định là 12 bit cho độ ẩm và 14
 bit cho nhiệt độ, dẫn đến thời gian đo điển hình là 22 ms cho

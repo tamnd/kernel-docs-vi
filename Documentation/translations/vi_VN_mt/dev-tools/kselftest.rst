@@ -46,7 +46,7 @@ không gian người dùng có thể muốn sử dụng ZZ0000ZZ.  Những thử
 chạy trong không gian kernel có thể muốn sử dụng ZZ0001ZZ.
 
 Tài liệu về các bài kiểm tra
-==========================
+============================
 
 Để biết tài liệu về kselftests, hãy xem:
 
@@ -55,7 +55,7 @@ Tài liệu về các bài kiểm tra
    testing-devices
 
 Chạy tự kiểm tra (kiểm tra hotplug được chạy ở chế độ giới hạn)
-=============================================================
+===============================================================
 
 Để xây dựng các bài kiểm tra::
 
@@ -100,7 +100,7 @@ tới phần "Chạy một tập hợp con các bài kiểm tra tự kiểm tra"
 $ làm tóm tắt=1 kselftest
 
 Chạy một tập hợp con các bản tự kiểm tra
-=============================
+========================================
 
 Bạn có thể sử dụng biến "TARGETS" trên dòng lệnh make để chỉ định
 một thử nghiệm để chạy hoặc một danh sách các thử nghiệm để chạy.
@@ -155,7 +155,7 @@ Lưu ý rằng một số thử nghiệm sẽ yêu cầu quyền root.
 
 
 Cài đặt tự kiểm tra
-=================
+===================
 
 Bạn có thể sử dụng mục tiêu "cài đặt" của "thực hiện" (gọi ZZ0000ZZ
 tool) để cài đặt selftests ở vị trí mặc định (ZZ0001ZZ),
@@ -170,7 +170,7 @@ $ make -C công cụ/thử nghiệm/cài đặt selftests
 $ make -C tools/testing/selftests cài đặt INSTALL_PATH=/some/other/path
 
 Chạy các bản tự kiểm tra đã cài đặt
-===========================
+===================================
 
 Tìm thấy trong thư mục cài đặt, cũng như trong tarball Kselftest,
 là một tập lệnh có tên ZZ0000ZZ để chạy thử nghiệm.
@@ -193,7 +193,7 @@ $ ./run_kselftest.sh -c size -c seccomp -t bộ tính giờ:posix_timers -t bộ
 Đối với các tính năng khác, hãy xem đầu ra sử dụng tập lệnh, được thấy với tùy chọn ZZ0000ZZ.
 
 Hết thời gian chờ tự kiểm tra
-=====================
+=============================
 
 Quá trình tự kiểm tra được thiết kế nhanh chóng và do đó thời gian chờ mặc định được sử dụng là 45
 giây cho mỗi bài kiểm tra. Các bài kiểm tra có thể ghi đè thời gian chờ mặc định bằng cách thêm
@@ -238,7 +238,7 @@ $ make -C công cụ/kiểm tra/selftests gen_tar TARGETS="size" FORMAT=.xz
 .. _tar's auto-compress: https://www.gnu.org/software/tar/manual/html_node/gzip.html#auto_002dcompress
 
 Đóng góp các thử nghiệm mới
-======================
+===========================
 
 Nói chung, các quy tắc để tự kiểm tra là
 
@@ -259,7 +259,7 @@ Nói chung, các quy tắc để tự kiểm tra là
    tin nhắn để phát hiện kết quả kiểm tra.
 
 Đóng góp các thử nghiệm mới (chi tiết)
-================================
+======================================
 
 * Trong Makefile của bạn, hãy sử dụng các tiện ích từ lib.mk bằng cách đưa nó vào thay vì
    phát minh lại bánh xe. Chỉ định cờ và cờ tạo nhị phân trên
@@ -332,7 +332,7 @@ kselftest-{all,install,clean,gen_tar}
     tạo -C công cụ/kiểm tra/selftests {all,install,clean,gen_tar} O=rel_path
 
 Mô-đun thử nghiệm
-===========
+=================
 
 Kselftest kiểm tra kernel từ không gian người dùng.  Đôi khi có những điều cần
 kiểm tra từ bên trong kernel, một phương pháp để thực hiện việc này là tạo một
@@ -353,7 +353,7 @@ kernel, nhưng trong trường hợp mô-đun không kiểm tra được tải, 
 được áp dụng từ không gian người dùng bằng cách ghi vào ZZ0003ZZ.
 
 Cách sử dụng
-----------
+------------
 
 Ở đây chúng tôi trình bày các bước điển hình để tạo một mô-đun thử nghiệm và gắn nó vào
 kselftest.  Chúng tôi sử dụng kselftests cho lib/ làm ví dụ.
@@ -413,7 +413,7 @@ Một mô-đun thử nghiệm cơ bản có thể trông như thế này:
    MODULE_INFO(test, "Y");
 
 Kịch bản thử nghiệm mẫu
--------------------
+-----------------------
 
 .. code-block:: sh
 
@@ -423,7 +423,7 @@ Kịch bản thử nghiệm mẫu
 
 
 Khai thác thử nghiệm
-============
+====================
 
 Tệp kselftest_harness.h chứa các trợ giúp hữu ích để xây dựng các bài kiểm tra.  các
 khai thác kiểm tra là để kiểm tra không gian người dùng, để kiểm tra không gian kernel, hãy xem ZZ0000ZZ ở trên.
@@ -439,7 +439,7 @@ Ví dụ
 
 
 Người trợ giúp
--------
+--------------
 
 .. kernel-doc:: tools/testing/selftests/kselftest_harness.h
     :functions: TH_LOG TEST TEST_SIGNAL FIXTURE FIXTURE_DATA FIXTURE_SETUP

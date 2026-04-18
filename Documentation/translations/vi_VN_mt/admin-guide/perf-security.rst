@@ -15,10 +15,10 @@
 .. _perf_security:
 
 Sự kiện hoàn hảo và bảo mật công cụ
-=============================
+===================================
 
 Tổng quan
---------
+---------
 
 Cách sử dụng Bộ đếm hiệu suất cho Linux (perf_events) [1]_ , [2]_ , [3]_
 có thể gây ra rủi ro đáng kể về việc rò rỉ dữ liệu nhạy cảm được truy cập bởi

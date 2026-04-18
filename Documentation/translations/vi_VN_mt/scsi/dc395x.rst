@@ -17,7 +17,7 @@ trình điều khiển dc395x SCSI
 ============================
 
 Trạng thái
-------
+----------
 Trình điều khiển đã được thử nghiệm với ổ đĩa CD-R và CD-R/W. Những điều này nên
 được an toàn để sử dụng. Việc thử nghiệm với đĩa cứng chưa được thực hiện với bất kỳ
 mức độ cao và cần thận trọng nếu bạn muốn thử

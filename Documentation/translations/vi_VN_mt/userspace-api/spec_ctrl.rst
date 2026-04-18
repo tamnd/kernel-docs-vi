@@ -107,7 +107,7 @@ EPERM Đối với PR_SPEC_L1D_FLUSH và PR_SPEC_INDIRECT_BRANCH: điều khiể
 ======= =======================================================================
 
 Kiểm soát tính năng sai suy đoán
--------------------------------
+--------------------------------
 - PR_SPEC_STORE_BYPASS: Bỏ qua cửa hàng đầu cơ
 
 Lời kêu gọi:

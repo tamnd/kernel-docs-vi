@@ -53,7 +53,7 @@ Thuộc tính ZZ0002ZZ thay vì chỉ định ảnh chụp nhanh
 id.
 
 cách sử dụng ví dụ
--------------
+------------------
 
 .. code:: shell
 

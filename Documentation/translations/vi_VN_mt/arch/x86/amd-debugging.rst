@@ -146,7 +146,7 @@ Vậy là bạn đã hiểu: thiết bị PCI được liên kết với quá tr
 Tập lệnh ZZ0000ZZ sẽ ghi lại hầu hết các tạo phẩm này cho bạn.
 
 thông báo gỡ lỗi PM s2idle
-========================
+==========================
 
 Trong quá trình s2idle trên hệ thống AMD, trình điều khiển ACPI LPS0 chịu trách nhiệm
 để kiểm tra tất cả các ràng buộc uPEP.  Việc không thực hiện được các ràng buộc uPEP không ngăn cản được
@@ -179,7 +179,7 @@ Các ví dụ lịch sử về vấn đề s2idle
 đây là một số ví dụ lịch sử về các vấn đề s2idle đã được giải quyết.
 
 Cốt lõi ngoại tuyến
---------------
+-------------------
 Một người dùng cuối đã báo cáo rằng việc lấy lõi ngoại tuyến sẽ ngăn hệ thống
 từ việc nhập đúng s0i3.  Điều này đã được gỡ lỗi bằng các công cụ AMD nội bộ
 để nắm bắt và hiển thị luồng số liệu từ phần cứng cho biết những gì đã thay đổi
@@ -191,7 +191,7 @@ lệnh đưa lõi vào C3 khi ngoại tuyến.
 ZZ0000ZZ
 
 Tham nhũng sau khi tiếp tục
------------------------
+---------------------------
 Một vấn đề lớn xảy ra với Rembrandt là có đồ họa
 tham nhũng sau khi tiếp tục.  Điều này xảy ra do sự điều chỉnh sai của PSP
 và trách nhiệm của người lái xe.  PSP sẽ lưu và khôi phục DMCUB, nhưng
@@ -202,7 +202,7 @@ quan sát thấy.
 ZZ0000ZZ
 
 Back to Back đình chỉ không thành công
---------------------------
+--------------------------------------
 Khi sử dụng nguồn đánh thức kích hoạt IRQ đánh thức, một lỗi trong
 Trình điều khiển pinctrl-amd có thể ghi lại trạng thái sai của IRQ và ngăn chặn
 hệ thống sẽ trở lại chế độ ngủ bình thường.
@@ -210,7 +210,7 @@ hệ thống sẽ trở lại chế độ ngủ bình thường.
 ZZ0000ZZ
 
 Đánh thức dựa trên bộ đếm thời gian giả sau 5 phút
--------------------------------------------
+--------------------------------------------------
 Tuy nhiên, HPET đang được sử dụng để lập trình nguồn đánh thức cho hệ thống
 điều này đã gây ra sự thức tỉnh giả sau 5 phút.  Báo thức chính xác để sử dụng
 là báo động ACPI.
@@ -218,7 +218,7 @@ là báo động ACPI.
 ZZ0000ZZ
 
 Đĩa biến mất sau khi tiếp tục
-----------------------------
+-----------------------------
 Sau khi tiếp tục từ s2idle, đĩa NVME sẽ biến mất.  Điều này là do
 BIOS không chỉ định thuộc tính _DSD StorageD3Enable.  Điều này khiến NVME
 trình điều khiển không đưa đĩa vào trạng thái dự kiến khi tạm dừng và bị lỗi
@@ -237,7 +237,7 @@ nhận thêm bất kỳ bản cập nhật chương trình cơ sở nền tảng
 ZZ0000ZZ
 
 Hết thời gian chờ phần cứng
-----------------
+---------------------------
 Phần cứng thực hiện nhiều hành động bên cạnh việc chấp nhận các giá trị từ
 trình điều khiển amd-pmc.  Vì đường truyền thông với phần cứng là một hộp thư,
 có thể nó không phản hồi đủ nhanh.
@@ -251,7 +251,7 @@ Vấn đề về thời gian được xác định bằng cách so sánh các gi
 ZZ0000ZZ
 
 Không thể đạt đến trạng thái ngủ phần cứng khi bật bảng điều khiển
---------------------------------------------------
+------------------------------------------------------------------
 Trên một số hệ thống Strix, người ta quan sát thấy một số bảng nhất định chặn hệ thống khỏi
 chuyển sang trạng thái ngủ phần cứng nếu bảng điều khiển bên trong được bật trong suốt chuỗi.
 
@@ -262,7 +262,7 @@ nhập cảnh của nhà nước.
 ZZ0000ZZ
 
 Vấn đề tiêu thụ năng lượng trong thời gian chạy
-================================
+===============================================
 
 Mức tiêu thụ điện năng trong thời gian chạy bị ảnh hưởng bởi nhiều yếu tố, bao gồm nhưng không
 giới hạn ở cấu hình của Quản lý năng lượng trạng thái hoạt động PCIe (ASPM),
@@ -280,14 +280,14 @@ Không nên sửa đổi tệp sysfs ZZ0002ZZ.
 sẽ không thể vào trạng thái nhàn rỗi sâu nhất.
 
 Chính sách EPP
-----------
+--------------
 Tệp sysfs ZZ0000ZZ có thể được sử dụng để đặt độ lệch
 về hiệu quả hoặc hiệu suất cho CPU.  Điều này có mối quan hệ trực tiếp đến
 thời lượng pin khi thiên về hiệu suất hơn.
 
 
 Thông báo gỡ lỗi BIOS
-===================
+=====================
 
 Hầu hết các máy OEM không có UART nối tiếp để xuất kernel hoặc BIOS
 thông báo gỡ lỗi. Tuy nhiên, thông báo gỡ lỗi BIOS rất hữu ích để hiểu
@@ -298,7 +298,7 @@ cơ sở hạ tầng được sử dụng để xuất thông báo gỡ lỗi th
 như AMD tham chiếu BIOS.
 
 Phân tích cú pháp thủ công
-----------------
+--------------------------
 Nói chung có một phương pháp ACPI ZZ0000ZZ mà các đường dẫn khác nhau của AML
 sẽ gọi để phát ra một thông báo tới nhật ký nối tiếp BIOS. Phương pháp này mất
 7 đối số, với đối số đầu tiên là một chuỗi và phần còn lại là tùy chọn
@@ -330,14 +330,14 @@ lệnh kernel, vui lòng xem xét việc bật ZZ0000ZZ
 lên kích thước lớn hơn chẳng hạn như 17 để tránh mất thông báo khởi động sớm.
 
 Phân tích cú pháp được hỗ trợ bởi công cụ
----------------------
+-----------------------------------------
 Như đã đề cập ở trên, việc phân tích cú pháp bằng tay có thể tẻ nhạt, đặc biệt với rất nhiều
 tin nhắn.  Để trợ giúp việc này, một công cụ đã được tạo ra tại
 ZZ0000ZZ
 để giúp phân tích các tin nhắn.
 
 Sự cố khởi động lại ngẫu nhiên
-====================
+==============================
 
 Khi xảy ra khởi động lại ngẫu nhiên, lý do cấp cao cho việc khởi động lại sẽ được lưu trữ
 trong một sổ đăng ký sẽ tồn tại ở lần khởi động tiếp theo.

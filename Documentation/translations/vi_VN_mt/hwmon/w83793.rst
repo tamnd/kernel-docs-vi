@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w83793
-====================
+================================
 
 Chip được hỗ trợ:
 
@@ -121,7 +121,7 @@ SmartFanII hoạt động khác, bạn phải xác định tới 7 PWM, nhiệt 
 
 
 Ghi chú
------
+-------
 
 Chỉ Fan1-5 và PWM1-3 được đảm bảo luôn tồn tại, các đầu vào quạt khác và
   Đầu ra PWM có thể tồn tại hoặc không tồn tại tùy thuộc vào cấu hình chân chip.

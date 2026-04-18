@@ -68,7 +68,7 @@ Thống kê mạng chung
    :export:
 
 Hệ thống con SUN RPC
------------------
+--------------------
 
 .. kernel-doc:: net/sunrpc/xdr.c
    :export:
@@ -101,7 +101,7 @@ Hỗ trợ thiết bị mạng
 ======================
 
 Hỗ trợ trình điều khiển
---------------
+-----------------------
 
 .. kernel-doc:: net/core/dev.c
    :export:

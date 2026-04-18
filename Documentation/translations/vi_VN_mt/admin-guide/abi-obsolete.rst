@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 ABI biểu tượng lỗi thời
-====================
+=======================
 
 Tài liệu về các giao diện vẫn còn trong kernel nhưng đã được
 được đánh dấu để loại bỏ vào một thời điểm nào đó sau đó.

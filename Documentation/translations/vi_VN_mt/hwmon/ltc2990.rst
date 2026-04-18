@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ltc2990
-=====================
+=================================
 
 
 Chip được hỗ trợ:
@@ -45,7 +45,7 @@ có thể được kết hợp để đo điện áp vi sai, thường được 
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng.

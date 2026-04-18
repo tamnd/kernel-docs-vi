@@ -53,7 +53,7 @@ Chúng tôi đảm bảo rằng SMB đã được bật. Chúng tôi để ACPI 
 
 
 Đặc trưng
---------
+---------
 
 Trình điều khiển này chỉ điều khiển Máy chủ SMB. Trình điều khiển này không sử dụng
 ngắt quãng.

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân lm90
-==================
+==============================
 
 Chip được hỗ trợ:
 
@@ -669,7 +669,7 @@ thuộc tính update_interval; đọc chúng thường xuyên hơn sẽ không c
 trả về giá trị 'cũ'.
 
 Hỗ trợ cảnh báo SMBus
--------------------
+---------------------
 
 Trình điều khiển này có hỗ trợ cơ bản cho cảnh báo SMBus. Khi nhận được cảnh báo,
 thanh ghi trạng thái được đọc và kênh nhiệt độ bị lỗi được ghi lại.

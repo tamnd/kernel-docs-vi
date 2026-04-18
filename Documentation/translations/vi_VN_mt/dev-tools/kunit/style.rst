@@ -30,7 +30,7 @@ Bạn chỉ nên đi chệch khỏi những nguyên tắc này khi:
    mất nhiều thời gian để chạy.
 
 Hệ thống con, bộ và thử nghiệm
-=============================
+==============================
 
 Để làm cho các bài kiểm tra dễ tìm, chúng được nhóm thành các bộ và hệ thống con. một bài kiểm tra
 suite là một nhóm các thử nghiệm nhằm kiểm tra một vùng liên quan của kernel. Một hệ thống con
@@ -38,7 +38,7 @@ là một tập hợp các bộ thử nghiệm để kiểm tra các phần khá
 hoặc một người lái xe.
 
 Hệ thống con
-----------
+------------
 
 Mỗi bộ thử nghiệm phải thuộc về một hệ thống con. Một hệ thống con là một tập hợp của một
 hoặc nhiều bộ kiểm tra KUnit kiểm tra cùng một trình điều khiển hoặc một phần của kernel. A
@@ -86,7 +86,7 @@ ZZ0006ZZ
         in the future.
 
 dãy phòng
-------
+---------
 
 Các thử nghiệm KUnit được nhóm thành các bộ thử nghiệm, bao gồm một lĩnh vực cụ thể của
 chức năng đang được thử nghiệm. Bộ thử nghiệm có thể có sự khởi tạo và chia sẻ
@@ -131,7 +131,7 @@ ZZ0002ZZ
   tương tự.
 
 Trường hợp thử nghiệm
-----------
+---------------------
 
 Các thử nghiệm riêng lẻ bao gồm một chức năng duy nhất để kiểm tra một ràng buộc
 đường dẫn mã, thuộc tính hoặc hàm. Trong đầu ra của bài kiểm tra, một bài kiểm tra riêng lẻ
@@ -162,7 +162,7 @@ tên ZZ0001ZZ của bài kiểm tra phải là tên bộ phần mềm theo sau l
 tên kiểm tra, được phân tách bằng dấu hai chấm (tức là ZZ0000ZZ).
 
 Kiểm tra các mục Kconfig
-====================
+========================
 
 Mọi bộ thử nghiệm phải được gắn với mục Kconfig.
 

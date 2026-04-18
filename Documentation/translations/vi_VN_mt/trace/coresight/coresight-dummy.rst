@@ -32,7 +32,7 @@ vô hiệu hóa chúng. Nó cũng cung cấp các đường dẫn nguồn/sink g
 gỡ lỗi.
 
 Chi tiết cấu hình
---------------
+-----------------
 
 Có hai loại nút, nguồn giả và nguồn giả. Các nút này
 có sẵn tại ZZ0000ZZ.

@@ -23,17 +23,17 @@ chi tiết.
 
 
 Điều kiện tiên quyết
-=============
+====================
 
 hạt nhân
-------
+--------
 
 Trước tiên bạn phải đảm bảo hệ thống của mình đang chạy trên kernel được xây dựng bằng
 ZZ0000ZZ.
 
 
 Công cụ không gian người dùng
----------------
+-----------------------------
 
 Để trình diễn, chúng tôi sẽ sử dụng công cụ không gian người dùng mặc định cho DAMON,
 được gọi là Toán tử DAMON (DAMO).  Nó có sẵn tại
@@ -46,7 +46,7 @@ gắn kết.
 
 
 Các mẫu truy cập dữ liệu ảnh chụp nhanh
-=============================
+=======================================
 
 Các lệnh bên dưới hiển thị kiểu truy cập bộ nhớ của một chương trình tại thời điểm
 việc hành quyết. ::
@@ -98,7 +98,7 @@ không gian địa chỉ bao gồm cả không gian địa chỉ vật lý.
 
 
 Ghi lại các mẫu truy cập dữ liệu
-==============================
+================================
 
 Các lệnh bên dưới ghi lại các kiểu truy cập bộ nhớ của một chương trình và lưu lại
 theo dõi kết quả vào một tập tin. ::
@@ -179,7 +179,7 @@ $ sudo damo report wss --range 0 101 10 --sortby time
 
 
 Quản lý bộ nhớ nhận biết mẫu truy cập dữ liệu
-===========================================
+=============================================
 
 Lệnh bên dưới sẽ tạo mọi vùng bộ nhớ có kích thước >=4K chưa được truy cập trong
 >=60 giây trong khối lượng công việc của bạn sẽ được hoán đổi. ::

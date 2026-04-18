@@ -38,14 +38,14 @@ tương tác với ba nguyên hàm chính được cung cấp bởi dma-buf:
 
 
 Nguyên tắc và cách sử dụng API của không gian người dùng
---------------------------------
+--------------------------------------------------------
 
 Để biết thêm chi tiết về cách thiết kế API của hệ thống con của bạn để sử dụng dma-buf, vui lòng
 xem Tài liệu/userspace-api/dma-buf-alloc-exchange.rst.
 
 
 Bộ đệm DMA được chia sẻ
-------------------
+-----------------------
 
 Tài liệu này phục vụ như một hướng dẫn cho người viết trình điều khiển thiết bị về dma-buf là gì
 chia sẻ bộ đệm API, cách sử dụng nó để xuất và sử dụng bộ đệm dùng chung.
@@ -77,7 +77,7 @@ Bất kỳ nhà xuất khẩu hoặc người dùng khung chia sẻ bộ đệm 
 'chọn DMA_SHARED_BUFFER' trong Kconfigs tương ứng của chúng.
 
 Ghi chú về giao diện không gian người dùng
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hầu hết bộ mô tả tệp bộ đệm DMA chỉ đơn giản là một đối tượng mờ đục cho không gian người dùng,
 và do đó giao diện chung được hiển thị là rất tối thiểu. Có một vài điều cần
@@ -119,19 +119,19 @@ Vấn đề khi thực hiện việc này thông qua lệnh gọi fcntl() riêng
   ZZ0000ZZ bên dưới để biết chi tiết.
 
 Hoạt động cơ bản và truy cập thiết bị DMA
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-buf.c
    :doc: dma buf device access
 
 CPU Truy cập vào các đối tượng bộ đệm DMA
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-buf.c
    :doc: cpu access
 
 Hỗ trợ thăm dò hàng rào ngầm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-buf.c
    :doc: implicit fence polling
@@ -169,13 +169,13 @@ Tham khảo cấu trúc và chức năng hạt nhân
    :internal:
 
 Hàng rào DMA
-----------
+------------
 
 .. kernel-doc:: drivers/dma-buf/dma-fence.c
    :doc: DMA fences overview
 
 Hợp đồng lái xe chéo hàng rào DMA
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-fence.c
    :doc: fence cross-driver contract
@@ -187,13 +187,13 @@ Chú thích tín hiệu hàng rào DMA
    :doc: fence signalling annotation
 
 Gợi ý về thời hạn hàng rào DMA
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-fence.c
    :doc: deadline hints
 
 Tham khảo chức năng hàng rào DMA
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-fence.c
    :export:
@@ -202,7 +202,7 @@ Tham khảo chức năng hàng rào DMA
    :internal:
 
 Mảng hàng rào DMA
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-fence-array.c
    :export:
@@ -211,7 +211,7 @@ Mảng hàng rào DMA
    :internal:
 
 Chuỗi hàng rào DMA
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/dma-fence-chain.c
    :export:
@@ -226,7 +226,7 @@ DMA Hàng rào mở
    :internal:
 
 Tệp đồng bộ hóa hàng rào DMA
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/dma-buf/sync_file.c
    :export:
@@ -235,13 +235,13 @@ Tệp đồng bộ hóa hàng rào DMA
    :internal:
 
 Tệp đồng bộ hóa hàng rào DMA uABI
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: include/uapi/linux/sync_file.h
    :internal:
 
 Hàng rào DMA không xác định
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tại nhiều thời điểm, hãy cấu trúc dma_fence với thời gian không xác định cho đến khi dma_fence_wait()
 kết thúc đã được đề xuất. Ví dụ bao gồm:
@@ -312,7 +312,7 @@ hàng rào trong hạt nhân. Điều này có nghĩa là:
   trường hợp.
 
 Ý nghĩa của lỗi trang phần cứng có thể phục hồi
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Phần cứng hiện đại hỗ trợ các lỗi trang có thể phục hồi, có rất nhiều lỗi.
 ý nghĩa đối với hàng rào DMA.

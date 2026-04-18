@@ -37,7 +37,7 @@ Nhập tệp
 trình điều khiển đĩa/md/dm-log.c
 trình điều khiển cốt lõi/md/dm-log.c
 trình điều khiển không gian người dùng/md/dm-log-userspace* bao gồm/linux/dm-log-userspace.h
-==================================================================================
+============================================================================================
 
 Loại nhật ký "đĩa"
 -------------------
@@ -45,14 +45,14 @@ Việc triển khai nhật ký này cam kết trạng thái nhật ký vào đĩ
 trạng thái ghi nhật ký vẫn tồn tại sau khi khởi động lại/gặp sự cố.
 
 Loại nhật ký "cốt lõi"
--------------------
+----------------------
 Việc triển khai nhật ký này sẽ giữ trạng thái nhật ký trong bộ nhớ.  Trạng thái nhật ký
 sẽ không tồn tại sau khi khởi động lại hoặc gặp sự cố, nhưng có thể có một sự gia tăng nhỏ về
 hiệu suất.  Phương pháp này cũng có thể được sử dụng nếu không có thiết bị lưu trữ
 có sẵn để lưu trữ trạng thái nhật ký.
 
 Loại nhật ký "không gian người dùng"
-------------------------
+------------------------------------
 Loại nhật ký này chỉ cung cấp cách xuất nhật ký API sang không gian người dùng,
 vì vậy việc triển khai nhật ký có thể được thực hiện ở đó.  Điều này được thực hiện bằng cách chuyển tiếp hầu hết
 ghi nhật ký các yêu cầu vào không gian người dùng, nơi daemon nhận và xử lý

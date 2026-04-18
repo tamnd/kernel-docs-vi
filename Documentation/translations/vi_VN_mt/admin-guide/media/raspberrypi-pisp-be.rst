@@ -17,7 +17,7 @@ Raspberry Pi PiSP Back End Memory-to-Memory ISP (pisp-be)
 ==============================================================
 
 Phần cuối của PiSP
-=================
+==================
 
 PiSP Back End là Bộ xử lý tín hiệu hình ảnh từ bộ nhớ đến bộ nhớ (ISP) có chức năng đọc
 dữ liệu hình ảnh từ bộ nhớ DRAM và thực hiện xử lý hình ảnh theo chỉ định của
@@ -37,7 +37,7 @@ bởi một ứng dụng được triển khai trong ZZ0000ZZ như
 một phần của hỗ trợ nền tảng Raspberry Pi.
 
 Người lái xe pisp-be
-==================
+====================
 
 Trình điều khiển Raspberry Pi PiSP Back End (pisp-be) nằm bên dưới
 trình điều khiển/phương tiện/nền tảng/raspberrypi/pisp-be. Nó sử dụng ZZ0000ZZ để đăng ký
@@ -67,7 +67,7 @@ Biểu đồ phương tiện đăng ký các nút thiết bị video sau:
 - pispbe-config: thiết bị đầu ra cho các thông số cấu hình ISP.
 
 đầu vào pispbe
-------------
+--------------
 
 Hình ảnh được ISP xử lý sẽ được xếp hàng đợi đến thiết bị đầu ra ZZ0001ZZ
 nút. Để biết danh sách các định dạng hình ảnh được hỗ trợ làm đầu vào cho ISP, hãy tham khảo

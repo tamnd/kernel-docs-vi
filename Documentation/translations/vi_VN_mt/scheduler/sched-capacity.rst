@@ -17,7 +17,7 @@ Lập kế hoạch nhận biết năng lực
 ===============================
 
 1. Dung lượng CPU
-===============
+=================
 
 1.1 Giới thiệu
 ----------------
@@ -50,7 +50,7 @@ mỗi Hz, dẫn đến::
 dung lượng(cpu) = công_per_hz(cpu) * max_freq(cpu)
 
 1.2 Điều khoản của người lập lịch
--------------------
+---------------------------------
 
 Hai giá trị dung lượng khác nhau được sử dụng trong bộ lập lịch. Một chiếc CPU
 ZZ0000ZZ là công suất tối đa có thể đạt được, tức là mức tối đa của nó
@@ -67,7 +67,7 @@ ngắn gọn.
 ---------------------
 
 1.3.1 OPP giống hệt nhau
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hãy xem xét một hệ thống dung lượng CPU lõi kép không đối xứng giả định trong đó
 
@@ -101,7 +101,7 @@ tính W theo đơn vị T thời gian. Mặt khác, CPU1 có một nửa công s
 CPU0 và do đó chỉ hoàn thành W/2 trong T.
 
 1.3.2 OPP tối đa khác nhau
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Thông thường, các CPU có giá trị công suất khác nhau cũng có mức tối đa khác nhau.
 OPP. Hãy xem xét các CPU tương tự như trên (tức là cùng một work_per_hz()) với:
@@ -129,7 +129,7 @@ khối lượng công việc trên CPU1
            +----+----+----+----+----+----+----+----+----+----+-> thời gian
 
 1.4 Thông báo trước về cách trình bày
--------------------------
+-------------------------------------
 
 Cần lưu ý rằng việc có giá trị ZZ0000ZZ để thể hiện sự khác biệt trong CPU
 hiệu suất là một điểm gây tranh cãi. Hiệu suất tương đối
@@ -266,7 +266,7 @@ sẽ chỉ có thể sử dụng công cụ ước tính của nó.
 =========================================
 
 3.1 Dung lượng CPU
-----------------
+------------------
 
 Linux hiện không thể tự mình tìm ra dung lượng CPU, do đó thông tin này
 cần phải giao cho nó. Kiến trúc phải xác định Arch_scale_cpu_capacity()
@@ -291,7 +291,7 @@ khi hạt nhân nhận biết được tần số chuyển sang (cũng được 
 cánh tay/cánh tay64).
 
 4. Cấu trúc liên kết lập lịch
-=====================
+=============================
 
 Trong quá trình xây dựng các miền được lập lịch, người lập lịch sẽ tìm ra
 liệu hệ thống có thể hiện khả năng CPU không đối xứng hay không. Đó có phải là
@@ -342,7 +342,7 @@ Dung lượng CPU không đối xứng là:
   CPU hoặc nhóm của chúng)
 
 5. Nhận thức được năng lực thực hiện lập kế hoạch
-===========================================
+=================================================
 
 5.1 CFS
 -------

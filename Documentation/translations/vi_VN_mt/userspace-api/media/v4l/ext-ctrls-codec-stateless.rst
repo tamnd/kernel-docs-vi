@@ -27,7 +27,7 @@ Các trình điều khiển này thường được ZZ0000ZZ hỗ trợ,
 và xử lý các định dạng pixel được phân tích cú pháp như V4L2_PIX_FMT_H264_SLICE.
 
 ID kiểm soát Codec không trạng thái
-==========================
+===================================
 
 .. _codec-stateless-control-id:
 

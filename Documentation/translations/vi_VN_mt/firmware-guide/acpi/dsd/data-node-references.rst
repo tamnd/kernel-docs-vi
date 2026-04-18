@@ -52,7 +52,7 @@ Ví dụ
 Trong đoạn mã ASL bên dưới, thuộc tính _DSD "tham chiếu" chứa một chuỗi
 tham chiếu đến nút mở rộng dữ liệu phân cấp ANOD trong DEV0 dưới nút gốc
 của DEV1. ANOD cũng là nút mục tiêu cuối cùng của tham chiếu.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Thiết bị (DEV0)
 	{
@@ -100,7 +100,7 @@ Vui lòng xem thêm một ví dụ về biểu đồ trong
 Tài liệu/firmware-guide/acpi/dsd/graph.rst.
 
 Tài liệu tham khảo
-==========
+==================
 
 [dsd-guide] Hướng dẫn DSD.
     ZZ0000ZZ được tham chiếu

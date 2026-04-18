@@ -21,7 +21,7 @@ Trình điều khiển Ethernet Gianfar
 
 
 Giảm tải tổng kiểm tra
-===================
+======================
 
 Bộ điều khiển eTSEC (được đưa vào các phần đầu tiên từ cuối năm 2005 như
 8548) có khả năng thực hiện kiểm tra TCP, UDP và IP
@@ -40,7 +40,7 @@ trích xuất các tiêu đề VLAN nhưng không lọc.  Quá trình lọc sẽ
 được thực hiện bởi kernel.
 
 Đa phương tiện
-============
+==============
 
 Trình điều khiển gianfar hỗ trợ sử dụng bảng băm nhóm trên
 TSEC (và bảng băm mở rộng trên eTSEC) cho phát đa hướng
@@ -49,7 +49,7 @@ trước các bảng băm.  Xem tài liệu Linux về cách tham gia
 nhóm phát đa hướng.
 
 Phần đệm
-=======
+========
 
 Trình điều khiển gianfar hỗ trợ đệm các khung nhận được với 2 byte
 để căn chỉnh tiêu đề IP thành ranh giới 16 byte, khi được hỗ trợ bởi

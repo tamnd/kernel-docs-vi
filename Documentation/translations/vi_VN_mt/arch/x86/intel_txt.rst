@@ -55,7 +55,7 @@ năm, một số trong số đó là:
 	  (Tôi không chắc liệu họ có trực tuyến ở đâu không)
 
 Tổng quan về dự án khởi động đáng tin cậy
-=============================
+=========================================
 
 Trusted Boot (tboot) là một mô-đun tiền nhân/VMM, nguồn mở,
 sử dụng Intel TXT để thực hiện quá trình khởi chạy hệ điều hành được đo lường và xác minh
@@ -70,7 +70,7 @@ w/ Hỗ trợ TXT kể từ v3.2) và bây giờ là nhân Linux.
 
 
 Đề xuất giá trị cho Linux hoặc "Tại sao bạn nên quan tâm?"
-=====================================================
+==========================================================
 
 Mặc dù có nhiều sản phẩm và công nghệ cố gắng
 đo hoặc bảo vệ tính toàn vẹn của kernel đang chạy, tất cả đều
@@ -106,7 +106,7 @@ hầu hết tất cả các phần của chuỗi tin cậy đều có sẵn (ngo
 chương trình cơ sở do Intel cung cấp).
 
 Nó hoạt động như thế nào?
-=================
+=========================
 
 - Tboot là một chương trình thực thi được bootloader khởi chạy dưới dạng
    "kernel" (tệp nhị phân mà bộ nạp khởi động thực thi).

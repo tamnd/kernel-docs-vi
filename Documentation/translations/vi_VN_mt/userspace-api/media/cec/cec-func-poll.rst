@@ -66,7 +66,7 @@ thiết lập một cách thích hợp.
 Để biết thêm chi tiết, hãy xem trang hướng dẫn sử dụng ZZ0000ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, ZZ0000ZZ trả về cấu trúc số có
 các trường ZZ0001ZZ khác 0 hoặc 0 nếu cuộc gọi đã hết thời gian. Do lỗi -1

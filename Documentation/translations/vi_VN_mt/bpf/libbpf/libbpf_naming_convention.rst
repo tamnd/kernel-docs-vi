@@ -25,7 +25,7 @@ các tiền tố sau: ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ, ZZ0003ZZ,
 ZZ0004ZZ, ZZ0005ZZ.
 
 Trình bao bọc cuộc gọi hệ thống
---------------------
+-------------------------------
 
 Trình bao bọc cuộc gọi hệ thống là các trình bao bọc đơn giản cho các lệnh được hỗ trợ bởi
 cuộc gọi hệ thống sys_bpf. Các trình bao bọc này sẽ chuyển đến tệp tiêu đề ZZ0000ZZ
@@ -35,7 +35,7 @@ Ví dụ ZZ0000ZZ bọc ZZ0001ZZ
 lệnh của sys_bpf, ZZ0002ZZ bao bọc ZZ0003ZZ, v.v.
 
 Đối tượng
--------
+---------
 
 Một lớp loại và hàm khác được cung cấp bởi libbpf API là "đối tượng"
 và các chức năng để làm việc với chúng. Các đối tượng là sự trừu tượng hóa cấp cao
@@ -81,7 +81,7 @@ Tài liệu API ở trên. Xem quy ước đặt tên API để chọn đúng
 tên cho một biểu tượng mới.
 
 Khả năng hiển thị biểu tượng
------------------
+----------------------------
 
 libbpf tuân theo mô hình khi tất cả các ký hiệu chung có khả năng hiển thị "ẩn"
 theo mặc định và để hiển thị một biểu tượng, nó phải được hiển thị rõ ràng

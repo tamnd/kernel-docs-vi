@@ -43,7 +43,7 @@ Tài liệu này mô tả trình điều khiển Linux cho Mạng Ethernet Chels
 
 
 Đặc trưng
-========
+=========
 
 Ngắt thích ứng (adaptive-rx)
 ---------------------------------
@@ -220,7 +220,7 @@ Kích thước cửa sổ TCP cho nhiều kết nối:
 
 
 Tin nhắn trình điều khiển
-===============
+=========================
 
 Các thông báo sau đây là những thông báo phổ biến nhất được nhật ký hệ thống ghi lại. Những cái này
  có thể được tìm thấy trong /var/log/messages.
@@ -243,7 +243,7 @@ eth#: liên kết bị hỏng
 
 
 Sự cố đã biết
-============
+=============
 
 Những vấn đề này đã được xác định trong quá trình thử nghiệm. Thông tin sau
  được cung cấp như một cách giải quyết vấn đề. Trong một số trường hợp, vấn đề này

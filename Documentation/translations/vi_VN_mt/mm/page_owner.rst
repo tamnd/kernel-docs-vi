@@ -77,7 +77,7 @@ tính năng mở rộng trang. Dù sao thì sau đó cũng không còn trang nà
 trạng thái không theo dõi.
 
 Cách sử dụng
-=====
+============
 
 1) Xây dựng trình trợ giúp không gian người dùng::
 

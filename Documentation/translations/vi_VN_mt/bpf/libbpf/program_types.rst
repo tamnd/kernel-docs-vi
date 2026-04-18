@@ -15,7 +15,7 @@
 .. _program_types_and_elf:
 
 Các loại chương trình và phần ELF
-==============================
+=================================
 
 Bảng bên dưới liệt kê các loại chương trình, loại đính kèm của chúng nếu có liên quan và phần ELF
 tên được libbpf hỗ trợ cho chúng. Tên phần ELF tuân theo các quy tắc sau:

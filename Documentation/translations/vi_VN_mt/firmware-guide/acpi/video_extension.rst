@@ -26,7 +26,7 @@ chỉ.  Nó có thể hoạt động hoặc không hoạt động đối với t
 Trình điều khiển video ACPI thực hiện 3 việc liên quan đến điều khiển đèn nền.
 
 Xuất giao diện sysfs cho không gian người dùng để kiểm soát mức độ đèn nền
-==================================================================
+==========================================================================
 
 Nếu bảng ACPI có thiết bị video và kernel acpi_backlight=vendor
 dòng lệnh không có, trình điều khiển sẽ đăng ký thiết bị đèn nền
@@ -84,7 +84,7 @@ phạm vi mức độ sáng khả dụng là từ 0 đến 9 (độ sáng tối 
 bao gồm.
 
 Thông báo cho không gian người dùng về sự kiện phím nóng
-====================================
+========================================================
 
 Nhìn chung có hai trường hợp để báo cáo sự kiện phím nóng:
 

@@ -29,7 +29,7 @@ Nội dung
 
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 Để biết thông tin về cách xác định bộ điều hợp của bạn và để có phiên bản Intel mới nhất
 trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel:
 ZZ0000ZZ
@@ -57,7 +57,7 @@ NOTE: Bộ mô tả mô tả bộ đệm dữ liệu và các thuộc tính liê
 bộ đệm. Thông tin này được truy cập bởi phần cứng.
 
 Gián đoạn ThrottleRate
----------------------
+----------------------
 :Phạm vi hợp lệ: 0,1,3,4,100-100000
 : Giá trị mặc định: 3
 
@@ -255,7 +255,7 @@ tham số ở mức 1 khi trình điều khiển tải) nó không thể đượ
 chu kỳ.
 
 Gỡ lỗi
------
+------
 :Phạm vi hợp lệ: 0-16 (0=none,...,16=all)
 : Giá trị mặc định: 0
 
@@ -322,7 +322,7 @@ MACSec được kích hoạt trên hệ thống.
 
 
 công cụ đạo đức
--------
+---------------
 Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
 chẩn đoán cũng như hiển thị thông tin thống kê. Công cụ đạo đức mới nhất
 Phiên bản này là cần thiết cho chức năng này. Tải xuống tại:
@@ -364,7 +364,7 @@ chỉ hoạt động ở chế độ song công hoàn toàn và chỉ ở tốc 
 
 
 Kích hoạt Wake trên LAN (WoL)
---------------------------
+-----------------------------
 WoL được cấu hình thông qua tiện ích ethtool.
 
 WoL sẽ được kích hoạt trên hệ thống trong lần tắt hoặc khởi động lại tiếp theo. cho

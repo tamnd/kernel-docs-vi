@@ -61,7 +61,7 @@ tên, nhưng mọi định nghĩa chỉ có thể có một dấu nhắc đầu 
 loại không được xung đột.
 
 Thuộc tính thực đơn
----------------
+-------------------
 
 Một mục menu có thể có một số thuộc tính. Không phải tất cả trong số họ là
 áp dụng ở mọi nơi (xem cú pháp).
@@ -289,7 +289,7 @@ Với thiết lập này, các tệp .config hiện có có "CONFIG_OLD_NAME=y" 
   bị bỏ qua khỏi các tệp .config mới được viết.
 
 Phụ thuộc thực đơn
------------------
+------------------
 
 Các phần phụ thuộc xác định khả năng hiển thị của một mục menu và cũng có thể giảm
 phạm vi đầu vào của các ký hiệu ba trạng thái. Logic ba trạng thái được sử dụng trong
@@ -338,7 +338,7 @@ luôn được bao quanh bởi dấu ngoặc đơn hoặc dấu ngoặc kép. Tr
 ký tự khác được cho phép và dấu ngoặc kép có thể được thoát bằng cách sử dụng '\'.
 
 Cấu trúc thực đơn
---------------
+-----------------
 
 Vị trí của một mục menu trong cây được xác định theo hai cách. đầu tiên
 nó có thể được chỉ định rõ ràng ::
@@ -381,7 +381,7 @@ hiển thị khi MODULES được đặt thành 'n'.
 
 
 Cú pháp Kconfig
---------------
+---------------
 
 Tệp cấu hình mô tả một loạt các mục menu, trong đó mỗi mục
 dòng bắt đầu bằng một từ khóa (ngoại trừ văn bản trợ giúp). Các từ khóa sau
@@ -520,7 +520,7 @@ cái nhìn đầu tiên và hầu hết trong số đó đã trở thành thành
 tập tin.
 
 Thêm các tính năng phổ biến và làm cho việc sử dụng có thể cấu hình được
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Đó là một thành ngữ phổ biến để triển khai một tính năng/chức năng
 phù hợp với một số kiến trúc nhưng không phải tất cả.
 Cách được khuyến nghị để làm như vậy là sử dụng biến cấu hình có tên HAVE_*
@@ -557,7 +557,7 @@ Các phần phụ thuộc được chuyển sang ký hiệu GENERIC_IOMAP và ch
 tình huống trong đó việc chọn buộc một ký hiệu bằng 'y'.
 
 Thêm các tính năng cần hỗ trợ trình biên dịch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Có một số tính năng cần hỗ trợ trình biên dịch. Cách được đề xuất
 để mô tả sự phụ thuộc vào tính năng của trình biên dịch là sử dụng "phụ thuộc vào"
@@ -575,7 +575,7 @@ cấu hình CC_HAS_FOO
 	def_bool $(success,$(srctree)/scripts/cc-check-foo.sh $(CC))
 
 Chỉ xây dựng dưới dạng mô-đun
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Để hạn chế việc xây dựng thành phần chỉ ở mô-đun, hãy xác định biểu tượng cấu hình của nó
 với "phụ thuộc vào m".  Ví dụ.::
 
@@ -585,7 +585,7 @@ cấu hình FOO
 giới hạn FOO ở mô-đun (=m) hoặc bị vô hiệu hóa (=n).
 
 Kiểm tra biên dịch
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 Nếu biểu tượng cấu hình có phần phụ thuộc, nhưng mã được cấu hình kiểm soát
 biểu tượng vẫn có thể được biên dịch nếu sự phụ thuộc không được đáp ứng, nó được khuyến khích
 tăng phạm vi xây dựng bằng cách thêm mệnh đề "|| COMPILE_TEST" vào
@@ -596,7 +596,7 @@ Lưu ý rằng mã đã được biên dịch kiểm tra sẽ tránh bị lỗi 
 sự phụ thuộc không được đáp ứng.
 
 Sự phụ thuộc vào kiến ​​trúc và nền tảng
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Do sự hiện diện của các trình điều khiển sơ khai, hầu hết các trình điều khiển hiện nay có thể được biên dịch trên hầu hết các trình điều khiển.
 kiến trúc. Tuy nhiên, điều này không có nghĩa là có tất cả các trình điều khiển
 có sẵn ở mọi nơi, vì phần cứng thực tế chỉ có thể tồn tại trên một số thiết bị cụ thể
@@ -704,7 +704,7 @@ Kiểm tra với::
 tạo KBUILD_KCONFIG=Documentation/kbuild/Kconfig.recursion-issue-02 allnoconfig
 
 Các giải pháp thiết thực cho vấn đề đệ quy kconfig
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các nhà phát triển gặp phải sự cố Kconfig đệ quy có hai lựa chọn
 theo ý của họ. Chúng tôi ghi lại chúng dưới đây và cũng cung cấp danh sách
@@ -762,7 +762,7 @@ e98062ed6dc4 chọn A -> phụ thuộc vào A (3)
 (3) Lỗi tương tự.
 
 Công việc kconfig trong tương lai
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Công việc trên kconfig được hoan nghênh trên cả hai lĩnh vực làm rõ ngữ nghĩa và
 đánh giá việc sử dụng bộ giải SAT đầy đủ cho nó. Một bộ giải SAT đầy đủ có thể
@@ -779,7 +779,7 @@ Công việc tiếp theo trên cả hai lĩnh vực này đều được hoan ng
 về cả hai điều này trong hai tiểu mục tiếp theo.
 
 Ngữ nghĩa của Kconfig
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Việc sử dụng Kconfig rất rộng, Linux hiện chỉ là một trong những người dùng của Kconfig:
 một nghiên cứu đã hoàn thành phân tích rộng rãi về việc sử dụng Kconfig trong 12 dự án [0]_.
@@ -813,7 +813,7 @@ ngôn ngữ lập mô hình biến thiên như Kconfig [3]_.
 .. [3] https://gsd.uwaterloo.ca/sites/default/files/icse2011.pdf
 
 Bộ giải SAT đầy đủ cho Kconfig
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Mặc dù bộ giải SAT [4]_ vẫn chưa được Kconfig sử dụng trực tiếp, như đã lưu ý
 Tuy nhiên, trong tiểu mục trước, công việc đã được thực hiện để thể hiện bằng boolean

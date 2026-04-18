@@ -15,7 +15,7 @@
 .. include:: <isonum.txt>
 
 Trình điều khiển hệ thống phụ máy ảnh Qualcomm
-================================
+==============================================
 
 Giới thiệu
 ------------
@@ -34,7 +34,7 @@ driver cho Android như được tìm thấy trong Code Linaro [#f1]_ [#f2]_.
 
 
 Phần cứng của hệ thống con máy ảnh Qualcomm
-----------------------------------
+-------------------------------------------
 
 Phần cứng Hệ thống con máy ảnh được tìm thấy trên bộ xử lý 8x16 / 8x96 và được hỗ trợ bởi
 người lái xe bao gồm:
@@ -117,7 +117,7 @@ Các định dạng đầu ra được hỗ trợ:
 
 
 Kiến trúc và thiết kế trình điều khiển
-------------------------------
+--------------------------------------
 
 Trình điều khiển triển khai giao diện subdev V4L2. Với mục tiêu mô hình hóa
 liên kết phần cứng giữa các mô-đun và để hiển thị một cách rõ ràng, hợp lý và có thể sử dụng được
@@ -191,7 +191,7 @@ ZZ0000ZZ
 Tham chiếu 22-06-2018.
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. [#f1] https://git.codelinaro.org/clo/la/kernel/msm-3.10/
 .. [#f2] https://git.codelinaro.org/clo/la/kernel/msm-3.18/

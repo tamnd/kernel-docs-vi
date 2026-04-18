@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân lm85
-==================
+==============================
 
 Chip được hỗ trợ:
 
@@ -138,7 +138,7 @@ chỉ đọc một lần mỗi 5 phút. Có nhiều gấp đôi dữ liệu cấ
 các phép đo, vì vậy đây có vẻ là một sự tối ưu hóa đáng giá.
 
 Tính năng đặc biệt
-----------------
+------------------
 
 LM85 có bốn chế độ giám sát tốc độ quạt. ADM1027 chỉ có hai.
 Cả hai đều có mạch đặc biệt để bù cho tương tác PWM với
@@ -237,7 +237,7 @@ cảm biến và do đó có ba vùng (# 1, 2 và 3). Mỗi vùng có các mục
 	- nhiệt độ khi tất cả các quạt sẽ chạy hết tốc độ.
 
 Điều khiển PWM
-^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Có ba đầu ra PWM. Bảng dữ liệu LM85 gợi ý rằng
 điều khiển đầu ra pwm3 cả fan3 và fan4. Mỗi PWM có thể riêng lẻ

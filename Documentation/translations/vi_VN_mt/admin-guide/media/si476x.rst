@@ -16,12 +16,12 @@
 
 
 Trình điều khiển SI476x
-=================
+=======================
 
 Bản quyền ZZ0000ZZ 2013 Andrey Smirnov <andrew.smirnov@gmail.com>
 
 TODO dành cho người lái xe
--------------------
+--------------------------
 
 - Theo bảng dữ liệu của SiLabs, có thể cập nhật
   phần sụn của chip vô tuyến trong thời gian chạy, do đó đưa nó đến
@@ -32,7 +32,7 @@ TODO dành cho người lái xe
 
 
 Các tham số được hiển thị qua debugfs
--------------------------------
+-------------------------------------
 SI476x cho phép người dùng nhận được nhiều đặc điểm có thể rất hữu ích
 hữu ích cho việc kiểm tra EoL/ước tính hiệu suất RF, các thông số có
 rất ít liên quan đến hệ thống con V4L2. Các thông số như vậy được thể hiện thông qua

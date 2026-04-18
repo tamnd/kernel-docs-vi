@@ -55,7 +55,7 @@ Vì sự hỗ trợ cho ioctl này đã được thêm vào năm 2004, điều n
 các món ăn đã trở thành di sản vào năm 2004.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

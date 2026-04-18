@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân lt7182s
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -36,7 +36,7 @@ Hỗ trợ quản lý hệ thống điện kỹ thuật số.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng.

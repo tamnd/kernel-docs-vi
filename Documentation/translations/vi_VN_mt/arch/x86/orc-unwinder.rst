@@ -17,7 +17,7 @@ Máy tháo cuộn ORC
 =================
 
 Tổng quan
-========
+=========
 
 Tùy chọn kernel CONFIG_UNWINDER_ORC cho phép trình tháo gỡ ORC, đây là
 có khái niệm tương tự như bộ tháo gỡ DWARF.  Sự khác biệt là ở chỗ
@@ -38,7 +38,7 @@ tương quan các địa chỉ lệnh với trạng thái ngăn xếp của chú
 
 
 ORC so với con trỏ khung
-=====================
+========================
 
 Khi bật con trỏ khung, GCC sẽ thêm mã thiết bị vào mọi
 chức năng trong hạt nhân.  Kích thước .text của kernel tăng khoảng
@@ -70,7 +70,7 @@ tùy thuộc vào cấu hình kernel.
 
 
 ORC so với DWARF
-============
+================
 
 Ưu điểm của thông tin gỡ lỗi ORC so với bản thân DWARF là nó đơn giản hơn nhiều.
 Nó loại bỏ máy trạng thái DWARF CFI phức tạp và cũng loại bỏ

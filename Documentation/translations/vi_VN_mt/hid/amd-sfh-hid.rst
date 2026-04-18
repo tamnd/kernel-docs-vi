@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trung tâm kết hợp cảm biến AMD
-=====================
+==============================
 AMD Sensor Fusion Hub (SFH) là một phần của SOC bắt đầu từ các nền tảng dựa trên AMD.
 Giải pháp này đang hoạt động tốt trên một số sản phẩm OEM. AMD SFH sử dụng HID trên bus PCIe.
 Về mặt kiến trúc, nó giống với ISH, tuy nhiên điểm khác biệt chính là
@@ -129,7 +129,7 @@ HID AMD AMD AMD -PCIe MP2
 
 
 Luồng dữ liệu từ ứng dụng đến Trình điều khiển AMD SFH
-------------------------------------------------
+------------------------------------------------------
 
 ::
 

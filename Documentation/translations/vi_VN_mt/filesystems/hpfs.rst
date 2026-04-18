@@ -22,7 +22,7 @@
 :trang chủ: ZZ0000ZZ
 
 Tín dụng
-=======
+========
 Chris Smith, 1993, HPFS chỉ đọc ban đầu, một số tệp cấu trúc mã và hpfs
 	được lấy từ nó
 
@@ -110,7 +110,7 @@ các giá trị không hoạt động.
 
 
 Liên kết tượng trưng
-========
+====================
 
 Bạn có thể thực hiện liên kết tượng trưng trên phân vùng HPFS, liên kết tượng trưng đạt được bằng cách cài đặt mở rộng
 thuộc tính có tên "SYMLINK" với giá trị liên kết tượng trưng. Giống như trên ext2, bạn có thể chọn và
@@ -152,7 +152,7 @@ bảng mã này - nếu bạn không cố gắng làm những gì tôi đã mô 
 
 
 Lỗi đã biết
-==========
+===========
 
 HPFS386 trên máy chủ OS/2 không được hỗ trợ. HPFS386 được cài đặt trên máy khách OS/2 thông thường
 nên làm việc. Nếu bạn có máy chủ OS/2, chỉ sử dụng chế độ chỉ đọc. Tôi không biết làm thế nào
@@ -200,7 +200,7 @@ có ai biết nó có nghĩa là gì không?
 
 
 Thông báo "cây không cân bằng" có nghĩa là gì?
-=========================================
+==============================================
 
 Các phiên bản cũ của trình điều khiển này đôi khi tạo ra các cây dnode không cân bằng. Hệ điều hành/2
 chkdsk không hét lên nếu cây mất cân bằng (và đôi khi tạo ra
@@ -214,7 +214,7 @@ toàn bộ được tạo bởi trình điều khiển này, đó là BUG - hãy
 
 
 Lỗi trong OS/2
-============
+==============
 
 Khi bạn có hai (hoặc nhiều) thư mục bị mất trỏ vào nhau, chkdsk
 bị khóa khi sửa chữa hệ thống tập tin.
@@ -228,7 +228,7 @@ Các tên tệp như "a .b" được OS/2 đánh dấu là 'dài' nhưng chkdsk 
 HPFS386.
 
 Lỗi trang mã được mô tả ở trên
-=============================
+==============================
 
 Nếu bạn không cài đặt các gói sửa lỗi, thì còn rất nhiều, rất nhiều gói khác...
 

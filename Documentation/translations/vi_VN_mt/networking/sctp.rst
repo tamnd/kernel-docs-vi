@@ -36,7 +36,7 @@ của SCTP tương thích với RFC 2960 và cung cấp giao diện lập trình
 được đề xuất trong Bản nháp Internet IETF.
 
 Hãy cẩn thận
-=======
+============
 
 - lksctp có thể được xây dựng dưới dạng tĩnh hoặc dưới dạng mô-đun.  Tuy nhiên, hãy lưu ý rằng
   việc loại bỏ mô-đun lksctp vẫn chưa phải là một hoạt động an toàn.

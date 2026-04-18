@@ -15,7 +15,7 @@
 .. _applying_patches:
 
 Áp dụng các bản vá cho hạt nhân Linux
-++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 Bản gốc bởi:
 	Jesper Juhl, tháng 8 năm 2005
@@ -49,7 +49,7 @@ từ tên tập tin.
 
 
 Làm cách nào để áp dụng hoặc hoàn nguyên một bản vá?
-=================================
+====================================================
 
 Bạn áp dụng bản vá bằng chương trình ZZ0000ZZ. Chương trình vá lỗi đọc một khác biệt
 (hoặc bản vá) và thực hiện các thay đổi đối với cây nguồn được mô tả trong đó.
@@ -123,7 +123,7 @@ yêu cầu bản vá in thêm thông tin về công việc đang được thực
 
 
 Các lỗi thường gặp khi patch
-===========================
+============================
 
 Khi bản vá áp dụng một tệp bản vá, nó sẽ cố gắng xác minh tính đúng đắn của
 tập tin theo những cách khác nhau.
@@ -221,7 +221,7 @@ mong muốn ứng tuyển.
 
 
 Có lựa chọn thay thế nào cho ZZ0000ZZ không?
-========================================
+============================================
 
 
 Vâng, có những lựa chọn thay thế.
@@ -253,7 +253,7 @@ bản vá chứa một biểu thức chính quy nhất định.
 
 
 Tôi có thể tải xuống các bản vá ở đâu?
-=================================
+======================================
 
 Các bản vá có sẵn tại ZZ0000ZZ
 Hầu hết các bản vá gần đây đều được liên kết từ trang đầu, nhưng chúng cũng có
@@ -330,7 +330,7 @@ Nhóm ổn định cung cấp các bản vá bình thường cũng như gia tăn
 làm thế nào để áp dụng các bản vá này.
 
 Các bản vá thông thường
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Các bản vá này không tăng dần, nghĩa là ví dụ như 5.7.3
 bản vá không áp dụng trên nguồn kernel 5.7.2 mà áp dụng trên cùng

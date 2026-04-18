@@ -132,7 +132,7 @@ ITU BT.1119
 .. _h264:
 
 ITU-T Rec. Đặc tả H.264 (Phiên bản tháng 04/2017)
-================================================
+=================================================
 
 :title: ITU-T Khuyến nghị H.264 "Mã hóa video nâng cao cho các dịch vụ nghe nhìn chung"
 
@@ -281,7 +281,7 @@ ITU BT.2020
 .. _tech3213:
 
 EBU Công Nghệ 3213
-=============
+==================
 
 
 :title: E.B.U. Tiêu chuẩn về dung sai màu sắc cho màn hình Studio
@@ -291,7 +291,7 @@ EBU Công Nghệ 3213
 .. _tech3321:
 
 EBU Công Nghệ 3321
-=============
+==================
 
 
 :title: E.B.U. hướng dẫn dành cho Màn hình phẳng dành cho người tiêu dùng (FPD)
@@ -426,7 +426,7 @@ poynton
 .. _colimg:
 
 nước súc miệng
-======
+==============
 
 
 :title: Hình ảnh màu: Nguyên tắc cơ bản và ứng dụng

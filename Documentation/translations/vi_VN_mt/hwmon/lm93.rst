@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân lm93
-==================
+==============================
 
 Chip được hỗ trợ:
 
@@ -88,10 +88,10 @@ LM94 không được hỗ trợ.
 
 
 Giao diện người dùng
---------------
+--------------------
 
 #ZZ0000ZZ
-^^^^^^^^
+^^^^^^^^^
 
 LM93 có thể giám sát hai tín hiệu #ZZ0001ZZ.  Kết quả được tìm thấy trong
 các tập tin sysfs prochot1, prochot2, prochot1_avg, prochot2_avg, prochot1_max,
@@ -131,7 +131,7 @@ chức năng ghi đè được kích hoạt.  Giá trị này nằm trong khoả
 biểu thị chu kỳ làm việc tối thiểu và 15 biểu thị mức tối đa.
 
 #ZZ0000ZZ
-^^^^^^^^
+^^^^^^^^^
 
 LM93 có thể giám sát hai tín hiệu #ZZ0001ZZ. Kết quả được tìm thấy trong
 tập tin sysfs vrdhot1 và vrdhot2. Có một giá trị cho mỗi tệp: một boolean cho
@@ -152,7 +152,7 @@ sẽ vô hiệu hóa chức năng cho quạt đó.  Lưu ý rằng không thể 
 được bật nếu tần số đầu ra PWM là 22500 Hz (xem bên dưới).
 
 Hướng dẫn sử dụng PWM
-^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 LM93 có chế độ cố định hoặc ghi đè cho hai đầu ra PWM (mặc dù, có
 vẫn còn một số điều kiện sẽ ghi đè ngay cả chế độ này - xem phần
@@ -247,7 +247,7 @@ và nhiệt độ [34].  Do đó, bất kỳ thay đổi nào đối với ví d
 ảnh hưởng đến temp2_auto_pwm_min.
 
 Chu kỳ quay vòng PWM
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Chu kỳ quay vòng xảy ra khi đầu ra PWM được lệnh từ chu kỳ nhiệm vụ 0% đến
 một số giá trị > 0%.  LM93 hỗ trợ chu kỳ hoạt động tối thiểu trong quá trình khởi động.  Những cái này
@@ -263,7 +263,7 @@ Thời lượng quay lên:
 	0 (đã tắt, h/w mặc định), 0,1, 0,25, 0,4, 0,7, 1,0, 2,0, 4,0
 
 Tăng tốc #ZZ0000ZZ và #ZZ0001ZZ PWM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Nếu tín hiệu #ZZ0000ZZ hoặc #ZZ0001ZZ được xác nhận trong khi liên kết với đầu ra PWM
 kênh, LM93 sẽ tăng tốc đầu ra PWM lên tới chu kỳ nhiệm vụ 100% ở chế độ rời rạc
@@ -276,7 +276,7 @@ Thời gian tăng tốc:
 	0 (tắt, h/w mặc định) đến 0,75 trong khoảng thời gian 0,05 giây
 
 Tăng cường quạt
-^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 Đối với mỗi kênh nhiệt độ, có một nhiệt độ tăng cường: nếu kênh
 vượt quá giới hạn này, LM93 sẽ ngay lập tức điều khiển cả hai đầu ra PWM lên 100%.

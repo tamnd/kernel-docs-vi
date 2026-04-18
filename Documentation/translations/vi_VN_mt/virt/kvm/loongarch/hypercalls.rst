@@ -40,7 +40,7 @@ Khi bạn đã xác định rằng máy chủ của bạn đang chạy trên cơ
 có khả năng KVM, giờ đây bạn có thể sử dụng siêu lệnh gọi như mô tả bên dưới.
 
 KVM siêu cuộc gọi ABI
-=================
+=====================
 
 KVM hypercall ABI rất đơn giản, với một thanh ghi đầu a0 (v0) và nhiều nhất là
 năm thanh ghi chung (a1 - a5) được sử dụng làm tham số đầu vào. FP (Nổi-
@@ -73,7 +73,7 @@ Mã trả lại có thể là một trong những mã sau:
 	==== ============================
 
 Tài liệu về siêu cuộc gọi KVM
-============================
+=============================
 
 Mẫu cho mỗi hypercall như sau:
 

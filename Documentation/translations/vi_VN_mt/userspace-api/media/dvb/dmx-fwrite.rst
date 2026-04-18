@@ -53,7 +53,7 @@ trong thiết bị demux vật lý tương ứng, ZZ0001ZZ.
 Lượng dữ liệu được truyền được ngụ ý bằng số lượng.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

@@ -25,7 +25,7 @@ V4L2_PIX_FMT_SRGGB12P ('pRCC'), V4L2_PIX_FMT_SGRBG12P ('pgCC'), V4L2_PIX_FMT_SGB
 
 
 Các định dạng Bayer được đóng gói 12 bit
----------------------------
+----------------------------------------
 
 
 Sự miêu tả

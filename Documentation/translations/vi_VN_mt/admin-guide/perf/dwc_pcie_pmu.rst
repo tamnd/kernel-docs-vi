@@ -36,7 +36,7 @@ cung cấp hai tính năng sau:
 Lưu ý: Không có ngắt khi tràn bộ đếm.
 
 Phân tích dựa trên thời gian
--------------------
+----------------------------
 
 Sử dụng tính năng này bạn có thể lấy thông tin về dữ liệu RX/TX
 thông lượng và thời gian ở mỗi trạng thái LTSSM công suất thấp của bộ điều khiển.
@@ -46,7 +46,7 @@ PMU đo dữ liệu theo hai loại:
 - Group#1: Lượng dữ liệu đã xử lý (Đơn vị 16 byte).
 
 Quầy sự kiện làn đường
--------------------
+----------------------
 
 Sử dụng tính năng này bạn có thể nhận được thông tin Lỗi và Không Lỗi trong
 làn đường cụ thể của bộ điều khiển. Sự kiện PMU được chọn bởi tất cả:
@@ -58,7 +58,7 @@ làn đường cụ thể của bộ điều khiển. Sự kiện PMU được c
 Một số sự kiện chỉ tồn tại đối với các cấu hình cụ thể.
 
 Trình điều khiển DesignWare Cores (DWC) PCIe PMU
-=======================================
+================================================
 
 Trình điều khiển này bổ sung các thiết bị PMU cho mỗi Cổng gốc PCIe được đặt tên dựa trên SBDF của
 Cổng gốc. Ví dụ,
@@ -85,7 +85,7 @@ Danh sách $# perf | grep dwc_rootport
     dwc_rootport_13018/rx_memory_read,lane=?/ [Sự kiện Kernel PMU]
 
 Phân tích dựa trên thời gian Sử dụng sự kiện
--------------------------------
+--------------------------------------------
 
 Ví dụ sử dụng cách tính tải trọng dữ liệu PCIe RX TLP (Đơn vị byte)::
 

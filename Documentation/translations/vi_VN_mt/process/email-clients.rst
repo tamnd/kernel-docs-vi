@@ -15,7 +15,7 @@
 .. _email_clients:
 
 Thông tin ứng dụng khách email cho Linux
-============================
+========================================
 
 Git
 ---
@@ -77,7 +77,7 @@ danh sách gửi thư.
 
 
 Một số gợi ý về ứng dụng email (MUA)
------------------------------
+------------------------------------
 
 Dưới đây là một số gợi ý cấu hình MUA cụ thể để chỉnh sửa và gửi
 các bản vá cho nhân Linux.  Những điều này không có nghĩa là phải hoàn thành
@@ -90,7 +90,7 @@ Huyền thoại:
 - GUI = giao diện người dùng đồ họa
 
 Núi cao (TUI)
-************
+*************
 
 Tùy chọn cấu hình:
 
@@ -104,7 +104,7 @@ sẽ xuất hiện, sau đó nhấn ZZ0000ZZ để bạn chỉ định tệp vá
 để chèn vào tin nhắn.
 
 Thư có móng vuốt (GUI)
-****************
+**********************
 
 Hoạt động. Một số người sử dụng thành công điều này cho các bản vá lỗi.
 
@@ -190,7 +190,7 @@ Câu IBM (Web GUI)
 Xem Ghi chú hoa sen.
 
 Đột biến (TUI)
-**********
+**************
 
 Rất nhiều nhà phát triển Linux sử dụng ZZ0000ZZ, vì vậy nó hẳn phải hoạt động khá tốt.
 
@@ -261,7 +261,7 @@ ZZ0000ZZ
 ZZ0000ZZ
 
 Thông (TUI)
-**********
+***********
 
 Trước đây, Pine đã gặp phải một số vấn đề về việc cắt bớt khoảng trắng, nhưng những vấn đề này
 tất cả nên được sửa chữa ngay bây giờ.

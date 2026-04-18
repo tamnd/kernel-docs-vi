@@ -21,7 +21,7 @@ Paul Moore, paul.moore@hp.com
 Ngày 17 tháng 5 năm 2006
 
 Tổng quan
-========
+=========
 
 Công cụ giao thức NetLabel CIPSO/IPv4 dựa trên IETF Thương mại
 Bản dự thảo Tùy chọn Bảo mật IP (CIPSO) từ ngày 16 tháng 7 năm 1992. Một bản sao của bản này

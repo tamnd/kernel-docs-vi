@@ -17,7 +17,7 @@ Theo dõi lỗi phần cứng có thể phục hồi trong vmcoreinfo
 =======================================================
 
 Tổng quan
---------
+---------
 
 Tính năng này cung cấp cơ sở hạ tầng chung trong nhân Linux để theo dõi
 và ghi lại các lỗi phần cứng có thể phục hồi được. Đây là những lỗi phần cứng có thể phục hồi được
@@ -31,7 +31,7 @@ và hiểu rõ hơn về nguyên nhân gốc rễ, đặc biệt là trong đám
 môi trường thường gặp các vấn đề về phần cứng.
 
 Những lợi ích
---------
+-------------
 
 - Tạo điều kiện thuận lợi cho mối tương quan giữa các lỗi có thể phục hồi được phần cứng với lỗi kernel hoặc
   đường dẫn mã bất thường dẫn đến sự cố hệ thống.
@@ -66,6 +66,6 @@ Ví dụ sử dụng điển hình (trong drgn REPL):
     }
 
 Kích hoạt
---------
+---------
 
 - Tính năng này được kích hoạt khi cài đặt CONFIG_VMCORE_INFO.

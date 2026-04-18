@@ -21,7 +21,7 @@ Paul Moore, paul.moore@hp.com
 Ngày 2 tháng 8 năm 2006
 
 Tổng quan
-========
+=========
 
 NetLabel là một cơ chế có thể được sử dụng bởi các mô-đun bảo mật hạt nhân để đính kèm
 thuộc tính bảo mật cho các gói mạng gửi đi được tạo từ không gian người dùng
@@ -30,7 +30,7 @@ bao gồm ba thành phần chính, các công cụ giao thức, giao tiếp
 lớp và mô-đun bảo mật hạt nhân API.
 
 Công cụ giao thức
-================
+=================
 
 Các công cụ giao thức chịu trách nhiệm cho cả việc áp dụng và truy xuất
 thuộc tính bảo mật của gói mạng.  Nếu có sự dịch giữa mạng

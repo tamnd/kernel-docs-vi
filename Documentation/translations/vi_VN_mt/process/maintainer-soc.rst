@@ -17,7 +17,7 @@ Hệ thống con SoC
 ================
 
 Tổng quan
---------
+---------
 
 Hệ thống con SoC là nơi tổng hợp mã dành riêng cho SoC.
 Các thành phần chính của hệ thống con là:
@@ -43,7 +43,7 @@ Cây SoC chính được đặt trên git.kernel.org:
   ZZ0000ZZ
 
 Người bảo trì
------------
+-------------
 
 Rõ ràng đây là một loạt chủ đề khá rộng mà không một ai, thậm chí
 một nhóm nhỏ người có khả năng duy trì.  Thay vào đó, hệ thống con SoC
@@ -98,14 +98,14 @@ do đó công việc được gửi đến địa chỉ này phải được coi
 cộng đồng.
 
 Thông tin dành cho Người bảo trì phụ (mới)
-------------------------------------
+------------------------------------------
 
 Khi các nền tảng mới xuất hiện, chúng thường mang theo những người bảo trì phụ mới,
 nhiều người trong số họ làm việc cho nhà cung cấp silicon và có thể không quen thuộc với
 quá trình.
 
 Độ ổn định của Devicetree ABI
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Có lẽ một trong những điều quan trọng nhất cần nhấn mạnh là các ràng buộc dt
 ghi lại ABI giữa cây thiết bị và hạt nhân.

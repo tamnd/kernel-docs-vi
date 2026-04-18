@@ -96,7 +96,7 @@ có thể có các hậu tố áp dụng các biện pháp bảo vệ bổ sung:
 
 
 Ngữ nghĩa của chủ sở hữu
-===============
+========================
 
 Các loại khóa nói trên ngoại trừ semaphores đều có chủ sở hữu nghiêm ngặt
 ngữ nghĩa:
@@ -207,7 +207,7 @@ ngữ nghĩa:
 - Mọi thay đổi của spinlock_t cũng áp dụng cho local_lock.
 
 sử dụng local_lock
-----------------
+------------------
 
 local_lock nên được sử dụng trong các trường hợp vô hiệu hóa quyền ưu tiên hoặc
 ngắt là hình thức kiểm soát đồng thời thích hợp để bảo vệ
@@ -217,7 +217,7 @@ local_lock không phù hợp để bảo vệ chống lại sự chiếm quyền
 Hạt nhân PREEMPT_RT do ngữ nghĩa spinlock_t cụ thể của PREEMPT_RT.
 
 Phạm vi cục bộ và nửa dưới của CPU
--------------------------------
+----------------------------------
 
 Các biến Per-CPU chỉ được truy cập trong ngữ cảnh softirq không nên dựa vào
 giả định rằng bối cảnh này được bảo vệ ngầm do
@@ -352,10 +352,10 @@ thực hiện, do đó thay đổi ngữ nghĩa:
 
 
 PREEMPT_RT hãy cẩn thận
-==================
+=======================
 
 local_lock trên RT
-----------------
+------------------
 
 Việc ánh xạ local_lock tới spinlock_t trên hạt nhân PREEMPT_RT có một số
 những hàm ý. Ví dụ: trên kernel không phải PREEMPT_RT, đoạn mã sau
@@ -501,7 +501,7 @@ khóa xoay cơ bản trên mỗi CPU.
 
 
 raw_spinlock_t trên RT
---------------------
+----------------------
 
 Việc có được raw_spinlock_t sẽ vô hiệu hóa quyền ưu tiên và cũng có thể
 bị gián đoạn, do đó phần quan trọng phải tránh nhận được một lệnh ngắt thường xuyên

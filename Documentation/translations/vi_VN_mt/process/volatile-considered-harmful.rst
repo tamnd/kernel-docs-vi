@@ -121,14 +121,14 @@ họ đưa ra lời biện minh cho thấy rằng các vấn đề tương tranh
 
 
 Tài liệu tham khảo
-==========
+==================
 
 [1] ZZ0000ZZ
 
 [2] ZZ0000ZZ
 
 Tín dụng
-=======
+========
 
 Động lực ban đầu và nghiên cứu của Randy Dunlap
 

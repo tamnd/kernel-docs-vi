@@ -37,7 +37,7 @@ giao diện.
 
 
 Sử dụng sysfs
-~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 sysfs luôn được biên dịch nếu CONFIG_SYSFS được xác định. Bạn có thể truy cập
 nó bằng cách thực hiện::
@@ -161,7 +161,7 @@ __ATTR_NULL:
                  chỉ báo (xem: kernel/workqueue.c)
 
 Lệnh gọi lại dành riêng cho hệ thống con
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Khi một hệ thống con xác định một loại thuộc tính mới, nó phải thực hiện một
 tập hợp các hoạt động sysfs để chuyển tiếp các cuộc gọi đọc và ghi tới
@@ -294,7 +294,7 @@ tên cho một thiết bị.)
 
 
 Bố cục thư mục cấp cao nhất
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sự sắp xếp thư mục sysfs cho thấy mối quan hệ của kernel
 các cấu trúc dữ liệu.
@@ -371,7 +371,7 @@ Các lớp giao diện sau hiện tồn tại trong sysfs.
 
 
 thiết bị (bao gồm/linux/device.h)
---------------------------------
+---------------------------------
 Kết cấu::
 
 cấu trúc thiết bị_thuộc tính {
@@ -393,7 +393,7 @@ int device_create_file(struct device ZZ0000ZZ attr);
 
 
 trình điều khiển xe buýt (bao gồm/linux/device.h)
-------------------------------------
+-------------------------------------------------
 Kết cấu::
 
 cấu trúc bus_attribute {
@@ -415,7 +415,7 @@ int bus_create_file(struct bus_type ZZ0000ZZ);
 
 
 trình điều khiển thiết bị (bao gồm/linux/device.h)
----------------------------------------
+--------------------------------------------------
 
 Kết cấu::
 

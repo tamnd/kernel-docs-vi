@@ -30,7 +30,7 @@ cấu hình
 Cấu hình cho nền tảng STi được hỗ trợ thông qua multi_v7_defconfig.
 
 Cách trình bày
-------
+--------------
 
 Tất cả các tệp cho nhiều họ máy (STiH407, STiH410 và STiH418)
   được đặt trong mã nền tảng có trong Arch/arm/mach-sti
@@ -41,6 +41,6 @@ Có một bảng chung board-dt.c trong thư mục mach hỗ trợ
 
 
 Tác giả tài liệu
----------------
+----------------
 
 Srinivas Kandagatla <srinivas.kandagatla@st.com>, (c) 2013 ST Vi điện tử

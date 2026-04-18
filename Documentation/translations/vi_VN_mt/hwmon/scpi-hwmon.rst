@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân scpi-hwmon
-========================
+====================================
 
 Chip được hỗ trợ:
 
@@ -42,7 +42,7 @@ Giao diện SCP cung cấp API để truy vấn các cảm biến có sẵn và
 giá trị của chúng sau đó được trình điều khiển này xuất sang không gian người dùng.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển dựa vào nút cây thiết bị để biểu thị sự hiện diện của SCPI
 hỗ trợ trong hạt nhân. Xem

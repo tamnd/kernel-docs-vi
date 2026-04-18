@@ -22,7 +22,7 @@ nhiều loại cảm biến nhúng khác nhau và giao diện chuẩn cho không
 ZZ0000ZZ
 
 Thiết bị I/O công nghiệp
-----------------------
+------------------------
 
 * struct iio_dev - thiết bị I/O công nghiệp
 * iio_device_alloc() - phân bổ ZZ0000ZZ từ trình điều khiển
@@ -61,7 +61,7 @@ Khi xóa, chúng tôi giải phóng các tài nguyên được phân bổ trong 
 2. iio_device_free(), giải phóng bộ nhớ được phân bổ cho thiết bị IIO.
 
 Giao diện sysfs của thiết bị IIO
-==========================
+================================
 
 Các thuộc tính là các tệp sysfs được sử dụng để hiển thị thông tin chip và cũng cho phép
 ứng dụng để thiết lập các thông số cấu hình khác nhau. Đối với thiết bị có
@@ -190,7 +190,7 @@ const tĩnh struct iio_chan_spec light_channels[] = {
   đo điện áp cho kênh 1.
 
 Thêm chi tiết
-============
+=============
 .. kernel-doc:: include/linux/iio/iio.h
 .. kernel-doc:: drivers/iio/industrialio-core.c
    :export:

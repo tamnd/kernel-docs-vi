@@ -25,7 +25,7 @@ Lớp định dạng argparse
    :undoc-members:
 
 Trình xử lý lớp biểu thức chính quy
-================================
+===================================
 
 .. automodule:: lib.python.kdoc.kdoc_re
    :members:
@@ -34,7 +34,7 @@ Trình xử lý lớp biểu thức chính quy
 
 
 mã thông báo C
-===========
+==============
 
 .. automodule:: lib.python.kdoc.c_lex
    :members:
@@ -43,7 +43,7 @@ mã thông báo C
 
 
 Trình xử lý phông chữ biến đổi của Trung Quốc, Nhật Bản và Hàn Quốc
-===================================================
+===================================================================
 
 .. automodule:: lib.python.kdoc.latex_fonts
    :members:
@@ -59,7 +59,7 @@ Tệp kernel C bao gồm logic
    :undoc-members:
 
 Các phương thức phụ trợ của phiên bản Python
-================================
+============================================
 
 .. automodule:: lib.python.kdoc.python_version
    :members:

@@ -52,7 +52,7 @@ Bạn cũng có thể sử dụng put_cpu() và get_cpu(), điều này sẽ vô
 
 
 RULE #2: Trạng thái CPU phải được bảo vệ.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Theo quyền ưu tiên, trạng thái của CPU phải được bảo vệ.  Đây là vòm-
@@ -69,7 +69,7 @@ kernel_fpu_begin và kernel_fpu_end sẽ vô hiệu hóa và kích hoạt quyề
 
 
 RULE #3: Việc thu thập và giải phóng khóa phải được thực hiện bởi cùng một tác vụ
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Khóa có được trong một tác vụ phải được giải phóng bởi tác vụ tương tự.  Cái này
@@ -80,7 +80,7 @@ yêu cầu người gọi đợi một sự kiện bằng tác vụ khác.
 
 
 Giải pháp
-========
+=========
 
 
 Bảo vệ dữ liệu theo quyền ưu tiên đạt được bằng cách vô hiệu hóa quyền ưu tiên đối với
@@ -137,7 +137,7 @@ di chuyển spin_lock lên hai dòng.
 
 
 Ngăn chặn quyền ưu tiên bằng cách vô hiệu hóa ngắt
-===============================================
+==================================================
 
 
 Có thể ngăn chặn sự kiện ưu tiên sử dụng local_irq_disable và

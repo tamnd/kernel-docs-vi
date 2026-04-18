@@ -107,7 +107,7 @@ Thẻ hỗ trợ việc đọc con trỏ đệm thực tế,
 					hardware pointer used.
 
 Bộ điều khiển
-----------
+-------------
 
 Vì DSP-MADI-Mixer có Fader 8152 nên việc
 sử dụng các điều khiển máy trộn tiêu chuẩn, vì điều này sẽ phá vỡ hầu hết
@@ -240,7 +240,7 @@ Chọn đầu vào, quang hoặc đồng trục. Nếu Chế độ an toàn đan
 		 đây là Đầu vào ưa thích.
 
 Máy trộn
------
+--------
 
 * Máy trộn
 
@@ -275,7 +275,7 @@ Bật và tắt đầu ra analog, không có gì để làm
 
 
 Thông tin (chỉ có quyền truy cập đọc)
-------------------------------
+-------------------------------------
  
 * Tỷ lệ mẫu
 

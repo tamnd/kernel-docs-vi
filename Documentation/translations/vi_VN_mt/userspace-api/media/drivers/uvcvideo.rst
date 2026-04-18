@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển Lớp video Linux USB (UVC)
-======================================
+==========================================
 
 Tệp này ghi lại một số khía cạnh dành riêng cho trình điều khiển của trình điều khiển UVC, chẳng hạn như
 ioctls dành riêng cho trình điều khiển và ghi chú triển khai.
@@ -119,7 +119,7 @@ Tham khảo IOCTL
 ~~~~~~~~~~~~~~~
 
 UVCIOC_CTRL_MAP - Ánh xạ điều khiển UVC sang điều khiển V4L2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Đối số: struct uvc_xu_control_mapping
 
@@ -197,7 +197,7 @@ ZZ0000ZZ:
 
 
 UVCIOC_CTRL_QUERY - Truy vấn điều khiển UVC XU
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Đối số: struct uvc_xu_control_query
 
 ZZ0000ZZ:
@@ -271,7 +271,7 @@ ZZ0000ZZ:
 
 
 Điều khiển V4L2 dành riêng cho trình điều khiển
------------------------------
+-----------------------------------------------
 
 Trình điều khiển uvcvideo triển khai các điều khiển dành riêng cho UVC sau:
 

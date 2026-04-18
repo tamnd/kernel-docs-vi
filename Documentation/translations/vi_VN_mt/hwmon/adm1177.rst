@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adm1177
-=====================
+=================================
 
 Chip được hỗ trợ:
   * Thiết bị tương tự ADM1177
@@ -31,7 +31,7 @@ Bộ điều khiển hoán đổi nóng và màn hình nguồn kỹ thuật số
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Tài liệu/i2c/instantiating-devices.rst
@@ -39,7 +39,7 @@ thiết bị một cách rõ ràng. Vui lòng xem Tài liệu/i2c/instantiating-
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Thuộc tính tối đa hiện tại
 là đọc-ghi, tất cả các thuộc tính khác là chỉ đọc.

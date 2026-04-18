@@ -17,7 +17,7 @@ Trình điều khiển thiết bị khối Null
 ===================================
 
 Tổng quan
-========
+=========
 
 Thiết bị khối null (ZZ0000ZZ) được sử dụng để đo điểm chuẩn khác nhau
 triển khai lớp khối. Nó mô phỏng một thiết bị khối có kích thước X gigabyte.
@@ -107,7 +107,7 @@ mbps=[Băng thông tối đa tính bằng MB/s]: Mặc định: 0 (không giới
   Giới hạn băng thông cho hiệu suất của thiết bị.
 
 Tham số cụ thể cho nhiều hàng đợi
--------------------------------
+---------------------------------
 
 use_per_node_hctx=[0/1]: Mặc định: 0
   Số lượng hàng đợi ngữ cảnh phần cứng.

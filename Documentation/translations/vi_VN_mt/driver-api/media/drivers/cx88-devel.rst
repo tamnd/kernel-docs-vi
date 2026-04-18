@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển cx88
-===============
+=====================
 
 Tác giả: Gerd Hoffmann
 
@@ -109,7 +109,7 @@ cũng vậy.  Hãy nhớ rằng, đây là mẫu chạy miễn phí của trạn
 theo thời gian, vì vậy đừng cho rằng bất kỳ mẫu nào đều bắt đầu ở bất kỳ địa điểm cụ thể nào.
 
 Thông tin bổ sung
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Bảng dữ liệu này (tìm kiếm trên google) dường như có một mô tả đáng yêu về
 Thông tin cơ bản về RC5:

@@ -24,7 +24,7 @@ Sửa đổi lần cuối: Thứ ba ngày 9 tháng 2 21:54:16 2016 bởi kai.mak
 
 
 Khái niệm cơ bản
-======
+================
 
 Trình điều khiển mang tính chung chung, nghĩa là nó không chứa bất kỳ mã nào được thiết kế riêng
 tới bất kỳ ổ băng từ cụ thể nào. Các thông số băng có thể được xác định bằng
@@ -148,7 +148,7 @@ chỉ rộng 8 bit.
 
 
 Hỗ trợ hệ thống
-=============
+===============
 
 Trình điều khiển tạo thư mục /sys/class/scsi_tape và điền vào đó
 thư mục tương ứng với các thiết bị băng hiện có. Có tính năng tự động tua lại
@@ -179,7 +179,7 @@ thư mục tương ứng với thiết bị tự động tua lại chế độ 0
 
 
 Hệ thống và số liệu thống kê cho thiết bị băng từ
-=====================================
+=================================================
 
 Trình điều khiển st duy trì số liệu thống kê cho các ổ băng từ bên trong hệ thống tập tin sysfs.
 Phương pháp sau đây có thể được sử dụng để xác định số liệu thống kê
@@ -366,7 +366,7 @@ Lưu ý rằng nếu kích thước bộ đệm thay đổi nhưng ngưỡng ghi
 
 
 Cấu hình thời gian khởi động
-=======================
+============================
 
 Nếu trình điều khiển được biên dịch vào kernel, các tham số tương tự có thể được
 cũng được thiết lập bằng cách sử dụng, ví dụ: dòng lệnh LILO. Cú pháp ưa thích là

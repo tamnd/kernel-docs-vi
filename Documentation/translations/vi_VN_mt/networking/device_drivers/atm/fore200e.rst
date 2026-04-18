@@ -32,14 +32,14 @@ Hiện chỉ có các thiết bị PCI và SBUS được trình điều khiển 
 
 
 Thông báo bản quyền phần sụn
--------------------------
+----------------------------
 
 Vui lòng đọc file fore200e_firmware_copyright hiện tại
 trong thư mục linux/drivers/atm để biết chi tiết và hạn chế.
 
 
 Cập nhật chương trình cơ sở
-----------------
+---------------------------
 
 Trình điều khiển dòng FORE Systems 200E được cung cấp cùng với dữ liệu chương trình cơ sở
 được tải lên bộ điều hợp ATM vào lúc khởi động hệ thống hoặc lúc tải mô-đun.

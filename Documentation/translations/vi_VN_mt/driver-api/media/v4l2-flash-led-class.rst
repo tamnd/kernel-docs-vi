@@ -13,6 +13,6 @@
    review) được đặt trong thư mục vi_VN/.
 
 Chức năng flash và cấu trúc dữ liệu của V4L2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/v4l2-flash-led-class.h

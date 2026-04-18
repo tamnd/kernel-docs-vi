@@ -27,7 +27,7 @@ Biến thể trình điều khiển tốc độ cao dự định sẽ được s
 hỗ trợ phụ trợ được bật, tính năng này được bật theo mặc định khi trình điều khiển được chọn.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 * ZZ0000ZZ
 * ZZ0001ZZ
@@ -42,7 +42,7 @@ Chung SPI
 Sử dụng kết nối SPI S_CLK/CS/SDO/SDI cổ điển.
 
 Tốc độ cao (sử dụng phụ trợ axi-dac)
-----------------------------------
+------------------------------------
 
 ::
 
@@ -56,10 +56,10 @@ Tốc độ cao (sử dụng phụ trợ axi-dac)
 
 
 Tính năng tốc độ cao
-===================
+====================
 
 Thuộc tính thiết bị
------------------
+-------------------
 
 Bảng sau đây hiển thị các tệp gỡ lỗi thiết bị liên quan đến ad35xxr, được tìm thấy trong
 đường dẫn gỡ lỗi cụ thể ZZ0000ZZ.

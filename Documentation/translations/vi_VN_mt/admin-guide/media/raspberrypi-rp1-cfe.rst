@@ -17,7 +17,7 @@ Mặt trước của máy ảnh Raspberry Pi PiSP (rp1-cfe)
 =================================================
 
 Giao diện người dùng của máy ảnh PiSP
-=========================
+=====================================
 
 Mặt trước của máy ảnh PiSP (CFE) là một mô-đun kết hợp bộ thu CSI-2 với
 một ISP đơn giản, được gọi là Front End (FE).
@@ -32,7 +32,7 @@ Các thanh ghi FE được ghi lại trong ZZ0000ZZ,
 và mã ví dụ cho FE có thể được tìm thấy trong ZZ0001ZZ.
 
 Trình điều khiển rp1-cfe
-==================
+========================
 
 Trình điều khiển Raspberry Pi PiSP Camera Front End (rp1-cfe) nằm bên dưới
 trình điều khiển/phương tiện/nền tảng/raspberrypi/rp1-cfe. Nó sử dụng ZZ0000ZZ để đăng ký

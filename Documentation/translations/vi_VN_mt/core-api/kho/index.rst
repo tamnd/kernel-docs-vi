@@ -19,7 +19,7 @@ Hệ thống con chuyển giao Kexec
 ==============================
 
 Tổng quan
-========
+=========
 
 Kexec HandOver (KHO) là cơ chế cho phép Linux bảo toàn bộ nhớ
 các vùng có thể chứa các trạng thái hệ thống được tuần tự hóa trên kexec.
@@ -89,7 +89,7 @@ Cây cơ số bàn giao Kexec
   :doc: Kexec Handover Radix Tree
 
 API công khai
-==========
+=============
 
 .. kernel-doc:: kernel/liveupdate/kexec_handover.c
   :export:

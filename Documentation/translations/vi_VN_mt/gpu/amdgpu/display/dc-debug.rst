@@ -21,7 +21,7 @@ trình điều khiển từ góc độ hiển thị. Trang này giới thiệu c
 quy trình giúp bạn xác định xem một số vấn đề có liên quan đến mã hiển thị hay không.
 
 Thu hẹp các vấn đề hiển thị
-==========================
+===========================
 
 Vì màn hình là thành phần trực quan của người lái nên người dùng thường thấy
 báo cáo sự cố dưới dạng hiển thị khi thành phần khác gây ra sự cố. Cái này
@@ -29,7 +29,7 @@ phần trang bị cho người dùng xác định xem một sự cố cụ thể
 thành phần hoặc một phần khác của trình điều khiển.
 
 DC dmesg tin nhắn quan trọng
----------------------------
+----------------------------
 
 Nhật ký dmesg là nguồn thông tin đầu tiên được kiểm tra và amdgpu
 tận dụng tính năng này bằng cách ghi lại một số thông tin có giá trị. Khi nào
@@ -205,7 +205,7 @@ muốn kích hoạt, bạn sẽ thấy một số trường hợp gỡ lỗi nà
 tiểu mục.
 
 Gỡ lỗi nhiều mặt phẳng
----------------------
+----------------------
 
 Nếu bạn muốn bật hoặc gỡ lỗi nhiều mặt phẳng trong một không gian người dùng cụ thể
 ứng dụng, bạn có thể tận dụng tính năng gỡ lỗi có tên là xác nhận trực quan. cho
@@ -249,7 +249,7 @@ che ống thứ hai. Nói cách khác, bạn sẽ thấy thanh cao hơn một ch
 ống thứ hai.
 
 Gỡ lỗi DTN
-=========
+==========
 
 DC (DCN) cung cấp nhật ký mở rộng chứa nhiều chi tiết từ
 cấu hình phần cứng. Thông qua debugfs, bạn có thể nắm bắt các giá trị trạng thái đó bằng cách
@@ -278,7 +278,7 @@ Từ góc độ hiển thị, hãy chú ý đến phần sụn của DMCU và
 DMCUB.
 
 Gỡ lỗi phần mềm DMUB
-===================
+====================
 
 Đôi khi, nhật ký dmesg là không đủ. Điều này đặc biệt đúng nếu một tính năng
 được triển khai chủ yếu trong phần mềm DMUB. Trong những trường hợp như vậy, tất cả những gì chúng ta thấy trong dmesg khi
@@ -289,7 +289,7 @@ ZZ0000ZZ.
 Hiện tại, chúng tôi hỗ trợ truy tìm các nhóm sau:
 
 Nhóm theo dõi
-------------
+-------------
 
 .. csv-table::
    :header-rows: 1

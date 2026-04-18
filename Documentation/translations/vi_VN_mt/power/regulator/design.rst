@@ -20,7 +20,7 @@ Tài liệu này cung cấp một cái nhìn tổng quan ngắn gọn, có cấu
 trong số những cân nhắc về thiết kế ảnh hưởng đến thiết kế bộ điều chỉnh API.
 
 Sự an toàn
-------
+----------
 
 - Lỗi trong cấu hình bộ điều chỉnh có thể gây hậu quả rất nghiêm trọng
    cho hệ thống, có thể bao gồm cả hư hỏng phần cứng lâu dài.
@@ -36,7 +36,7 @@ Sự an toàn
      particular system.
 
 Trường hợp sử dụng của người tiêu dùng
-------------------
+--------------------------------------
 
 - Phần lớn các thiết bị trong hệ thống sẽ không có
    yêu cầu thực hiện bất kỳ cấu hình thời gian chạy nào vượt quá khả năng của họ

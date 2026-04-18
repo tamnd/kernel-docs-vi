@@ -137,7 +137,7 @@ phân phối:
    =========================================
 
 2. Chip được hỗ trợ và tính năng SCSI
-====================================
+=====================================
 
 Các tính năng sau được hỗ trợ cho tất cả các chip:
 
@@ -211,10 +211,10 @@ Tóm tắt các tính năng được hỗ trợ khác:
 
 
 3. Ưu điểm của trình điều khiển này cho các chip mới hơn.
-=============================================
+=========================================================
 
 3.1 SCSI SCRIPTS được tối ưu hóa
---------------------------
+--------------------------------
 
 Tất cả các chip ngoại trừ 810, 815 và 825, đều hỗ trợ các lệnh SCSI SCRIPTS mới
 được đặt tên là LOAD và STORE cho phép di chuyển tối đa 1 DWORD từ/đến một thanh ghi IO
@@ -243,7 +243,7 @@ Bộ xử lý SCRIPTS của các chip này không đúng 64 bit mà sử dụng 
 các lệnh có địa chỉ RAM (8k) trên chip vẫn còn bên trong chip.
 
 4. I/O được ánh xạ bộ nhớ so với I/O thông thường
-======================================
+=================================================
 
 I/O được ánh xạ bộ nhớ có độ trễ thấp hơn I/O thông thường và được khuyên dùng
 cách thực hiện IO với thiết bị PCI. I/O được ánh xạ bộ nhớ dường như hoạt động tốt trên
@@ -252,7 +252,7 @@ tính năng này. Một tùy chọn cấu hình được cung cấp cho I/O bìn
 đã sử dụng nhưng trình điều khiển mặc định là MMIO.
 
 5. Xếp hàng lệnh được gắn thẻ
-==========================
+=============================
 
 Xếp hàng nhiều lệnh cùng lúc vào một thiết bị cho phép thiết bị thực hiện
 tối ưu hóa dựa trên vị trí đầu thực tế và cơ chế của nó
@@ -334,7 +334,7 @@ Phương pháp thứ 2:
             tương ứng với bộ điều khiển của bạn sau khi khởi động.
 
 6. Kiểm tra tính chẵn lẻ
-==================
+========================
 
 Trình điều khiển hỗ trợ kiểm tra chẵn lẻ SCSI và kiểm tra chẵn lẻ bus PCI
 kiểm tra.  Những tính năng này phải được kích hoạt để đảm bảo an toàn
@@ -366,7 +366,7 @@ Sử dụng tham số "all" cho "<target>" với các lệnh bên dưới sẽ
 Các lệnh có sẵn:
 
 8.1 Thiết lập hệ số chu kỳ đồng bộ tối thiểu
------------------------------------------
+--------------------------------------------
 
 setsync <mục tiêu> <hệ số thời gian>
 
@@ -383,7 +383,7 @@ Chỉ định khoảng thời gian bằng 0 để buộc chế độ truyền kh
      - 12 nghĩa là thời gian đồng bộ là 50 nano giây
 
 8.2 Đặt kích thước rộng
------------------
+-----------------------
 
 toàn bộ <mục tiêu> <kích thước>
 
@@ -400,7 +400,7 @@ thẻ cài đặt <mục tiêu> <thẻ>
                không được lớn hơn cấu hình (mặc định: 16)
 
 8.4 Đặt chế độ gỡ lỗi
-------------------
+---------------------
 
 setdebug <danh sách các cờ gỡ lỗi>
 
@@ -441,7 +441,7 @@ cờ báo 4
 
 
 8.6 Đặt mức độ dài dòng
----------------------
+-----------------------
 
 thiết lập #level
 
@@ -449,7 +449,7 @@ Mức chi tiết mặc định của trình điều khiển là 1. Lệnh này c
     mức độ chi tiết của trình điều khiển sau khi khởi động.
 
 8.7 Đặt lại tất cả các đơn vị logic của mục tiêu
----------------------------------------
+------------------------------------------------
 
 thiết lập lại <mục tiêu>
 
@@ -458,7 +458,7 @@ thiết lập lại <mục tiêu>
 Trình điều khiển sẽ cố gắng gửi tin nhắn BUS DEVICE RESET đến mục tiêu.
 
 8.8 Hủy bỏ tất cả nhiệm vụ của tất cả các đơn vị logic của mục tiêu
-----------------------------------------------------
+-------------------------------------------------------------------
 
 Cleardev <mục tiêu>
 
@@ -499,10 +499,10 @@ Tần số truyền đồng bộ (câu trả lời mặc định: 80)
     0 có nghĩa là "truyền dữ liệu không đồng bộ".
 
 10. Lệnh thiết lập khởi động
-=======================
+============================
 
 10.1 Cú pháp
------------
+------------
 
 Các lệnh thiết lập có thể được chuyển tới trình điều khiển vào lúc khởi động hoặc khi
 tham số cho modprobe, như được mô tả trong Documentation/admin-guide/kernel-parameters.rst
@@ -566,7 +566,7 @@ Không bật hỗ trợ LED nếu bo mạch scsi của bạn không sử dụng 
 	====== ====================================
 
 Chế độ 10.2.5 IRQ
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 ====== =====================================================
         irqm=0 luôn mở cống
@@ -575,7 +575,7 @@ Chế độ 10.2.5 IRQ
 	====== =====================================================
 
 10.2.6 Kiểm tra SCSI BUS
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 buschk=<bit tùy chọn>
 
@@ -588,7 +588,7 @@ Các bit tùy chọn có sẵn:
 	=== =====================================================
 
 10.2.7 Đề xuất id SCSI mặc định cho máy chủ
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 =========================================================
         Hostid=255 không có id nào được đề xuất.
@@ -611,7 +611,7 @@ Nếu id SCSI của máy chủ có sẵn từ NVRAM, trình điều khiển sẽ
 	====== =========
 
 10.2.9 Chế độ gỡ lỗi
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 =================================================
         debug=0 xóa cờ gỡ lỗi
@@ -641,7 +641,7 @@ Bạn có thể chơi an toàn với DEBUG_NEGO. Tuy nhiên, một số cờ nà
   tạo ra nhiều thông báo nhật ký hệ thống.
 
 10.2.10 Giải quyết độ trễ
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 =============================
         giải quyết=n độ trễ trong n giây
@@ -652,7 +652,7 @@ Sau khi thiết lập lại xe buýt, tài xế sẽ trì hoãn n giây trước
   mặc định là 10.
 
 10.2.11 NVRAM nối tiếp
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 	.. Note:: option not currently implemented.
 
@@ -683,7 +683,7 @@ Ngăn không cho máy chủ tại một địa chỉ io nhất định được 
     trình điều khiển không đính kèm máy chủ tại địa chỉ 0xb400 và 0xc000.
 
 10.3 Chuyển đổi từ các tùy chọn kiểu cũ
---------------------------------------
+---------------------------------------
 
 Trước đây, trình điều khiển sym2 chấp nhận các đối số có dạng::
 
@@ -701,7 +701,7 @@ hoặc trên dòng khởi động kernel như::
 sym53c8xx.cmd_per_lun=4 sym53c8xx.sync=10 sym53c8xx.debug=0x200
 
 10.4 SCSI BUS kiểm tra tùy chọn khởi động
-----------------------------------
+-----------------------------------------
 
 Khi tùy chọn này được đặt thành giá trị khác 0, trình điều khiển sẽ kiểm tra các dòng SCSI
 trạng thái logic, 100 micro giây sau khi xác nhận dòng SCSI RESET.
@@ -837,10 +837,10 @@ Bạn không bắt buộc phải giải mã và hiểu chúng, trừ khi bạn m
 duy trì mã trình điều khiển.
 
 17. Serial NVRAM (được thêm bởi Richard Waltham: ký túc xá@farsrobt.demon.co.uk)
-==========================================================================
+================================================================================
 
 17.1 Tính năng
--------------
+--------------
 
 Kích hoạt hỗ trợ NVRAM nối tiếp cho phép phát hiện NVRAM nối tiếp đi kèm
 trên Symbios và một số bộ điều hợp máy chủ tương thích với Symbios cũng như bảng Tekram. các

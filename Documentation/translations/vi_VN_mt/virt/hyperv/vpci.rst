@@ -84,7 +84,7 @@ thiết bị và phần cứng, với kênh VMBus và VMBus
 không đóng vai trò gì.
 
 Cài đặt thiết bị PCI
-----------------
+--------------------
 Thiết lập thiết bị PCI tuân theo trình tự mà Hyper-V ban đầu
 được tạo cho khách Windows và điều đó có thể không phù hợp với
 Khách Linux do sự khác biệt trong cấu trúc tổng thể của
@@ -125,7 +125,7 @@ phát hiện thiết bị, thực hiện khớp trình điều khiển và
 khởi tạo trình điều khiển và thiết bị.
 
 Loại bỏ thiết bị PCI
-------------------
+--------------------
 Máy chủ Hyper-V có thể bắt đầu loại bỏ thiết bị vPCI khỏi
 VM khách bất cứ lúc nào trong vòng đời của VM.  Việc loại bỏ
 được xúi giục bởi một hành động của quản trị viên được thực hiện trên máy chủ Hyper-V và
@@ -265,7 +265,7 @@ bộ nhớ đệm nhất quán và CPU không thực hiện bất kỳ đồng b
 hoạt động như một phần của lệnh gọi dma_map/unmap_*().
 
 Các phiên bản giao thức vPCI
-----------------------
+----------------------------
 Như đã mô tả trước đây, trong quá trình thiết lập và phân tích thiết bị vPCI
 tin nhắn được chuyển qua kênh VMBus giữa Hyper-V
 máy chủ và trình điều khiển Hyper-v vPCI trong máy khách Linux.  Một số
@@ -280,7 +280,7 @@ nút NUMA ảo của khách mà nó có liên quan chặt chẽ nhất
 phần cứng cơ bản.
 
 Mối quan hệ của nút NUMA khách
-------------------------
+------------------------------
 Khi phiên bản giao thức vPCI cung cấp nó, NUMA khách
 mối quan hệ nút của thiết bị vPCI được lưu trữ như một phần của Linux
 thông tin thiết bị để trình điều khiển Linux sử dụng sau này. Xem
@@ -296,7 +296,7 @@ Rất tiếc là không thể phân biệt được hai trường hợp
 từ phía khách.
 
 Truy cập không gian cấu hình PCI trong máy ảo CoCo
-------------------------------------
+--------------------------------------------------
 Trình điều khiển thiết bị Linux PCI truy cập không gian cấu hình PCI bằng cách sử dụng
 bộ chức năng tiêu chuẩn được cung cấp bởi hệ thống con Linux PCI.
 Trong máy khách Hyper-V, các hàm tiêu chuẩn này ánh xạ tới các hàm
@@ -311,7 +311,7 @@ siêu lệnh với các đối số rõ ràng mô tả quyền truy cập
 thực hiện.
 
 Cấu hình chặn kênh quay lại
--------------------------
+---------------------------
 Máy chủ Hyper-V và trình điều khiển PCI ảo Hyper-V trong Linux
 cùng nhau thực hiện giao tiếp kênh sau không chuẩn
 đường đi giữa chủ và khách.  Đường dẫn kênh sau sử dụng

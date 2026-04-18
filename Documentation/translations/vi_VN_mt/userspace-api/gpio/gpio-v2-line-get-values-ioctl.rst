@@ -61,7 +61,7 @@ bộ đệm (mức thực tế của dòng) và tùy thuộc vào phần cứng 
 cấu hình này có thể khác nhau.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 và ZZ0000ZZ tương ứng
 chứa giá trị đã đọc.

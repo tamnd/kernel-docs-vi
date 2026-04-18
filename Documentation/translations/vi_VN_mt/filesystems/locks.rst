@@ -38,7 +38,7 @@ Kernel 2.1.x nên cập nhật thư viện C của họ lên phiên bản phù h
 dù sao đi nữa (xem tệp "Tài liệu/quy trình/changes.rst".)
 
 1.2 Cho phép khóa hỗn hợp lần nữa
----------------------------
+---------------------------------
 
 1.2.1 Sự cố điển hình - Sendmail
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,7 +67,7 @@ fcntl(), với tất cả các vấn đề tiềm ẩn.
 
 
 1.3 Khóa bắt buộc dưới dạng tùy chọn gắn kết
----------------------------------------
+--------------------------------------------
 
 Khóa bắt buộc trước phiên bản này là một tùy chọn cấu hình chung
 điều đó hợp lệ cho tất cả các hệ thống tập tin được gắn kết.  Điều này có một số tính chất vốn có

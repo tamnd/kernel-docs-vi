@@ -26,7 +26,7 @@ Giao thức MBIM [1]. Bất kỳ ứng dụng giao diện người dùng nào (v
 quản lý giao diện MBIM để cho phép truyền dữ liệu tới WWAN.
 
 Cách sử dụng cơ bản
-===========
+===================
 Các chức năng MBIM không hoạt động khi không được quản lý. Trình điều khiển IOSM chỉ cung cấp một
 giao diện không gian người dùng MBIM "WWAN PORT" đại diện cho kênh điều khiển MBIM và thực hiện
 không đóng bất kỳ vai trò nào trong việc quản lý chức năng. Đó là công việc của không gian người dùng
@@ -49,7 +49,7 @@ Giao diện trình điều khiển và không gian người dùng được mô t
 được mô tả trong [1] Mô hình giao diện băng thông rộng di động v1.0 Errata-1.
 
 Không gian người dùng kênh điều khiển MBIM ABI
-----------------------------------
+----------------------------------------------
 
 /dev/wwan0mbim0 thiết bị ký tự
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,7 +74,7 @@ kích thước thông điệp điều khiển được đàm phán.
 kiểm soát kích thước tin nhắn.
 
 Không gian người dùng kênh dữ liệu MBIM ABI
--------------------------------
+-------------------------------------------
 
 thiết bị mạng wwan0-X
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -94,7 +94,7 @@ Trình điều khiển sẽ tự động ánh xạ thiết bị mạng "wwan0-1"
 phiên 1.
 
 Tài liệu tham khảo
-==========
+==================
 [1] "MBIM (Mẫu giao diện băng thông rộng di động) Errata-1"
       -ZZ0000ZZ
 

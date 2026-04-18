@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hồ sơ đăng nhập của người bảo trì XFS
-============================
+=====================================
 
 Tổng quan
---------
+---------
 XFS là một hệ thống tệp hiệu suất cao nổi tiếng trong nhân Linux.
 Mục đích của dự án này là cung cấp và duy trì một hệ thống mạnh mẽ và
 hệ thống tập tin hiệu suất.
@@ -35,7 +35,7 @@ Tất cả các bản vá liên quan đến XFS ZZ0000ZZ đều được gửi t
 liệt kê linux-xfs@vger.kernel.org.
 
 Vai trò
------
+-------
 Có tám vai trò chính trong dự án XFS.
 Một người có thể đảm nhận nhiều vai trò và một vai trò có thể được lấp đầy bởi
 nhiều người.
@@ -116,7 +116,7 @@ Người bảo trì cho bản phát hành LTS nhất định phải tự nhận 
   cùng một tập tin.
 
 Phụ lục danh sách kiểm tra bài nộp
------------------------------
+----------------------------------
 Vui lòng tuân theo các quy tắc bổ sung sau khi gửi tới XFS:
 
 - Các bản vá chỉ ảnh hưởng đến chính hệ thống tập tin phải dựa trên
@@ -179,7 +179,7 @@ Tài liệu thiết kế phải được cam kết trong tài liệu kernel
   đã sửa lỗi ở phần đầu của loạt bài này để dễ dàng chuyển ngược lại.
 
 Ngày của chu kỳ phát hành chính
------------------------
+-------------------------------
 Các bản sửa lỗi có thể được gửi bất cứ lúc nào, mặc dù người quản lý phát hành có thể quyết định
 trì hoãn một bản vá khi cửa sổ hợp nhất tiếp theo đóng lại.
 
@@ -201,7 +201,7 @@ các nhà phát triển có thẻ Người đánh giá về những thay đổi 
 đưa ra ý kiến của họ.
 
 Tài liệu tham khảo
-----------
+------------------
 | [0] ZZ0000ZZ
 | [1] ZZ0001ZZ
 | [2] ZZ0002ZZ

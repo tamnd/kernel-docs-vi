@@ -44,7 +44,7 @@ ICS932S401 giám sát liên tục tất cả các đầu vào. Trình điều kh
 các thanh ghi thường xuyên hơn một lần mỗi giây.
 
 Tính năng đặc biệt
-----------------
+------------------
 
 Đồng hồ có thể được lập trình lại để tăng tốc độ hệ thống.  Tôi sẽ không giúp bạn
 hãy làm điều này vì bạn có nguy cơ làm hỏng hệ thống của mình!

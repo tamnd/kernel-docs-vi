@@ -367,7 +367,7 @@ Loongson-3A1000/3B1500/3A2000/3A3000/3A4000 tương thích với MIPS, trong khi
 .. _loongarch-references:
 
 Tài liệu tham khảo
-==========
+==================
 
 Trang web chính thức của Loongson Technology Corp. Ltd.:
 

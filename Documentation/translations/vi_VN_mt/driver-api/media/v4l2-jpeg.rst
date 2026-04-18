@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Các chức năng và cấu trúc dữ liệu liên quan đến tiêu đề V4L2 JPEG
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/v4l2-jpeg.h
    :internal:

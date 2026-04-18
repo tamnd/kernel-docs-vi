@@ -93,7 +93,7 @@ yêu cầu.
 
 
 Trình điều khiển API
-==============
+====================
 
 Một ứng dụng đưa ra yêu cầu tới trình điều khiển thông qua hệ thống write()
 gọi và nhận kết quả (nếu có) thông qua read(). Các khu vực hoàn thiện là
@@ -397,7 +397,7 @@ Cuối cùng, việc dọn dẹp chương trình thông thường phải đượ
 khu vực hoàn thành, đóng thiết bị dax, giải phóng bộ nhớ, v.v.
 
 Ví dụ về hạt nhân
---------------
+-----------------
 
 Sự khác biệt duy nhất khi sử dụng DAX trong mã kernel là cách xử lý
 của khu vực hoàn thiện. Không giống như các ứng dụng người dùng mmap

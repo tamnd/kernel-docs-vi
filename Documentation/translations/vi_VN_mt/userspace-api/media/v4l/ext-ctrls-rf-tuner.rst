@@ -42,7 +42,7 @@ từ Wikipedia.
 .. _rf-tuner-control-id:
 
 ID điều khiển RF_TUNER
-====================
+======================
 
 ZZ0001ZZ
     Bộ mô tả lớp RF_TUNER. Đang gọi

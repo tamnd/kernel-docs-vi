@@ -36,7 +36,7 @@ các mô tả bên dưới sẽ tăng thêm giá trị bằng cách cung cấp c
 
 
 LRU không thể tránh khỏi
-===================
+========================
 
 Cơ sở LRU không thể tránh khỏi bổ sung thêm danh sách LRU để theo dõi những điều không thể tránh khỏi
 folios và ẩn các folios này khỏi vmscan.  Cơ chế này dựa trên một bản vá
@@ -67,7 +67,7 @@ không thể tránh khỏi, theo định nghĩa hoặc theo hoàn cảnh, trong 
 
 
 Danh sách Folio LRU không thể tránh khỏi
-------------------------------
+----------------------------------------
 
 Danh sách folio LRU không thể tránh khỏi là một lời nói dối.  Nó chưa bao giờ được đặt hàng LRU
 danh sách, nhưng là người bạn đồng hành với tệp và tệp ẩn danh theo thứ tự LRU, hoạt động và
@@ -135,7 +135,7 @@ tác dụng:
 .. _mark_addr_space_unevict:
 
 Đánh dấu các không gian địa chỉ không thể tránh khỏi
-----------------------------------
+----------------------------------------------------
 
 Đối với các cơ sở như ramfs, không có trang nào được đính kèm vào không gian địa chỉ
 có thể bị đuổi ra khỏi nhà.  Để ngăn chặn việc trục xuất bất kỳ trang nào như vậy, AS_UNEVICTABLE
@@ -171,7 +171,7 @@ Chúng hiện được sử dụng ở ba nơi trong kernel:
 
 
 Phát hiện các trang không thể tránh khỏi
----------------------------
+----------------------------------------
 
 Hàm folio_evictable() trong mm/internal.h xác định xem một folio có phải là
 có thể bị trục xuất hoặc không sử dụng chức năng truy vấn được nêu ở trên [xem phần
@@ -197,7 +197,7 @@ VM_LOCKED VMA hoặc được tìm thấy trong VMA là VM_LOCKED.
 
 
 Cách xử lý các Folio không thể tránh khỏi của Vmscan
----------------------------------------
+----------------------------------------------------
 
 Nếu các folio không thể tránh khỏi bị loại bỏ trong đường dẫn lỗi hoặc được chuyển đến các danh mục không thể tránh khỏi
 list tại thời điểm mlock() hoặc mmap(), vmscan sẽ không gặp các folio cho đến khi chúng
@@ -300,7 +300,7 @@ các trang bị khóa sẽ được mở khóa và giải cứu khỏi danh sác
 
 
 mlock()/mlock2()/mlockall() Xử lý cuộc gọi hệ thống
-------------------------------------------------
+---------------------------------------------------
 
 Trình xử lý cuộc gọi hệ thống mlock(), mlock2() và mlockall() tiến tới mlock_fixup()
 cho mỗi VMA trong phạm vi được chỉ định bởi cuộc gọi.  Trong trường hợp mlockall(),
@@ -378,7 +378,7 @@ VMAs đối với "locked_vm" của nhiệm vụ.
 
 
 munlock()/munlockall() Xử lý cuộc gọi hệ thống
--------------------------------------------
+----------------------------------------------
 
 Lệnh gọi hệ thống munlock() và munlockall() được xử lý giống nhau
 mlock_fixup() hoạt động giống như các lệnh gọi hệ thống mlock(), mlock2() và mlockall().
@@ -406,7 +406,7 @@ một lần nữa nếu vmscan tìm thấy nó trong VM_LOCKED VMA.
 
 
 Di chuyển các trang MLOCKED
------------------------
+---------------------------
 
 Một trang đang được di chuyển đã bị tách biệt khỏi danh sách LRU và được giữ lại
 bị khóa khi hủy ánh xạ trang, cập nhật mục nhập không gian địa chỉ của trang
@@ -470,7 +470,7 @@ của một trang lớn trong suốt chỉ được ánh xạ bởi PTE trong VM
 
 
 mmap(MAP_LOCKED) Xử lý cuộc gọi hệ thống
--------------------------------------
+----------------------------------------
 
 Ngoài các lệnh gọi hệ thống mlock(), mlock2() và mlockall(), một ứng dụng
 có thể yêu cầu khóa một vùng bộ nhớ bằng cách cung cấp cờ MAP_LOCKED
@@ -492,7 +492,7 @@ populate_vma_page_range() chỉ định vma và dải địa chỉ cho mlock.
 
 
 munmap()/exit()/exec() Xử lý cuộc gọi hệ thống
--------------------------------------------
+----------------------------------------------
 
 Khi hủy ánh xạ một vùng bộ nhớ bị khóa, dù bằng lệnh gọi rõ ràng tới
 munmap() hoặc thông qua việc hủy bản đồ nội bộ từ quá trình xử lý exit() hoặc exec(), chúng ta phải
@@ -518,7 +518,7 @@ một lần nữa nếu vmscan tìm thấy nó trong VM_LOCKED VMA.
 
 
 Cắt bớt các trang MLOCKED
-------------------------
+-------------------------
 
 Việc cắt bớt hoặc đục lỗ tập tin buộc phải hủy ánh xạ các trang đã xóa khỏi
 không gian người dùng; cắt bớt thậm chí hủy bản đồ và xóa bất kỳ trang ẩn danh riêng tư nào
@@ -541,7 +541,7 @@ thường là 0).
 
 
 Lấy lại trang trong thu nhỏ_*_list()
--------------------------------
+------------------------------------
 
 Shrink_active_list() của vmscan sẽ loại bỏ mọi trang rõ ràng là không thể tránh khỏi -
 tức là các trang !page_evictable(page) - chuyển những trang đó vào danh sách không thể tránh khỏi.

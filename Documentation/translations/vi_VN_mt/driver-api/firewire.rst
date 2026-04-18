@@ -31,7 +31,7 @@ bộ giao diện không gian người dùng có sẵn thông qua ZZ0000ZZ. một
 của giao diện kernel có sẵn thông qua các ký hiệu được xuất trong mô-đun ZZ0001ZZ.
 
 Cấu trúc dữ liệu thiết bị Firewire char
-====================================
+=======================================
 
 .. include:: ../ABI/stable/firewire-cdev
     :literal:
@@ -40,7 +40,7 @@ Cấu trúc dữ liệu thiết bị Firewire char
     :internal:
 
 Giao diện thăm dò và sysfs của thiết bị Firewire
-============================================
+================================================
 
 .. include:: ../ABI/stable/sysfs-bus-firewire
     :literal:

@@ -15,7 +15,7 @@
 .. The here included files are intended to help understand the implementation
 
 Các luồng dữ liệu liên quan đến một số chức năng và ghi các gói
-========================================================
+===============================================================
 
 .. kernel-figure:: DRBD-8.3-data-packets.svg
     :alt:   DRBD-8.3-data-packets.svg
@@ -27,7 +27,7 @@ Các luồng dữ liệu liên quan đến một số chức năng và ghi các 
 
 
 Biểu đồ con của quá trình chuyển đổi trạng thái của DRBD
-======================================
+========================================================
 
 .. kernel-figure:: conn-states-8.dot
     :alt:   conn-states-8.dot

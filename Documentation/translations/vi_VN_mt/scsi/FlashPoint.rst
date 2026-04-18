@@ -49,7 +49,7 @@ Mạng hệ thống, Emacs và TCP/IP.  Thông tin thêm có sẵn tại
 ZZ0000ZZ và ZZ0001ZZ
 
 Bộ điều hợp máy chủ FlashPoint
-========================
+==============================
 
 Dòng bộ điều hợp máy chủ Ultra SCSI FlashPoint, được thiết kế cho máy trạm
 và môi trường máy chủ tệp, có sẵn ở kênh hẹp, rộng, kênh đôi,
@@ -58,7 +58,7 @@ công nghệ tự động hóa, giúp giảm thiểu chi phí lệnh SCSI và gi
 số lượng ngắt được tạo ra cho CPU.
 
 Giới thiệu về Mylex
-===========
+===================
 
 Mylex Corporation (NASDAQ/NM SYMBOL: MYLX), được thành lập năm 1983, là công ty hàng đầu
 nhà sản xuất các sản phẩm công nghệ và quản lý mạng RAID.  Công ty

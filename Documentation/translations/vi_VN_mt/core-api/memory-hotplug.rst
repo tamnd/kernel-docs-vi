@@ -19,12 +19,12 @@ Cắm nóng bộ nhớ
 ================
 
 Trình thông báo sự kiện cắm nóng bộ nhớ
-=============================
+=======================================
 
 Các sự kiện cắm nóng được gửi đến hàng đợi thông báo.
 
 Trình thông báo bộ nhớ
-----------------
+----------------------
 
 Có sáu loại thông báo được xác định trong ZZ0000ZZ:
 
@@ -99,7 +99,7 @@ xử lý thêm hàng đợi thông báo.
 NOTIFY_STOP dừng xử lý thêm hàng đợi thông báo.
 
 Trình thông báo nút Numa
-------------------
+------------------------
 
 Có sáu loại thông báo được xác định trong ZZ0000ZZ:
 

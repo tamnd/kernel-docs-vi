@@ -19,7 +19,7 @@ Bộ sưu tập thuật toán SHA-3
 .. contents::
 
 Tổng quan
-========
+=========
 
 Nhóm thuật toán SHA-3, như được chỉ định trong NIST FIPS-202 [1]_, chứa sáu
 thuật toán dựa trên hàm xốp Keccak.  Sự khác biệt giữa chúng
@@ -48,7 +48,7 @@ Tài liệu này mô tả thư viện SHA-3 API.
 
 
 Thông báo
-=======
+=========
 
 Các hàm sau tính toán các bản tóm tắt SHA-3::
 
@@ -82,7 +82,7 @@ hàm khởi tạo được gọi.
 
 
 Chức năng đầu ra có thể mở rộng
-===========================
+===============================
 
 Các hàm sau tính toán các hàm đầu ra có thể mở rộng SHA-3 (XOF)::
 
@@ -120,7 +120,7 @@ void shake_zeroize_ctx(struct shake_ctx *ctx);
 
 
 Kiểm tra
-=======
+========
 
 Để kiểm tra mã SHA-3, hãy sử dụng sha3_kunit (CONFIG_CRYPTO_LIB_SHA3_KUNIT_TEST).
 
@@ -131,12 +131,12 @@ thay vào đó nên sử dụng bộ kiểm tra KUnit toàn diện hơn nhiều.
 
 
 Tài liệu tham khảo
-==========
+==================
 
 .. [1] https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
 
 
 Tham khảo chức năng API
-======================
+=======================
 
 .. kernel-doc:: include/crypto/sha3.h

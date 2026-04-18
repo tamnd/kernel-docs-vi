@@ -113,7 +113,7 @@ phần bù cho các biến/hàm tĩnh. Phần không bù đắp
 trường hợp đề cập đến các cuộc gọi chức năng. Xem bên dưới để biết thêm chi tiết.
 
 Các loại tái định cư khác nhau
-==========================
+==============================
 
 Sáu loại di dời được hỗ trợ. Sau đây là tổng quan và
 ZZ0000ZZ đại diện cho giá trị của ký hiệu trong bảng ký hiệu::
@@ -276,7 +276,7 @@ Trường để vá được chọn dựa trên lớp hướng dẫn:
 * Hướng dẫn BPF_JMP, BPF_JMP32 ZZ0002ZZ được vá.
 
 Các loại tái định cư
-================
+====================
 
 Có một số loại di dời CO-RE có thể được chia thành
 ba nhóm:

@@ -31,7 +31,7 @@ Thông tin chi tiết về giao diện có thể được tìm thấy trong chư
 
 
 Thiết bị SBRMI
-============
+==============
 
 Trình điều khiển apml_sbrmi trong trình điều khiển/misc/AMD-sbi tạo thiết bị sai
 /dev/sbrmi-* để cho phép các chương trình không gian người dùng chạy hộp thư APML, CPUID,
@@ -61,7 +61,7 @@ Hạn chế truy cập:
  * Truy cập CPUID và MCA_MSR ở chế độ chỉ đọc.
 
 Trình điều khiển IOCTL
-=============
+======================
 
 .. c:macro:: SBRMI_IOCTL_MBOX_CMD
 .. kernel-doc:: include/uapi/misc/amd-apml.h
@@ -77,7 +77,7 @@ Trình điều khiển IOCTL
    :doc: SBRMI_IOCTL_REG_XFER_CMD
 
 Mức sử dụng không gian người dùng
-================
+=================================
 
 Để truy cập giao diện dải bên từ chương trình C.
 Đầu tiên, người dùng cần bao gồm các tiêu đề::

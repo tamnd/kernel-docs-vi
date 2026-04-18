@@ -325,12 +325,12 @@ Danh sách # cxl -MDu -d 3.2
 ...where the naming scheme for decoders is "decoder<port_id>.<instance_id>".
 
 Cơ sở hạ tầng trình điều khiển
-=====================
+==============================
 
 Phần này bao gồm cơ sở hạ tầng trình điều khiển cho thiết bị bộ nhớ CXL.
 
 Thiết bị bộ nhớ CXL
------------------
+-------------------
 
 .. kernel-doc:: drivers/cxl/pci.c
    :doc: cxl pci

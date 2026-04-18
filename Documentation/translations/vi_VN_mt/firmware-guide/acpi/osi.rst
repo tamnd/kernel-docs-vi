@@ -29,7 +29,7 @@ Tài liệu này giải thích cách thức và lý do BIOS và Linux nên sử 
 Nó cũng giải thích làm thế nào và tại sao chúng bị lạm dụng rộng rãi.
 
 Cách sử dụng _OSI
-===============
+=================
 
 Linux chạy trên hai nhóm máy -- những nhóm được thử nghiệm bởi OEM
 tương thích với Linux và những thứ chưa từng được thử nghiệm với Linux,
@@ -108,7 +108,7 @@ Linux trả lời "Microsoft Windows NT" để làm hài lòng thành ngữ BIOS
 và làm như vậy có thể khiến BIOS đi theo con đường chưa được thử nghiệm.
 
 _OSI ra đời và ngay lập tức bị lạm dụng
-=====================================
+=======================================
 
 Với _OSI, ZZ0000ZZ cung cấp chuỗi mô tả giao diện,
 và hỏi HĐH: "YES/NO, bạn có tương thích với giao diện này không?"
@@ -156,7 +156,7 @@ thất bại thảm khốc do BIOS đi theo đường dẫn
 chưa bao giờ được xác nhận theo hệ điều hành ZZ0000ZZ.
 
 Không sử dụng _REV
-===============
+==================
 
 Kể từ khi _OSI("Linux") không còn nữa, một số người viết BIOS đã sử dụng _REV
 để hỗ trợ sự khác biệt giữa Linux và Windows trong cùng một BIOS.

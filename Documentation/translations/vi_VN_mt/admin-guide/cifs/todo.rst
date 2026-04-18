@@ -20,7 +20,7 @@ Kể từ hạt nhân 6.7. Xem ZZ0000ZZ
 để biết danh sách các tính năng được thêm vào theo bản phát hành
 
 Danh sách một phần các tính năng bị thiếu
-==================================
+=========================================
 
 Đóng góp được chào đón.  Có rất nhiều cơ hội
 cho những đóng góp quan trọng, rõ ràng cho mô-đun này.  đây
@@ -116,14 +116,14 @@ y) Truy tìm được cải thiện, nhiều điểm theo dõi eBPF hơn, tập 
    phân tích
 
 Lỗi đã biết
-==========
+===========
 
 Xem ZZ0000ZZ - tìm kiếm trên sản phẩm "CifsVFS" để biết
 danh sách lỗi hiện tại.  Also check ZZ0001ZZ (Product = File System, Component = CIFS)
 và kết quả xfstest, vd ZZ0002ZZ
 
 Kiểm tra linh tinh để làm
-==================
+=========================
 1) kiểm tra tên đường dẫn tối đa và các thành phần tên đường dẫn tối đa đối với các máy chủ khác nhau
    các loại. Hãy thử các liên kết tượng trưng lồng nhau (sâu 8). Trả về tên đường dẫn tối đa trong thông tin stat -f
 

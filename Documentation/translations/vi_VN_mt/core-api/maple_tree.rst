@@ -19,7 +19,7 @@ Cây phong
 :Tác giả: Liam R. Howlett
 
 Tổng quan
-========
+=========
 
 Maple Tree là kiểu dữ liệu B-Tree được tối ưu hóa để lưu trữ
 phạm vi không chồng chéo, bao gồm phạm vi kích thước 1. Cây được thiết kế để
@@ -56,7 +56,7 @@ tương đối nhỏ khoảng 256 byte.
 .. _maple-tree-normal-api:
 
 API bình thường
-==========
+===============
 
 Bắt đầu bằng cách khởi tạo một cây phong, với DEFINE_MTREE() cho tĩnh
 cây phong được phân bổ hoặc mt_init() cho những cây được phân bổ động.  A

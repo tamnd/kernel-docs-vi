@@ -17,7 +17,7 @@ Lời khuyên gỡ lỗi dành cho nhà phát triển Linux Kernel
 ======================================================
 
 hướng dẫn chung
---------------
+---------------
 
 .. toctree::
    :maxdepth: 1
@@ -28,7 +28,7 @@ hướng dẫn chung
    userspace_debugging_guide
 
 hướng dẫn cụ thể về hệ thống con
--------------------------
+--------------------------------
 
 .. toctree::
    :maxdepth: 1
@@ -45,7 +45,7 @@ Bước đầu tiên bạn phải tìm ra loại vấn đề bạn muốn gỡ l
 Tùy thuộc vào câu trả lời, phương pháp và lựa chọn công cụ của bạn có thể khác nhau.
 
 Tôi có cần gỡ lỗi với quyền truy cập hạn chế không?
----------------------------------------
+---------------------------------------------------
 
 Bạn có quyền truy cập hạn chế vào máy hoặc bạn không thể ngừng hoạt động
 hành quyết?
@@ -58,7 +58,7 @@ kiểm tra khả năng của kernel của bạn, trong hầu hết các trườn
 trong thư mục /boot.
 
 Tôi có quyền truy cập root vào hệ thống không?
-------------------------------------
+----------------------------------------------
 
 Bạn có thể dễ dàng thay thế mô-đun được đề cập hoặc cài đặt mô-đun mới không?
 hạt nhân?
@@ -67,7 +67,7 @@ Trong trường hợp đó, phạm vi công cụ có sẵn của bạn lớn hơ
 công cụ trong ZZ0000ZZ.
 
 Thời gian có phải là một yếu tố?
--------------------
+--------------------------------
 
 Điều quan trọng là phải hiểu liệu vấn đề bạn muốn gỡ lỗi có biểu hiện hay không
 một cách nhất quán (tức là với một tập hợp đầu vào bạn luôn nhận được giống nhau, không chính xác

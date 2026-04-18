@@ -30,7 +30,7 @@ Tạo bí danh
 
 Việc tạo bí danh được thực hiện bằng cách đặt tên giao diện 'ma thuật': vd. để tạo ra một
 Bí danh 200.1.1.1 cho eth0 ...
-::
+::::::::::::::::::::::::::::::
 
 # ifconfig eth0:0 200.1.1.1, v.v....
 	~~ -> yêu cầu tạo bí danh #0 (nếu chưa tồn tại) cho eth0
@@ -56,6 +56,6 @@ và đề cập đến chúng như bình thường (ifconfig, tuyến đường,
 
 
 Mối quan hệ với thiết bị chính
-=============================
+==============================
 
 Nếu thiết bị cơ sở bị tắt, các bí danh đã thêm cũng sẽ bị xóa.

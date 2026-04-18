@@ -52,7 +52,7 @@ Power4 - Sách kiến trúc bộ hướng dẫn sử dụng PowerPC I v2.00
 
 
 Các tính năng chính
-------------
+-------------------
 
 ========== ====================
 CPU VMX (còn gọi là Altivec)

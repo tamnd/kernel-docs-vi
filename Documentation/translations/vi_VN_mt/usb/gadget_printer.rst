@@ -23,7 +23,7 @@ Bản quyền (C) 2007 Craig W. Nadler <craig@nadler.us>
 
 
 Tổng quan
-=======
+=========
 
 Trình điều khiển này có thể được sử dụng nếu bạn đang viết chương trình cơ sở máy in bằng Linux như
 hệ điều hành nhúng. Trình điều khiển này không liên quan gì đến việc sử dụng máy in với
@@ -46,7 +46,7 @@ chương trình cơ sở không gian người dùng có thể đọc hoặc ghi 
 
 
 Cách sử dụng trình điều khiển này
-=====================
+=================================
 
 Để tải trình điều khiển bộ điều khiển thiết bị USB và trình điều khiển tiện ích máy in. các
 ví dụ sau sử dụng trình điều khiển bộ điều khiển thiết bị Netchip 2280 USB::

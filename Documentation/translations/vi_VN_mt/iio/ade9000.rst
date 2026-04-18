@@ -19,7 +19,7 @@ Trình điều khiển ADE9000
 Trình điều khiển này hỗ trợ IC đo năng lượng ADE9000 của Thiết bị Analog trên bus SPI.
 
 1. Thiết bị được hỗ trợ
-====================
+=======================
 
 * ZZ0000ZZ
 
@@ -32,7 +32,7 @@ bao gồm bộ khuếch đại khuếch đại có thể lập trình (PGA) và 
 bộ chuyển đổi (ADC).
 
 2. Thuộc tính thiết bị
-====================
+======================
 
 Các phép đo công suất và năng lượng được cung cấp cho điện áp, dòng điện, công suất hoạt động,
 công suất phản kháng, công suất biểu kiến và hệ số công suất qua ba pha.
@@ -142,7 +142,7 @@ ZZ0000ZZ
 Đây là các hiệu chỉnh chip nội bộ, không phải hiệu chỉnh áp dụng cho không gian người dùng.
 
 4. Thuộc tính sự kiện
-===================
+=====================
 
 ADE9000 cung cấp nhiều ngắt khác nhau được ánh xạ tới các sự kiện IIO.
 Chức năng sự kiện chỉ khả dụng nếu các ngắt tương ứng được
@@ -176,7 +176,7 @@ ZZ0000ZZ: Thuộc tính sự kiện chỉ khả dụng nếu các ngắt tương
 bị gián đoạn nhưng với chức năng giảm.
 
 5. Bộ đệm thiết bị
-=================
+==================
 
 Trình điều khiển này hỗ trợ bộ đệm IIO để chụp dạng sóng. Chức năng đệm
 yêu cầu ngắt đáng sợ phải được kết nối.
@@ -211,7 +211,7 @@ Bật tính năng chụp dạng sóng cho Giai đoạn A:
         root:/sys/bus/iio/devices/iio:device0> echo 1 > buffer/enable
 
 6. Đầu ra đồng hồ
-===============
+=================
 
 ADE9000 có thể cung cấp đầu ra xung nhịp thông qua chân CLKOUT khi sử dụng bộ điều khiển bên ngoài
 nguồn tinh thể/đồng hồ. Tính năng này được kích hoạt bằng cách chỉ định ZZ0000ZZ

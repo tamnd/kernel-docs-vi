@@ -22,7 +22,7 @@ Vinod Koul <vinod.koul@linux.intel.com>
 
 
 Tổng quan
-========
+=========
 Kể từ những ngày đầu, ALSA API đã được xác định với sự hỗ trợ của PCM hoặc
 lưu ý đến tải trọng tốc độ bit không đổi như IEC61937. Lập luận và
 các giá trị được trả về trong khung là tiêu chuẩn, khiến nó trở thành một thách thức đối với
@@ -91,7 +91,7 @@ Các yêu cầu chính là:
 
 
 Thiết kế
-======
+========
 API mới chia sẻ một số khái niệm với PCM API về dòng chảy
 kiểm soát. Các lệnh bắt đầu, tạm dừng, tiếp tục, thoát và dừng đều giống nhau
 ngữ nghĩa bất kể nội dung là gì.
@@ -166,7 +166,7 @@ Các sửa đổi bao gồm:
 - Bổ sung rateControlSupported (thiếu trong OpenMAX AL)
 
 Máy trạng thái
-=============
+==============
 
 Máy trạng thái luồng âm thanh nén được mô tả bên dưới ::
 
@@ -218,7 +218,7 @@ Máy trạng thái luồng âm thanh nén được mô tả bên dưới ::
 
 
 Phát lại không khoảng cách
-================
+==========================
 Khi phát qua album, bộ giải mã có khả năng bỏ qua bộ mã hóa
 độ trễ và phần đệm và chuyển trực tiếp từ nội dung bản nhạc này sang nội dung bản nhạc khác. Sự kết thúc
 người dùng có thể coi đây là chế độ phát lại không có khoảng cách vì chúng tôi không có chế độ im lặng trong khi
@@ -265,7 +265,7 @@ Luồng trình tự cho Gapless sẽ là:
 (lưu ý: thứ tự cho một phần_drain và viết cho bài hát tiếp theo cũng có thể được đảo ngược)
 
 Phát lại không giới hạn SM
-===================
+==========================
 
 Đối với Gapless, chúng tôi chuyển từ trạng thái chạy sang thoát một phần và ngược lại, cùng
 với cài đặt meta_data và báo hiệu cho bản nhạc tiếp theo ::
@@ -299,7 +299,7 @@ với cài đặt meta_data và báo hiệu cho bản nhạc tiếp theo ::
                                         +----------+
 
 Không được hỗ trợ
-=============
+=================
 - Hỗ trợ các cuộc gọi VoIP/chuyển mạch kênh không phải là mục tiêu của việc này
   API. Hỗ trợ thay đổi tốc độ bit động sẽ yêu cầu chặt chẽ
   ghép nối giữa DSP và ngăn xếp máy chủ, hạn chế tiết kiệm điện năng.
@@ -334,7 +334,7 @@ Không được hỗ trợ
 
 
 Tín dụng
-=======
+========
 - Mark Brown và Liam Girdwood để thảo luận về sự cần thiết của chiếc API này
 - Harsha Priya vì công trình nghiên cứu về bản nén intel_sst API
 - Rakesh Ughreja vì những phản hồi có giá trị

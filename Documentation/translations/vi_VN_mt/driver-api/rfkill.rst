@@ -77,7 +77,7 @@ theo dõi khối mềm và khối cứng riêng biệt.
 
 
 Hạt nhân API
-==========
+============
 
 Trình điều khiển cho máy phát vô tuyến thường triển khai trình điều khiển rfkill.
 
@@ -109,7 +109,7 @@ theo trạng thái chuyển đổi (LED_FULL khi bị chặn, nếu không thì 
 
 
 Hỗ trợ không gian người dùng
-=================
+============================
 
 Giao diện không gian người dùng được đề xuất sử dụng là /dev/rfkill, đây là một giao diện linh tinh
 thiết bị ký tự cho phép không gian người dùng lấy và thiết lập trạng thái rfkill

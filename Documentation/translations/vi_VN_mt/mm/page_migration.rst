@@ -75,7 +75,7 @@ mô tả cho những người đang cố gắng sử dụng Migrate_pages() từ
 và sau đó là mô tả cấp thấp về cách hoạt động của các chi tiết cấp thấp.
 
 Trong kernel sử dụng Migrate_pages()
-================================
+====================================
 
 1. Xóa folio khỏi LRU.
 
@@ -96,7 +96,7 @@ Danh sách các folio cần di chuyển được tạo bằng cách quét qua
    folio mới cho mỗi folio được xem xét để di chuyển.
 
 Cách hoạt động của Migify_pages()
-=========================
+=================================
 
 Migrate_pages() thực hiện một số lần duyệt qua danh sách các folio của nó. Một folio đã được di chuyển
 nếu tất cả các tham chiếu đến một folio có thể được gỡ bỏ vào thời điểm đó. Folio có
@@ -161,7 +161,7 @@ Các bước:
     v.v. một lần nữa.
 
 di chuyển trang movable_ops
-==========================
+===========================
 
 Các trang không phải folio được đánh máy đã chọn (ví dụ: các trang được thổi phồng trong bong bóng bộ nhớ,
 trang zsmalloc) có thể được di chuyển bằng khung di chuyển movable_ops.

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển ivtv
-===============
+=====================
 
 Tác giả: Hans Verkuil <hverkuil@kernel.org>
 
@@ -38,7 +38,7 @@ Triển khai trình điều khiển nguồn mở cho thẻ ghi video dựa trên
 iCompression iTVC15 hoặc Conexant CX23415/CX23416 MPEG Codec.
 
 Đặc trưng
---------
+---------
 
 * Ghi lại mpeg2 phần cứng của video phát sóng (và âm thanh) thông qua bộ dò hoặc
    Đầu vào S-Video/Composite và âm thanh.
@@ -51,7 +51,7 @@ iCompression iTVC15 hoặc Conexant CX23415/CX23416 MPEG Codec.
  * Hỗ trợ đầu vào YUV và PCM thô.
 
 Các tính năng bổ sung cho PVR-350 (dựa trên CX23415)
----------------------------------------------------
+----------------------------------------------------
 
 * Cung cấp khả năng phát lại mpeg2 phần cứng
  * Cung cấp OSD toàn diện (Hiển thị trên màn hình: tức là đồ họa phủ lên
@@ -76,7 +76,7 @@ irc://irc.freenode.net/#v4l
 ----------------------------------------------------------
 
 Thiết bị
--------
+--------
 
 Hiện tại, tối đa 12 bảng ivtv được cho phép.
 
@@ -102,7 +102,7 @@ Dưới đây là danh sách các thiết bị v4l cơ bản:
 	crw-rw----    1 root     video     81, 232 Jun 19 22:22 /dev/vbi16
 
 Thiết bị cơ sở
-------------
+--------------
 
 Đối với mỗi thẻ phụ, bạn có số lượng tăng thêm một. Ví dụ,
 /dev/video0 được liệt kê là thiết bị ghi mã hóa 'cơ sở' nên chúng tôi có:

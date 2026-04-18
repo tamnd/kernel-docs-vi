@@ -21,7 +21,7 @@ chức năng lớp phủ cây thiết bị nằm trong driver/of/overlay.c và l
 tài liệu đi kèm với Documentation/devicetree/dynamic-solution-notes.rst[1]
 
 Cách lớp phủ hoạt động
------------------
+----------------------
 
 Mục đích lớp phủ của Devicetree là sửa đổi cây sống của kernel và
 có sự sửa đổi ảnh hưởng đến trạng thái của kernel theo cách
@@ -51,7 +51,7 @@ Hãy lấy một ví dụ trong đó chúng ta có một bảng foo với cây c
     ---- foo.dts --------------------------------------------------------
 
 Thanh lớp phủ.dtso,
-::
+:::::::::::::::::::
 
 ---- bar.dtso - xếp chồng vị trí mục tiêu theo nhãn --------------------------
 	/dts-v1/;

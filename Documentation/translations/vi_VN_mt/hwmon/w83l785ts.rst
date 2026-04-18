@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w83l785ts
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -49,7 +49,7 @@ mỗi giây khác; đọc chúng thường xuyên hơn sẽ không có hại gì
 trả về giá trị 'cũ'.
 
 Sự cố đã biết
-------------
+-------------
 
 Trên một số hệ thống (Asus), BIOS được biết là can thiệp vào trình điều khiển
 và gây ra lỗi đọc. Hoặc có thể chip W83L785TS-S đơn giản là không đáng tin cậy,

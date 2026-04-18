@@ -23,7 +23,7 @@ ký tự khoảng trắng được thêm vào ở đầu mỗi dòng văn bản.
 
 
 AMD PowerNow! Trình điều khiển
-=====================
+==============================
 
 ::
 

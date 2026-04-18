@@ -100,7 +100,7 @@ cải thiện hành vi POSIX (NB: có thể sử dụng vers=3 để buộc SMB3
 ZZ0000ZZ và ZZ0001ZZ hoặc ZZ0002ZZ (thường có ZZ0003ZZ)
 
 Cho phép người dùng gắn kết
-====================
+===========================
 
 Có thể cho phép người dùng gắn kết và ngắt kết nối các thư mục mà họ sở hữu
 với cifs vfs.  Một cách để kích hoạt việc gắn kết như vậy là đánh dấu mount.cifs
@@ -127,7 +127,7 @@ Có một trang hướng dẫn tương ứng để gắn cifs vào Samba 3.0 và
 cây nguồn sau này trong docs/manpages/mount.cifs.8
 
 Cho phép người dùng ngắt kết nối
-======================
+================================
 
 Để cho phép người dùng ngắt kết nối các thư mục mà họ đã gắn kết (xem ở trên),
 tiện ích umount.cifs có thể được sử dụng.  Nó có thể được gọi trực tiếp hoặc nếu
@@ -215,7 +215,7 @@ sau này, nhưng chỉ dành cho các máy khách từ xa sử dụng tiện íc
 các ứng dụng chạy trên cùng một máy chủ với Samba.
 
 Hướng dẫn sử dụng
-================
+=================
 
 Sau khi hỗ trợ CIFS VFS được tích hợp vào kernel hoặc được cài đặt dưới dạng mô-đun
 (cifs.ko), bạn có thể sử dụng cú pháp mount như sau để truy cập Samba hoặc
@@ -720,7 +720,7 @@ Với hầu hết các phiên bản kernel 2.6 của modutils, phiên bản kern
 mô-đun có thể được hiển thị thông qua modinfo.
 
 Thông tin cờ /proc/fs/cifs linh tinh và gỡ lỗi
-=======================================
+==============================================
 
 Các tập tin giả thông tin:
 

@@ -67,7 +67,7 @@ mode:X chế độ video mặc định. Các chế độ video sau được hỗ
 
 
 Sự cố đã biết
-============
+=============
 
 Máy chủ XFree86 FBDev đã được báo cáo là không hoạt động, vì tgafb không hoạt động
 mmap(). Chạy máy chủ XF86_TGA tiêu chuẩn từ XFree86 3.3.x hoạt động tốt với

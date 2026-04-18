@@ -17,7 +17,7 @@ Vỏ Nitro
 ================
 
 Tổng quan
-========
+=========
 
 Nitro Enclaves (NE) là một tính năng mới của Đám mây điện toán đàn hồi Amazon (EC2)
 cho phép khách hàng tạo ra các môi trường điện toán biệt lập trong EC2

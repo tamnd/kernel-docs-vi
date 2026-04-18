@@ -29,7 +29,7 @@ Nội dung
 -ZZ0005ZZ
 
 Tổng quan
-========
+=========
 
 Đơn vị ảo hóa tài nguyên (RVU) trên bản đồ OcteonTX2 SOC của Marvell HW
 tài nguyên từ mạng, tiền điện tử và các khối chức năng khác vào
@@ -67,13 +67,13 @@ Thiết lập chương trình cơ sở sau đây trước khi khởi động ker
  - Những thứ này không bị thay đổi sau khi khởi động kernel.
 
 Trình điều khiển
-=======
+================
 
 Nhân Linux sẽ có nhiều trình điều khiển đăng ký cho các PF và VF khác nhau
 của RVU. Mạng Wrt sẽ có 3 loại trình điều khiển.
 
 Trình điều khiển chức năng quản trị
----------------------
+-----------------------------------
 
 Như đã đề cập ở trên RVU PF0 được gọi là chức năng quản trị (AF), trình điều khiển này
 hỗ trợ cung cấp tài nguyên và cấu hình các khối chức năng.
@@ -112,7 +112,7 @@ Trình điều khiển AF từ phía mạng thuần túy hỗ trợ chức năng
  - Và nhiều hơn nữa.
 
 Trình điều khiển chức năng vật lý
-------------------------
+---------------------------------
 
 RVU PF này xử lý IO, được ánh xạ tới liên kết ethernet vật lý và điều này
 trình điều khiển đăng ký một netdev. Điều này hỗ trợ SR-IOV. Như đã nói ở trên driver này
@@ -124,7 +124,7 @@ Hỗ trợ ethtool để định cấu hình liên kết, RSS, số lượng hà
 kiểm soát luồng, bộ lọc ntuple, kết xuất PHY EEPROM, cấu hình FEC, v.v.
 
 Trình điều khiển chức năng ảo
------------------------
+-----------------------------
 
 Có hai loại VF, VF chia sẻ liên kết vật lý với cha mẹ của chúng
 SR-IOV PF và VF hoạt động theo cặp sử dụng kênh vòng lặp HW nội bộ (LBK).
@@ -155,7 +155,7 @@ Luồng gói cơ bản
 =================
 
 Xâm nhập
--------
+--------
 
 1. CGX LMAC nhận gói tin.
 2. Chuyển tiếp gói tới khối NIX.
@@ -174,10 +174,10 @@ Xâm nhập
 5. Các mục NPC MCAM có thể được cài đặt để chuyển hướng pkt sang một kênh khác.
 
 Phóng viên sức khỏe Devlink
-========================
+===========================
 
 NPA Phóng viên
--------------
+--------------
 Các phóng viên NPA có trách nhiệm báo cáo và khắc phục nhóm lỗi sau:
 
 1. Sự kiện GENERAL
@@ -234,7 +234,7 @@ Ví dụ::
 
 
 NIX Phóng viên
--------------
+--------------
 Các phóng viên NIX có trách nhiệm báo cáo và khắc phục nhóm lỗi sau:
 
 1. Sự kiện GENERAL
@@ -308,7 +308,7 @@ Chất lượng dịch vụ
 
 
 Các thuật toán phần cứng được sử dụng trong lập kế hoạch
---------------------------------------
+--------------------------------------------------------
 
 Giao diện truyền octeontx2 silicon và CN10K bao gồm năm cấp độ truyền
 bắt đầu từ SMQ/MDQ, TL4 đến TL1. Mỗi gói sẽ đi qua MDQ, TL4 đến TL1
@@ -329,7 +329,7 @@ cấu hình.
 
 
 Thiết lập giảm tải HTB
------------------
+----------------------
 
 1. Kích hoạt tính năng giảm tải CTNH trên giao diện::
 
@@ -411,13 +411,13 @@ Cổng # devlink
 	pci/0002:1c:00.0/3: type eth netdev Rpf1vf3 hương vị bộ điều khiển pcivf 0 pfnum 1 vfnum 3 sai bên ngoài có thể chia tách sai
 
 Thuộc tính chức năng
-===================
+====================
 
 Các thuộc tính chức năng hỗ trợ đại diện RVU cho các đại diện.
 Cấu hình chức năng cổng của các đại diện được hỗ trợ thông qua cổng eswitch devlink.
 
 Thiết lập địa chỉ MAC
------------------
+---------------------
 
 Trình điều khiển đại diện RVU hỗ trợ cơ chế attr chức năng cổng devlink để thiết lập MAC
 địa chỉ. (tham khảo Tài liệu/mạng/devlink/devlink-port.rst)
@@ -432,7 +432,7 @@ Bộ chức năng cổng # devlink pci/0002:1c:00.0/2 hw_addr 5c:a1:1b:5e:43:11
 
 
 giảm tải TC
-==========
+===========
 
 Trình điều khiển đại diện rvu triển khai hỗ trợ giảm tải các quy tắc tc bằng cách sử dụng các đại diện cổng.
 

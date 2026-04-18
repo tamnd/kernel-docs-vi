@@ -17,7 +17,7 @@ s390 (IBM Z) Máy ảo siêu giám sát và máy ảo được bảo vệ
 =======================================================
 
 Bản tóm tắt
--------
+-----------
 Các máy ảo được bảo vệ (PVM) là các máy ảo KVM không cho phép KVM
 truy cập trạng thái VM như bộ nhớ khách hoặc sổ đăng ký khách. Thay vào đó,
 PVM hầu hết được quản lý bởi một thực thể mới gọi là Ultravisor (UV). tia cực tím
@@ -124,5 +124,5 @@ hoàn thành. Vì lý do đó KVM không được phép chèn chương trình
 ngắt lời.
 
 Liên kết
------
+--------
 ZZ0000ZZ

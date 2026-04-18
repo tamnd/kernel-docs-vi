@@ -30,7 +30,7 @@ ZZ0001ZZ cung cấp bản dịch giữa CXL ZZ0002ZZ và
 một chiếc ZZ0003ZZ.
 
 Thiết bị DAX
-==========
+============
 ZZ0002ZZ là một giao diện giống như tệp được hiển thị trong ZZ0000ZZ. A
 Vùng bộ nhớ được hiển thị qua thiết bị dax có thể được truy cập thông qua phần mềm người dùng
 thông qua lệnh gọi hệ thống ZZ0001ZZ.  Kết quả là ánh xạ trực tiếp tới

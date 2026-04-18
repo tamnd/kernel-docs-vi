@@ -17,7 +17,7 @@ Trình điều khiển tiện ích Spear PCIe
 ====================================
 
 Tác giả
-======
+=======
 Pratyush Anand (pratyush.anand@gmail.com)
 
 Vị trí
@@ -25,18 +25,18 @@ Vị trí
 trình điều khiển/linh tinh/spear13xx_pcie_gadget.c
 
 Chip được hỗ trợ:
-===============
+=================
 SPEAR1300
 SPEAR1310
 
 Tùy chọn cấu hình menu:
-==================
+=======================
 Trình điều khiển thiết bị
 	Các thiết bị khác
 		Hỗ trợ tiện ích PCIe cho nền tảng SPEAR13XX
 
 mục đích
-=======
+========
 Trình điều khiển này có một số nút có thể được đọc/ghi bằng giao diện configfs.
 Mục đích chính của nó là cấu hình bộ điều khiển PCIe chế độ kép được chọn làm thiết bị
 và sau đó lập trình các thanh ghi khác nhau của nó để cấu hình nó như một thiết bị cụ thể
@@ -46,7 +46,7 @@ Mô tả các nút khác nhau:
 ===============================
 
 đọc hành vi của các nút:
------------------------
+------------------------
 
 ====================================================================================
 liên kết cung cấp trạng thái ltssm.
@@ -62,7 +62,7 @@ bar0_data trả về dữ liệu tại bar0_rw_offset.
 ====================================================================================
 
 viết hành vi của các nút:
-------------------------
+-------------------------
 
 ======================================================================================
 liên kết ghi LÊN để bật ltsmm DOWN để tắt

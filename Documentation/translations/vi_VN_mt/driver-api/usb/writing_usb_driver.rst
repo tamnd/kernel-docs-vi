@@ -50,7 +50,7 @@ các phần khác nhau và những gì cần phải làm để tùy chỉnh nó 
 thiết bị cụ thể.
 
 Khái niệm cơ bản về Linux USB
-================
+=============================
 
 Nếu bạn định viết trình điều khiển Linux USB, hãy làm quen
 với đặc tả giao thức USB. Nó có thể được tìm thấy, cùng với nhiều
@@ -148,7 +148,7 @@ ZZ0000ZZ dành cho trình điều khiển hỗ trợ cả lớp USB
 trình điều khiển. Xem ZZ0001ZZ để biết thêm thông tin về điều này.
 
 Vận hành thiết bị
-================
+=================
 
 Khi một thiết bị được cắm vào bus USB khớp với ID thiết bị
 mẫu mà trình điều khiển của bạn đã đăng ký với lõi USB, đầu dò
@@ -305,7 +305,7 @@ chức năng ZZ0002ZZ thường hoạt động nếu không có tệp nào đang
 trên thiết bị (xem Liệt kê 5).
 
 Dữ liệu đẳng thời
-================
+=================
 
 Trình điều khiển bộ xương USB này không có bất kỳ ví dụ nào về ngắt hoặc
 dữ liệu đẳng thời được gửi đến hoặc từ thiết bị. Dữ liệu ngắt là
@@ -316,7 +316,7 @@ những ví dụ hay về trình điều khiển xử lý dữ liệu đẳng th
 nếu bạn cũng cần phải làm điều này.
 
 Phần kết luận
-==========
+=============
 
 Viết trình điều khiển thiết bị Linux USB không phải là một nhiệm vụ khó khăn vì
 Trình điều khiển bộ xương USB hiển thị. Trình điều khiển này, kết hợp với dòng điện khác
@@ -325,7 +325,7 @@ tạo một trình điều khiển hoạt động trong một khoảng thời gi
 kho lưu trữ danh sách gửi thư cũng chứa rất nhiều thông tin hữu ích.
 
 Tài nguyên
-=========
+==========
 
 Dự án Linux USB:
 ZZ0000ZZ

@@ -55,7 +55,7 @@ nhân Linux.
    ring-buffer-design
 
 Theo dõi và phân tích sự kiện
---------------------------
+-----------------------------
 
 Giải thích chi tiết về cơ chế theo dõi sự kiện và các cơ chế của chúng
 ứng dụng.
@@ -95,7 +95,7 @@ tương tác và hiệu suất hệ thống.
    timerlat-tracer
 
 Theo dõi không gian người dùng
-------------------
+------------------------------
 
 Những công cụ này cho phép theo dõi các ứng dụng trong không gian người dùng và
 tương tác.

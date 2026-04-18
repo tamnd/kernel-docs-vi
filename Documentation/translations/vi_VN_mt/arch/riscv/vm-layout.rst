@@ -23,15 +23,15 @@ Tài liệu này mô tả bố cục bộ nhớ ảo được RISC-V Linux sử 
 Hạt nhân.
 
 Hạt nhân Linux RISC-V 32bit
-=========================
+===========================
 
 Hạt nhân Linux RISC-V SV32
-------------------------
+--------------------------
 
 TODO
 
 Hạt nhân Linux RISC-V 64bit
-=========================
+===========================
 
 Tài liệu kiến trúc đặc quyền RISC-V nêu rõ rằng địa chỉ 64bit
 "phải có các bit 63–48 đều bằng bit 47, nếu không, ngoại lệ lỗi trang sẽ
@@ -40,7 +40,7 @@ lỗ lớn, nửa dưới là nơi chứa không gian người dùng, nửa trê
 Hạt nhân Linux RISC-V nằm trong đó.
 
 Hạt nhân Linux RISC-V SV39
-------------------------
+--------------------------
 
 ::
 
@@ -77,7 +77,7 @@ Hạt nhân Linux RISC-V SV39
 
 
 Hạt nhân Linux RISC-V SV48
-------------------------
+--------------------------
 
 ::
 
@@ -113,7 +113,7 @@ Hạt nhân Linux RISC-V SV48
 
 
 Hạt nhân Linux RISC-V SV57
-------------------------
+--------------------------
 
 ::
 

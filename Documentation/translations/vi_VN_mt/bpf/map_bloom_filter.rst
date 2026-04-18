@@ -59,10 +59,10 @@ bản đồ lọc có thể được sử dụng làm bản đồ bên trong. Ng
 tra cứu xảy ra.
 
 Cách sử dụng
-=====
+============
 
 Hạt nhân BPF
-----------
+------------
 
 bpf_map_push_elem()
 ~~~~~~~~~~~~~~~~~~~
@@ -89,7 +89,7 @@ nếu ZZ0003ZZ có thể xuất hiện trên bản đồ hoặc ZZ0004ZZ nếu Z
 chắc chắn không có trên bản đồ.
 
 Không gian người dùng
----------
+---------------------
 
 bpf_map_update_elem()
 ~~~~~~~~~~~~~~~~~~~~~
@@ -120,7 +120,7 @@ Ví dụ
 ========
 
 Hạt nhân BPF
-----------
+------------
 
 Đoạn mã này cho biết cách khai báo bộ lọc nở trong chương trình BPF:
 
@@ -150,7 +150,7 @@ bộ lọc trong chương trình BPF:
     }
 
 Không gian người dùng
----------
+---------------------
 
 Đoạn mã này cho thấy cách sử dụng libbpf để tạo bản đồ bộ lọc nở hoa từ
 không gian người dùng:
@@ -182,6 +182,6 @@ không gian người dùng:
     }
 
 Tài liệu tham khảo
-==========
+==================
 
 ZZ0000ZZ

@@ -17,7 +17,7 @@ Trình điều khiển quay video i.MX
 ================================
 
 Sự kiện
-======
+=======
 
 .. _imx_api_ipuX_csiY:
 
@@ -34,12 +34,12 @@ nút subdev. Sự kiện này được tạo bởi Trình giám sát khoảng th
 (xem bên dưới để biết thêm về FIM).
 
 Điều khiển
-========
+==========
 
 .. _imx_api_FIM:
 
 Giám sát khoảng thời gian khung trong ipuX_csiY
------------------------------------
+-----------------------------------------------
 
 Bộ giải mã Adv718x đôi khi có thể gửi các trường bị hỏng trong quá trình
 Đồng bộ lại tín hiệu NTSC/PAL (quá ít hoặc quá nhiều dòng video). Khi nào
@@ -120,7 +120,7 @@ Ngắt EOF.
 
 
 Danh sách tập tin
----------
+-----------------
 
 trình điều khiển/dàn dựng/media/imx/
 bao gồm/media/imx.h

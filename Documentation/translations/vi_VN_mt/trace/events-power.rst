@@ -30,14 +30,14 @@ có thể hữu ích.
 Cf. include/trace/events/power.h cho các định nghĩa sự kiện.
 
 1. Sự kiện chuyển đổi trạng thái nguồn
-============================
+======================================
 
 1.1 Dấu vết API
 -----------------
 
 Lớp sự kiện 'cpu' tập hợp các sự kiện liên quan đến CPU: cpuidle và
 cpufreq.
-::
+::::::::
 
 cpu_idle "state=%lu cpu_id=%lu"
   cpu_tần số "trạng thái=%lu cpu_id=%lu"
@@ -45,7 +45,7 @@ cpu_idle "state=%lu cpu_id=%lu"
 
 Sự kiện tạm dừng được sử dụng để chỉ ra hệ thống đang vào và ra khỏi
 chế độ tạm dừng:
-::
+::::::::::::::::
 
 machine_suspend "trạng thái=%lu"
 
@@ -60,10 +60,10 @@ các công cụ không gian đang sử dụng nó để phát hiện sự kết 
 vẽ chính xác sơ đồ trạng thái và tính toán số liệu thống kê chính xác, v.v.
 
 2. Sự kiện đồng hồ
-================
+==================
 Các sự kiện đồng hồ được sử dụng để bật/tắt đồng hồ và để
 thay đổi tốc độ đồng hồ.
-::
+::::::::::::::::::::::::
 
 clock_enable "%s state=%lu cpu_id=%lu"
   clock_disable "%s state=%lu cpu_id=%lu"
@@ -74,9 +74,9 @@ Tham số thứ hai là '1' để bật, '0' để tắt, mục tiêu
 tốc độ xung nhịp cho set_rate.
 
 3. Sự kiện miền quyền lực
-=======================
+=========================
 Các sự kiện miền quyền lực được sử dụng để chuyển đổi miền quyền lực
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 power_domain_target "%s state=%lu cpu_id=%lu"
 
@@ -84,10 +84,10 @@ Tham số đầu tiên cung cấp tên miền nguồn (ví dụ: "mpu_pwrdm").
 Tham số thứ hai là trạng thái mục tiêu của miền điện.
 
 4. Sự kiện QoS PM
-================
+=================
 Các sự kiện PM QoS được sử dụng cho yêu cầu thêm/cập nhật/xóa QoS và cho
 cập nhật mục tiêu/cờ.
-::
+:::::::::::::::::::::
 
 pm_qos_update_target "action=%s prev_value=%dcurr_value=%d"
   pm_qos_update_flags "action=%s prev_value=0x%x curr_value=0x%x"
@@ -97,7 +97,7 @@ Tham số thứ hai là giá trị QoS trước đó.
 Tham số thứ ba là giá trị QoS hiện tại cần cập nhật.
 
 Ngoài ra còn có các sự kiện được sử dụng cho yêu cầu thêm/cập nhật/xóa PM QoS của thiết bị.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 dev_pm_qos_add_request "thiết bị=%s loại=%s new_value=%d"
   dev_pm_qos_update_request "thiết bị=%s loại=%s new_value=%d"
@@ -109,7 +109,7 @@ Tham số thứ hai cung cấp loại yêu cầu (ví dụ: "DEV_PM_QOS_RESUME_L
 Tham số thứ ba là giá trị được thêm/cập nhật/xóa.
 
 Và, có những sự kiện được sử dụng cho yêu cầu thêm/cập nhật/xóa QoS có độ trễ CPU.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 pm_qos_add_request "giá trị=%d"
   pm_qos_update_request "giá trị=%d"

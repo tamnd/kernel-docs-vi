@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ltc2992
-=====================
+=================================
 
 Chip được hỗ trợ:
   * Công nghệ tuyến tính LTC2992
@@ -36,7 +36,7 @@ Hai ADC đồng thời đo dòng điện của từng nguồn cung cấp. Màn h
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi,
 tất cả các thuộc tính khác là chỉ đọc.

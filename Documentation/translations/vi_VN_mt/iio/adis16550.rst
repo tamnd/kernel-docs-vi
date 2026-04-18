@@ -19,7 +19,7 @@ Trình điều khiển ADIS16550
 Trình điều khiển này hỗ trợ IMU của Thiết bị Analog trên bus SPI.
 
 1. Thiết bị được hỗ trợ
-====================
+=======================
 
 * ZZ0000ZZ
 
@@ -29,7 +29,7 @@ và gia tốc kế ba trục. Hiệu chuẩn tại nhà máy mô tả đặc đi
 công thức bù cung cấp các phép đo cảm biến chính xác.
 
 2. Thuộc tính thiết bị
-====================
+======================
 
 Gia tốc kế, đo con quay hồi chuyển luôn được cung cấp. Hơn nữa,
 trình điều khiển cung cấp khả năng truy xuất góc delta và vận tốc delta
@@ -156,7 +156,7 @@ Chuỗi ZZ0005ZZ chứa ngày chương trình cơ sở ở định dạng sau mm
 +----------------------+-----------------------------------------------------------------------------------+
 
 Các giá trị được xử lý của kênh
--------------------------
+-------------------------------
 
 Giá trị kênh có thể được đọc từ thuộc tính _raw của nó. Giá trị trả về là
 giá trị thô như được báo cáo bởi các thiết bị. Để có được giá trị được xử lý của kênh,
@@ -310,7 +310,7 @@ Hiển thị ngày chương trình cơ sở:
         28-04-2021
 
 3. Bộ đệm thiết bị
-=================
+==================
 
 Trình điều khiển này hỗ trợ bộ đệm IIO.
 

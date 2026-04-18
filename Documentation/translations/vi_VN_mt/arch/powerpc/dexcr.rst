@@ -17,7 +17,7 @@ DEXCR (Thanh ghi điều khiển thực thi động)
 ==============================================
 
 Tổng quan
-========
+=========
 
 DEXCR là thanh ghi mục đích đặc biệt đặc biệt (SPR) được giới thiệu trong
 PowerPC ISA 3.1B (Power10) cho phép điều khiển từng CPU đối với một số chức năng động

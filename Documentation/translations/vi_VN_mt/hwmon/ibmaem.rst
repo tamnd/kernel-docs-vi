@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ibmaem
-====================
+================================
 
 Người lái xe này nói chuyện với Giám đốc Hệ thống IBM Giám đốc Năng lượng Tích cực, được biết đến
 từ nay trở đi là AEM.
@@ -52,7 +52,7 @@ phạm vi thanh ghi sử dụng năng lượng và năng lượng, giới hạn 
 phần mềm và cảm biến nhiệt độ.
 
 Tính năng đặc biệt
-----------------
+------------------
 
 Giá trị "power_cap" hiển thị giới hạn nguồn hệ thống hiện tại do AEM đặt
 phần mềm.  Hiện không hỗ trợ cài đặt giới hạn nguồn từ máy chủ.

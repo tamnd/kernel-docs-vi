@@ -201,7 +201,7 @@ KVM_ARM_VCPU_TIMER_IRQ_VTIMER Intid bộ hẹn giờ ảo EL1 (mặc định: 27
 KVM_ARM_VCPU_TIMER_IRQ_PTIMER Intid bộ đếm thời gian vật lý EL1 (mặc định: 30)
 KVM_ARM_VCPU_TIMER_IRQ_HVTIMER Intid bộ hẹn giờ ảo EL2 (mặc định: 28)
 KVM_ARM_VCPU_TIMER_IRQ_HPTIMER Intid bộ đếm thời gian vật lý EL2 (mặc định: 26)
-=============================================================================
+===============================================================================
 
 Việc đặt cùng một PPI cho các bộ hẹn giờ khác nhau sẽ ngăn các VCPU chạy.
 Đặt số ngắt trên VCPU sẽ định cấu hình tất cả các VCPU được tạo tại đó

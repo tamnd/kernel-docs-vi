@@ -104,7 +104,7 @@ Ví dụ tiêu đề radiotap hợp lệ
 
 
 Sử dụng Trình phân tích cú pháp Radiotap
--------------------------
+----------------------------------------
 
 Nếu bạn phải phân tích cấu trúc radiotap, bạn có thể đơn giản hóa triệt để
 bằng cách sử dụng trình phân tích cú pháp radiotap có trong net/wireless/radiotap.c và có

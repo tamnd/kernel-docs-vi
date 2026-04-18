@@ -41,7 +41,7 @@ cải thiện phân phối thống kê của ứng dụng liên quan đến khó
 sự chậm trễ.
 
 Câu trả lời dài hơn
-----------------
+-------------------
 
 Thứ nhất, chia sẻ khóa giữa nhiều tác vụ là một chương trình phổ biến
 kỹ thuật thường không thể thay thế được bằng các thuật toán không khóa. Như chúng tôi

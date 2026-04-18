@@ -34,7 +34,7 @@ ACPICA cung cấp khả năng theo dõi phương pháp. Và hai chức năng là
 hiện đang được triển khai bằng cách sử dụng khả năng này.
 
 Giảm nhật ký
------------
+------------
 
 Hệ thống con ACPICA cung cấp đầu ra gỡ lỗi khi CONFIG_ACPI_DEBUG được kích hoạt
 đã bật. Các thông báo gỡ lỗi được triển khai thông qua
@@ -88,7 +88,7 @@ c. Lọc ra các nhật ký phù hợp với lớp/cấp gỡ lỗi khi được
      Nó không cần phải là một mục đánh giá phương pháp kiểm soát.
 
 Máy theo dõi AML
-----------
+----------------
 
 Có các mục nhật ký đặc biệt được thêm vào bởi cơ sở theo dõi phương pháp tại
 "điểm theo dõi" trình thông dịch AML bắt đầu/dừng để thực hiện điều khiển

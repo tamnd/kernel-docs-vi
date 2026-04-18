@@ -44,7 +44,7 @@ quản trị viên một số quyền tự do, ví dụ:
 - Cải thiện hiệu suất bằng cách lưu trữ siêu dữ liệu trên SSD.
 
 Trạng thái
-======
+==========
 
 Những mục tiêu này được coi là an toàn để sử dụng trong sản xuất.  Nhưng cách sử dụng khác nhau
 trường hợp sẽ có đặc điểm hiệu suất khác nhau, ví dụ do
@@ -60,7 +60,7 @@ của gói cung cấp các tiện ích này khác nhau tùy theo phân phối (t
 một bản phân phối của Red Hat, nó được đặt tên là 'device-mapper-persistent-data').
 
 Sách dạy nấu ăn
-========
+===============
 
 Phần này mô tả một số công thức nhanh chóng để sử dụng lượng cung cấp mỏng.
 Họ sử dụng chương trình dmsetup để điều khiển trình điều khiển trình ánh xạ thiết bị
@@ -68,7 +68,7 @@ trực tiếp.  Người dùng cuối sẽ được khuyên nên sử dụng âm
 người quản lý như LVM2 khi hỗ trợ đã được thêm vào.
 
 Thiết bị bể bơi
------------
+---------------
 
 Thiết bị nhóm liên kết khối lượng siêu dữ liệu và khối lượng dữ liệu với nhau.
 Nó ánh xạ I/O tuyến tính tới khối lượng dữ liệu và cập nhật siêu dữ liệu thông qua
@@ -80,7 +80,7 @@ hai cơ chế:
   thiết bị ảo trong số những thứ khác.
 
 Thiết lập một thiết bị hồ bơi mới
-------------------------------
+---------------------------------
 
 Việc thiết lập thiết bị nhóm yêu cầu thiết bị siêu dữ liệu hợp lệ và
 thiết bị dữ liệu.  Nếu bạn không có thiết bị siêu dữ liệu hiện có, bạn có thể
@@ -111,7 +111,7 @@ sai nếu nó không định tuyến I/O đến cùng một vị trí trên đĩ
 trước đó.)
 
 Sử dụng thiết bị hồ bơi hiện có
------------------------------
+-------------------------------
 
 ::
 
@@ -144,7 +144,7 @@ sẽ kích hoạt sự kiện dm nếu dung lượng trống trên thiết bị 
 nó.
 
 Cập nhật siêu dữ liệu trên đĩa
--------------------------
+------------------------------
 
 Siêu dữ liệu trên đĩa được cam kết mỗi khi viết tiểu sử FLUSH hoặc FUA.
 Nếu không có yêu cầu nào như vậy được thực hiện thì các lần xác nhận sẽ diễn ra mỗi giây.  Cái này
@@ -191,7 +191,7 @@ dmsetup tạo mỏng --table "0 2097152 mỏng/dev/mapper/pool 0"
 Tham số cuối cùng là mã định danh cho thiết bị mỏng.
 
 Ảnh chụp nhanh nội bộ
-------------------
+---------------------
 
 i) Tạo ảnh chụp nhanh nội bộ.
 
@@ -225,7 +225,7 @@ Kích hoạt nó theo cách giống hệt như bất kỳ ổ đĩa được cun
 dmsetup tạo snap --table "0 2097152 mỏng/dev/mapper/pool 1"
 
 Ảnh chụp nhanh bên ngoài
-------------------
+------------------------
 
 Bạn có thể sử dụng thiết bị ZZ0000ZZ bên ngoài làm nguồn gốc cho
 khối lượng được cung cấp mỏng.  Bất kỳ hoạt động đọc nào đến một khu vực không được cung cấp của
@@ -271,10 +271,10 @@ dmsetup loại bỏ mỏng
     dmsetup xóa nhóm
 
 Thẩm quyền giải quyết
-=========
+=====================
 
 mục tiêu 'hồ bơi mỏng'
-------------------
+----------------------
 
 i) Nhà xây dựng
 
@@ -404,7 +404,7 @@ phát hành_metadata_snap
         Phát hành một bản sao đã được đặt trước của btree ánh xạ dữ liệu.
 
 mục tiêu 'mỏng'
--------------
+---------------
 
 i) Nhà xây dựng
 

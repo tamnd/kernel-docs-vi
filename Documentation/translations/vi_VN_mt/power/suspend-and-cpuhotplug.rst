@@ -175,7 +175,7 @@ với đối số 'tasks_frozen' được đặt thành 1.
 
 
 Các tập tin và chức năng/điểm vào quan trọng:
--------------------------------------------
+---------------------------------------------
 
 - kernel/power/process.c : đóng băng_processes(), thaw_processes()
 - kernel/power/suspend.c : đình chỉ_prepare(), đình chỉ_enter(), đình chỉ_finish()

@@ -50,7 +50,7 @@ Yêu cầu lớp vận chuyển
 
 
 Bộ điều khiển
-==========
+=============
 
 .. kernel-doc:: drivers/platform/surface/aggregator/controller.h
     :internal:
@@ -60,20 +60,20 @@ Bộ điều khiển
 
 
 Bus thiết bị khách
-=================
+==================
 
 .. kernel-doc:: drivers/platform/surface/aggregator/bus.c
     :internal:
 
 
 Cốt lõi
-====
+=======
 
 .. kernel-doc:: drivers/platform/surface/aggregator/core.c
     :internal:
 
 
 Người trợ giúp theo dõi
-=============
+=======================
 
 .. kernel-doc:: drivers/platform/surface/aggregator/trace.h

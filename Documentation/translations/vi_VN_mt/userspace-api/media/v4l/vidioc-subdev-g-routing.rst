@@ -161,7 +161,7 @@ Trường ZZ0001ZZ do ví dụ: thuộc tính phần cứng.
       - The route is enabled. Set by applications.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

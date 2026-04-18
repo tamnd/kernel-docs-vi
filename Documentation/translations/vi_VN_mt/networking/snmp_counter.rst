@@ -425,7 +425,7 @@ thuật toán.
 .. _F-RTO: https://tools.ietf.org/html/rfc5682
 
 Đường dẫn nhanh TCP
-=============
+===================
 Khi kernel nhận được gói TCP, nó có hai đường dẫn để xử lý
 gói, một là đường dẫn nhanh, một là đường dẫn chậm. Nhận xét trong kernel
 mã cung cấp lời giải thích hay về chúng, tôi đã dán chúng bên dưới ::
@@ -472,7 +472,7 @@ tăng 1.
 
 
 TCP hủy bỏ
-=========
+==========
 * TcpExtTCPAbortOnData
 
 Điều đó có nghĩa là lớp TCP có dữ liệu đang hoạt động nhưng cần phải đóng
@@ -542,7 +542,7 @@ TcpExtTCPAbortFailed sẽ được tăng lên.
 .. _RFC2525 2.17 section: https://tools.ietf.org/html/rfc2525#page-50
 
 TCP Khởi động chậm lai
-=====================
+======================
 Thuật toán Khởi động chậm kết hợp là sự cải tiến của thuật toán truyền thống
 Cửa sổ tắc nghẽn TCP Thuật toán khởi động chậm. Nó sử dụng hai phần
 thông tin để phát hiện xem băng thông tối đa của đường dẫn TCP có
@@ -703,7 +703,7 @@ Ngăn xếp TCP nhận được DSACK, cho biết không đúng thứ tự
 gói trùng lặp được nhận.
 
 SACK và DSACK không hợp lệ
-======================
+==========================
 Khi khối SACK (hoặc DSACK) không hợp lệ, bộ đếm tương ứng sẽ
 được cập nhật. Phương pháp xác thực dựa trên trình tự bắt đầu/kết thúc
 số của khối SACK. Để biết thêm chi tiết, vui lòng tham khảo bình luận
@@ -732,7 +732,7 @@ sẽ được cập nhật. Nếu undo_marker được đặt, TcpExtTCPDSACKIgn
 sẽ được cập nhật. Như ngụ ý trong tên của nó, nó có thể là một gói tin cũ.
 
 dịch chuyển SACK
-==========
+================
 Ngăn xếp mạng linux lưu trữ dữ liệu trong cấu trúc sk_buff (skb dành cho
 ngắn). Nếu một khối SACK đi qua nhiều skb, ngăn xếp TCP sẽ thử
 để sắp xếp lại dữ liệu trong các skb này. Ví dụ. nếu khối SACK xác nhận seq
@@ -756,7 +756,7 @@ Một skb cần được dịch chuyển hoặc hợp nhất, nhưng ngăn xếp
 một số lý do.
 
 TCP không còn hàng
-================
+==================
 * TcpExtTCPOFOQueue
 
 Lớp TCP nhận được gói không đúng thứ tự và có đủ bộ nhớ
@@ -793,7 +793,7 @@ Các gói bị PAWS loại bỏ ở trạng thái Đã gửi đồng bộ.
 Các gói bị PAWS loại bỏ ở bất kỳ trạng thái nào khác ngoài Syn-Sent.
 
 TCP ACK bỏ qua
-============
+==============
 Trong một số trường hợp, kernel cũng sẽ tránh gửi ACK trùng lặp
 thường xuyên. Vui lòng tìm thêm chi tiết trong tcp_invalid_ratelimit
 phần của ZZ0000ZZ. Khi kernel quyết định bỏ qua ACK
@@ -875,7 +875,7 @@ Cửa sổ nhận TCP được đặt thành giá trị khác 0 từ 0.
 
 
 Trì hoãn ACK
-===========
+============
 TCP Delayed ACK là một kỹ thuật được sử dụng để giảm
 số lượng gói tin trong mạng. Để biết thêm chi tiết, vui lòng tham khảo
 ZZ0000ZZ
@@ -972,7 +972,7 @@ Bộ đếm này cho biết số lần khách hàng muốn yêu cầu TFO
 bánh quy.
 
 Bánh quy SYN
-===========
+============
 Cookie SYN được sử dụng để giảm thiểu lũ lụt SYN, để biết chi tiết, vui lòng tham khảo
 ZZ0000ZZ.
 
@@ -1009,7 +1009,7 @@ cập nhật bộ đếm TcpExtTCPChallengeACK hoặc cũng có thể chuyển s
 gửi thử thách và cập nhật TcpExtTCPACKSkippedChallenge.
 
 cắt tỉa
-=====
+=======
 Khi ổ cắm chịu áp lực bộ nhớ, ngăn xếp TCP sẽ cố gắng
 lấy lại bộ nhớ từ hàng đợi nhận và ngoài hàng đợi. Một trong
 phương pháp thu hồi là 'thu gọn', có nghĩa là phân bổ một skb lớn,
@@ -1042,7 +1042,7 @@ ví dụ
 ========
 
 kiểm tra ping
----------
+-------------
 Chạy lệnh ping đối với máy chủ dns công cộng 8.8.8.8::
 
 nstatuser@nstat-a:~$ ping 8.8.8.8 -c 1
@@ -1128,7 +1128,7 @@ ACK nên client gửi 2 gói, nhận 1 gói, TcpInSegs tăng
 1, TcpOutSegs tăng 2.
 
 TCP giao thông bình thường
-------------------
+--------------------------
 Chạy nc trên máy chủ::
 
 nstatuser@nstat-b:~$ nc -lkv 0.0.0.0 9000

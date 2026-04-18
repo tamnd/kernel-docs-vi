@@ -28,7 +28,7 @@ Loại khóa mật mã khóa công khai/bất đối xứng
 
 
 Tổng quan
-========
+=========
 
 Loại khóa "bất đối xứng" được thiết kế để chứa các khóa được sử dụng trong
 mật mã khóa công khai mà không áp đặt bất kỳ hạn chế cụ thể nào đối với
@@ -93,7 +93,7 @@ Nhìn vào /proc/keys, 8 chữ số thập lục phân cuối cùng của dấu 
 
 
 Truy cập các khóa bất đối xứng
-=========================
+==============================
 
 Để truy cập chung vào các khóa bất đối xứng từ bên trong kernel, cách sau
 bắt buộc phải đưa vào::
@@ -171,7 +171,7 @@ nếu đối số chính sai loại hoặc được thiết lập không đầy 
 
 
 Các kiểu con khóa bất đối xứng
-=======================
+==============================
 
 Khóa bất đối xứng có một kiểu con xác định tập hợp các thao tác có thể được thực hiện
 được thực hiện trên khóa đó và xác định dữ liệu nào được đính kèm làm khóa
@@ -239,7 +239,7 @@ Không bắt buộc.  Đây là điểm vào để xác minh chữ ký.  các
      giảm tải cho phần cứng.
 
 Trình phân tích dữ liệu khởi tạo
-==========================
+================================
 
 Loại khóa bất đối xứng thường không muốn lưu trữ hoặc xử lý dữ liệu thô
 đốm dữ liệu chứa dữ liệu quan trọng.  Nó sẽ phải phân tích nó và báo lỗi

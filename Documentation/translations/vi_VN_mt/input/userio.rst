@@ -35,7 +35,7 @@ của họ. userio thực hiện điều này bằng cách cho phép bất kỳ 
 cổng từ đó.
 
 Tổng quan về cách sử dụng
-==============
+=========================
 
 Để tương tác với mô-đun hạt nhân userio, người ta chỉ cần mở
 thiết bị ký tự /dev/userio trong ứng dụng của họ. Các lệnh được gửi đến
@@ -90,7 +90,7 @@ Gửi một ngắt thông qua cổng serio ảo tới trình điều khiển ser
 ZZ0000ZZ là dữ liệu ngắt được gửi.
 
 Công cụ không gian người dùng
-===============
+=============================
 
 Các công cụ không gian người dùng userio có thể ghi lại các thiết bị PS/2 bằng cách sử dụng một số
 gỡ lỗi thông tin từ i8042 và phát lại các thiết bị trên/dev/userio. các

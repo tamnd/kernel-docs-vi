@@ -108,7 +108,7 @@ ZZ0000ZZ và ZZ0001ZZ. Max sẽ là một định nghĩa nếu ZZ0002ZZ
 là ZZ0003ZZ.
 
 Nhóm phát đa hướng
-================
+==================
 
 Mỗi nhóm phát đa hướng có một định nghĩa được hiển thị trong tiêu đề uAPI kernel.
 Tên của định nghĩa là ZZ0000ZZ và có thể được ghi đè

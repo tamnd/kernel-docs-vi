@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hệ thống con I\ ZZ0000ZZ\ C và SMBus
-==================================
+====================================
 
 I\ ZZ0000ZZ\ C (hoặc không có kiểu chữ hoa mỹ, "I2C") là từ viết tắt của
 bus "Inter-IC", một giao thức bus đơn giản được sử dụng rộng rãi ở những nơi có tốc độ thấp

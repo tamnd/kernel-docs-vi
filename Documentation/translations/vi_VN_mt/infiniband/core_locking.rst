@@ -78,7 +78,7 @@ Bởi vì trình điều khiển cấp thấp được cấp lại, giao thức 
   thông tin giữa các cuộc gọi khác nhau của ib_poll_cq() không được xác định.
 
 Cuộc gọi lại
----------
+------------
 
 Trình điều khiển cấp thấp không được thực hiện lệnh gọi lại trực tiếp từ
   chuỗi cuộc gọi giống như lệnh gọi phương thức ib_device.  Ví dụ, nó không phải là

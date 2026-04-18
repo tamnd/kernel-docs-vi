@@ -95,7 +95,7 @@ và chọc qua ptrace PTRACE_(GET|SET)_SYSCALL_USER_DISPATCH_CONFIG
 yêu cầu. Điều này rất hữu ích cho phần mềm điểm kiểm tra/khởi động lại.
 
 Ghi chú bảo mật
---------------
+---------------
 
 Syscall User Dispatch cung cấp chức năng cho các lớp tương thích để
 nhanh chóng nắm bắt các cuộc gọi hệ thống được thực hiện bởi một phần không phải bản địa của

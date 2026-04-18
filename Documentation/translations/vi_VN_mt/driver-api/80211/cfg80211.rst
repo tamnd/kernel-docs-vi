@@ -127,7 +127,7 @@ Quét và xử lý danh sách BSS
 	ieee80211_bss_get_ie
 
 Chức năng tiện ích
-=================
+==================
 
 .. kernel-doc:: include/net/cfg80211.h
    :doc: Utility functions
@@ -143,7 +143,7 @@ Chức năng tiện ích
 	ieee80211_radiotap_iterator
 
 Người trợ giúp đường dẫn dữ liệu
-=================
+================================
 
 .. kernel-doc:: include/net/cfg80211.h
    :doc: Data path helpers
@@ -179,7 +179,7 @@ Tích hợp RFkill
 	wiphy_rfkill_stop_polling
 
 Chế độ kiểm tra
-=========
+===============
 
 .. kernel-doc:: include/net/cfg80211.h
    :doc: Test mode

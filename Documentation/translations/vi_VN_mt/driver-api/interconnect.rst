@@ -103,7 +103,7 @@ cấu hình phần cứng bus kết nối. Trình điều khiển của nhà cun
                icc_link_create icc_link_nodes
 
 Kết nối người tiêu dùng
-----------------------
+-----------------------
 
 Người tiêu dùng kết nối là những khách hàng sử dụng API kết nối để
 nhận đường dẫn giữa các điểm cuối và đặt các yêu cầu về băng thông/độ trễ/QoS của chúng

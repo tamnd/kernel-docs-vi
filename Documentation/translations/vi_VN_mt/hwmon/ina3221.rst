@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ina3221
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -38,7 +38,7 @@ và cung cấp điện áp, với thời gian chuyển đổi có thể lập tr
 và sức mạnh được tính toán phía máy chủ từ những điều này.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 ====================================================================================
 in[123]_label Nhãn kênh điện áp

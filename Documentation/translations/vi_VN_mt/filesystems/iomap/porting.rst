@@ -28,7 +28,7 @@ Chuyển hệ thống tập tin của bạn
    :local:
 
 Tại sao chuyển đổi?
-============
+===================
 
 Có một số lý do để chuyển đổi hệ thống tập tin sang iomap:
 
@@ -55,7 +55,7 @@ Có một số lý do để chuyển đổi hệ thống tập tin sang iomap:
     hệ thống tập tin sử dụng iomap.
 
 Làm cách nào để chuyển đổi hệ thống tập tin?
-==============================
+============================================
 
 Đầu tiên, thêm ZZ0000ZZ từ mã nguồn của bạn và thêm
 ZZ0001ZZ vào tùy chọn Kconfig của hệ thống tập tin của bạn.

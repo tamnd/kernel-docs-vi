@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hỗ trợ PTP_KVM cho cánh tay/cánh tay64
-=============================
+======================================
 
 PTP_KVM được sử dụng để đồng bộ hóa thời gian có độ chính xác cao giữa máy chủ và khách.
 Nó dựa vào việc chuyển đồng hồ treo tường và giá trị bộ đếm từ

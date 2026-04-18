@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hỗ trợ hạt nhân CEC
-==================
+===================
 
 Khung CEC cung cấp giao diện hạt nhân hợp nhất để sử dụng với HDMI CEC
 phần cứng. Nó được thiết kế để xử lý nhiều loại phần cứng (máy thu,
@@ -42,7 +42,7 @@ ZZ0000ZZ
 
 
 Giao diện bộ chuyển đổi CEC
----------------------
+---------------------------
 
 Cấu trúc cec_adapter đại diện cho phần cứng bộ điều hợp CEC. Nó được tạo ra bởi
 gọi cec_allocate_adapter() và xóa bằng cách gọi cec_delete_adapter():

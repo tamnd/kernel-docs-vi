@@ -55,7 +55,7 @@ chưa, hoặc nếu nó đã được xếp hàng đợi và hoàn thành. Nếu
 tới ZZ0001ZZ. Không có mã lỗi nào khác có thể được trả lại.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0000ZZ được đặt
 một cách thích hợp.

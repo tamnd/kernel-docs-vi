@@ -29,7 +29,7 @@ tạo ảnh đĩa bằng tiện ích "mkcramfs".
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Kích thước tệp được giới hạn dưới 16MB.
 
@@ -61,7 +61,7 @@ hãy nhớ rằng hệ thống tập tin trở nên không thể đọc được
 
 
 Hình ảnh nhồi nhét được ánh xạ vào bộ nhớ
---------------------------
+-----------------------------------------
 
 Tùy chọn CRAMFS_MTD Kconfig bổ sung hỗ trợ tải dữ liệu trực tiếp từ
 phạm vi bộ nhớ tuyến tính vật lý (thường là bộ nhớ không thay đổi như Flash)
@@ -94,7 +94,7 @@ $ mount -t cramfs mtd:fs_partition /mnt
 
 
 Công cụ
------
+-------
 
 Một phiên bản của mkcramfs có thể tận dụng những khả năng mới nhất
 được mô tả ở trên có thể được tìm thấy ở đây:
@@ -103,7 +103,7 @@ ZZ0000ZZ
 
 
 Dành cho /usr/share/magic
---------------------
+-------------------------
 
 ===== ==================================================
 0 ulelong 0x28cd3d45 Phần bù nhồi nhét Linux 0
@@ -130,6 +130,6 @@ Dành cho /usr/share/magic
 
 
 Ghi chú của hacker
-------------
+------------------
 
 Xem fs/cramfs/README để biết bố cục hệ thống tập tin và ghi chú triển khai.

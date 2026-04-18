@@ -118,7 +118,7 @@ Thông số
         on the ``prioritized`` port.
 
 Phiên bản thông tin
-=============
+===================
 
 Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
 
@@ -210,7 +210,7 @@ Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
         <CGU type>.<configuration version>.<firmware version>.
 
 Cập nhật nhanh
-============
+==============
 
 Trình điều khiển ZZ0000ZZ triển khai hỗ trợ cập nhật flash bằng cách sử dụng
 Giao diện ZZ0001ZZ. Nó hỗ trợ cập nhật flash thiết bị bằng cách sử dụng
@@ -241,7 +241,7 @@ riêng sẽ bị từ chối. Nếu không có mặt nạ ghi đè nào được
 được hướng dẫn giữ nguyên tất cả các cài đặt và xác định các trường khi cập nhật.
 
 Tải lại
-======
+=======
 
 Trình điều khiển ZZ0000ZZ hỗ trợ kích hoạt firmware mới sau khi cập nhật flash
 sử dụng ZZ0001ZZ với ZZ0002ZZ
@@ -384,7 +384,7 @@ thông qua lệnh ZZ0000ZZ.
     $ devlink region delete pci/0000:01:00.0/device-caps snapshot 1
 
 Tỷ lệ liên kết nhà phát triển
-============
+=============================
 
 Trình điều khiển ZZ0000ZZ triển khai API tốc độ liên kết phát triển. Nó cho phép giảm tải
 QoS phân cấp cho phần cứng. Nó cho phép người dùng nhóm ảo

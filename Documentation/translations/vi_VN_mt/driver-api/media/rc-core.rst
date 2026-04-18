@@ -93,7 +93,7 @@ các nút sysfs. Xem ZZ0000ZZ
 để biết thêm chi tiết.
 
 Cấu trúc và chức năng dữ liệu của bộ điều khiển từ xa
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/rc-core.h
 

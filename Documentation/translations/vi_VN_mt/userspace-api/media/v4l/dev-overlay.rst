@@ -79,7 +79,7 @@ ioctls phải được hỗ trợ bởi tất cả các thiết bị lớp phủ
 
 
 Cài đặt
-=====
+=======
 
 ZZ0003ZZ
 Trước khi lớp phủ có thể bắt đầu, các ứng dụng phải lập trình trình điều khiển với
@@ -173,7 +173,7 @@ mã hoặc trả về các tham số đã sửa đổi tương ứng.
 .. c:type:: v4l2_window
 
 cấu trúc v4l2_window
-------------------
+--------------------
 
 ZZ0001ZZ
     Kích thước và vị trí của cửa sổ so với góc trên, bên trái của
@@ -273,7 +273,7 @@ ZZ0002ZZ
 .. c:type:: v4l2_clip
 
 cấu trúc v4l2_clip [#f4]_
------------------------
+-------------------------
 
 ZZ0000ZZ
     Tọa độ của hình chữ nhật cắt, so với phần trên, bên trái
@@ -289,7 +289,7 @@ ZZ0000ZZ
 .. c:type:: v4l2_rect
 
 cấu trúc v4l2_orth
-----------------
+------------------
 
 ZZ0000ZZ
     Độ lệch ngang của góc trên, bên trái của hình chữ nhật, trong
@@ -307,7 +307,7 @@ ZZ0000ZZ
 
 
 Kích hoạt lớp phủ
-================
+=================
 
 Để bắt đầu hoặc dừng các ứng dụng lớp phủ bộ đệm khung, hãy gọi phương thức
 ZZ0000ZZ ioctl.

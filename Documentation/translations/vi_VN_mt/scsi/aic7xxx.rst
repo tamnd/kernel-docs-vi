@@ -28,7 +28,7 @@ Các thông tin sau có sẵn trong tập tin này:
   4. Liên hệ với Adaptec
 
 1. Phần cứng được hỗ trợ
-=====================
+========================
 
 Các chip Adaptec SCSI và bộ điều hợp máy chủ sau đây được hỗ trợ bởi
    trình điều khiển aic7xxx.
@@ -152,7 +152,7 @@ Các chip Adaptec SCSI và bộ điều hợp máy chủ sau đây được hỗ
       Hiệu ứng "sơ khai" của SCSI.
 
 2. Lịch sử phiên bản
-==================
+====================
 
 * 7.0 (ngày 4 tháng 8 năm 2005)
 	- Cập nhật trình điều khiển để sử dụng cơ sở hạ tầng lớp vận chuyển SCSI
@@ -386,7 +386,7 @@ cho phép ghi nhật ký dài dòng, Tắt tính năng thăm dò EISA/VLB,
 và đặt độ sâu thẻ trên Bộ điều khiển 1/Mục tiêu 2 thành 10 thẻ.
 
 4. Hỗ trợ khách hàng của Adaptec
-===========================
+================================
 
 Cần có Số nhận dạng hỗ trợ kỹ thuật (TSID) cho
    Hỗ trợ kỹ thuật Adaptec.

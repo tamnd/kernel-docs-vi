@@ -19,7 +19,7 @@ Tệp Proc của trình điều khiển ALSA
 Takashi Iwai <tiwai@suse.de>
 
 Tổng quan
-=======
+=========
 
 ALSA có cây proc riêng, /proc/asound.  Nhiều thông tin hữu ích được
 được tìm thấy ở cây này.  Khi bạn gặp sự cố và cần gỡ lỗi,
@@ -175,7 +175,7 @@ Khi CONFIG_SND_DEBUG được bật, bạn có thể ghi vào tệp này để
 
 
 Luồng âm thanh USB
-=================
+==================
 
 ZZ0000ZZ
 	Hiển thị nhiệm vụ và trạng thái hiện tại của từng luồng âm thanh
@@ -183,7 +183,7 @@ ZZ0000ZZ
 
 
 Bộ giải mã âm thanh HD
-===============
+======================
 
 ZZ0000ZZ
 	Hiển thị thông tin codec chung và thuộc tính của từng loại

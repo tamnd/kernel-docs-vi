@@ -49,7 +49,7 @@ Tệp này là một nỗ lực để ghi lại cách sử dụng hiện tại v
 những người viết trình điều khiển trong tương lai sẽ sử dụng nó làm tài liệu tham khảo.
 
 API đơn giản nhất
-================
+=================
 
 Tất cả các trình điều khiển đều hỗ trợ chế độ hoạt động cơ bản, trong đó cơ quan giám sát
 kích hoạt ngay khi /dev/watchdog được mở và sẽ khởi động lại trừ khi
@@ -74,7 +74,7 @@ tham số mô-đun nowoutout để có thể kiểm soát tùy chọn này tại
 thời gian chạy.
 
 Tính năng Magic Close
-===================
+=====================
 
 Nếu trình điều khiển hỗ trợ "Magic Close", trình điều khiển sẽ không vô hiệu hóa
 cơ quan giám sát trừ khi một nhân vật ma thuật cụ thể 'V' đã được gửi tới

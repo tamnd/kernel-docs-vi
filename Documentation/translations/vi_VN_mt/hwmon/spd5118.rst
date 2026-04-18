@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân spd5118
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -68,7 +68,7 @@ trừ khi điều kiện báo động vẫn được áp dụng.
 
 
 Hỗ trợ SPD (Phát hiện hiện diện nối tiếp)
-------------------------------------
+-----------------------------------------
 
 Trình điều khiển cũng hỗ trợ đọc SPD NVRAM trên các chip tương thích SPD5118.
 Dữ liệu SPD có sẵn từ tệp thuộc tính nhị phân 'eeprom' được đính kèm với

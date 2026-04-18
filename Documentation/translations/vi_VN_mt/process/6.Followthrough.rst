@@ -34,7 +34,7 @@ ngăn chặn việc đưa các bản vá của bạn vào dòng chính.
 
 
 Làm việc với người đánh giá
-----------------------
+---------------------------
 
 Một bản vá có ý nghĩa bất kỳ sẽ dẫn đến một số nhận xét từ những người khác
 các nhà phát triển khi họ xem xét mã.  Làm việc với người đánh giá có thể là
@@ -123,7 +123,7 @@ tất nhiên, hãy nhớ rằng anh ấy cũng có thể không đồng ý với
 
 
 Điều gì xảy ra tiếp theo
------------------
+------------------------
 
 Nếu một bản vá được coi là tốt để thêm vào kernel, và một khi
 hầu hết các vấn đề xem xét đã được giải quyết, bước tiếp theo thường là

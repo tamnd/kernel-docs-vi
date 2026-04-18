@@ -31,7 +31,7 @@ chỉ đọc và số inode của tệp có vấn đề được báo cáo trong
 nhật ký. Người dùng có thể thử kiểm tra/sửa tệp này thông qua tính năng kiểm tra tệp trực tuyến.
 
 Phạm vi
-=====
+=======
 Nỗ lực này nhằm kiểm tra/khắc phục các vấn đề nhỏ có thể cản trở hoạt động hàng ngày
 của một hệ thống tập tin cụm bằng cách chuyển hệ thống tập tin sang chế độ chỉ đọc. Phạm vi của
 việc kiểm tra/sửa lỗi ở cấp độ tệp, ban đầu là đối với các tệp thông thường và cuối cùng là
@@ -50,7 +50,7 @@ có thể bị hư hại nhiều hơn trước khi cố gắng sửa chữa. Vì
 được thực hiện bằng cách sử dụng sự tương tác và sự đồng ý của người dùng.
 
 Giao diện người dùng
-==============
+====================
 Khi có lỗi trong hệ thống tập tin OCFS2, chúng thường đi kèm
 bởi số inode gây ra lỗi. Số inode này sẽ là
 input để kiểm tra/sửa tập tin.
@@ -99,7 +99,7 @@ Lần này, cột <ERROR> cho biết việc sửa lỗi này có thành công ha
 # echo "<size>" > /sys/fs/ocfs2/<devname>/filecheck/set
 
 Sửa chữa đồ đạc
-============
+===============
 Khi nhận được inode, hệ thống tập tin sẽ đọc inode và
 siêu dữ liệu tập tin. Trong trường hợp có lỗi, hệ thống tập tin sẽ sửa lỗi
 và báo cáo các vấn đề nó đã khắc phục trong nhật ký kernel. Là một biện pháp phòng ngừa,

@@ -26,7 +26,7 @@ Dưới đây là hướng dẫn dành cho người viết trình điều khiể
 Động cơ DMA. Điều này chỉ áp dụng cho việc sử dụng DMA phụ.
 
 Cách sử dụng DMA
-=========
+================
 
 Việc sử dụng DMA nô lệ bao gồm các bước sau:
 

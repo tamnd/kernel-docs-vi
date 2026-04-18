@@ -112,7 +112,7 @@ Dưới đây là danh sách các mô tả mẫu được xác định:
 
 
 Sử dụng
-===
+=======
 
 Để chỉ định bộ mô tả mẫu sẽ được sử dụng để tạo các mục đo lường,
 hiện tại các phương pháp sau được hỗ trợ:

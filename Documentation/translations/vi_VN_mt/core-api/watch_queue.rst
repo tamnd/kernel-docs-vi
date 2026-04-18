@@ -34,7 +34,7 @@ Tài liệu này có các phần sau:
 
 
 Tổng quan
-========
+=========
 
 Cơ sở này xuất hiện dưới dạng một đường ống được mở ở chế độ đặc biệt.  Cái ống
 bộ đệm vòng bên trong được sử dụng để chứa các thông báo được tạo bởi kernel.
@@ -106,7 +106,7 @@ theo quyết định được xác định bởi loại và loại phụ.
 
 
 Danh sách theo dõi (Nguồn thông báo) API
-====================================
+========================================
 
 "Danh sách theo dõi" là danh sách những người theo dõi đã đăng ký một nguồn
 thông báo.  Một danh sách có thể được gắn vào một đối tượng (chẳng hạn như khóa hoặc siêu khối)
@@ -303,7 +303,7 @@ tất cả các sự kiện từ các nguồn đã xem sẽ diễn ra.
 
 
 Ví dụ về mã không gian người dùng
-======================
+=================================
 
 Một bộ đệm được tạo với nội dung như sau ::
 

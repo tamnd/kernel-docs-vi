@@ -31,7 +31,7 @@ Trình bày bố cục ioctls và sysfs chung ở đây. Chúng tôi chỉ cần
 info, vì trang man sẽ bao gồm phần còn lại.
 
 Tra cứu thiết bị libdrm
-====================
+=======================
 
 .. kernel-doc:: drivers/gpu/drm/drm_ioctl.c
    :doc: getunique and setversion story
@@ -55,13 +55,13 @@ Các nút chính, DRM Master và xác thực
 .. _drm_leasing:
 
 Cho thuê tài nguyên hiển thị DRM
-============================
+================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_lease.c
    :doc: drm leasing
 
 Yêu cầu về không gian người dùng nguồn mở
-==================================
+=========================================
 
 Hệ thống con DRM có yêu cầu khắt khe hơn hầu hết các hệ thống con kernel khác trên
 phía không gian người dùng của uAPI mới cần trông như thế nào. Phần này ở đây
@@ -135,7 +135,7 @@ trộn mỗi năm nó sẽ hoàn toàn không thể quản lý được.
 .. _drm_render_node:
 
 Kết xuất các nút
-============
+================
 
 Lõi DRM cung cấp nhiều thiết bị ký tự cho không gian người dùng sử dụng.
 Tùy thuộc vào thiết bị nào được mở, không gian người dùng có thể thực hiện các thao tác khác nhau
@@ -190,7 +190,7 @@ hiển thị trong không gian người dùng và có thể truy cập được 
 không thể hỗ trợ các nút kết xuất.
 
 Rút phích cắm nóng thiết bị
-=================
+===========================
 
 .. note::
    The following is the plan. Implementation is not there yet
@@ -252,7 +252,7 @@ Yêu cầu đối với KMS UAPI
   ở trên.
 
 Yêu cầu đối với kết xuất và thiết bị chéo UAPI
----------------------------------------------
+----------------------------------------------
 
 - Tất cả các công việc GPU không thể chạy được nữa đều phải có hàng rào
   buộc phải báo hiệu để tránh gây treo trên không gian người dùng.
@@ -281,7 +281,7 @@ Yêu cầu đối với kết xuất và thiết bị chéo UAPI
 .. _Vulkan: https://www.khronos.org/vulkan/
 
 Yêu cầu đối với Bản đồ bộ nhớ
-----------------------------
+-----------------------------
 
 Bản đồ bộ nhớ có các yêu cầu bổ sung áp dụng cho cả bản đồ hiện có
 và bản đồ được tạo sau khi thiết bị biến mất. Nếu cơ sở
@@ -300,7 +300,7 @@ các tập tin thông thường được mmapped. Chủ đề gây thêm đau đ
 xử lý cũng vậy.
 
 Đặt lại thiết bị
-============
+================
 
 Ngăn xếp GPU thực sự phức tạp và dễ xảy ra lỗi, từ lỗi phần cứng,
 các ứng dụng bị lỗi và mọi thứ ở giữa nhiều lớp. Một số lỗi
@@ -316,7 +316,7 @@ gỡ lỗi bối cảnh GPU bị treo yêu cầu hỗ trợ phần cứng để 
 bối cảnh GPU trong khi nó bị dừng.
 
 Trình điều khiển chế độ hạt nhân
-------------------
+--------------------------------
 
 KMD chịu trách nhiệm kiểm tra xem thiết bị có cần thiết lập lại hay không và thực hiện
 nó khi cần thiết. Thông thường, lỗi treo được phát hiện khi một công việc bị kẹt khi thực thi.
@@ -341,7 +341,7 @@ người trợ giúp cho trường hợp sử dụng này. Sau khi thiết lập
 đệ trình cho các bối cảnh bị ảnh hưởng.
 
 Trình điều khiển chế độ người dùng
-----------------
+----------------------------------
 
 Sau khi gửi lệnh, UMD nên kiểm tra xem việc gửi đã được chấp nhận hay chưa
 bị từ chối. Sau khi thiết lập lại, KMD sẽ từ chối gửi và UMD có thể đưa ra
@@ -414,7 +414,7 @@ người lái xe quyết định khi nào họ thấy cần khôi phục thiết
 để phục hồi từ các phương pháp có sẵn.
 
 Điều kiện tiên quyết của trình điều khiển
---------------------
+-----------------------------------------
 
 Người lái xe trước khi chọn khôi phục cần đảm bảo rằng 'nêm'
 thiết bị không gây hại cho toàn bộ hệ thống bằng cách quan tâm đến các điều kiện tiên quyết.
@@ -430,7 +430,7 @@ biểu thị lý do nêm, có thể được báo cáo cho ứng dụng nếu
 cần thiết.
 
 Sự hồi phục
---------
+-----------
 
 Việc triển khai hiện tại xác định bốn phương pháp khôi phục, trong đó, trình điều khiển
 có thể sử dụng bất kỳ một, nhiều hoặc không. (Các) phương pháp lựa chọn sẽ được gửi trong
@@ -453,7 +453,7 @@ theo những mong đợi.
     ============================================================
 
 Không phục hồi
------------
+--------------
 
 Ở đây ZZ0000ZZ biểu thị rằng người tiêu dùng không mong đợi sự phục hồi nào
 nhưng nó vẫn có thể cố gắng thu thập thông tin đo từ xa (devcoredump, syslog) cho
@@ -462,7 +462,7 @@ treo thường là vấn đề quan trọng nhất có thể dẫn đến việc
 hoặc nêm hoàn chỉnh.
 
 Phục hồi cụ thể của nhà cung cấp
-------------------------
+--------------------------------
 
 Khi ZZ0000ZZ được gửi, nó cho biết thiết bị yêu cầu
 một quy trình khôi phục dành riêng cho nhà cung cấp phần cứng và không phải là một trong những quy trình
@@ -490,7 +490,7 @@ Ví dụ: Nếu thiết bị sử dụng trình điều khiển Xe thì người
 ZZ0000ZZ để biết tài liệu chi tiết.
 
 Thông tin nhiệm vụ
-----------------
+------------------
 
 Thông tin về ứng dụng nào (nếu có) liên quan đến thiết bị
 việc nêm rất hữu ích cho không gian người dùng nếu họ muốn thông báo cho người dùng về những gì
@@ -507,7 +507,7 @@ thực sự đã xảy ra, tệp devcoredump cung cấp nhiều thông tin chi t
 về trạng thái thiết bị và về sự kiện.
 
 Điều kiện tiên quyết của người tiêu dùng
-----------------------
+----------------------------------------
 
 Trách nhiệm của người tiêu dùng là đảm bảo rằng thiết bị hoặc
 tài nguyên không được sử dụng bởi bất kỳ tiến trình nào trước khi thử khôi phục. Với IOCTL
@@ -552,13 +552,13 @@ không chắc chắn về việc phục hồi hoặc phương pháp không xác 
 .. _drm_driver_ioctl:
 
 Hỗ trợ IOCTL trên các nút thiết bị
-=============================
+==================================
 
 .. kernel-doc:: drivers/gpu/drm/drm_ioctl.c
    :doc: driver specific ioctls
 
 Giá trị trả về IOCTL được đề xuất
--------------------------------
+---------------------------------
 
 Về lý thuyết, lệnh gọi lại IOCTL của trình điều khiển chỉ được phép trả về rất ít lỗi
 mã. Trong thực tế, tốt hơn là lạm dụng thêm một vài thứ nữa. Phần này tài liệu chung
@@ -628,7 +628,7 @@ Kiểm tra và xác nhận
 ======================
 
 Yêu cầu kiểm tra đối với không gian người dùng API
---------------------------------------
+--------------------------------------------------
 
 Các phần mở rộng giao diện không gian người dùng trình điều khiển chéo mới, như IOCTL mới, KMS mới
 thuộc tính, tệp mới trong sysfs hoặc bất kỳ thứ gì khác cấu thành thay đổi API
@@ -636,7 +636,7 @@ phải có các trường hợp kiểm tra bất khả tri về trình điều k
 có thể được thực hiện một cách hợp lý bằng cách sử dụng IGT cho phần cứng mục tiêu.
 
 Xác thực các thay đổi với IGT
----------------------------
+-----------------------------
 
 Có một tập hợp các bài kiểm tra nhằm mục đích bao quát toàn bộ chức năng của
 Trình điều khiển DRM và có thể được sử dụng để kiểm tra những thay đổi đối với trình điều khiển DRM hoặc
@@ -645,7 +645,7 @@ mã và hướng dẫn xây dựng và chạy của nó có thể được tìm 
 ZZ0000ZZ
 
 Sử dụng VKMS để kiểm tra DRM API
---------------------------
+--------------------------------
 
 VKMS là mẫu trình điều khiển KMS chỉ có phần mềm, hữu ích cho việc thử nghiệm
 và để chạy các bộ tổng hợp. VKMS nhằm mục đích kích hoạt màn hình ảo mà không cần
@@ -700,7 +700,7 @@ Hỗ trợ gỡ lỗi
    :export:
 
 Hỗ trợ hệ thống
-=============
+===============
 
 .. kernel-doc:: drivers/gpu/drm/drm_sysfs.c
    :doc: overview
@@ -727,7 +727,7 @@ ZZ0000ZZ
     gọi cái này nữa vì với cài đặt chế độ kernel thì nó không hoạt động.
 
 Cấu trúc không gian người dùng API
-========================
+==================================
 
 .. kernel-doc:: include/uapi/drm/drm_mode.h
    :doc: overview
@@ -735,7 +735,7 @@ Cấu trúc không gian người dùng API
 .. _crtc_index:
 
 Chỉ số CRTC
-----------
+-----------
 
 CRTC có cả ID đối tượng và chỉ mục và chúng không giống nhau.
 Chỉ mục này được sử dụng trong trường hợp mã định danh được đóng gói dày đặc cho CRTC
@@ -753,14 +753,14 @@ ID CRTC và chỉ mục CRTC là vị trí của nó trong mảng này.
 
 
 khả năng tương tác dma-buf
-========================
+==========================
 
 Vui lòng xem Tài liệu/userspace-api/dma-buf-alloc-exchange.rst để biết
 thông tin về cách DMA-buf được tích hợp và hiển thị trong DRM.
 
 
 Theo dõi sự kiện
-============
+================
 
 Xem Tài liệu/trace/tracepoints.rst để biết thông tin về cách sử dụng
 Điểm theo dõi hạt nhân Linux.
@@ -770,7 +770,7 @@ không thể xóa được cũng như không thể cập nhật định dạng c
 có thể, theo yêu cầu uAPI thông thường.
 
 Sự kiện uAPI ổn định
-------------------
+--------------------
 
 Từ ZZ0000ZZ
 

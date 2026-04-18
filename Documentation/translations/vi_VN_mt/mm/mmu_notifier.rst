@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Khi nào bạn cần thông báo khóa bảng trang bên trong?
-===================================================
+====================================================
 
 Khi xóa pte/pmd, chúng tôi được lựa chọn thông báo sự kiện thông qua
 (thông báo phiên bản của \*_clear_flush gọi mmu_notifier_invalidate_range) trong

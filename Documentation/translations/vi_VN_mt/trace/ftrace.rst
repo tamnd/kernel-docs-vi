@@ -58,7 +58,7 @@ Xem Documentation/trace/ftrace-design.rst để biết chi tiết về các port
 
 
 Hệ thống tập tin
----------------
+----------------
 
 Ftrace sử dụng hệ thống tệp tracefs để giữ các tệp điều khiển dưới dạng
 cũng như các tập tin để hiển thị đầu ra.
@@ -831,7 +831,7 @@ sự kiện bị bỏ:
 		Số lượng sự kiện được đọc.
 
 Người theo dõi
------------
+--------------
 
 Đây là danh sách các công cụ theo dõi hiện tại có thể được cấu hình.
 
@@ -957,14 +957,14 @@ Thông tin lỗi mở rộng và cách sử dụng có dạng hiển thị trong
 # echo > /sys/kernel/tracing/error_log
 
 Ví dụ về việc sử dụng công cụ theo dõi
-----------------------------
+--------------------------------------
 
 Dưới đây là những ví dụ điển hình về việc sử dụng bộ theo dõi khi điều khiển
 chúng chỉ với giao diện tracefs (không sử dụng bất kỳ
 tiện ích đất của người sử dụng).
 
 Định dạng đầu ra:
---------------
+-----------------
 
 Đây là ví dụ về định dạng đầu ra của tệp "trace"::
 
@@ -1006,7 +1006,7 @@ gọi hàm này là "system_call_fastpath". Dấu thời gian là thời gian
 tại đó chức năng được nhập vào.
 
 Định dạng theo dõi độ trễ
---------------------
+-------------------------
 
 Khi tùy chọn định dạng độ trễ được bật hoặc khi một trong các độ trễ
 bộ theo dõi được thiết lập, tệp theo dõi sẽ cung cấp thêm thông tin để xem
@@ -1513,7 +1513,7 @@ blk_classic
 
 
 khó chịu
--------
+--------
 
 Khi ngắt bị vô hiệu hóa, CPU không thể phản ứng với bất kỳ ngắt nào khác
 sự kiện bên ngoài (ngoài NMI và SMI). Điều này ngăn chặn bộ đếm thời gian
@@ -1727,7 +1727,7 @@ Trình theo dõi quyền ưu tiên theo dõi những vị trí vô hiệu hóa q
 Giống như công cụ theo dõi irqsoff, nó ghi lại độ trễ tối đa cho
 quyền ưu tiên nào đã bị vô hiệu hóa. Việc kiểm soát chất đánh dấu ưu tiên
 rất giống với công cụ theo dõi irqsoff.
-::
+:::::::::::::::::::::::::::::::::::::::
 
 # echo 0 > tùy chọn/dấu vết chức năng
   Ưu tiên trước # echo > current_tracer
@@ -1773,7 +1773,7 @@ Nhưng chúng ta cũng thấy rằng các ngắt đã bị vô hiệu hóa khi v
 phần ưu tiên và để lại nó ('d'). Chúng tôi không biết liệu
 các ngắt đã được kích hoạt trong thời gian đó hoặc ngay sau đó
 đã kết thúc.
-::
+::::::::::::
 
 # tracer: ưu tiên
   #
@@ -1879,7 +1879,7 @@ người đánh dấu.
 
 Một lần nữa, việc sử dụng dấu vết này cũng giống như irqsoff và preemptoff
 người theo dõi.
-::
+:::::::::::::::
 
 # echo 0 > tùy chọn/dấu vết chức năng
   # echo ưu tiên tắt > current_tracer
@@ -2042,7 +2042,7 @@ Khi một ngắt đang chạy bên trong softirq, chú thích là 'H'.
 
 
 thức dậy
-------
+--------
 
 Một trường hợp phổ biến mà mọi người quan tâm truy tìm là
 thời gian cần thiết để một tác vụ được đánh thức thực sự thức dậy.
@@ -2116,7 +2116,7 @@ Vì trình theo dõi này chỉ xử lý các tác vụ RT nên chúng tôi sẽ
 hơi khác so với những gì chúng tôi đã làm với các công cụ theo dõi trước đó.
 Thay vì thực hiện 'ls', chúng tôi sẽ chạy 'ngủ 1' bên dưới
 'chrt' làm thay đổi mức độ ưu tiên của tác vụ.
-::
+::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 0 > tùy chọn/dấu vết chức năng
   # echo Wakeup_rt > current_tracer
@@ -2162,7 +2162,7 @@ chứ không phải mức độ ưu tiên của kernel bên trong. Chính sách 
 SCHED_FIFO và 2 cho SCHED_RR.
 
 Lưu ý rằng dữ liệu theo dõi hiển thị mức độ ưu tiên bên trong (99 - rtprio).
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 <nhàn rỗi>-0 3d..3 5us : 0:120:R ==> [003] 2389: 94:R ngủ
 
@@ -2172,7 +2172,7 @@ và ở trạng thái chạy 'R'. Nhiệm vụ ngủ đã được lên lịch v
 và nó cũng đang ở trạng thái chạy.
 
 Làm tương tự với chrt -r 5 và bộ theo dõi chức năng.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 echo 1 > tùy chọn/dấu vết chức năng
 
@@ -2292,7 +2292,7 @@ Vì việc dò tìm hàm có thể gây ra độ trễ lớn hơn nhiều nhưng
 nhìn thấy những gì xảy ra trong thời gian trễ thật khó để biết điều gì
 gây ra nó. Có một nền tảng trung gian, đó là việc cho phép
 sự kiện.
-::
+::::::::
 
 # echo 0 > tùy chọn/dấu vết chức năng
   # echo Wakeup_rt > current_tracer
@@ -2334,13 +2334,13 @@ sự kiện.
 
 
 Trình phát hiện độ trễ phần cứng
--------------------------
+--------------------------------
 
 Trình phát hiện độ trễ phần cứng được thực thi bằng cách bật trình theo dõi "hwlat".
 
 NOTE, chất đánh dấu này sẽ ảnh hưởng đến hiệu suất của hệ thống vì nó sẽ
 định kỳ làm cho CPU liên tục bận và tắt các ngắt.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo hwlat > current_tracer
   # sleep 100
@@ -2430,13 +2430,13 @@ tracing_cpumask
 	nên chạy tiếp.
 
 chức năng
---------
+---------
 
 Công cụ theo dõi này là công cụ theo dõi chức năng. Kích hoạt chức năng theo dõi chức năng
 có thể được thực hiện từ hệ thống tập tin gỡ lỗi. Hãy chắc chắn rằng
 ftrace_enabled được đặt; nếu không thì công cụ đánh dấu này là không có.
 Xem phần "ftrace_enabled" bên dưới.
-::
+:::::::::::::::::::::::::::::::::::
 
 # sysctl kernel.ftrace_enabled=1
   Hàm # echo > current_tracer
@@ -2527,7 +2527,7 @@ sợi đơn. Ví dụ::
 
 Nếu bạn muốn theo dõi một hàm khi thực thi, bạn có thể sử dụng
 một cái gì đó giống như chương trình đơn giản này.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 #include <stdio.h>
 	#include <stdlib.h>
@@ -2614,7 +2614,7 @@ trả về 0;
 	}
 
 Hoặc kịch bản đơn giản này!
-::
+:::::::::::::::::::::::::::
 
 #!/bin/bash
 
@@ -2627,7 +2627,7 @@ tracefs=ZZ0000ZZ
 
 
 công cụ theo dõi đồ thị hàm số
----------------------------
+------------------------------
 
 Công cụ theo dõi này tương tự như công cụ theo dõi chức năng ngoại trừ việc nó
 thăm dò một chức năng trên lối vào và lối ra của nó. Việc này được thực hiện bởi
@@ -2970,7 +2970,7 @@ theo dõi phần "ftrace động" chẳng hạn như chỉ theo dõi cụ thể
 chức năng hoặc nhiệm vụ.
 
 ftrace năng động
---------------
+----------------
 
 Nếu CONFIG_DYNAMIC_FTRACE được đặt, hệ thống sẽ chạy với
 hầu như không có chi phí hoạt động khi tính năng theo dõi chức năng bị vô hiệu hóa. Con đường
@@ -3082,7 +3082,7 @@ Nếu tôi chỉ quan tâm đến sys_nanosleep và hrtimer_interrupt::
             <nhàn rỗi>-0 [002] d.h1 4186.475427: hrtimer_interrupt <-smp_apic_timer_interrupt
 
 Để xem chức năng nào đang được theo dõi, bạn có thể cat tệp:
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # cat set_ftrace_filter
   hrtimer_interrupt
@@ -3132,7 +3132,7 @@ Sản xuất::
             <nhàn rỗi>-0 [003] d..2 4228.547860: hrtimer_force_reprogram <-__rem
 
 Lưu ý rằng chúng tôi đã mất sys_nanosleep.
-::
+::::::::::::::::::::::::::::::::::::::::::
 
 # cat set_ftrace_filter
   giờ_run_queues
@@ -3194,7 +3194,7 @@ Một lần nữa, bây giờ chúng tôi muốn nối thêm.
 
 set_ftrace_notrace ngăn chặn các chức năng đó
 truy tìm.
-::
+:::::::::
 
 # echo 'ZZ0000ZZ' 'ZZ0001ZZ' > set_ftrace_notrace
 
@@ -3227,7 +3227,7 @@ Sản xuất::
 Chúng ta có thể thấy rằng không còn việc truy tìm khóa hoặc truy tìm trước nữa.
 
 Chọn bộ lọc chức năng thông qua chỉ mục
-------------------------------------
+---------------------------------------
 
 Bởi vì việc xử lý chuỗi rất tốn kém (địa chỉ của hàm
 cần tra cứu trước khi so sánh với chuỗi được truyền vào),
@@ -3260,7 +3260,7 @@ Sẽ chọn chức năng đầu tiên được liệt kê trong "available_filte
   x86_pmu_commit_txn
 
 FTrace động với công cụ theo dõi đồ thị hàm số
----------------------------------------------
+----------------------------------------------
 
 Mặc dù những gì đã được giải thích ở trên liên quan đến cả
 công cụ theo dõi hàm và công cụ theo dõi đồ thị hàm số, có một số
@@ -3467,13 +3467,13 @@ echo '!try_to_wake_up:enable_event:sched:sched_switch:0' > \
   Khi nhấn chức năng, dấu vết ngăn xếp sẽ được ghi lại.
 
 dấu vết_pipe
-----------
+------------
 
 trace_pipe xuất ra nội dung giống như tệp theo dõi, nhưng
 hiệu ứng trên dấu vết là khác nhau. Mỗi lần đọc từ
 trace_pipe được tiêu thụ. Điều này có nghĩa là những lần đọc tiếp theo sẽ được
 khác nhau. Dấu vết đang hoạt động.
-::
+::::::::::::::::::::::::::::::::::
 
 Hàm # echo > current_tracer
   # cat trace_pipe > /tmp/trace.out &
@@ -3522,19 +3522,19 @@ chẩn đoán một vấn đề trong kernel. Tệp buffer_size_kb là
 số được liệt kê là số lượng mục có thể được ghi lại mỗi
 CPU. Để biết kích thước đầy đủ, hãy nhân số lượng CPU có thể
 với số lượng bài viết.
-::
+::::::::::::::::::::::
 
 Bộ đệm # cat_size_kb
   1408 (đơn vị kilobyte)
 
 Hoặc đơn giản là đọc buffer_total_size_kb
-::
+:::::::::::::::::::::::::::::::::::::::::
 
 Bộ đệm # cat_total_size_kb 
   5632
 
 Để sửa đổi bộ đệm, hãy lặp lại đơn giản một số (trong các phân đoạn 1024 byte).
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 10000 > đệm_size_kb
   # cat đệm_size_kb
@@ -3542,7 +3542,7 @@ Bộ đệm # cat_total_size_kb
 
 Nó sẽ cố gắng phân bổ càng nhiều càng tốt. Nếu bạn phân bổ quá
 nhiều, nó có thể gây ra tình trạng hết bộ nhớ.
-::
+::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 1000000000000 > đệm_size_kb
   -bash: echo: lỗi ghi: Không thể cấp phát bộ nhớ
@@ -3550,20 +3550,20 @@ nhiều, nó có thể gây ra tình trạng hết bộ nhớ.
   85
 
 Bộ đệm per_cpu cũng có thể được thay đổi riêng lẻ:
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 10000 > per_cpu/cpu0/buffer_size_kb
   # echo 100 > per_cpu/cpu1/buffer_size_kb
 
 Khi bộ đệm per_cpu không giống nhau, buffer_size_kb
 ở cấp cao nhất sẽ chỉ hiển thị X
-::
+::::::::::::::::::::::::::::::::
 
 Bộ đệm # cat_size_kb
   X
 
 Đây là lúc buffer_total_size_kb hữu ích:
-::
+::::::::::::::::::::::::::::::::::::::::
 
 Bộ đệm # cat_total_size_kb 
   12916
@@ -3572,7 +3572,7 @@ Việc ghi vào buffer_size_kb cấp cao nhất sẽ thiết lập lại tất c
 lại như cũ.
 
 Ảnh chụp nhanh
---------
+--------------
 CONFIG_TRACER_SNAPSHOT tạo tính năng chụp nhanh chung
 có sẵn cho tất cả các công cụ theo dõi không có độ trễ. (Bộ theo dõi độ trễ
 ghi lại độ trễ tối đa, chẳng hạn như "irqsoff" hoặc "wakeup", không thể sử dụng
@@ -3609,7 +3609,7 @@ tính năng:
 	+--------------+-------------+-------------+-------------+
 
 Đây là một ví dụ về việc sử dụng tính năng chụp nhanh.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 1 > sự kiện/lịch trình/bật
   # echo 1 > ảnh chụp nhanh
@@ -3649,7 +3649,7 @@ Dấu vết # cat
 
 Nếu bạn cố gắng sử dụng tính năng chụp nhanh này khi bộ theo dõi hiện tại đang hoạt động.
 một trong những công cụ theo dõi độ trễ, bạn sẽ nhận được kết quả sau.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Đánh thức # echo > current_tracer
   # echo 1 > ảnh chụp nhanh
@@ -3659,13 +3659,13 @@ một trong những công cụ theo dõi độ trễ, bạn sẽ nhận được
 
 
 trường hợp
----------
+----------
 Trong thư mục theo dõi tracefs có một thư mục tên là "instances".
 Thư mục này có thể có các thư mục mới được tạo bên trong nó bằng cách sử dụng
 mkdir và xóa thư mục bằng rmdir. Thư mục đã được tạo
 với mkdir trong thư mục này sẽ chứa các tệp và các tệp khác
 thư mục sau khi được tạo.
-::
+:::::::::::::::::::::::::
 
 Phiên bản # mkdir/foo
   Phiên bản # ls/foo
@@ -3689,7 +3689,7 @@ có thể trở nên cụ thể đối với trường hợp họ cư trú.
 Lưu ý rằng không có tệp theo dõi chức năng nào ở đó, cũng như không có
 current_tracer và available_tracers. Điều này là do bộ đệm
 hiện chỉ có thể kích hoạt sự kiện cho họ.
-::
+:::::::::::::::::::::::::::::::::::::::::
 
 Phiên bản # mkdir/foo
   Phiên bản/thanh # mkdir
@@ -3775,7 +3775,7 @@ việc truy tìm chức năng. Ví dụ foo hiển thị các lần đánh thứ
 công tắc.
 
 Để xóa các phiên bản, chỉ cần xóa thư mục của chúng:
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Phiên bản # rmdir/foo
   Phiên bản/thanh # rmdir
@@ -3786,7 +3786,7 @@ thư mục, rmdir sẽ thất bại với EBUSY.
 
 
 Dấu vết ngăn xếp
------------
+----------------
 Vì hạt nhân có một ngăn xếp có kích thước cố định nên điều quan trọng là không
 lãng phí nó trong các chức năng. Một nhà phát triển hạt nhân phải có ý thức về
 những gì họ phân bổ trên ngăn xếp. Nếu họ thêm quá nhiều, hệ thống
@@ -3801,7 +3801,7 @@ tại mọi cuộc gọi chức năng. Điều này được kích hoạt thông
 
 CONFIG_STACK_TRACER kích hoạt chức năng theo dõi ngăn xếp ftrace.
 Để kích hoạt nó, hãy viết số '1' vào /proc/sys/kernel/stack_tracer_enabled.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 1 > /proc/sys/kernel/stack_tracer_enabled
 
@@ -3810,7 +3810,7 @@ kích thước ngăn xếp của kernel trong khi khởi động, bằng cách t
 đến tham số dòng lệnh kernel.
 
 Sau khi chạy nó được vài phút, kết quả trông như sau:
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # cat stack_max_size
   2928

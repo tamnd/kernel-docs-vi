@@ -19,7 +19,7 @@ XArray
 :Tác giả: Matthew Wilcox
 
 Tổng quan
-========
+=========
 
 XArray là một kiểu dữ liệu trừu tượng hoạt động giống như một mảng rất lớn
 của con trỏ.  Nó đáp ứng nhiều nhu cầu giống như hàm băm hoặc thông thường
@@ -69,7 +69,7 @@ xa_erase() hoặc xa_store() với ZZ0000ZZ), bất kỳ mục nhập nào cũng
 để quên đi phạm vi.
 
 API bình thường
-==========
+===============
 
 Bắt đầu bằng cách khởi tạo XArray, với DEFINE_XARRAY()
 đối với XArray được phân bổ tĩnh hoặc xa_init() cho động
@@ -463,7 +463,7 @@ mã bộ đệm làm việc để duy trì danh sách các nút chỉ chứa
 mục bóng tối.
 
 Mục nhập nhiều chỉ mục
--------------------
+----------------------
 
 XArray có khả năng liên kết nhiều chỉ số lại với nhau để
 các hoạt động trên một chỉ mục sẽ ảnh hưởng đến tất cả các chỉ mục.  Ví dụ, lưu trữ vào

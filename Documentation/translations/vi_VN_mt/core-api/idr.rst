@@ -19,7 +19,7 @@ Phân bổ ID
 :Tác giả: Matthew Wilcox
 
 Tổng quan
-========
+=========
 
 Một vấn đề phổ biến cần giải quyết là phân bổ số nhận dạng (ID); nói chung
 những con số nhỏ xác định một sự vật.  Ví dụ bao gồm mô tả tập tin,
@@ -33,7 +33,7 @@ Giao diện IDR không được dùng nữa; vui lòng sử dụng ZZ0000ZZ
 thay vào đó.
 
 Cách sử dụng IDR
-=========
+================
 
 Bắt đầu bằng cách khởi tạo IDR, với DEFINE_IDR()
 đối với các IDR được phân bổ tĩnh hoặc idr_init() đối với các IDR được phân bổ động
@@ -82,7 +82,7 @@ idr_preload_end() sau khi phân bổ.
    :doc: idr sync
 
 Cách sử dụng IDA
-=========
+================
 
 .. kernel-doc:: lib/idr.c
    :doc: IDA description

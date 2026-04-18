@@ -92,7 +92,7 @@ nói chuyện với TEE của AMD. TEE của AMD cung cấp một môi trường
 một phiên, gọi lệnh và kết thúc phiên bằng TA.
 
 Tài liệu tham khảo
-==========
+==================
 
 [1] bao gồm/linux/psp-tee.h
 

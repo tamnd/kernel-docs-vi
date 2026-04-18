@@ -72,7 +72,7 @@ bit trong trường ZZ0002ZZ. Cũng lưu ý rằng trong gói nhiều bộ đệ
 chỉ đoạn đầu tiên mới mang siêu dữ liệu.
 
 Tổng kiểm tra TX phần mềm
-====================
+=========================
 
 Đối với mục đích phát triển và thử nghiệm, có thể vượt qua
 Cờ ZZ0000ZZ tới cuộc gọi đăng ký ZZ0001ZZ UMEM.
@@ -81,7 +81,7 @@ Trong trường hợp này, khi chạy ở chế độ ZZ0002ZZ, tổng kiểm t
 nó sẽ ảnh hưởng tiêu cực đến hiệu suất.
 
 Thời gian ra mắt
-===========
+================
 
 Giá trị của thời gian khởi chạy được yêu cầu phải dựa trên PTP của thiết bị
 Đồng hồ phần cứng (PHC) để đảm bảo độ chính xác. AF_XDP có đường dẫn dữ liệu khác
@@ -102,7 +102,7 @@ giải thích và hoạt động có ý nghĩa, thời gian khởi động khôn
 tính năng giảm tải thời gian khởi chạy.
 
 trình điều khiển stmmac
--------------
+-----------------------
 
 Đối với stmmac, các tính năng TSO và thời gian khởi chạy (TBS) loại trừ lẫn nhau cho
 mỗi hàng đợi Tx riêng lẻ. Theo mặc định, trình điều khiển cấu hình Tx Queue 0 thành
@@ -119,7 +119,7 @@ khoảng thời gian khởi chạy cho dwmac4 và dwxlgmac2 là 128 giây trong
 tương lai.
 
 trình điều khiển igc
-----------
+--------------------
 
 Đối với igc, cả bốn Hàng đợi Tx đều hỗ trợ tính năng thời gian khởi chạy. Sự ra mắt
 tính năng giảm tải phần cứng theo thời gian có thể được bật hoặc tắt bằng cách sử dụng
@@ -138,7 +138,7 @@ từ 1 giây đến 2 giây, tùy thuộc vào vị trí hiện tại của chu 
 đang chạy.
 
 Truy vấn khả năng của thiết bị
-============================
+==============================
 
 Mọi thiết bị đều xuất khả năng giảm tải của mình thông qua dòng netlink netdev.
 Tham khảo tính năng bitmask của ZZ0000ZZ trong

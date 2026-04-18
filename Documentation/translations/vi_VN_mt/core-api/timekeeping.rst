@@ -21,7 +21,7 @@ sử dụng một trình truy cập có tên ngắn hơn được ưu tiên hơn
 name nếu cả hai đều phù hợp như nhau cho một trường hợp sử dụng cụ thể.
 
 Giao diện dựa trên ktime_t cơ bản
-------------------------------
+---------------------------------
 
 Biểu mẫu đơn giản nhất được đề xuất trả về một ktime_t mờ, với các biến thể
 thời gian trả về cho các tham chiếu đồng hồ khác nhau:
@@ -157,7 +157,7 @@ Một số biến thể bổ sung tồn tại cho các trường hợp chuyên b
 	since the time is allowed to jump under certain conditions.
 
 Giao diện thời gian không dùng nữa
---------------------------
+----------------------------------
 
 Các hạt nhân cũ hơn đã sử dụng một số giao diện khác hiện đang bị loại bỏ
 nhưng có thể xuất hiện trong trình điều khiển của bên thứ ba được chuyển vào đây. Đặc biệt,

@@ -25,7 +25,7 @@ Sử dụng thiết bị chặn đĩa RAM với Linux
 
 
 1) Tổng quan
------------
+------------
 
 Trình điều khiển đĩa RAM là một cách sử dụng bộ nhớ hệ thống chính làm thiết bị khối.  Nó
 là bắt buộc đối với initrd, hệ thống tập tin ban đầu được sử dụng nếu bạn cần tải các mô-đun
@@ -74,7 +74,7 @@ thứ_kích thước
 		Xem ramdisk_size.
 
 3) Sử dụng "rdev"
----------------
+-----------------
 
 "rdev" là một tiện ích lỗi thời, không được dùng nữa, có thể được sử dụng
 để đặt thiết bị khởi động trong hình ảnh hạt nhân Linux.

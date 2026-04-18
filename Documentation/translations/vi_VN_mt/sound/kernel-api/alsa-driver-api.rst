@@ -24,7 +24,7 @@ Quản lý thẻ
 .. kernel-doc:: sound/core/init.c
 
 Linh kiện thiết bị
------------------
+------------------
 .. kernel-doc:: sound/core/device.c
 
 Yêu cầu mô-đun và mục nhập tệp thiết bị
@@ -32,7 +32,7 @@ Yêu cầu mô-đun và mục nhập tệp thiết bị
 .. kernel-doc:: sound/core/sound.c
 
 Người trợ giúp quản lý bộ nhớ
--------------------------
+-----------------------------
 .. kernel-doc:: sound/core/memory.c
 .. kernel-doc:: sound/core/memalloc.c
 
@@ -48,7 +48,7 @@ Lõi PCM
 .. kernel-doc:: include/sound/pcm.h
 
 Trình trợ giúp định dạng PCM
-------------------
+----------------------------
 .. kernel-doc:: sound/core/pcm_misc.c
 
 Quản lý bộ nhớ PCM
@@ -56,19 +56,19 @@ Quản lý bộ nhớ PCM
 .. kernel-doc:: sound/core/pcm_memory.c
 
 PCM DMA Động cơ API
-------------------
+-------------------
 .. kernel-doc:: sound/core/pcm_dmaengine.c
 .. kernel-doc:: include/sound/dmaengine_pcm.h
 
 Bộ điều khiển/Trộn API
-=================
+======================
 
 Giao diện điều khiển chung
--------------------------
+--------------------------
 .. kernel-doc:: sound/core/control.c
 
 Bộ giải mã AC97 API
---------------
+-------------------
 .. kernel-doc:: sound/pci/ac97/ac97_codec.c
 .. kernel-doc:: sound/pci/ac97/ac97_pcm.c
 
@@ -89,10 +89,10 @@ MPU401-UART API
 .. kernel-doc:: sound/drivers/mpu401/mpu401_uart.c
 
 Thông tin Proc API
-=============
+==================
 
 Giao diện thông tin Proc
--------------------
+------------------------
 .. kernel-doc:: sound/core/info.c
 
 Nén giảm tải
@@ -123,14 +123,14 @@ ASoC DAPM API
 .. kernel-doc:: sound/soc/soc-dapm.c
 
 Động cơ ASoC DMA API
--------------------
+--------------------
 .. kernel-doc:: sound/soc/soc-generic-dmaengine-pcm.c
 
 Chức năng khác
 =======================
 
 Thiết bị phụ thuộc vào phần cứng API
-------------------------------
+------------------------------------
 .. kernel-doc:: sound/core/hwdep.c
 
 Lớp trừu tượng Jack API
@@ -140,7 +140,7 @@ Lớp trừu tượng Jack API
 .. kernel-doc:: sound/soc/soc-jack.c
 
 Người trợ giúp ISA DMA
----------------
+----------------------
 .. kernel-doc:: sound/core/isadma.c
 
 Macro trợ giúp khác

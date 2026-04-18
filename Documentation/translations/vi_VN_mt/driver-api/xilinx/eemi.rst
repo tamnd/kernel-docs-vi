@@ -49,6 +49,6 @@ Các ID IOCTL sau đây hợp lệ để điều khiển thiết bị:
 Tham khảo hướng dẫn EEMI API [0] để biết các thông số cụ thể của IOCTL và các API EEMI khác.
 
 Tài liệu tham khảo
-----------
+------------------
 [0] Giao diện quản lý năng lượng nhúng (EEMI) Hướng dẫn API:
     ZZ0000ZZ

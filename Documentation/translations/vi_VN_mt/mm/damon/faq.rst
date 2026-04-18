@@ -31,7 +31,7 @@ và bộ nhớ vật lý theo mặc định để tham khảo và sử dụng th
 
 
 Tôi có thể đơn giản theo dõi mức độ chi tiết của trang không?
-======================================
+=============================================================
 
 Đúng.  Bạn có thể làm như vậy bằng cách đặt thuộc tính ZZ0000ZZ cao hơn thuộc tính
 kích thước tập làm việc chia cho kích thước trang.  Vì mục tiêu giám sát

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Danh sách thẻ CX18
-===============
+==================
 
 Những thẻ này được hỗ trợ bởi trình điều khiển cx18:
 

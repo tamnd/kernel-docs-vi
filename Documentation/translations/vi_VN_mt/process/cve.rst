@@ -37,7 +37,7 @@ ZZ0001ZZ Để nhận thông báo về
 các CVE được chỉ định, vui lòng ZZ0000ZZ vào danh sách gửi thư đó.
 
 Quá trình
-=======
+=========
 
 Là một phần của quá trình phát hành ổn định thông thường, các thay đổi kernel được
 các vấn đề bảo mật tiềm ẩn được xác định bởi các nhà phát triển chịu trách nhiệm
@@ -88,7 +88,7 @@ ngoài thẩm quyền được chỉ định này có thể dẫn đến nhầm 
 báo cáo và cuối cùng là các hệ thống bị xâm nhập.
 
 CVE không hợp lệ
-============
+================
 
 Nếu tìm thấy sự cố bảo mật trong nhân Linux chỉ được hỗ trợ bởi
 một bản phân phối Linux do những thay đổi đã được thực hiện bởi bản phân phối đó
@@ -104,7 +104,7 @@ nhóm phân công kernel CVE tại <cve@kernel.org> để họ có thể làm vi
 vô hiệu hóa các mục nhập đó thông qua quy trình khắc phục CNA.
 
 Khả năng ứng dụng của CVE cụ thể
-==============================
+================================
 
 Vì nhân Linux có thể được sử dụng theo nhiều cách khác nhau, với nhiều
 những cách khác nhau để người dùng bên ngoài truy cập vào nó hoặc không có quyền truy cập nào cả,

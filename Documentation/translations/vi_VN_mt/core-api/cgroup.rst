@@ -17,7 +17,7 @@ API hạt nhân của Cgroup
 =======================
 
 Bộ nhớ thiết bị Cgroup API (dmemcg)
-=================================
+===================================
 .. kernel-doc:: kernel/cgroup/dmem.c
    :export:
 

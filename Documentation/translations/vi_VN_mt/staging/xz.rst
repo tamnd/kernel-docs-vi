@@ -35,7 +35,7 @@ và một công cụ dòng lệnh giống như gzip.
 .. _XZ Utils: https://tukaani.org/xz/
 
 Các thành phần liên quan đến Xperia trong kernel
-===================================
+================================================
 
 Mô-đun xz_dec cung cấp bộ giải nén Xperia với một lệnh gọi (bộ đệm
 để đệm) và API nhiều cuộc gọi (trạng thái) trong include/linux/xz.h.

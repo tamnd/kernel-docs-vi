@@ -38,7 +38,7 @@ Xem ZZ0000ZZ để biết thông số kỹ thuật NVMe.
 
 
 Các tính năng được hỗ trợ
-==================
+=========================
 
 NVMe là một bộ thông số kỹ thuật lớn và chứa các tính năng chỉ
 hữu ích hoặc phù hợp cho các trường hợp sử dụng cụ thể. Điều quan trọng cần lưu ý là Linux

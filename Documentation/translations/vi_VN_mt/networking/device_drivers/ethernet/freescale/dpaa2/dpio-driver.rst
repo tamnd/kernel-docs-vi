@@ -40,7 +40,7 @@ Tài liệu/mạng/device_drivers/ethernet/freescale/dpaa2/overview.rst
 trong Linux.
 
 Tổng quan về trình điều khiển
----------------
+-----------------------------
 
 Trình điều khiển DPIO được liên kết với các đối tượng DPIO được phát hiện trên bus fsl-mc và
 cung cấp các dịch vụ:
@@ -110,7 +110,7 @@ Các thành phần trình điều khiển Linux DPAA2::
 
 
 Trình điều khiển đối tượng DPIO (dpio-driver.c)
-----------------------------------
+-----------------------------------------------
 
 Thành phần trình điều khiển dpio đăng ký với bus fsl-mc để xử lý các đối tượng của
    gõ "dpio".  Việc triển khai thăm dò() xử lý việc khởi tạo cơ bản
@@ -154,7 +154,7 @@ Quản lý vùng đệm
 dpaa2_io_service_acquire()
 
 Giao diện cổng thông tin QBman (qbman-portal.c)
----------------------------------------
+-----------------------------------------------
 
 Thành phần cổng thông tin qbman cung cấp các API để thực hiện phần cứng cấp thấp
    xoay vòng một chút cho các hoạt động như:

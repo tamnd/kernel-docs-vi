@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adm1026
-=====================
+=================================
 
 Chip được hỗ trợ:
   * Thiết bị tương tự ADM1026

@@ -23,7 +23,7 @@ Cập nhật ngày 31 tháng 1 năm 2006
 
 
 Tổng quan
-~~~~~~~~
+~~~~~~~~~
 
 Mô hình trình điều khiển hạt nhân Linux là sự hợp nhất của tất cả các trình điều khiển khác nhau
 các mô hình đã được sử dụng trước đó trong kernel. Nó nhằm mục đích tăng cường
@@ -50,7 +50,7 @@ xe buýt hỗ trợ hầu hết các hoạt động đó.
 
 
 Truy cập xuôi dòng
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 Các trường dữ liệu chung đã được chuyển từ các lớp bus riêng lẻ sang một trường dữ liệu chung
 cấu trúc dữ liệu. Các trường này vẫn phải được truy cập bởi các lớp bus,
@@ -88,7 +88,7 @@ lớp cần thay đổi.
 
 
 Giao diện người dùng
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 Nhờ có cái nhìn phân cấp đầy đủ về tất cả các thiết bị trong
 hệ thống, việc xuất một chế độ xem phân cấp hoàn chỉnh sang không gian người dùng trở nên tương đối

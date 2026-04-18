@@ -40,7 +40,7 @@ các bảng để mang lại hiệu suất phù hợp trong khi vẫn duy trì h
 giới hạn nhiệt.
 
 Giao diện trình điều khiển DPTF ACPI
-----------------------------
+------------------------------------
 
 ZZ0000ZZ, trong đó <N>
 =INT3400ZZ0001ZZINTC1041|INTC10A0
@@ -127,19 +127,19 @@ ACPI_THERMAL_GET_ART: Đọc bảng ART nhị phân, độ dài cần đọc là
 	được cung cấp thông qua đối số cho ioctl().
 
 Trình điều khiển cảm biến DPTF ACPI
--------------------------
+-----------------------------------
 
 Trình điều khiển cảm biến DPTF được trình bày dưới dạng vùng nhiệt hệ thống nhiệt tiêu chuẩn.
 
 
 Trình điều khiển làm mát DPTF ACPI
---------------------------
+----------------------------------
 
 Trình điều khiển làm mát DPTF được trình bày dưới dạng thiết bị làm mát hệ thống nhiệt tiêu chuẩn.
 
 
 DPTF Bộ xử lý nhiệt PCI Giao diện trình điều khiển
---------------------------------------------
+--------------------------------------------------
 
 ZZ0000ZZ
 

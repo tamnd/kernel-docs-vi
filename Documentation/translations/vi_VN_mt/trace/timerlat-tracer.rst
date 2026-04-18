@@ -24,7 +24,7 @@ time* và ZZ0001ZZ mà bộ hẹn giờ được đặt hết hạn. chính
 Mục tiêu của timelat là truy tìm theo cách giúp các nhà phát triển hạt nhân.
 
 Cách sử dụng
------
+------------
 
 Viết văn bản ASCII "timerlat" vào tệp current_tracer của
 hệ thống theo dõi (thường được gắn tại /sys/kernel/tracing).
@@ -196,7 +196,7 @@ int tĩnh __init dummy_load_1ms_pd_init(void)
 	}
 
 Giao diện không gian người dùng
----------------------------
+-------------------------------
 
 Timelat cho phép các luồng trong không gian người dùng sử dụng cấu trúc cơ sở hạ tầng của timelat để
 đo độ trễ lập kế hoạch. Giao diện này có thể truy cập được thông qua mỗi CPU

@@ -38,7 +38,7 @@ Các thuộc tính sysfs sau được hiển thị để điều khiển các th
 
 
 Trình bao bọc đèn flash V4L2 cho đèn flash LED
-=================================
+==============================================
 
 Trình điều khiển hệ thống con LED cũng có thể được điều khiển từ cấp độ VideoForLinux2
 hệ thống con. Để kích hoạt biểu tượng CONFIG_V4L2_FLASH_LED_CLASS này phải

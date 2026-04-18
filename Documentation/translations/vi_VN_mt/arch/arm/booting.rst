@@ -39,7 +39,7 @@ sau đây:
 
 
 1. Thiết lập và khởi tạo RAM
----------------------------
+----------------------------
 
 Bộ tải khởi động hiện có:
 	MANDATORY
@@ -94,7 +94,7 @@ cây.  đặt loại máy thành tất cả loại (~0).  Điều này không ng
 cần thiết, nhưng đảm bảo rằng nó sẽ không khớp với bất kỳ loại hiện có nào.
 
 4. Thiết lập dữ liệu khởi động
-------------------
+------------------------------
 
 Bộ tải khởi động hiện có:
 	OPTIONAL, HIGHLY RECOMMENDED
@@ -106,7 +106,7 @@ truyền dữ liệu cấu hình tới kernel.  Địa chỉ vật lý của
 dữ liệu khởi động được chuyển tới kernel trong thanh ghi r2.
 
 4a. Thiết lập danh sách được gắn thẻ kernel
---------------------------------
+-------------------------------------------
 
 Bộ tải khởi động phải tạo và khởi tạo danh sách được gắn thẻ kernel.
 Danh sách được gắn thẻ hợp lệ bắt đầu bằng ATAG_CORE và kết thúc bằng ATAG_NONE.
@@ -138,7 +138,7 @@ bộ giải nén kernel cũng như chương trình 'bootp' initrd sẽ ghi đè
 nó.  Vị trí được đề xuất là ở 16KiB đầu tiên của RAM.
 
 4b. Thiết lập cây thiết bị
--------------------------
+--------------------------
 
 Bộ tải khởi động phải tải hình ảnh cây thiết bị (dtb) vào ram hệ thống
 tại địa chỉ được căn chỉnh 64 bit và khởi tạo nó bằng dữ liệu khởi động.  các

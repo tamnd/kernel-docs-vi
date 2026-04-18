@@ -74,7 +74,7 @@ trình điều khiển tiện ích. Chúng tôi đã xác minh cả ZZ0001ZZ [#c
 trình điều khiển tiện ích cũ.
 
 Thiết kế trình điều khiển
-==============
+=========================
 
 Trình điều khiển DWC3 nằm trong thư mục ZZ0000ZZ. Tất cả các tập tin
 liên quan đến trình điều khiển này nằm trong thư mục này. Điều này làm cho nó dễ dàng
@@ -87,7 +87,7 @@ hiểu.
 Phần lớn nhất của trình điều khiển đề cập đến Gadget API.
 
 Những hạn chế đã biết
-===================
+=====================
 
 Giống như bất kỳ HW nào khác, DWC3 có những hạn chế riêng. Để tránh
 những câu hỏi liên tục về những vấn đề như vậy, chúng tôi quyết định ghi lại chúng
@@ -112,7 +112,7 @@ hoàn toàn có khả năng gắn thêm TRB được xích cho chiều dài còn
 về DWC3 và ZZ0000ZZ.
 
 Giới hạn kích thước vòng TRB
--------------------------
+----------------------------
 
 Hiện tại, chúng tôi có giới hạn cứng là 256 TRB [#trb]_ cho mỗi điểm cuối,
 với TRB cuối cùng là Link TRB [#link_trb]_ trỏ ngược lại
@@ -545,7 +545,7 @@ nằm trong vòng:
 
 
 Theo dõi sự kiện
--------------
+----------------
 
 DWC3 cũng cung cấp một số sự kiện theo dõi giúp chúng tôi thu thập
 thông tin về hành vi của trình điều khiển trong thời gian chạy.
@@ -570,7 +570,7 @@ TP_printk("addr %p value %08x", __entry->base + __entry->offset,
   		__mục nhập->giá trị)
 
 Sự kiện gián đoạn
-````````````````
+`````````````````
 
 Mọi sự kiện IRQ đều có thể được ghi lại và giải mã thành dạng dữ liệu con người có thể đọc được
 chuỗi. Vì mỗi sự kiện sẽ khác nhau nên chúng tôi không đưa ra

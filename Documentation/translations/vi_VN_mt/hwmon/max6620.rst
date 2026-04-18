@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân max6620
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -51,7 +51,7 @@ fan[1-4]_target rw Tốc độ quạt mong muốn trong RPM.
 ======================= ===========================================================
 
 ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết

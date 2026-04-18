@@ -49,7 +49,7 @@ Phạm vi giá trị hợp lệ cho các loại đó và ngữ nghĩa của chú
 các chức năng được định nghĩa trong các tiểu mục sau.
 
 Các loại
------
+--------
 Tài liệu này đề cập đến các loại số nguyên có ký hiệu ZZ0000ZZ để chỉ định
 ký hiệu của loại (ZZ0001ZZ) và độ rộng bit (ZZ0002ZZ), tương ứng.
 
@@ -447,7 +447,7 @@ Các thao tác thay đổi sử dụng mặt nạ 0x3F (63) cho các thao tác 6
 cho các hoạt động 32-bit.
 
 Hướng dẫn hoán đổi byte
-----------------------
+-----------------------
 
 Lệnh hoán đổi byte sử dụng các lớp lệnh ZZ0000ZZ và ZZ0001ZZ
 và trường 'mã' 4 bit của ZZ0002ZZ.
@@ -563,7 +563,7 @@ Tất cả các lệnh ZZ0000ZZ và ZZ0001ZZ đều thuộc về
 nhóm tuân thủ base32.
 
 Chức năng trợ giúp
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 Các hàm trợ giúp là một khái niệm trong đó các chương trình BPF có thể gọi vào một
 tập hợp các lệnh gọi hàm được nền tảng cơ bản hiển thị.
@@ -582,7 +582,7 @@ công việc trong tương lai, nhưng việc sử dụng được triển khai 
 được tìm thấy trong tài liệu dành riêng cho nền tảng (ví dụ: tài liệu về nhân Linux).
 
 Các hàm cục bộ của chương trình
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Các hàm cục bộ của chương trình là các hàm được hiển thị bởi cùng một chương trình BPF như
 người gọi và được tham chiếu bằng offset từ lệnh sau lệnh gọi
 hướng dẫn, tương tự như ZZ0000ZZ.  Phần bù được mã hóa trong trường 'imm' của
@@ -635,7 +635,7 @@ ZZ0001ZZ
   Lớp hướng dẫn (xem ZZ0000ZZ)
 
 Hoạt động tải và lưu trữ thường xuyên
----------------------------------
+-------------------------------------
 
 Bộ sửa đổi chế độ ZZ0000ZZ được sử dụng để mã hóa tải và lưu trữ thông thường
 lệnh truyền dữ liệu giữa thanh ghi và bộ nhớ.
@@ -656,7 +656,7 @@ Trong đó '<size>' là một trong: ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ hoặc ZZ0003Z
 'kích thước không dấu' là một trong: u8, u16, u32 hoặc u64.
 
 Hoạt động tải tiện ích mở rộng đăng nhập
-------------------------------
+----------------------------------------
 
 Bộ sửa đổi chế độ ZZ0001ZZ được sử dụng để mã hóa tải ZZ0000ZZ
 lệnh truyền dữ liệu giữa thanh ghi và bộ nhớ.
@@ -669,7 +669,7 @@ Trong đó '<size>' là một trong: ZZ0000ZZ, ZZ0001ZZ hoặc ZZ0002ZZ và
 'kích thước đã ký' là một trong: s8, s16 hoặc s32.
 
 Hoạt động nguyên tử
------------------
+-------------------
 
 Các thao tác nguyên tử là các thao tác thực hiện trên bộ nhớ và không thể
 bị gián đoạn hoặc bị hỏng bởi quyền truy cập khác vào cùng vùng bộ nhớ
@@ -771,7 +771,7 @@ với các kiểu con opcode trong trường 'src_reg', sử dụng các thuật
 * 'loại dst' có thể được sử dụng cho mục đích xác minh và biên dịch JIT
 
 Bản đồ
-~~~~
+~~~~~~
 
 Bản đồ là vùng bộ nhớ dùng chung mà các chương trình BPF có thể truy cập trên một số nền tảng.
 Một bản đồ có thể có nhiều ngữ nghĩa khác nhau như được định nghĩa trong một tài liệu riêng biệt và có thể hoặc

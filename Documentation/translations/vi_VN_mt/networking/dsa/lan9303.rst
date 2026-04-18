@@ -22,7 +22,7 @@ giao diện mạng ống dẫn máy chủ (ví dụ: liên kết cố định).
 
 
 Chi tiết tài xế
-==============
+===============
 
 Trình điều khiển được triển khai dưới dạng trình điều khiển DSA, xem ZZ0000ZZ.
 
@@ -45,7 +45,7 @@ hoạt động tách biệt.
 
 
 Hạn chế của trình điều khiển
-==================
+============================
 
 - Hỗ trợ lọc VLAN không được triển khai
  - CTNH không hỗ trợ các mục fdb dành riêng cho VLAN

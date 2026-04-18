@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tiêu chí chấp nhận cho các biến thể trình điều khiển cụ thể của thiết bị vfio-pci
-================================================================
+=================================================================================
 
 Tổng quan
---------
+---------
 Trình điều khiển vfio-pci tồn tại dưới dạng trình điều khiển bất khả tri của thiết bị bằng cách sử dụng
 hệ thống IOMMU và dựa vào độ bền của lỗi nền tảng
 xử lý để cung cấp quyền truy cập thiết bị bị cô lập vào không gian người dùng.  Trong khi

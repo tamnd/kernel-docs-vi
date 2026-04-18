@@ -26,7 +26,7 @@ các số liệu như băng thông bộ nhớ, độ trễ và mức sử dụng
 * PCIE
 
 Trình điều khiển PMU
-----------
+--------------------
 
 Các PMU trong tài liệu này dựa trên Kiến trúc ARM CoreSight PMU như
 được mô tả trong tài liệu: ARM IHI 0091. Vì đây là kiến trúc tiêu chuẩn nên
@@ -234,7 +234,7 @@ chỉ số hoàn hảo -a -e nvidia_pcie_pmu_1/event=0x0,root_port=0x3/
 .. _NVIDIA_Uncore_PMU_Traffic_Coverage_Section:
 
 Bảo hiểm giao thông
-----------------
+-------------------
 
 Phạm vi phủ sóng lưu lượng PMU có thể thay đổi tùy thuộc vào cấu hình chip:
 

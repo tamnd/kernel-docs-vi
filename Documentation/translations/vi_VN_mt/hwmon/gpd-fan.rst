@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân gpd-fan
-=========================
+=================================
 
 tác giả:
     - Cryolitia PukNgae <cryolitia@uniontech.com>
@@ -25,7 +25,7 @@ Thiết bị cầm tay của Công ty TNHH Công nghệ GPD Thâm Quyến cung c
 và điều khiển quạt thông qua bộ điều khiển nhúng của chúng.
 
 Thiết bị được hỗ trợ
------------------
+--------------------
 
 Hiện nay driver hỗ trợ các thiết bị cầm tay sau:
 
@@ -67,7 +67,7 @@ gpd_fan_board
        - GPD Micro PC 2
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ:
 

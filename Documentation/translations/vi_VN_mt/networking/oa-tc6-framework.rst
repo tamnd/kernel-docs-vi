@@ -45,14 +45,14 @@ cho các bộ vi điều khiển cấp thấp hiện có không tích hợp MAC
 bộ điều khiển.
 
 Tổng quan
---------
+---------
 
 MAC-PHY được chỉ định để mang cả dữ liệu (khung Ethernet) và điều khiển
 (đăng ký quyền truy cập) giao dịch qua một thiết bị ngoại vi nối tiếp song công hoàn toàn
 giao diện.
 
 Tổng quan về giao thức
------------------
+----------------------
 
 Hai loại giao dịch được xác định trong giao thức: giao dịch dữ liệu
 để truyền khung Ethernet và giao dịch điều khiển để đăng ký
@@ -85,7 +85,7 @@ tải trọng hay không và cung cấp thông tin để xác định byte nào
 của tải trọng chứa dữ liệu khung hợp lệ.
 
 Thẩm quyền giải quyết
----------
+---------------------
 
 Thông số kỹ thuật giao diện nối tiếp 10BASE-T1x MAC-PHY,
 
@@ -137,7 +137,7 @@ Thực hiện
 --------------
 
 Trình điều khiển MAC
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 - Được thăm dò bởi hệ thống con SPI.
 
@@ -166,7 +166,7 @@ OPEN Liên minh TC6 Khung
   hệ thống con.
 
 Giao dịch dữ liệu
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Các khung Ethernet thường được truyền từ máy chủ SPI sang
 MAC-PHY sẽ được chuyển đổi thành nhiều khối dữ liệu truyền. Mỗi
@@ -461,7 +461,7 @@ MAC-PHY. Đọc bất kỳ thanh ghi chưa được thực hiện hoặc không 
 không.
 
 Trình điều khiển thiết bị API
-==================
+=============================
 
 include/linux/oa_tc6.h xác định các hàm sau:
 

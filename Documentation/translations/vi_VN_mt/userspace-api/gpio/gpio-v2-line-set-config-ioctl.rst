@@ -65,7 +65,7 @@ từ trạng thái cấu hình này sang trạng thái cấu hình khác.
 gpio-v2-line-set-values-ioctl.rst.
 
 Giá trị trả về
-============
+==============
 
 Về thành công 0.
 

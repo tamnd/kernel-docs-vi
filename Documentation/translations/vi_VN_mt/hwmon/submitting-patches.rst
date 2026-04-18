@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Cách để bản vá của bạn được chấp nhận vào hệ thống con Hwmon
-=======================================================
+============================================================
 
 Văn bản này là tập hợp các gợi ý dành cho những người viết các bản vá lỗi hoặc
 trình điều khiển cho hệ thống con hwmon. Làm theo những gợi ý này sẽ giúp ích rất nhiều
@@ -54,7 +54,7 @@ tăng cơ hội thay đổi của bạn được chấp nhận.
 
 
 2. Thêm chức năng cho trình điều khiển hiện có
--------------------------------------------
+----------------------------------------------
 
 * Đảm bảo tài liệu trong Documentation/hwmon/<driver_name>.rst là tối đa
   ngày.
@@ -69,7 +69,7 @@ tăng cơ hội thay đổi của bạn được chấp nhận.
 
 
 3. Trình điều khiển mới
---------------
+-----------------------
 
 * Chạy (các) tệp bản vá hoặc trình điều khiển của bạn thông qua bản vá không có nghĩa là nó
   định dạng sạch sẽ. Nếu không chắc chắn về định dạng trong trình điều khiển mới của bạn, hãy chạy nó

@@ -50,7 +50,7 @@ Cấu trúc công cộng khung HTE
 .. kernel-doc:: include/linux/hte.h
 
 Thông tin thêm về dữ liệu dấu thời gian HTE
-------------------------------
+-------------------------------------------
 ZZ0000ZZ được sử dụng để truyền chi tiết dấu thời gian giữa
 người tiêu dùng và nhà cung cấp. Nó thể hiện dữ liệu dấu thời gian tính bằng nano giây trong
 u64. Một ví dụ về vòng đời dữ liệu dấu thời gian điển hình cho dòng GPIO là
@@ -67,7 +67,7 @@ như sau::
  bối cảnh chủ đề.
 
 Thuộc tính gỡ lỗi hệ thống con HTE
---------------------------------
+----------------------------------
 Hệ thống con HTE tạo các thuộc tính debugfs tại ZZ0000ZZ.
 Nó cũng tạo ra các thuộc tính debugfs liên quan đến dòng/tín hiệu tại
 ZZ0001ZZ. Lưu ý rằng những

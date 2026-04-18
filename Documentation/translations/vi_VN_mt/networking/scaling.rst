@@ -144,7 +144,7 @@ các thử nghiệm ban đầu, do đó hãy giới hạn số lượng hàng đ
 trong hệ thống.
 
 Bối cảnh RSS chuyên dụng
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các NIC hiện đại hỗ trợ tạo nhiều cấu hình RSS cùng tồn tại
 được lựa chọn dựa trên các quy tắc kết hợp rõ ràng. Điều này có thể rất
@@ -261,7 +261,7 @@ chia sẻ cùng miền bộ nhớ với CPU bị gián đoạn cho hàng đợi 
 
 
 Giới hạn lưu lượng RPS
---------------
+----------------------
 
 RPS chia tỷ lệ kernel nhận xử lý trên các CPU mà không cần giới thiệu
 sắp xếp lại. Sự đánh đổi để gửi tất cả các gói từ cùng một luồng
@@ -585,7 +585,7 @@ hàng đợi được chọn dựa trên bản đồ CPU.
 
 
 Giới hạn tốc độ hàng đợi trên mỗi TX
-============================
+====================================
 
 Đây là các cơ chế giới hạn tỷ lệ do CTNH thực hiện, hiện tại
 thuộc tính tốc độ tối đa được hỗ trợ bằng cách đặt giá trị Mbps thành::

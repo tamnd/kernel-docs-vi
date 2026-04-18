@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hệ thống con đầu vào
-===============
+====================
 
 Lõi đầu vào
-----------
+-----------
 
 .. kernel-doc:: include/linux/input.h
    :internal:
@@ -31,7 +31,7 @@ Lõi đầu vào
    :export:
 
 Thư viện cảm ứng đa điểm
-------------------
+------------------------
 
 .. kernel-doc:: include/linux/input/mt.h
    :internal:
@@ -40,13 +40,13 @@ Thư viện cảm ứng đa điểm
    :export:
 
 Bàn phím/bàn phím ma trận
-------------------------
+-------------------------
 
 .. kernel-doc:: include/linux/input/matrix_keypad.h
    :internal:
 
 Hỗ trợ sơ đồ bàn phím thưa thớt
----------------------
+-------------------------------
 
 .. kernel-doc:: include/linux/input/sparse-keymap.h
    :internal:

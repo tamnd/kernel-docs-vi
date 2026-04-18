@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tài liệu liên kết phát triển Linux
-===========================
+==================================
 
 devlink là một API để tiết lộ thông tin và tài nguyên của thiết bị một cách không trực tiếp
 liên quan đến bất kỳ loại thiết bị nào, chẳng hạn như cấu hình toàn chip/switch-ASIC.
@@ -37,7 +37,7 @@ lấy khóa RTNL cùng một lúc. Cần phải khóa phiên bản Devlink
 đầu tiên, chỉ sau khi khóa RTNL đó mới có thể được lấy.
 
 Các phiên bản lồng nhau
-----------------
+-----------------------
 
 Một số đối tượng, như linecard hoặc chức năng cổng, có thể có một chức năng khác
 các phiên bản devlink được tạo bên dưới. Trong trường hợp đó, người lái xe nên thực hiện
@@ -85,7 +85,7 @@ chung.
    devlink-shared
 
 Tài liệu dành riêng cho trình điều khiển
------------------------------
+----------------------------------------
 
 Mỗi trình điều khiển triển khai ZZ0000ZZ phải ghi lại những gì
 thông số, phiên bản thông tin và các tính năng khác mà nó hỗ trợ.

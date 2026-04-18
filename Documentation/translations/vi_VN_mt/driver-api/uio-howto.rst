@@ -29,7 +29,7 @@ Nếu bạn biết bất kỳ bản dịch nào cho tài liệu này hoặc bạ
 khi dịch nó, vui lòng gửi email cho tôi hjk@hansjkoch.de.
 
 Lời nói đầu
--------
+-----------
 
 Đối với nhiều loại thiết bị, việc tạo trình điều khiển nhân Linux là quá mức cần thiết.
 Tất cả những gì thực sự cần thiết là một cách nào đó để xử lý sự gián đoạn và cung cấp
@@ -71,7 +71,7 @@ Tìm thấy điều gì đó sai trái với tài liệu này? (Hoặc có lẽ 
 rất muốn nghe ý kiến từ bạn Vui lòng gửi email cho tôi theo địa chỉ hjk@hansjkoch.de.
 
 Giới thiệu về UIO
-=========
+=================
 
 Nếu bạn sử dụng UIO cho trình điều khiển thẻ của mình, đây là những gì bạn nhận được:
 
@@ -85,7 +85,7 @@ Nếu bạn sử dụng UIO cho trình điều khiển thẻ của mình, đây 
 - cập nhật trình điều khiển của bạn có thể diễn ra mà không cần biên dịch lại kernel.
 
 UIO hoạt động như thế nào
--------------
+-------------------------
 
 Mỗi thiết bị UIO được truy cập thông qua một tệp thiết bị và một số sysfs
 các tập tin thuộc tính. Tệp thiết bị sẽ được gọi là ZZ0000ZZ cho
@@ -222,13 +222,13 @@ Mỗi thư mục ZZ0000ZZ chứa bốn tệp chỉ đọc hiển thị tên,
 - ZZ0000ZZ: Một chuỗi mô tả loại cổng.
 
 Viết mô-đun hạt nhân của riêng bạn
-==============================
+==================================
 
 Hãy xem ZZ0000ZZ làm ví dụ. Sau đây
 đoạn văn giải thích các phần khác nhau của tập tin này.
 
 cấu trúc uio_info
----------------
+-----------------
 
 Cấu trúc này cho khung biết chi tiết về trình điều khiển của bạn, Một số
 các thành viên là bắt buộc, những thành viên khác là tùy chọn.
@@ -371,7 +371,7 @@ nền tảng, bạn có thể tránh cho mình rất nhiều rắc rối bằng 
 chia sẻ.
 
 Sử dụng uio_pdrv cho các thiết bị nền tảng
------------------------------------
+------------------------------------------
 
 Trong nhiều trường hợp, trình điều khiển UIO cho các thiết bị nền tảng có thể được xử lý theo cách
 cách chung chung. Ở cùng một nơi mà bạn xác định
@@ -394,7 +394,7 @@ và đăng ký thiết bị.
 dù sao cũng cần phải chỉnh sửa. Bạn không cần phải tạo thêm trình điều khiển.
 
 Sử dụng uio_pdrv_genirq cho các thiết bị nền tảng
-------------------------------------------
+-------------------------------------------------
 
 Đặc biệt là trong các thiết bị nhúng, bạn thường xuyên tìm thấy các chip có lỗi không rõ ràng.
 chân được gắn với đường ngắt chuyên dụng của chính nó. Trong những trường hợp như vậy, nơi
@@ -430,7 +430,7 @@ Thiết bị UIO trong không gian người dùng. Để đặt tên tùy chỉn
 ZZ0002ZZ có thể được chỉ định trong nút DT.
 
 Sử dụng uio_dmem_genirq cho các thiết bị nền tảng
-------------------------------------------
+-------------------------------------------------
 
 Ngoài các phạm vi bộ nhớ được cấp phát tĩnh, chúng cũng có thể là một
 mong muốn sử dụng các vùng được phân bổ động trong trình điều khiển không gian người dùng. trong
@@ -471,7 +471,7 @@ ZZ0001ZZ. Các vùng bộ nhớ động sẽ được
 tệp thiết bị được mở, địa chỉ được trả về không gian người dùng là ~0.
 
 Viết trình điều khiển trong không gian người dùng
-=============================
+=================================================
 
 Khi bạn có mô-đun hạt nhân hoạt động cho phần cứng của mình, bạn có thể viết
 phần không gian người dùng của trình điều khiển của bạn. Bạn không cần bất kỳ thư viện đặc biệt nào,
@@ -503,7 +503,7 @@ thông tin về thiết bị UIO. Tệp ZZ0001ZZ chứa một
 rất nhiều chức năng bạn có thể sử dụng trong mã trình điều khiển không gian người dùng của mình.
 
 bộ nhớ thiết bị mmap()
---------------------
+----------------------
 
 Sau khi bạn chắc chắn rằng mình đã có đúng thiết bị với ánh xạ bộ nhớ
 bạn cần, tất cả những gì bạn phải làm là gọi ZZ0000ZZ để lập bản đồ
@@ -541,7 +541,7 @@ hơn một, bạn đã bỏ lỡ các ngắt.
 Bạn cũng có thể sử dụng ZZ0000ZZ trên ZZ0001ZZ.
 
 Trình điều khiển PCI UIO chung
-======================
+==============================
 
 Trình điều khiển chung là mô-đun hạt nhân có tên uio_pci_generic. Nó có thể
 hoạt động với mọi thiết bị tuân thủ PCI 2.3 (khoảng năm 2002) và mọi thiết bị tuân thủ
@@ -583,7 +583,7 @@ dmesg
 và nhìn vào đầu ra để tìm lý do thất bại.
 
 Những điều cần biết về uio_pci_generic
-------------------------------------
+--------------------------------------
 
 Các ngắt được xử lý bằng cách sử dụng bit Vô hiệu hóa ngắt trong PCI
 thanh ghi lệnh và bit trạng thái ngắt trong thanh ghi trạng thái PCI.
@@ -598,7 +598,7 @@ bit được xóa. Trình điều khiển vùng người dùng phải xóa bit n
 chặn và chờ đợi nhiều ngắt hơn.
 
 Viết trình điều khiển không gian người dùng bằng uio_pci_generic
-------------------------------------------------
+----------------------------------------------------------------
 
 Trình điều khiển không gian người dùng có thể sử dụng giao diện pci sysfs hoặc thư viện libpci
 gói nó, để nói chuyện với thiết bị và kích hoạt lại các ngắt bằng cách viết
@@ -676,7 +676,7 @@ for(i = 0;; ++i) {
     }
 
 Trình điều khiển Hyper-V UIO chung
-==========================
+==================================
 
 Trình điều khiển chung là mô-đun hạt nhân có tên uio_hv_generic. Nó
 hỗ trợ các thiết bị trên Hyper-V VMBus tương tự như uio_pci_generic trên
@@ -712,7 +712,7 @@ Mà nếu thành công nên in::
       .../ed963694-e847-4b2a-85af-bc9cfc11d6f3/driver -> ../../../bus/vmbus/drivers/uio_hv_generic
 
 Những điều cần biết về uio_hv_generic
------------------------------------
+-------------------------------------
 
 Trên mỗi ngắt, uio_hv_generic đặt bit Vô hiệu hóa ngắt. Cái này
 ngăn chặn thiết bị tạo ra các ngắt tiếp theo cho đến khi bit đó được

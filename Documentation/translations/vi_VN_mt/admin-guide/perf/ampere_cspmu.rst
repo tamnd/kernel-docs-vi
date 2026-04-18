@@ -22,7 +22,7 @@ giai đoạn đầu tiên nó được sử dụng để đếm các sự kiện
 
 
 Sự kiện MCU PMU
---------------
+---------------
 
 Trình điều khiển PMU hỗ trợ cài đặt các bộ lọc cho "xếp hạng", "ngân hàng" và "ngưỡng".
 Lưu ý rằng các bộ lọc dành cho mỗi phiên bản PMU chứ không phải cho mỗi sự kiện.

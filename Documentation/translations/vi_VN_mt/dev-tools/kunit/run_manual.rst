@@ -78,7 +78,7 @@ Nếu ZZ0000ZZ được bật, hệ thống tệp gỡ lỗi KUnit sẽ được
 những hành động sau đây.
 
 Truy xuất kết quả kiểm tra
-=====================
+==========================
 
 Bạn có thể sử dụng debugfs để truy xuất kết quả kiểm tra KUnit. Kết quả kiểm tra là
 có thể truy cập từ hệ thống tệp debugfs trong tệp chỉ đọc sau:
@@ -91,7 +91,7 @@ Kết quả kiểm tra được in trong tài liệu KTAP. Lưu ý tài liệu n
 vào nhật ký kernel và do đó, có thể có cách đánh số bộ thử nghiệm khác nhau.
 
 Chạy thử nghiệm sau khi kernel đã khởi động
-=================================
+===========================================
 
 Bạn có thể sử dụng hệ thống tập tin debugfs để kích hoạt các thử nghiệm tích hợp để chạy sau
 khởi động. Để chạy bộ thử nghiệm, bạn có thể sử dụng lệnh sau để ghi vào

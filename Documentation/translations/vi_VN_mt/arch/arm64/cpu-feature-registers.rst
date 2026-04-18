@@ -125,7 +125,7 @@ a) Giá trị của trường 'IMPLEMENTATION DEFINED' được đặt thành 0.
     tính năng bị thiếu (như được xác định bởi kiến trúc).
 
 4. Danh sách các thanh ghi có tính năng hiển thị
--------------------------------------------
+------------------------------------------------
 
 1) ID_AA64ISAR0_EL1 - Thanh ghi thuộc tính tập lệnh 0
 

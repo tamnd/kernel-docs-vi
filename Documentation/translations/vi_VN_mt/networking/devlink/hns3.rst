@@ -22,7 +22,7 @@ trình điều khiển thiết bị.
 Trình điều khiển ZZ0000ZZ hỗ trợ tải lại qua ZZ0001ZZ.
 
 Phiên bản thông tin
-=============
+===================
 
 Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
 

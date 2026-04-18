@@ -21,7 +21,7 @@
 
 
 Loại bỏ dần việc sử dụng MTRR
-====================
+=============================
 
 Việc sử dụng MTRR được thay thế trên phần cứng x86 hiện đại bằng PAT. Sử dụng trực tiếp MTRR bởi
 trình điều khiển trên Linux hiện đã bị loại bỏ hoàn toàn, trình điều khiển thiết bị nên sử dụng
@@ -256,7 +256,7 @@ if ( ( fd = open ("/proc/mtrr", O_RDONLY, 0) ) == -1 )
 
 
 Tạo MTRR từ chương trình C bằng cách sử dụng ioctl()'s
-=================================================
+======================================================
 ::
 
 /* mtrr-add.c

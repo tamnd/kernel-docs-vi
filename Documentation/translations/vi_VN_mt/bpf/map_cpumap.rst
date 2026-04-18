@@ -39,10 +39,10 @@ CPU ban đầu là nơi chương trình chuyển hướng XDP được thực th
 nhận các đối tượng ZZ0000ZZ thô.
 
 Cách sử dụng
-=====
+============
 
 Hạt nhân BPF
-----------
+------------
 bpf_redirect_map()
 ^^^^^^^^^^^^^^^^^^
 .. code-block:: c
@@ -57,7 +57,7 @@ thất bại. Điều này là để giá trị trả về có thể là một t
 mã lên tới ZZ0001ZZ, do người gọi chọn.
 
 Không gian người dùng
-----------
+---------------------
 .. note::
     CPUMAP entries can only be updated/looked up/deleted from user space and not
     from an eBPF program. Trying to call these functions from a kernel eBPF
@@ -110,7 +110,7 @@ thất bại.
 Ví dụ
 ========
 hạt nhân
-------
+--------
 
 Đoạn mã sau đây cho thấy cách khai báo ZZ0000ZZ được gọi
 ZZ0001ZZ và cách chuyển hướng các gói đến CPU từ xa bằng cách sử dụng sơ đồ vòng tròn.
@@ -167,7 +167,7 @@ ZZ0001ZZ và cách chuyển hướng các gói đến CPU từ xa bằng cách s
     }
 
 Không gian người dùng
-----------
+---------------------
 
 Đoạn mã sau đây trình bày cách tự động đặt max_entries cho một
 CPUMAP đến số lượng CPU tối đa có sẵn trên hệ thống.
@@ -185,6 +185,6 @@ CPUMAP đến số lượng CPU tối đa có sẵn trên hệ thống.
     }
 
 Tài liệu tham khảo
-===========
+==================
 
 -ZZ0000ZZ

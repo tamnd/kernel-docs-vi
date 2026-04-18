@@ -151,7 +151,7 @@ ZZ0001ZZ.
 
 
 Tham khảo chức năng
-==================
+===================
 
 .. kernel-doc:: include/linux/printk.h
    :functions: printk pr_emerg pr_alert pr_crit pr_err pr_warn pr_notice pr_info

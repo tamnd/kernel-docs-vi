@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Ký hiệu thử nghiệm ABI
-===================
+======================
 
 Giao diện tài liệu được coi là ổn định,
 vì quá trình phát triển chính của giao diện này đã được hoàn thành.

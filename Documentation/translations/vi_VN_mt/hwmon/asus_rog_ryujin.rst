@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân asus_rog_ryujin
-=============================
+=========================================
 
 Các thiết bị được hỗ trợ:
 
@@ -37,13 +37,13 @@ Màn hình LCD có địa chỉ không được hỗ trợ trong trình điều 
 được kiểm soát thông qua các công cụ không gian người dùng.
 
 ghi chú sử dụng
------------
+---------------
 
 Vì đây là các USB HID nên trình điều khiển có thể được tải tự động bởi kernel và
 hỗ trợ trao đổi nóng.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =========== ==================================================
 fan1_input Tốc độ bơm (tính bằng vòng/phút)

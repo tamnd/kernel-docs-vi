@@ -39,14 +39,14 @@ Thông tin sửa đổi
 30/11/2007: Rev 1.0 - Phiên bản đầu tiên
 
 I - Giấy phép phần mềm cho Firmware
-=================================
+===================================
 
 Mỗi tập tin phần sụn đi kèm với giấy phép phần mềm riêng.  Để biết thông tin về
 giấy phép cụ thể, vui lòng xem văn bản giấy phép được phân phối cùng với
 phần sụn.
 
 II - Tính khả dụng của vi mã
-===========================
+============================
 
 Các tập tin phần sụn được phân phối qua nhiều kênh khác nhau.  Một số có sẵn trên
 ZZ0000ZZ Để biết các file firmware khác, vui lòng liên hệ

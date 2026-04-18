@@ -37,7 +37,7 @@ void điều chỉnh_unregister(struct điều chỉnh_dev *rdev);
 
 
 Sự kiện điều chỉnh
-================
+==================
 
 Bộ điều chỉnh có thể gửi các sự kiện (ví dụ: quá nhiệt độ, điện áp thấp, v.v.) tới
 trình điều khiển tiêu dùng bằng cách gọi::

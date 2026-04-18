@@ -104,7 +104,7 @@ câu hỏi: Câu hỏi {
         }
 
 Bản đồ bộ nhớ vật lý
-===================
+====================
 
 Căn chỉnh vùng địa chỉ vật lý
 ---------------------------------
@@ -282,7 +282,7 @@ Với cấu hình CEDT với hai CFMWS mô tả bộ giải mã gốc ở trên.
 Linux không đảm bảo hỗ trợ cho các tình huống lỗ hổng bộ nhớ lạ.
 
 Thiết bị đa phương tiện
--------------------
+-----------------------
 Trường CFMWS của CEDT có các bit hạn chế đặc biệt mô tả liệu
 vùng bộ nhớ được mô tả cho phép bộ nhớ dễ bay hơi hoặc bộ nhớ liên tục (hoặc cả hai). Nếu
 nền tảng dự định hỗ trợ:

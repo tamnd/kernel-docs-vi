@@ -17,7 +17,7 @@ Trung tâm theo dõi Intel(R) (TH)
 ================================
 
 Tổng quan
---------
+---------
 
 Intel(R) Trace Hub (TH) là một tập hợp các khối phần cứng tạo ra,
 chuyển đổi và xuất dữ liệu theo dõi từ nhiều phần cứng và phần mềm
@@ -66,7 +66,7 @@ và được thu thập thông qua các thuộc tính sysfs và các nút thiế
 [1] ZZ0000ZZ
 
 Xe buýt và thiết bị phụ
-------------------
+-----------------------
 
 Đối với mỗi thiết bị Intel TH trong hệ thống, có một bus riêng
 đã tạo và gán một số id phản ánh thứ tự TH
@@ -115,7 +115,7 @@ $ echo 0 > /sys/bus/intel_th/devices/0-msc0/active
 $ cat /dev/intel_th0/msc0 > my_stp_trace
 
 Chế độ gỡ lỗi máy chủ
-------------------
+---------------------
 
 Có thể định cấu hình Trace Hub và kiểm soát dấu vết của nó
 chụp từ máy chủ gỡ lỗi từ xa, cần được kết nối thông qua một trong các

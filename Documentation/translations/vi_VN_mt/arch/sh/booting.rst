@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Khởi động DeviceTree
-------------------
+--------------------
 
 Bộ tải khởi động SH tương thích với cây thiết bị được kỳ vọng sẽ cung cấp khả năng vật lý
   địa chỉ của blob cây thiết bị trong r4. Vì bộ tải khởi động kế thừa không

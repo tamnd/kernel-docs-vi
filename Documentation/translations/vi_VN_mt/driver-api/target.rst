@@ -22,19 +22,19 @@ Giới thiệu và Tổng quan
 TBD
 
 Giao diện thiết bị lõi mục tiêu
-=============================
+===============================
 
 Phần này trống vì không có bình luận kerneldoc nào được thêm vào
 trình điều khiển/mục tiêu/target_core_device.c.
 
 Giao diện truyền tải lõi mục tiêu
-================================
+=================================
 
 .. kernel-doc:: drivers/target/target_core_transport.c
     :export:
 
 I/O không gian người dùng được hỗ trợ mục tiêu
-==============================
+==============================================
 
 .. kernel-doc:: drivers/target/target_core_user.c
     :doc: Userspace I/O
@@ -43,14 +43,14 @@ I/O không gian người dùng được hỗ trợ mục tiêu
     :doc: Ring Design
 
 Chức năng trợ giúp iSCSI
-======================
+========================
 
 .. kernel-doc:: drivers/scsi/libiscsi.c
    :export:
 
 
 Thông tin khởi động iSCSI
-======================
+=========================
 
 .. kernel-doc:: drivers/scsi/iscsi_boot_sysfs.c
    :export:

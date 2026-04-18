@@ -30,7 +30,7 @@ ZZ0000ZZ
 
 
 Thiết lập người tiêu dùng CTNH
-=================
+==============================
 
 Là thiết bị IIO tiêu chuẩn, việc triển khai dựa trên nhà cung cấp/người tiêu dùng IIO.
 Thiết lập tiêu dùng IIO HW điển hình trông như thế này::
@@ -58,7 +58,7 @@ int tĩnh adc_probe(struct platform_device *pdev)
 	}
 
 Thêm chi tiết
-============
+=============
 .. kernel-doc:: drivers/iio/buffer/industrialio-hw-consumer.c
    :export:
 

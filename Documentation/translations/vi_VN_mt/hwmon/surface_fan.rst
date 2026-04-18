@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Bề mặt trình điều khiển hạt nhân_fan
-=========================
+====================================
 
 Thiết bị được hỗ trợ:
 
@@ -28,7 +28,7 @@ Sự miêu tả
 giống như Surface Pro 9. Quạt luôn được điều khiển bởi bộ điều khiển tích hợp.
 
 Giao diện hệ thống
----------------
+------------------
 
 ============================================================================
 Tên Perm Mô tả

@@ -119,7 +119,7 @@ là thay đổi, pha trộn và tổng hợp dữ liệu pixel, trong khi công 
 luồng pixel chung đến luồng pixel của màn hình cụ thể.
 
 Luồng dữ liệu
----------
+-------------
 
 Ban đầu, dữ liệu được truyền từ VRAM thông qua Data Fabric (DF) ở pixel gốc
 các định dạng. Định dạng dữ liệu như vậy được duy trì cho đến HUBP trong DCHUB, nơi HUBP giải nén
@@ -141,7 +141,7 @@ cũng áp dụng hàm regamma để giới thiệu lại gamma đã loại bỏ 
 Cuối cùng, chúng tôi xuất dữ liệu ở định dạng số nguyên tại DIO.
 
 Đường ống phần cứng AMD
----------------------
+-----------------------
 
 Khi thảo luận về đồ họa trên Linux, thuật ngữ ZZ0000ZZ đôi khi có thể được hiểu là
 quá tải với nhiều ý nghĩa, vì vậy điều quan trọng là phải xác định ý nghĩa của chúng ta
@@ -200,7 +200,7 @@ cấu hình và DML có trách nhiệm thiết lập tất cả các yêu cầu
 tham số cấu hình cho nhiều tình huống được phần cứng của chúng tôi hỗ trợ.
 
 Đồng bộ hóa toàn cầu
------------
+--------------------
 
 Nhiều thanh ghi DCN được đệm đôi, quan trọng nhất là địa chỉ bề mặt.
 Điều này cho phép chúng tôi cập nhật phần cứng DCN một cách nguyên tử để lật trang, cũng như

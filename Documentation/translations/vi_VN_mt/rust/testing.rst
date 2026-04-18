@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Kiểm tra
-=======
+========
 
 Tài liệu này chứa thông tin hữu ích về cách kiểm tra mã Rust trong
 hạt nhân.
@@ -25,13 +25,13 @@ Có ba loại bài kiểm tra:
 - Kselftests.
 
 Các bài kiểm tra KUnit
----------------
+----------------------
 
 Đây là các thử nghiệm được lấy từ các ví dụ trong tài liệu Rust. Họ
 được chuyển đổi thành các bài kiểm tra KUnit.
 
 Cách sử dụng
-*****
+************
 
 Các thử nghiệm này có thể được chạy qua KUnit. Ví dụ qua ZZ0000ZZ (ZZ0001ZZ)
 trên dòng lệnh::
@@ -143,7 +143,7 @@ xin vui lòng xem:
 ZZ0000ZZ
 
 Các thử nghiệm ZZ0000ZZ
----------------------
+-----------------------
 
 Ngoài ra, còn có các bài kiểm tra ZZ0000ZZ. Giống như đối với các bài kiểm tra tài liệu,
 những điều này cũng khá giống với những gì bạn mong đợi từ không gian người dùng và chúng
@@ -214,7 +214,7 @@ thay vào đó hãy sử dụng bài kiểm tra tài liệu. Ngay cả các trư
 trường hợp ranh giới, có thể thú vị để hiển thị trong ví dụ.
 
 Các bài kiểm tra máy chủ ZZ0000ZZ
----------------------------
+---------------------------------
 
 Đây là các thử nghiệm không gian người dùng có thể được xây dựng và chạy trên máy chủ (tức là thử nghiệm
 thực hiện quá trình xây dựng kernel) bằng cách sử dụng ZZ0000ZZ Make target::

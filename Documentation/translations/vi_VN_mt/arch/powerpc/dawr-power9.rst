@@ -22,7 +22,7 @@ không có cách nào để phân biệt bộ nhớ CI khi định cấu hình D
 hệ thống, DAWR bị vô hiệu hóa.
 
 Bản sửa đổi bộ xử lý bị ảnh hưởng
-============================
+=================================
 
 Sự cố này chỉ xuất hiện trên các bộ xử lý trước v2.3. Việc sửa đổi có thể được
 được tìm thấy trong /proc/cpuinfo::
@@ -60,7 +60,7 @@ DAWR trong quá trình di chuyển.
 Đối với xmon, lệnh 'bd' sẽ trả về lỗi trên P9.
 
 Hậu quả đối với người dùng
-======================
+==========================
 
 Đối với điểm theo dõi GDB (tức là lệnh 'xem') trên kim loại trần POWER9, GDB
 sẽ chấp nhận mệnh lệnh. Thật không may vì không có phần cứng

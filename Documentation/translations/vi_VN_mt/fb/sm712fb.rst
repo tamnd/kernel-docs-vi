@@ -19,7 +19,7 @@ sm712fb - Trình điều khiển bộ đệm khung đồ họa Silicon Motion SM
 Đây là trình điều khiển bộ đệm khung đồ họa cho bộ xử lý dựa trên Silicon Motion SM712.
 
 Làm thế nào để sử dụng nó?
-==============
+==========================
 
 Việc chuyển đổi chế độ được thực hiện bằng cách sử dụng tham số khởi động video=sm712fb:....
 

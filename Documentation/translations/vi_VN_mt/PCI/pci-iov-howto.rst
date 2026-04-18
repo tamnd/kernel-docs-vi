@@ -23,7 +23,7 @@ Cách ảo hóa I/O Express PCI
           - Donald Dutile <ddutile@redhat.com>
 
 Tổng quan
-========
+=========
 
 SR-IOV là gì
 --------------
@@ -42,10 +42,10 @@ hoạt động trên bộ thanh ghi để nó có thể hoạt động và xuấ
 thiết bị PCI thực sự hiện có.
 
 Hướng dẫn sử dụng
-==========
+=================
 
 Làm cách nào tôi có thể kích hoạt khả năng SR-IOV
-----------------------------------
+-------------------------------------------------
 
 Có nhiều phương pháp để kích hoạt SR-IOV.
 Trong phương pháp đầu tiên, trình điều khiển thiết bị (trình điều khiển PF) sẽ điều khiển
@@ -64,14 +64,14 @@ numvfs <= tổngvfs.
 Phương pháp thứ hai là phương pháp được đề xuất cho các thiết bị VF mới/tương lai.
 
 Làm cách nào tôi có thể sử dụng Chức năng ảo
------------------------------------
+--------------------------------------------
 
 VF được coi như thiết bị PCI được cắm nóng trong kernel, vì vậy chúng
 có thể hoạt động giống như các thiết bị PCI thực. VF
 yêu cầu trình điều khiển thiết bị giống như thiết bị PCI bình thường.
 
 Hướng dẫn dành cho nhà phát triển
-===============
+=================================
 
 SR-IOV API
 ----------
@@ -103,7 +103,7 @@ tiếng vang 0 > \
 Để bật tự động thăm dò VF bằng trình điều khiển tương thích trên máy chủ, hãy chạy
 lệnh bên dưới trước khi bật các tính năng SR-IOV. Đây là
 hành vi mặc định.
-::
+:::::::::::::::::
 
 tiếng vang 1 > \
         /sys/bus/pci/devices/<DOMAIN:BUS:DEVICE.FUNCTION>/sriov_drivers_autoprobe
@@ -111,7 +111,7 @@ tiếng vang 1 > \
 Để tắt tính năng tự động thăm dò VF bằng trình điều khiển tương thích trên máy chủ, hãy chạy
 lệnh bên dưới trước khi bật các tính năng SR-IOV. Đang cập nhật cái này
 mục nhập sẽ không ảnh hưởng đến VF đã được thăm dò.
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::
 
 tiếng vang 0 > \
         /sys/bus/pci/devices/<DOMAIN:BUS:DEVICE.FUNCTION>/sriov_drivers_autoprobe
@@ -120,7 +120,7 @@ Ví dụ sử dụng
 -------------
 
 Đoạn mã sau minh họa cách sử dụng SR-IOV API.
-::
+:::::::::::::::::::::::::::::::::::::::::::::
 
 int tĩnh dev_probe(struct pci_dev *dev, const struct pci_device_id *id)
 	{

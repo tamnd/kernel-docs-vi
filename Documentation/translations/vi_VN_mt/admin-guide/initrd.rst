@@ -63,7 +63,7 @@ có thể truy cập được.
 
 
 Tùy chọn dòng lệnh khởi động
--------------------------
+----------------------------
 
 initrd thêm các tùy chọn mới sau::
 
@@ -284,7 +284,7 @@ Trang người dùng ZZ0000ZZ để biết chi tiết.
 
 
 kịch bản sử dụng
----------------
+----------------
 
 Động lực chính để triển khai initrd là cho phép mô-đun
 cấu hình kernel khi cài đặt hệ thống. Quy trình sẽ hoạt động
@@ -387,7 +387,7 @@ cmdline) trước khi thực thi cuối cùng ZZ0002ZZ thực.
 
 
 Tài nguyên
----------
+----------
 
 .. [#f1] Almesberger, Werner; "Booting Linux: The History and the Future"
     https://www.almesberger.net/cv/papers/ols2k-9.ps.gz

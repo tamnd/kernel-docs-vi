@@ -28,7 +28,7 @@ Nội dung
 - Hỗ trợ
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 Trình điều khiển trong phiên bản này tương thích với các thiết bị dựa trên Intel(R)
 Bộ điều khiển đa máy chủ Ethernet.
 
@@ -38,7 +38,7 @@ ZZ0000ZZ
 
 
 Kiểm soát dòng chảy
-------------
+-------------------
 Trình điều khiển giao diện máy chủ chuyển mạch Ethernet Intel(R) không hỗ trợ Flow
 Kiểm soát. Nó sẽ không gửi các khung tạm dừng. Điều này có thể dẫn đến hiện tượng rớt khung hình.
 
@@ -99,7 +99,7 @@ phân bổ các gói nhận.
 
 
 Giảm tải nhận chung, hay còn gọi là GRO
---------------------------------
+---------------------------------------
 Trình điều khiển hỗ trợ triển khai phần mềm trong kernel của GRO. GRO có
 đã chỉ ra rằng bằng cách kết hợp lưu lượng Rx thành các khối dữ liệu lớn hơn, CPU
 việc sử dụng có thể giảm đáng kể khi chịu tải Rx lớn. GRO là một
@@ -130,10 +130,10 @@ rx-flow-hash tcp4|udp4|ah4|esp4|sctp4|tcp6|udp6|ah6|esp6|sctp6 m|v|t|s|d|f|n|r
 
 
 Sự cố đã biết/Khắc phục sự cố
-============================
+=============================
 
 Kích hoạt SR-IOV trong hệ điều hành khách Microsoft Windows Server 2012/R2 64-bit trong Linux KVM
--------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
 KVM Hypervisor/VMM hỗ trợ gán trực tiếp thiết bị PCIe cho VM. Cái này
 bao gồm các thiết bị PCIe truyền thống cũng như các thiết bị hỗ trợ SR-IOV dựa trên
 Bộ điều khiển Ethernet Intel XL710.

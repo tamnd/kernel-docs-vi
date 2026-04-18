@@ -143,7 +143,7 @@ b) /proc/sys/net/core/sysctl_xfrm_aevent_rseqth
    trong số lượng gói tăng dần. Mặc định là hai gói.
 
 4) Các loại tin nhắn
-----------------
+--------------------
 
 a) XFRM_MSG_GETAE do người dùng cấp-->kernel.
    XFRM_MSG_GETAE không mang theo bất kỳ TLV nào.

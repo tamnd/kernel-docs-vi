@@ -13,25 +13,25 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thông tin thêm về Linux CDC ACM
------------------
+-------------------------------
 
 .. include:: linux-cdc-acm.inf
     :literal:
 
 thông tin Linux
----------
+---------------
 
 .. include:: linux.inf
     :literal:
 
 Nguồn cấp quyền của nhà phát triển USB
----------------------------------
+--------------------------------------
 
 .. literalinclude:: usbdevfs-drop-permissions.c
     :language: c
 
 Tín dụng
--------
+--------
 
 .. include:: CREDITS
     :literal:

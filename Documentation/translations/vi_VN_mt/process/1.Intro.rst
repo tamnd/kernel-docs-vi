@@ -117,7 +117,7 @@ tốt hơn; văn bản sau đây sẽ giúp ích cho bạn - hoặc những ngư
 tham gia cộng đồng của chúng tôi.
 
 Tín dụng
--------
+--------
 
 Tài liệu này được viết bởi Jonathan Corbet, corbet@lwn.net.  Nó đã được
 được cải thiện nhờ nhận xét của Johannes Berg, James Berry, Alex Chiang, Roland

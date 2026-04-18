@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Lập lịch chương trình Pelt c
-------------------------
+----------------------------
 
 .. literalinclude:: sched-pelt.c
     :language: c

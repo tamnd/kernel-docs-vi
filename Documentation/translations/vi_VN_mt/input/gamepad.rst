@@ -106,7 +106,7 @@ Không có thiết bị nào khác trông/có cảm giác giống gamepad sẽ b
 sự kiện.
 
 Sự kiện
-~~~~~~
+~~~~~~~
 
 Tay cầm chơi game báo cáo các sự kiện sau:
 

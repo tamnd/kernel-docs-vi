@@ -26,7 +26,7 @@ Trình điều khiển bộ đệm khung của bảng điều khiển dành cho 
     CN896 / P4M900, VX800, VX855)
 
 Tính năng trình điều khiển
----------------
+--------------------------
 Thiết bị: CRT, LCD, DVI
 
 Hỗ trợ viafb_mode::
@@ -211,7 +211,7 @@ Ghi chú:
 
 
 Định cấu hình viafb bằng công cụ "fbset"
----------------------------------
+----------------------------------------
 
 "fbset" là tiện ích hộp thư đến của Linux.
 
@@ -243,7 +243,7 @@ ví dụ::
 
 
 Định cấu hình viafb qua /proc
--------------------------
+-----------------------------
 Các tệp sau tồn tại trong /proc/viafb
 
 được hỗ trợ_output_devices
@@ -297,7 +297,7 @@ Thay thế tất cả các thiết bị đầu ra iga1 bằng CRT::
 
 
 Khởi động với viafb
------------------
+-------------------
 
 Thêm dòng sau vào grub.conf của bạn::
 
@@ -305,7 +305,7 @@ chắp thêm = "video=viafb:viafb_mode=1024x768,viafb_bpp=32,viafb_refresh=85"
 
 
 Chế độ bộ đệm khung VIA
-=====================
+=======================
 
 .. include:: viafb.modes
    :literal:

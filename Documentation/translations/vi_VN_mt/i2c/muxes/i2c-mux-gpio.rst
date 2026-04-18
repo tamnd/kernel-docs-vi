@@ -40,7 +40,7 @@ SCL/SDA của bus I2C chính được ghép kênh thành đoạn bus 1..M
 theo cài đặt của các chân GPIO 1..N.
 
 Cách sử dụng
------
+------------
 
 i2c-mux-gpio sử dụng bus nền tảng, vì vậy bạn cần cung cấp cấu trúc
 platform_device với platform_data trỏ đến một cấu trúc

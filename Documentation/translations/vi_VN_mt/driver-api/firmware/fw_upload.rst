@@ -25,7 +25,7 @@ tài liệu về dự phòng phần sụn. Nó cũng bổ sung thêm các tập 
 để cung cấp trạng thái chuyển hình ảnh chương trình cơ sở sang thiết bị.
 
 Đăng ký tải lên chương trình cơ sở
-============================
+==================================
 
 Trình điều khiển thiết bị đăng ký tải lên chương trình cơ sở bằng cách gọi
 firmware_upload_register(). Trong danh sách tham số có tên
@@ -101,12 +101,12 @@ firmware_upload_unregister
    :identifiers: firmware_upload_unregister
 
 Hoạt động tải lên chương trình cơ sở
--------------------
+------------------------------------
 .. kernel-doc:: include/linux/firmware.h
    :identifiers: fw_upload_ops
 
 Mã tiến trình tải lên chương trình cơ sở
-------------------------------
+----------------------------------------
 Các mã tiến trình sau đây được trình tải chương trình cơ sở sử dụng nội bộ.
 Các chuỗi tương ứng được báo cáo thông qua nút sysfs trạng thái
 được mô tả bên dưới và được ghi lại trong tài liệu ABI.
@@ -115,7 +115,7 @@ Các chuỗi tương ứng được báo cáo thông qua nút sysfs trạng thá
    :identifiers: fw_upload_prog
 
 Mã lỗi tải lên chương trình cơ sở
----------------------------
+---------------------------------
 Các mã lỗi sau đây có thể được trình điều khiển trả về trong trường hợp
 thất bại:
 

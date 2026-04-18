@@ -35,7 +35,7 @@ Chip DS2413 có hai đầu ra thoát nước mở (PIO A và PIO B).
 Hỗ trợ được cung cấp thông qua các tệp sysfs "đầu ra" và "trạng thái".
 
 Trạng thái đọc
--------------
+--------------
 Tệp "trạng thái" cung cấp giá trị một byte có cùng định dạng như đối với
 lệnh chip PIO_ACCESS_READ (tham khảo bảng dữ liệu để biết chi tiết):
 
@@ -59,7 +59,7 @@ Tương tự, định dạng byte giống như đối với lệnh PIO_ACCESS_WR
 Bit 0: PIOA
 Bit 1: PIOB
 Bit 2-7: Không thành vấn đề (trình điều khiển sẽ đặt thành "1")
-==================================================
+===============================================================
 
 
 Con chip này có một số loại bảo vệ cơ bản chống lại các lỗi truyền tải.

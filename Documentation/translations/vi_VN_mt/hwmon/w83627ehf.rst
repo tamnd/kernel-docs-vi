@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w83627ehf
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -142,7 +142,7 @@ nhiệt độ1 -> pwm1
 		 được hỗ trợ bởi người lái xe)
 
 tập tin /sys
-----------
+------------
 
 tên
 	đây là mục nhập thiết bị hwmon tiêu chuẩn, nó chứa tên của
@@ -181,7 +181,7 @@ pwm[1-4]_mode
 	* 1 đầu ra PWM
 
 Chế độ du thuyền nhiệt
--------------------
+----------------------
 
 Nếu nhiệt độ nằm trong khoảng được xác định bởi:
 

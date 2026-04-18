@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w83781d
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -241,7 +241,7 @@ Chân 782d và 783s có thể lập trình cho đầu vào fan3 hoặc đầu ra
   các chân ISA)
 
 Cập nhật bảng dữ liệu
-------------------
+---------------------
 - Thanh ghi đồng hồ PWM:
 		* 000: chủ/512
 		*001: chủ/1024
@@ -251,7 +251,7 @@ Cập nhật bảng dữ liệu
 
 
 Câu trả lời từ bộ phận hỗ trợ kỹ thuật Winbond
----------------------------------
+----------------------------------------------
 
 ::
 
@@ -360,7 +360,7 @@ Mozart-2:
   - cảm biến 2: đăng ký 0x13
 
 Cảm biến quạt
-^^^^^^^^^^^
+^^^^^^^^^^^^^
 
 ASB100, AS99127F (rev.1 và 2 giống nhau):
   - 3 quạt giống hệt W83781D

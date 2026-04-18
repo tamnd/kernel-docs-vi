@@ -41,7 +41,7 @@ khách và máy chủ để tăng hiệu suất và cung cấp ngữ nghĩa khô
 có thể với các hệ thống tập tin mạng.
 
 Cách sử dụng
-=====
+============
 Gắn hệ thống tệp có thẻ ZZ0000ZZ trên ZZ0001ZZ:
 
 .. code-block:: sh
@@ -52,13 +52,13 @@ Vui lòng xem ZZ0000ZZ để biết chi tiết về cách định cấu hình QE
 và daemon virtiofsd.
 
 Tùy chọn gắn kết
--------------
+----------------
 
 virtiofs hỗ trợ các tùy chọn gắn VFS chung, ví dụ: gắn lại,
 ro, rw, context, v.v. Nó cũng hỗ trợ các tùy chọn gắn FUSE.
 
 hành vi tại một thời điểm
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Các tùy chọn gắn kết liên quan đến atime, ví dụ: noatime, strictatime,
 bị bỏ qua. Hành vi tại một thời điểm của những người có tài năng cũng giống như

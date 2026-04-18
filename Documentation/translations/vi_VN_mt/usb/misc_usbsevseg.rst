@@ -27,7 +27,7 @@ và theo Delcom Engineering thì không có thông tin nào có thể truy vấn
 có thể được lấy từ thiết bị để phân biệt chúng.
 
 Chế độ thiết bị
-------------
+---------------
 Theo mặc định, trình điều khiển giả định màn hình chỉ có 6 ký tự
 Chế độ cho 6 ký tự là:
 
@@ -44,7 +44,7 @@ ascii mong đợi giá trị nằm trong khoảng '0'-'9' và 'A'-'F'.
 Mặc định là ascii.
 
 Vận hành thiết bị
-----------------
+-----------------
 1. Bật thiết bị:
 	echo 1 > /sys/bus/usb/.../được hỗ trợ
 2. Cài đặt chế độ của thiết bị:

@@ -52,7 +52,7 @@ giao diện thiết bị phụ. Trình điều khiển IPU6 ISYS hỗ trợ kế
 	  information about the IPU6 hardware.
 
 Trình điều khiển hệ thống đầu vào
-===================
+=================================
 
 Trình điều khiển Hệ thống đầu vào chủ yếu cấu hình CSI-2 D-PHY, xây dựng chương trình cơ sở
 cấu hình luồng, gửi lệnh đến phần sụn, nhận phản hồi từ phần cứng
@@ -167,7 +167,7 @@ cảm biến ov2740 trên laptop Lenovo X1 Yoga.
         --file=/tmp/meta-#.bin -f GENERIC_8 ${CAPTURE_META}
 
 Tài liệu tham khảo
-==========
+==================
 
 .. [#f1] https://git.ideasonboard.org/media-ctl.git
 .. [#f2] https://git.ideasonboard.org/yavta.git

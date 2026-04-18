@@ -121,7 +121,7 @@ Ví dụ:
      * Thành phần 1: Cr(8, 2x1 mẫu phụ)
 
 Khả năng tương tác đa thiết bị
-=============================
+==============================
 
 Để có khả năng tương thích tối đa trên các thiết bị, bảng bên dưới xác định
 định dạng chuẩn để sử dụng giữa các thiết bị hỗ trợ AFBC. Các định dạng mà

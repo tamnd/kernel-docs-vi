@@ -164,7 +164,7 @@ Additional reading material
    linux-doc@vger.kernel.org and 'sign-off' your contribution as
    Documentation/process/submitting-patches.rst explains in the section 'Sign
    your work - the Developer's Certificate of Origin'.
-..
+......................................................
    This text is available under GPL-2.0+ or CC-BY-4.0, as stated at the top
    of the file. If you want to distribute this text under CC-BY-4.0 only,
    please use 'The Linux kernel development community' for author attribution

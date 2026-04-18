@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ir35221
-=====================
+=================================
 
 Chip được hỗ trợ:
   * Infineon IR35221
@@ -34,7 +34,7 @@ IR35221 là Bộ chuyển đổi nhiều pha DC-DC kỹ thuật số
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng.

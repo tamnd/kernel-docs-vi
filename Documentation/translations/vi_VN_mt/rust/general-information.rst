@@ -124,7 +124,7 @@ sự trừu tượng hóa không thể đưa ra hành vi không xác định (UB
    hợp đồng an toàn cần thiết để thực hiện đặc điểm.
 
 Ràng buộc
-~~~~~~~~
+~~~~~~~~~
 
 Bằng cách đưa tiêu đề C từ ZZ0000ZZ vào
 ZZ0001ZZ, công cụ ZZ0002ZZ sẽ tự động tạo

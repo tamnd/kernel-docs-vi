@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thông số kỹ thuật giao diện hạt nhân Crypto API
-=========================================
+===============================================
 
 Giới thiệu
 ------------

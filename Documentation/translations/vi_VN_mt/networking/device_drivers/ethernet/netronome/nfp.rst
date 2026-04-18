@@ -31,7 +31,7 @@ Nội dung
 -ZZ0004ZZ
 
 Tổng quan
-========
+=========
 
 Trình điều khiển này hỗ trợ dòng Bộ xử lý luồng mạng của Netronome và Corigine
 các thiết bị, bao gồm các mẫu NFP3800, NFP4000, NFP5000 và NFP6000,
@@ -56,7 +56,7 @@ Bạn có thể tải xuống danh sách chương trình cơ sở đầy đủ h
 ZZ0000ZZ.
 
 Phần sụn trong NVRAM
------------------
+--------------------
 
 Các phiên bản firmware quản lý gần đây hỗ trợ tải ứng dụng
 firmware từ flash khi trình điều khiển máy chủ được thăm dò. Đang tải firmware
@@ -106,7 +106,7 @@ hệ thống đang tải sai trình điều khiển hoặc chương trình cơ s
 sau đó tải lại thủ công, mọi thứ đều hoạt động chính xác.
 
 Chọn phần sụn cho mỗi thiết bị
------------------------------
+------------------------------
 
 Thông thường nhất là tất cả các thẻ trên hệ thống đều sử dụng cùng một loại chương trình cơ sở.
 Nếu bạn muốn tải một hình ảnh chương trình cơ sở cụ thể cho một thẻ cụ thể, bạn
@@ -127,7 +127,7 @@ trong initramfs, bạn sẽ phải tham khảo tài liệu về các công cụ 
 để tìm hiểu làm thế nào để bao gồm chúng.
 
 Phiên bản phần mềm đang chạy
-------------------------
+----------------------------
 
 Phiên bản phần sụn được tải cho giao diện <netdev> cụ thể,
 (ví dụ: enp4s0) hoặc cổng <netdev port> của giao diện (ví dụ: enp4s0np0) có thể
@@ -136,7 +136,7 @@ Phiên bản phần sụn được tải cho giao diện <netdev> cụ thể,
 $ ethtool -i <netdev>
 
 Chính sách tải chương trình cơ sở
------------------------
+---------------------------------
 
 Chính sách tải firmware được kiểm soát thông qua ba tham số HWinfo
 được lưu trữ dưới dạng cặp giá trị khóa trong flash của thiết bị:
@@ -162,7 +162,7 @@ abi_drv_load_ifc
     Biến này hiện không thể cấu hình được bởi người dùng.
 
 Thông tin liên kết nhà phát triển
-============
+=================================
 
 Lệnh devlink info hiển thị các phiên bản firmware đang chạy và lưu trữ
 trên thiết bị, số serial và thông tin bo mạch.
@@ -191,12 +191,12 @@ $ devlink thông tin nhà phát triển pci/0000:03:00.0
             chip.init AMDA-2001-1003 1003000111
 
 Định cấu hình thiết bị
-================
+======================
 
 Phần này giải thích cách sử dụng Agilio SmartNIC chạy chương trình cơ sở NIC cơ bản.
 
 Cấu hình tốc độ liên kết giao diện
-------------------------------
+----------------------------------
 Các bước sau đây giải thích cách thay đổi giữa chế độ 10G và chế độ 25G trên
 Thẻ Agilio CX 2x25GbE. Việc thay đổi tốc độ cổng phải được thực hiện theo thứ tự,
 cổng 0 (p0) phải được đặt thành 10G trước khi cổng 1 (p1) có thể được đặt thành 10G.

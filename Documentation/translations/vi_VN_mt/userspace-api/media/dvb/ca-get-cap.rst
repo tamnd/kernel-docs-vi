@@ -48,7 +48,7 @@ Truy vấn hạt nhân để biết thông tin về CA có sẵn và bộ giải
 khe cắm và loại của chúng.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công, 0 được trả về và ZZ0000ZZ được điền.
 

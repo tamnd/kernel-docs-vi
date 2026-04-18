@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Người đóng góp
-============
+==============
 
 .. note::
 

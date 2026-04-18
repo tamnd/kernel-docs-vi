@@ -23,7 +23,7 @@ Hỗ trợ cho các thiết bị nối tiếp
     driver
 
 Trình điều khiển nối tiếp
-==============
+=========================
 
 .. toctree::
     :maxdepth: 1

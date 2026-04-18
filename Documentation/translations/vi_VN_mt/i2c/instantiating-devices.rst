@@ -40,7 +40,7 @@ không bị ràng buộc và bị phá hủy khi xe buýt I2C mà họ ngồi bi
 
 
 Khai báo các thiết bị I2C thông qua devicetree
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trên các nền tảng sử dụng devicetree, việc khai báo thiết bị I2C được thực hiện trong
 các nút con của bộ điều khiển chính.
@@ -72,14 +72,14 @@ vào tài liệu devicetree của nó trong Documentation/devicetree/binds/.
 
 
 Khai báo các thiết bị I2C qua ACPI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ACPI cũng có thể mô tả các thiết bị I2C. Có tài liệu đặc biệt cho việc này
 hiện được đặt tại Documentation/firmware-guide/acpi/enumeration.rst.
 
 
 Khai báo các thiết bị I2C trong file board
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trong nhiều kiến trúc nhúng, devicetree đã thay thế phần cứng cũ
 mô tả dựa trên các tập tin bảng, nhưng cái sau vẫn được sử dụng trong phiên bản cũ
@@ -119,7 +119,7 @@ Ví dụ (từ omap2 h4):
 
 
 Phương pháp 2: Khởi tạo thiết bị một cách rõ ràng
---------------------------------------------
+-------------------------------------------------
 
 Phương pháp này phù hợp khi một thiết bị lớn hơn sử dụng bus I2C cho
 giao tiếp nội bộ. Một trường hợp điển hình là bộ điều hợp TV. Những thứ này có thể có một
@@ -190,7 +190,7 @@ i2c_new_scanned_device().
 
 
 Phương pháp 3: Thăm dò bus I2C cho một số thiết bị nhất định
-----------------------------------------------
+------------------------------------------------------------
 
 Đôi khi bạn không có đủ thông tin về thiết bị I2C, thậm chí không
 để gọi i2c_new_scanned_device(). Trường hợp điển hình là giám sát phần cứng
@@ -241,7 +241,7 @@ nhanh hơn.
 
 
 Phương pháp 4: Khởi tạo từ không gian người dùng
--------------------------------------
+------------------------------------------------
 
 Nói chung, kernel nên biết thiết bị I2C nào được kết nối và
 họ sống ở địa chỉ nào. Tuy nhiên, trong một số trường hợp nhất định thì không, vì vậy

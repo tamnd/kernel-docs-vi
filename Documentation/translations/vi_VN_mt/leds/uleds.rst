@@ -21,7 +21,7 @@ kích hoạt và cũng có thể được sử dụng để triển khai đèn L
 
 
 Cách sử dụng
-=====
+============
 
 Khi trình điều khiển được tải, một thiết bị ký tự sẽ được tạo tại /dev/uleds. Đến
 tạo một thiết bị lớp LED mới, mở /dev/uleds và viết uleds_user_dev

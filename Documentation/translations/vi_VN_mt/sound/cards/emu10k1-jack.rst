@@ -39,7 +39,7 @@ chọn đúng thiết bị cho JACK để sử dụng.  Trên thực tế, đố
 khá dễ hiểu - chọn Duplex, sau đó chọn chụp và phát lại
 các thiết bị đa kênh, đặt các kênh vào và ra thành 16 và mẫu
 tốc độ lên tới 48000Hz.  Dòng lệnh trông như thế này:
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 /usr/local/bin/jackd -R -dalsa -r48000 -p64 -n2 -D -Chw:0,2 -Phw:0,3 -S
 

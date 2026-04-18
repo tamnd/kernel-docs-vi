@@ -534,7 +534,7 @@ Yêu cầu mã hóa ZZ0000ZZ:
 
 Hiện tại, ZZ0000ZZ chỉ được phát ra cho các loại con trỏ.
 Nó có chuỗi loại btf sau:
-::
+:::::::::::::::::::::::::
 
 ptr -> [type_tag]*
       -> [const ZZ0000ZZ hạn chế | typedef]*
@@ -580,12 +580,12 @@ Nếu giá trị enum ban đầu được ký và kích thước nhỏ hơn 8,
 giá trị đó sẽ được mở rộng thành 8 byte.
 
 2.3 Giá trị không đổi
--------------------
+---------------------
 
 .. _BTF_Function_Linkage_Constants:
 
 2.3.1 Giá trị hằng số liên kết chức năng
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. table:: Function Linkage Values and Meanings
 
   ===================  =====  ===========
@@ -600,7 +600,7 @@ giá trị đó sẽ được mở rộng thành 8 byte.
 .. _BTF_Var_Linkage_Constants:
 
 2.3.2 Giá trị hằng số liên kết biến đổi
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. table:: Variable Linkage Values and Meanings
 
   ============================  =====  ===========
@@ -612,7 +612,7 @@ giá trị đó sẽ được mở rộng thành 8 byte.
   ============================  =====  ===========
 
 3. Hạt nhân BTF API
-=================
+===================
 
 Lệnh bpf syscall sau đây liên quan đến BTF:
    * BPF_BTF_LOAD: tải một khối dữ liệu BTF vào kernel
@@ -623,7 +623,7 @@ Lệnh bpf syscall sau đây liên quan đến BTF:
      và các thông tin liên quan đến btf khác được trả lại.
 
 Quy trình làm việc thường trông như sau:
-::
+::::::::::::::::::::::::::::::::::::::::
 
 ứng dụng:
       BPF_BTF_LOAD
@@ -671,7 +671,7 @@ __u32 btf_fd;         /* fd trỏ tới dữ liệu kiểu BTF */
     __u32 btf_value_type_id;      /* BTF type_id của giá trị */
 
 Trong libbpf, bản đồ có thể được xác định bằng chú thích bổ sung như bên dưới:
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 cấu trúc {
         __uint(loại, BPF_MAP_TYPE_ARRAY);
@@ -690,7 +690,7 @@ chúng thành các thuộc tính BPF_MAP_CREATE một cách tự động.
 
 Trong quá trình prog_load, func_info và line_info có thể được chuyển tới kernel bằng cách thích hợp
 giá trị cho các thuộc tính sau:
-::
+:::::::::::::::::::::::::::::::
 
 __u32 insn_cnt;
     __aligned_u64 nội dung;
@@ -730,7 +730,7 @@ Dưới đây là các yêu cầu đối với line_info:
   * line_info insn_off theo thứ tự tăng dần.
 
 Đối với line_info, số dòng và số cột được xác định như sau:
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 #define BPF_LINE_INFO_LINE_NUM(line_col) ((line_col) >> 10)
     #define BPF_LINE_INFO_LINE_COL(line_col) ((line_col) & 0x3ff)
@@ -773,7 +773,7 @@ công cụ này có đầy đủ kiến thức về btf và có thể in đẹp 
 chữ ký func và thông tin dòng, cùng với mã byte/jit.
 
 4. Giao diện định dạng tệp ELF
-============================
+==============================
 
 4.1 Phần .BTF
 ----------------
@@ -1002,7 +1002,7 @@ trường hợp). Việc tạo .BTF.base yêu cầu hỗ trợ pahole cho "disti
 Tính năng BTF; cái này có sẵn trong pahole v1.28 trở lên.
 
 5. Sử dụng BTF
-============
+==============
 
 5.1 bpftool bản đồ in đẹp
 ----------------------------
@@ -1030,7 +1030,7 @@ enum A { A1, A2, A3, A4, A5 };
       } tmpmap SEC(".maps");
 
 bpftool có thể in đẹp như dưới đây:
-::
+:::::::::::::::::::::::::::::::::::
 
 [{
             "chìa khóa": 0,
@@ -1046,7 +1046,7 @@ bpftool có thể in đẹp như dưới đây:
       ]
 
 Kết xuất chương trình 5,2 bpftool
----------------------
+---------------------------------
 
 Sau đây là ví dụ cho thấy func_info và line_info có thể giúp ích cho chương trình như thế nào
 kết xuất với tên biểu tượng hạt nhân, nguyên mẫu hàm và dòng tốt hơn
@@ -1080,7 +1080,7 @@ $ bpftool prog dump được ghim /sys/fs/bpf/test_btf_haskv
     […]
 
 5.3 Nhật ký xác minh
-----------------
+--------------------
 
 Sau đây là ví dụ về cách line_info có thể giúp gỡ lỗi xác minh
 thất bại.::
@@ -1213,7 +1213,7 @@ chỉ. Mã lắp ráp (-S) có thể hiển thị mã hóa BTF trong lắp ráp
             .long   8206                    # Line 8 Col 14
 
 7. Kiểm tra
-==========
+===========
 
 Kernel BPF tự kiểm tra ZZ0000ZZ
 cung cấp một loạt các bài kiểm tra liên quan đến BTF.

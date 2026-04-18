@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân sl28cpld
-======================
+==================================
 
 Chip được hỗ trợ:
 
@@ -39,7 +39,7 @@ chuyển sang chế độ x8 để hỗ trợ phạm vi đầu vào rộng hơn 
 độ chi tiết.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ.
 

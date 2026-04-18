@@ -179,7 +179,7 @@ Việc thay thế một nút theo cách này sẽ không sắp xếp lại cây:
 có cùng khóa với nút cũ thì rbtree có thể sẽ bị hỏng.
 
 Lặp lại các phần tử được lưu trữ trong rbtree (theo thứ tự sắp xếp)
-------------------------------------------------------------------
+-------------------------------------------------------------------
 
 Bốn hàm được cung cấp để lặp qua nội dung của rbtree trong
 thứ tự sắp xếp.  Chúng hoạt động trên các cây tùy ý và không cần phải
@@ -208,7 +208,7 @@ cấu trúc rb_node *nút;
 	printk("key=%s\n", rb_entry(node, struct mytype, node)->keystring);
 
 Rbtree được lưu trong bộ nhớ đệm
---------------
+--------------------------------
 
 Tính toán nút ngoài cùng bên trái (nhỏ nhất) là một nhiệm vụ khá phổ biến đối với hệ nhị phân
 cây tìm kiếm, chẳng hạn như để duyệt hoặc người dùng dựa vào cụ thể

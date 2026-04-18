@@ -125,7 +125,7 @@ R<n>,<m>
     khe cắm.
 
 Trạng thái
-======
+==========
 
 Không có dòng trạng thái nào được báo cáo.
 

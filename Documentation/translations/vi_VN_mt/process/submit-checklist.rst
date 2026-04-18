@@ -26,7 +26,7 @@ ZZ0000ZZ
 và những nơi khác liên quan đến việc gửi các bản vá nhân Linux.
 
 Xem lại mã của bạn
-================
+==================
 
 1) Nếu bạn sử dụng một tiện ích thì #include tệp xác định/khai báo
    cơ sở đó.  Đừng phụ thuộc vào các tệp tiêu đề khác kéo theo các tệp đó
@@ -40,7 +40,7 @@ Xem lại mã của bạn
    và tại sao.
 
 Xem lại các thay đổi của Kconfig
-======================
+================================
 
 1) Bất kỳ tùy chọn ZZ0000ZZ mới hoặc được sửa đổi nào đều không làm hỏng menu cấu hình và
    mặc định tắt trừ khi chúng đáp ứng các tiêu chí ngoại lệ được ghi trong
@@ -75,7 +75,7 @@ Cung cấp tài liệu
    ZZ0000ZZ.
 
 Kiểm tra mã của bạn bằng các công cụ
-==========================
+====================================
 
 1) Kiểm tra các vi phạm nhỏ bằng trình kiểm tra kiểu bản vá trước
    trình (ZZ0000ZZ).
@@ -90,7 +90,7 @@ Kiểm tra mã của bạn bằng các công cụ
    ứng cử viên cho sự thay đổi.
 
 Xây dựng mã của bạn
-===============
+===================
 
 1) Xây dựng sạch sẽ:
 
@@ -128,7 +128,7 @@ ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ, ZZ0003ZZ,
    ZZ0008ZZ, ZZ0009ZZ (nhưng sau này có ZZ0010ZZ).
 
 Kiểm tra mã của bạn
-==============
+===================
 
 1) Đã được thử nghiệm với ZZ0000ZZ, ZZ0001ZZ,
    ZZ0002ZZ, ZZ0003ZZ, ZZ0004ZZ,

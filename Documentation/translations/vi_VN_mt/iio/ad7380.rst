@@ -21,7 +21,7 @@ là ZZ0000ZZ.
 
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 Các chip sau được hỗ trợ bởi trình điều khiển này:
 
@@ -46,37 +46,37 @@ Các chip sau được hỗ trợ bởi trình điều khiển này:
 
 
 Các tính năng được hỗ trợ
-==================
+=========================
 
 Chế độ nối dây SPI
-----------------
+------------------
 
 ADC ad738x có thể xuất dữ liệu trên một số dòng SDO (1/2/4). Tài xế hiện đang
 chỉ hỗ trợ 1 dòng SDO.
 
 Điện áp tham chiếu
------------------
+------------------
 
 quảng cáo7380-4
-~~~~~~~~
+~~~~~~~~~~~~~~~
 
 ad7380-4 chỉ hỗ trợ điện áp tham chiếu bên ngoài (2,5V đến 3,3V). Nó phải như vậy
 được khai báo trong cây thiết bị là ZZ0000ZZ.
 
 quảng cáo7389-4
-~~~~~~~~
+~~~~~~~~~~~~~~~
 
 ad7389-4 chỉ hỗ trợ điện áp tham chiếu bên trong. ZZ0000ZZ và
 Các thuộc tính ZZ0001ZZ đều bị bỏ qua trong trường hợp này.
 
 Thiết bị ADAQ
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 Các thiết bị ADAQ không có tham chiếu bên ngoài mà sử dụng tham chiếu bên trong 3,3V
 bắt nguồn từ một trong những nguồn cung cấp của nó (ZZ0000ZZ)
 
 Tất cả các thiết bị khác thuộc dòng ad738x
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tất cả các thiết bị khác từ ad738x đều hỗ trợ 2 nguồn điện áp tham chiếu có thể có:
 
@@ -87,7 +87,7 @@ Nguồn được xác định bởi cây thiết bị. Nếu có ZZ0000ZZ,
 sau đó nó được sử dụng làm tham chiếu bên ngoài, nếu không thì tham chiếu bên trong sẽ được sử dụng.
 
 Tăng cường lấy mẫu và tăng độ phân giải
----------------------------------
+---------------------------------------
 
 Dòng này hỗ trợ 2 loại lấy mẫu quá mức: trung bình bình thường và luân chuyển
 trung bình. Trình điều khiển chỉ hỗ trợ mức trung bình bình thường, vì mức trung bình luân chuyển có thể
@@ -113,7 +113,7 @@ phải khởi động lại iod bằng lệnh sau:
 	root:~# systemctl restart iiod
 
 Báo động
------
+--------
 
 Biến thể 2 kênh của dòng ad738x, có thể sử dụng dòng SDOB làm chốt cảnh báo
 khi được cấu hình ở chế độ 1 dòng SDO. Các biến thể 4 kênh, có thể sử dụng SDOD làm
@@ -182,7 +182,7 @@ Ví dụ cho AD7386/7/8 (phần 2 kênh):
 Khi bật chế độ trình tự sắp xếp, tốc độ lấy mẫu hiệu quả được chia cho hai.
 
 Tăng (chỉ dành cho thiết bị ADAQ)
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các thiết bị ADAQ có mức tăng có thể lựa chọn pin ở phía trước mỗi ADC. Thích hợp
 có thể chọn mức tăng từ cây thiết bị bằng thuộc tính ZZ0000ZZ.
@@ -190,7 +190,7 @@ Tham khảo phần sơ đồ kết nối điển hình của biểu dữ liệu 
 nối dây.
 
 Các tính năng chưa được triển khai
-----------------------
+----------------------------------
 
 - 2/4 dòng SDO
 - Lấy mẫu quá mức trung bình
@@ -217,7 +217,7 @@ Khi giảm tải SPI đang được sử dụng, một số thuộc tính sẽ k
   ví dụ: thuộc tính ZZ0004ZZ.
 
 Bộ đệm thiết bị
-==============
+===============
 
 Trình điều khiển này hỗ trợ bộ đệm kích hoạt IIO.
 

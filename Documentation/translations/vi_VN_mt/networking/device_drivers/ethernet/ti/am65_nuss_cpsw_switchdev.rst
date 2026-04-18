@@ -41,7 +41,7 @@ Thông số cấu hình Devlink
 Xem Tài liệu/mạng/devlink/am65-nuss-cpsw-switch.rst
 
 Kích hoạt "chuyển đổi"
-=================
+======================
 
 Chế độ Switch có thể được bật bằng cách định cấu hình tham số trình điều khiển devlink
 "switch_mode" thành 1/true::
@@ -60,7 +60,7 @@ Khi cả hai giao diện đã tham gia cầu nối - trình điều khiển chuy
 Tất cả cấu hình được thực hiện thông qua switchdev API.
 
 Thiết lập cầu
-============
+=============
 
 ::
 
@@ -82,7 +82,7 @@ Ghi chú. Các bước [*] là bắt buộc.
 
 
 Bật/tắt STP
-==========
+===========
 
 ::
 
@@ -98,7 +98,7 @@ bridge vlan add dev br0 vid 1 pvid untagged self <---- thêm cổng cpu vào VLA
 Ghi chú. Bước này là bắt buộc đối với bridge/default_pvid.
 
 Thêm Vlan bổ sung
-===============
+=================
 
 1. không được gắn thẻ::
 
@@ -140,7 +140,7 @@ Bật/tắt tràn trên các cổng switch:
 bộ liên kết cầu dev sw0p1 mcast_flood bật/tắt
 
 Cổng truy cập và trung kế
-=====================
+=========================
 
 ::
 

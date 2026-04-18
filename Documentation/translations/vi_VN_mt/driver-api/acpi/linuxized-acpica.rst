@@ -127,7 +127,7 @@ Hình 1. Các thành phần phần mềm Linux ACPI
          arch/*/acpi
 
 Phát hành ACPICA
-==============
+================
 
 Dự án ACPICA duy trì cơ sở mã của nó tại kho lưu trữ URL sau:
 ZZ0000ZZ Theo quy định, việc phát hành được thực hiện mỗi

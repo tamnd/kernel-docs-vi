@@ -103,7 +103,7 @@ mục tiêu "ảnh chụp nhanh", sẽ trả về -EIO khi được truy cập.
 
 
 Cách LVM2 sử dụng ảnh chụp nhanh
-============================
+================================
 Khi bạn tạo ảnh chụp nhanh LVM2 đầu tiên của một ổ đĩa, bốn thiết bị dm sẽ được sử dụng:
 
 1) một thiết bị chứa bảng ánh xạ gốc của ổ nguồn;
@@ -136,7 +136,7 @@ VolumeGroup-base-real: 0 2097152 tuyến tính 8:19 384
 
 
 Cách LVM2 sử dụng tính năng hợp nhất ảnh chụp nhanh
-==================================
+===================================================
 Một ảnh chụp nhanh hợp nhất đảm nhận vai trò "nguồn gốc ảnh chụp nhanh" trong khi
 sáp nhập.  Vì vậy, "snapshot-origin" được thay thế bằng
 "ảnh chụp nhanh hợp nhất".  Thiết bị "-real" không bị thay đổi và thiết bị "-cow"
@@ -164,7 +164,7 @@ VolumeGroup-base-real: 0 2097152 tuyến tính 8:19 384
 
 
 Cách xác định khi nào quá trình hợp nhất hoàn tất
-===========================================
+=================================================
 Các dòng trạng thái snapshot-merge và snapshot kết thúc bằng:
 
 <sector_allocated>/<total_sector> <metadata_sector>

@@ -66,7 +66,7 @@ các báo cáo và/hoặc các câu chuyện thành công.
 
 
 Việc cần làm
-------
+------------
 
 * Trình điều khiển không hỗ trợ đọc/ghi khối SMBus; Tôi có thể thêm chúng nếu một
   kịch bản được tìm thấy ở nơi họ cần.

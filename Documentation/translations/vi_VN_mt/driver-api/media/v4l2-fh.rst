@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 V4L2 Xử lý tập tin
------------------
+------------------
 
 struct v4l2_fh cung cấp một cách để dễ dàng giữ tệp xử lý dữ liệu cụ thể
 được sử dụng bởi khung V4L2. Việc sử dụng nó là bắt buộc trong tất cả các trình điều khiển.

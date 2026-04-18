@@ -29,7 +29,7 @@ HFS nhưng được mở rộng ở nhiều lĩnh vực khác nhau.  Sử dụng
 
 
 Tùy chọn gắn kết
-=============
+================
 
 Khi gắn hệ thống tệp HFS, các tùy chọn sau được chấp nhận:
 
@@ -61,7 +61,7 @@ yên tĩnh
 
 
 Ghi vào hệ thống tập tin HFS
-==========================
+============================
 
 HFS không phải là hệ thống tập tin UNIX, do đó nó không có các tính năng thông thường mà bạn có
 mong đợi:
@@ -92,7 +92,7 @@ hformat có thể được sử dụng để tạo hệ thống tập tin HFS. X
 
 
 Tín dụng
-=======
+========
 
 Trình điều khiển HFS được viết bởi Paul H. Hargrovea (hargrove@sccm.Stanford.EDU).
 Roman Zippel (roman@ardistech.com) đã viết lại phần lớn mã và đưa

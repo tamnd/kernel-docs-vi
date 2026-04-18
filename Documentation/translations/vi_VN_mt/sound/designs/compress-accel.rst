@@ -20,7 +20,7 @@ Jaroslav Kysela <perex@perex.cz>
 
 
 Tổng quan
-========
+=========
 
 Có yêu cầu để lộ phần cứng âm thanh giúp tăng tốc nhiều loại
 các tác vụ cho không gian người dùng như bộ chuyển đổi tốc độ mẫu, nén
@@ -45,7 +45,7 @@ Các yêu cầu chính là:
 - báo hiệu không gian người dùng khi tác vụ kết thúc (cơ chế thăm dò tiêu chuẩn)
 
 Thiết kế
-======
+========
 
 Một hướng mới SND_COMPRESS_ACCEL được giới thiệu để xác định
 thông qua API.
@@ -69,7 +69,7 @@ thiết bị. Kích thước bộ đệm đầu ra được xác định bởi t
 từ kích thước bộ đệm đầu vào).
 
 Máy trạng thái
-=============
+==============
 
 Máy trạng thái luồng âm thanh truyền qua được mô tả bên dưới::
 
@@ -142,7 +142,7 @@ Nhận trạng thái nhiệm vụ (đang hoạt động, đã hoàn thành). Ngo
 kích thước dữ liệu đầu ra thực (vùng hợp lệ trong bộ đệm đầu ra).
 
 Tín dụng
-=======
+========
 - Vương Thịnh Cửu <shengjiu.wang@gmail.com>
 - Takashi Iwai <tiwai@suse.de>
 - Vinod Koul <vkoul@kernel.org>

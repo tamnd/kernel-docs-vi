@@ -19,7 +19,7 @@ Trình điều khiển bộ chuyển đổi Highpoint RocketRAID 3xxx/4xxx (hpti
 ======================================================================
 
 Bản đồ đăng ký bộ điều khiển
------------------------
+----------------------------
 
 Đối với bộ điều hợp dựa trên Intel IOP RR44xx, bộ điều khiển IOP được truy cập thông qua PCI BAR0 và BAR2
 
@@ -118,7 +118,7 @@ Bản đồ đăng ký bộ điều khiển
 
 
 Quy trình yêu cầu I/O của Not Marvell Frey
-----------------------------------------
+------------------------------------------
 
 Tất cả các yêu cầu được xếp hàng đợi được xử lý thông qua cổng xếp hàng vào/ra.
 Gói yêu cầu có thể được phân bổ trong IOP hoặc bộ nhớ máy chủ.
@@ -163,7 +163,7 @@ của một tin nhắn gửi đến.
 
 
 Quy trình yêu cầu I/O của Marvell Frey
-------------------------------------
+--------------------------------------
 
 Tất cả các yêu cầu xếp hàng đợi được xử lý thông qua danh sách gửi đến/đi.
 
@@ -202,7 +202,7 @@ có cùng giá trị cho biết tin nhắn đã hoàn thành.
 
 
 Giao diện cấp người dùng
----------------------
+------------------------
 
 Trình điều khiển hiển thị các thuộc tính sysfs sau:
 

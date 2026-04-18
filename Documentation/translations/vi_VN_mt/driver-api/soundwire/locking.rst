@@ -25,7 +25,7 @@ tài nguyên được chia sẻ.
 - Khóa tin nhắn
 
 Khóa xe buýt
-========
+============
 
 Khóa Bus SoundWire là một mutex và là một phần của cấu trúc dữ liệu Bus
 (sdw_bus) được sử dụng cho mọi phiên bản Bus. Khóa này dùng để
@@ -38,7 +38,7 @@ tuần tự hóa từng hoạt động sau trong phiên bản SoundWire Bus.
 - Truy cập cấu trúc dữ liệu Stream.
 
 Khóa tin nhắn
-============
+=============
 
 Khóa chuyển tin nhắn SoundWire. Mutex này là một phần của
 Cấu trúc dữ liệu xe buýt (sdw_bus). Khóa này được sử dụng để tuần tự hóa tin nhắn

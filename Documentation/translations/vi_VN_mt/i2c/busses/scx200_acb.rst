@@ -37,7 +37,7 @@ Cho phép sử dụng bộ điều khiển ACCESS.bus trên Geode SCx200 và
 Bộ xử lý SC1100 và các thiết bị đồng hành CS5535 và CS5536 Geode.
 
 Ghi chú dành riêng cho thiết bị
----------------------
+-------------------------------
 
 Bo mạch SC1100 WRAP được biết là sử dụng địa chỉ cơ sở 0x810 và 0x820.
 Nếu trình điều khiển scx200_acb được tích hợp vào kernel, hãy thêm phần sau

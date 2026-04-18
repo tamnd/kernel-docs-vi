@@ -139,7 +139,7 @@ Thẻ/Chipset được hỗ trợ
 	===================	=======	=======================================
 
 Mọi người
-======
+=========
 
 Alan Cox <alan@lxorguk.ukuu.org.uk>
 
@@ -175,7 +175,7 @@ Achim Leubner <Achim_Leubner@adaptec.com>
 Nhóm sản phẩm Adaptec Unix OEM
 
 Danh sách gửi thư
-============
+=================
 
 linux-scsi@vger.kernel.org (Các bên quan tâm troll tại đây)
 Cũng lưu ý rằng điều này rất khác với trình điều khiển ban đầu của Brian

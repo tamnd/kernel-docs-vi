@@ -70,7 +70,7 @@ ZZ0002ZZ
 và ZZ0004ZZ được đặt thành mã khóa hoặc ZZ0005ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, số byte đã đọc sẽ được trả về. Đó không phải là lỗi nếu
 con số này nhỏ hơn số byte được yêu cầu hoặc số lượng

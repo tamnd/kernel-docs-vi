@@ -62,7 +62,7 @@ thuộc tính trong trình điều khiển thiết bị API.
 
 
 Tiêu đề yêu cầu
-==============
+===============
 
 Mỗi tin nhắn yêu cầu hoặc trả lời chứa một thuộc tính lồng nhau với tiêu đề chung.
 Cấu trúc của tiêu đề này là
@@ -192,7 +192,7 @@ tiêu đề. Ngữ nghĩa của giá trị và mặt nạ phụ thuộc vào thu
 
 
 Danh sách các loại tin nhắn
-=====================
+===========================
 
 Tất cả các hằng số xác định loại thông báo đều sử dụng tiền tố và hậu tố ZZ0000ZZ
 theo mục đích tin nhắn:
@@ -2534,7 +2534,7 @@ Xem tài liệu về hạt nhân ZZ0000ZZ trong
 ZZ0001ZZ.
 
 Ảnh chụp nhanh MSE
-------------
+------------------
 
 Mỗi tổ trên mỗi kênh chứa ảnh chụp nhanh nguyên tử của các giá trị MSE cho điều đó
 bộ chọn (kênh A/B/C/D, kênh kém nhất hoặc liên kết).

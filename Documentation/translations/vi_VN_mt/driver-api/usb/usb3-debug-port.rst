@@ -114,7 +114,7 @@ bạn kiểm tra tính đúng đắn của thiết lập.
 	===== end of bash scripts ===============
 
 nối tiếp TTY
-==========
+============
 
 Hỗ trợ DbC đã được thêm vào trình điều khiển xHCI. Bạn có thể nhận được một
 thiết bị gỡ lỗi do DbC cung cấp khi chạy.

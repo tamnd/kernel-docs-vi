@@ -99,7 +99,7 @@ xóa nó là:
 Thông tin chi tiết về các hcalls riêng lẻ như sau:
 
 Chi tiết HCALL
-=============
+==============
 
 Tài liệu này được cung cấp để cung cấp một cách hiểu tổng thể về
 API. Nó không nhằm mục đích cung cấp tất cả các chi tiết cần thiết để thực hiện
@@ -369,7 +369,7 @@ H_GUEST_DELETE(cờ uint64,
       R3: Mã trả về
 
 Bộ đệm trạng thái khách
-==================
+=======================
 
 Bộ đệm trạng thái khách (GSB) là phương thức chính để truyền đạt trạng thái
 về L2 giữa L1 và L0 thông qua H_GUEST_{G,S}ET() và
@@ -627,7 +627,7 @@ Thông tin khác
 ==================
 
 Trạng thái không có trong ptregs/hvregs
---------------------------
+---------------------------------------
 
 Trong v1 API, một số trạng thái không có trong ptregs/hvstate. Điều này bao gồm
 thanh ghi vector và một số SPR. Để L1 thiết lập trạng thái này cho
@@ -638,7 +638,7 @@ h_enter_nested() và L0 đảm bảo chúng kết thúc ở trạng thái L2
 Phiên bản v2 API loại bỏ điều này và đặt trạng thái này một cách rõ ràng thông qua GSB.
 
 Chi tiết triển khai L1: Trạng thái bộ nhớ đệm
-----------------------------------------
+---------------------------------------------
 
 Trong v1 API, tất cả trạng thái được gửi từ L1 đến L0 và ngược lại
 trên mỗi h_enter_nested() hcall. Nếu L0 hiện không chạy

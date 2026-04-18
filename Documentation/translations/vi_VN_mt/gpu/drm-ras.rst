@@ -54,7 +54,7 @@ Quản lý nút
    :internal:
 
 Cách sử dụng Netlink chung
-=====================
+==========================
 
 Giao diện được triển khai dưới dạng họ Netlink chung có tên ZZ0000ZZ.
 Công cụ không gian người dùng có thể:
@@ -66,7 +66,7 @@ Công cụ không gian người dùng có thể:
   ZZ0004ZZ và ZZ0005ZZ làm thông số.
 
 Giao diện dựa trên YAML
---------------------
+-----------------------
 
 Giao diện được mô tả trong đặc tả YAML ZZ0000ZZ
 
@@ -75,7 +75,7 @@ ZZ0000ZZ và điều khiển cấu trúc của liên kết mạng
 thuộc tính và thao tác.
 
 Ghi chú sử dụng
------------
+---------------
 
 * Không gian người dùng trước tiên phải liệt kê các nút để lấy ID của họ.
 * ID nút hoặc tên nút có thể được sử dụng cho tất cả các truy vấn tiếp theo, chẳng hạn như bộ đếm lỗi.

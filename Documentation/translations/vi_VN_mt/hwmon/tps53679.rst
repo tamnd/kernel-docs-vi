@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân tps53679
-======================
+==================================
 
 Chip được hỗ trợ:
 
@@ -87,7 +87,7 @@ kênh đầu ra và tối đa 8 pha trên mỗi kênh.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng.

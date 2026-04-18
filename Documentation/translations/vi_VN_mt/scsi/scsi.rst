@@ -22,7 +22,7 @@ ZZ0000ZZ. LDP có một
 và nhiều kết xuất trang HTML cũng như phần tái bút và pdf.
 
 Lưu ý khi sử dụng các mô-đun trong hệ thống con SCSI
-============================================
+====================================================
 Hỗ trợ SCSI trong nhân Linux có thể được mô đun hóa theo một số
 nhiều cách khác nhau tùy theo nhu cầu của người dùng cuối.  Để hiểu
 lựa chọn của bạn, trước tiên chúng ta nên xác định một vài thuật ngữ.

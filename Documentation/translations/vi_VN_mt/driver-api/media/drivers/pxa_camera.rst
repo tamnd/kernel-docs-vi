@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển máy chủ PXA-Camera
-======================
+===================================
 
 Tác giả: Robert Jarzmik <robert.jarzmik@free.fr>
 
@@ -27,7 +27,7 @@ a) Kích thước hình ảnh cho định dạng YUV422P
 
 
 Quy trình làm việc video toàn cầu
----------------------
+---------------------------------
 
 a) QCI đã dừng
    Ban đầu, giao diện QCI bị dừng.
@@ -97,7 +97,7 @@ c) Nắm bắt lược đồ máy trạng thái hữu hạn toàn cầu
 		- "DMA: run" means at least 1 DMA channel is still running
 
 Cách sử dụng DMA
----------
+----------------
 
 a) Dòng chảy DMA
      - bộ đệm đầu tiên được xếp hàng đợi để chụp

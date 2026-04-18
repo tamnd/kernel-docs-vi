@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Sự kiện V4L2
------------
+------------
 
 Các sự kiện V4L2 cung cấp một cách chung để chuyển các sự kiện tới không gian người dùng.
 Trình điều khiển phải sử dụng ZZ0000ZZ để có thể hỗ trợ các sự kiện V4L2.
@@ -137,7 +137,7 @@ Tất cả 4 lệnh gọi lại đều là tùy chọn, nếu bạn không muố
 bản thân đối số ops có thể là ZZ0000ZZ.
 
 Hủy đăng ký một sự kiện
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Hủy đăng ký một sự kiện là thông qua:
 
@@ -153,7 +153,7 @@ Loại đặc biệt ZZ0000ZZ có thể được sử dụng để hủy đăng 
 người lái xe có thể muốn xử lý việc này theo một cách đặc biệt.
 
 Kiểm tra xem có sự kiện nào đang chờ xử lý không
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Kiểm tra xem có sự kiện đang chờ xử lý hay không thông qua:
 
@@ -165,7 +165,7 @@ Hàm này trả về số lượng sự kiện đang chờ xử lý. Hữu ích 
 thăm dò ý kiến.
 
 Sự kiện hoạt động như thế nào
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Các sự kiện được gửi đến không gian người dùng thông qua lệnh gọi hệ thống thăm dò ý kiến. Người lái xe
 có thể sử dụng ZZ0000ZZ->wait (a Wait_queue_head_t) làm đối số cho
@@ -187,6 +187,6 @@ subdev gửi sự kiện đến (các) nút video được liên kết với
 subdev cần được thông báo về sự kiện như vậy.
 
 Các hàm sự kiện và cấu trúc dữ liệu của V4L2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/v4l2-event.h

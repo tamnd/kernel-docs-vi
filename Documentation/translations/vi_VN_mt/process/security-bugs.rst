@@ -22,7 +22,7 @@ muốn biết khi nào một lỗi bảo mật được tìm thấy để có th
 được tiết lộ càng nhanh càng tốt.
 
 Đang chuẩn bị báo cáo của bạn
----------------------
+-----------------------------
 
 Giống như bất kỳ báo cáo lỗi nào, báo cáo lỗi bảo mật yêu cầu nhiều công việc phân tích
 từ các nhà phát triển, vì vậy bạn càng chia sẻ được nhiều thông tin về vấn đề này,

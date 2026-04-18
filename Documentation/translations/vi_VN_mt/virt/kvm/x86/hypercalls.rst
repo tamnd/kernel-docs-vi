@@ -50,7 +50,7 @@ MIPS:
   giá trị trả về được đặt trong $2 (v0).
 
 Tài liệu về siêu cuộc gọi KVM
-============================
+=============================
 
 Mẫu cho mỗi hypercall là:
 1. Tên siêu cuộc gọi.

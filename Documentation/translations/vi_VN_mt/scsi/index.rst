@@ -28,7 +28,7 @@ Giới thiệu
    scsi
 
 API trình điều khiển SCSI
-================
+=========================
 
 .. toctree::
    :maxdepth: 1
@@ -37,7 +37,7 @@ API trình điều khiển SCSI
    scsi_eh
 
 Thông số trình điều khiển SCSI
-======================
+==============================
 
 .. toctree::
    :maxdepth: 1
@@ -46,7 +46,7 @@ Thông số trình điều khiển SCSI
    link_power_management_policy
 
 Trình điều khiển bộ điều hợp máy chủ SCSI
-=========================
+=========================================
 
 .. toctree::
    :maxdepth: 1

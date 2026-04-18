@@ -17,13 +17,13 @@
 =============================================================
 
 Synopsys Bộ điều khiển DesignWare HDMI
-===================================
+======================================
 
 Phần này bao gồm mọi thứ liên quan đến Synopsys DesignWare HDMI
 Bộ điều khiển được triển khai như một cầu nối DRM.
 
 Các định dạng và mã hóa đầu vào được hỗ trợ
--------------------------------------
+-------------------------------------------
 
 .. kernel-doc:: include/drm/bridge/dw_hdmi.h
    :doc: Supported input formats and encodings

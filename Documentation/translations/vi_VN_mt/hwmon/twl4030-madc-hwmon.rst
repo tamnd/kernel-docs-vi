@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân twl4030-madc
-==========================
+======================================
 
 Chip được hỗ trợ:
 

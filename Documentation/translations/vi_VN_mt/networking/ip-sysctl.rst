@@ -337,7 +337,7 @@ bc_forwarding - INTEGER
 	Mặc định: 0
 
 Bộ nhớ ngang hàng INET
-=================
+======================
 
 inet_peer_threshold - INTEGER
 	Kích thước gần đúng của bộ lưu trữ.  Bắt đầu từ ngưỡng này

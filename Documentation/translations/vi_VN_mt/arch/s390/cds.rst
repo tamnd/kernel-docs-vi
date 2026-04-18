@@ -104,7 +104,7 @@ Lưu ý:
 
 
 Hỗ trợ thiết bị chung (CDS) cho trình điều khiển thiết bị Linux/390
-========================================================
+===================================================================
 
 Thông tin chung
 -------------------
@@ -121,7 +121,7 @@ có thể được tìm thấy trong tệp tiêu đề C cụ thể của kiến
 linux/arch/s390/include/asm/irq.h.
 
 Tổng quan về các khái niệm giao diện CDS
-----------------------------------
+----------------------------------------
 
 Khác với các nền tảng phần cứng khác, kiến trúc ESA/390 không xác định
 các đường ngắt được quản lý bởi bộ điều khiển ngắt và hệ thống bus cụ thể

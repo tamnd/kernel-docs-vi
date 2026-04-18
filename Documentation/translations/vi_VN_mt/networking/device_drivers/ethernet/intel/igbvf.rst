@@ -44,7 +44,7 @@ NOTE: Có giới hạn tổng cộng 32 Vlan được chia sẻ cho 1 hoặc nhi
 
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 Để biết thông tin về cách xác định bộ điều hợp của bạn và để có phiên bản Intel mới nhất
 trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel:
 ZZ0000ZZ
@@ -54,7 +54,7 @@ Các tính năng và cấu hình bổ sung
 ======================================
 
 công cụ đạo đức
--------
+---------------
 Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
 chẩn đoán cũng như hiển thị thông tin thống kê. Công cụ đạo đức mới nhất
 Phiên bản này là cần thiết cho chức năng này. Tải xuống tại:

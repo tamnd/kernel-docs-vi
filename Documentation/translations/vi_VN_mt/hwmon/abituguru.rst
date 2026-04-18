@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân abituguru
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -117,7 +117,7 @@ Sandberg <ollebull@gmail.com> đã tìm cách đảo ngược phần cảm biế
 của uGuru. Nếu không có công việc của anh ấy, người lái xe này sẽ không thể thực hiện được.
 
 Sự cố đã biết
-------------
+-------------
 
 Các bộ phận điều khiển điện áp và tần số của Abit uGuru không được hỗ trợ.
 

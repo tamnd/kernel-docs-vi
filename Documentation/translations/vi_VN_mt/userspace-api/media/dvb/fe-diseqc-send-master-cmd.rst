@@ -49,7 +49,7 @@ Gửi lệnh DiSEqC được trỏ bởi ZZ0000ZZ
 tới hệ thống con anten.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

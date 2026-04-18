@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tập tin xác thực
-------------
+----------------
 
 ext4 hỗ trợ fs-verity, đây là một tính năng của hệ thống tập tin cung cấp
 Băm dựa trên cây Merkle cho các tệp chỉ đọc riêng lẻ.  Hầu hết

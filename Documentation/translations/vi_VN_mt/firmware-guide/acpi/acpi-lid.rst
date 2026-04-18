@@ -60,7 +60,7 @@ kích hoạt một số hoạt động tiết kiệm năng lượng hệ thống
 đã được thử nghiệm, nó đáng tin cậy từ tất cả các bảng AML.
 
 Ngoại lệ đối với người dùng không gian người dùng của trình điều khiển thiết bị nắp ACPI
-================================================================
+========================================================================================
 
 Trình điều khiển nút ACPI xuất trạng thái nắp sang không gian người dùng thông qua
 tập tin sau::

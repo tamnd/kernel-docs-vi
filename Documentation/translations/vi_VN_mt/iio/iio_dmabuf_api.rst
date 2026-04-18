@@ -17,7 +17,7 @@ Giao diện DMABUF tốc độ cao cho IIO
 ======================================
 
 1. Tổng quan
-===========
+============
 
 Hệ thống con I/O công nghiệp hỗ trợ truy cập vào bộ đệm thông qua
 giao diện dựa trên tập tin, với các lệnh gọi truy cập read() và write() thông qua
@@ -41,7 +41,7 @@ chi phí chung, vì IOCTL DMA_BUF_SYNC_START và DMA_BUF_SYNC_END phải
 được sử dụng để đảm bảo tính toàn vẹn dữ liệu.
 
 2. Người dùng API
-===========
+=================
 
 Là một phần của giao diện này, ba IOCTL mới đã được thêm vào. Ba người này
 IOCTL phải được thực hiện trên bộ mô tả tệp của bộ đệm IIO,

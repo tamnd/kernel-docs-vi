@@ -17,7 +17,7 @@ Hỗ trợ giao diện phần mềm mở rộng hợp nhất (UEFI)
 =========================================================
 
 Chức năng thư viện sơ khai UEFI
-===========================
+===============================
 
 .. kernel-doc:: drivers/firmware/efi/libstub/mem.c
    :internal:

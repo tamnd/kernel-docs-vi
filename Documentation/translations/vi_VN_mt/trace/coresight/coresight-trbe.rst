@@ -32,7 +32,7 @@ TRBE không tuân thủ các thông số kỹ thuật của kiến trúc CoreSig
 Tích hợp tuân thủ CoreSight).
 
 Các tập tin và thư mục Sysfs
----------------------------
+----------------------------
 
 Các thiết bị TRBE xuất hiện trên bus coresight hiện có cùng với các thiết bị khác
 thiết bị coresight::

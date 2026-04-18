@@ -17,7 +17,7 @@ Hệ thống con thiết bị Extcon
 ============================
 
 Tổng quan
-========
+=========
 
 Hệ thống con Extcon (External Connector) cung cấp một khuôn khổ thống nhất cho
 quản lý các kết nối bên ngoài trong hệ thống Linux. Nó cho phép người lái xe báo cáo
@@ -69,7 +69,7 @@ tài sản. Điều này cho phép xử lý mạnh mẽ và linh hoạt hơn cá
 kết nối trong các thiết bị hiện đại.
 
 Thành phần chính
-==============
+================
 
 extcon_dev
 ----------
@@ -153,7 +153,7 @@ cấu trúc extcon_cable {
     };
 
 Chức năng cốt lõi
-==============
+=================
 
 .. kernel-doc:: drivers/extcon/extcon.c
    :identifiers: extcon_get_state
@@ -169,7 +169,7 @@ Chức năng cốt lõi
 
 
 Giao diện hệ thống
-===============
+==================
 
 Các thiết bị Extcon hiển thị các thuộc tính sysfs sau:
 

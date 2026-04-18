@@ -61,7 +61,7 @@ byte 1: bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0 rp1 rp2 rp4 ... rp14
 byte 2: bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0 rp0 rp3 rp4 ... rp14
 byte 3: bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0 rp1 rp3 rp4 ... rp14
 byte 4: bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0 rp0 rp2 rp5 ... rp14
-...
+....................................................................
 byte 254: bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0 rp0 rp3 rp5 ... rp15
 byte 255: bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0 rp1 rp3 rp5 ... rp15
            cp1 cp0 cp1 cp0 cp1 cp0 cp1 cp0
@@ -181,7 +181,7 @@ vì (i = 0; i < 256; i++)
 
 
 Phân tích 0
-==========
+===========
 
 C có các toán tử bitwise nhưng không thực sự có các toán tử để thực hiện những việc trên
 hiệu quả (và hầu hết phần cứng cũng không có hướng dẫn như vậy).
@@ -291,7 +291,7 @@ trên.
 
 
 Phân tích 1
-==========
+===========
 
 Mã này hoạt động nhưng không hiệu quả lắm. Trên hệ thống của tôi phải mất
 gần gấp 4 lần thời gian so với mã trình điều khiển linux. Nhưng này, nếu như vậy
@@ -422,7 +422,7 @@ chỉ với một câu lệnh duy nhất và bằng cách sử dụng các toán
 
 
 Phân tích 2
-==========
+===========
 
 Mã (tất nhiên) hoạt động và hoan hô: chúng tôi nhanh hơn một chút so với
 mã trình điều khiển linux (khoảng 15%). Nhưng chờ đã, đừng vui mừng quá nhanh.
@@ -474,7 +474,7 @@ các phát biểu bị giảm đi. Điều này cũng được phản ánh trong
 
 
 Phân tích 3
-==========
+===========
 
 Rất kỳ lạ. Đoán nó có liên quan đến bộ nhớ đệm hoặc hướng dẫn song song
 hoặc như vậy. Tôi cũng đã thử trên eeePC (Celeron, tốc độ 900 Mhz). Thú vị
@@ -511,7 +511,7 @@ vì (i = 0; i < 4; i++)
 
 
 Phân tích 4
-==========
+===========
 
 Bỏ đăng ký một lần tăng khoảng 15%
 
@@ -547,7 +547,7 @@ Ngoài ra, các bài tập ban đầu (rp5 = 0; v.v.) có thể bị xóa.
 
 
 Phân tích 5
-==========
+===========
 
 Các phép đo cho thấy đây là một động thái tốt. Thời gian chạy gần như giảm đi một nửa
 so với lần thử 4 với 4 lần không được kiểm soát và chúng tôi chỉ yêu cầu 1/3
@@ -602,7 +602,7 @@ tuyên bố. Một thay đổi tương tự đã được thực hiện cho rp8 
 
 
 Phân tích 6
-==========
+===========
 
 Đo mã này một lần nữa cho thấy mức tăng lớn. Khi thực hiện bản gốc
 mã linux 1 triệu lần, việc này mất khoảng 1 giây trên hệ thống của tôi.
@@ -672,7 +672,7 @@ Không phải là một thay đổi lớn, nhưng mỗi xu đều có giá trị
 
 
 Phân tích 7
-==========
+===========
 
 Thực ra điều này còn khiến mọi việc trở nên tồi tệ hơn. Không nhiều lắm, nhưng tôi không muốn di chuyển
 đi sai hướng. Có lẽ có gì đó để điều tra sau. có thể
@@ -689,7 +689,7 @@ Cố gắng 8
 
 
 Phân tích 8
-==========
+===========
 
 Điều này làm cho mọi thứ tồi tệ hơn. Hãy tiếp tục nỗ lực thứ 6 và tiếp tục từ đó.
 Mặc dù có vẻ như mã trong vòng lặp không thể được tối ưu hóa
@@ -755,7 +755,7 @@ Kích thước mã tăng từ 330 byte lên 686 byte cho hàm này.
 
 
 Phần kết luận
-==========
+=============
 
 Lợi ích khi tính toán ecc là rất lớn. Ôi phần cứng phát triển của tôi
 đã đạt được sự tăng tốc hệ số 18 cho tính toán ecc. Trong một bài kiểm tra trên

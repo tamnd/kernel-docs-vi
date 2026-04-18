@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thông tin cơ bản về trình điều khiển
-=============
+====================================
 
 Điểm vào và ra của tài xế
 ----------------------------
@@ -22,7 +22,7 @@ Thông tin cơ bản về trình điều khiển
    :internal:
 
 Bảng thiết bị điều khiển
--------------------
+------------------------
 
 .. kernel-doc:: include/linux/mod_devicetable.h
    :internal:
@@ -30,7 +30,7 @@ Bảng thiết bị điều khiển
 
 
 Trì hoãn và lên lịch các thói quen
---------------------------------
+----------------------------------
 
 .. kernel-doc:: include/linux/sched.h
    :internal:
@@ -48,7 +48,7 @@ Trì hoãn và lên lịch các thói quen
    :internal:
 
 Thời gian và thói quen hẹn giờ
------------------------
+------------------------------
 
 .. kernel-doc:: include/linux/jiffies.h
    :internal:
@@ -60,7 +60,7 @@ Thời gian và thói quen hẹn giờ
    :export:
 
 Bộ hẹn giờ có độ phân giải cao
-----------------------
+------------------------------
 
 .. kernel-doc:: include/linux/ktime.h
    :internal:
@@ -105,7 +105,7 @@ Chức năng nội bộ
    :export:
 
 nguyên tử
--------
+---------
 
 .. kernel-doc:: include/linux/atomic/atomic-instrumented.h
    :internal:
@@ -126,7 +126,7 @@ Thao tác đối tượng hạt nhân
    :export:
 
 Chức năng tiện ích hạt nhân
-------------------------
+---------------------------
 
 .. kernel-doc:: include/linux/array_size.h
    :internal:
@@ -155,7 +155,7 @@ Chức năng tiện ích hạt nhân
    :export:
 
 Quản lý tài nguyên thiết bị
---------------------------
+---------------------------
 
 .. kernel-doc:: drivers/base/devres.c
    :export:

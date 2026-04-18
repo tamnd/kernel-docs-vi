@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân acbel-fsg032
-==========================
+======================================
 
 Chip được hỗ trợ:
 
@@ -28,14 +28,14 @@ Trình điều khiển này hỗ trợ Bộ nguồn ACBEL FSG032-00xG. Người 
 là một ứng dụng khách của trình điều khiển PMBus cốt lõi.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
 chi tiết.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ:
 

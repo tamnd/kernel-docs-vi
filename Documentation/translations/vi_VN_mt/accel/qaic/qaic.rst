@@ -72,7 +72,7 @@ không bao giờ bị vô hiệu hóa, cho phép mỗi mục nhập mới vào F
 
 
 Giao thức điều khiển mạng thần kinh (NNC)
-=====================================
+=========================================
 
 Việc triển khai NNC được phân chia giữa KMD (QAIC) và UMD. Nói chung,
 QAIC hiểu cách mã hóa/giải mã giao thức dây NNC và các thành phần của
@@ -170,7 +170,7 @@ DRM_IOCTL_QAIC_DETACH_SLICE_BO
   và tách các lệnh gọi lát cho phép không gian người dùng sử dụng BO với nhiều khối lượng công việc.
 
 Cách ly máy khách không gian người dùng
-==========================
+=======================================
 
 AIC100 hỗ trợ nhiều khách hàng. Nhiều DBC có thể được sử dụng bởi một
 khách hàng và nhiều khách hàng, mỗi khách hàng có thể sử dụng một hoặc nhiều DBC. Khối lượng công việc

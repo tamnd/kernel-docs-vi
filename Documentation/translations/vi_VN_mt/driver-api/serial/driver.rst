@@ -26,7 +26,7 @@ Việc triển khai tham chiếu được chứa trong amba-pl011.c.
 
 
 Trình điều khiển phần cứng nối tiếp cấp thấp
---------------------------------
+--------------------------------------------
 
 Trình điều khiển phần cứng nối tiếp cấp thấp chịu trách nhiệm cung cấp cổng
 thông tin (được xác định bởi uart_port) và một tập hợp các phương thức điều khiển (được xác định
@@ -36,7 +36,7 @@ hỗ trợ bảng điều khiển.
 
 
 Hỗ trợ bảng điều khiển
----------------
+----------------------
 
 Lõi nối tiếp cung cấp một số chức năng trợ giúp.  Điều này bao gồm
 giải mã các đối số dòng lệnh (uart_parse_options()).
@@ -80,7 +80,7 @@ uart_ops
    :identifiers: uart_ops
 
 Các chức năng khác
----------------
+------------------
 
 .. kernel-doc:: drivers/tty/serial/serial_core.c
    :identifiers: uart_update_timeout uart_get_baud_rate uart_get_divisor
@@ -95,7 +95,7 @@ Các chức năng khác
    :identifiers: uart_port_tx_limited uart_port_tx
 
 Ghi chú khác
------------
+------------
 
 Dự định một ngày nào đó sẽ loại bỏ các mục 'không sử dụng' khỏi uart_port và
 cho phép trình điều khiển cấp thấp đăng ký uart_port của riêng họ với
@@ -109,7 +109,7 @@ cấu trúc my_port {
 	};
 
 Đường dây điều khiển modem qua GPIO
-----------------------------
+-----------------------------------
 
 Một số trợ giúp được cung cấp để thiết lập/nhận các đường điều khiển modem thông qua GPIO.
 

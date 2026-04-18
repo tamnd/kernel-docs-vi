@@ -17,7 +17,7 @@ Ghi chú về Trình điều khiển tcm_qla2xxx
 =======================================
 
 Thuộc tính tcm_qla2xxx jam_host
-------------------------------
+-------------------------------
 Hiện tại có thuộc tính điểm cuối mô-đun mới được gọi là jam_host
 thuộc tính::
 

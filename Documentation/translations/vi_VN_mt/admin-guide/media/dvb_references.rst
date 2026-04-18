@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tài liệu tham khảo
-==========
+==================
 
 Trang web phát triển chính và kho lưu trữ GIT cho TV kỹ thuật số
 trình điều khiển là ZZ0000ZZ

@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 hướng dẫn bảo trì Arch/riscv dành cho nhà phát triển
-================================================
+====================================================
 
 Tổng quan
---------
+---------
 Kiến trúc tập lệnh RISC-V được phát triển mở:
 bản nháp đang thực hiện có sẵn để tất cả mọi người xem xét và thử nghiệm
 với việc triển khai.  Bản dự thảo mô-đun hoặc tiện ích mở rộng mới có thể thay đổi
@@ -47,7 +47,7 @@ Các bản vá mà bất kỳ bước kiểm tra nào không thành công đều
 trường hợp sẽ cần phải được gửi lại.
 
 Gửi phụ lục danh sách kiểm tra
--------------------------
+------------------------------
 Chúng tôi sẽ chỉ chấp nhận các bản vá cho mô-đun hoặc tiện ích mở rộng mới nếu
 thông số kỹ thuật cho các mô-đun hoặc phần mở rộng đó được liệt kê dưới dạng
 khó có thể bị thay đổi không tương thích trong tương lai.  cho

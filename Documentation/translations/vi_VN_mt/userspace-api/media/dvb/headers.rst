@@ -21,7 +21,7 @@ Ký hiệu uAPI truyền hình kỹ thuật số
    :local:
 
 Giao diện người dùng
-========
+====================
 
 .. kernel-include:: include/uapi/linux/dvb/frontend.h
     :generate-cross-refs:
@@ -39,7 +39,7 @@ Demux
     :warn-broken:
 
 Truy cập có điều kiện
-==================
+=====================
 
 .. kernel-include:: include/uapi/linux/dvb/ca.h
     :generate-cross-refs:

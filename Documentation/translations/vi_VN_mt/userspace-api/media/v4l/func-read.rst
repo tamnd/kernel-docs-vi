@@ -106,7 +106,7 @@ tuy nhiên. Chính sách loại bỏ không được báo cáo và không thể 
 Để biết các yêu cầu tối thiểu, hãy xem ZZ0002ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, số byte đã đọc sẽ được trả về. Đó không phải là lỗi nếu
 con số này nhỏ hơn số byte được yêu cầu hoặc số lượng

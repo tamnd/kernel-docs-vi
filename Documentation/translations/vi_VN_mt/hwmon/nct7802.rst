@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân nct7802
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -39,7 +39,7 @@ cảm biến tốc độ.
 Kiểm soát tốc độ Smart Fan™ có sẵn thông qua thuộc tính pwmX_auto_point.
 
 Bo mạch đã được thử nghiệm và phiên bản BIOS
--------------------------------
+--------------------------------------------
 
 Trình điều khiển đã được báo cáo là làm việc với các bảng sau và
 Các phiên bản BIOS.

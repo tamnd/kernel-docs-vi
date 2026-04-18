@@ -21,25 +21,25 @@ theo giao thức hiển thị được mô tả tại
 bao gồm/xen/giao diện/io/displif.h
 
 Các chế độ hoạt động của trình điều khiển về bộ đệm hiển thị được sử dụng
-==========================================================
+=========================================================================
 
 .. kernel-doc:: drivers/gpu/drm/xen/xen_drm_front.h
    :doc: Driver modes of operation in terms of display buffers used
 
 Bộ đệm được phân bổ bởi trình điều khiển giao diện người dùng
-----------------------------------------
+-------------------------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/xen/xen_drm_front.h
    :doc: Buffers allocated by the frontend driver
 
 Bộ đệm được phân bổ bởi chương trình phụ trợ
---------------------------------
+--------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/xen/xen_drm_front.h
    :doc: Buffers allocated by the backend
 
 Hạn chế của trình điều khiển
-==================
+============================
 
 .. kernel-doc:: drivers/gpu/drm/xen/xen_drm_front.h
    :doc: Driver limitations

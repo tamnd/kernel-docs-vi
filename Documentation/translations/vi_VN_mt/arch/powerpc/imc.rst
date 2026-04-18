@@ -25,7 +25,7 @@ Anju T Sudhakar, ngày 10 tháng 5 năm 2019
 
 
 Tổng quan cơ bản
-==============
+================
 
 IMC (Bộ đếm bộ nhớ trong bộ nhớ) là một cơ sở giám sát phần cứng
 thu thập số lượng lớn các sự kiện hiệu suất phần cứng ở cấp độ Nest (đây là
@@ -103,7 +103,7 @@ Ví dụ sử dụng IMC
 
 
 Chế độ theo dõi IMC
-===============
+===================
 
 POWER9 hỗ trợ hai chế độ cho IMC là chế độ Tích lũy và Theo dõi
 chế độ. Ở chế độ Tích lũy, số lượng sự kiện được tích lũy trong Bộ nhớ hệ thống.
@@ -165,7 +165,7 @@ bộ đệm đạt đến cuối.
 ZZ0000ZZ
 
 Theo dõi cách sử dụng ví dụ IMC
-=======================
+===============================
 
 .. code-block:: sh
 
@@ -184,7 +184,7 @@ Theo dõi cách sử dụng ví dụ IMC
 ZZ0000ZZ được tạo, có thể được đọc bằng báo cáo hiệu suất.
 
 Lợi ích của việc sử dụng chế độ theo dõi IMC
-================================
+============================================
 
 Tránh xử lý ngắt PMI (Ngắt giám sát hiệu suất) vì IMC
 chế độ theo dõi sẽ chụp nhanh bộ đếm chương trình và cập nhật vào bộ nhớ. Và cái này

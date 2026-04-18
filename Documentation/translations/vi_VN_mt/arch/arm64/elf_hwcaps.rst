@@ -78,7 +78,7 @@ tham chiếu đến sổ đăng ký ID và có thể tham khảo các tài liệ
 
 
 3. Các hwcap được hiển thị trong AT_HWCAP
----------------------------------
+-----------------------------------------
 
 HWCAP_FP
     Chức năng được ngụ ý bởi ID_AA64PFR0_EL1.FP == 0b0000.
@@ -467,7 +467,7 @@ HWCAP3_LS64
 
 
 4. Các bit AT_HWCAP chưa sử dụng
------------------------
+--------------------------------
 
 Để tương tác với không gian người dùng, kernel đảm bảo rằng các bit 62
 và 63 của AT_HWCAP sẽ luôn được trả về là 0.

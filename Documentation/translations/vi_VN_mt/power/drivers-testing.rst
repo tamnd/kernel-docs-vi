@@ -19,7 +19,7 @@ Kiểm tra việc tạm dừng và tiếp tục hỗ trợ trong trình điều 
 (C) 2007 Rafael J. Wysocki <rjw@sisk.pl>, GPL
 
 1. Chuẩn bị hệ thống thử nghiệm
-============================
+===============================
 
 Thật không may, để kiểm tra hiệu quả sự hỗ trợ cho hệ thống tạm dừng và
 tiếp tục quá trình chuyển đổi trong trình điều khiển, cần phải tạm dừng và tiếp tục lại toàn bộ
@@ -36,7 +36,7 @@ giải quyết tất cả các vấn đề liên quan đến tạm dừng/tiếp
 để biết thêm thông tin về việc gỡ lỗi chức năng tạm dừng/tiếp tục.
 
 2. Kiểm tra trình điều khiển
-=====================
+============================
 
 Khi bạn đã giải quyết được các vấn đề liên quan đến việc tạm dừng/tiếp tục lại với hệ thống kiểm tra của mình
 không có trình điều khiển mới, bạn đã sẵn sàng để kiểm tra nó:

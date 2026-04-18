@@ -52,7 +52,7 @@ Phần lớn trong suốt đối với Linux sau khi được định cấu hìn
 
 
 Loại thiết bị
-============
+=============
 
 Loại-1
 ------
@@ -99,7 +99,7 @@ dung lượng bộ nhớ cục bộ được cung cấp cho CPU để truy cập
 DMA mạch lạc cơ bản.
 
 Công tắc
-------
+--------
 
 Bộ chuyển mạch CXL là thiết bị có khả năng định tuyến bất kỳ CXL nào (và theo phần mở rộng là PCIe)
 giao thức giữa các thiết bị ngược dòng, hạ lưu hoặc ngang hàng.  Nhiều thiết bị như vậy
@@ -140,7 +140,7 @@ Thiết bị mẫu
 ===============
 
 Bộ mở rộng bộ nhớ
----------------
+-----------------
 Dạng đơn giản nhất của thiết bị Loại 3 là thiết bị mở rộng bộ nhớ.  Bộ mở rộng bộ nhớ
 hiển thị Bộ nhớ thiết bị do máy chủ quản lý (HDM) cho Linux.  Bộ nhớ này có thể
 Dễ bay hơi hoặc không bay hơi (Liên tục).

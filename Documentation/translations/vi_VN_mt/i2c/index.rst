@@ -33,7 +33,7 @@ Giới thiệu
    i2c-address-translators
 
 Viết trình điều khiển thiết bị
-======================
+==============================
 
 .. toctree::
    :maxdepth: 1

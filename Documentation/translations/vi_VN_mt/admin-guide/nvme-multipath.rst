@@ -32,7 +32,7 @@ Các chính sách khác nhau dẫn đến các lựa chọn đường dẫn khá
 
 
 Chính sách
-========
+==========
 
 Tất cả các chính sách đều tuân theo cơ chế ANA (Truy cập không gian tên bất đối xứng), nghĩa là
 rằng khi có sẵn một đường dẫn được tối ưu hóa, nó sẽ được chọn trên một đường dẫn không được tối ưu hóa
@@ -73,7 +73,7 @@ Khi nào nên sử dụng chính sách quay vòng:
 
 
 Độ sâu hàng đợi
------------
+---------------
 
 Chính sách độ sâu hàng đợi quản lý các yêu cầu I/O dựa trên độ sâu hàng đợi hiện tại
 của mỗi đường dẫn, chọn đường dẫn có số lượng I/O đang hoạt động ít nhất.

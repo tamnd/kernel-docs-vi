@@ -163,7 +163,7 @@ Thông lượng Rx/Tx mỗi giây cũng được báo cáo theo khoảng thời 
    thông số, trạng thái tín hiệu và hàng đợi đầu vào/đầu ra.
 
 msterm - Mô phỏng thiết bị đầu cuối
-===========================
+===================================
 
 Tiện ích này cung cấp khả năng gửi và nhận dữ liệu của tất cả các cổng tty,
    đặc biệt là đối với các cổng MOXA. Nó khá hữu ích để thử nghiệm đơn giản
@@ -172,7 +172,7 @@ Tiện ích này cung cấp khả năng gửi và nhận dữ liệu của tất
    mô phỏng thiết bị đầu cuối câm mà không xử lý thao tác toàn màn hình.
 
 5. Bộ nối tiếp
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Các tham số Setserial được hỗ trợ được liệt kê như bên dưới.
 

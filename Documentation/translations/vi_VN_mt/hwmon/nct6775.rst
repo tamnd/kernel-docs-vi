@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân NCT6775
-=====================
+=================================
 
 .. note::
 
@@ -176,7 +176,7 @@ pwm[1-7]_mode
 	* 1 đầu ra PWM
 
 Thuộc tính điều khiển quạt phổ biến
------------------------------
+-----------------------------------
 
 pwm[1-7]_temp_sel
 			Nguồn nhiệt độ. Giá trị là chỉ số cảm biến nhiệt độ.
@@ -206,7 +206,7 @@ pwm[1-7]_weight_temp_step_tol
 			Dung sai bước nhiệt độ.
 
 Chế độ Du thuyền Nhiệt (2)
------------------------
+--------------------------
 
 Nếu nhiệt độ nằm trong khoảng được xác định bởi:
 
@@ -243,7 +243,7 @@ pwm[1-7]_stop_time
 			phạm vi xác định).
 
 Chế độ hành trình tốc độ (3)
----------------------
+----------------------------
 
 Chế độ này cố gắng giữ tốc độ quạt không đổi.
 
@@ -257,7 +257,7 @@ quạt[1-7]_tolerance
 Chưa được kiểm tra; sử dụng có nguy cơ của riêng bạn.
 
 Chế độ Quạt thông minh IV (5)
----------------------
+-----------------------------
 
 Chế độ này cung cấp nhiều độ dốc để kiểm soát tốc độ quạt. Các sườn dốc có thể
 được kiểm soát bằng cách thiết lập các thuộc tính pwm và nhiệt độ. Khi nhiệt độ
@@ -288,7 +288,7 @@ pwm[1-7]_step_down_time
 			mili giây trước khi tốc độ quạt giảm
 
 Ghi chú sử dụng
------------
+---------------
 
 Trên các bo mạch ASUS khác nhau có NCT6776F, có vẻ như CPUTIN không thực sự
 được kết nối với bất cứ thứ gì và nổi, hoặc nó được kết nối với một số thứ không chuẩn

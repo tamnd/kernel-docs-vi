@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Dữ liệu nội tuyến
------------
+-----------------
 
 Tính năng dữ liệu nội tuyến được thiết kế để xử lý trường hợp một tập tin
 dữ liệu rất nhỏ nên nó dễ dàng nằm gọn trong inode, điều này

@@ -101,7 +101,7 @@ Ví dụ: Lỗi thay đổi mtu của netdevice (-22 == -EINVAL)::
 	Câu trả lời RTNETLINK: Đối số không hợp lệ
 
 Để biết thêm ví dụ sử dụng
------------------------
+--------------------------
 Có các công cụ/kiểm tra/tự kiểm tra bằng cách sử dụng tính năng chèn lỗi thông báo
 cho CPU và trình thông báo bộ nhớ.
 

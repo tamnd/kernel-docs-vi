@@ -42,10 +42,10 @@ Thông số:
 
 
 Tại sao nên sử dụng mô-đun này?
-====================
+===============================
 
 Một ví dụ về việc hoàn tác một dm-stripe hiện có
--------------------------------------------
+------------------------------------------------
 
 Tập lệnh bash nhỏ này sẽ thiết lập 4 thiết bị lặp và sử dụng thiết bị hiện có
 mục tiêu sọc để kết hợp 4 thiết bị thành một.  Sau đó nó sẽ sử dụng

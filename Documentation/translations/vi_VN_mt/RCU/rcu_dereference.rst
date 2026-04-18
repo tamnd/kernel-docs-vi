@@ -15,7 +15,7 @@
 .. _rcu_dereference_doc:
 
 PROPER CARE AND FEEDING CỦA RETURN VALUES FROM rcu_dereference()
-===============================================================
+================================================================
 
 Việc chăm sóc và cung cấp đúng cách các địa chỉ và dữ liệu phụ thuộc là rất quan trọng
 điều quan trọng là phải sử dụng đúng những thứ như RCU.  Để đạt được mục đích này, các con trỏ
@@ -231,7 +231,7 @@ Có một ngoại lệ cho quy tắc này: Đầu cơ giá trị
 
 
 EXAMPLE CỦA AMPLIFIED RCU-USAGE BUG
-----------------------------------
+-----------------------------------
 
 Vì các trình cập nhật có thể chạy đồng thời với đầu đọc RCU nên đầu đọc RCU có thể
 thấy các giá trị cũ và/hoặc không nhất quán.  Nếu độc giả RCU cần mới hoặc
@@ -409,7 +409,7 @@ hủy đăng ký con trỏ kết quả.
 
 
 WHICH MEMBER CỦA THE rcu_dereference() FAMILY SHOULD YOU USE?
-------------------------------------------------------------
+-------------------------------------------------------------
 
 Trước tiên, vui lòng tránh sử dụng rcu_dereference_raw() và cũng vui lòng tránh
 sử dụng rcu_dereference_check() và rcu_dereference_protected() với
@@ -469,7 +469,7 @@ Tuy nhiên, vị trí của nó có lẽ nhỏ hơn một chút so với một
 
 
 SPARSE CHECKING CỦA RCU-PROTECTED POINTERS
------------------------------------------
+------------------------------------------
 
 Công cụ phân tích tĩnh thưa thớt kiểm tra quyền truy cập không phải RCU vào RCU được bảo vệ
 con trỏ, có thể gây ra lỗi "thú vị" do trình biên dịch

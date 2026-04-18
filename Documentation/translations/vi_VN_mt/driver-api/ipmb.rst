@@ -38,7 +38,7 @@ gửi phản hồi trở lại BMC.
 tham khảo thông số kỹ thuật IPMB và IPMI.
 
 Trình điều khiển IPMB cho MC vệ tinh
-----------------------------
+------------------------------------
 
 ipmb-dev-int - Đây là trình điều khiển cần thiết trên MC vệ tinh để
 nhận tin nhắn IPMB từ BMC và gửi phản hồi lại.
@@ -54,7 +54,7 @@ chương trình như OpenIPMI:
 
 
 Tải trình điều khiển IPMB
---------------------
+-------------------------
 
 Trình điều khiển cần được tải khi khởi động hoặc bằng tay trước.
 Trước tiên, hãy đảm bảo bạn có những thứ sau trong tệp cấu hình của mình:

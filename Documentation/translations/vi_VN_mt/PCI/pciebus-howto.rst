@@ -22,7 +22,7 @@ Hướng dẫn lái xe buýt cổng tốc hành PCI HOWTO
 :Bản quyền: ZZ0000ZZ 2004 Tập đoàn Intel
 
 Giới thiệu về hướng dẫn này
-================
+===========================
 
 Hướng dẫn này mô tả những điều cơ bản về trình điều khiển Bus cổng tốc hành PCI
 và cung cấp thông tin về cách kích hoạt trình điều khiển dịch vụ để
@@ -30,7 +30,7 @@ và cung cấp thông tin về cách kích hoạt trình điều khiển dịch 
 
 
 Trình điều khiển xe buýt cổng tốc hành PCI là gì
-=======================================
+================================================
 
 Cổng tốc hành PCI là cấu trúc cầu PCI-PCI hợp lý. Ở đó
 có hai loại Cổng tốc hành PCI: Cổng gốc và Cổng chuyển mạch
@@ -51,7 +51,7 @@ hỗ trợ (AER) và hỗ trợ kênh ảo (VC). Những dịch vụ này có th
 và được xử lý bởi trình điều khiển dịch vụ tương ứng.
 
 Tại sao nên sử dụng Trình điều khiển xe buýt cổng tốc hành PCI?
-========================================
+===============================================================
 
 Trong các nhân Linux hiện có, Mô hình trình điều khiển thiết bị Linux cho phép
 thiết bị vật lý chỉ được xử lý bởi một trình điều khiển duy nhất. PCI
@@ -85,10 +85,10 @@ những ưu điểm của việc sử dụng trình điều khiển PCI Express 
     thiết bị tới trình điều khiển dịch vụ được yêu cầu.
 
 Định cấu hình Trình điều khiển xe buýt cổng tốc hành PCI so với trình điều khiển dịch vụ
-===============================================================
+========================================================================================
 
 Bao gồm Hỗ trợ trình điều khiển xe buýt cổng tốc hành PCI vào hạt nhân
------------------------------------------------------------------
+----------------------------------------------------------------------
 
 Việc bao gồm trình điều khiển PCI Express Port Bus phụ thuộc vào việc PCI có
 Hỗ trợ nhanh được bao gồm trong cấu hình kernel. Hạt nhân sẽ
@@ -96,7 +96,7 @@ tự động bao gồm trình điều khiển PCI Express Port Bus làm kernel
 trình điều khiển khi hỗ trợ PCI Express được bật trong kernel.
 
 Kích hoạt hỗ trợ trình điều khiển dịch vụ
--------------------------------
+-----------------------------------------
 
 Trình điều khiển thiết bị PCI được triển khai dựa trên Mô hình trình điều khiển thiết bị Linux.
 Tất cả các trình điều khiển dịch vụ đều là trình điều khiển thiết bị PCI. Như đã thảo luận ở trên, đó là
@@ -140,7 +140,7 @@ Mã mẫu
 
 Dưới đây là mã trình điều khiển dịch vụ mẫu để khởi tạo dịch vụ cổng
 cấu trúc dữ liệu điều khiển
-::
+:::::::::::::::::::::::::::
 
 cấu trúc tĩnh pcie_port_service_id service_id[] = { {
     .nhà cung cấp = PCI_ANY_ID,
@@ -163,7 +163,7 @@ cấu trúc tĩnh pcie_port_service_driver root_aerdrv = {
 
 Dưới đây là mã mẫu để đăng ký/hủy đăng ký dịch vụ
 người lái xe.
-::
+:::::::::::::
 
 int tĩnh __init aerdrv_service_init(void)
   {
@@ -187,7 +187,7 @@ module_init(aerdrv_service_init);
   module_exit(aerdrv_service_exit);
 
 Xung đột tài nguyên có thể xảy ra
-===========================
+=================================
 
 Vì tất cả trình điều khiển dịch vụ của thiết bị Cổng cầu PCI-PCI đều
 được phép chạy đồng thời, bên dưới liệt kê một số tài nguyên có thể
@@ -213,7 +213,7 @@ gọi request_irq/free_irq. Ngoài ra, chế độ ngắt được lưu trữ
 trong trường ngắt_mode của cấu trúc pcie_device.
 
 Vùng được ánh xạ bộ nhớ/IO PCI
-----------------------------
+------------------------------
 
 Trình điều khiển dịch vụ cho PCI Express Power Management (PME), Nâng cao
 Truy cập Báo cáo Lỗi (AER), Hot-Plug (HP) và Kênh ảo (VC)
@@ -223,7 +223,7 @@ rằng tất cả trình điều khiển dịch vụ sẽ hoạt động tốt v
 cài đặt cấu hình của trình điều khiển dịch vụ khác.
 
 Thanh ghi cấu hình PCI
---------------------
+----------------------
 
 Mỗi trình điều khiển dịch vụ tự chạy các hoạt động cấu hình PCI của nó
 cấu trúc khả năng ngoại trừ cấu trúc khả năng PCI Express,

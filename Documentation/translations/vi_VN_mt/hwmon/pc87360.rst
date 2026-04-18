@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân pc87360
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -120,7 +120,7 @@ cũng như đối với các giới hạn thấp có thể lập trình được
 
 
 Điều khiển quạt
------------
+---------------
 
 Các giá trị PWM (điều chế độ rộng xung) nằm trong khoảng từ 0 đến 255, với 0 nghĩa
 rằng quạt đã dừng và 255 có nghĩa là quạt chạy ở tốc độ tối đa.

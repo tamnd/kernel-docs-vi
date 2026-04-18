@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân ChipCap2
-======================
+==================================
 
 Chip được hỗ trợ:
 
@@ -51,7 +51,7 @@ Ngưỡng và độ trễ phải được cung cấp theo phần trăm. Những 
 có thể bị cắt bớt để phù hợp với độ phân giải của thiết bị 14 bit (6,1 pcm/LSB)
 
 Sự cố đã biết
-------------
+-------------
 
 Trình điều khiển không hỗ trợ sửa đổi độ dài cửa sổ lệnh và địa chỉ I2C.
 

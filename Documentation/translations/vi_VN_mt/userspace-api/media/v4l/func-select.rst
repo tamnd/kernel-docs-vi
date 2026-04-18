@@ -96,7 +96,7 @@ chức năng.
 Để biết thêm chi tiết, hãy xem trang hướng dẫn sử dụng ZZ0000ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, ZZ0000ZZ trả về số lượng bộ mô tả
 chứa trong ba bộ mô tả được trả về, sẽ bằng 0 nếu

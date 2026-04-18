@@ -17,7 +17,7 @@ Mở Firmware và Devicetree
 ================================
 
 Cách sử dụng cây hạt nhân
-=======================
+=========================
 .. toctree::
    :maxdepth: 1
 
@@ -35,7 +35,7 @@ Lớp phủ thiết bị
    overlay-notes
 
 Ràng buộc cây thiết bị
-===================
+======================
 .. toctree::
    :maxdepth: 1
 

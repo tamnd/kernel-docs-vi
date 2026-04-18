@@ -31,7 +31,7 @@ cần thực hiện các thao tác, hãy sử dụng Giao diện bộ giải mã
 phát triển) được khuyến khích mạnh mẽ.
 
 Các quy ước và ký hiệu được sử dụng trong tài liệu này
-===============================================
+======================================================
 
 1. Các quy tắc chung của V4L2 API được áp dụng nếu không được chỉ định trong tài liệu này
    mặt khác.
@@ -57,7 +57,7 @@ Các quy ước và ký hiệu được sử dụng trong tài liệu này
 .. _decoder-glossary:
 
 Thuật ngữ
-========
+=========
 
 CAPTURE
    hàng đợi bộ đệm đích; đối với bộ giải mã, hàng đợi các bộ đệm chứa
@@ -178,7 +178,7 @@ chiều rộng nhìn thấy được
    chiều rộng cho độ phân giải hiển thị nhất định; chiều rộng hiển thị.
 
 Máy trạng thái
-=============
+==============
 
 .. kernel-render:: DOT
    :alt: DOT digraph of decoder state machine
@@ -822,7 +822,7 @@ cách khác là khởi tạo lại phiên bản bằng cách dừng phát trực
 giải phóng tất cả bộ đệm và thực hiện lại trình tự Khởi tạo.
 
 Tìm kiếm
-====
+========
 
 Tìm kiếm được kiểm soát bởi hàng đợi ZZ0000ZZ, vì đây là nguồn dữ liệu được mã hóa.
 Việc tìm kiếm không yêu cầu bất kỳ thao tác cụ thể nào trên hàng đợi ZZ0001ZZ, nhưng
@@ -923,7 +923,7 @@ ZZ0000ZZ
    ``CAPTURE`` queue too to discard decoded, but not yet dequeued buffers.
 
 Thay đổi độ phân giải động
-=========================
+==========================
 
 Các luồng bao gồm siêu dữ liệu độ phân giải trong luồng byte có thể yêu cầu chuyển đổi
 sang độ phân giải khác trong quá trình giải mã.
@@ -1009,7 +1009,7 @@ quá trình giải mã.
    buffers to/from the ``OUTPUT`` queue even while processing this sequence.
 
 Làm khô hạn
-=====
+===========
 
 Để đảm bảo rằng tất cả các bộ đệm ZZ0000ZZ được xếp hàng đợi đã được xử lý và liên quan
 Bộ đệm ZZ0001ZZ được cấp cho máy khách, máy khách phải tuân theo cống
@@ -1104,7 +1104,7 @@ ZZ0000ZZ
    using :c:func:`VIDIOC_TRY_DECODER_CMD`.
 
 Kết thúc luồng
-=============
+==============
 
 Nếu bộ giải mã gặp phải dấu kết thúc luồng trong luồng, bộ giải mã
 sẽ bắt đầu chuỗi ZZ0001ZZ mà khách hàng phải xử lý như mô tả

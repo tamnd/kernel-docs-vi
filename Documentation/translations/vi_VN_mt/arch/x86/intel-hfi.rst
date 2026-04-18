@@ -17,7 +17,7 @@ Giao diện phản hồi phần cứng để lên lịch trên Phần cứng Int
 =================================================================
 
 Tổng quan
---------
+---------
 
 Intel đã mô tả Giao diện phản hồi phần cứng (HFI) trong Intel 64 và
 Hướng dẫn dành cho nhà phát triển phần mềm kiến trúc IA-32 (Intel SDM) Phần 3
@@ -79,6 +79,6 @@ rằng có thể có nhiều bản cập nhật HFI mỗi giây, các bản cậ
 không gian người dùng được điều chỉnh với tốc độ CONFIG_HZ trong nháy mắt.
 
 Tài liệu tham khảo
-----------
+------------------
 
 .. [1] https://www.intel.com/sdm

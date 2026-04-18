@@ -71,7 +71,7 @@ u8 Bank_reg[10], u8 Bank_mask[10], u8 Bank_start[10], u8 Bank_end[10]:
 	chọn ngân hàng đang hoạt động, cũng như phạm vi của các thanh ghi được ngân hàng.
 
 Hãy cẩn thận
-=======
+============
 
 Nếu trình điều khiển mục tiêu của bạn thăm dò một số byte hoặc từ đang chờ nó thay đổi,
 sơ khai có thể khóa nó lại.  Sử dụng i2cset để mở khóa.

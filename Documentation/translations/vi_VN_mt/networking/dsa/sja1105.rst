@@ -17,7 +17,7 @@ Trình điều khiển chuyển đổi NXP SJA1105
 =======================================
 
 Tổng quan
-========
+=========
 
 NXP SJA1105 là dòng gồm 10 thiết bị chuyển mạch ô tô được quản lý bởi SPI:
 
@@ -80,7 +80,7 @@ giao diện cấu hình lại, đó là; nếu không thì công tắc sẽ đư
 được lập trình lại với cấu hình tĩnh được cập nhật.
 
 Chuyển đổi tính năng
-==================
+====================
 
 Trình điều khiển hỗ trợ cấu hình các quy tắc chuyển tiếp L2 trong phần cứng cho
 cầu cảng. Miền chuyển tiếp, quảng bá và tràn ngập giữa các cổng có thể
@@ -111,7 +111,7 @@ Giảm tải
 ========
 
 Lập kế hoạch nhận biết thời gian
----------------------
+--------------------------------
 
 Công tắc hỗ trợ nhiều cải tiến khác nhau cho lưu lượng truy cập theo lịch trình
 được chỉ định trong IEEE 802.1Q-2018 (trước đây là 802.1Qbv). Điều này có nghĩa là nó có thể được sử dụng để
@@ -192,7 +192,7 @@ chống lại hạn chế này và khắc phục lỗi khi thích hợp. Phân t
 cần thiết để tránh điều này, vốn nằm ngoài phạm vi của tài liệu.
 
 Hành động định tuyến (chuyển hướng, bẫy, thả)
---------------------------------------
+---------------------------------------------
 
 Bộ chuyển mạch có thể giảm tải việc chuyển hướng các gói dựa trên luồng sang một tập hợp các gói
 cổng đích do người dùng chỉ định. Trong nội bộ, điều này được thực hiện bởi
@@ -231,7 +231,7 @@ bộ lọc tc thêm giao thức xâm nhập dev swp2 802.1Q hoa Skip_sw \
           dst_mac 42:be:24:9b:76:20 vlan_id 100 vlan_prio 0 thả hành động
 
 Kiểm soát xâm nhập dựa trên thời gian
----------------------------
+-------------------------------------
 
 Khả năng phần cứng TTEthernet của bộ chuyển mạch có thể bị hạn chế hoạt động
 tương tự như mệnh đề Lọc và kiểm soát mỗi luồng (PSFP) được chỉ định trong
@@ -341,7 +341,7 @@ Phần này tham khảo ZZ0000ZZ
 và nhằm mục đích giới thiệu một số cảnh báo chuyển đổi tiềm năng.
 
 RMII PHY vai trò và tín hiệu ngoài băng tần
----------------------------------------
+-------------------------------------------
 
 Trong thông số RMII, tín hiệu xung nhịp 50 MHz được điều khiển bởi MAC hoặc bởi
 một bộ dao động bên ngoài (nhưng không phải bởi PHY).
@@ -370,7 +370,7 @@ nhưng không phải với người khác.
 đồng hồ tham chiếu nếu được kết nối với PHY.
 
 RGMII liên kết cố định và độ trễ bên trong
-------------------------------------
+------------------------------------------
 
 Như đã đề cập trong tài liệu ràng buộc, thế hệ thiết bị thứ hai có
 các đường trễ có thể điều chỉnh được như một phần của MAC, có thể được sử dụng để thiết lập

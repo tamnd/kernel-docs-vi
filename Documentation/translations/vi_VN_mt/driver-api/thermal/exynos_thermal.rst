@@ -76,7 +76,7 @@ Mặc dù có thể đặt điều kiện ngắt cho cấp_0,
 nó có thể được sử dụng để đồng bộ hóa hoạt động làm mát.
 
 Mô tả trình điều khiển TMU:
------------------------
+---------------------------
 
 Trình điều khiển nhiệt exynos có cấu trúc như sau::
 

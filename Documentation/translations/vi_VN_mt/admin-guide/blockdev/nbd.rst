@@ -17,7 +17,7 @@ Thiết bị chặn mạng (phiên bản TCP)
 =====================================
 
 1) Tổng quan
------------
+------------
 
 Nó là gì: Với cái này được biên dịch trong kernel (hoặc dưới dạng một mô-đun), Linux
 có thể sử dụng máy chủ từ xa làm một trong các thiết bị khối của nó. Vì thế mỗi lần

@@ -17,7 +17,7 @@ Trình điều khiển hạt nhân Linux dành cho dòng NIC(HiNIC) thông minh 
 ==============================================================================
 
 Tổng quan:
-=========
+==========
 HiNIC là card giao diện mạng dành cho Khu vực Trung tâm Dữ liệu.
 
 Trình điều khiển hỗ trợ nhiều loại thiết bị có tốc độ liên kết (10GbE, 25GbE, 40GbE, v.v.).
@@ -35,13 +35,13 @@ LRO(Giảm tải nhận lớn).
 
 
 ID nhà cung cấp/ID thiết bị PCI được hỗ trợ:
-===================================
+============================================
 
 19e5:1822 - HiNIC PF
 
 
 Kiến trúc trình điều khiển và mã nguồn:
-====================================
+=======================================
 
 hinic_dev - Triển khai một thiết bị Mạng logic độc lập với
 chi tiết CTNH cụ thể về các định dạng cấu trúc dữ liệu CTNH.
@@ -53,7 +53,7 @@ hinic_hwdev chứa các thành phần sau:
 ===============================================
 
 Giao diện CTNH:
-=============
+===============
 
 Giao diện để truy cập thiết bị pci (bộ nhớ DMA và BAR PCI).
 (hinic_hw_if.c, hinic_hw_if.h)
@@ -62,7 +62,7 @@ Vùng thanh ghi trạng thái cấu hình mô tả các thanh ghi CTNH trên
 cấu hình và trạng thái BAR0. (hinic_hw_csr.h)
 
 Các thành phần MGMT:
-================
+====================
 
 Hàng đợi sự kiện không đồng bộ (AEQ) - Hàng đợi sự kiện để nhận tin nhắn từ
 các mô-đun MGMT trên thẻ. (hinic_hw_eqs.c, hinic_hw_eqs.h)
@@ -76,7 +76,7 @@ thẻ của AEQ. Đồng thời đặt địa chỉ của IO CMDQ trong HW.
 (hinic_hw_mgmt.c, hinic_hw_mgmt.h)
 
 Các thành phần IO:
-==============
+==================
 
 Hàng đợi sự kiện hoàn thành(CEQ) - Hàng đợi sự kiện hoàn thành mô tả IO
 những nhiệm vụ đã hoàn thành. (hinic_hw_eqs.c, hinic_hw_eqs.h)
@@ -97,7 +97,7 @@ Dữ liệu. (hinic_hw_qp.c, hinic_hw_qp.h, hinic_hw_qp_ctxt.h)
 IO - hủy/xây dựng tất cả các thành phần IO. (hinic_hw_io.c, hinic_hw_io.h)
 
 Thiết bị CTNH:
-==========
+==============
 
 Thiết bị CTNH - hủy/xây dựng Giao diện CTNH, các thành phần MGMT trên
 khởi tạo trình điều khiển và các thành phần IO trong trường hợp Giao diện

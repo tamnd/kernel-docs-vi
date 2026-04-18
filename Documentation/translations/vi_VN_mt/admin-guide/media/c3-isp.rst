@@ -59,7 +59,7 @@ Dưới đây là chế độ xem chức năng cấp cao của C3 ISP.::
                                                                    +----------+ +-------+
 
 Kiến trúc và thiết kế trình điều khiển
-==============================
+======================================
 
 Với mục tiêu mô hình hóa các liên kết phần cứng giữa các mô-đun và để lộ ra một
 giao diện sạch sẽ, hợp lý và có thể sử dụng, trình điều khiển đăng ký V4L2 sau

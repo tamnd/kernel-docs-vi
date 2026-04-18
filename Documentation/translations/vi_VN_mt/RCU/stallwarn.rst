@@ -23,7 +23,7 @@ tài liệu này giải thích định dạng "splat" của bộ phát hiện gi
 
 
 Nguyên nhân gây ra cảnh báo ngừng hoạt động của RCU CPU?
-===================================
+========================================================
 
 Vì vậy, hạt nhân của bạn đã in cảnh báo ngừng hoạt động RCU CPU.  Câu hỏi tiếp theo là
 "Điều gì đã gây ra nó?"  Các sự cố sau đây có thể dẫn đến RCU CPU bị treo
@@ -379,7 +379,7 @@ xếp chồng các tin nhắn khác nhau trong cùng một khoảng thời gian 
 
 
 Cảnh báo ngừng hoạt động trong thời gian gia hạn nhanh
-==========================================
+======================================================
 
 Nếu thời gian gia hạn nhanh phát hiện tình trạng ngừng hoạt động, nó sẽ đặt một thông báo
 như sau trong dmesg ::

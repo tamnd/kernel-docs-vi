@@ -39,7 +39,7 @@ Nó có tính năng:
 - Giao diện lưu MDIO
 
 Tài nguyên
----------
+----------
 
 Bảng dữ liệu và tài liệu tham khảo được cung cấp công khai trên trang web ST (STM32F769_).
 

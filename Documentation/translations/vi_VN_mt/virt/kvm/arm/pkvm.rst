@@ -22,7 +22,7 @@ Vui lòng liên hệ với các nhà phát triển tại kvmarm@lists.linux.dev 
 bất kỳ câu hỏi nào.
 
 Tổng quan
-========
+=========
 
 Khởi động kernel máy chủ bằng 'ZZ0000ZZ' cho phép
 "KVM được bảo vệ" (pKVM). Trong quá trình khởi động, pKVM cài đặt nhận dạng giai đoạn 2
@@ -82,7 +82,7 @@ phần lớn là do thiếu trình thông báo MMU:
   từ ZZ0005ZZ ioctl().
 
 Cách ly trạng thái CPU
--------------------
+----------------------
 
 Trạng thái: ZZ0000ZZ
 
@@ -104,12 +104,12 @@ Proxy PSCI đảm bảo CPU luôn có bản đồ nhận dạng giai đoạn 2
 được cài đặt khi chúng đang thực thi trên máy chủ.
 
 Phần mềm máy ảo được bảo vệ (pvmfw)
------------------------------
+-----------------------------------
 
 Trạng thái: ZZ0000ZZ
 
 Tài nguyên
-=========
+==========
 
 Buổi nói chuyện trên Diễn đàn KVM năm 2022 của Quentin Perret có tựa đề "KVM được bảo vệ trên arm64: A
 chuyên sâu về kỹ thuật" vẫn là một nguồn tài nguyên tốt để tìm hiểu thêm về

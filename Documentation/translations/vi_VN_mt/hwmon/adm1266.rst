@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adm1266
-=====================
+=================================
 
 Chip được hỗ trợ:
   * Thiết bị tương tự ADM1266
@@ -36,7 +36,7 @@ Documentation/hwmon/pmbus.rst để biết chi tiết về trình điều khiể
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi, thiết lập lại lịch sử
 thuộc tính chỉ ghi, tất cả các thuộc tính khác chỉ đọc.

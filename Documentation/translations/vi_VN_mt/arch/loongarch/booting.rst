@@ -20,7 +20,7 @@ Khởi động Linux/LoongArch
 :Ngày: 18 tháng 11 năm 2022
 
 Thông tin được truyền từ BootLoader tới kernel
-============================================
+==============================================
 
 LoongArch hỗ trợ ACPI và FDT. Thông tin cần được thông qua
 vào kernel bao gồm memmap, initrd, dòng lệnh, tùy chọn
@@ -37,7 +37,7 @@ Hạt nhân được truyền các đối số sau trên ZZ0000ZZ :
         Tất cả các con trỏ liên quan ở giai đoạn này đều ở địa chỉ vật lý.
 
 Tiêu đề của hình ảnh hạt nhân Linux/LoongArch
-=======================================
+=============================================
 
 Hình ảnh hạt nhân Linux/LoongArch là hình ảnh EFI. Là tập tin PE, họ có
 tiêu đề 64 byte có cấu trúc như::

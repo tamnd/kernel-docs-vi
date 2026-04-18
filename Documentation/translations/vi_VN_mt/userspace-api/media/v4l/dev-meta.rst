@@ -47,7 +47,7 @@ siêu dữ liệu từ bộ nhớ.
 
 
 Đàm phán định dạng dữ liệu
-=======================
+==========================
 
 Thiết bị siêu dữ liệu sử dụng ioctls ZZ0000ZZ để chọn định dạng chụp.
 Định dạng nội dung bộ đệm siêu dữ liệu được liên kết với định dạng đã chọn đó. Ngoài ra

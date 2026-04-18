@@ -15,7 +15,7 @@
 .. _serial_console:
 
 Bảng điều khiển nối tiếp Linux
-====================
+==============================
 
 Để sử dụng cổng nối tiếp làm bảng điều khiển, bạn cần biên dịch hỗ trợ vào
 kernel - theo mặc định, nó không được biên dịch. Đối với các cổng nối tiếp kiểu PC

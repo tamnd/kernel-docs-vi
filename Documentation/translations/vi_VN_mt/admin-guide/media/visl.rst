@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển bộ giải mã không trạng thái ảo (visl)
-===========================================
+======================================================
 
 Một thiết bị giải mã không trạng thái ảo để phát triển uAPI không trạng thái
 mục đích.
@@ -66,7 +66,7 @@ Thông số mô-đun
   vì một số thông tin như con trỏ hoặc trạng thái hàng đợi sẽ được thêm vào chúng.
 
 Trường hợp sử dụng mặc định cho trình điều khiển này là gì?
----------------------------------------------
+-----------------------------------------------------------
 
 Trình điều khiển này có thể được sử dụng như một cách để so sánh việc triển khai không gian người dùng khác nhau.
 Điều này giả định rằng một máy khách đang hoạt động đang chạy chống lại visl và ftrace và
@@ -81,7 +81,7 @@ dấu thời gian của chúng, trạng thái của hàng đợi OUTPUT và CAPT
 đọc trực tiếp từ bộ đệm CAPTURE.
 
 Codec được hỗ trợ
-----------------
+-----------------
 
 Các codec sau được hỗ trợ:
 
@@ -94,7 +94,7 @@ Các codec sau được hỗ trợ:
 -AV1
 
 sự kiện dấu vết visl
------------------
+--------------------
 Các sự kiện theo dõi được xác định trên cơ sở mỗi codec, ví dụ:
 
 .. code-block:: bash
@@ -147,7 +147,7 @@ Dữ liệu SPS sẽ được chuyển vào bộ đệm theo dõi, tức là:
 
 
 Kết xuất dữ liệu bộ đệm OUTPUT thông qua debugfs
-------------------------------------------
+------------------------------------------------
 
 Nếu ZZ0000ZZ Kconfig được bật, visl sẽ xuất hiện
 ZZ0001ZZ với dữ liệu bộ đệm OUTPUT theo

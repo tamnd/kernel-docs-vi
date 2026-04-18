@@ -15,7 +15,7 @@
 .. _frontend_legacy_types:
 
 Các kiểu dữ liệu kế thừa của Frontend
-==========================
+=====================================
 
 
 .. toctree::

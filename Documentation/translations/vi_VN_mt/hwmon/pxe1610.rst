@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân pxe1610
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -67,7 +67,7 @@ Hệ thống dựa trên IMVP8
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò các thiết bị PMBus. Bạn sẽ có
 để khởi tạo thiết bị một cách rõ ràng.

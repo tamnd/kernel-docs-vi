@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân MCP998X
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -67,7 +67,7 @@ Update_interval = Chuyển đổi/Giây, do đó các tùy chọn có sẵn là:
 - 16 (ms) = 64 chuyển đổi/giây
 
 Ghi chú sử dụng
------------
+---------------
 
 Các tham số có thể được cấu hình trong devicetree:
 - Hoạt động ở chế độ diode chống song song
@@ -98,7 +98,7 @@ tự động áp dụng cho các giới hạn khác. Khi bật nguồn thiết b
 độ trễ 10 độ.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Giới hạn nhiệt độ và
 update_interval là đọc-ghi. Thuộc tính tempX_crit_hyst là đọc-ghi,

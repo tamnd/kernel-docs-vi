@@ -30,7 +30,7 @@ khi cấu hình kernel tương ứng được kích hoạt. Khi ZZ0001ZZ
 ZZ0002ZZ cũng được bật, các điểm theo dõi trước đây cũng được bật.
 
 Dấu vết cho trạng thái của bộ đệm PCM
-------------------------------------
+-------------------------------------
 
 Loại này bao gồm bốn điểm theo dõi; ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ và
 ZZ0003ZZ.
@@ -180,7 +180,7 @@ ZZ0000ZZ, ZZ0001ZZ, ZZ0002ZZ, ZZ0003ZZ, ZZ0004ZZ, ZZ0005ZZ trong
 struct snd_interval theo thứ tự này.
 
 Dấu vết trong trình điều khiển
-======================
+==============================
 
 Một số trình điều khiển có các điểm theo dõi để thuận tiện cho nhà phát triển. Vì họ hãy làm ơn
 tham khảo từng tài liệu hoặc cách thực hiện.

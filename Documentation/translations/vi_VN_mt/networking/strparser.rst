@@ -122,7 +122,7 @@ strp_check_rcv được gọi để kiểm tra tin nhắn mới trên ổ cắm.
     dụ hoặc sau strp_unpause.
 
 Cuộc gọi lại
-=========
+============
 
 Có bảy cuộc gọi lại:
 
@@ -231,7 +231,7 @@ save_strp_stats và tổng hợp_strp_stats là các hàm trợ giúp để lưu
 và thống kê tổng hợp.
 
 Giới hạn tập hợp tin nhắn
-=======================
+=========================
 
 Trình phân tích cú pháp luồng cung cấp các cơ chế để hạn chế tài nguyên được tiêu thụ bởi
 tập hợp tin nhắn.
@@ -254,6 +254,6 @@ trình phân tích cú pháp thành 2*sk_rcvbuf của ổ cắm TCP.
 tới strp_process.
 
 Tác giả
-======
+=======
 
 Tom Herbert (tom@quantonium.net)

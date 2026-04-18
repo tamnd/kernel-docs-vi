@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Phiên bản thiết bị V4L2
---------------------
+-----------------------
 
 Mỗi phiên bản thiết bị được đại diện bởi một cấu trúc v4l2_device.
 Các thiết bị rất đơn giản chỉ có thể cấp phát cấu trúc này, nhưng hầu hết thời gian bạn

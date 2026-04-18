@@ -28,7 +28,7 @@ Thông tin về Bộ xử lý tăng tốc (APU)
    :file: ./apu-asic-info-table.csv
 
 Thông tin GPU rời rạc
------------------
+---------------------
 
 .. csv-table::
    :header-rows: 1

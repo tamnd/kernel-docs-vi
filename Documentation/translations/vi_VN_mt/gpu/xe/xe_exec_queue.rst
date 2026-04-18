@@ -20,7 +20,7 @@ Hàng đợi thực thi
    :doc: Execution Queue
 
 Nhóm nhiều hàng đợi
-=================
+===================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_exec_queue.c
    :doc: Multi Queue Group
@@ -28,7 +28,7 @@ Nhóm nhiều hàng đợi
 .. _multi-queue-group-guc-interface:
 
 Giao diện GuC nhóm nhiều hàng đợi
-===============================
+=================================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_guc_submit.c
    :doc: Multi Queue Group GuC interface

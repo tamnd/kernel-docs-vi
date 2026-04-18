@@ -141,7 +141,7 @@ Chỉ chuyển tiếp khung:
 
 
 Các vấn đề cụ thể của HĐQT
----------------------
+--------------------------
 
 n2.o và c101.o cần tham số để hoạt động ::
 

@@ -38,7 +38,7 @@ Trình điều khiển triển khai các giao diện V4L2, Media Controller và 
 hy vọng các cảm biến máy ảnh được kết nối với ISP sẽ có giao diện thiết bị con V4L2.
 
 Phần cứng Mali-C55 ISP
-=====================
+======================
 
 Dưới đây là chế độ xem chức năng cấp cao của Mali-C55 ISP. ISP
 lấy đầu vào từ nguồn trực tiếp hoặc thông qua công cụ DMA để đầu vào bộ nhớ,
@@ -61,7 +61,7 @@ tùy thuộc vào sự tích hợp SoC.::
                                                   Đầu ra +--------+
 
 Cấu trúc liên kết điều khiển phương tiện
-=========================
+========================================
 
 Một ví dụ về cấu trúc liên kết của ISP (như được triển khai trong hệ thống có IMX415
 cảm biến máy ảnh và bộ thu CSI-2 chung) bên dưới:
@@ -187,7 +187,7 @@ Nếu tuyến đường bị khử hoạt động thì ống FR chỉ có khả 
 đầu vào (có thể là dữ liệu Bayer hoặc RGB/YUV).
 
 Sử dụng trình điều khiển để quay video
-=================================
+======================================
 
 Bằng cách sử dụng API bộ điều khiển phương tiện, chúng ta có thể định cấu hình nguồn đầu vào và ISP để
 chụp ảnh ở nhiều định dạng khác nhau. Trong các ví dụ dưới đây, việc định cấu hình
@@ -206,7 +206,7 @@ liên kết truyền thông. Sử dụng cấu trúc liên kết mẫu ở trên
     media-ctl -l "'mali-c55 tpg':0->'mali-c55 isp':0[1]"
 
 Định cấu hình thiết bị video nào sẽ truyền dữ liệu
-------------------------------------------------
+--------------------------------------------------
 
 Trình điều khiển sẽ đợi tất cả các thiết bị video có VIDIOC_STREAMON ioctl
 được gọi trước khi nó báo cho cảm biến bắt đầu truyền phát. Để tạo điều kiện thuận lợi cho việc này chúng ta cần
@@ -303,7 +303,7 @@ biến thể đa mặt phẳng của nó)
     yavta -f NV12M -s 1920x1080 -c10 /dev/video0
 
 Thu thập dữ liệu RGB từ nguồn và xử lý dữ liệu đó bằng bộ thay đổi kích thước
-----------------------------------------------------------------------
+-----------------------------------------------------------------------------
 
 Mali-C55 ISP có thể hoạt động với các cảm biến có khả năng xuất dữ liệu RGB. Trong này
 trường hợp mặc dù không có khối chất lượng hình ảnh nào được sử dụng nhưng nó vẫn có thể
@@ -349,7 +349,7 @@ pipe vẫn có thể xử lý dữ liệu bình thường và sử dụng đồn
 .. _mali-c55-3a-stats:
 
 Chụp số liệu thống kê ISP
-========================
+=========================
 
 ISP có khả năng tạo số liệu thống kê tiêu thụ bằng cách xử lý hình ảnh
 các thuật toán chạy trong không gian người dùng. Những số liệu thống kê này có thể được nắm bắt bằng cách xếp hàng
@@ -419,7 +419,7 @@ trên.
 nên được đặt làm định dạng dữ liệu cho nút video ZZ0001ZZ.
 
 Tài liệu tham khảo
-==========
+==================
 .. [1] https://git.linuxtv.org/v4l-utils.git/
 .. [2] https://git.ideasonboard.org/yavta.git
 .. [3] https://developer.arm.com/Processors/Mali-C55

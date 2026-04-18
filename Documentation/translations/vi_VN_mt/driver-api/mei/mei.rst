@@ -32,7 +32,7 @@ tiêu đề và tải trọng lên tới số byte tối đa được khách hà
 khi kết nối.
 
 Trình điều khiển Intel MEI
-================
+==========================
 
 Trình điều khiển hiển thị một thiết bị ký tự với các nút thiết bị/dev/meiX.
 
@@ -219,7 +219,7 @@ Truy xuất sự kiện
 
 
 Chipset được hỗ trợ
-==================
+===================
 82X38/X48 Express và mới hơn
 
 linux-mei@linux.intel.com

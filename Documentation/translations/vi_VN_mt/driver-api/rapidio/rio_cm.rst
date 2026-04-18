@@ -18,7 +18,7 @@ Trình điều khiển thiết bị ký tự nhắn tin theo kênh của hệ th
 
 
 1. Tổng quan
-===========
+============
 
 Trình điều khiển thiết bị này là kết quả của sự hợp tác trong RapidIO.org
 Nhóm nhiệm vụ phần mềm (STG) giữa Texas Instruments, Prodrive Technologies,
@@ -101,7 +101,7 @@ Mã lệnh ioctl và cấu trúc dữ liệu tương ứng được thiết kế
 các ứng dụng trong không gian người dùng được xác định trong 'include/uapi/linux/rio_cm_cdev.h'.
 
 2. Khả năng tương thích phần cứng
-=========================
+=================================
 
 Trình điều khiển thiết bị này sử dụng các giao diện tiêu chuẩn được xác định bởi hệ thống con RapidIO kernel
 và do đó nó có thể được sử dụng với bất kỳ trình điều khiển thiết bị mport nào được RapidIO đăng ký
@@ -133,17 +133,17 @@ hộp thư.
         số kênh được xác định trước dành riêng.
 
 4. Các vấn đề đã biết
-=================
+=====================
 
 Không có.
 
 5. Ứng dụng không gian người dùng và Thư viện API
-==========================================
+=================================================
 
 Thư viện tin nhắn API và các ứng dụng sử dụng trình điều khiển thiết bị này có sẵn
 từ RapidIO.org.
 
 6. Danh sách TODO
-============
+=================
 
 - Thêm hỗ trợ tin nhắn thông báo hệ thống (kênh dành riêng 0).

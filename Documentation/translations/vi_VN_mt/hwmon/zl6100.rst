@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân zl6100
-====================
+================================
 
 Chip được hỗ trợ:
 
@@ -170,7 +170,7 @@ trên trình điều khiển máy khách PMBus.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 thiết bị một cách rõ ràng. Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết
@@ -188,7 +188,7 @@ chi tiết.
 
 
 Hỗ trợ dữ liệu nền tảng
----------------------
+-----------------------
 
 Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
 
@@ -197,7 +197,7 @@ Thông số mô-đun
 -----------------
 
 trì hoãn
------
+--------
 
 Bộ điều khiển DC-DC của Renesas/Intersil/Zilker Labs yêu cầu khoảng thời gian tối thiểu
 giữa các lần truy cập xe buýt I2C. Theo Intersil, khoảng thời gian tối thiểu là 2 ms,
@@ -208,7 +208,7 @@ trình điều khiển cung cấp một tham số mô-đun có thể ghi, 'độ
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Giới hạn là đọc-ghi; tất cả những thứ khác
 thuộc tính chỉ đọc.

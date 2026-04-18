@@ -30,7 +30,7 @@ cao thì tỷ lệ các mẫu hạt nhân tìm lỗi gợi ý NUMA có thể là
 
 
 scan_ Period_min_ms, scan_delay_ms, scan_ Period_max_ms, scan_size_mb
--------------------------------------------------------------------
+---------------------------------------------------------------------
 
 Tự động cân bằng NUMA quét không gian địa chỉ của tác vụ và hủy ánh xạ các trang tới
 phát hiện xem các trang có được đặt đúng vị trí hay không hoặc dữ liệu có nên được di chuyển sang một

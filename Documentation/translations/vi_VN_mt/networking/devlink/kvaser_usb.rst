@@ -20,7 +20,7 @@ Tài liệu này mô tả các tính năng của devlink được triển khai b
 Trình điều khiển thiết bị ZZ0000ZZ.
 
 Phiên bản thông tin
-=============
+===================
 
 Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
 

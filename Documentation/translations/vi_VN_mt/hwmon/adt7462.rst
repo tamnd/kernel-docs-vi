@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adt7462
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -54,7 +54,7 @@ các thanh ghi thường xuyên hơn một lần mỗi giây. Hơn nữa,
 dữ liệu cấu hình chỉ được đọc một lần mỗi phút.
 
 Tính năng đặc biệt
-----------------
+------------------
 
 ADT7462 có ADC 10 bit và do đó có thể đo nhiệt độ
 với độ phân giải 0,25 độ C.

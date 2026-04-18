@@ -30,7 +30,7 @@ bản sao bổ sung bằng cách thực hiện đọc và ghi trực tiếp vào
 
 
 Cách sử dụng
------
+------------
 
 Nếu bạn có một thiết bị khối hỗ trợ ZZ0000ZZ, bạn có thể tạo một hệ thống tập tin
 trên đó như thường lệ.  Mã ZZ0001ZZ hiện chỉ hỗ trợ các tệp có khối
@@ -41,7 +41,7 @@ Hiện tại có 5 hệ thống tập tin hỗ trợ ZZ0000ZZ: ext2, ext4, xfs, 
 Việc kích hoạt ZZ0001ZZ trên chúng là khác nhau.
 
 Kích hoạt DAX trên ext2 và erofs
-------------------------------
+--------------------------------
 
 Khi gắn hệ thống tập tin, hãy sử dụng tùy chọn ZZ0000ZZ trên dòng lệnh hoặc
 thêm 'dax' vào các tùy chọn trong ZZ0001ZZ.  Điều này hoạt động để kích hoạt ZZ0003ZZ trên tất cả các tệp
@@ -49,10 +49,10 @@ trong hệ thống tập tin.  Nó tương đương với hành vi ZZ0002ZZ bên
 
 
 Kích hoạt DAX trên xfs và ext4
-----------------------------
+------------------------------
 
 Bản tóm tắt
--------
+-----------
 
 1. Tồn tại cờ chế độ truy cập tệp trong kernel ZZ0000ZZ tương ứng với
     cờ statx ZZ0001ZZ.  Xem trang chủ về statx(2) để biết chi tiết
@@ -109,7 +109,7 @@ c) Thay đổi cờ ZZ0000ZZ trên các tệp thông thường hiện có và
 
 
 Chi tiết
--------
+--------
 
 Có 2 cờ dax cho mỗi tệp.  Một là cài đặt inode liên tục (ZZ0000ZZ)
 và cái còn lại là cờ dễ bay hơi cho biết trạng thái hoạt động của tính năng
@@ -199,7 +199,7 @@ kiểm tra cờ statx ZZ0001ZZ để xem DAX có được bật cho tệp này k
 
 
 Mẹo triển khai dành cho người viết trình điều khiển khối
---------------------------------------------
+--------------------------------------------------------
 
 Để hỗ trợ ZZ0000ZZ trong trình điều khiển khối của bạn, hãy triển khai 'direct_access'
 chặn hoạt động của thiết bị.  Nó được sử dụng để dịch số ngành
@@ -224,7 +224,7 @@ Những thiết bị khối này có thể được sử dụng để lấy cả
 
 
 Mẹo triển khai dành cho người viết hệ thống tập tin
-------------------------------------------
+---------------------------------------------------
 
 Hỗ trợ hệ thống tập tin bao gồm:
 
@@ -294,7 +294,7 @@ người lái xe).
 
 
 Những thiếu sót
-------------
+---------------
 
 Ngay cả khi hạt nhân hoặc các mô-đun của nó được lưu trữ trên hệ thống tập tin hỗ trợ
 ZZ0000ZZ trên thiết bị khối hỗ trợ ZZ0001ZZ, chúng vẫn sẽ được sao chép vào RAM.

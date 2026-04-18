@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Dự thảo Bảo mật IP IETF CIPSO
-----------------------------
+-----------------------------
 
  .. include:: draft-ietf-cipso-ipsecurity-01.txt
     :literal:

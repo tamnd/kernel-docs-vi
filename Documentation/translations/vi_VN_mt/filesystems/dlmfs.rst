@@ -30,7 +30,7 @@ dlmfs được xây dựng bằng OCFS2 vì nó yêu cầu hầu hết cơ sở 
 Tất cả các mã bản quyền 2005 Oracle trừ khi có ghi chú khác.
 
 Tín dụng
-=======
+========
 
 Một số mã lấy từ ramfs Copyright ZZ0000ZZ 2000 Linus Torvalds
 và Tập đoàn Transmeta.
@@ -38,16 +38,16 @@ và Tập đoàn Transmeta.
 Đánh dấu Fasheh <mark.fasheh@oracle.com>
 
 Hãy cẩn thận
-=======
+============
 - Hiện tại nó chỉ hoạt động với OCFS2 DLM, mặc dù hỗ trợ cho các thiết bị khác
   Việc triển khai DLM không phải là vấn đề lớn.
 
 Tùy chọn gắn kết
-=============
+================
 Không có
 
 Cách sử dụng
-=====
+============
 
 Nếu bạn chỉ quan tâm đến OCFS2, vui lòng xem ocfs2.rst. các
 phần còn lại của tài liệu này sẽ hướng tới những người muốn sử dụng
@@ -55,7 +55,7 @@ dlmfs để dễ cài đặt và dễ sử dụng khóa theo cụm
 không gian người dùng.
 
 Cài đặt
-=====
+=======
 
 dlmfs yêu cầu cơ sở hạ tầng cụm OCFS2 ở
 nơi. Vui lòng tải xuống ocfs2-tools từ url trên và định cấu hình

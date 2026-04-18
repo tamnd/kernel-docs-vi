@@ -119,7 +119,7 @@ tiếp tục liệt kê các định dạng được phần cứng hỗ trợ, c
 .. _libv4l-ops:
 
 Chức năng điều khiển thiết bị Libv4l
--------------------------------
+------------------------------------
 
 Các phương thức thao tác tệp phổ biến được cung cấp bởi libv4l.
 
@@ -179,7 +179,7 @@ Các chức năng này cung cấp khả năng kiểm soát bổ sung:
    accessed for some reason, or some error occurred 0 is returned.
 
 thư viện trình bao bọc v4l1compat.so
-=============================
+====================================
 
 Thư viện này chặn các cuộc gọi đến
 ZZ0000ZZ, ZZ0001ZZ,

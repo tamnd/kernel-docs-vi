@@ -112,7 +112,7 @@ Giá trị trả về:
         * EINVAL: Vector không được hỗ trợ.
 
 2. Cấu hình thời gian chạy hệ thống (sysctl)
------------------------------------------
+--------------------------------------------
 
 Để giảm thiểu tác động của ABI khi mở rộng ngăn xếp tín hiệu,
 cơ chế chính sách được cung cấp cho quản trị viên, người duy trì bản phân phối và
@@ -144,7 +144,7 @@ Sửa đổi trạng thái kích hoạt mặc định của hệ thống không 
     trạng thái của bất kỳ quy trình luồng hiện có nào không thực hiện lệnh gọi execve().
 
 3. Trạng thái đăng ký vectơ trên các lệnh gọi hệ thống
----------------------------------------------
+------------------------------------------------------
 
 Như được chỉ ra trong phiên bản 1.0 của phần mở rộng V [1], các thanh ghi vectơ là
 bị chặn bởi các cuộc gọi hệ thống.

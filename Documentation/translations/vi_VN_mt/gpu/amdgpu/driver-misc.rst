@@ -53,13 +53,13 @@ nhà sản xuất
    :doc: manufacturer
 
 duy nhất_id
----------
+-----------
 
 .. kernel-doc:: drivers/gpu/drm/amd/pm/amdgpu_pm.c
    :doc: unique_id
 
 bảng_thông tin
-----------
+--------------
 
 .. kernel-doc:: drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
    :doc: board_info

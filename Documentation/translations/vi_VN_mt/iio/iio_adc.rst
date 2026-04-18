@@ -17,7 +17,7 @@ Tóm tắt IIO cho ADC
 ===========================
 
 1. Tổng quan
-===========
+============
 
 Hệ thống con IIO hỗ trợ nhiều Bộ chuyển đổi Tương tự sang Kỹ thuật số (ADC). Một số ADC
 có các tính năng và đặc điểm được IIO hỗ trợ theo những cách cụ thể

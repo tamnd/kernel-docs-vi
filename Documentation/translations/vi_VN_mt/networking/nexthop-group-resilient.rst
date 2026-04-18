@@ -86,7 +86,7 @@ tiếp tục được chuyển tiếp đến cùng các điểm cuối thông qu
 sự thay đổi của nhóm next-hop.
 
 Thuật toán
----------
+----------
 
 Tóm lại, thuật toán hoạt động như sau. Mỗi bước nhảy tiếp theo xứng đáng có một
 số lượng xô nhất định, tùy theo trọng lượng của nó và số lượng
@@ -134,7 +134,7 @@ mục. Vì vậy, xô:
 \... cũng được di chuyển.
 
 Giảm tải & Phản hồi của trình điều khiển
-----------------------------
+----------------------------------------
 
 Khi giảm tải các nhóm linh hoạt, thuật toán phân phối các nhóm
 trong số các bước nhảy tiếp theo vẫn là bước nhảy ở SW. Trình điều khiển được thông báo về các bản cập nhật cho
@@ -194,7 +194,7 @@ Tải trọng ZZ0000ZZ:
   =================================================================================
 
 Bước nhảy tiếp theo Nhận
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Yêu cầu có được các nhóm bước nhảy tiếp theo linh hoạt sử dụng ZZ0000ZZ
 nhắn tin theo cách giống hệt như các yêu cầu nhận bước nhảy tiếp theo khác. các
@@ -249,7 +249,7 @@ Tải trọng ZZ0000ZZ:
   ==================================================================================
 
 Cách sử dụng
------
+------------
 
 Để minh họa cách sử dụng, hãy xem xét các lệnh sau::
 

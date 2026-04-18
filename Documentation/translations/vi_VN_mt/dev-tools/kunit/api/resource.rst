@@ -25,7 +25,7 @@ nêu trên cơ sở mỗi lần kiểm tra, đăng ký các hành động dọn 
    :internal:
 
 Thiết bị được quản lý
----------------
+---------------------
 
 Các chức năng sử dụng thiết bị cấu trúc do KUnit quản lý và struct device_driver.
 Bao gồm ZZ0000ZZ để sử dụng chúng.

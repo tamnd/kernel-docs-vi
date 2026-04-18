@@ -28,7 +28,7 @@ sửa đổi, chỉ khi root cho phép thiết bị được cấu hình mới
 thì có thể sử dụng nó.
 
 Cách sử dụng
-=====
+============
 
 Cho phép một thiết bị kết nối::
 
@@ -53,7 +53,7 @@ chỉ các thiết bị được kết nối với cổng USB bên trong.
 
 
 Khóa hệ thống mẫu (khập khiễng)
-------------------------------
+-------------------------------
 
 Hãy tưởng tượng bạn muốn thực hiện khóa để chỉ các thiết bị thuộc loại XYZ
 có thể được kết nối (ví dụ: đó là máy kiosk có thể nhìn thấy

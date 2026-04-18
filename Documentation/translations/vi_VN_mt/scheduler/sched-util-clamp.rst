@@ -128,7 +128,7 @@ ZZ0001ZZ về cách thay đổi tác vụ RT
 giá trị mặc định.
 
 2. Thiết kế
-=========
+===========
 
 Kẹp Util là thuộc tính của mọi tác vụ trong hệ thống. Nó đặt ra ranh giới của
 tín hiệu sử dụng của nó; hoạt động như một cơ chế thiên vị ảnh hưởng đến một số
@@ -337,7 +337,7 @@ giá trị uclamp của nó, nhưng đúng hơn là hệ thống có thể khôn
 dựa trên những yếu tố đó.
 
 2.4. Phạm vi
-----------
+------------
 
 Yêu cầu hiệu suất Uclamp có phạm vi từ 0 đến 1024.
 
@@ -350,7 +350,7 @@ Cũng giống như các giao diện cgroup khác, bạn có thể sử dụng 'm
 =============
 
 3.1. Mỗi giao diện nhiệm vụ
------------------------
+---------------------------
 
 sched_setattr() syscall đã được mở rộng để chấp nhận hai trường mới:
 
@@ -447,7 +447,7 @@ Lưu ý rằng giao diện cgroup cho phép giá trị cpu.uclamp.max thấp hơ
 cpu.uclamp.min. Các giao diện khác không cho phép điều đó.
 
 3.3. Giao diện hệ thống
----------------------
+-----------------------
 
 3.3.1 lịch_util_clamp_min
 --------------------------
@@ -486,7 +486,7 @@ Giá trị phải lớn hơn hoặc bằng sched_util_clamp_min.
 .. _uclamp-default-values:
 
 3.4. Giá trị mặc định
--------------------
+---------------------
 
 Theo mặc định, tất cả các tác vụ SCHED_NORMAL/SCHED_OTHER được khởi tạo thành:
 
@@ -530,7 +530,7 @@ về 0 bởi các nhà thiết kế hệ thống và để lại nhiệm vụ qu
 yêu cầu đối với các ứng dụng.
 
 4. Cách sử dụng kẹp tiện ích
-========================
+============================
 
 Kẹp Util thúc đẩy khái niệm về hiệu suất và sức mạnh hỗ trợ không gian người dùng
 quản lý. Ở cấp độ người lập lịch, không có thông tin cần thiết để thực hiện tốt nhất
@@ -551,7 +551,7 @@ Có đủ khả năng để tạo toàn bộ khung dựa trên util kẹp
 hoặc ứng dụng độc lập sử dụng nó trực tiếp.
 
 4.1. Tăng cường các tác vụ quan trọng và nhạy cảm với độ trễ DVFS
------------------------------------------------------
+-----------------------------------------------------------------
 
 Tác vụ GUI có thể không bận để đảm bảo điều khiển tần số cao khi nó
 thức dậy. Tuy nhiên, nó yêu cầu phải hoàn thành công việc của mình trong một khoảng thời gian cụ thể
@@ -571,14 +571,14 @@ CPU nhanh hơn.
 điều này sẽ bao hàm cả vị trí nhiệm vụ và lựa chọn tần suất**.
 
 4.2. Giới hạn các tác vụ nền
--------------------------
+----------------------------
 
 Giống như đã giải thích cho trường hợp Android trong phần giới thiệu. Ứng dụng nào cũng có thể hạ thấp
 UCLAMP_MAX cho một số tác vụ nền không quan tâm đến hiệu suất nhưng
 cuối cùng có thể bận rộn và tiêu tốn tài nguyên hệ thống không cần thiết trên hệ thống.
 
 4.3. Chế độ tiết kiệm năng lượng
--------------------
+--------------------------------
 
 Giao diện toàn hệ thống sched_util_clamp_max có thể được sử dụng để giới hạn tất cả các tác vụ từ
 hoạt động ở các điểm hiệu suất cao hơn thường là năng lượng
@@ -589,7 +589,7 @@ tần số của thống đốc cpufreq. Nó có thể được coi là thuận 
 giao diện thay thế.
 
 4.4. Hạn chế hiệu suất trên mỗi ứng dụng
-------------------------------------
+----------------------------------------
 
 Middleware/Utility có thể cung cấp cho người dùng tùy chọn để đặt UCLAMP_MIN/MAX cho một
 app mỗi khi nó được thực thi để đảm bảo điểm hiệu suất tối thiểu và/hoặc
@@ -607,7 +607,7 @@ có thể.
 .. _uclamp-capping-fail:
 
 5.1. Giới hạn tần suất với uclamp_max không thành công trong một số điều kiện nhất định
----------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 
 Nếu tác vụ p0 bị giới hạn chạy ở mức 512:
 
@@ -637,7 +637,7 @@ từ rq mặc dù p1, được phép chạy ở bất kỳ điểm hiệu suất
 thực sự không cần phải chạy ở tần số đó.
 
 5.2. UCLAMP_MAX có thể ngắt tín hiệu PELT (util_avg)
-------------------------------------------------
+----------------------------------------------------
 
 PELT giả định rằng tần số sẽ luôn tăng khi tín hiệu tăng để đảm bảo
 luôn có một khoảng thời gian nhàn rỗi trên CPU. Nhưng với UCLAMP_MAX, tần số này
@@ -723,7 +723,7 @@ rq->util_avg = 500
 và chạy ở đâu đó gần điểm hiệu suất trung bình của CPU đó, không phải Fmax mà chúng tôi nhận được.
 
 5.3. Vấn đề về thời gian phản hồi của Scheduleutil
------------------------------------
+--------------------------------------------------
 
 schedutil có ba hạn chế:
 

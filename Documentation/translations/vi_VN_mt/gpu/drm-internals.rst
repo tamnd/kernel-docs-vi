@@ -33,7 +33,7 @@ quản lý, gửi lệnh và đấu kiếm, tạm dừng/tiếp tục hỗ trợ
 Dịch vụ DMA.
 
 Khởi tạo trình điều khiển
-=====================
+=========================
 
 Cốt lõi của mọi trình điều khiển DRM là cấu trúc ZZ0000ZZ. Trình điều khiển thường khởi tạo tĩnh
 cấu trúc drm_driver, sau đó chuyển nó tới
@@ -52,7 +52,7 @@ Thông tin tài xế
 ------------------
 
 Cấp chính, cấp phụ và cấp bản vá
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 int chính; int thứ; int patchlevel;
 Lõi DRM xác định các phiên bản trình điều khiển theo phiên bản chính, phụ và bản vá
@@ -88,7 +88,7 @@ Khởi tạo mô-đun
    :doc: overview
 
 Xử lý phiên bản thiết bị và trình điều khiển
------------------------------------
+--------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_drv.c
    :doc: driver instance overview
@@ -103,10 +103,10 @@ Xử lý phiên bản thiết bị và trình điều khiển
    :export:
 
 Tải trình điều khiển
------------
+--------------------
 
 Cách sử dụng trình trợ giúp thành phần
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: drivers/gpu/drm/drm_drv.c
    :doc: component helper usage recommendations
@@ -136,7 +136,7 @@ các BAR khác, do đó, việc để nó được ánh xạ có thể gây ra h
 bị treo hoặc hỏng bộ nhớ.
 
 Tài nguyên được quản lý
------------------
+-----------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_managed.c
    :doc: managed resources
@@ -153,7 +153,7 @@ Mở/Đóng, thao tác tệp và IOCTL
 .. _drm_driver_fops:
 
 Hoạt động tập tin
----------------
+-----------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_file.c
    :doc: file operations
@@ -190,10 +190,10 @@ Tiện ích
 
 
 Kiểm tra đơn vị
-============
+===============
 
 KUđơn vị
------
+--------
 
 KUnit (Khung kiểm thử đơn vị hạt nhân) cung cấp một khung chung cho các thử nghiệm đơn vị
 bên trong nhân Linux.
@@ -202,7 +202,7 @@ Phần này bao gồm các chi tiết cụ thể cho hệ thống con DRM. Để
 về KUnit, vui lòng tham khảo Tài liệu/dev-tools/kunit/start.rst.
 
 Làm thế nào để chạy thử nghiệm?
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Để thuận tiện cho việc chạy bộ thử nghiệm, có một tệp cấu hình
 trong ZZ0000ZZ. Nó có thể được sử dụng bởi ZZ0001ZZ như
@@ -221,7 +221,7 @@ sau:
 	included in it because they are only required for User Mode Linux.
 
 Quy tắc bảo hiểm KUnit
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 Hỗ trợ KUnit dần dần được thêm vào khung và trình trợ giúp DRM. không có
 yêu cầu chung đối với khung và người trợ giúp phải có các bài kiểm tra KUnit tại
@@ -239,7 +239,7 @@ mã gửi lệnh. Không sử dụng bất kỳ thứ gì trong số này trong 
 trình điều khiển.
 
 Tạm dừng/Tiếp tục kế thừa
----------------------
+-------------------------
 
 Lõi DRM cung cấp một số mã tạm dừng/tiếp tục, nhưng trình điều khiển muốn có đầy đủ
 hỗ trợ tạm dừng/tiếp tục phải cung cấp các hàm save() và recovery().

@@ -29,7 +29,7 @@ Làm cách nào để s2ram hoạt động
 3) Bạn có thể sử dụng cơ sở hạ tầng TRACE_RESUME của Linus, được mô tả bên dưới.
 
 Sử dụng TRACE_RESUME
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 Tôi đang nghiên cứu chế tạo những chiếc máy mà tôi có thể tạo ra STR, và gần như
 luôn luôn là một trình điều khiển có lỗi. Cảm ơn Chúa vì đã tạm dừng/tiếp tục

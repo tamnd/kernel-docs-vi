@@ -33,7 +33,7 @@ Trình điều khiển chính xe buýt I2C đang sử dụng USB làm cầu nố
 bộ đệm luôn an toàn vì USB yêu cầu nó.
 
 Khách hàng
--------
+----------
 
 Đối với khách hàng, nếu bạn sử dụng bộ đệm an toàn DMA trong i2c_msg, hãy đặt I2C_M_DMA_SAFE
 gắn cờ với nó. Sau đó, lõi I2C và trình điều khiển biết rằng họ có thể vận hành DMA một cách an toàn

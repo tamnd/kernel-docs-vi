@@ -19,7 +19,7 @@ Bảng điều khiển
 .. contents:: :local:
 
 Bảng điều khiển cấu trúc
-==============
+========================
 
 .. kernel-doc:: include/linux/console.h
    :identifiers: console cons_flags
@@ -31,13 +31,13 @@ Nội bộ
    :identifiers: nbcon_state nbcon_prio nbcon_context nbcon_write_context
 
 Cấu trúc Consw
-============
+==============
 
 .. kernel-doc:: include/linux/console.h
    :identifiers: consw
 
 Chức năng điều khiển
-=================
+====================
 
 .. kernel-doc:: include/linux/console.h
    :identifiers: console_srcu_read_flags console_srcu_write_flags

@@ -62,7 +62,7 @@ thiết bị và trình điều khiển cho cả thiết bị ZZ0000ZZ và ZZ000
 
 
 Ít hơn 8 bit cho mỗi thành phần
-==============================
+===============================
 
 Các định dạng này lưu trữ bộ ba RGB trong một, hai hoặc bốn byte. Họ được đặt tên
 dựa trên thứ tự của các thành phần RGB như được thấy trong từ 8, 16 hoặc 32 bit,
@@ -654,7 +654,7 @@ B\ZZ0031ZZ].
 
 
 8 bit cho mỗi thành phần
-====================
+========================
 
 Các định dạng này lưu trữ bộ ba RGB trong ba hoặc bốn byte. Chúng được đặt tên dựa
 theo thứ tự của các thành phần RGB được lưu trong bộ nhớ và trên tổng số
@@ -778,7 +778,7 @@ Từ endian nhỏ 32-bit.
 
 
 10 bit cho mỗi thành phần
-=====================
+=========================
 
 Các định dạng này lưu trữ bộ ba RGB 30 bit với alpha 2 bit tùy chọn trong bốn
 byte. Chúng được đặt tên dựa trên thứ tự của các thành phần RGB như được thấy trong
@@ -1011,7 +1011,7 @@ sắp xếp theo thứ tự endian nhỏ.
     \normalsize
 
 16 bit cho mỗi thành phần
-=====================
+=========================
 
 Các định dạng này lưu trữ bộ ba RGB trong sáu byte, với 16 bit cho mỗi thành phần
 được lưu trữ trong bộ nhớ theo thứ tự byte endian nhỏ. Chúng được đặt tên dựa trên thứ tự
@@ -1065,7 +1065,7 @@ từ cuối nhỏ 48-bit.
     \normalsize
 
 Định dạng RGB không được dùng nữa
-======================
+=================================
 
 Các định dạng được xác định trong ZZ0000ZZ không được dùng nữa và không được
 được sử dụng bởi trình điều khiển mới. Chúng được ghi lại ở đây để tham khảo. Ý nghĩa của

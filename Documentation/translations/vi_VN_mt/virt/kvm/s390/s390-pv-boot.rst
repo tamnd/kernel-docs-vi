@@ -17,7 +17,7 @@ s390 (IBM Z) Boot/IPL của máy ảo được bảo vệ
 ============================================
 
 Bản tóm tắt
--------
+-----------
 Bộ nhớ của Máy ảo được bảo vệ (PVM) không thể truy cập được
 I/O hoặc bộ ảo hóa. Trong những trường hợp mà hypervisor cần
 truy cập vào bộ nhớ của PVM, bộ nhớ đó phải ở chế độ có thể truy cập được.

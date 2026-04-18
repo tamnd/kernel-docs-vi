@@ -70,7 +70,7 @@ PARAMS_PHYS
 
 
 Ký hiệu hạt nhân
---------------
+----------------
 
 PHYS_OFFSET
 	Địa chỉ bắt đầu vật lý của ngân hàng đầu tiên của RAM.

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Giới thiệu về Trình ảo hóa ACRN
-============================
+===============================
 
 ACRN Hypervisor là trình ảo hóa loại 1, chạy trực tiếp trên kim loại trần
 phần cứng. Nó có một VM quản lý đặc quyền, được gọi là Service VM, để quản lý Người dùng

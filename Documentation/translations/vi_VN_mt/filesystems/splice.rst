@@ -17,7 +17,7 @@ mối nối và đường ống
 ====================
 
 mối nối API
-==========
+===========
 
 mối nối là một phương pháp để di chuyển các khối dữ liệu xung quanh bên trong kernel,
 mà không liên tục chuyển chúng giữa kernel và không gian người dùng.

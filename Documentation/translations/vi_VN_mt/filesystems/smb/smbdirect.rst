@@ -20,7 +20,7 @@ Tài liệu này mô tả cách thiết lập máy khách và máy chủ Linux S
 sử dụng RDMA.
 
 Tổng quan
-========
+=========
 Máy khách nhân Linux SMB hỗ trợ SMB Direct, đây là một phương thức vận chuyển
 lược đồ cho SMB3 sử dụng RDMA (Truy cập bộ nhớ trực tiếp từ xa) để cung cấp
 thông lượng cao và độ trễ thấp bằng cách bỏ qua TCP/IP truyền thống
@@ -86,7 +86,7 @@ Thiết lập máy khách
   mô-đun cifs.ko và ksmbd.ko.
 
 Thiết lập và sử dụng
-================
+====================
 
 - Thiết lập và khởi động máy chủ KSMBD như được mô tả trong ZZ0000ZZ.
   Đồng thời thêm tham số "hỗ trợ đa kênh máy chủ = có" vào ksmbd.conf.

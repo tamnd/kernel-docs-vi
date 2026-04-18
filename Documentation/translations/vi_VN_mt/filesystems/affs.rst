@@ -157,7 +157,7 @@ Các tệp và thư mục mới được tạo sẽ nhận được ID người 
 của người dùng hiện tại và một chế độ theo ô.
 
 Liên kết tượng trưng
-==============
+====================
 
 Mặc dù hệ thống tập tin Amiga và Linux giống nhau nhưng vẫn có
 có một số khác biệt, không phải lúc nào cũng tinh tế. Một trong số chúng trở nên rõ ràng

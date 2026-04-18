@@ -26,7 +26,7 @@ cổng nối tiếp không đồng bộ, chức năng âm thanh và giao diện 
 Thiết bị có thể được kết nối bằng PCI hoặc bus cục bộ với các chức năng khác nhau được bật.
 
 Cốt lõi
-----
+-------
 
 Trình điều khiển cốt lõi trong driver/mfd cung cấp các dịch vụ chung cho
 trình điều khiển quản lý các khối phần cứng cụ thể. Những dịch vụ này
@@ -46,7 +46,7 @@ cần tạo một loại bus mới và mã liên quan đi kèm với nó.
 
 
 Tài nguyên
----------
+----------
 
 Mỗi thiết bị ngoại vi có một cái nhìn về thiết bị được thu hẹp hoàn toàn
 tập hợp các tài nguyên cụ thể mà thiết bị ngoại vi yêu cầu để

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân w1_ds2438
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -51,7 +51,7 @@ Khi ghi vào tệp sysfs, các bit 2-7 bị bỏ qua, vì vậy việc ghi ASCII
 Lỗi I/O được trả về khi có sự cố khi đặt giá trị mới.
 
 "trang0"
--------
+--------
 Tệp này cung cấp đầy đủ 8 byte của chip Trang 0 (00h).
 Trang này chứa thông tin được truy cập thường xuyên nhất của DS2438.
 Bên trong khi tệp này được đọc, byte CRC bổ sung cũng được lấy
@@ -59,7 +59,7 @@ từ thiết bị nô lệ. Nếu đúng, dữ liệu trang 8 byte sẽ được
 vào không gian người dùng, nếu không sẽ trả về lỗi I/O.
 
 "trang 1"
--------
+---------
 File này cung cấp đầy đủ 8 byte của chip Trang 1 (01h).
 Trang này chứa ICA, đồng hồ đo thời gian đã trôi qua và dữ liệu offset hiện tại của DS2438.
 Bên trong khi tệp này được đọc, byte CRC bổ sung cũng được lấy

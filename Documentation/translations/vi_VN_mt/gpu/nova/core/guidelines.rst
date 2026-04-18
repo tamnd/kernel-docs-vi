@@ -20,7 +20,7 @@ Tài liệu này chứa các hướng dẫn dành cho nova-core. Ngoài ra, tấ
 hướng dẫn của dự án Nova được áp dụng.
 
 Trình điều khiển API
-==========
+====================
 
 Một mục đích chính của nova-core là triển khai tính trừu tượng xung quanh
 giao diện phần sụn của GSP và cung cấp phần sụn (phiên bản) API độc lập cho

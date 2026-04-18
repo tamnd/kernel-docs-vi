@@ -29,7 +29,7 @@ Mô-đun ib_uverbs, được xây dựng bằng cách bật CONFIG_INFINIBAND_US
   Trình điều khiển không gian người dùng libmthca được cài đặt.
 
 Giao tiếp hạt nhân-người dùng
-=========================
+=============================
 
 Không gian người dùng giao tiếp với kernel để biết đường dẫn chậm, tài nguyên
   hoạt động quản lý thông qua ký tự /dev/infiniband/uverbsN
@@ -73,7 +73,7 @@ Các trang được ghim nhiều lần sẽ được tính mỗi lần chúng đ
   số trang được ghim bởi một tiến trình.
 
 tập tin /dev
-==========
+============
 
 Để tự động tạo các tập tin thiết bị ký tự phù hợp với
   udev, một quy tắc như::

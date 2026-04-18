@@ -17,7 +17,7 @@
 .. _media-ccs-driver:
 
 Trình điều khiển cảm biến máy ảnh MIPI CCS
-=============================
+==========================================
 
 Trình điều khiển cảm biến máy ảnh MIPI CCS là trình điều khiển chung dành cho tuân thủ ZZ0000ZZ
 cảm biến máy ảnh.
@@ -25,7 +25,7 @@ cảm biến máy ảnh.
 Xem thêm ZZ0000ZZ.
 
 Dữ liệu tĩnh CCS
----------------
+----------------
 
 Trình điều khiển MIPI CCS hỗ trợ dữ liệu tĩnh CCS cho tất cả các thiết bị tuân thủ,
 bao gồm không chỉ những sản phẩm tương thích với CCS 1.1 mà còn cả CCS 1.0 và SMIA(++).
@@ -47,7 +47,7 @@ vvvv hoặc vv lần lượt biểu thị ID nhà sản xuất MIPI và SMIA, ID
 và số sửa đổi rrrr hoặc rr.
 
 Dụng cụ CCS
-~~~~~~~~~
+~~~~~~~~~~~
 
 ZZ0000ZZ là một bộ
 công cụ để làm việc với các tệp dữ liệu tĩnh CCS. Công cụ CCS bao gồm một
@@ -64,7 +64,7 @@ các tệp đã tạo, vui lòng không sửa đổi chúng theo cách thủ cô
 vô ích mà thay vào đó hãy thay đổi kịch bản tạo ra chúng.
 
 Cách sử dụng
-~~~~~
+~~~~~~~~~~~~
 
 Thông thường tập lệnh được gọi theo cách này để cập nhật trình điều khiển CCS
 định nghĩa:

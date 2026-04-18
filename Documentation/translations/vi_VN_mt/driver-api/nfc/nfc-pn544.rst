@@ -18,7 +18,7 @@ Trình điều khiển hạt nhân cho chip Giao tiếp trường gần NXP củ
 
 
 Tổng quan
--------
+---------
 
 PN544 là mô-đun truyền dẫn tích hợp dành cho thiết bị không tiếp xúc
 giao tiếp. Trình điều khiển nằm trong ổ đĩa/nfc/ và được biên dịch dưới dạng

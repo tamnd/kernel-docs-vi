@@ -21,7 +21,7 @@ mã trong ngăn xếp I2C/SMBus.
 
 
 “Lỗi” không phải lúc nào cũng là “Lỗi”
-----------------------------------
+--------------------------------------
 Không phải tất cả các báo cáo lỗi đều ám chỉ lỗi; “lỗi trang” hẳn là một điều quen thuộc
 ví dụ.  Phần mềm thường thử lại các hoạt động bình thường sau khi tạm thời
 lỗi.  Có thể có những kế hoạch phục hồi phức tạp hơn phù hợp trong

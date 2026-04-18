@@ -69,7 +69,7 @@ Giao dịch Wound-Wait được coi là được ưu tiên khi nó chết (trả
 -EDEADLK) sau vết thương.
 
 Khái niệm
---------
+---------
 
 So với các mutex thông thường, hai khái niệm/đối tượng bổ sung xuất hiện trong khóa
 giao diện cho w/w mutexes:
@@ -122,7 +122,7 @@ Tất nhiên, tất cả các biến thể thông thường để xử lý việ
 được cung cấp.
 
 Cách sử dụng
------
+------------
 
 Thuật toán (Wait-Die vs Wound-Wait) được chọn bằng cách sử dụng một trong hai
 DEFINE_WW_CLASS() (Chờ vết thương) hoặc DEFINE_WD_CLASS() (Chờ chết)
@@ -347,7 +347,7 @@ Chi tiết triển khai
 ----------------------
 
 Thiết kế:
-^^^^^^^
+^^^^^^^^^
 
 ww_mutex hiện đang đóng gói một mutex struct, điều này có nghĩa là không cần thêm chi phí cho
   khóa mutex bình thường, phổ biến hơn nhiều. Như vậy chỉ có một phần nhỏ

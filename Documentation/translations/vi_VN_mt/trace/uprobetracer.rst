@@ -20,7 +20,7 @@ Uprobe-tracer: Theo dõi sự kiện dựa trên Uprobe
 
 
 Tổng quan
---------
+---------
 Các sự kiện theo dõi dựa trên Uprobe tương tự như các sự kiện theo dõi dựa trên kprobe.
 Để kích hoạt tính năng này, hãy xây dựng kernel của bạn với CONFIG_UPROBE_EVENTS=y.
 
@@ -73,7 +73,7 @@ FETCHARGS : Đối số. Mỗi đầu dò có thể có tới 128 đối số.
         các sự kiện chỉ có thể truy cập bộ nhớ không gian người dùng.
 
 Các loại
------
+--------
 Một số loại được hỗ trợ cho tìm nạp-args. Uprobe tracer sẽ truy cập bộ nhớ
 theo loại nhất định. Tiền tố 's' và 'u' có nghĩa là các loại đó được ký và không dấu
 tương ứng. Tiền tố 'x' ngụ ý nó không được ký. Đối số theo dõi được hiển thị
@@ -141,14 +141,14 @@ Và điều tương tự đối với đầu dò niệu đạo sẽ là::
 	in the object.
 
 Chúng ta có thể xem các sự kiện đã được đăng ký bằng cách xem tệp uprobe_events.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Sự kiện nâng cấp # cat
     p:uprobes/zfree_entry /bin/zsh:0x00046420 arg1=%ip arg2=%ax
     r:uprobes/zfree_exit /bin/zsh:0x00046420 arg1=%ip arg2=%ax
 
 Định dạng của sự kiện có thể được xem bằng cách xem tệp events/uprobes/zfree_entry/format.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Sự kiện/uprobes/zfree_entry/format # cat
     tên: zfree_entry
@@ -172,7 +172,7 @@ sự kiện, bạn cần kích hoạt nó bằng cách::
 # echo 1 > sự kiện/upprobe/kích hoạt
 
 Hãy bắt đầu truy tìm, ngủ một lúc và ngừng truy tìm.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # echo 1 > truy tìm_on
     # sleep 20
@@ -183,7 +183,7 @@ Ngoài ra, bạn có thể tắt sự kiện bằng cách::
 # echo 0 > sự kiện/upprobe/kích hoạt
 
 Và bạn có thể xem thông tin được theo dõi qua /sys/kernel/tracing/trace.
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Dấu vết # cat
     # tracer: không

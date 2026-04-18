@@ -55,7 +55,7 @@ Trừ khi có quy định khác, các ví dụ và ngữ nghĩa bên dưới áp
 các cấu trúc.
 
 API không ổn định
-------------
+-----------------
 
 Cấu trúc dữ liệu được triển khai bằng bản đồ BPF API trước đây đã sử dụng BPF
 các chức năng của trình trợ giúp - hoặc các trình trợ giúp API bản đồ tiêu chuẩn như ZZ0000ZZ
@@ -93,7 +93,7 @@ xác minh các chương trình BPF thao tác với cây. Vì việc kiểm tra k
 xảy ra tại thời điểm xác minh, không có hình phạt khi chạy.
 
 Tài liệu tham khảo không sở hữu
----------------------
+-------------------------------
 
 ZZ0000ZZ
 

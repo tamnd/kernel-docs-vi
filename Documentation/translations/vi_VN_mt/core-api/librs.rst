@@ -36,12 +36,12 @@ Lỗi đã biết và giả định
 Không có.
 
 Cách sử dụng
-=====
+============
 
 Chương này cung cấp các ví dụ về cách sử dụng thư viện.
 
 Đang khởi tạo
-------------
+-------------
 
 Hàm init init_rs trả về một con trỏ tới cấu trúc bộ giải mã rs,
 chứa thông tin cần thiết cho việc mã hóa, giải mã và sửa lỗi
@@ -114,7 +114,7 @@ khoảnh khắc. Nếu cần thiết thì việc thực hiện không phải là
 chức năng như vậy.
 
 Giải mã bằng tính toán hội chứng, hiệu chỉnh dữ liệu trực tiếp
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -131,7 +131,7 @@ Giải mã bằng tính toán hội chứng, hiệu chỉnh dữ liệu trực t
 
 
 Giải mã với hội chứng do bộ giải mã phần cứng đưa ra, hiệu chỉnh dữ liệu trực tiếp
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -150,7 +150,7 @@ Giải mã với hội chứng do bộ giải mã phần cứng đưa ra, hiệu
 
 
 Giải mã theo hội chứng do bộ giải mã phần cứng đưa ra, không chỉnh sửa dữ liệu trực tiếp.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Lưu ý: Không cần thiết phải cung cấp dữ liệu và tính chẵn lẻ nhận được cho
 bộ giải mã.
@@ -197,7 +197,7 @@ nhà phát triển.
    :internal:
 
 Chức năng công cộng được cung cấp
-=========================
+=================================
 
 Chương này chứa tài liệu được tạo tự động của
 Các hàm Reed-Solomon được xuất.
@@ -206,7 +206,7 @@ Các hàm Reed-Solomon được xuất.
    :export:
 
 Tín dụng
-=======
+========
 
 Mã thư viện để mã hóa và giải mã được viết bởi Phil Karn.
 

@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Tái xuất hệ thống tập tin NFS
-===========================
+=============================
 
 Tổng quan
---------
+---------
 
 Có thể xuất lại hệ thống tệp NFS qua NFS.  Tuy nhiên, điều này
 tính năng đi kèm với một số hạn chế.  Trước khi thử nó, chúng tôi
@@ -26,7 +26,7 @@ mục đích của bạn.
 Sau đây là một cuộc thảo luận về những hạn chế đã biết hiện tại.
 
 "fsid=" bắt buộc, chéo không bị hỏng
----------------------------------
+------------------------------------
 
 Chúng tôi yêu cầu tùy chọn xuất "fsid=" trên bất kỳ lần tái xuất nào của NFS
 hệ thống tập tin.  Bạn có thể sử dụng "uuidgen -r" để tạo một đối số duy nhất.
@@ -37,7 +37,7 @@ hệ thống tập tin được gắn trong hệ thống tập tin đã xuất, 
 chúng một cách rõ ràng, chỉ định mỗi tùy chọn "fsid= duy nhất của riêng nó.
 
 Khởi động lại phục hồi
----------------
+----------------------
 
 Cơ chế khôi phục khởi động lại thông thường của giao thức NFS không hoạt động đối với
 trường hợp máy chủ tái xuất khởi động lại do máy chủ nguồn chưa
@@ -49,7 +49,7 @@ không được phép lấy khóa tập tin hoặc ủy quyền từ máy chủ 
 các lần thử sẽ thất bại do thao tác không được hỗ trợ.
 
 Giới hạn xử lý tệp
------------------
+------------------
 
 Nếu máy chủ ban đầu sử dụng tước hiệu tệp X byte cho một đối tượng nhất định, thì
 Tên xử lý tệp của máy chủ tái xuất cho đối tượng được tái xuất sẽ là X+22
@@ -119,7 +119,7 @@ mã nguồn và ý kiến; xem cụ thể:
         - fs/nfs/export.c:nfs_encode_fh
 
 Mở các bit DENY bị bỏ qua
-----------------------
+-------------------------
 
 NFS vì NFSv4 hỗ trợ các bit ALLOW và DENY được lấy từ Windows,
 ví dụ: cho phép bạn mở một tập tin ở chế độ cấm người khác

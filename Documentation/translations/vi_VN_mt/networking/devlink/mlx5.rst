@@ -247,7 +247,7 @@ các thông số.
 Trình điều khiển ZZ0000ZZ hỗ trợ tải lại qua ZZ0001ZZ
 
 Phiên bản thông tin
-=============
+===================
 
 Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
 
@@ -265,10 +265,10 @@ Trình điều khiển ZZ0000ZZ báo cáo các phiên bản sau
      - Three digit major.minor.subminor firmware version number.
 
 Phóng viên sức khỏe
-================
+===================
 
 phóng viên tx
------------
+-------------
 Trình báo cáo tx chịu trách nhiệm báo cáo và khôi phục ba tình huống lỗi sau:
 
 - hết thời gian chờ
@@ -299,7 +299,7 @@ $ devlink chẩn đoán sức khỏe pci/0000:82:00.0 phóng viên tx
 $ devlink chương trình sức khỏe pci/0000:82:00.0 phóng viên tx
 
 phóng viên rx
------------
+-------------
 Trình báo cáo rx chịu trách nhiệm báo cáo và khôi phục hai trường hợp lỗi sau:
 
 - hết thời gian khởi tạo (dân số) của hàng đợi rx
@@ -327,7 +327,7 @@ $ devlink chẩn đoán sức khỏe pci/0000:82:00.0 phóng viên rx
 $ devlink chương trình sức khỏe pci/0000:82:00.0 phóng viên rx
 
 phóng viên fw
------------
+-------------
 Trình báo cáo fw triển khai lệnh gọi lại ZZ0000ZZ và ZZ0001ZZ.
 Nó tuân theo các triệu chứng của lỗi fw như hội chứng fw bằng cách kích hoạt
 kết xuất lõi fw và lưu trữ nó vào bộ đệm kết xuất.
@@ -349,7 +349,7 @@ $ devlink kết xuất sức khỏe hiển thị pci/0000:82:00.0 phóng viên f
    running it on other PF or any VF will return "Operation not permitted".
 
 chết tiệt phóng viên
------------------
+--------------------
 Phóng viên nguy hiểm nhất thực hiện lệnh gọi lại ZZ0000ZZ và ZZ0001ZZ.
 Nó tuân theo các chỉ báo lỗi nghiêm trọng bằng cách kết xuất không gian CR và luồng phục hồi.
 Kết xuất CR-space sử dụng giao diện vsc hợp lệ ngay cả khi lệnh FW
@@ -373,7 +373,7 @@ $ devlink kết xuất sức khỏe hiển thị pci/0000:82:00.1 phóng viên f
    This command can run only on PF.
 
 phóng viên vnic
--------------
+---------------
 Trình báo cáo vnic chỉ thực hiện lệnh gọi lại ZZ0000ZZ.
 Nó chịu trách nhiệm truy vấn các bộ đếm chẩn đoán vnic từ fw và hiển thị
 chúng trong thời gian thực.

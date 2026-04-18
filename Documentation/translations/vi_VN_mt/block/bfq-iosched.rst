@@ -85,7 +85,7 @@ BFQ cũng hoạt động với các thiết bị nhiều hàng đợi.
     4-2 Interface
 
 1. Khi nào BFQ có thể hữu ích?
-==========================
+==============================
 
 BFQ cung cấp các lợi ích sau trên hệ thống cá nhân và máy chủ.
 
@@ -114,14 +114,14 @@ các ứng dụng có độ trễ cao hoặc thậm chí không phản hồi
 cho đến khi khối lượng công việc nền chấm dứt (cũng như trên SSD).
 
 Độ trễ thấp cho các ứng dụng thời gian thực mềm
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Ngoài ra các ứng dụng thời gian thực mềm, chẳng hạn như âm thanh và video
 người chơi/người truyền phát, tận hưởng độ trễ thấp và tỷ lệ rớt thấp, bất kể
 khối lượng công việc I/O nền. Kết quả là, các ứng dụng này
 hầu như không gặp phải bất kỳ trục trặc nào do khối lượng công việc nền.
 
 Tốc độ cao hơn cho các tác vụ phát triển mã
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Nếu một số khối lượng công việc bổ sung được thực hiện song song thì
 BFQ thực thi các thành phần liên quan đến I/O của quá trình phát triển mã điển hình
@@ -138,7 +138,7 @@ và với tất cả khối lượng công việc trên các thiết bị dựa 
 thay vào đó, có cùng thông lượng như các bộ lập lịch khác.
 
 Đảm bảo tính công bằng, băng thông và độ trễ mạnh mẽ
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 BFQ phân phối thông lượng thiết bị chứ không chỉ thời gian của thiết bị,
 giữa các ứng dụng có giới hạn I/O tương ứng với trọng số của chúng, với bất kỳ
@@ -149,7 +149,7 @@ khối lượng công việc và bất kể các thông số thiết bị. Từ 
 các ứng dụng có thể gây ra tổn thất thông lượng.
 
 1-2 Hệ thống máy chủ
-------------------
+--------------------
 
 Hầu hết các lợi ích cho hệ thống máy chủ đều xuất phát từ cùng một dịch vụ
 tính chất như trên. Đặc biệt, bất kể có bổ sung hay không,
@@ -167,7 +167,7 @@ khối lượng công việc nặng có thể đang được phục vụ, BFQ đ
 
 
 2. BFQ hoạt động như thế nào?
-=====================
+=============================
 
 BFQ là bộ lập lịch I/O chia sẻ theo tỷ lệ, có cấu trúc chung,
 cộng với rất nhiều mã, được mượn từ CFQ.
@@ -308,7 +308,7 @@ cộng với rất nhiều mã, được mượn từ CFQ.
 
 
 3. Khả năng điều chỉnh của BFQ là gì và cách cấu hình BFQ đúng cách?
-=============================================================
+====================================================================
 
 Hầu hết các điều chỉnh BFQ đều ảnh hưởng đến đảm bảo dịch vụ (về cơ bản là độ trễ và
 sự công bằng) và thông lượng. Để biết đầy đủ chi tiết về cách chọn
@@ -327,7 +327,7 @@ những cân nhắc trong phần mô tả slice_idle được sao chép từ CFQ
 quá.
 
 mỗi quá trình ioprio và trọng lượng
------------------------------
+-----------------------------------
 
 Trừ khi giao diện cgroups được sử dụng (xem "4. Lập lịch nhóm BFQ"),
 trọng số chỉ có thể được gán cho các tiến trình một cách gián tiếp, thông qua I/O
@@ -400,7 +400,7 @@ Có thể sử dụng tính năng điều chỉnh để thiết lập hành vi c
 điều chỉnh khác sẽ phản ánh giá trị mới được đặt trong sysfs.
 
 nghiêm ngặt_đảm bảo
------------------
+-------------------
 
 Nếu tham số này được đặt (mặc định: không được đặt), thì BFQ
 
@@ -420,7 +420,7 @@ các đảm bảo dịch vụ được thực thi bởi bộ lập lịch I/O.
 Việc đặt strict_guarantees rõ ràng có thể ảnh hưởng đến thông lượng.
 
 trở lại_seek_max
--------------
+----------------
 
 Điều này chỉ định, tính bằng Kbyte, "khoảng cách" tối đa để tìm kiếm ngược.
 Khoảng cách là khoảng không gian từ vị trí đầu hiện tại đến
@@ -475,7 +475,7 @@ trên thiết bị không quay, cũng có thể cần đặt slice_idle thành 0
 độ trễ).
 
 hết thời gian chờ_sync
-------------
+----------------------
 
 Lượng thời gian tối đa của thiết bị có thể được cấp cho một tác vụ (hàng đợi) một lần
 nó đã được chọn để phục vụ. Trên các thiết bị có nhu cầu tìm kiếm tốn kém,
@@ -485,7 +485,7 @@ tăng thời gian này thường làm tăng thông lượng tối đa. Trên
 tham số sau được đặt thành 0.
 
 ngân sách tối đa
-----------
+----------------
 
 Lượng dịch vụ tối đa, được đo theo ngành, có thể được cung cấp
 vào hàng đợi BFQ sau khi nó được đưa vào sử dụng (tất nhiên là trong giới hạn
@@ -514,7 +514,7 @@ blkio và io. Đặc biệt, BFQ hỗ trợ tỷ lệ cân nặng dựa trên tr
 chia sẻ. Để kích hoạt hỗ trợ cgroups, hãy đặt BFQ_GROUP_IOSCHED.
 
 4-1 Đảm bảo dịch vụ được cung cấp
--------------------------------
+---------------------------------
 
 Với BFQ, tỷ lệ chia sẻ có nghĩa là tỷ lệ thực sự của
 băng thông thiết bị, theo trọng lượng nhóm. Ví dụ, một nhóm

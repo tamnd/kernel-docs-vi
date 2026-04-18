@@ -68,7 +68,7 @@ ZZ0000ZZ và đã được lấy từ SPDX chính thức
 danh sách giấy phép tại ZZ0001ZZ cùng với văn bản giấy phép.
 
 Cú pháp định danh giấy phép
--------------------------
+---------------------------
 
 1. Vị trí:
 
@@ -160,7 +160,7 @@ Một ví dụ khác trong đó cả hai bộ điều khoản cấp phép cần 
 // SPDX-Mã định danh giấy phép: GPL-1.0+ AND LGPL-2.1+
 
 Mã nhận dạng giấy phép
--------------------
+----------------------
 
 Các giấy phép hiện đang được sử dụng cũng như các giấy phép cho mã được thêm vào
 hạt nhân, có thể được chia thành:

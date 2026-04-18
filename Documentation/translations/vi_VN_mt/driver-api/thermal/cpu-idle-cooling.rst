@@ -17,7 +17,7 @@ Làm mát không tải CPU
 =====================
 
 Tình huống:
-----------
+-----------
 
 Trong một số trường hợp nhất định, SoC có thể đạt đến nhiệt độ tới hạn
 giới hạn và không thể ổn định nhiệt độ xung quanh nhiệt độ
@@ -150,7 +150,7 @@ Giá trị thời gian chèn không tải phải tuân theo các ràng buộc:
   để giảm thiểu nhiệt, nếu không chúng ta sẽ tiêu thụ nhiều năng lượng hơn.
 
 Cân nhắc về quyền lực
---------------------
+---------------------
 
 Khi chúng ta đạt đến điểm ngắt nhiệt, chúng ta phải duy trì một nhiệt độ nhất định
 cung cấp năng lượng cho một nhiệt độ cụ thể nhưng tại thời điểm này chúng ta tiêu thụ ::

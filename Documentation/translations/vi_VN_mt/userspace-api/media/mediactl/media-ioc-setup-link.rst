@@ -66,7 +66,7 @@ Nếu không tìm thấy liên kết đã chỉ định, trình điều khiển 
 mã lỗi.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

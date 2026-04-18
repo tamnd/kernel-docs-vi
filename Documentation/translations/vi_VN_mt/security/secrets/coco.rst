@@ -35,7 +35,7 @@ bí mật thông qua securityfs.
 
 
 Luồng dữ liệu bí mật
-================
+====================
 
 Phần sụn khách có thể dành một vùng bộ nhớ được chỉ định để tiêm bí mật,
 và công bố vị trí của nó (cơ sở GPA và chiều dài) trong bảng cấu hình EFI
@@ -106,7 +106,7 @@ trong đó một khu vực bí mật EFI với 4 bí mật đã được đưa v
 
 
 Tài liệu tham khảo
-==========
+==================
 
 Xem [sev-api-spec]_ để biết thêm thông tin về hoạt động của SEV ZZ0000ZZ.
 

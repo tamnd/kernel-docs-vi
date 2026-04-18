@@ -48,7 +48,7 @@ NET_REMOVE_IF ioctl xóa giao diện được tạo trước đó thông qua
 ZZ0000ZZ.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, 0 được trả về và ZZ0000ZZ được điền.
 

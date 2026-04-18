@@ -17,7 +17,7 @@ Các loại xe buýt
 ================
 
 Sự định nghĩa
-~~~~~~~~~~
+~~~~~~~~~~~~~
 Xem kerneldoc để biết cấu trúc bus_type.
 
 int bus_register(struct bus_type * bus);
@@ -50,7 +50,7 @@ người lái xe buýt có thể sử dụng các trường trong đó.
 
 
 Cuộc gọi lại
-~~~~~~~~~
+~~~~~~~~~~~~
 
 match(): Gắn Driver vào thiết bị
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,7 +73,7 @@ không có trình điều khiển liên quan đến nó.
 
 
 Danh sách thiết bị và trình điều khiển
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Danh sách các thiết bị và trình điều khiển nhằm thay thế địa chỉ cục bộ
 danh sách mà nhiều xe buýt lưu giữ. Chúng là danh sách các thiết bị cấu trúc và

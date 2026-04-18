@@ -57,7 +57,7 @@ Trình điều khiển cxgb3i giao tiếp với bộ khởi tạo open-iscsi và
 tăng tốc thông qua phần cứng Chelsio bất cứ khi nào có thể.
 
 Sử dụng Trình điều khiển cxgb3i
-=======================
+===============================
 
 Cần thực hiện các bước sau để tăng tốc trình khởi tạo open-iscsi:
 

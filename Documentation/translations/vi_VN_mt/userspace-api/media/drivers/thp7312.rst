@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển THP7312 ISP của bạn
-========================
+====================================
 
 Trình điều khiển THP7312 thực hiện các điều khiển dành riêng cho trình điều khiển sau:
 

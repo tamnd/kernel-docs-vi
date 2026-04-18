@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân nzxt-kraken2
-==========================
+======================================
 
 Các thiết bị được hỗ trợ:
 
@@ -39,13 +39,13 @@ các công cụ không gian người dùng hiện có (ví dụ ZZ0000ZZ).
 .. _liquidctl: https://github.com/liquidctl/liquidctl
 
 Ghi chú sử dụng
------------
+---------------
 
 Vì đây là các USB HID nên trình điều khiển có thể được tải tự động bởi kernel và
 hỗ trợ trao đổi nóng.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =====================================================================================
 fan1_input Tốc độ quạt (tính bằng vòng/phút)

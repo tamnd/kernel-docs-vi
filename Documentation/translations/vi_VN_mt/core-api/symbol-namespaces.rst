@@ -36,7 +36,7 @@ Ngoài ra, có thể đặt các ký hiệu vào một không gian tên mô-đun
 giới hạn mô-đun nào được phép sử dụng các ký hiệu này.
 
 Cách xác định không gian tên biểu tượng
-===============================
+=======================================
 
 Các biểu tượng có thể được xuất vào không gian tên bằng các phương pháp khác nhau. Tất cả chúng đều là
 thay đổi cách EXPORT_SYMBOL và bạn bè được trang bị để tạo ksymtab
@@ -108,7 +108,7 @@ sẽ hạn chế việc sử dụng ký hiệu này ở các mô-đun có tên k
 các mẫu.
 
 Cách sử dụng Biểu tượng được xuất trong Không gian tên
-=========================================
+======================================================
 
 Để sử dụng các ký hiệu được xuất vào không gian tên, các mô-đun hạt nhân cần
 để nhập rõ ràng các không gian tên này. Nếu không thì kernel có thể từ chối
@@ -138,7 +138,7 @@ Nên thêm câu lệnh MODULE_IMPORT_NS() gần với mô-đun khác
 định nghĩa siêu dữ liệu như MODULE_AUTHOR() hoặc MODULE_LICENSE().
 
 Đang tải các mô-đun sử dụng Ký hiệu được đặt tên
-===========================================
+================================================
 
 Tại thời điểm tải mô-đun (ví dụ ZZ0000ZZ), kernel sẽ kiểm tra từng ký hiệu
 được tham chiếu từ mô-đun về tính khả dụng của nó và liệu vùng tên nó có

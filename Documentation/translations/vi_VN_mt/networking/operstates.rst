@@ -39,7 +39,7 @@ và có thể thay đổi từ không gian người dùng theo các quy tắc nh
 
 
 2. Truy vấn từ không gian người dùng
-==========================
+====================================
 
 Cả trạng thái quản trị và hoạt động đều có thể được truy vấn thông qua liên kết mạng
 hoạt động RTM_GETLINK. Cũng có thể đăng ký RTNLGRP_LINK
@@ -108,7 +108,7 @@ TLV này cũng có thể được truy vấn thông qua sysfs.
 
 
 3. Trình điều khiển hạt nhân API
-====================
+================================
 
 Trình điều khiển hạt nhân có quyền truy cập vào hai cờ ánh xạ tới IFF_LOWER_UP và
 IFF_DORMANT. Những lá cờ này có thể được đặt từ mọi nơi, thậm chí từ
@@ -160,7 +160,7 @@ netif_carrier_ok() && !netif_dormant():
 
 
 4. Cài đặt từ không gian người dùng
-=========================
+===================================
 
 Các ứng dụng phải sử dụng giao diện netlink để tác động đến
 RFC2863 trạng thái hoạt động của một giao diện. Đặt IFLA_LINKMODE thành 1

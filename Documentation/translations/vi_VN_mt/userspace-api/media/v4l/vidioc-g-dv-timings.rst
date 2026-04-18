@@ -76,7 +76,7 @@ ZZ0002ZZ không đặt
 ZZ0004ZZ), sau đó mã lỗi ZZ0005ZZ được trả về.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

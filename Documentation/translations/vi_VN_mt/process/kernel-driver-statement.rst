@@ -15,10 +15,10 @@
 .. _process_statement_driver:
 
 Tuyên bố trình điều khiển hạt nhân
------------------------
+----------------------------------
 
 Tuyên bố vị trí trên các mô-đun hạt nhân Linux
-==========================================
+==============================================
 
 
 Chúng tôi, những nhà phát triển nhân Linux có chữ ký dưới đây, xem xét mọi nguồn đóng

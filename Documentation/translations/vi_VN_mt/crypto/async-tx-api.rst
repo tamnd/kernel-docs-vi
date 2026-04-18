@@ -70,7 +70,7 @@ kết quả là các tính năng nổi lên:
    ngoài 'memcpy'
 
 3. Cách sử dụng
-========
+===============
 
 3.1 Định dạng chung của API
 -----------------------------
@@ -81,7 +81,7 @@ cấu trúc dma_async_tx_descriptor *
   async_<hoạt động>(<op tham số cụ thể>, struct async_submit_ctl *gửi)
 
 3.2 Các hoạt động được hỗ trợ
-------------------------
+-----------------------------
 
 ==================================================================================
 sao chép bộ nhớ memcpy giữa bộ đệm nguồn và bộ đệm đích
@@ -119,7 +119,7 @@ các phương pháp sau:
 3. gọi async_tx_ack() trên bộ mô tả.
 
 3.4 Khi nào hoạt động được thực hiện?
-------------------------------------
+-------------------------------------
 
 Các hoạt động không được thực hiện ngay lập tức sau khi trở về từ
 cuộc gọi async_<oper>.  Giảm tải các hoạt động hàng loạt của trình điều khiển động cơ sang
@@ -205,7 +205,7 @@ các quy trình ops_run_* và ops_complete_* trong driver/md/raid5.c để biế
 các ví dụ thực hiện
 
 4. Ghi chú phát triển trình điều khiển
-===========================
+======================================
 
 4.1 Điểm phù hợp
 ----------------------

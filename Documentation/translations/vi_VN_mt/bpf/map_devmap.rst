@@ -39,9 +39,9 @@ Việc thiết lập và mã enqueue/gửi gói được chia sẻ giữa hai lo
 bản đồ phát triển; chỉ có việc tra cứu và chèn là khác nhau.
 
 Cách sử dụng
-=====
+============
 Hạt nhân BPF
-----------
+------------
 bpf_redirect_map()
 ^^^^^^^^^^^^^^^^^^
 .. code-block:: c
@@ -82,7 +82,7 @@ Các mục nhập thiết bị mạng có thể được truy xuất bằng ZZ00
 người giúp đỡ.
 
 Không gian người dùng
-----------
+---------------------
 .. note::
     DEVMAP entries can only be updated/deleted from user space and not
     from an eBPF program. Trying to call these functions from a kernel eBPF
@@ -150,7 +150,7 @@ Ví dụ
 ========
 
 Hạt nhân BPF
-----------
+------------
 
 Đoạn mã sau đây cho biết cách khai báo ZZ0000ZZ
 được gọi là tx_port.
@@ -207,7 +207,7 @@ tất cả các giao diện trong bản đồ phát triển ZZ0000ZZ.
     }
 
 Không gian người dùng
-----------
+---------------------
 
 Đoạn mã sau đây cho biết cách cập nhật bản đồ nhà phát triển có tên ZZ0000ZZ.
 
@@ -244,7 +244,7 @@ Không gian người dùng
     }
 
 Tài liệu tham khảo
-===========
+==================
 
 -ZZ0000ZZ
 -ZZ0001ZZ

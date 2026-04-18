@@ -41,14 +41,14 @@ thư viện, thư viện Hàm điểm cuối và lớp configfs để liên kế
 chức năng điểm cuối với bộ điều khiển điểm cuối.
 
 Thư viện bộ điều khiển điểm cuối PCI (EPC)
-------------------------------------
+------------------------------------------
 
 Thư viện EPC cung cấp các API để bộ điều khiển có thể hoạt động
 ở chế độ điểm cuối. Nó cũng cung cấp các API để trình điều khiển/thư viện chức năng sử dụng
 để thực hiện một chức năng điểm cuối cụ thể.
 
 API cho Trình điều khiển bộ điều khiển PCI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Phần này liệt kê các API mà lõi Điểm cuối PCI cung cấp để sử dụng
 bởi trình điều khiển bộ điều khiển PCI.
@@ -90,7 +90,7 @@ Dọn dẹp cấu trúc pci_epc_mem được phân bổ trong pci_epc_mem_init()
 
 
 API EPC cho Trình điều khiển chức năng điểm cuối PCI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Phần này liệt kê các API mà lõi Điểm cuối PCI cung cấp để sử dụng
 bởi trình điều khiển chức năng điểm cuối PCI.
@@ -182,7 +182,7 @@ Trình điều khiển chức năng điểm cuối PCI có thể sử dụng pci
 
 
 Các API EPC khác
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Có các API khác được cung cấp bởi thư viện EPC. Chúng được sử dụng để ràng buộc
 thiết bị EPF với thiết bị EPC. pci-ep-cfs.c có thể được sử dụng làm tài liệu tham khảo cho
@@ -219,13 +219,13 @@ Trình điều khiển chức năng điểm cuối PCI sẽ gọi pci_epc_stop()
 
 
 Thư viện chức năng điểm cuối PCI (EPF)
-----------------------------------
+--------------------------------------
 
 Thư viện EPF cung cấp các API để trình điều khiển chức năng và EPC sử dụng
 thư viện để cung cấp chức năng chế độ điểm cuối.
 
 API EPF cho Trình điều khiển chức năng điểm cuối PCI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Phần này liệt kê các API mà lõi Điểm cuối PCI cung cấp để sử dụng
 bởi trình điều khiển chức năng điểm cuối PCI.
@@ -269,7 +269,7 @@ Thư viện bộ điều khiển điểm cuối PCI gọi pci_epf_linkup() khi
    Thiết bị EPC đã thiết lập kết nối với máy chủ.
 
 Các API EPF khác
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Có các API khác được cung cấp bởi thư viện EPF. Chúng được sử dụng để thông báo
 trình điều khiển chức năng khi thiết bị EPF được liên kết với thiết bị EPC.

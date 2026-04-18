@@ -59,7 +59,7 @@ thuật toán hoạt động.
    porting
 
 Các lớp hỗ trợ hệ thống tập tin
-=========================
+===============================
 
 Tài liệu về mã hỗ trợ trong lớp hệ thống tập tin để sử dụng trong
 triển khai hệ thống tập tin.
@@ -74,7 +74,7 @@ triển khai hệ thống tập tin.
    netfs_library
 
 Hệ thống tập tin
-===========
+================
 
 Tài liệu cho việc triển khai hệ thống tập tin.
 

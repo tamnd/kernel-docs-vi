@@ -90,7 +90,7 @@ các lệnh phụ.
 
 
 Cách sử dụng
-=====
+============
 
 Để sử dụng lưới mới tạo của bạn, Batman Advanced cung cấp một
 giao diện "bat0" mà bạn nên sử dụng từ thời điểm này trở đi. Tất cả các giao diện được thêm vào
@@ -116,7 +116,7 @@ $ ip addr tuôn ra dev eth0
 
 
 Ghi nhật ký/Gỡ lỗi
-=================
+==================
 
 Tất cả các thông báo lỗi, cảnh báo và thông tin đều được gửi đến kernel
 nhật ký. Tùy thuộc vào phân phối hệ điều hành của bạn, điều này có thể được đọc bằng một trong các
@@ -150,7 +150,7 @@ $ ethtool --statistics bat0
 
 
 chiến đấu
-======
+=========
 
 Khi Batman Advanced hoạt động trên lớp 2, tất cả các máy chủ tham gia vào ảo
 switch hoàn toàn trong suốt đối với tất cả các giao thức ở trên lớp 2. Do đó

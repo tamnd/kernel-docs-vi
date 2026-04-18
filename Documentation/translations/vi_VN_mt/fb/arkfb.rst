@@ -18,7 +18,7 @@ arkfb - trình điều khiển fbdev cho chip Logic ARK
 
 
 Phần cứng được hỗ trợ
-==================
+=====================
 
 Chip ARK 2000PV
 	ICS 5342 ramdac
@@ -28,7 +28,7 @@ Chip ARK 2000PV
 
 
 Các tính năng được hỗ trợ
-==================
+=========================
 
 * 4 chế độ màu giả bpp (với bảng màu 18bit, hai biến thể)
 	* Chế độ giả màu 8 bpp (với bảng màu 18 bit)
@@ -74,7 +74,7 @@ Thiếu tính năng
 
 
 Lỗi đã biết
-==========
+===========
 
 * Thuộc tính ký tự (và con trỏ) ở chế độ văn bản bị hỏng
 

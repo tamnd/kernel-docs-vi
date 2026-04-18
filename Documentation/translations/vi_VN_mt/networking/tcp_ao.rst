@@ -251,7 +251,7 @@ số thứ tự. Diễn giải, bắt đầu sử dụng TCP-AO sẽ yêu cầu
 thiết lập lại kết nối TCP.
 
 2. Cơ sở dữ liệu MKT trong kernel và cơ sở dữ liệu trong không gian người dùng
-===================================================
+==============================================================================
 
 Hỗ trợ Linux TCP-AO được triển khai bằng ZZ0000ZZ, theo cách tương tự
 tới TCP-MD5. Điều đó có nghĩa là ứng dụng không gian người dùng muốn sử dụng TCP-AO
@@ -448,7 +448,7 @@ các phân đoạn vì sự đơn giản của thuật toán và những gì có
 cho các cửa sổ TCP lớn.
 
 7. Liên kết
-========
+===========
 
 RFC 5925 Tùy chọn xác thực TCP
    ZZ0000ZZ

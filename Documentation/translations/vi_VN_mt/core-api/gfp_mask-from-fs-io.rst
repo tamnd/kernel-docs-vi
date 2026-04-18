@@ -67,7 +67,7 @@ ZZ0001ZZ tương ứng từ NOIO hoặc NOFS hiện có
 phạm vi.
 
 Còn __vmalloc(GFP_NOFS) thì sao
-==============================
+===============================
 
 Kể từ v5.17 và đặc biệt là sau cam kết 451769ebb7e79 ("mm/vmalloc:
 alloc GFP_NO{FS,IO} for vmalloc"), GFP_NOFS/GFP_NOIO hiện được hỗ trợ trong

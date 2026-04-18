@@ -30,7 +30,7 @@ hạt nhân có thể tiêu thụ.
 
 
 BIOS, Tùy chọn xây dựng và khởi động
-============================
+====================================
 
 Có 4 tùy chọn tiền khởi động cần được xem xét trong quá trình xây dựng kernel
 quy định cách Linux sẽ quản lý bộ nhớ trong quá trình khởi động sớm.

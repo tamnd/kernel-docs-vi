@@ -18,7 +18,7 @@ vt8623fb - trình điều khiển fbdev cho lõi đồ họa trong chipset VIA V
 
 
 Phần cứng được hỗ trợ
-==================
+=====================
 
 Chipset VIA VT8623 [CLE266] và lõi đồ họa của nó
 (được gọi là CastleRock hoặc Unichrome)
@@ -27,7 +27,7 @@ Tôi đã thử nghiệm vt8623fb trên VIA EPIA ML-6000
 
 
 Các tính năng được hỗ trợ
-==================
+=========================
 
 * 4 chế độ màu giả bpp (với bảng màu 18bit, hai biến thể)
 	* Chế độ giả màu 8 bpp (với bảng màu 18 bit)
@@ -69,7 +69,7 @@ Thiếu tính năng
 
 
 Lỗi đã biết
-==========
+===========
 
 * vô hiệu hóa con trỏ ở chế độ văn bản không hoạt động
 

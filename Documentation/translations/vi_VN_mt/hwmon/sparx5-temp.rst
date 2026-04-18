@@ -36,7 +36,7 @@ IP Moortec.
 Cảm biến có phạm vi từ -40°C đến +125°C và độ chính xác +/- 5°C.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ.
 

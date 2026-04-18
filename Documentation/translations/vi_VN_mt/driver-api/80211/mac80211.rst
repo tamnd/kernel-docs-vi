@@ -92,7 +92,7 @@ Xử lý nhận và truyền
 ===============================
 
 những gì nên có ở đây
--------------------
+---------------------
 
 TBD
 
@@ -100,7 +100,7 @@ TBD
 trình điều khiển cũng như xử lý trạng thái truyền tải.
 
 Định dạng khung
-------------
+---------------
 
 .. kernel-doc:: include/net/mac80211.h
    :doc: Frame format
@@ -158,7 +158,7 @@ Lọc khung
    :functions: ieee80211_filter_flags
 
 Chuỗi công việc mac80211
-======================
+========================
 
 .. kernel-doc:: include/net/mac80211.h
    :doc: mac80211 workqueue

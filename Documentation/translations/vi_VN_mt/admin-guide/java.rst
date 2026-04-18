@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hỗ trợ hạt nhân nhị phân Java(tm) cho Linux v1.03
-----------------------------------------------
+-------------------------------------------------
 
 Linux đánh bại họ ALL! Trong khi tất cả các hệ điều hành khác đều là TALKING về tính năng trực tiếp
 hỗ trợ Java Binaries trong HĐH, Linux đang làm điều đó!

@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân nct7363
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -34,7 +34,7 @@ Màn hình đầu vào FAN và tối đa 16 đầu ra PWM độc lập với gia
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Hiện tại, trình điều khiển hỗ trợ các tính năng sau:
 

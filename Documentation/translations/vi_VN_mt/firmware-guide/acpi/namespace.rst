@@ -91,7 +91,7 @@ Hình 1. Khối định nghĩa ACPI
 
 
 Ví dụ về không gian tên ACPI
-======================
+============================
 
 Tất cả các khối định nghĩa được tải vào một không gian tên duy nhất.  Không gian tên
 là một hệ thống phân cấp của các đối tượng được xác định bằng tên và đường dẫn.
@@ -203,7 +203,7 @@ Hình 2. Ví dụ về không gian tên ACPI
 
 
 Đối tượng thiết bị Linux ACPI
-=========================
+=============================
 
 Hệ thống con ACPI lõi của nhân Linux tạo struct acpi_device
 đối tượng cho không gian tên ACPI đối tượng đại diện cho thiết bị, nguồn điện
@@ -297,7 +297,7 @@ _HID:
 
 
 Keo dán thiết bị vật lý Linux ACPI
-===============================
+==================================
 
 Các đối tượng thiết bị ACPI (tức là struct acpi_device) có thể được liên kết với các đối tượng khác
 các đối tượng trong hệ thống phân cấp thiết bị của Linux đại diện cho các thiết bị "vật lý"

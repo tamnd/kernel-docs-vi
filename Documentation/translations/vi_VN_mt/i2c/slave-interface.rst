@@ -43,7 +43,7 @@ người lái xe. Tuy nhiên, tại thời điểm viết bài này, lớp này 
 
 
 Hướng dẫn sử dụng
-===========
+=================
 
 Các chương trình phụ trợ nô lệ của I2C hoạt động giống như các máy khách I2C tiêu chuẩn. Vì vậy, bạn có thể khởi tạo
 chúng như được mô tả trong tài liệu instantiate-devices.rst. duy nhất
@@ -59,7 +59,7 @@ hành vi và thiết lập.
 
 
 Hướng dẫn dành cho nhà phát triển
-================
+=================================
 
 Đầu tiên, các sự kiện được tài xế xe buýt và phần phụ trợ sử dụng sẽ được
 được mô tả chi tiết. Sau đó, một số gợi ý triển khai để mở rộng bus
@@ -67,7 +67,7 @@ trình điều khiển và phần phụ trợ viết sẽ được cung cấp.
 
 
 Sự kiện nô lệ I2C
-----------------
+-----------------
 
 Trình điều khiển xe buýt gửi một sự kiện đến chương trình phụ trợ bằng chức năng sau ::
 
@@ -155,7 +155,7 @@ Kiểm tra trình điều khiển i2c-slave-eeprom làm ví dụ.
 
 
 Hỗ trợ tài xế xe buýt
-------------------
+---------------------
 
 Nếu bạn muốn thêm hỗ trợ nô lệ cho trình điều khiển xe buýt:
 
@@ -177,7 +177,7 @@ Kiểm tra trình điều khiển i2c-rcar làm ví dụ.
 
 
 Giới thiệu về ACK/NACK
---------------
+----------------------
 
 Việc luôn luôn sử dụng pha địa chỉ ACK là một hành vi tốt, để chủ nhân biết liệu một
 về cơ bản thiết bị vẫn tồn tại hoặc nếu nó biến mất một cách bí ẩn. Sử dụng NACK để
@@ -195,7 +195,7 @@ tất cả bộ điều khiển I2C đều có khả năng báo cáo sự kiện
 
 
 Giới thiệu về bộ đệm
--------------
+--------------------
 
 Trong quá trình phát triển API này, câu hỏi về việc sử dụng bộ đệm thay vì chỉ
 byte xuất hiện. Việc mở rộng như vậy có thể thực hiện được, nhưng tính hữu dụng vẫn chưa rõ ràng

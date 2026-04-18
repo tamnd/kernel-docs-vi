@@ -21,7 +21,7 @@ Tài liệu này giải thích các sự kiện là gì và chúng được sử
 cho (bởi gfs_controld trong gfs2-utils).
 
 Danh sách các sự kiện GFS2
-======================
+==========================
 
 1. ADD
 ------

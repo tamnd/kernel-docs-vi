@@ -17,14 +17,14 @@ Trình điều khiển đĩa mềm
 ========================
 
 Danh sách FAQ:
-=========
+==============
 
 Danh sách FAQ có thể được tìm thấy trong gói fdutils (xem bên dưới) và cả
 tại <ZZ0000ZZ
 
 
 Tùy chọn cấu hình LILO (Người dùng Thinkpad, đọc phần này)
-======================================================
+==========================================================
 
 Trình điều khiển đĩa mềm được cấu hình bằng tùy chọn 'floppy=' trong
 lilo. Tùy chọn này có thể được gõ tại dấu nhắc khởi động hoặc được nhập vào

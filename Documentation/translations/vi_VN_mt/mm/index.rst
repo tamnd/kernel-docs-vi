@@ -40,7 +40,7 @@ xem ZZ0001ZZ.
    oom
 
 Tài liệu chưa được sắp xếp
-======================
+==========================
 
 Đây là tập hợp các tài liệu chưa được sắp xếp về quản lý bộ nhớ Linux
 (MM) bên trong hệ thống con với mức độ chi tiết khác nhau, từ ghi chú và

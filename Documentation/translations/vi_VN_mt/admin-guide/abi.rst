@@ -30,7 +30,7 @@ Ký hiệu ABI
    abi-removed
 
 Các tập tin ABI
----------
+---------------
 
 .. toctree::
    :maxdepth: 2

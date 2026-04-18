@@ -39,7 +39,7 @@ V4L2_META_FMT_RPI_FE_STATS
 **************************
 
 Định dạng thống kê Raspberry Pi PiSP Front End
-=============================================
+==============================================
 
 Bộ xử lý tín hiệu hình ảnh Raspberry Pi PiSP Front End cung cấp dữ liệu thống kê
 bằng cách ghi vào bộ đệm được cung cấp qua thiết bị quay video ZZ0001ZZ

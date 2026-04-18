@@ -108,7 +108,7 @@ cho dự án lái xe.
 
 
 2. Phát hành git-1.1.5 Các tính năng được hỗ trợ hiện tại
-===============================================
+=========================================================
 
 - Được quản lý (BSS) và Ad-Hoc (IBSS)
 - WEP (khóa chung và mở)
@@ -207,7 +207,7 @@ viết
 
 
 5. Công tắc tiêu diệt vô tuyến
-====================
+==============================
 
 Hầu hết các máy tính xách tay đều cung cấp khả năng cho người dùng vô hiệu hóa radio.
 Một số nhà cung cấp đã triển khai tính năng này như một công tắc vật lý không yêu cầu
@@ -233,7 +233,7 @@ Xem INSTALL để biết hướng dẫn cài đặt chương trình cơ sở.
 
 
 7. Quản lý nguồn điện
-===================
+=====================
 
 IPW2100 hỗ trợ cấu hình Giao thức tiết kiệm năng lượng
 thông qua một giao diện mở rộng không dây riêng.  IPW2100 hỗ trợ
@@ -308,7 +308,7 @@ ZZ0000ZZ
 ZZ0000ZZ
 
 9. Giấy phép
-==========
+============
 
 Bản quyền ZZ0000ZZ 2003 - 2006 Tập đoàn Intel. Mọi quyền được bảo lưu.
 

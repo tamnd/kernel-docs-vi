@@ -47,7 +47,7 @@ Nó được thiết kế để chạy thủ công để xác định xem nền 
 vấn đề với quy trình dịch vụ phần mềm hệ thống dài.
 
 Cách sử dụng
-------
+------------
 
 Viết văn bản ASCII "hwlat" vào tệp current_tracer của hệ thống theo dõi
 (được gắn tại /sys/kernel/tracing hoặc /sys/kernel/tracing). Có thể

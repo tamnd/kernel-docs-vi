@@ -124,7 +124,7 @@ cân bằng hiệu suất và điện năng tiêu thụ.
 .. _pipes-and-queues-description:
 
 Hành vi tổng thể của GFX, Điện toán và SDMA
-=======================================
+===========================================
 
 .. note:: For simplicity, whenever the term block is used in this section, it
    means GFX, Compute, and SDMA.
@@ -173,7 +173,7 @@ cho biết hàng đợi đang hoạt động.  Sau đó, Pipe sẽ thực hiện
 Hàng đợi.
 
 Cấu trúc trình điều khiển
-================
+=========================
 
 Nói chung, trình điều khiển có danh sách tất cả các IP trên một địa chỉ cụ thể
 SoC và những thứ như init/fini/tạm dừng/tiếp tục, ít nhiều chỉ
@@ -221,7 +221,7 @@ Chia sẻ bộ đệm PRIME
    :internal:
 
 Trình thông báo MMU
-============
+===================
 
 .. kernel-doc:: drivers/gpu/drm/amd/amdgpu/amdgpu_hmm.c
    :doc: MMU Notifier

@@ -21,7 +21,7 @@ cần thiết để mô tả các họ Generic Netlink cũ hơn hình thành
 cấp độ giao thức ZZ0000ZZ.
 
 Đặc điểm kỹ thuật
-=============
+=================
 
 Quả cầu
 -------
@@ -29,7 +29,7 @@ Quả cầu
 Các thuộc tính được liệt kê trực tiếp ở cấp độ gốc của tệp thông số kỹ thuật.
 
 phiên bản
-~~~~~~~
+~~~~~~~~~
 
 Phiên bản gia đình Netlink chung, mặc định là 1.
 
@@ -59,7 +59,7 @@ xác định các loại mảng sử dụng lại loại thuộc tính để man
 trong đó ZZ0000ZZ là kiểu mục nhập mảng.
 
 mảng được lập chỉ mục
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 ZZ0000ZZ bao bọc toàn bộ mảng trong một thuộc tính bổ sung (do đó
 giới hạn kích thước của nó ở mức 64kB). Tổ ZZ0001ZZ rất đặc biệt và có
@@ -87,7 +87,7 @@ trong ZZ0002ZZ trong ZZ0003ZZ. Cấu trúc trông giống như::
     [ENTRY u32]
 
 giá trị loại
-~~~~~~~~~~
+~~~~~~~~~~~~
 
 ZZ0000ZZ là một cấu trúc sử dụng các loại thuộc tính để mang
 thông tin về một đối tượng (thường được sử dụng khi kết xuất mảng
@@ -111,10 +111,10 @@ Hoạt động
 ==========
 
 Mô hình Enum (ID tin nhắn)
------------------------
+--------------------------
 
 thống nhất
-~~~~~~~
+~~~~~~~~~~
 
 Các gia đình hiện đại sử dụng mô hình ID tin nhắn ZZ0000ZZ, sử dụng
 một bảng liệt kê duy nhất cho tất cả các tin nhắn trong họ. Yêu cầu và
@@ -190,7 +190,7 @@ với phần yêu cầu và giá trị là 2) và 8 cho phản hồi (ZZ0006ZZ l
 thao tác trước đó theo hướng "từ hạt nhân").
 
 Những điều kỳ quặc khác
-============
+=======================
 
 Cấu trúc
 ----------
@@ -200,7 +200,7 @@ một thuộc tính và như một tiêu đề thư cố định. Cấu trúc đ
 ZZ0000ZZ và được tham chiếu trong các hoạt động hoặc thuộc tính.
 
 thành viên
-~~~~~~~
+~~~~~~~~~~
 
 - ZZ0001ZZ - Tên thuộc tính của thành viên struct
  - ZZ0002ZZ - Một trong các loại vô hướng ZZ0003ZZ, ZZ0004ZZ, ZZ0005ZZ, ZZ0006ZZ, ZZ0007ZZ,
@@ -243,7 +243,7 @@ cần có phần đệm rõ ràng để xem liệu các thành viên có đượ
           type: u8
 
 Tiêu đề cố định
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Tiêu đề thư cố định có thể được thêm vào hoạt động bằng ZZ0000ZZ.
 ZZ0001ZZ mặc định có thể được đặt trong ZZ0002ZZ và nó có thể được đặt
@@ -293,7 +293,7 @@ ZZ0001ZZ được sử dụng để xác định loại vô hướng cần tríc
       sub-type: u32
 
 LÀM nhiều tin nhắn
-----------------
+------------------
 
 Các dòng Netlink mới sẽ không bao giờ phản hồi lại thao tác DO với nhiều
 trả lời, với bộ ZZ0000ZZ. Thay vào đó hãy sử dụng bãi chứa đã được lọc.

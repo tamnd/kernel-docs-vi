@@ -22,7 +22,7 @@ cả chương trình cơ sở có màn hình Giao thức đầu ra đồ họa (
 các hệ thống chỉ có màn hình Bộ điều hợp đồ họa phổ dụng (UGA).
 
 Phần cứng được hỗ trợ
-==================
+=====================
 
 -iMac 17"/20"
 -Macbook
@@ -31,7 +31,7 @@ Phần cứng được hỗ trợ
 - Hệ thống ARM/ARM64/X86 với phần mềm UEFI
 
 Làm thế nào để sử dụng nó?
-==============
+==========================
 
 Đối với màn hình UGA, efifb không có bất kỳ loại tự động phát hiện nào của bạn
 máy.

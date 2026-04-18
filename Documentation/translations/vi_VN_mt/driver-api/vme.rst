@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển thiết bị VME
-==================
+=============================
 
 Đăng ký lái xe
 -------------------
@@ -114,7 +114,7 @@ Ví dụ: chỉ có thể chỉ định một không gian địa chỉ.
 
 
 Truy cập cửa sổ chính
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Hàm ZZ0000ZZ có thể được sử dụng để đọc và
 ZZ0001ZZ được sử dụng để ghi vào các cửa sổ chính đã được cấu hình.
@@ -172,7 +172,7 @@ thực hiện, tái sử dụng và phá hủy.
 
 
 Quản lý danh sách
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Chức năng ZZ0000ZZ được cung cấp để tạo và
 ZZ0001ZZ để hủy danh sách DMA. Việc thực hiện một danh sách sẽ không
@@ -181,7 +181,7 @@ nhiệm vụ.
 
 
 Danh sách dân số
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Một mục có thể được thêm vào danh sách bằng cách sử dụng ZZ0000ZZ (nguồn và
 thuộc tính đích cần được tạo trước khi gọi hàm này, đây là
@@ -213,7 +213,7 @@ thuộc tính.
 
 
 Thực thi danh sách
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 Hàm ZZ0000ZZ xếp hàng một danh sách để thực thi và sẽ
 trả về khi danh sách đã được thực thi.
@@ -277,7 +277,7 @@ các cài đặt hiện có.
 
 
 Sử dụng giám sát vị trí
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Hàm ZZ0000ZZ cho phép đính kèm một lệnh gọi lại và
 ZZ0001ZZ cho phép tách rời khỏi mỗi màn hình vị trí
@@ -296,7 +296,7 @@ Hàm ZZ0000ZZ trả về ID vị trí của cầu nối được cung cấp.
 
 
 Phát hiện xe buýt
--------------
+-----------------
 
 Hàm ZZ0000ZZ trả về ID bus của cầu được cung cấp.
 

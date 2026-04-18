@@ -44,7 +44,7 @@ sự gia nhập của bạn vào cộng đồng hạt nhân.
    submit-checklist
 
 Công cụ và hướng dẫn kỹ thuật dành cho nhà phát triển kernel
-------------------------------------------------
+------------------------------------------------------------
 
 Đây là bộ sưu tập tài liệu mà các nhà phát triển kernel phải quen thuộc
 với.
@@ -64,7 +64,7 @@ với.
    botching-up-ioctls
 
 Hướng dẫn chính sách và tuyên bố của nhà phát triển
---------------------------------------
+---------------------------------------------------
 
 Đây là những quy tắc mà chúng tôi cố gắng tuân thủ trong cộng đồng hạt nhân (và
 xa hơn).
@@ -104,7 +104,7 @@ hồi quy và các vấn đề bảo mật.
    embargoed-hardware-issues
 
 Thông tin người bảo trì
-----------------------
+-----------------------
 
 Làm thế nào để tìm thấy những người sẽ chấp nhận các bản vá lỗi của bạn.
 

@@ -51,7 +51,7 @@ Bố cục của giao diện Jack tiêm
 
 Nếu người dùng kích hoạt SND_JACK_INJECTION_DEBUG trong kernel, âm thanh
 Giao diện chèn jack sẽ được tạo như sau:
-::
+::::::::::::::::::::::::::::::::::::::::
 
 $debugfs_mount_dir/âm thanh
    |-- thẻ0

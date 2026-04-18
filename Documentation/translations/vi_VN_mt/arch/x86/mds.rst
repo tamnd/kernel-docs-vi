@@ -18,7 +18,7 @@ Giảm thiểu lấy mẫu dữ liệu vi kiến ​​trúc (MDS)
 .. _mds:
 
 Tổng quan
---------
+---------
 
 Lấy mẫu dữ liệu vi kiến trúc (MDS) là một nhóm các cuộc tấn công kênh bên
 trên bộ đệm bên trong trong CPU Intel. Các biến thể là:
@@ -82,7 +82,7 @@ liệu nó có thể được sử dụng để tạo ra một cấu trúc như 
 
 
 Chiến lược giảm thiểu
--------------------
+---------------------
 
 Tất cả các biến thể đều có cùng một chiến lược giảm thiểu ít nhất là cho một chiếc CPU
 trường hợp luồng (tắt SMT): Buộc CPU xóa bộ đệm bị ảnh hưởng.
@@ -127,7 +127,7 @@ dữ liệu không thể được kiểm soát theo cách cho phép khai thác t
 không gian người dùng hoặc khách VM.
 
 Các chế độ giảm thiểu nội bộ hạt nhân
---------------------------------
+-------------------------------------
 
 ======= =================================================================
  tắt Giảm thiểu bị vô hiệu hóa. CPU không bị ảnh hưởng hoặc
@@ -151,7 +151,7 @@ sự sẵn có của bit MD_CLEAR CPUID.
 -----------------
 
 1. Quay lại không gian người dùng
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Khi chuyển từ kernel sang không gian người dùng, bộ đệm CPU sẽ bị xóa
    trên các CPU bị ảnh hưởng khi tính năng giảm thiểu không bị tắt trên kernel
@@ -182,7 +182,7 @@ ZZ0000ZZ
 
 
 2. Chuyển trạng thái C
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Khi CPU không hoạt động và chuyển sang Trạng thái C, bộ đệm CPU cần phải được
    bị xóa trên các CPU bị ảnh hưởng khi SMT hoạt động. Điều này giải quyết các

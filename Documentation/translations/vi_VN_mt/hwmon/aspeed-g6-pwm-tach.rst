@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân aspeed-g6-pwm-tach
-=================================
+============================================
 
 Chip được hỗ trợ:
 	ASPEED AST2600

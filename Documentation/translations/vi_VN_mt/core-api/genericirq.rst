@@ -37,7 +37,7 @@ hệ thống con ngắt dựa trên kiến trúc của chúng, với sự trợ 
 lớp xử lý IRQ chung.
 
 Cơ sở lý luận
-=========
+=============
 
 Việc triển khai xử lý ngắt ban đầu trong Linux sử dụng
 __do_IRQ() siêu xử lý, có thể xử lý mọi loại
@@ -135,7 +135,7 @@ chức năng xử lý IRQ cấp cao chỉ sử dụng desc->irq_data.chip
 nguyên thủy được tham chiếu bởi cấu trúc mô tả chip được chỉ định.
 
 Trình điều khiển cấp cao API
----------------------
+----------------------------
 
 Driver API cấp cao bao gồm các chức năng sau:
 
@@ -166,7 +166,7 @@ Driver API cấp cao bao gồm các chức năng sau:
 Xem tài liệu về hàm được tạo tự động để biết chi tiết.
 
 Trình xử lý luồng IRQ cấp cao
-----------------------------
+-----------------------------
 
 Lớp chung cung cấp một tập hợp các phương thức luồng irq được xác định trước:
 
@@ -192,7 +192,7 @@ Triển khai luồng mặc định
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Chức năng trợ giúp
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 Các hàm trợ giúp gọi chip nguyên thủy và được sử dụng bởi
 triển khai luồng mặc định. Các chức năng trợ giúp sau đây là
@@ -231,10 +231,10 @@ noop(struct irq_data *data)
 
 
 Triển khai trình xử lý luồng mặc định
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Trình xử lý luồng IRQ cấp mặc định
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 hand_level_irq cung cấp cách triển khai chung cho cấp độ được kích hoạt
 ngắt quãng.
@@ -247,7 +247,7 @@ desc->irq_data.chip->irq_mask_ack();
 
 
 Trình xử lý luồng EOI IRQ nhanh mặc định
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 hand_fasteoi_irq cung cấp cách triển khai chung cho các ngắt,
 chỉ cần một EOI ở cuối trình xử lý.
@@ -259,7 +259,7 @@ xử lý_irq_event (desc->hành động);
 
 
 Trình xử lý luồng IRQ của Edge mặc định
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 hand_edge_irq cung cấp cách triển khai chung cho kích hoạt cạnh
 ngắt quãng.
@@ -283,7 +283,7 @@ if (desc->status & đang chạy) {
 
 
 Trình xử lý luồng IRQ đơn giản mặc định
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 hand_simple_irq cung cấp cách triển khai chung cho đơn giản
 ngắt quãng.
@@ -298,7 +298,7 @@ xử lý_irq_event (desc->hành động);
 
 
 Mặc định cho mỗi trình xử lý luồng CPU
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 hand_percpu_irq cung cấp cách triển khai chung cho mỗi CPU
 ngắt quãng.
@@ -316,14 +316,14 @@ if (desc->irq_data.chip->irq_ack)
 
 
 Bộ xử lý luồng EOI Edge IRQ
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 hand_edge_eoi_irq cung cấp một sự hủy bỏ của trình xử lý cạnh
 chỉ được sử dụng để chế ngự bộ điều khiển IRQ bị hỏng nặng trên
 máy tính/tế bào.
 
 Trình xử lý luồng IRQ kém
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 hand_bad_irq được sử dụng cho các ngắt giả không có thực tế
 người xử lý được giao..
@@ -337,7 +337,7 @@ cần thực hiện các yêu cầu ở cấp độ 'dòng' thì nó có thể l
 ghi đè trình xử lý luồng irq cấp cao.
 
 Vô hiệu hóa ngắt bị trì hoãn
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tính năng có thể lựa chọn trên mỗi ngắt này được Russell giới thiệu
 King trong việc triển khai ngắt ARM, không che dấu ngắt tại
@@ -425,7 +425,7 @@ Chương này chứa tài liệu được tạo tự động của các cấu tr
    :internal:
 
 Chức năng công cộng được cung cấp
-=========================
+=================================
 
 Chương này chứa tài liệu được tạo tự động của kernel API
 các chức năng được xuất khẩu.
@@ -436,7 +436,7 @@ các chức năng được xuất khẩu.
    :export:
 
 Chức năng nội bộ được cung cấp
-===========================
+==============================
 
 Chương này chứa tài liệu được tạo tự động của hệ thống nội bộ
 chức năng.
@@ -449,7 +449,7 @@ chức năng.
    :internal:
 
 Tín dụng
-=======
+========
 
 Những người sau đây đã đóng góp cho tài liệu này:
 

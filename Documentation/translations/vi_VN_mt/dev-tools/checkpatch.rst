@@ -26,7 +26,7 @@ tốt nhất là để yên.
 
 
 Tùy chọn
-=======
+========
 
 Phần này sẽ mô tả các tùy chọn mà bản vá kiểm tra có thể được chạy.
 
@@ -223,7 +223,7 @@ Sử dụng WORD làm tiền tố cho ký hiệu Kconfig (mặc định là ZZ00
 Hiển thị văn bản trợ giúp.
 
 Cấp độ tin nhắn
-==============
+===============
 
 Tin nhắn trong bản kiểm tra được chia thành ba cấp độ. Các cấp độ tin nhắn
 trong bản kiểm tra biểu thị mức độ nghiêm trọng của lỗi. Họ là:
@@ -282,7 +282,7 @@ Xem: ZZ0000ZZ
 
 
 Cách sử dụng API
----------
+----------------
 
 ZZ0000ZZ
     Nên tránh định nghĩa cụ thể về kiến trúc ở mọi nơi
@@ -466,7 +466,7 @@ ZZ0000ZZ
 
 
 Bình luận
---------
+---------
 
 ZZ0000ZZ
     Phong cách bình luận không chính xác.  Phong cách ưa thích cho đa
@@ -511,7 +511,7 @@ Các chế độ PHY "rgmii", "rgmii-rxid" và "rgmii-txid" yêu cầu đồng h
     bên trong MAC hoặc PHY), "rgmii-id" là chế độ PHY chính xác.
 
 Thông báo cam kết
---------------
+-----------------
 
 ZZ0000ZZ
     Dòng ký tắt không đúng tiêu chuẩn
@@ -620,7 +620,7 @@ ZZ0000ZZ
     có thể nhầm lẫn các công cụ áp dụng các bản vá.
 
 Phong cách so sánh
-----------------
+------------------
 
 ZZ0000ZZ
     Không sử dụng bài tập trong điều kiện if.
@@ -1083,7 +1083,7 @@ Xem: ZZ0000ZZ
 
 
 Khoảng cách và dấu ngoặc
---------------------
+------------------------
 
 ZZ0000ZZ
     Các toán tử gán không nên được viết ở đầu một
@@ -1219,7 +1219,7 @@ Xem: ZZ0000ZZ
 
 
 Người khác
-------
+----------
 
 ZZ0000ZZ
     Biểu tượng Kconfig phải có văn bản trợ giúp mô tả đầy đủ

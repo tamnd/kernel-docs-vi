@@ -21,7 +21,7 @@ Ngày 14 tháng 10 năm 2003
 Takashi Iwai <tiwai@suse.de>
 
 Tổng quan
--------
+---------
 
 Trước hết, bạn cần kích hoạt hỗ trợ GAMEPORT trên nhân Linux cho
 sử dụng cần điều khiển với trình điều khiển ALSA.  Để biết chi tiết về gameport

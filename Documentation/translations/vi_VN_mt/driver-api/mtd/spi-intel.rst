@@ -97,7 +97,7 @@ Tổng SHA1 phải khớp.
      đúng cách.
 
 Tài liệu tham khảo
-----------
+------------------
 
 [1] ZZ0000ZZ
 

@@ -31,7 +31,7 @@ Nội dung
 
 
 Trong bản phát hành này
-===============
+=======================
 
 Tệp này mô tả Trình điều khiển cơ sở Linux cho dòng Intel(R) PRO/100
 Bộ điều hợp. Trình điều khiển này bao gồm hỗ trợ cho các hệ thống dựa trên Itanium(R)2.
@@ -49,14 +49,14 @@ Tài liệu Liên kết kênh có thể được tìm thấy trong nguồn nhân
 
 
 Xác định bộ điều hợp của bạn
-========================
+============================
 
 Để biết thông tin về cách xác định bộ điều hợp của bạn và để có phiên bản Intel mới nhất
 trình điều khiển mạng, hãy tham khảo trang web Hỗ trợ của Intel:
 ZZ0000ZZ
 
 Thông số cấu hình trình điều khiển
-===============================
+==================================
 
 Giá trị mặc định cho từng tham số thường là cài đặt được đề xuất,
 trừ khi có ghi chú khác.
@@ -106,7 +106,7 @@ Cấu hình bổ sung
 =========================
 
 Định cấu hình trình điều khiển trên các bản phân phối khác nhau
--------------------------------------------------
+---------------------------------------------------------------
 
 Định cấu hình trình điều khiển mạng để tải đúng cách khi hệ thống khởi động
 phụ thuộc vào sự phân phối.  Thông thường, quá trình cấu hình bao gồm
@@ -141,7 +141,7 @@ tin nhắn, hãy đặt mức dmesg thành tám.
 NOTE: Cài đặt này không được lưu trong các lần khởi động lại.
 
 công cụ đạo đức
--------
+---------------
 
 Trình điều khiển sử dụng giao diện ethtool để cấu hình trình điều khiển và
 chẩn đoán cũng như hiển thị thông tin thống kê.  công cụ đạo đức
@@ -151,7 +151,7 @@ Bản phát hành mới nhất của ethtool có thể được tìm thấy từ
 ZZ0000ZZ
 
 Kích hoạt Wake trên LAN (WoL)
---------------------------
+-----------------------------
 WoL được cung cấp thông qua tiện ích ethtool.  Để được hướng dẫn về
 bật WoL bằng ethtool, hãy tham khảo trang man ethtool.  WoL sẽ là
 được bật trên hệ thống trong lần tắt hoặc khởi động lại tiếp theo.  Vì điều này

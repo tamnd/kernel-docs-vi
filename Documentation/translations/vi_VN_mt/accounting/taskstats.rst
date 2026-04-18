@@ -39,7 +39,7 @@ sử dụng tgid, không có cách xử lý đặc biệt nào cho tác vụ là
 người lãnh đạo - một quá trình được coi là còn sống miễn là nó có bất kỳ nhiệm vụ nào thuộc về nó.
 
 Cách sử dụng
------
+------------
 
 Để lấy số liệu thống kê trong suốt vòng đời của một tác vụ, không gian người dùng sẽ mở một liên kết mạng đơn hướng
 socket (họ NETLINK_GENERIC) và gửi lệnh chỉ định pid hoặc tgid.
@@ -130,7 +130,7 @@ a) TASKSTATS_TYPE_AGGR_PID: cho biết hai thuộc tính tiếp theo sẽ là pi
 
 
 số liệu thống kê trên mỗi tgid
---------------
+------------------------------
 
 Thống kê tác vụ cung cấp số liệu thống kê trên mỗi quy trình, ngoài số liệu thống kê trên mỗi tác vụ, vì
 quản lý tài nguyên thường được thực hiện ở mức độ chi tiết của quy trình và nhiệm vụ tổng hợp
@@ -174,7 +174,7 @@ nhận những cấu trúc lớn mà lĩnh vực của chúng không được qu
 việc mở rộng cấu trúc thuộc tính sẽ có giá trị.
 
 Kiểm soát luồng cho taskstats
---------------------------
+-----------------------------
 
 Khi tốc độ thoát tác vụ trở nên lớn, người nghe có thể không thể giữ được
 theo tốc độ gửi dữ liệu thoát mỗi tid/tgid của kernel dẫn đến dữ liệu

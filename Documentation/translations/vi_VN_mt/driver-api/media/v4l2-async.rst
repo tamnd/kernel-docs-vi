@@ -13,5 +13,5 @@
    review) được đặt trong thư mục vi_VN/.
 
 KAPI không đồng bộ V4L2
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 .. kernel-doc:: include/media/v4l2-async.h

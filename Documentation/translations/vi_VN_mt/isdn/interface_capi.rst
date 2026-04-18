@@ -17,7 +17,7 @@ Kernel CAPI Giao diện với trình điều khiển phần cứng
 ====================================================
 
 1. Tổng quan
-===========
+============
 
 Từ thông số kỹ thuật CAPI 2.0:
 COMMON-ISDN-API (CAPI) là chuẩn giao diện lập trình ứng dụng được sử dụng
@@ -38,7 +38,7 @@ Tiêu chuẩn này được cung cấp miễn phí từ ZZ0000ZZ
 
 
 2. Đăng ký trình điều khiển và thiết bị
-=================================
+=======================================
 
 Trình điều khiển CAPI phải đăng ký từng thiết bị ISDN mà họ điều khiển bằng Kernel
 CAPI bằng cách gọi hàm Kernel CAPI Attach_capi_ctr() bằng một con trỏ tới một
@@ -82,10 +82,10 @@ tin nhắn cho ứng dụng đó có thể được chuyển đến hoặc từ 
 
 
 4. Cấu trúc dữ liệu
-==================
+===================
 
 4.1 cấu trúc capi_driver
-----------------------
+------------------------
 
 Cấu trúc này mô tả chính trình điều khiển Kernel CAPI. Nó được sử dụng trong
 Các hàm register_capi_driver() và unregister_capi_driver() và chứa
@@ -98,7 +98,7 @@ ZZ0001ZZ
 	số sửa đổi của trình điều khiển, dưới dạng chuỗi ASCII kết thúc bằng 0
 
 4.2 cấu trúc capi_ctr
--------------------
+---------------------
 
 Cấu trúc này mô tả một thiết bị ISDN (bộ điều khiển) được xử lý bởi Kernel CAPI
 người lái xe. Sau khi đăng ký thông qua hàm Attach_capi_ctr(), nó sẽ được chuyển tới
@@ -108,7 +108,7 @@ xác định bộ điều khiển để hoạt động.
 Nó chứa các trường không riêng tư sau:
 
 được trình điều khiển thiết lập trước khi gọi Attach_capi_ctr():
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ZZ0000ZZ
 	con trỏ tới mô-đun trình điều khiển sở hữu thiết bị

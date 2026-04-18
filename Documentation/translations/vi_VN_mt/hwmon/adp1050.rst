@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adp1050
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -72,14 +72,14 @@ giao diện, thiết bị có thể giám sát điện áp đầu vào/đầu ra
 nhiệt độ.
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không tự động phát hiện thiết bị. Bạn sẽ phải khởi tạo
 các thiết bị một cách rõ ràng.
 Vui lòng xem Documentation/i2c/instantiating-devices.rst để biết chi tiết.
 
 Hỗ trợ dữ liệu nền tảng
----------------------
+-----------------------
 
 Trình điều khiển hỗ trợ dữ liệu nền tảng trình điều khiển PMBus tiêu chuẩn.
 

@@ -17,7 +17,7 @@ phân trang 5 cấp
 ================
 
 Tổng quan
-========
+=========
 X86-64 ban đầu bị giới hạn bởi phân trang 4 cấp ở 256 TiB địa chỉ ảo
 không gian và 64 TiB không gian địa chỉ vật lý. Chúng tôi đã va vào rồi
 giới hạn này: hiện nay một số nhà cung cấp cung cấp máy chủ có bộ nhớ 64 TiB.
@@ -35,7 +35,7 @@ Bố cục bộ nhớ ảo cho phân trang 5 cấp được mô tả trong
 Tài liệu/arch/x86/x86_64/mm.rst
 
 Không gian người dùng và không gian địa chỉ ảo lớn
-==========================================
+==================================================
 Trên x86, phân trang 5 cấp cho phép không gian địa chỉ ảo của không gian người dùng 56 bit.
 Không phải tất cả không gian người dùng đều sẵn sàng để xử lý các địa chỉ rộng. Người ta biết rằng
 ít nhất một số trình biên dịch JIT sử dụng các bit cao hơn trong con trỏ để mã hóa chúng

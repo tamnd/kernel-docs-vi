@@ -29,7 +29,7 @@ mã hóa.
 .. _jpeg-control-id:
 
 ID điều khiển JPEG
-================
+==================
 
 ZZ0001ZZ
     Bộ mô tả lớp JPEG. Đang gọi

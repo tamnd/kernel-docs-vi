@@ -19,7 +19,7 @@ Gợi ý triển khai Trình lập lịch CPU cho mã cụ thể của kiến tr
 Nick Pigin, 2005
 
 Chuyển đổi ngữ cảnh
-==============
+===================
 1. Khóa hàng đợi
 Theo mặc định, hàm switch_to Arch được gọi với runqueue
 bị khóa. Đây thường không phải là vấn đề trừ khi switch_to có thể cần
@@ -34,7 +34,7 @@ Công tắc ngữ cảnh đã được mở khóa chỉ mang lại hiệu suất
 hình phạt đối với việc triển khai bộ lập lịch cốt lõi trong trường hợp CONFIG_SMP.
 
 CPU nhàn rỗi
-========
+============
 Các thói quen cpu_idle của bạn cần tuân theo các quy tắc sau:
 
 1. Quyền ưu tiên bây giờ sẽ bị vô hiệu hóa đối với các hoạt động không hoạt động. Chỉ nên
@@ -78,7 +78,7 @@ ngủ chức năng nhàn rỗi.
 
 
 Vòm/vấn đề có thể xảy ra
-=======================
+========================
 
 Các vấn đề về vòm có thể xảy ra mà tôi đã tìm thấy (và đã cố gắng khắc phục hoặc không):
 

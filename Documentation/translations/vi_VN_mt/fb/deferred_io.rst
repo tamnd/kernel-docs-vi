@@ -59,7 +59,7 @@ Cách sử dụng: (dành cho ứng dụng)
 Không cần thay đổi. mmap bộ đệm khung như bình thường và chỉ cần sử dụng nó.
 
 Cách sử dụng: (dành cho trình điều khiển fbdev)
-----------------------------------
+-----------------------------------------------
 Ví dụ sau đây có thể hữu ích.
 
 1. Thiết lập cấu trúc của bạn. Ví dụ::

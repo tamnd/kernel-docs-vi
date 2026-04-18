@@ -159,7 +159,7 @@ sửa đổi xảy ra giữa lỗi được viết và khi nó được
 được phát hiện.
 
 Xác thực thời gian chạy
-==================
+=======================
 
 Việc xác thực siêu dữ liệu tự mô tả diễn ra trong thời gian chạy ở hai nơi:
 

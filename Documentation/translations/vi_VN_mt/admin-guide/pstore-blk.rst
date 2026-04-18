@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 khối pstore rất tiếc/logger hoảng loạn
-==============================
+======================================
 
 Giới thiệu
 ------------
@@ -97,7 +97,7 @@ pstore/blk sẽ đăng nhập từng phần oops/panic và luôn ghi đè lên
 đoạn cũ nhất nếu không còn đoạn trống nào nữa.
 
 chiều_size
-~~~~~~~~~
+~~~~~~~~~~
 
 Kích thước chunk tính bằng KB cho giao diện người dùng pmsg. ZZ0000ZZ là bội số của 4.
 Đó là tùy chọn nếu bạn không quan tâm đến nhật ký pmsg.
@@ -152,7 +152,7 @@ liên quan bị treo. Dưới đây là một ví dụ về cách sử dụng::
  CPU:1 ts:5916724 c05ca2d1 c05ca638 __ww_mutex_lock <- __mutex_lock_slowpath+0x31c/0x358
 
 lý do tối đa
-~~~~~~~~~~
+~~~~~~~~~~~~
 
 Có thể kiểm soát việc giới hạn loại bãi chứa kmsg nào được lưu trữ thông qua
 giá trị ZZ0000ZZ, như được xác định trong include/linux/kmsg_dump.h's
@@ -201,7 +201,7 @@ tệp kết xuất ghi lại thời gian kích hoạt. Để xóa một bản gh
 thiết bị, chỉ cần hủy liên kết tệp pstore tương ứng.
 
 Những chú ý trong API đọc/ghi hoảng loạn
------------------------------------
+----------------------------------------
 
 Nếu trong tình trạng hoảng loạn, kernel sẽ không chạy lâu hơn nữa, các tác vụ sẽ không
 được lên lịch và hầu hết các tài nguyên kernel sẽ không còn hoạt động. Nó

@@ -22,7 +22,7 @@ không được liệt kê ở đây.  Để giảm hiện tượng jitter của
 họ đến một "người dọn phòng" CPU chuyên làm công việc đó.
 
 Tài liệu tham khảo
-==========
+==================
 
 - Documentation/core-api/irq/irq-affinity.rst: Liên kết các ngắt với các bộ CPU.
 

@@ -57,7 +57,7 @@ Có một hàm nâng cao cấp thấp hơn - bvec_iter_advance() - thực hiện
 Kể từ 5,12 bvec, các phân đoạn có bv_len bằng 0 không được hỗ trợ.
 
 Tất cả những điều này mang lại cho chúng ta điều gì?
-=======================
+====================================================
 
 Việc có một trình vòng lặp thực sự và làm cho các biovec trở nên bất biến có một số
 lợi thế:
@@ -135,7 +135,7 @@ Vì vậy, đừng sử dụng bi_vcnt nữa.
    trình điều khiển.
 
 Cách sử dụng người trợ giúp:
-=================
+============================
 
 * Chỉ có thể sử dụng những người trợ giúp sau có tên có hậu tố ZZ0000ZZ
   trên sinh học không phải BIO_CLONED. Chúng thường được sử dụng bởi mã hệ thống tập tin. Trình điều khiển

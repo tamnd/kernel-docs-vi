@@ -32,7 +32,7 @@ Lợi ích của Netmem:
   bất kể việc triển khai bộ nhớ cơ bản.
 
 Yêu cầu về trình điều khiển RX
-======================
+==============================
 
 1. Trình điều khiển phải hỗ trợ page_pool.
 
@@ -91,7 +91,7 @@ Lý tưởng nhất là trình điều khiển không cần phải kiểm tra lo
    kịch bản.
 
 Yêu cầu về trình điều khiển TX
-======================
+==============================
 
 1. Trình điều khiển không được chuyển netmem dma_addr cho bất kỳ API ánh xạ dma nào
    trực tiếp. Điều này là do netmem dma_addrs có thể đến từ một nguồn như

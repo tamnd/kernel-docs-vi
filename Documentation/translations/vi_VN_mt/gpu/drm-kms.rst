@@ -30,7 +30,7 @@ trường mode_config và không bao giờ bị lỗi. Sau khi thực hiện xon
    Chức năng cài đặt chế độ.
 
 Tổng quan
-========
+=========
 
 .. kernel-render:: DOT
    :alt: KMS Display Pipeline
@@ -161,7 +161,7 @@ Lưu ý rằng hiện tại việc kết nối cầu nối và tương tác vớ
 các bảng vẫn đang thay đổi và chưa thực sự được sắp xếp đầy đủ.
 
 Cấu trúc và chức năng cốt lõi của KMS
-=================================
+=====================================
 
 .. kernel-doc:: include/drm/drm_mode_config.h
    :internal:
@@ -172,7 +172,7 @@ Cấu trúc và chức năng cốt lõi của KMS
 .. _kms_base_object_abstraction:
 
 Trừu tượng hóa đối tượng cơ sở Modeset
-===============================
+======================================
 
 .. kernel-render:: DOT
    :alt: Mode Objects and Properties
@@ -200,7 +200,7 @@ nhiều lần tới các đối tượng khác nhau bằng cách sử dụng drm
    :export:
 
 Cài đặt chế độ nguyên tử
-===================
+========================
 
 
 .. kernel-render:: DOT
@@ -287,13 +287,13 @@ ZZ0001ZZ.
 bao quát các chủ đề cụ thể.
 
 Xử lý trạng thái riêng của tài xế
------------------------------
+---------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_atomic.c
    :doc: handling driver private state
 
 Tham khảo chức năng cài đặt chế độ nguyên tử
---------------------------------------
+--------------------------------------------
 
 .. kernel-doc:: include/drm/drm_atomic.h
    :internal:
@@ -302,7 +302,7 @@ Tham khảo chức năng cài đặt chế độ nguyên tử
    :export:
 
 Cài đặt chế độ nguyên tử Chức năng IOCTL và UAPI
---------------------------------------------
+------------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_atomic_uapi.c
    :doc: overview
@@ -373,7 +373,7 @@ Tham khảo hàm định dạng
    :doc: overview
 
 Trừu tượng mặt phẳng
-=================
+====================
 
 .. kernel-doc:: drivers/gpu/drm/drm_plane.c
    :doc: overview
@@ -394,7 +394,7 @@ Tham chiếu hàm thành phần mặt phẳng
    :export:
 
 Tham khảo chức năng theo dõi hư hỏng máy bay
------------------------------------------
+--------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_damage_helper.c
    :export:
@@ -403,13 +403,13 @@ Tham khảo chức năng theo dõi hư hỏng máy bay
    :internal:
 
 Tính năng hoảng loạn máy bay
--------------------
+----------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_panic.c
    :doc: overview
 
 Tài liệu tham khảo về chức năng hoảng loạn của máy bay
--------------------------------
+------------------------------------------------------
 
 .. kernel-doc:: include/drm/drm_panic.h
    :internal:
@@ -433,7 +433,7 @@ Tham khảo chức năng Colorop
    :export:
 
 Chế độ hiển thị Chức năng Tham khảo
-================================
+===================================
 
 .. kernel-doc:: include/drm/drm_modes.h
    :internal:
@@ -442,7 +442,7 @@ Chế độ hiển thị Chức năng Tham khảo
    :export:
 
 Trừu tượng hóa trình kết nối
-=====================
+============================
 
 .. kernel-doc:: drivers/gpu/drm/drm_connector.c
    :doc: overview
@@ -457,7 +457,7 @@ Tham khảo chức năng kết nối
    :export:
 
 Trình kết nối ghi lại
---------------------
+---------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_writeback.c
   :doc: overview
@@ -469,13 +469,13 @@ Trình kết nối ghi lại
   :export:
 
 Trừu tượng bộ mã hóa
-===================
+====================
 
 .. kernel-doc:: drivers/gpu/drm/drm_encoder.c
    :doc: overview
 
 Tham khảo chức năng bộ mã hóa
----------------------------
+-----------------------------
 
 .. kernel-doc:: include/drm/drm_encoder.h
    :internal:
@@ -538,7 +538,7 @@ Các nhà phát triển trình điều khiển đã thêm thuộc tính lần đ
 nhiệm vụ và phải ACK hành vi được ghi lại nếu có thể.
 
 Các loại thuộc tính và hỗ trợ thuộc tính Blob
-----------------------------------------
+---------------------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_property.c
    :doc: overview
@@ -570,13 +570,13 @@ Thuộc tính kết nối cụ thể của TV analog
    :doc: Analog TV Connector Properties
 
 Thuộc tính CRTC tiêu chuẩn
-------------------------
+--------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_crtc.c
    :doc: standard CRTC properties
 
 Thuộc tính mặt phẳng tiêu chuẩn
--------------------------
+-------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_plane.c
    :doc: standard plane properties
@@ -584,7 +584,7 @@ Thuộc tính mặt phẳng tiêu chuẩn
 .. _plane_composition_properties:
 
 Thuộc tính thành phần mặt phẳng
-----------------------------
+-------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_blend.c
    :doc: overview
@@ -592,7 +592,7 @@ Thuộc tính thành phần mặt phẳng
 .. _damage_tracking_properties:
 
 Thuộc tính theo dõi thiệt hại
---------------------------
+-----------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_plane.c
    :doc: damage tracking
@@ -604,7 +604,7 @@ Thuộc tính quản lý màu
    :doc: overview
 
 Thuộc tính nhóm ngói
--------------------
+--------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_connector.c
    :doc: Tile group
@@ -623,7 +623,7 @@ Thuộc tính làm mới biến
    :doc: Variable refresh properties
 
 Thuộc tính điểm phát sóng con trỏ
----------------------------
+---------------------------------
 
 .. kernel-doc:: drivers/gpu/drm/drm_plane.c
    :doc: hotspot properties

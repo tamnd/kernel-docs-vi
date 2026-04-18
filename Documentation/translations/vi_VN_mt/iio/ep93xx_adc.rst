@@ -17,7 +17,7 @@ Trình điều khiển Cirrus Logic EP93xx ADC
 ========================================
 
 1. Tổng quan
-===========
+============
 
 Trình điều khiển được thiết kế để hoạt động trên cả hai thiết bị cấp thấp (EP9301, EP9302) với
 ADC 5 kênh và các thiết bị cao cấp (EP9307, EP9312, EP9315) 10 kênh

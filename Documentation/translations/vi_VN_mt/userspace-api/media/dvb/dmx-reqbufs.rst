@@ -78,7 +78,7 @@ Giá trị ZZ0001ZZ bằng 0 sẽ giải phóng tất cả bộ đệm sau khi h
 bất kỳ DMA nào đang được xử lý.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công, trả về 0, lỗi -1 và biến ZZ0001ZZ được đặt
 một cách thích hợp. Các mã lỗi chung được mô tả tại

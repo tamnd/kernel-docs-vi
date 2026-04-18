@@ -95,7 +95,7 @@ các giao thức bộ điều hợp đã biết:
 
 
 2. Sử dụng hệ thống con pata_parport
-===============================
+====================================
 
 Trong khi định cấu hình nhân Linux, bạn có thể chọn xây dựng
 trình điều khiển pata_parport vào kernel của bạn hoặc để xây dựng chúng dưới dạng mô-đun.

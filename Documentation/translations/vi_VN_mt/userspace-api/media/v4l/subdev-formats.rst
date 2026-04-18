@@ -17,7 +17,7 @@
 .. _v4l2-mbus-format:
 
 Định dạng xe buýt đa phương tiện
-=================
+================================
 
 .. c:type:: v4l2_mbus_framefmt
 
@@ -159,7 +159,7 @@
 .. _v4l2-mbus-pixelcode:
 
 Mã pixel của phương tiện truyền thông
----------------------
+-------------------------------------
 
 Mã pixel bus phương tiện mô tả các định dạng hình ảnh chuyển qua
 các bus vật lý (cả giữa các thành phần vật lý riêng biệt và bên trong
@@ -186,7 +186,7 @@ Không được có mã MEDIA_BUS_FMT_RGB888_3X8 hoặc MEDIA_BUS_FMT_BGR888_1X2
 được sử dụng cho CSI-2.
 
 Các định dạng RGB được đóng gói
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Các định dạng đó truyền dữ liệu pixel dưới dạng các thành phần màu đỏ, xanh lục và xanh lam. các
 mã định dạng được tạo từ các thông tin sau.
@@ -2774,7 +2774,7 @@ ZZ0000ZZ chẳng hạn.
 
 
 Định dạng của Bayer
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 Các định dạng đó truyền dữ liệu pixel dưới dạng các thành phần màu đỏ, xanh lục và xanh lam. các
 mã định dạng được tạo từ các thông tin sau.
@@ -3870,7 +3870,7 @@ tổ chức chỉ được đưa ra làm ví dụ cho pixel đầu tiên.
 
 
 Các định dạng YUV được đóng gói
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Các định dạng dữ liệu đó truyền dữ liệu pixel dưới dạng (có thể được lấy mẫu xuống) Y, U
 và thành phần V. Một số định dạng bao gồm các bit giả trong một số
@@ -8669,7 +8669,7 @@ Bảng sau liệt kê các định dạng YUV rộng 48 bit hiện có.
 	\endgroup
 
 Định dạng HSV/HSL
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 Các định dạng đó truyền dữ liệu pixel dưới dạng giá trị RGB trong một
 hệ tọa độ trụ sử dụng Hue-Saturation-Value hoặc
@@ -8840,7 +8840,7 @@ Bảng sau liệt kê các định dạng nén JPEG hiện có.
 .. _v4l2-mbus-vendor-spec-fmts:
 
 Định dạng cụ thể của nhà cung cấp và thiết bị
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Phần này liệt kê các định dạng dữ liệu phức tạp của nhà cung cấp hoặc thiết bị
 cụ thể.
@@ -8870,7 +8870,7 @@ các định dạng.
 .. _v4l2-mbus-metadata-fmts:
 
 Định dạng siêu dữ liệu
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Phần này liệt kê tất cả các định dạng siêu dữ liệu.
 
@@ -8895,7 +8895,7 @@ Bảng sau liệt kê các định dạng siêu dữ liệu hiện có.
 	Width and height will be set to 0 for this format.
 
 Định dạng siêu dữ liệu nối tiếp chung
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Các định dạng siêu dữ liệu nối tiếp chung được sử dụng trên các bus nối tiếp nơi dữ liệu thực tế
 nội dung ít nhiều cụ thể theo thiết bị nhưng dữ liệu được truyền và nhận

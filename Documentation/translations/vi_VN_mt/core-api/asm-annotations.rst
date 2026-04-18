@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Chú thích của trình biên dịch mã
-=====================
+================================
 
 Bản quyền (c) 2017-2019 Jiri Slaby
 
@@ -22,7 +22,7 @@ lắp ráp. Đặc biệt, nó chứa thông tin về ZZ0000ZZ,
 ZZ0001ZZ, ZZ0002ZZ và tương tự.
 
 Cơ sở lý luận
----------
+-------------
 Một số mã như mục nhập, tấm bạt lò xo hoặc mã khởi động cần phải được viết bằng
 lắp ráp. Giống như trong C, mã như vậy được nhóm thành các hàm và
 kèm theo dữ liệu. Trình biên dịch chuẩn không bắt buộc người dùng phải nhập chính xác
@@ -64,7 +64,7 @@ dấu vết ngăn xếp cần thiết cho việc vá lỗi trực tiếp kernel
 (Tài liệu/livepatch/livepatch.rst).
 
 Hãy cẩn thận và thảo luận
----------------------
+-------------------------
 Như người ta có thể nhận ra, trước đây chỉ có ba macro. Đó thực sự là
 không đủ để bao gồm tất cả các kết hợp của trường hợp:
 
@@ -191,7 +191,7 @@ retq
     SYM_CODE_END(ftrace_caller)
 
 Macro dữ liệu
-~~~~~~~~~~~
+~~~~~~~~~~~~~
 Tương tự như hướng dẫn, có một số macro để mô tả dữ liệu trong
 lắp ráp.
 

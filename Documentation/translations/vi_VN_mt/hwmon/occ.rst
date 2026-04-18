@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân occ-hwmon
-=======================
+===================================
 
 Chip được hỗ trợ:
 
@@ -38,7 +38,7 @@ Phiên bản P9 của trình điều khiển này là trình điều khiển má
 Nó sẽ được trình điều khiển OCC dựa trên FSI tự động kiểm tra.
 
 Mục nhập hệ thống
--------------
+-----------------
 
 Các thuộc tính sau được hỗ trợ. Tất cả các thuộc tính đều ở chế độ chỉ đọc trừ khi
 được chỉ định.

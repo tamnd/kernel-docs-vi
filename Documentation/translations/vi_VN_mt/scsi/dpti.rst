@@ -35,7 +35,7 @@ về khả năng xảy ra thiệt hại đó.
 Trình điều khiển này hỗ trợ các bo mạch Adaptec I2O RAID và DPT SmartRAID V I2O.
 
 Tín dụng
-=======
+========
 
 Trình điều khiển linux gốc đã được Karen White chuyển sang Linux khi ở
 Máy tính Dell.  Nó được chuyển từ bản gốc của Bob Pasteur (của DPT)
@@ -93,7 +93,7 @@ TODO
 - Thêm phục hồi lỗi passthru ioctl
 
 Ghi chú
-=====
+=======
 Thẻ DPT tối ưu hóa thứ tự xử lý lệnh.  Do đó,
 một lệnh có thể mất tới 6 phút để hoàn thành sau khi được gửi
 lên bảng.

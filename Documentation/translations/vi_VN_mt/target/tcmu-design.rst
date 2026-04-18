@@ -38,7 +38,7 @@ Thiết kế không gian người dùng TCM
 
 
 Thiết kế
-======
+========
 
 TCM là tên gọi khác của LIO, mục tiêu (máy chủ) iSCSI trong kernel.
 Các mục tiêu TCM hiện có chạy trong kernel.  TCMU (TCM trong không gian người dùng)
@@ -81,7 +81,7 @@ kho ngược cho LIO, "TCMU".
 
 
 Những lợi ích
---------
+-------------
 
 Ngoài việc cho phép hỗ trợ tương đối dễ dàng cho RBD và GLFS, TCMU
 cũng sẽ cho phép phát triển các cửa hàng mới dễ dàng hơn. TCMU kết hợp
@@ -223,7 +223,7 @@ chỉ nên truy cập những phần được tham chiếu bởi các iov đang 
 
 
 Khám phá thiết bị
-----------------
+-----------------
 
 Các thiết bị khác có thể đang sử dụng UIO ngoài TCMU. Quy trình người dùng không liên quan
 cũng có thể đang xử lý các bộ thiết bị TCMU khác nhau. Không gian người dùng TCMU
@@ -259,7 +259,7 @@ trong đó kích thước phải bằng giá trị được đọc từ
 
 
 Sự kiện thiết bị
--------------
+----------------
 
 Nếu một thiết bị mới được thêm hoặc xóa, một thông báo sẽ được phát đi
 qua liên kết mạng, sử dụng tên họ liên kết mạng chung là "TCM-USER" và một
@@ -271,7 +271,7 @@ thiết bị LIO, để sau khi xác định thiết bị được hỗ trợ
 
 
 Các trường hợp dự phòng khác
--------------------
+----------------------------
 
 Quá trình xử lý không gian người dùng không bao giờ đính kèm:
 
@@ -411,7 +411,7 @@ trả về 0;
 
 
 Một lưu ý cuối cùng
-============
+===================
 
 Hãy cẩn thận khi trả lại mã theo quy định của SCSI
 thông số kỹ thuật. Những giá trị này khác với một số giá trị được xác định trong

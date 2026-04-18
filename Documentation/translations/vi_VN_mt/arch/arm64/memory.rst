@@ -89,7 +89,7 @@ có kích thước đủ lớn hoặc địa chỉ đó được đặt ở vị
 trường hợp "xấu nhất".
 
 VA không gian người dùng 52-bit
---------------------
+-------------------------------
 Để duy trì khả năng tương thích với phần mềm dựa trên ARMv8.0
 Kích thước tối đa của không gian VA là 48 bit, theo mặc định, hạt nhân sẽ
 trả lại địa chỉ ảo cho không gian người dùng từ phạm vi 48 bit.

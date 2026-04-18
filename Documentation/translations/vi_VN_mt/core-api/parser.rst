@@ -17,13 +17,13 @@ Trình phân tích cú pháp chung
 =============================
 
 Tổng quan
-========
+=========
 
 Trình phân tích cú pháp chung là một trình phân tích cú pháp đơn giản để phân tích các tùy chọn gắn kết,
 tùy chọn hệ thống tập tin, tùy chọn trình điều khiển, tùy chọn hệ thống con, v.v.
 
 Trình phân tích cú pháp API
-==========
+===========================
 
 .. kernel-doc:: lib/parser.c
    :export:

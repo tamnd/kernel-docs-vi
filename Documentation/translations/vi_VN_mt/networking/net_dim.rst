@@ -48,7 +48,7 @@ tăng băng thông bằng cách giảm tốc độ ngắt.
 
 
 Thuật toán DIM ròng
-=================
+===================
 
 Mỗi lần lặp của thuật toán Net DIM đều tuân theo các bước sau:
 
@@ -185,7 +185,7 @@ việc sử dụng chưa hoàn tất nhưng nó phải làm rõ nội dung sử 
 
 
 Điều chỉnh DIM
-==========
+==============
 
 Net DIM phục vụ nhiều loại thiết bị mạng và mang lại khả năng tăng tốc tuyệt vời
 lợi ích. Tuy nhiên, người ta nhận thấy rằng một số cấu hình cài sẵn của DIM có thể

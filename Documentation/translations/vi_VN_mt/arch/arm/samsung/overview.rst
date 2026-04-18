@@ -43,7 +43,7 @@ s5pc110_defconfig
 
 
 Cách trình bày
-------
+--------------
 
 Bố cục thư mục hiện đang được cơ cấu lại và bao gồm
   một số thư mục nền tảng và sau đó là các thư mục cụ thể của máy
@@ -60,7 +60,7 @@ plat-s5p dành cho các bản dựng cụ thể của s5p và chứa hỗ trợ 
 
 
 Thay đổi bố cục
---------------
+---------------
 
 Các thư mục plat-s3c và plat-s5pc1xx cũ đã bị xóa, với
   hỗ trợ được chuyển sang plat-samsung hoặc plat-s5p nếu cần. Những động thái này
@@ -69,7 +69,7 @@ Các thư mục plat-s3c và plat-s5pc1xx cũ đã bị xóa, với
 
 
 Người đóng góp cổng
------------------
+-------------------
 
 Ben Dooks (BJD)
   Vincent Sanders
@@ -85,6 +85,6 @@ Ben Dooks (BJD)
 
 
 Tác giả tài liệu
----------------
+----------------
 
 Bản quyền 2009-2010 Ben Dooks <ben-linux@fluff.org>

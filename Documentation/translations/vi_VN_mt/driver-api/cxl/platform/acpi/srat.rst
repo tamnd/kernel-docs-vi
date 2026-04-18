@@ -37,7 +37,7 @@ bản đồ không được đảm bảo.  Có những tình huống trong đó 
 ví dụ: ánh xạ tới "NUMA Node 3".  (Xem "Tạo nút NUMA")
 
 Mối quan hệ trí nhớ
-===============
+===================
 Nói chung, nếu máy chủ thực hiện bất kỳ số lượng kết cấu CXL nào (bộ giải mã)
 lập trình trong BIOS - cần phải có mục nhập SRAT cho bộ nhớ đó.
 
@@ -57,7 +57,7 @@ Loại bảng phụ: 01 [Mối quan hệ bộ nhớ]
 
 
 Mối quan hệ cổng chung
-=====================
+======================
 Bảng phụ Mối quan hệ cổng chung cung cấp sự liên kết giữa một vùng lân cận
 miền và bộ điều khiển thiết bị đại diện cho Cổng chung, chẳng hạn như máy chủ CXL
 cầu. Với sự liên kết, số độ trễ và băng thông có thể được truy xuất

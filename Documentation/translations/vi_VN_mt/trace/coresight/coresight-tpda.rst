@@ -30,7 +30,7 @@ và đánh dấu thời gian của dữ liệu Giám sát.
 
 
 Các tập tin và thư mục Sysfs
----------------------------
+----------------------------
 Gốc: ZZ0000ZZ
 
 Chi tiết cấu hình

@@ -46,7 +46,7 @@ mystruct->tstats.packet++;
 
 
 Xuất sang không gian người dùng (Dump):
----------------------------
+---------------------------------------
 
 ::
 
@@ -69,7 +69,7 @@ nếu (gnet_stats_finish_copy(&dump) < 0)
     }
 
 Khả năng tương thích ngược TCA_STATS/TCA_XSTATS:
---------------------------------------------
+------------------------------------------------
 
 Người dùng trước của struct tc_stats và xstats có thể duy trì ngược
 khả năng tương thích bằng cách gọi các trình bao bọc tương thích để tiếp tục cung cấp
@@ -98,7 +98,7 @@ có trách nhiệm đảm bảo rằng khóa được khởi tạo.
 
 
 Công cụ ước tính tỷ lệ:
----------------
+-----------------------
 
 0) Chuẩn bị thuộc tính ước tính. Nhiều khả năng điều này sẽ có trong người dùng
    không gian. Giá trị của TLV này phải chứa cấu trúc tc_estimator.

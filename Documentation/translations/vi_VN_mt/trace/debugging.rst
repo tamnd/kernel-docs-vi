@@ -36,7 +36,7 @@ $ sudo mount -t tracefs tracefs/sys/kernel/tracing
 
 
 Sử dụng trace_printk()
---------------------
+----------------------
 
 trace_printk() là một tiện ích rất nhẹ có thể được sử dụng trong mọi ngữ cảnh
 bên trong kernel, ngoại trừ phần "noinstr". Nó có thể được sử dụng
@@ -153,7 +153,7 @@ bố cục và đánh dấu bộ đệm là không hợp lệ.
 Lưu ý: Cả địa chỉ và kích thước được ánh xạ phải được căn chỉnh theo trang cho kiến ​​trúc.
 
 Sử dụng trace_printk() trong phiên bản khởi động
------------------------------------------
+------------------------------------------------
 Theo mặc định, nội dung của trace_printk() được đưa vào truy tìm cấp cao nhất
 ví dụ. Nhưng trường hợp này không bao giờ được bảo tồn trên các bốt. Để có
 nội dung trace_printk() và một số dấu vết nội bộ khác sẽ được chuyển đến phần được bảo tồn
@@ -175,7 +175,7 @@ Nếu không, dấu vết từ lần khởi động gần đây nhất sẽ bị
 từ lần khởi động trước và có thể gây khó hiểu khi đọc.
 
 Sử dụng phiên bản sao lưu để giữ dữ liệu khởi động trước đó
-------------------------------------------------------
+-----------------------------------------------------------
 
 Cũng có thể ghi lại dữ liệu theo dõi lúc khởi động hệ thống bằng cách chỉ định
 các sự kiện với bộ đệm vòng liên tục, nhưng trong trường hợp này dữ liệu trước

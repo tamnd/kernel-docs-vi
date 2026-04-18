@@ -21,7 +21,7 @@ các họ như ZZ0000ZZ sử dụng giao thức ZZ0001ZZ
 đặc điểm kỹ thuật.
 
 Đặc điểm kỹ thuật
-=============
+=================
 
 Lược đồ netlink-raw mở rộng ZZ0000ZZ
 lược đồ với các thuộc tính cần thiết để xác định số giao thức và
@@ -51,7 +51,7 @@ Thuộc tính nhóm multicast
 --------------------------
 
 giá trị
-~~~~~
+~~~~~~~
 
 Thuộc tính ZZ0000ZZ được sử dụng để chỉ định ID nhóm sẽ sử dụng cho phát đa hướng
 đăng ký nhóm.
@@ -172,7 +172,7 @@ giá trị không có trong thông báo ở cùng mức như được xác đị
 thì đây là một lỗi.
 
 Định nghĩa cấu trúc lồng nhau
--------------------------
+-----------------------------
 
 Nhiều họ liên kết mạng thô như ZZ0000ZZ
 sử dụng các định nghĩa cấu trúc lồng nhau. Lược đồ ZZ0001ZZ làm cho nó

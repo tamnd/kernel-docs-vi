@@ -51,13 +51,13 @@ Xử lý bài đăng video
    :doc: Video Post Processing
 
 Bộ mã hóa video
-=============
+===============
 
 .. kernel-doc:: drivers/gpu/drm/meson/meson_venc.c
    :doc: Video Encoder
 
 Đồng hồ video
-============
+=============
 
 .. kernel-doc:: drivers/gpu/drm/meson/meson_vclk.c
    :doc: Video Clocks

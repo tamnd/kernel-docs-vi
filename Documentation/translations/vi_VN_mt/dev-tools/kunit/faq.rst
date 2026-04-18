@@ -35,7 +35,7 @@ hạt nhân đang được thử nghiệm. Điều này đúng với Autotest, k
 loại bỏ bất kỳ trong số chúng khỏi việc được coi là khung thử nghiệm đơn vị.
 
 KUnit có hỗ trợ chạy trên các kiến ​​trúc khác ngoài UML không?
-===========================================================
+===============================================================
 
 Vâng, hầu hết.
 
@@ -54,7 +54,7 @@ làm việc nhiều hơn việc sử dụng KUnit trên UML.
 .. _kinds-of-tests:
 
 Sự khác biệt giữa bài kiểm tra đơn vị và các loại bài kiểm tra khác là gì?
-====================================================================
+==========================================================================
 Hầu hết các thử nghiệm hiện có cho nhân Linux sẽ được phân loại là tích hợp
 kiểm tra hoặc kiểm tra đầu cuối.
 

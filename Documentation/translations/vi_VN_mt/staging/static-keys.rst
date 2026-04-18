@@ -80,7 +80,7 @@ có thể. Mặc dù các điểm theo dõi là động lực ban đầu cho cô
 
 
 Giải pháp
-========
+=========
 
 
 gcc (v4.5) thêm câu lệnh 'asm goto' mới cho phép phân nhánh thành nhãn:
@@ -108,7 +108,7 @@ Cơ chế vá lỗi ở mức độ thấp này được gọi là 'vá nhãn nh
 cơ sở cho cơ sở khóa tĩnh.
 
 Nhãn khóa tĩnh API, cách sử dụng và ví dụ
-========================================
+=========================================
 
 
 Để sử dụng tối ưu hóa này, trước tiên bạn phải xác định khóa::

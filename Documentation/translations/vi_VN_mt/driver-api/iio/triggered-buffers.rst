@@ -19,7 +19,7 @@ Bộ đệm được kích hoạt
 Bây giờ chúng ta đã biết bộ đệm và trình kích hoạt là gì, hãy xem chúng hoạt động cùng nhau như thế nào.
 
 Thiết lập bộ đệm kích hoạt IIO
-==========================
+==============================
 
 * ZZ0000ZZ — Thiết lập bộ đệm được kích hoạt và pollfunc
 * ZZ0001ZZ — Tài nguyên miễn phí được phân bổ bởi
@@ -79,5 +79,5 @@ Những điều quan trọng cần chú ý ở đây là:
   nửa trên.
 
 Thêm chi tiết
-============
+=============
 .. kernel-doc:: drivers/iio/buffer/industrialio-triggered-buffer.c

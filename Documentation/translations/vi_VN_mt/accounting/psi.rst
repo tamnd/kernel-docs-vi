@@ -133,7 +133,7 @@ Trình kích hoạt sẽ hủy đăng ký khi bộ mô tả tệp được sử 
 cò súng đã đóng.
 
 Ví dụ về cách sử dụng màn hình không gian người dùng
-===============================
+====================================================
 
 ::
 

@@ -41,7 +41,7 @@ nội dung. Nội dung PCR được sử dụng để cung cấp xác thực
 nhật ký đo lường."
 
 Nhật ký sự kiện UEFI
-==============
+====================
 
 Nhật ký sự kiện do UEFI cung cấp có một số điểm kỳ quặc.
 
@@ -61,7 +61,7 @@ nối hai nửa nhật ký sự kiện từ bảng cấu hình tùy chỉnh
 và bảng sự kiện cuối cùng.
 
 Tài liệu tham khảo
-==========
+==================
 
 - [1] ZZ0000ZZ
 - [2] Việc nối cuối cùng được thực hiện trong driver/char/tpm/eventlog/efi.c

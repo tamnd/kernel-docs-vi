@@ -13,6 +13,6 @@
    review) được đặt trong thư mục vi_VN/.
 
 Mạng truyền hình kỹ thuật số kABI
------------------------
+---------------------------------
 
 .. kernel-doc:: include/media/dvb_net.h

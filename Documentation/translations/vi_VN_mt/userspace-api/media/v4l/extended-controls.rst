@@ -50,7 +50,7 @@ Các điều khiển, chẳng hạn như Điều khiển máy ảnh và Điều 
 
 
 Bộ điều khiển mở rộng API
-========================
+=========================
 
 Ba ioctls mới có sẵn:
 ZZ0000ZZ,
@@ -114,7 +114,7 @@ Tất cả các điều khiển đều sử dụng độ bền của máy.
 
 
 Liệt kê các điều khiển mở rộng
-=============================
+==============================
 
 Cách được đề xuất để liệt kê các điều khiển mở rộng là sử dụng
 ZZ0000ZZ kết hợp với

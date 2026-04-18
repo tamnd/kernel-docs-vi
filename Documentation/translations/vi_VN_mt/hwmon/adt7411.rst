@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân adt7411
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -59,6 +59,6 @@ Ngoài các giao diện tiêu chuẩn, trình điều khiển này còn bổ sun
   ===========================================================================
 
 Ghi chú
------
+-------
 
 SPI, cảm biến nhiệt độ bên ngoài và thanh ghi giới hạn chưa được hỗ trợ.

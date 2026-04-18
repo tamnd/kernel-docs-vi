@@ -61,7 +61,7 @@ trạng thái ngủ.
 thường được thực hiện tự động bởi bản phân phối, khi tạo lại
 initrd, vì vậy bạn không thực sự phải tự mình làm điều đó. Nó được ghi lại
 ở đây chỉ để tham khảo trong tương lai).
-::
+::::::::::::::::::::::::::::::::::::::::
 
 #!/bin/bash
 
@@ -124,7 +124,7 @@ Tại sao tải trễ lại nguy hiểm?
 ==============================
 
 Đồng bộ hóa tất cả các CPU
-----------------------
+--------------------------
 
 Công cụ vi mã nhận bản cập nhật vi mã được chia sẻ
 giữa hai luồng logic trong hệ thống SMT. Vì vậy, khi

@@ -15,7 +15,7 @@
 .. _magicnumbers:
 
 Những con số ma thuật của Linux
-===================
+===============================
 
 Tệp này là sổ đăng ký các số ma thuật đang được sử dụng.  Khi bạn
 thêm một số ma thuật vào cấu trúc, bạn cũng nên thêm nó vào cấu trúc này

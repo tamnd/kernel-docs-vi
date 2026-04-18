@@ -16,7 +16,7 @@ Gỡ lỗi tắt hạt nhân bị treo với pstore
 +++++++++++++++++++++++++++++++++++++++++++
 
 Tổng quan
-========
+=========
 Nếu hệ thống bị treo trong khi tắt, nhật ký kernel có thể cần phải được
 được lấy ra để gỡ lỗi vấn đề.
 
@@ -54,7 +54,7 @@ Thêm các tham số này vào dòng lệnh kernel của bạn:
 	* Đối với các hệ thống dựa trên EFI, hãy đảm bảo chương trình phụ trợ EFI đang hoạt động
 
 Tương tác không gian người dùng và truy xuất nhật ký
-=======================================
+====================================================
 Trong lần khởi động tiếp theo sau khi bị treo, nhật ký pstore sẽ có sẵn trong pstore
 hệ thống tập tin (ZZ0000ZZ) và có thể được truy xuất bởi không gian người dùng.
 

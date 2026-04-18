@@ -25,7 +25,7 @@ Hệ thống con HTE
    hte
 
 Nhà cung cấp Tegra HTE
-==================
+======================
 
 .. toctree::
    :maxdepth: 1

@@ -63,7 +63,7 @@ Thuật ngữ:
 
 
 Trường hợp sử dụng
----------
+------------------
 
 Có một số tình huống trong đó KVM lồng nhau có thể hữu ích, chẳng hạn như đặt tên cho một
 vài:
@@ -86,7 +86,7 @@ vài:
 
 
 Kích hoạt "lồng nhau" (x86)
------------------------
+---------------------------
 
 Từ Linux kernel v4.20 trở đi, tham số ZZ0000ZZ KVM được bật
 theo mặc định cho Intel và AMD.  (Mặc dù bản phân phối Linux của bạn có thể
@@ -154,7 +154,7 @@ $ cat /sys/module/kvm_intel/parameters/ept
 
 
 Bắt đầu một khách lồng nhau (x86)
------------------------------
+---------------------------------
 
 Khi máy chủ kim loại trần (L0) của bạn được định cấu hình để lồng nhau, bạn sẽ
 có thể bắt đầu một khách L1 với::
@@ -172,7 +172,7 @@ khách lồng nhau với KVM được tăng tốc.
 
 
 Kích hoạt "lồng nhau" (s390x)
--------------------------
+-----------------------------
 
 1. Trên bộ ảo hóa máy chủ (L0), bật tham số ZZ0000ZZ trên
    s390x::
@@ -194,7 +194,7 @@ $ modprobe kvm
 
 
 Di chuyển trực tiếp với KVM lồng nhau
-------------------------------
+-------------------------------------
 
 Di chuyển một khách L1, với một khách ZZ0000ZZ lồng trong đó, sang một khách khác
 máy chủ kim loại trần, hoạt động giống như nhân Linux 5.3 và QEMU 4.2.0 cho
@@ -223,7 +223,7 @@ các kịch bản sẽ hoạt động ngay cả trên các hệ thống AMD:
 - Di chuyển máy khách lồng nhau (L2) sang máy chủ kim loại trần.
 
 Báo cáo lỗi từ các thiết lập lồng nhau
------------------------------------
+--------------------------------------
 
 Gỡ lỗi các vấn đề "lồng nhau" có thể liên quan đến việc sàng lọc các tệp nhật ký trên
 L0, L1 và L2; điều này có thể dẫn đến việc qua lại tẻ nhạt giữa lỗi
@@ -268,7 +268,7 @@ Sau đây không phải là danh sách đầy đủ nhưng là điểm khởi đ
 - Đầu ra ZZ0000ZZ đầy đủ từ L1
 
 thông tin cụ thể về x86 cần thu thập
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cả hai lệnh dưới đây, ZZ0000ZZ và ZZ0001ZZ, đều phải
 có sẵn trên hầu hết các bản phân phối Linux có cùng tên:
@@ -282,7 +282,7 @@ có sẵn trên hầu hết các bản phân phối Linux có cùng tên:
 - Đầu ra: ZZ0000ZZ từ L1
 
 thông tin cụ thể về s390x cần thu thập
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cùng với các chi tiết chung được đề cập trước đó, dưới đây là
 cũng đề nghị:

@@ -15,7 +15,7 @@
 .. _vb2_framework:
 
 Các chức năng và cấu trúc dữ liệu của videobuf2 V4L2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. kernel-doc:: include/media/videobuf2-core.h
 

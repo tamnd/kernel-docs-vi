@@ -17,13 +17,13 @@ Các vấn đề đệ quy
 ==================
 
 vấn đề #1
---------
+---------
 
 .. literalinclude:: Kconfig.recursion-issue-01
    :language: kconfig
 
 vấn đề #2
---------
+---------
 
 .. literalinclude:: Kconfig.recursion-issue-02
    :language: kconfig

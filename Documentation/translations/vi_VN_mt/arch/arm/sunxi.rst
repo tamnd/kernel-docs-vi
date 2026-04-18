@@ -21,7 +21,7 @@ Tài liệu này liệt kê tất cả các SoC ARM Allwinner hiện đang
 cung cấp liên kết đến tài liệu và/hoặc bảng dữ liệu cho các SoC này.
 
 gia đình SunXi
-------------
+--------------
 Thư mục máy nhân Linux: Arch/arm/mach-sunxi
 
 Hương vị:

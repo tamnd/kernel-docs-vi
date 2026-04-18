@@ -58,7 +58,7 @@ việc này được thực hiện bằng cách sử dụng ioctls DiSEqC.
    would change to SEC_TONE_OFF when the device is not used.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 được trả về.
 

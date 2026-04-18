@@ -49,7 +49,7 @@ Các tính năng và hạn chế của trình điều khiển này như sau:
 
 
 Trước khi bạn bắt đầu
-================
+=====================
 
 
 Cài đặt

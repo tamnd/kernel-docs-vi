@@ -28,7 +28,7 @@ báo cáo lỗi, một số lớp và hàm nhỏ nhất được xác định.
 
 
 Mô-đun trợ giúp đơn giản nhất
-======================
+=============================
 
 .. automodule:: lib.python.unittest_helper
    :members:

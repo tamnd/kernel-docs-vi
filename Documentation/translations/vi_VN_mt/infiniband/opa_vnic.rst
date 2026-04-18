@@ -21,7 +21,7 @@ hỗ trợ chức năng Ethernet trên kết cấu Omni-Path bằng cách đóng
 các gói Ethernet giữa các nút HFI.
 
 Ngành kiến ​​​​trúc
-=============
+===================
 Các mô hình trao đổi của các gói Ethernet được đóng gói Omni-Path
 liên quan đến một hoặc nhiều bộ chuyển mạch Ethernet ảo được phủ trên Omni-Path
 cấu trúc liên kết vải. Một tập hợp con các nút HFI trên kết cấu Omni-Path là
@@ -113,7 +113,7 @@ thuộc về. Ở phía nhận, trường này được sử dụng để khử 
 đã nhận được gói VNIC đến các cổng VNIC khác nhau.
 
 Thiết kế trình điều khiển
-==============
+=========================
 Thiết kế phần mềm Intel OPA VNIC được trình bày trong sơ đồ bên dưới.
 OPA Chức năng VNIC có thành phần phụ thuộc CTNH và CTNH
 thành phần độc lập.

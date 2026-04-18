@@ -107,7 +107,7 @@ mã mẫu dưới đây:
 	}
 
 VDUSE hoạt động như thế nào
----------------
+---------------------------
 
 Như đã đề cập ở trên, thiết bị VDUSE được tạo bởi ioctl(VDUSE_CREATE_DEV) trên
 /dev/vduse/control. Với ioctl này, không gian người dùng có thể chỉ định một số cấu hình cơ bản
@@ -245,7 +245,7 @@ có thể bắt đầu xử lý dataplane như sau:
    sau khi chiếc nhẫn đã sử dụng được lấp đầy.
 
 Kích hoạt ASID (API phiên bản 1)
-------------------------------
+--------------------------------
 
 VDUSE hỗ trợ mã định danh trên mỗi không gian địa chỉ (ASID) bắt đầu bằng API
 phiên bản 1. Thiết lập nó với ioctl(VDUSE_SET_API_VERSION) trên ZZ0000ZZ

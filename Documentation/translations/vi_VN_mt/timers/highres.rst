@@ -56,7 +56,7 @@ Sự khác biệt chính đối với bánh xe hẹn giờ, loại chứa loại
 
 
 quản lý nguồn thời gian trong ngày và đồng hồ
--------------------------------------
+---------------------------------------------
 
 Khung thời gian chung trong ngày (GTOD) của John Stultz di chuyển phần lớn
 mã hóa từ các khu vực kiến trúc cụ thể thành một khu vực quản lý chung
@@ -81,7 +81,7 @@ Hình #3 (OLS slide trang 18) minh họa sự chuyển đổi.
 
 
 quản lý sự kiện đồng hồ
-----------------------
+-----------------------
 
 Trong khi các nguồn đồng hồ cung cấp quyền truy cập đọc vào thời gian tăng dần một cách đơn điệu
 giá trị, các thiết bị sự kiện đồng hồ được sử dụng để lên lịch cho sự kiện tiếp theo
@@ -220,7 +220,7 @@ Hình #5 (OLS slide p.22) minh họa sự chuyển đổi.
 
 
 tích tắc năng động
--------------
+------------------
 
 Đánh dấu động là kết quả hợp lý của đánh dấu định kỳ dựa trên giờ
 thay thế (lịch_tick). Chức năng của sched_tick hrtimer là

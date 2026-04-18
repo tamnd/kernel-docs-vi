@@ -522,7 +522,7 @@ Chọn một gói nhất định từ tệp pcap để tiếp tục. Như vậy,
 Thoát khỏi bpf_dbg.
 
 Trình biên dịch JIT
-------------
+-------------------
 
 Nhân Linux có trình biên dịch BPF JIT tích hợp cho x86_64, SPARC,
 PowerPC, ARM, ARM64, MIPS, RISC-V, s390 và ARC và có thể được kích hoạt thông qua
@@ -666,7 +666,7 @@ sparc64, arm32, riscv64, riscv32, loongarch64, arc thực hiện biên dịch JI
 từ tập lệnh eBPF.
 
 Kiểm tra
--------
+--------
 
 Bên cạnh chuỗi công cụ BPF, kernel cũng cung cấp một mô-đun thử nghiệm có chứa
 các trường hợp thử nghiệm khác nhau cho cổ điển và eBPF có thể được thực thi dựa trên
@@ -680,13 +680,13 @@ thông qua insmod hoặc modprobe đối với mô-đun 'test_bpf'. Kết quả 
 bao gồm cả thời gian trong nsec có thể được tìm thấy trong nhật ký kernel (dmesg).
 
 linh tinh
-----
+---------
 
 Ngoài ra, bộ ba, bộ làm mờ hệ thống Linux, có hỗ trợ tích hợp cho BPF và
 Làm mờ hạt nhân SECCOMP-BPF.
 
 Được viết bởi
-----------
+-------------
 
 Tài liệu này được viết với hy vọng rằng nó hữu ích và phù hợp
 để cung cấp cho các tin tặc hoặc kiểm toán viên bảo mật BPF tiềm năng một cái nhìn tổng quan hơn về

@@ -17,7 +17,7 @@ Hệ thống tệp toàn cầu 2
 =======================
 
 Tổng quan
-========
+=========
 
 GFS2 là một hệ thống tập tin cụm. Nó cho phép một cụm máy tính
 đồng thời sử dụng một thiết bị khối được chia sẻ giữa chúng (với FC,

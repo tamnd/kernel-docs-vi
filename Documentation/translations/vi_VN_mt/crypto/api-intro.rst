@@ -30,7 +30,7 @@ Một trong những mục tiêu ban đầu của thiết kế này là sẵn sà
 
 
 Chi tiết
-=======
+========
 
 Ở mức thấp nhất là các thuật toán đăng ký động với
 API.
@@ -96,7 +96,7 @@ Nhiều ví dụ thực tế có sẵn trong mô-đun kiểm tra hồi quy (tcry
 
 
 Ghi chú của nhà phát triển
-===============
+==========================
 
 Các biến đổi chỉ có thể được phân bổ trong ngữ cảnh của người dùng và mật mã
 các phương thức chỉ có thể được gọi từ bối cảnh softirq và người dùng.  cho
@@ -166,7 +166,7 @@ tác giả
 
 
 Tín dụng
-=======
+========
 
 Những người sau đây đã cung cấp phản hồi có giá trị trong quá trình phát triển
 của API:

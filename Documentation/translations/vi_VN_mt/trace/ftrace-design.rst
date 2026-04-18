@@ -38,7 +38,7 @@ hạt nhân của họ sẽ chuyển sang hỗ trợ ftrace động.
 
 
 Điều kiện tiên quyết
--------------
+--------------------
 
 Ftrace dựa vào các tính năng này đang được triển khai:
   - STACKTRACE_SUPPORT - triển khai save_stack_trace()
@@ -121,7 +121,7 @@ unsigned long frompc = ...;
 	}
 
 Đừng quên xuất mcount cho các mô-đun!
-::
+:::::::::::::::::::::::::::::::::::::
 
 bên ngoài void mcount(void);
 	EXPORT_SYMBOL(số lượng);
@@ -198,7 +198,7 @@ rằng ABI áp dụng ở đây khác với ABI áp dụng cho mcount
 mã.  Vì bạn đang trở về từ một hàm (sau phần kết), bạn có thể
 có thể tiết kiệm những thứ được lưu/khôi phục (thường chỉ là các thanh ghi được sử dụng để vượt qua
 giá trị trả về).
-::
+::::::::::::::::
 
 #ifdef CONFIG_FUNCTION_GRAPH_TRACER
 	void return_to_handler(void)

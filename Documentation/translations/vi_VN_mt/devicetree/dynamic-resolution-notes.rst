@@ -20,7 +20,7 @@ Tài liệu này mô tả việc triển khai trong kernel
 Trình phân giải DeviceTree, nằm trong driver/of/resolver.c
 
 Cách trình phân giải hoạt động
-----------------------
+------------------------------
 
 Trình phân giải được đưa ra dưới dạng đầu vào là một cây tùy ý được biên dịch bằng
 tùy chọn dtc thích hợp và có thẻ /plugin/. Điều này tạo ra

@@ -126,14 +126,14 @@ Thêm các chương trình truy cập siêu dữ liệu kfuncs vào ZZ0000ZZ
 hiện tại không được hỗ trợ.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 Có thể truy vấn kfunc nào mà netdev cụ thể triển khai thông qua
 netlink. Xem thuộc tính ZZ0000ZZ được đặt trong
 ZZ0001ZZ.
 
 Triển khai trình điều khiển
-=====================
+===========================
 
 Một số thiết bị nhất định có thể thêm siêu dữ liệu vào các gói đã nhận. Tuy nhiên, tính đến thời điểm hiện tại,
 ZZ0000ZZ thiếu khả năng truyền đạt kích thước của vùng ZZ0001ZZ

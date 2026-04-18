@@ -54,7 +54,7 @@ Biến thể
 ========
 
 Bộ xử lý đầu vào video Rockchip PX30 (VIP)
------------------------------------------
+------------------------------------------
 
 Bộ xử lý đầu vào video PX30 (VIP) có cổng video kỹ thuật số chấp nhận
 dữ liệu video song song hoặc BT.656.

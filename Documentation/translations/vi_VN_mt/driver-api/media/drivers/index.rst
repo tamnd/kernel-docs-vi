@@ -19,7 +19,7 @@ Tài liệu dành riêng cho trình điều khiển phương tiện
 ====================================================
 
 Trình điều khiển Video4Linux (V4L)
-=========================
+==================================
 
 .. toctree::
 	:maxdepth: 5
@@ -42,7 +42,7 @@ Trình điều khiển Video4Linux (V4L)
 
 
 Trình điều khiển TV kỹ thuật số
-==================
+===============================
 
 .. toctree::
 	:maxdepth: 5

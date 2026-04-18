@@ -34,7 +34,7 @@ Bộ nhớ flash phổ dụng
 
 
 1. Tổng quan
-===========
+============
 
 Universal Flash Storage (UFS) là thông số lưu trữ dành cho thiết bị flash.
 Nó nhằm mục đích cung cấp một giao diện lưu trữ phổ quát cho cả
@@ -62,7 +62,7 @@ Phiên bản tương lai của tiêu chuẩn,
 
 
 2. Tổng quan về kiến ​​trúc UFS
-============================
+===============================
 
 UFS có kiến trúc truyền thông phân lớp dựa trên SCSI
 Mô hình kiến trúc SAM-5.
@@ -122,7 +122,7 @@ UIC là lớp thấp nhất của kiến ​​trúc phân lớp UFS. Nó xử l
 
 
 3. Tổng quan về UFSHCD
-==================
+======================
 
 Trình điều khiển bộ điều khiển máy chủ UFS dựa trên Linux SCSI Framework.
 UFSHCD là trình điều khiển thiết bị cấp thấp hoạt động như một giao diện giữa

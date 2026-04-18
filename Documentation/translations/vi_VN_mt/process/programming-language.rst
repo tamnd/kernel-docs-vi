@@ -46,7 +46,7 @@ trực tiếp cú pháp thuộc tính GNU (ví dụ ZZ0001ZZ)
 Vui lòng tham khảo ZZ0000ZZ để biết thêm thông tin.
 
 rỉ sét
-----
+------
 
 Kernel có hỗ trợ ngôn ngữ lập trình Rust
 [ngôn ngữ rỉ sét]_ dưới ZZ0000ZZ. Nó được biên dịch với ZZ0001ZZ [rustc]_

@@ -47,7 +47,7 @@ ZZ0001ZZ ioctl.
 
 
 Bộ đệm khung
-===========
+============
 
 Ngược lại với giao diện ZZ0010ZZ, bộ đệm khung thường
 được thực hiện trên card TV chứ không phải card đồ họa. Trên Linux thì là vậy
@@ -118,7 +118,7 @@ Ví dụ: Tìm thiết bị bộ đệm khung cho OSD
 
 
 Cửa sổ lớp phủ và chia tỷ lệ
-==========================
+============================
 
 Lớp phủ được kiểm soát bởi các hình chữ nhật nguồn và đích. nguồn
 hình chữ nhật chọn một phần phụ của hình ảnh bộ đệm khung để phủ lên,
@@ -158,7 +158,7 @@ hướng của luồng dữ liệu. Để biết thêm thông tin, hãy xem ZZ00
 
 
 Kích hoạt lớp phủ
-================
+=================
 
 Không có V4L2 ioctl để bật hoặc tắt lớp phủ, tuy nhiên
 giao diện bộ đệm khung của trình điều khiển có thể hỗ trợ ZZ0000ZZ ioctl.

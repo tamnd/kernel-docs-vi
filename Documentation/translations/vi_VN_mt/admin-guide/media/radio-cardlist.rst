@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển vô tuyến
-=============
+=========================
 
 Ngoài ra còn có hỗ trợ cho đài AM/FM thuần túy và thậm chí cho một số đài FM
 máy phát:

@@ -66,7 +66,7 @@ Không gian người dùng Không gian hạt nhân Thế giới an toàn
    +-----------------------------+ +--------+--------------+
 
 Tài liệu tham khảo
-==========
+==================
 
 [1] ZZ0000ZZ
 

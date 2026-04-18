@@ -45,7 +45,7 @@ Kiến trúc được hỗ trợ:
 
 
 Chế độ video mặc định
--------------------
+---------------------
 Hiện tại, có hai đối số dòng lệnh kernel được hỗ trợ:
 
 -chế độ:640x480
@@ -55,7 +55,7 @@ Hiện tại, có hai đối số dòng lệnh kernel được hỗ trợ:
 Hỗ trợ đầy đủ cho các chế độ video khởi động (modedb) sẽ sớm được tích hợp.
 
 Phiên bản 1.9.9.1
----------------
+-----------------
 * Sửa lỗi phát hiện bộ nhớ cho trường hợp 512kB
 * Chế độ 800x600
 * Thời gian cố định
@@ -63,7 +63,7 @@ Phiên bản 1.9.9.1
 
 
 Phiên bản 1.9.4.4
----------------
+-----------------
 * Hỗ trợ Laguna sơ bộ
 * Đại tu thói quen đăng ký màu.
 * Liên kết với những điều trên, màu sắc của bảng điều khiển hiện được lấy từ LUT
@@ -75,7 +75,7 @@ Phiên bản 1.9.4.4
 
 
 Phiên bản 1.9.4.3
----------------
+-----------------
 * Đặt chính xác chế độ video khởi động mặc định.
 * Không ghi đè cài đặt kích thước ram.  Xác định
   CLGEN_USE_HARDCODED_RAM_SETTINGS nếu bạn _do_ muốn ghi đè RAM
@@ -86,23 +86,23 @@ Phiên bản 1.9.4.3
 
 
 Phiên bản 1.9.4.2
----------------
+-----------------
 * Sửa lỗi truyền.
 * Các xác nhận không còn gây ra lỗi cố ý nữa.
 * Sửa lỗi.
 
 
 Phiên bản 1.9.4.1
----------------
+-----------------
 * Thêm hỗ trợ tương thích.  Hiện yêu cầu kernel 2.1.x, 2.2.x hoặc 2.3.x.
 
 
 Phiên bản 1.9.4
--------------
+---------------
 * Một số cải tiến, dung lượng bộ nhớ nhỏ hơn, một số sửa lỗi.
 * Yêu cầu kernel 2.3.14-pre1 trở lên.
 
 
 Phiên bản 1.9.3
--------------
+---------------
 * Đi kèm với kernel 2.3.14-pre1 trở lên.

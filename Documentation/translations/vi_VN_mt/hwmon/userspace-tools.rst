@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Công cụ không gian người dùng
-===============
+=============================
 
 Giới thiệu
 ------------
@@ -27,7 +27,7 @@ hệ thống tập tin ảo. Sau đó, các công cụ không gian người dùn
 giá trị hoặc cấu hình chip theo cách thân thiện hơn.
 
 Cảm biến Lm
-----------
+-----------
 
 Bộ tiện ích cốt lõi cho phép bạn lấy thông tin sức khỏe,
 thiết lập giới hạn giám sát, v.v. Bạn có thể lấy chúng trên trang chủ của họ

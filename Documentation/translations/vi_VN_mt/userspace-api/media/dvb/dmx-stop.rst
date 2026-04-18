@@ -46,7 +46,7 @@ thông qua ioctl gọi ZZ0000ZZ hoặc ZZ0001ZZ và
 bắt đầu thông qua lệnh ZZ0002ZZ.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

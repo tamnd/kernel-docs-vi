@@ -19,7 +19,7 @@ Trình điều khiển AD4000
 Trình điều khiển thiết bị cho dòng ADC của Analog Devices Inc. AD4000 và các thiết bị tương tự.
 
 Thiết bị được hỗ trợ
-=================
+====================
 
 * ZZ0000ZZ
 * ZZ0001ZZ
@@ -60,7 +60,7 @@ Các thiết bị thuộc dòng AD4000 có thể được kết nối với bộ
 vài chế độ khác nhau.
 
 Chế độ CS, chế độ turbo 3 dây
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Chế độ "3 dây" của biểu dữ liệu là chế độ giống nhất với kết nối SPI tiêu chuẩn,
 đối với các thiết bị này, bao gồm việc kết nối dòng CS của bộ điều khiển với thiết bị CNV

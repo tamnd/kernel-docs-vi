@@ -19,20 +19,20 @@ Hệ thống tập tin BeOS cho Linux
 Tài liệu được cập nhật lần cuối: ngày 6 tháng 12 năm 2001
 
 Cảnh báo
-=======
+========
 Hãy chắc chắn rằng bạn hiểu rằng đây là phần mềm alpha.  Điều này có nghĩa là
 việc triển khai chưa hoàn thiện và chưa được kiểm tra tốt.
 
 TÔI DISCLAIM ALL RESPONSIBILITY FOR ANY POSSIBLE BAD EFFECTS CỦA THIS CODE!
 
 Giấy phép
-=======
+=========
 Phần mềm này được cấp phép theo Giấy phép Công cộng GNU.
 Xem tệp COPYING để biết nội dung đầy đủ của giấy phép.
 Hoặc website GNU: <ZZ0000ZZ
 
 Tác giả
-======
+=======
 Phần lớn nhất của mã được viết bởi Will Dyson <will_dyson@pobox.com>
 Anh ấy đã nghiên cứu mã từ ngày 13 tháng 8 năm 2001. Xem nhật ký thay đổi để biết
 chi tiết.
@@ -48,13 +48,13 @@ trả lời theo địa chỉ nêu trên...
 Hệ thống tập tin này không có người bảo trì.
 
 Trình điều khiển này là gì?
-====================
+===========================
 Mô-đun này triển khai hệ thống tệp gốc của BeOS ZZ0000ZZ
 dành cho hạt nhân linux 2.4.1 trở lên. Hiện nay nó là một chỉ đọc
 thực hiện.
 
 Đó là cái nào, BFS hay BEFS?
-=========================
+============================
 Be, Inc cho biết, "BeOS Filesystem có tên chính thức là BFS, không phải BeFS".
 Nhưng Hệ thống tập tin khởi động Unixware cũng được gọi là bfs. Và họ đã ở trong
 hạt nhân. Do xung đột về cách đặt tên này nên trên Linux, BeOS
@@ -101,7 +101,7 @@ Xem cách sử dụng kernel <ZZ0000ZZ để biết
 hướng dẫn về bước quan trọng này.
 
 Sử dụng BFS
-=========
+===========
 Để sử dụng hệ thống tệp BeOS, hãy sử dụng loại hệ thống tệp 'befs'.
 
 bán tại::
@@ -109,7 +109,7 @@ bán tại::
 mount -t befs/dev/fd0/beos
 
 Tùy chọn gắn kết
-=============
+================
 
 ==============================================================================
 uid=nnn Tất cả các tệp trong phân vùng sẽ thuộc sở hữu của id người dùng nnn.
@@ -119,19 +119,19 @@ debug Trình điều khiển sẽ xuất thông tin gỡ lỗi vào nhật ký h
 ==============================================================================
 
 Cách nhận phiên bản mới nhất
-=========================
+============================
 
 Phiên bản mới nhất hiện có tại:
 <ZZ0000ZZ
 
 Bất kỳ lỗi nào được biết đến?
-===============
+=============================
 Tính đến ngày 20 tháng 1 năm 2002:
 
 Không có
 
 Cảm ơn đặc biệt
-==============
+===============
 Dominic Giampalo ... Viết "Thiết kế hệ thống tập tin thực tế với hệ thống tập tin Be"
 
 Hiroyuki Yamada ... Thử nghiệm LinuxPPC.

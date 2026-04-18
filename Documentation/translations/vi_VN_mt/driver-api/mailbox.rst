@@ -37,7 +37,7 @@ Một số lựa chọn được thực hiện trong quá trình thực hiện l
 
 
 Trình điều khiển Bộ điều khiển (Xem include/linux/mailbox_controller.h)
-==========================================================
+=======================================================================
 
 
 Phân bổ mbox_controller và mảng mbox_chan.
@@ -51,7 +51,7 @@ hoặc không.
 
 
 Trình điều khiển máy khách (Xem include/linux/mailbox_client.h)
-==================================================
+===============================================================
 
 
 Máy khách có thể muốn hoạt động ở chế độ chặn (đồng bộ

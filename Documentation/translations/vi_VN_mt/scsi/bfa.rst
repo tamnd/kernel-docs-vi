@@ -17,7 +17,7 @@ Trình điều khiển Linux cho bộ điều hợp Brocade FC/FCOE
 ======================================================
 
 Phần cứng được hỗ trợ
-------------------
+---------------------
 
 Trình điều khiển bfa 3.0.2.2 hỗ trợ tất cả các bộ điều hợp Brocade FC/FCOE. Dưới đây là danh sách
 các mẫu bộ điều hợp có PCIID tương ứng.
@@ -46,7 +46,7 @@ các mẫu bộ điều hợp có PCIID tương ứng.
 
 
 Tải xuống chương trình cơ sở
------------------
+----------------------------
 
 Bạn có thể tìm thấy gói Firmware mới nhất cho trình điều khiển bfa 3.0.2.2 tại:
 

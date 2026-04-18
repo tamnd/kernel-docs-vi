@@ -17,7 +17,7 @@ SH7760/SH7763 tích hợp trình điều khiển Bộ đệm khung LCDC
 =========================================================
 
 0. Tổng quan
------------
+------------
 SH7760/SH7763 có bộ điều khiển hiển thị LCD tích hợp (LCDC)
 hỗ trợ (về lý thuyết) độ phân giải từ 1x1 đến 1024x1024,
 với độ sâu màu từ 1 đến 16 bit, trên các Bảng STN, DSTN và TFT.
@@ -45,7 +45,7 @@ Tập tin:
 	- Tài liệu/fb/sh7760fb.rst
 
 1. Thiết lập nền tảng
------------------
+---------------------
 SH7760:
  Dữ liệu video được tìm nạp thông qua công cụ DMABRG DMA, vì vậy bạn phải
  định cấu hình SH DMAC cho chế độ DMABRG (ghi 0x94808080 vào

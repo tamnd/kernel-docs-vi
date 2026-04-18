@@ -35,7 +35,7 @@ bảo quản memblock ABI
    :doc: memblock kexec handover ABI
 
 KHO Trình theo dõi bộ nhớ liên tục ABI
-=================================
+======================================
 
 .. kernel-doc:: include/linux/kho/abi/kexec_handover.h
   :doc: KHO persistent memory tracker

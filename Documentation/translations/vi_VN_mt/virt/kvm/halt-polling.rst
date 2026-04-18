@@ -41,7 +41,7 @@ Trường hợp cụ thể của powerpc kvm-hv được triển khai trong:
 Arch/powerpc/kvm/book3s_hv.c: kvmppc_vcore_blocked()
 
 Dừng khoảng thời gian bỏ phiếu
-=====================
+==============================
 
 Thời gian tối đa để thăm dò trước khi gọi bộ lập lịch, được đề cập
 như khoảng thời gian tạm dừng bỏ phiếu, được tăng và giảm dựa trên cảm nhận

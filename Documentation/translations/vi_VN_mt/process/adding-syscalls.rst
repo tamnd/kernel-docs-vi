@@ -16,7 +16,7 @@
 .. _addsyscalls:
 
 Thêm cuộc gọi hệ thống mới
-========================
+==========================
 
 Tài liệu này mô tả những gì liên quan đến việc thêm lệnh gọi hệ thống mới vào
 Nhân Linux, hơn cả lời khuyên gửi thông thường trong
@@ -24,7 +24,7 @@ ZZ0000ZZ.
 
 
 Các lựa chọn thay thế cuộc gọi hệ thống
-------------------------
+---------------------------------------
 
 Điều đầu tiên cần xem xét khi thêm một cuộc gọi hệ thống mới là liệu một trong
 thay thế có thể phù hợp.  Mặc dù các cuộc gọi hệ thống là
@@ -265,7 +265,7 @@ Tóm lại, bạn cần một cam kết bao gồm:
 .. _syscall_generic_6_11:
 
 Kể từ ngày 11/6
-~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Bắt đầu với phiên bản kernel 6.11, việc triển khai lệnh gọi hệ thống chung cho
 các kiến trúc sau đây không còn yêu cầu sửa đổi đối với
@@ -309,7 +309,7 @@ Tóm lại, bạn cần một cam kết bao gồm:
 
 
 Triển khai cuộc gọi hệ thống x86
-------------------------------
+--------------------------------
 
 Để kết nối cuộc gọi hệ thống mới của bạn cho nền tảng x86, bạn cần cập nhật
 bảng syscall chính.  Giả sử cuộc gọi hệ thống mới của bạn không có gì đặc biệt trong một số trường hợp
@@ -327,7 +327,7 @@ cửa sổ hợp nhất có liên quan.
 
 
 Cuộc gọi hệ thống tương thích (Chung)
-------------------------------------
+-------------------------------------
 
 Đối với hầu hết các cuộc gọi hệ thống, việc triển khai 64-bit tương tự có thể được gọi ngay cả khi
 bản thân chương trình không gian người dùng là 32-bit; ngay cả khi các tham số của lệnh gọi hệ thống
@@ -413,7 +413,7 @@ Tóm lại, bạn cần:
 
 
 Kể từ ngày 11/6
-~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Điều này áp dụng cho tất cả các kiến trúc được liệt kê trong ZZ0000ZZ
 trong phần "Triển khai cuộc gọi hệ thống chung", ngoại trừ arm64. Xem
@@ -437,7 +437,7 @@ Tóm lại, bạn cần:
 .. _compat_arm64:
 
 Cuộc gọi hệ thống tương thích (arm64)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Trên arm64, có một bảng syscall dành riêng cho các cuộc gọi hệ thống tương thích
 nhắm mục tiêu không gian người dùng 32-bit (AArch32): ZZ0000ZZ.
@@ -448,7 +448,7 @@ Bạn cần thêm một dòng bổ sung vào bảng này để chỉ định tư
 
 
 Cuộc gọi hệ thống tương thích (x86)
---------------------------------
+-----------------------------------
 
 Để kết nối kiến trúc x86 của cuộc gọi hệ thống với phiên bản tương thích,
 các mục trong bảng syscall cần được điều chỉnh.
@@ -482,7 +482,7 @@ Tương đương 64-bit (-m64).
 
 
 Cuộc gọi hệ thống quay trở lại nơi khác
---------------------------------
+---------------------------------------
 
 Đối với hầu hết các cuộc gọi hệ thống, khi cuộc gọi hệ thống hoàn tất, chương trình người dùng sẽ
 tiếp tục chính xác nơi nó đã dừng lại -- ở lệnh tiếp theo, với
@@ -549,7 +549,7 @@ gọi để kiểm tra không có trường hợp đặc biệt nào khác.
 
 
 Kiểm tra
--------
+--------
 
 Một cuộc gọi hệ thống mới rõ ràng phải được thử nghiệm; nó cũng hữu ích để cung cấp
 người đánh giá bằng cách trình diễn cách các chương trình không gian người dùng sẽ sử dụng hệ thống
@@ -574,7 +574,7 @@ cho những thay đổi liên quan đến hệ thống tập tin.
 
 
 trang người đàn ông
---------
+-------------------
 
 Tất cả các cuộc gọi hệ thống mới phải đi kèm với một trang man hoàn chỉnh, lý tưởng nhất là sử dụng groff
 đánh dấu, nhưng văn bản thuần túy sẽ làm được.  Nếu sử dụng groff, sẽ rất hữu ích nếu bao gồm một
@@ -586,7 +586,7 @@ Trang man phải được gửi tới linux-man@vger.kernel.org
 
 
 Không gọi cuộc gọi hệ thống trong kernel
---------------------------------------
+----------------------------------------
 
 Các cuộc gọi hệ thống, như đã nêu ở trên, là các điểm tương tác giữa không gian người dùng và
 hạt nhân.  Do đó, các chức năng gọi hệ thống như ZZ0000ZZ hoặc
@@ -617,7 +617,7 @@ các trình bao bọc tương thích dành riêng cho kiến trúc hoặc mã kh
 
 
 Tài liệu tham khảo và nguồn
-----------------------
+---------------------------
 
 - Bài viết LWN của Michael Kerrisk về việc sử dụng đối số cờ trong lệnh gọi hệ thống:
    ZZ0000ZZ

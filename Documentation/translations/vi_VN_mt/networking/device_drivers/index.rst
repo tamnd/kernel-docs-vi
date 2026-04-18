@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển thiết bị phần cứng
-=======================
+===================================
 
 Nội dung:
 

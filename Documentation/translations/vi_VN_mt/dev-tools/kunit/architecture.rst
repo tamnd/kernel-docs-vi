@@ -22,7 +22,7 @@ Kiến trúc KUnit được chia thành hai phần:
 -ZZ0001ZZ
 
 Khung kiểm tra trong hạt nhân
-===========================
+=============================
 
 Thư viện kiểm tra kernel hỗ trợ các bài kiểm tra KUnit được viết bằng C bằng cách sử dụng
 KUnit. Các bài kiểm tra KUnit này là mã hạt nhân. KUnit thực hiện như sau
@@ -33,7 +33,7 @@ nhiệm vụ:
 - Cung cấp tiện ích kiểm tra
 
 Trường hợp thử nghiệm
-----------
+---------------------
 
 Trường hợp thử nghiệm là đơn vị cơ bản trong KUnit. Các trường hợp kiểm thử KUnit được tổ chức
 thành dãy phòng. Trường hợp kiểm thử KUnit là một hàm có chữ ký kiểu
@@ -54,7 +54,7 @@ chạy thử nghiệm. Các macro xác nhận KUnit và các tiện ích KUnit k
   được lấy ra trong các thử nghiệm tham số hóa.
 
 Bộ thử nghiệm
------------
+-------------
 
 Bộ KUnit bao gồm một tập hợp các trường hợp thử nghiệm. Bộ KUnit
 được đại diện bởi ZZ0000ZZ. Ví dụ:
@@ -84,7 +84,7 @@ ZZ0006ZZ đăng ký bộ thử nghiệm
 với khung kiểm tra KUnit.
 
 Người thi hành
---------
+--------------
 
 Trình thực thi KUnit có thể liệt kê và chạy các bài kiểm tra KUnit tích hợp khi khởi động.
 Các bộ thử nghiệm được lưu trữ trong phần liên kết
@@ -148,7 +148,7 @@ ZZ0000ZZ
 - ZZ0000ZZ in thông báo tùy chỉnh khi bị lỗi.
 
 Báo cáo kết quả kiểm tra
----------------------
+------------------------
 KUnit in kết quả kiểm tra ở định dạng KTAP. KTAP dựa trên TAP14, xem
 Tài liệu/dev-tools/ktap.rst.
 KTAP hoạt động với KUnit và Kselftest. Trình thực thi KUnit in kết quả KTAP thành
@@ -166,7 +166,7 @@ và trả về tham số tiếp theo. Nó cũng bao gồm một macro để tạ
 các trình tạo trường hợp phổ biến dựa trên mảng.
 
 kunit_tool (Khai thác kiểm tra dòng lệnh)
-======================================
+=========================================
 
 ZZ0000ZZ là tập lệnh Python, được tìm thấy trong ZZ0001ZZ. Nó
 được sử dụng để định cấu hình, xây dựng, thực thi, phân tích kết quả kiểm tra và chạy tất cả

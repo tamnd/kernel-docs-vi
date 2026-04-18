@@ -38,7 +38,7 @@ các điều khiển chung, sau đó điều khiển cụ thể cho phần cứn
 .. _mpeg-control-id:
 
 ID kiểm soát codec
------------------
+------------------
 
 ZZ0001ZZ
     Bộ mô tả lớp Codec. Đang gọi
@@ -1687,7 +1687,7 @@ ZZ0000ZZ
 
 
 Điều khiển MFC 5.1 MPEG
-=====================
+=======================
 
 Các điều khiển lớp MPEG sau đây xử lý việc giải mã và mã hóa MPEG
 hiện có các cài đặt dành riêng cho thiết bị Multi Format Codec 5.1
@@ -1697,7 +1697,7 @@ trong dòng SoC S5P của Samsung.
 .. _mfc51-control-id:
 
 ID điều khiển MFC 5.1
--------------------
+---------------------
 
 ZZ0000ZZ
     Nếu độ trễ hiển thị được bật thì bộ giải mã buộc phải quay lại
@@ -1867,7 +1867,7 @@ enum v4l2_mpeg_mfc51_video_force_frame_type -
 
 
 Bộ điều khiển CX2341x MPEG
-=====================
+==========================
 
 Các điều khiển lớp MPEG sau đây xử lý các cài đặt mã hóa MPEG
 dành riêng cho chip mã hóa Conexant CX23415 và CX23416 MPEG.
@@ -1876,7 +1876,7 @@ dành riêng cho chip mã hóa Conexant CX23415 và CX23416 MPEG.
 .. _cx2341x-control-id:
 
 ID điều khiển CX2341x
--------------------
+---------------------
 
 .. _v4l2-mpeg-cx2341x-video-spatial-filter-mode:
 
@@ -2057,7 +2057,7 @@ ZZ0000ZZ
 
 
 Tham khảo điều khiển VPX
-=====================
+========================
 
 Bộ điều khiển VPX bao gồm các bộ điều khiển mã hóa thông số của video VPx
 codec.
@@ -2066,7 +2066,7 @@ codec.
 .. _vpx-control-id:
 
 ID điều khiển VPX
----------------
+-----------------
 
 .. _v4l2-vpx-num-partitions:
 
@@ -2292,7 +2292,7 @@ bộ giải mã video.
 .. _hevc-control-id:
 
 ID điều khiển HEVC/H.265
-----------------------
+------------------------
 
 ZZ0000ZZ
     Tham số lượng tử hóa tối thiểu cho HEVC.

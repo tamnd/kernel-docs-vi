@@ -19,7 +19,7 @@ MHI (Giao diện máy chủ Modem)
 Tài liệu này cung cấp thông tin về giao thức MHI.
 
 Tổng quan
-========
+=========
 
 MHI là giao thức được phát triển bởi Qualcomm Innovation Center, Inc. Nó được sử dụng
 bởi bộ xử lý máy chủ để điều khiển và liên lạc với các thiết bị modem trên mạng cao
@@ -32,7 +32,7 @@ giao thức cung cấp tính năng xác nhận dữ liệu và quản lý trạn
 modem thông qua một hoặc nhiều kênh logic.
 
 Bộ phận bên trong MHI
-=============
+=====================
 
 MMIO
 ----
@@ -57,7 +57,7 @@ Thanh ghi gỡ lỗi: Một tập hợp các thanh ghi và bộ đếm được 
 gỡ lỗi thông tin như hiệu suất, chức năng và độ ổn định cho máy chủ.
 
 Cấu trúc dữ liệu
----------------
+----------------
 
 Tất cả các cấu trúc dữ liệu được MHI sử dụng đều nằm trong bộ nhớ hệ thống máy chủ. Sử dụng
 giao diện vật lý, thiết bị truy cập vào các cấu trúc dữ liệu đó. Dữ liệu MHI
@@ -123,7 +123,7 @@ Dưới đây là cách sử dụng cơ bản của vòng chuyển:
   kênh DB liên quan.
 
 Nhẫn sự kiện
------------
+------------
 
 Các sự kiện từ thiết bị đến máy chủ được tổ chức theo vòng sự kiện và được xác định bởi Sự kiện
 Bộ mô tả (ED). Vòng sự kiện được thiết bị sử dụng để báo cáo các sự kiện như
@@ -150,7 +150,7 @@ Dưới đây là cách sử dụng cơ bản của vòng sự kiện:
   ngắt lời.
 
 Yếu tố chiếc nhẫn
-------------
+-----------------
 
 Phần tử vòng là cấu trúc dữ liệu được sử dụng để chuyển một khối
 dữ liệu giữa máy chủ và thiết bị. Các loại phần tử vòng chuyển chứa một
@@ -161,10 +161,10 @@ phần tử đơn. Đối với các hoạt động đa bộ đệm lớn (chẳ
 các phần tử có thể được xâu chuỗi để tạo thành một bộ mô tả dài hơn.
 
 Hoạt động của MHI
-==============
+=================
 
 Trạng thái MHI
-----------
+--------------
 
 MHI_STATE_RESET
 ~~~~~~~~~~~~~~~
@@ -211,7 +211,7 @@ máy chủ thực hiện các hoạt động sau:
 * Chờ thiết bị vào trạng thái M0.
 
 Truyền dữ liệu MHI
------------------
+------------------
 
 Truyền dữ liệu MHI được máy chủ khởi tạo để truyền dữ liệu đến thiết bị.
 Sau đây là trình tự các hoạt động được thực hiện bởi máy chủ để truyền

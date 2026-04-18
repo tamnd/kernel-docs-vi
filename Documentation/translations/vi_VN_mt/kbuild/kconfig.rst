@@ -28,7 +28,7 @@ Chương trình gconfig ('gconf') có văn bản trợ giúp hạn chế.
 
 
 Tổng quan
-=======
+=========
 
 Các bản phát hành kernel mới thường giới thiệu các ký hiệu cấu hình mới.  Thường xuyên hơn
 quan trọng, các bản phát hành kernel mới có thể đổi tên các ký hiệu cấu hình.  Khi nào
@@ -175,7 +175,7 @@ ZZ0000ZZ
 
 
 cấu hình menu
-==========
+=============
 
 Tìm kiếm trong menuconfig:
 

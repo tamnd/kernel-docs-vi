@@ -25,10 +25,10 @@ cấu hình và phần bên trong của NTB bằng cách sử dụng các điể
 Tài liệu/PCI/điểm cuối/pci-ntb-function.rst
 
 Thiết bị đầu cuối
-===============
+=================
 
 Thiết bị điều khiển điểm cuối
----------------------------
+-----------------------------
 
 Để triển khai chức năng NTB, ít nhất hai thiết bị điều khiển điểm cuối
 được yêu cầu.
@@ -45,7 +45,7 @@ Nếu PCI_ENDPOINT_CONFIGFS được bật::
 
 
 Trình điều khiển chức năng điểm cuối
--------------------------
+------------------------------------
 
 Để tìm danh sách trình điều khiển chức năng điểm cuối trong hệ thống::
 
@@ -91,7 +91,7 @@ Hàm # cat/pci_epf_ntb/func1/vendorid
 
 
 Định cấu hình thiết bị pci-epf-ntb
--------------------------------
+----------------------------------
 
 Người dùng có thể định cấu hình thiết bị pci-epf-ntb bằng mục configfs của nó. theo thứ tự
 để thay đổi nhà cung cấp và id thiết bị, hãy làm như sau
@@ -118,7 +118,7 @@ Cấu hình mẫu cho chức năng NTB được đưa ra bên dưới::
 	# echo 0x100000 > hàm/pci_epf_ntb/func1/pci_epf_ntb.0/mw2
 
 Liên kết thiết bị pci-epf-ntb với bộ điều khiển EP
---------------------------------------------
+--------------------------------------------------
 
 Thiết bị chức năng NTB phải được gắn vào hai bộ điều khiển điểm cuối PCI
 được kết nối với hai máy chủ. Sử dụng các mục nhập 'chính' và 'phụ'
@@ -134,7 +134,7 @@ thiết lập một liên kết với máy chủ.
 
 
 Bắt đầu liên kết
---------------
+----------------
 
 Để thiết bị đầu cuối thiết lập liên kết với máy chủ, _start_
 trường phải được điền bằng '1'. Đối với NTB, cả bộ điều khiển điểm cuối PCI
@@ -145,7 +145,7 @@ nên thiết lập liên kết với máy chủ::
 
 
 Thiết bị phức tạp Root
-==================
+======================
 
 đầu ra lspci
 ------------
@@ -159,7 +159,7 @@ Phần "Tạo thiết bị pci-epf-ntb" ở trên::
 
 
 Sử dụng thiết bị ntb_hw_epf
------------------------
+---------------------------
 
 Phần mềm phía máy chủ tuân theo kiến ​​trúc phần mềm NTB tiêu chuẩn trong Linux.
 Tất cả các tiện ích NTB phía máy khách hiện có như NTB Transport Client và NTB

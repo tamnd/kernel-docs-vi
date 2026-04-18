@@ -34,7 +34,7 @@ SH-4
 ----
 
 Hàng đợi cửa hàng API
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. kernel-doc:: arch/sh/kernel/cpu/sh4/sq.c
    :export:
@@ -55,10 +55,10 @@ mach-x3proto
    :export:
 
 Xe buýt
-======
+=======
 
 Cây phong
------
+---------
 
 .. kernel-doc:: drivers/sh/maple/maple.c
    :export:

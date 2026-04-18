@@ -17,7 +17,7 @@ EROFS - Hệ thống tệp chỉ đọc nâng cao
 =========================================
 
 Tổng quan
-========
+=========
 
 Hệ thống tệp EROFS là viết tắt của Hệ thống tệp chỉ đọc nâng cao.  Nó nhằm mục đích hình thành một
 thay vào đó, giải pháp hệ thống tệp chỉ đọc chung cho các trường hợp sử dụng chỉ đọc khác nhau
@@ -113,7 +113,7 @@ danh sách gửi thư linux-erofs:
 - danh sách gửi thư linux-erofs <linux-erofs@lists.ozlabs.org>
 
 Tùy chọn gắn kết
-=============
+================
 
 ==================================================================================
 (no)user_xattr Thiết lập thuộc tính người dùng mở rộng. Lưu ý: xattr đã được bật
@@ -152,7 +152,7 @@ inode_share Bật chia sẻ trang inode cho hệ thống tập tin này.  Inode 
 ==================================================================================
 
 Mục nhập hệ thống
-=============
+=================
 
 Thông tin về hệ thống tệp erofs được gắn có thể được tìm thấy trong /sys/fs/erofs.
 Mỗi hệ thống tập tin được gắn sẽ có một thư mục trong /sys/fs/erofs dựa trên
@@ -160,10 +160,10 @@ tên thiết bị (tức là /sys/fs/erofs/sda).
 (xem thêm Tài liệu/ABI/testing/sysfs-fs-erofs)
 
 Chi tiết trên đĩa
-===============
+=================
 
 Bản tóm tắt
--------
+-----------
 Khác với các hệ thống tệp chỉ đọc khác, ổ EROFS được thiết kế
 đơn giản nhất có thể::
 
@@ -285,7 +285,7 @@ tổng số mục thư mục trong khối này vì không cần thiết
 giới thiệu một trường khác trên đĩa.
 
 Các tập tin dựa trên chunk
------------------
+--------------------------
 Để hỗ trợ sao chép dữ liệu dựa trên chunk, bố cục dữ liệu inode mới có
 được hỗ trợ kể từ Linux v5.15: Các tệp được chia thành các khối dữ liệu có kích thước bằng nhau
 với vùng ZZ0000ZZ của siêu dữ liệu inode cho biết cách lấy đoạn

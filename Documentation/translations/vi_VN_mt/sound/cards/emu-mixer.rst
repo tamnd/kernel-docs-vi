@@ -26,7 +26,7 @@ Tài liệu này dựa trên audigy-mixer.rst.
 
 
 Khả năng tương thích phần cứng
-======================
+==============================
 
 Các chip EMU10K2 có FIFO thu rất ngắn, giúp ghi âm
 không đáng tin cậy nếu các yêu cầu bus PCI của thẻ không được xử lý bằng
@@ -42,7 +42,7 @@ nhưng giống hệt nhau) có thể ít vấn đề hơn.
 
 
 Khả năng của trình điều khiển
-===================
+=============================
 
 Trình điều khiển này chỉ hỗ trợ hoạt động 16-bit 44.1/48 kHz. Đa kênh
 thiết bị (xem emu10k1-jack.rst) cũng hỗ trợ chụp 24-bit.
@@ -55,7 +55,7 @@ những gì tạo nên trải nghiệm người dùng tốt.
 
 
 Điều khiển máy trộn kỹ thuật số
-======================
+===============================
 
 Lưu ý rằng các bộ điều khiển hoạt động như bộ suy giảm: giá trị tối đa là giá trị trung tính
 vị trí để tín hiệu không thay đổi. Lưu ý rằng nếu cùng một điểm đến
@@ -78,7 +78,7 @@ Xe buýt FX
 	và bộ vi điều khiển DSP có thể hoạt động với tổng kết quả.
 
 name='Nguồn đồng hồ',index=0
----------------------------
+----------------------------
 Điều khiển này cho phép chuyển đổi đồng hồ từ giữa các
 44,1 hoặc 48 kHz hoặc một số nguồn bên ngoài.
 
@@ -86,7 +86,7 @@ Lưu ý: nguồn của card 1616 CardBus không rõ ràng. Hãy báo cáo của 
 những phát hiện.
 
 name='Đồng hồ dự phòng',index=0
------------------------------
+-------------------------------
 Điều khiển này xác định đồng hồ bên trong mà thẻ sẽ chuyển sang khi
 nguồn đồng hồ bên ngoài đã chọn là/trở nên không hợp lệ.
 
@@ -104,51 +104,51 @@ Chuyển đổi cổng đầu ra TOSLINK giữa S/PDIF và ADAT.
 Không có trên thẻ 0404 (cố định ở S/PDIF).
 
 name='Chế độ đầu vào quang',index=0
----------------------------------
+-----------------------------------
 Chuyển đổi cổng đầu vào TOSLINK giữa S/PDIF và ADAT.
 Không có trên thẻ 0404 (cố định ở S/PDIF).
 
 name='PCM Khối lượng phát lại phía trước',index=0
-----------------------------------------
+-------------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ PCM FX-bus phía trước bên trái và bên phải
 ắc quy. ALSA sử dụng ắc quy 8 và 9 cho mặt trước bên trái và bên phải PCM
 mẫu để phát lại 5.1. Các mẫu kết quả được chuyển tiếp đến DSP 0 & 1
 các kênh phát lại.
 
 name='PCM Âm lượng phát lại âm thanh vòm',index=0
--------------------------------------------
+-------------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ xung quanh trái và phải PCM FX-bus
 ắc quy. ALSA sử dụng bộ tích lũy 2 và 3 cho âm thanh vòm trái và phải PCM
 mẫu để phát lại 5.1. Các mẫu kết quả được chuyển tiếp đến DSP 2 & 3
 các kênh phát lại.
 
 name='PCM Âm lượng phát lại bên',index=0
----------------------------------------
+----------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ PCM FX-bus bên trái và bên phải
 ắc quy. ALSA sử dụng ắc quy 14 và 15 cho bên trái và bên phải PCM
 mẫu để phát lại 7.1. Các mẫu kết quả được chuyển tiếp đến DSP 6 & 7
 các kênh phát lại.
 
 name='PCM Âm lượng phát lại trung tâm',index=0
------------------------------------------
+----------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ bộ tích lũy FX-bus PCM trung tâm.
 ALSA sử dụng bộ tích lũy 6 cho các mẫu PCM trung tâm để phát lại 5.1. Các mẫu kết quả
 được chuyển tiếp đến kênh phát lại DSP 4.
 
 name='PCM LFE Khối lượng phát lại',index=0
---------------------------------------
+------------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ bộ tích lũy FX-bus LFE PCM.
 ALSA sử dụng bộ tích lũy 7 cho các mẫu LFE PCM để phát lại 5.1. Các mẫu kết quả
 được chuyển tiếp đến kênh phát lại DSP 5.
 
 name='PCM Khối lượng phát lại',index=0
-----------------------------------
+--------------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ bus FX PCM bên trái và bên phải
 ắc quy. ALSA sử dụng bộ tích lũy 0 và 1 cho các mẫu PCM trái và phải cho
 phát lại âm thanh nổi. Các mẫu kết quả được chuyển tiếp đến bộ trộn âm thanh nổi ảo.
 
 name='PCM Khối lượng chụp',index=0
----------------------------------
+----------------------------------
 Điều khiển này được sử dụng để làm suy giảm các mẫu từ bus FX PCM bên trái và bên phải
 ắc quy. ALSA sử dụng bộ tích lũy 0 và 1 cho PCM trái và phải.
 Kết quả được chuyển tiếp đến thiết bị PCM chụp tiêu chuẩn.
@@ -166,49 +166,49 @@ Các điều khiển này được sử dụng để làm suy giảm các mẫu 
 Kết quả được chuyển tiếp đến thiết bị PCM chụp tiêu chuẩn.
 
 name='Khối lượng phát lại phía trước',index=0
-------------------------------------
+---------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến các kênh phát lại DSP 0 & 1.
 
 name='Âm lượng phát lại âm thanh vòm',index=0
----------------------------------------
+---------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến các kênh phát lại DSP 2 & 3.
 
 name='Khối lượng phát lại bên cạnh',index=0
------------------------------------
+-------------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến các kênh phát lại DSP 6 & 7.
 
 name='Khối lượng phát lại ở giữa',index=0
--------------------------------------
+-----------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến kênh phát lại DSP 4.
 
 name='LFE Khối lượng phát lại',index=0
-----------------------------------
+--------------------------------------
 Điều khiển này được sử dụng để làm giảm các mẫu từ bộ trộn âm thanh nổi ảo.
 Các mẫu kết quả được chuyển tiếp đến kênh phát lại DSP 5.
 
 name='Điều khiển giai điệu - Chuyển đổi',index=0
-------------------------------------
+------------------------------------------------
 Điều khiển này bật hoặc tắt điều khiển âm thanh. Các mẫu được chuyển đến
 các kênh phát lại DSP bị ảnh hưởng.
 
 name='Điều khiển giai điệu - Âm trầm',index=0
-----------------------------------
+---------------------------------------------
 Điều khiển này đặt cường độ âm trầm. Không có giá trị trung lập!!
 Khi mã điều khiển âm thanh được kích hoạt, các mẫu luôn được sửa đổi.
 Giá trị gần nhất với tín hiệu thuần là 20.
 
 name='Điều khiển giai điệu - Treble',index=0
-------------------------------------
+--------------------------------------------
 Điều khiển này đặt cường độ âm bổng. Không có giá trị trung lập!!
 Khi mã điều khiển âm thanh được kích hoạt, các mẫu luôn được sửa đổi.
 Giá trị gần nhất với tín hiệu thuần là 20.
 
 name='Khối lượng phát lại chính',index=0
--------------------------------------
+----------------------------------------
 Điều khiển này được sử dụng để giảm âm lượng mẫu cho tất cả các kênh phát lại DSP.
 
 name='EMU Khối lượng chụp',index=0
@@ -228,7 +228,7 @@ chữ số). Các tùy chọn tương tự như đối với đầu ra âm thanh
 
 
 Điều khiển liên quan đến luồng PCM
-===========================
+==================================
 
 Các điều khiển này được mô tả trong audigy-mixer.rst.
 

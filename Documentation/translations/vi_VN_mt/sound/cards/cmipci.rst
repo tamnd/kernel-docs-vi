@@ -89,14 +89,14 @@ không thể hoạt động ở chế độ full-duplex.
 
 Các chế độ 4.0 và 5.1 được định nghĩa là pcm "sround40" và "sround51"
 trong alsa-lib.  Ví dụ: bạn có thể phát tệp WAV với 6 kênh như
-::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 % aplay -Dsurround51 sixchannels.wav
 
 Để lập trình phát lại kênh 4/6, bạn cần chỉ định PCM
 kênh tùy thích và đặt định dạng S16LE.  Ví dụ, để phát lại
 với 4 kênh,
-::
+:::::::::::
 
 snd_pcm_hw_params_set_access(pcm, hw, SND_PCM_ACCESS_RW_INTERLEAVED);
 	    // hoặc mmap nếu bạn thích
@@ -122,7 +122,7 @@ Chế độ Mic-In
 	các kênh (kênh 5 và 6) được xuất ra giắc cắm mic-in.
 
 I/O kỹ thuật số
------------
+---------------
 
 CM8x38 cung cấp khả năng SPDIF tuyệt vời với chi phí rất rẻ
 giá (vâng, đó là lý do tôi mua thẻ :)
@@ -131,7 +131,7 @@ Việc phát và ghi SPDIF được thực hiện thông qua thiết bị PCM th
 (h:0,2).  Thông thường, điều này được gán cho "spdif" của thiết bị PCM.
 Tốc độ có sẵn là 44100 và 48000 Hz.
 Để phát lại bằng aplay, bạn có thể chạy như dưới đây:
-::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 % aplay -Dhw:0,2 foo.wav
 
@@ -257,7 +257,7 @@ chơi nhạc MIDI.
 
 
 Tổng hợp FM OPL/3
---------------
+-----------------
 
 FM OPL/3 cũng được bật làm mặc định chỉ cho thẻ đầu tiên.
 Đặt tùy chọn mô-đun "fm_port" cho nhiều thẻ hơn.
@@ -269,7 +269,7 @@ CMI8768 và các chip mới hơn không có bộ tổng hợp FM.
 
 
 Cần điều khiển và Modem
-------------------
+-----------------------
 
 Cần điều khiển kế thừa được hỗ trợ.  Để bật hỗ trợ cần điều khiển, hãy chuyển
 tùy chọn joystick_port=1 mô-đun.  Giá trị 1 có nghĩa là tự động phát hiện.

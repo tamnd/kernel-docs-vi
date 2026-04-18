@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân f71805f
-=====================
+=================================
 
 Chip được hỗ trợ:
 
@@ -152,7 +152,7 @@ mọi thứ đúng cách.
 
 
 Điều khiển quạt
------------
+---------------
 
 Cả hai phương pháp điều khiển tốc độ quạt DC và PWM (điều chế độ rộng xung) đều
 được hỗ trợ. Việc sử dụng loại nào phù hợp phụ thuộc vào mạch điện bên ngoài trên

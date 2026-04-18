@@ -22,7 +22,7 @@ Các thuộc tính được sử dụng trên hệ thống phân phối cáp
 .. _dvbc-params:
 
 Hệ thống phân phối DVB-C
-=====================
+========================
 
 DVB-C Annex-A là tiêu chuẩn cáp được sử dụng rộng rãi. Sử dụng truyền dẫn
 Điều chế QAM.
@@ -60,7 +60,7 @@ cũng có hiệu lực.
 .. _dvbc-annex-b-params:
 
 Hệ thống phân phối DVB-C Phụ lục B
-=============================
+==================================
 
 DVB-C Annex-B chỉ được sử dụng ở một số quốc gia như Hoa Kỳ
 Hoa Kỳ.

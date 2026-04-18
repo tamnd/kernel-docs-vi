@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Trình điều khiển hạt nhân max16065
-======================
+==================================
 
 
 Chip được hỗ trợ:
@@ -89,7 +89,7 @@ MAX16070 và MAX16071 cũng hỗ trợ giám sát dòng điện.
 
 
 Ghi chú sử dụng
------------
+---------------
 
 Trình điều khiển này không thăm dò thiết bị vì không có đăng ký nào
 có thể được sử dụng một cách an toàn để nhận dạng chip. Bạn sẽ phải khởi tạo
@@ -105,7 +105,7 @@ biến thành một viên gạch.
 
 
 Mục nhập hệ thống
--------------
+-----------------
 
 =====================================================================================
 in[0-11]_input Đo điện áp đầu vào.

@@ -16,7 +16,7 @@ Mảng RAID
 ===========
 
 Tập hợp thời gian khởi động của mảng RAID
----------------------------------
+-----------------------------------------
 
 Công cụ quản lý thiết bị md có thể tìm thấy tại
    ZZ0000ZZ

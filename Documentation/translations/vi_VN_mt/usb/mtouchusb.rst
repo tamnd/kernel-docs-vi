@@ -17,7 +17,7 @@ trình điều khiển mtouchusb
 ==========================
 
 Thay đổi
-=======
+========
 
 - 0,3 - Được tạo dựa trên máy quét & INSTALL từ màn hình cảm ứng gốc
   trình điều khiển trên mã miễn phí (ZZ0000ZZ
@@ -33,7 +33,7 @@ Thay đổi
   Đã thực hiện nhiều thử nghiệm thành công với EXII-5010UC
 
 Phần cứng được hỗ trợ
-==================
+=====================
 
 ::
 
@@ -52,7 +52,7 @@ Bộ điều khiển Mô tả Mã sản phẩm
         Điện dung USB - Không có vỏ EXII-5050UC
 
 Ghi chú của người lái xe
-============
+========================
 
 Việc cài đặt rất đơn giản, bạn chỉ cần thêm Linux input, Linux USB và
 trình điều khiển vào kernel.  Trình điều khiển cũng có thể được xây dựng tùy chọn dưới dạng mô-đun.
@@ -84,7 +84,7 @@ Triển khai lại urb điều khiển để xử lý các yêu cầu đến và
 chẳng hạn như hiệu chuẩn, v.v. một lần/nếu nó có sẵn.
 
 Tuyên bố miễn trừ trách nhiệm
-==========
+=============================
 
 Tôi không phải là nhân viên của MicroTouch/3M và cũng chưa từng làm vậy.  3M không hỗ trợ
 tài xế này!  Nếu bạn muốn trình điều khiển cảm ứng chỉ được hỗ trợ trong X, vui lòng truy cập:

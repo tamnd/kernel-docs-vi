@@ -21,7 +21,7 @@ Tài liệu trình điều khiển máy khách API
 
 
 Truyền thông trung tâm nối tiếp
-========================
+===============================
 
 .. kernel-doc:: include/linux/surface_aggregator/serial_hub.h
 
@@ -30,7 +30,7 @@ Truyền thông trung tâm nối tiếp
 
 
 Bộ điều khiển và giao diện lõi
-=============================
+==============================
 
 .. kernel-doc:: include/linux/surface_aggregator/controller.h
 
@@ -42,7 +42,7 @@ Bộ điều khiển và giao diện lõi
 
 
 Bus máy khách và thiết bị máy khách API
-================================
+=======================================
 
 .. kernel-doc:: include/linux/surface_aggregator/device.h
 

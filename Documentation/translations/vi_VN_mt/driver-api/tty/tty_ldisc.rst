@@ -47,19 +47,19 @@ nhập và thoát mặc dù chi tiết này không quan trọng).
    :identifiers: tty_register_ldisc tty_unregister_ldisc
 
 Các chức năng khác
-===============
+==================
 
 .. kernel-doc:: drivers/tty/tty_ldisc.c
    :identifiers: tty_set_ldisc tty_ldisc_flush
 
 Tham chiếu Hoạt động Kỷ luật Đường dây
-====================================
+======================================
 
 .. kernel-doc:: include/linux/tty_ldisc.h
    :identifiers: tty_ldisc_ops
 
 Truy cập trình điều khiển
-=============
+=========================
 
 Các phương pháp xử lý dòng có thể gọi các phương thức của trình điều khiển phần cứng cơ bản.
 Chúng được ghi lại như một phần của struct tty_Operations.

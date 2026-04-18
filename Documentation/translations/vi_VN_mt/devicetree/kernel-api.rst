@@ -19,7 +19,7 @@ Hạt nhân thiết bị API
 =========================================
 
 Chức năng cốt lõi
---------------
+-----------------
 
 .. kernel-doc:: drivers/of/base.c
    :export:
@@ -43,7 +43,7 @@ Chức năng cốt lõi
    :export:
 
 Chức năng mô hình trình điều khiển
-----------------------
+----------------------------------
 
 .. kernel-doc:: include/linux/of_device.h
    :internal:

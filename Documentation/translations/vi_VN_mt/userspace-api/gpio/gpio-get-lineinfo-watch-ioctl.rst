@@ -78,7 +78,7 @@ trên cùng một chip GPIO được mở bằng lệnh gọi riêng tới ZZ000
 Lần đầu tiên được thêm vào trong 5.7.
 
 Giá trị trả về
-============
+==============
 
 Khi thành công 0 và ZZ0000ZZ được điền thông tin dòng hiện tại.
 

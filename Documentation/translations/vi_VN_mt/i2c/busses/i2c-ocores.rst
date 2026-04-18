@@ -29,7 +29,7 @@ i2c-ocores là trình điều khiển bus i2c cho bộ điều khiển OpenCores
 Lõi IP của Richard Herveille.
 
 Cách sử dụng
------
+------------
 
 i2c-ocores sử dụng bus nền tảng, vì vậy bạn cần cung cấp cấu trúc
 platform_device với địa chỉ cơ sở và số ngắt. các

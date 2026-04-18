@@ -55,7 +55,7 @@ ZZ0001ZZ được hỗ trợ.
 Sử dụng ZZ0002ZZ để tìm hiểu xem trình điều khiển hỗ trợ chế độ nào.
 
 Giá trị trả về
-============
+==============
 
 .. tabularcolumns:: |p{2.5cm}|p{15.0cm}|
 

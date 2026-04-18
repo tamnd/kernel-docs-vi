@@ -109,7 +109,7 @@ tên. Xem Tài liệu/admin-guide/mm/transhuge.rst để biết thêm chi tiết
 về THP.
 
 Khu vực
-=====
+=======
 
 Thông thường phần cứng đặt ra những hạn chế về cách bộ nhớ vật lý khác nhau
 phạm vi có thể được truy cập. Trong một số trường hợp, thiết bị không thể thực hiện DMA để
@@ -140,7 +140,7 @@ Tài liệu/mm/numa.rst` và trong
 Tài liệu/admin-guide/mm/numa_memory_policy.rst.
 
 Bộ đệm trang
-==========
+============
 
 Bộ nhớ vật lý dễ thay đổi và trường hợp phổ biến để lấy dữ liệu
 vào bộ nhớ là đọc nó từ các tập tin. Bất cứ khi nào một tập tin được đọc,
@@ -223,7 +223,7 @@ Giống như việc thu hồi, quá trình nén có thể diễn ra không đồ
 daemon hoặc đồng bộ do yêu cầu cấp phát bộ nhớ.
 
 Sát thủ OOM
-==========
+===========
 
 Có thể bộ nhớ của máy được tải sẽ cạn kiệt và
 kernel sẽ không thể lấy lại đủ bộ nhớ để tiếp tục hoạt động. trong

@@ -82,7 +82,7 @@ Tài liệu về cây thiết bị cho các máy keystone được đặt tại
 Tài liệu/devicetree/binds/arm/ti/ti,keystone.yaml
 
 Tác giả tài liệu
----------------
+----------------
 Murali Kar Richi <m-karicheri2@ti.com>
 
 Bản quyền 2015 Texas Instruments

@@ -39,7 +39,7 @@ mac80211.
 	ieee80211_create_tpt_led_trigger
 
 Tăng tốc tiền điện tử phần cứng
-============================
+===============================
 
 .. kernel-doc:: include/net/mac80211.h
    :doc: Hardware crypto acceleration
@@ -54,13 +54,13 @@ Tăng tốc tiền điện tử phần cứng
 	ieee80211_get_tkip_p2k
 
 Hỗ trợ tiết kiệm điện
-=================
+=====================
 
 .. kernel-doc:: include/net/mac80211.h
    :doc: Powersave support
 
 Hỗ trợ bộ lọc đèn hiệu
-=====================
+======================
 
 .. kernel-doc:: include/net/mac80211.h
    :doc: Beacon filter support
@@ -77,7 +77,7 @@ TBD
    :functions: ieee80211_tx_queue_params
 
 Hỗ trợ chế độ điểm truy cập
-=========================
+===========================
 
 TBD
 
@@ -87,7 +87,7 @@ Chèn ghi chú về giao diện VLAN với hw crypto tại đây hoặc trong hw
 chương mật mã.
 
 hỗ trợ khách hàng tiết kiệm điện
--------------------------------
+--------------------------------
 
 .. kernel-doc:: include/net/mac80211.h
    :doc: AP support for powersaving clients
@@ -132,7 +132,7 @@ TODO
 	ieee80211_find_sta_by_ifaddr
 
 Giảm tải quét phần cứng
-=====================
+=======================
 
 TBD
 
@@ -162,7 +162,7 @@ Tổng hợp RX A-MPDU
    :functions: ieee80211_ampdu_mlme_action
 
 Tiết kiệm năng lượng ghép kênh không gian (SMPS)
-=====================================
+================================================
 
 .. kernel-doc:: include/net/mac80211.h
    :doc: Spatial multiplexing power save
@@ -178,7 +178,7 @@ Phần này của cuốn sách mô tả giao diện thuật toán điều khiể
 nó liên quan như thế nào đến mac80211 và trình điều khiển.
 
 Kiểm soát tỷ lệ API
-================
+===================
 
 TBD
 
@@ -196,10 +196,10 @@ TBD
 Phần này của cuốn sách mô tả nội bộ mac80211.
 
 Xử lý chìa khóa
-============
+===============
 
 Thông tin cơ bản về xử lý khóa
--------------------
+------------------------------
 
 .. kernel-doc:: net/mac80211/key.c
    :doc: Key handling basics
@@ -231,7 +231,7 @@ Thông tin lập trình
 	ieee80211_sta_info_flags
 
 Quy tắc trọn đời của thông tin STA
-------------------------------
+----------------------------------
 
 .. kernel-doc:: net/mac80211/sta_info.c
    :doc: STA information lifetime rules

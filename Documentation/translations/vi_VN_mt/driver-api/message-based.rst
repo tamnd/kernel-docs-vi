@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Thiết bị dựa trên tin nhắn
-=====================
+==========================
 
 Thiết bị nhắn tin kết hợp
-----------------------
+-------------------------
 
 .. kernel-doc:: drivers/message/fusion/mptbase.c
    :export:

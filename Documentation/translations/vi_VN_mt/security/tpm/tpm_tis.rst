@@ -52,7 +52,7 @@ Thông tin thêm về mục đích và ý nghĩa của các địa phương có 
 trong phần 3.2 của Thông số cấu hình TPM của Nền tảng máy khách PC TCG.
 
 Tài liệu tham khảo
-==========
+==================
 
 Thông số kỹ thuật nền tảng máy khách PC TCG Cấu hình TPM (PTP)
 ZZ0000ZZ

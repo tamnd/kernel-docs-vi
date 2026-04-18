@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 danh sách thẻ cx23885
-==================
+=====================
 
 .. tabularcolumns:: |p{1.4cm}|p{11.1cm}|p{4.2cm}|
 

@@ -74,7 +74,7 @@ trừu tượng hóa việc quản lý các chức năng lọc khác nhau thành
 tập hợp các chức năng.
 
 Các trường hợp sử dụng tính năng kiểm soát chà phổ biến
------------------------------------------
+-------------------------------------------------------
 
 1. Một số loại giao diện dành cho bộ lọc bộ nhớ phần cứng đã được
    đã được xác định, bao gồm cả quá trình tuần tra thiết bị bộ nhớ CXL, CXL DDR5 ECS,
@@ -262,7 +262,7 @@ So sánh các tính năng chà khác nhau
  +--------------+----------+----------+----------+----------+
 
 Hệ thống tập tin
----------------
+----------------
 
 Các thuộc tính điều khiển của một phiên bản bộ lọc đã đăng ký có thể là
 truy cập vào:

@@ -84,7 +84,7 @@ giao thức đường hầm vẫn được hỗ trợ.
 
 
 Đường hầm IPIP, SIT, GRE, UDP và Giảm tải tổng kiểm tra từ xa
-========================================================
+=============================================================
 
 Ngoài việc giảm tải được mô tả ở trên, một khung có thể
 chứa các tiêu đề bổ sung như đường hầm bên ngoài.  Để hạch toán

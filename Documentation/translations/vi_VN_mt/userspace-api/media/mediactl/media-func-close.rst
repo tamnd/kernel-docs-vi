@@ -47,7 +47,7 @@ Sự miêu tả
 được giải thoát. Cấu hình thiết bị không thay đổi.
 
 Giá trị trả về
-============
+==============
 
 ZZ0000ZZ trả về 0 nếu thành công. Nếu có lỗi, -1 được trả về và
 ZZ0001ZZ được đặt phù hợp. Các mã lỗi có thể xảy ra là:

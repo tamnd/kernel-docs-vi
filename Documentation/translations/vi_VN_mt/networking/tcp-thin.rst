@@ -55,7 +55,7 @@ tcp_thin_line_timeouts và tcp_thin_dupack sysctls. Cả hai
 sửa đổi được tắt theo mặc định.
 
 Tài liệu tham khảo
-==========
+==================
 Thông tin thêm về các sửa đổi, cũng như một loạt các
 dữ liệu thử nghiệm có thể được tìm thấy ở đây:
 

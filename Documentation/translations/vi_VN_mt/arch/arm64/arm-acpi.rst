@@ -41,7 +41,7 @@ ACPI và những gì ACPI có thể mong đợi ở Linux.
 
 
 Tại sao ACPI trên cánh tay?
-----------------
+---------------------------
 Trước khi kiểm tra chi tiết về giao diện giữa ACPI và Linux,
 hữu ích để hiểu tại sao ACPI lại được sử dụng.  Một số công nghệ đã
 Rốt cuộc, tồn tại trong Linux để mô tả phần cứng không thể đếm được.  Trong này
@@ -102,7 +102,7 @@ giao diện - một cho Linux và một cho Windows.
 
 
 Khả năng tương thích hạt nhân
---------------------
+-----------------------------
 Một trong những động lực chính của ACPI là tiêu chuẩn hóa và sử dụng nó
 để cung cấp khả năng tương thích ngược cho nhân Linux.  Trên thị trường máy chủ,
 phần mềm và phần cứng thường được sử dụng trong thời gian dài.  ACPI cho phép
@@ -381,7 +381,7 @@ không khuyến khích sự khác biệt giữa các liên kết DT và thuộc 
 
 
 Tài nguyên điều khiển nguồn có thể lập trình
-------------------------------------
+--------------------------------------------
 Các tài nguyên điều khiển công suất có thể lập trình bao gồm các tài nguyên như điện áp/dòng điện
 nhà cung cấp (cơ quan quản lý) và nguồn đồng hồ.
 
@@ -430,7 +430,7 @@ mà không yêu cầu cập nhật trình điều khiển.
 
 
 Đồng hồ
-------
+-------
 ACPI đưa ra giả định rằng đồng hồ được khởi tạo bởi phần sụn --
 UEFI, trong trường hợp này -- tới một giá trị làm việc nào đó trước khi chuyển giao quyền kiểm soát
 tới hạt nhân.  Điều này có ý nghĩa đối với các thiết bị như UART hoặc SoC-driven
@@ -455,7 +455,7 @@ kernel, cả hai điều chúng tôi đang cố gắng tránh.
 
 
 Khuyến nghị của người lái xe
-----------------------
+----------------------------
 NÊN NOT loại bỏ mọi thao tác xử lý DT khi thêm hỗ trợ ACPI cho trình điều khiển.  các
 cùng một thiết bị có thể được sử dụng trên nhiều hệ thống khác nhau.
 
@@ -551,13 +551,13 @@ ACPI_OS_NAME
                        Windows NT” chẳng hạn.
 
 Đối tượng ACPI
-------------
+--------------
 Kỳ vọng chi tiết cho các bảng và đối tượng ACPI được liệt kê trong tệp
 Tài liệu/arch/arm64/acpi_object_usage.rst.
 
 
 Tài liệu tham khảo
-----------
+------------------
 [0] ZZ0000ZZ
     tài liệu Arm-DEN-0094: "Arm Base System Architecture", phiên bản 1.0C, ngày 6 tháng 10 năm 2022
 

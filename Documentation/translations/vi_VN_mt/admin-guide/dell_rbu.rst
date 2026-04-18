@@ -17,20 +17,20 @@ Trình điều khiển cập nhật Dell Remote BIOS (dell_rbu)
 =====================================================
 
 Mục đích
-=======
+========
 
 Tài liệu hướng dẫn sử dụng driver Dell Remote BIOS Update
 để cập nhật hình ảnh BIOS trên máy chủ và máy tính để bàn Dell.
 
 Phạm vi
-=====
+=======
 
 Tài liệu này chỉ thảo luận về chức năng của trình điều khiển rbu.
 Nó không bao gồm sự hỗ trợ cần thiết từ các ứng dụng để cho phép BIOS
 tự cập nhật với hình ảnh được tải xuống bộ nhớ.
 
 Tổng quan
-========
+=========
 
 Trình điều khiển này hoạt động với Dell OpenManager hoặc Gói cập nhật Dell để cập nhật
 BIOS trên máy chủ Dell (bắt đầu từ máy chủ được bán từ năm 1999), máy tính để bàn

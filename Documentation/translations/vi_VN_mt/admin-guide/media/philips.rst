@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Webcam Philips (trình điều khiển pwc)
-============================
+=====================================
 
 Tệp này chứa một số thông tin bổ sung cho webcam Philips và OEM.
 E-mail: webcam@smcc.demon.nl Cập nhật lần cuối: 19-01-2004

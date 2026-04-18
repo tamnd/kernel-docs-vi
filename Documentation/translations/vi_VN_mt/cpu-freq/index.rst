@@ -31,13 +31,13 @@ Việc chia tỷ lệ đồng hồ cho phép bạn thay đổi tốc độ xung 
    cpufreq-stats
 
 Danh sách gửi thư
-------------
+-----------------
 Có danh sách chung tần số CPU nơi bạn có thể báo cáo lỗi,
 vấn đề hoặc gửi bản vá. Để gửi tin nhắn, hãy gửi email đến
 linux-pm@vger.kernel.org.
 
 Liên kết
------
+--------
 kho lưu trữ FTP:
 * ftp://ftp.linux.org.uk/pub/linux/cpufreq/
 

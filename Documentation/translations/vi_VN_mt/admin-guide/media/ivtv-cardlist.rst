@@ -13,7 +13,7 @@
    review) được đặt trong thư mục vi_VN/.
 
 Danh sách thẻ IVTV
-===============
+==================
 
 .. tabularcolumns:: |p{1.4cm}|p{12.7cm}|p{3.4cm}|
 

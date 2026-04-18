@@ -25,7 +25,7 @@ từ không gian người dùng.
 
 
 Tổng quan
---------
+---------
 
 Lệnh ZZ0000ZZ có thể được sử dụng thông qua tòa nhà ZZ0001ZZ để
 thực thi chương trình BPF trong kernel và trả kết quả về không gian người dùng. Cái này
@@ -63,7 +63,7 @@ sẽ không thực sự được chuyển hướng hoặc loại bỏ, mã trả
 được cung cấp, ghi lại riêng biệt bên dưới.
 
 Chạy các chương trình XDP ở "chế độ khung hình trực tiếp"
------------------------------------------
+---------------------------------------------------------
 
 Lệnh ZZ0000ZZ có chế độ riêng để chạy các chương trình XDP trực tiếp,
 có thể được sử dụng để thực thi các chương trình XDP theo cách mà các gói sẽ thực sự

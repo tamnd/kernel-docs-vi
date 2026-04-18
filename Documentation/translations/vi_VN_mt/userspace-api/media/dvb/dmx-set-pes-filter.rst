@@ -50,7 +50,7 @@ mã định danh gói (PID), tức là không có tiêu đề PES hoặc lọc t
 khả năng được hỗ trợ.
 
 Giá trị trả về
-------------
+--------------
 
 Khi thành công 0 được trả về.
 

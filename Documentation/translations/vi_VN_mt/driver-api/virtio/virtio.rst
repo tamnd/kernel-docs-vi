@@ -34,7 +34,7 @@ thông qua các cơ chế tiêu chuẩn như PCI.
 
 
 Thiết bị - Giao tiếp trình điều khiển: đức tính
-=========================================
+===============================================
 
 Mặc dù các thiết bị virtio thực sự là một lớp trừu tượng trong
 hypervisor, chúng tiếp xúc với khách như thể chúng là thiết bị vật lý
@@ -141,7 +141,7 @@ một phương pháp ZZ0001ZZ dành riêng cho vận chuyển.
 
 
 Tài liệu tham khảo
-==========
+==================
 
 _ZZ0000ZZ Virtio Spec v1.2:
 ZZ0001ZZ

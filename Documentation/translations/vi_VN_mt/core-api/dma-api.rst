@@ -490,7 +490,7 @@ nếu (attrs & DMA_ATTR_FOO)
 	}
 
 Phần Ie - Ánh xạ DMA dựa trên IOVA
----------------------------------
+----------------------------------
 
 Các API này cho phép ánh xạ rất hiệu quả khi sử dụng IOMMU.  Họ là một
 đường dẫn tùy chọn yêu cầu thêm mã và chỉ được khuyến nghị cho trình điều khiển
@@ -735,7 +735,7 @@ bộ nhớ hoặc thực hiện xóa một phần.
 
 
 Phần III - Gỡ lỗi driver sử dụng của DMA API
--------------------------------------------
+--------------------------------------------
 
 DMA API như được mô tả ở trên có một số hạn chế. Địa chỉ DMA phải là
 được phát hành với chức năng tương ứng với cùng kích thước chẳng hạn. Với

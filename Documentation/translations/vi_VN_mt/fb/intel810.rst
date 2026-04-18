@@ -68,7 +68,7 @@ B. Tính năng
 - Hỗ trợ thăm dò EDID bằng DDC/I2C hoặc thông qua BIOS
 
 C. Danh sách các tùy chọn có sẵn
-=============================
+================================
 
 Một. "video=i810fb"
 	kích hoạt trình điều khiển i810
@@ -190,7 +190,7 @@ Khuyến nghị: không đặt
 	Tài liệu/fb/modeb.rst để sử dụng.
 
 D. Khởi động hạt nhân
-=================
+=====================
 
 Phân tách từng tùy chọn/cặp tùy chọn bằng dấu phẩy (,) và tùy chọn khỏi giá trị của nó
 bằng dấu hai chấm (:) như sau::
@@ -198,7 +198,7 @@ bằng dấu hai chấm (:) như sau::
 video=i810fb:option1,option2:value2
 
 Cách sử dụng mẫu
-------------
+----------------
 
 Trong /etc/lilo.conf, thêm dòng::
 
@@ -226,7 +226,7 @@ các thông số. Sự khác biệt chính là bạn cần bao gồm giá trị 
 Ví dụ: để bật MTRR, hãy bao gồm "mtrr=1".
 
 Cách sử dụng mẫu
-------------
+----------------
 
 Sử dụng thiết lập tương tự như mô tả ở trên, tải mô-đun như sau::
 
@@ -244,7 +244,7 @@ modprobe i810fb
 
 
 F. Thiết lập
-=========
+============
 
 Một. Thực hiện phương pháp cấu hình kernel thông thường của bạn
 

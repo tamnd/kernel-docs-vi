@@ -13,10 +13,10 @@
    review) được đặt trong thư mục vi_VN/.
 
 Hồ sơ hệ thống con truyền thông
-=======================
+===============================
 
 Tổng quan
---------
+---------
 
 Cộng đồng Truyền thông Linux (còn gọi là: Cộng đồng LinuxTV) được thành lập bởi
 các nhà phát triển làm việc trên Hệ thống con truyền thông hạt nhân Linux, cùng với người dùng
@@ -50,7 +50,7 @@ thêm các tính năng mới vào hệ thống con cũng phải mang lại nhữ
 tài liệu API tương ứng.
 
 Người bảo trì phương tiện
------------------
+-------------------------
 
 Người bảo trì phương tiện không chỉ là những người có khả năng viết mã mà họ còn
 là những nhà phát triển đã chứng tỏ được khả năng cộng tác với
@@ -189,7 +189,7 @@ mối quan hệ với tất cả Người bảo trì hệ thống con phương t
 Truy cập chắp vá, bạn sẽ đảm nhận một phần nhiệm vụ bảo trì của mình.
 
 Người ủy thác truyền thông
-----------------
+--------------------------
 
 Người bảo trì phương tiện có kinh nghiệm và đáng tin cậy có thể được cấp quyền cam kết
 thay vào đó, cho phép họ đẩy trực tiếp các bản vá vào cây phát triển phương tiện
@@ -200,7 +200,7 @@ Bạn có thể tìm hiểu thêm thông tin chi tiết về vai trò và trách
 tìm thấy ở đây: ZZ0000ZZ.
 
 Các trang web phát triển truyền thông
------------------------
+-------------------------------------
 
 Trang web ZZ0000ZZ lưu trữ tin tức về hệ thống con,
 cùng với:
@@ -229,7 +229,7 @@ Xin lưu ý rằng nó có thể được khởi động lại, mặc dù chỉ 
 .. _Media development workflow:
 
 Quy trình phát triển phương tiện truyền thông
-++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++
 
 Tất cả các thay đổi đối với hệ thống con phương tiện sẽ được gửi trước tiên dưới dạng e-mail đến
 danh sách gửi thư của phương tiện truyền thông, theo quy trình được ghi lại tại
@@ -388,12 +388,12 @@ ZZ0000ZZ.
 Tài liệu/quy trình/bảo trì-pgp-guide.rst.
 
 Duy trì trạng thái người duy trì phương tiện
------------------------------------
+--------------------------------------------
 
 Xem ZZ0000ZZ.
 
 Danh sách người bảo trì phương tiện
--------------------------
+-----------------------------------
 
 Những người bảo trì phương tiện được liệt kê ở đây đều có quyền truy cập chắp vá và có thể
 thực hiện Yêu cầu kéo hoặc có quyền cam kết.
@@ -445,7 +445,7 @@ Người bảo trì trình điều khiển phương tiện chịu trách nhiệm
 - Trình điều khiển Qualcomm
 
 Gửi phụ lục danh sách kiểm tra
--------------------------
+------------------------------
 
 Các bản vá thay đổi liên kết Open Firmware/Device Tree phải được
 được xem xét bởi những người bảo trì Cây thiết bị. Vì vậy, người bảo trì DT nên
@@ -485,7 +485,7 @@ lý do rất tốt.
 Vui lòng xem ZZ0000ZZ để biết các quy tắc gửi e-mail.
 
 Bản vá dọn dẹp phong cách
-+++++++++++++++++++++
++++++++++++++++++++++++++
 
 Việc dọn dẹp phong cách được hoan nghênh khi chúng đi kèm với những thay đổi khác
 tại các tập tin mà sự thay đổi kiểu dáng sẽ ảnh hưởng.
@@ -498,7 +498,7 @@ bản vá cho tất cả các trình điều khiển trong trình điều khiể
 trình điều khiển/phương tiện/usb, v.v.
 
 Phụ lục về kiểu mã hóa
-+++++++++++++++++++++
+++++++++++++++++++++++
 
 Phát triển phương tiện sử dụng ZZ0000ZZ ở chế độ nghiêm ngặt để xác minh mã
 phong cách, ví dụ::
@@ -531,7 +531,7 @@ ký tự trên mỗi dòng. Điều này có thể bao gồm việc sử dụng 
       khung.
 
 Ngày chu kỳ chính
----------------
+-----------------
 
 Các bài nộp mới có thể được gửi bất cứ lúc nào, nhưng nếu chúng có ý định đạt được
 cửa sổ hợp nhất tiếp theo, chúng sẽ được gửi trước -rc5 và được ổn định một cách lý tưởng

@@ -72,7 +72,7 @@ $ ls -lR /sys/devices/system/cpu/cpu0/acpi_cppc/
 
 
 Hiệu suất tính toán trung bình được phân phối
-=======================================
+=============================================
 
 Dưới đây mô tả các bước để tính hiệu suất trung bình được cung cấp bởi
 chụp hai ảnh chụp nhanh khác nhau của bộ đếm phản hồi tại thời điểm T1 và T2.
