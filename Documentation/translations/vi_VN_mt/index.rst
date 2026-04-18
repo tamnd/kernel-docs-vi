@@ -14,9 +14,9 @@
 
 .. _linux_doc:
 
-=================================
+========================
 Tài liệu hạt nhân Linux
-==============================
+========================
 
 Đây là cấp cao nhất của cây tài liệu của kernel.  hạt nhân
 tài liệu, giống như bản thân hạt nhân, là một công việc đang được hoàn thiện;
