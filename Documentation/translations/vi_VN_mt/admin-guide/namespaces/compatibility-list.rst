@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+====================================
 Danh sách tương thích không gian tên
-=============================
+====================================
 
 Tài liệu này chứa thông tin về các vấn đề mà người dùng gặp phải
 có thể có khi tạo các tác vụ trong các không gian tên khác nhau.

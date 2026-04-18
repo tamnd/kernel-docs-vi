@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+======================================
 ARM Thiết bị chia sẻ DynamIQ (DSU) PMU
-==================================
+======================================
 
 Thiết bị chia sẻ ARM DynamIQ tích hợp một hoặc nhiều lõi với hệ thống bộ nhớ L3,
 logic điều khiển và các giao diện bên ngoài để tạo thành một cụm đa lõi. PMU

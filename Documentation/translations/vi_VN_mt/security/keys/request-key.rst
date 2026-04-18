@@ -14,7 +14,7 @@
 
 =====================
 Dịch vụ yêu cầu khóa
-===================
+=====================
 
 Dịch vụ yêu cầu khóa là một phần của dịch vụ lưu giữ khóa (tham khảo
 Tài liệu/bảo mật/khóa/core.rst).  Tài liệu này giải thích đầy đủ hơn về cách

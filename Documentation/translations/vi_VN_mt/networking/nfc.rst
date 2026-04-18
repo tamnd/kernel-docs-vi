@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+======================
 Hệ thống con Linux NFC
-===================
+======================
 
 Cần có hệ thống con Giao tiếp trường gần (NFC) để chuẩn hóa
 NFC phát triển trình điều khiển thiết bị và tạo giao diện không gian người dùng thống nhất.

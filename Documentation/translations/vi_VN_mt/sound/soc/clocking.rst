@@ -14,7 +14,7 @@
 
 ================
 Đồng hồ âm thanh
-==============
+================
 
 Văn bản này mô tả các thuật ngữ xung nhịp âm thanh trong ASoC và âm thanh kỹ thuật số trong
 chung. Lưu ý: Đồng hồ âm thanh có thể phức tạp!

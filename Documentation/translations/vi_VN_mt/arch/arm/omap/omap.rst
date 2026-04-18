@@ -14,7 +14,7 @@
 
 =============
 Lịch sử OMAP
-============
+=============
 
 Tệp này chứa tài liệu để chạy dòng chính
 hạt nhân trên omaps.

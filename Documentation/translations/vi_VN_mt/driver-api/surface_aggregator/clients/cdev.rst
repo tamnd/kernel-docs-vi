@@ -16,9 +16,9 @@
 .. |ssam_cdev_request_flags| replace:: :c:type:`enum ssam_cdev_request_flags <ssam_cdev_request_flags>`
 .. |ssam_cdev_event| replace:: :c:type:`struct ssam_cdev_event <ssam_cdev_event>`
 
-=================================
+=========================================
 Giao diện EC không gian người dùng (cdev)
-==============================
+=========================================
 
 Mô-đun ZZ0000ZZ cung cấp một thiết bị linh tinh cho SSAM
 bộ điều khiển để cho phép kết nối trực tiếp (ít nhiều) từ không gian người dùng tới

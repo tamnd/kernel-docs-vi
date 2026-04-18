@@ -14,7 +14,7 @@
 
 ==================================
 Realtek PC Beep Đăng ký ẩn
-===============================
+==================================
 
 Tệp này ghi lại "Thanh ghi ẩn tiếng bíp của PC", hiện có trong một số
 Bộ giải mã Realtek HDA và điều khiển bộ trộn và cặp bộ trộn chuyển tiếp có thể

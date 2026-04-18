@@ -16,7 +16,7 @@
 
 ============================================
 Mô tả và tham khảo đèn LED trong ACPI
-========================================
+============================================
 
 Các đèn LED riêng lẻ được mô tả bằng các nút mở rộng dữ liệu phân cấp [5] trong phần
 nút thiết bị, chip điều khiển LED. Thuộc tính "reg" trong các nút cụ thể LED

@@ -14,7 +14,7 @@
 
 ===========================
 Giới thiệu về LoongArch
-=========================
+===========================
 
 LoongArch là RISC ISA mới, hơi giống MIPS hoặc RISC-V. có
 hiện có 3 biến thể: phiên bản 32 bit rút gọn (LA32R), phiên bản 32 bit tiêu chuẩn

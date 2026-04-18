@@ -14,7 +14,7 @@
 
 ===========
 InfiniBand
-==========
+===========
 
 .. toctree::
    :maxdepth: 1

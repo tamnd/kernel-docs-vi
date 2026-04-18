@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========
+=========
 dm-mật mã
-========
+=========
 
 Mục tiêu "mật mã" của Device-Mapper cung cấp mã hóa minh bạch cho các thiết bị khối
 sử dụng mật mã hạt nhân API.

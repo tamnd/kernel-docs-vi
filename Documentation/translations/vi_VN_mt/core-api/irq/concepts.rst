@@ -14,7 +14,7 @@
 
 =================
 IRQ là gì?
-===============
+=================
 
 IRQ là một yêu cầu ngắt từ một thiết bị. Hiện tại, họ có thể đến
 trên một chốt hoặc trên một gói. Một số thiết bị có thể được kết nối với

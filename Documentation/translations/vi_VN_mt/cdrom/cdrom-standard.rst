@@ -14,7 +14,7 @@
 
 ==========================
 Tiêu chuẩn Linux CD-ROM
-=======================
+==========================
 
 :Tác giả: David van Leeuwen <david@ElseWare.cistron.nl>
 :Ngày: 12 tháng 3 năm 1999

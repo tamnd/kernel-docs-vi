@@ -14,9 +14,9 @@
 
 .. _drm-client-usage-stats:
 
-========================
+======================================
 Số liệu thống kê sử dụng máy khách DRM
-======================
+======================================
 
 Trình điều khiển DRM có thể chọn xuất văn bản được chuẩn hóa một phần thông qua
 ZZ0000ZZ là một phần của hoạt động tệp cụ thể của trình điều khiển đã được đăng ký

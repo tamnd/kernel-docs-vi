@@ -14,7 +14,7 @@
 
 =======================
 Quản lý bộ nhớ DRM
-=====================
+=======================
 
 Các hệ thống Linux hiện đại yêu cầu lượng bộ nhớ đồ họa lớn để lưu trữ
 bộ đệm khung, kết cấu, đỉnh và dữ liệu liên quan đến đồ họa khác. Cho

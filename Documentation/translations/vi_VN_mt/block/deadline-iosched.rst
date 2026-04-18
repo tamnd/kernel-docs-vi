@@ -14,7 +14,7 @@
 
 =================================
 Điều chỉnh lịch trình IO thời hạn
-==============================
+=================================
 
 Tệp nhỏ này cố gắng ghi lại cách thức hoạt động của bộ lập lịch io thời hạn.
 Đặc biệt, nó sẽ làm rõ ý nghĩa của các điều chỉnh được tiếp xúc có thể

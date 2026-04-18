@@ -14,7 +14,7 @@
 
 =============
 dm-toàn vẹn
-============
+=============
 
 Mục tiêu toàn vẹn dm mô phỏng một thiết bị khối có thêm
 thẻ theo từng ngành có thể được sử dụng để lưu trữ thông tin về tính toàn vẹn.

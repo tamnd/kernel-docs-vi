@@ -14,7 +14,7 @@
 
 ================================
 Bộ ghép kênh kết nối hạt nhân
-=============================
+================================
 
 Bộ ghép kênh kết nối hạt nhân (KCM) là một cơ chế cung cấp thông báo dựa trên
 giao diện trên TCP cho các giao thức ứng dụng chung. Với KCM một ứng dụng

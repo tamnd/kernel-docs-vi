@@ -14,7 +14,7 @@
 
 ====================================
 Tính toàn vẹn dữ liệu ứng dụng (ADI)
-================================
+====================================
 
 Bộ xử lý SPARC M7 bổ sung tính năng Toàn vẹn dữ liệu ứng dụng (ADI).
 ADI cho phép tác vụ đặt thẻ phiên bản trên bất kỳ tập hợp con nào của địa chỉ của nó

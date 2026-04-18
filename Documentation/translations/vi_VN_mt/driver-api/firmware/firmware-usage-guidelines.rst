@@ -14,7 +14,7 @@
 
 =====================
 Hướng dẫn về phần sụn
-===================
+=====================
 
 Người dùng chuyển sang kernel mới hơn nên ZZ0000ZZ phải cài đặt kernel mới hơn
 tập tin phần sụn để giữ cho phần cứng của chúng hoạt động. Đồng thời cập nhật

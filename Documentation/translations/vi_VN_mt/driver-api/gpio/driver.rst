@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+===============================
 Giao diện trình điều khiển GPIO
-=====================
+===============================
 
 Tài liệu này phục vụ như một hướng dẫn cho người viết trình điều khiển chip GPIO.
 

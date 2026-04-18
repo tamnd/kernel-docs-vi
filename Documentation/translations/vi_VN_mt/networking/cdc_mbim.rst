@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================================================
+======================================================================
 cdc_mbim - Trình điều khiển cho modem băng thông rộng di động CDC MBIM
-======================================================
+======================================================================
 
 Trình điều khiển cdc_mbim hỗ trợ các thiết bị USB tuân theo "Universal
 Đặc tả lớp con lớp truyền thông bus nối tiếp dành cho thiết bị di động

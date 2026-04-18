@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=======================================
 Phần phụ trợ thử nghiệm nô lệ Linux I2C
-================================
+=======================================
 
 bởi Wolfram Sang <wsa@sang-engineering.com> vào năm 2020
 

@@ -14,7 +14,7 @@
 
 ================================
 Kiểm tra bảng trang quy trình
-=============================
+================================
 
 sơ đồ trang là một bộ giao diện mới (kể từ 2.6.25) trong kernel cho phép
 chương trình không gian người dùng để kiểm tra các bảng trang và thông tin liên quan bằng cách

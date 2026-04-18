@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+===========================================
 Xây dựng hỗ trợ cho thiết bị đa phương tiện
-===================================
+===========================================
 
 Bước đầu tiên là tải xuống mã nguồn của Kernel thông qua
 tệp nguồn dành riêng cho phân phối hoặc thông qua cây git chính của Kernel\ [1]_.

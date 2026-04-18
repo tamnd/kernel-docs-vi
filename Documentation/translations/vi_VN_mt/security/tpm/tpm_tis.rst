@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+===================================
 Trình điều khiển giao diện TPM FIFO
-=========================
+===================================
 
 Thông số kỹ thuật TCG PTP xác định hai loại giao diện: FIFO và CRB. Cái trước là
 dựa trên các hoạt động đọc và ghi theo trình tự, và thao tác sau dựa trên một

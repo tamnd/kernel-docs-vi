@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+=====================
 Cách sử dụng chi tiết
-===============
+=====================
 
 DAMON cung cấp các giao diện bên dưới cho những người dùng khác nhau.
 

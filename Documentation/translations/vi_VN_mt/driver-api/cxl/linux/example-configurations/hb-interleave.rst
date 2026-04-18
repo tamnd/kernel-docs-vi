@@ -14,7 +14,7 @@
 
 ===============================
 Inter-Host-Bridge Interleave
-============================
+===============================
 Kết xuất cấu hình cxl-cli này hiển thị cấu hình máy chủ sau:
 
 * Một hệ thống ổ cắm duy nhất có một gốc CXL

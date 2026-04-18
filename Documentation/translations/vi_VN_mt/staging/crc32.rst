@@ -14,7 +14,7 @@
 
 ====================================
 Hướng dẫn ngắn gọn về tính toán CRC
-=================================
+====================================
 
 CRC là số dư chia dài.  Bạn thêm CRC vào tin nhắn,
 và toàn bộ nội dung (tin nhắn+CRC) là bội số của giá trị đã cho

@@ -14,7 +14,7 @@
 
 ==============================
 Hệ thống bỏ phiếu dừng KVM
-===========================
+==============================
 
 Hệ thống thăm dò tạm dừng KVM cung cấp một tính năng trong KVM nhờ đó độ trễ
 của một vị khách, trong một số trường hợp, có thể được giảm bớt bằng cách bỏ phiếu trong máy chủ

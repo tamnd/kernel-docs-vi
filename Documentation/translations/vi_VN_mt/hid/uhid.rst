@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================================================
+=============================================================================
 UHID - Hỗ trợ trình điều khiển I/O không gian người dùng cho hệ thống con HID
-======================================================
+=============================================================================
 
 UHID cho phép không gian người dùng triển khai trình điều khiển vận chuyển HID. Xin vui lòng xem
 hid-transport.rst để giới thiệu về trình điều khiển vận chuyển HID. Tài liệu này

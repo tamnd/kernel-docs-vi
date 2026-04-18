@@ -14,7 +14,7 @@
 
 ========================================
 Sử dụng Propeller với nhân Linux
-=====================================
+========================================
 
 Điều này cho phép hỗ trợ xây dựng Propeller cho kernel khi sử dụng Clang
 trình biên dịch. Cánh quạt là phương pháp tối ưu hóa hướng dẫn cấu hình (PGO) được sử dụng

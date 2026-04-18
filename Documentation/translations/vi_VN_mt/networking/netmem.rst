@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+=======================================
 Hỗ trợ Netmem cho trình điều khiển mạng
-==================================
+=======================================
 
 Tài liệu này nêu ra các yêu cầu đối với trình điều khiển mạng để hỗ trợ netmem,
 loại bộ nhớ trừu tượng kích hoạt các tính năng như bộ nhớ thiết bị TCP. Bởi

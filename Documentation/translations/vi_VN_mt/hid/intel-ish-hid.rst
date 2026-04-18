@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=======================================
 Trung tâm cảm biến tích hợp Intel (ISH)
-=================================
+=======================================
 
 Một trung tâm cảm biến cho phép khả năng giảm tải việc thăm dò cảm biến và thuật toán
 xử lý sang bộ đồng xử lý chuyên dụng có công suất thấp. Điều này cho phép lõi

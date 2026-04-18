@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========
+=============
 Danh sách thẻ
-==========
+=============
 
 Hệ thống con phương tiện cung cấp hỗ trợ cho nhiều trình điều khiển PCI và USB, cùng với
 trình điều khiển dành riêng cho nền tảng. Nó cũng chứa một số trình điều khiển I2C phụ trợ.

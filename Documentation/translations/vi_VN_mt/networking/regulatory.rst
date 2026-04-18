@@ -14,7 +14,7 @@
 
 ==========================================
 Tài liệu quy định không dây Linux
-=======================================
+==========================================
 
 Tài liệu này đưa ra một đánh giá ngắn gọn về cách mạng không dây Linux
 công trình cơ sở hạ tầng pháp lý.

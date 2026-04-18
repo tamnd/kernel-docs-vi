@@ -14,7 +14,7 @@
 
 ========================
 Hệ thống tập tin SGI XFS
-======================
+========================
 
 XFS là một hệ thống tệp nhật ký hiệu suất cao có nguồn gốc từ
 trên nền tảng SGI IRIX.  Nó hoàn toàn đa luồng, có thể

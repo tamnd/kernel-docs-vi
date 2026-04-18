@@ -14,7 +14,7 @@
 
 =================================================
 drm/meson Bộ xử lý video AmLogic Meson
-=============================================
+=================================================
 
 .. kernel-doc:: drivers/gpu/drm/meson/meson_drv.c
    :doc: Video Processing Unit

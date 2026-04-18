@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================================
+=======================================
 Trình điều khiển Linux cho Modem Baycom
-===============================
+=======================================
 
 Thomas M. Sailer, HB9JNX/AE4WA, <sailer@ife.ee.ethz.ch>
 

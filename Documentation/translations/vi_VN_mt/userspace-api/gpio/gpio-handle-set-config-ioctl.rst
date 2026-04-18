@@ -16,7 +16,7 @@
 
 ****************************
 GPIOHANDLE_SET_CONFIG_IOCTL
-***************************
+****************************
 
 .. warning::
     This ioctl is part of chardev_v1.rst and is obsoleted by

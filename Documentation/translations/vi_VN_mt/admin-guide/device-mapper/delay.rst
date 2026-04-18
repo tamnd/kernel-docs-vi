@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========
+=========
 dm-độ trễ
-========
+=========
 
 Độ trễ mục tiêu "độ trễ" của Device-Mapper đọc và/hoặc ghi
 và/hoặc xóa và tùy ý ánh xạ chúng tới các thiết bị khác nhau.

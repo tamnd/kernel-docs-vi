@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================================
+=================================================================
 Tài liệu trình điều khiển máy mở rộng thiết bị Intel INT3496 ACPI
-=====================================================
+=================================================================
 
 Trình điều khiển extcon thiết bị Intel INT3496 ACPI là trình điều khiển cho ACPI
 các thiết bị có acpi-id là INT3496, chẳng hạn như được tìm thấy trên

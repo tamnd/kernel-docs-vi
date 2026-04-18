@@ -16,9 +16,9 @@
 
 .. _t7xx_driver_doc:
 
-================================================
+=========================================================
 trình điều khiển t7xx cho modem T700 5G dựa trên MTK PCIe
-============================================
+=========================================================
 Trình điều khiển t7xx là trình điều khiển máy chủ WWAN PCIe được phát triển cho linux hoặc Chrome OS
 nền tảng để trao đổi dữ liệu qua giao diện PCIe giữa nền tảng Máy chủ &
 Modem T700 5G của MediaTek.

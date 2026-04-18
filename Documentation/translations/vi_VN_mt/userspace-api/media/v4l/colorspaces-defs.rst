@@ -14,9 +14,9 @@
 
 .. c:namespace:: V4L
 
-****************************
+**********************************
 Xác định không gian màu trong V4L2
-****************************
+**********************************
 
 Trong không gian màu V4L2 được xác định bởi bốn giá trị. Đầu tiên là
 mã định danh không gian màu (enum ZZ0000ZZ)

@@ -14,7 +14,7 @@
 
 =====================
 MIPI SyS-T trên STP
-===================
+=====================
 
 Trình điều khiển giao thức MIPI SyS-T có thể được sử dụng với các thiết bị lớp STM để
 tạo ra dòng dấu vết tiêu chuẩn hóa. Ngoài việc là một tiêu chuẩn, nó còn

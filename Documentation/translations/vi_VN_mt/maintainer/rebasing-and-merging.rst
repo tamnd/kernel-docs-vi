@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+=========================
 Khởi động lại và hợp nhất
-====================
+=========================
 
 Việc duy trì một hệ thống con, như một nguyên tắc chung, đòi hỏi sự hiểu biết về
 Hệ thống quản lý mã nguồn Git.  Git là một công cụ mạnh mẽ với rất nhiều

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+=========================================
 Hướng dẫn phát triển trình điều khiển WMI
-============================
+=========================================
 
 Hệ thống con WMI cung cấp trình điều khiển phong phú API để triển khai trình điều khiển WMI,
 được ghi lại tại Documentation/driver-api/wmi.rst. Tài liệu này sẽ phục vụ

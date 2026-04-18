@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+=================================
 Hướng dẫn sử dụng động cơ DMA API
-====================
+=================================
 
 Vinod Koul <vinod dot koul tại intel.com>
 

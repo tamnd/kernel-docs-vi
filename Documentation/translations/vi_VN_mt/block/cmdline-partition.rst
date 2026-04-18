@@ -14,7 +14,7 @@
 
 ==================================================
 Phân tích phân vùng dòng lệnh của thiết bị nhúng
-==============================================
+==================================================
 
 Tùy chọn dòng lệnh "blkdevparts" bổ sung thêm hỗ trợ cho việc đọc
 chặn bảng phân vùng thiết bị từ dòng lệnh kernel.

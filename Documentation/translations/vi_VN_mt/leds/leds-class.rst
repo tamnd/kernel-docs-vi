@@ -14,7 +14,7 @@
 
 ===========================
 Xử lý LED trong Linux
-========================
+===========================
 
 Ở dạng đơn giản nhất, lớp LED chỉ cho phép điều khiển đèn LED từ
 không gian người dùng. Đèn LED xuất hiện trong /sys/class/leds/. Độ sáng tối đa của

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+=========================================
 Giao diện trình điều khiển máy điều chỉnh
-==================================
+=========================================
 
 Giao diện trình điều khiển máy điều chỉnh dành cho bo mạch/máy cụ thể
 mã khởi tạo để cấu hình hệ thống con điều chỉnh.

@@ -14,7 +14,7 @@
 
 ===========
 Hướng dẫn
-==========
+===========
 
 Tài liệu này chứa các hướng dẫn dành cho nova-core. Ngoài ra, tất cả thông thường
 hướng dẫn của dự án Nova được áp dụng.

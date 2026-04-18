@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+======================================
 Phân bổ dma-buf bằng cách sử dụng đống
-==============================
+======================================
 
 Vùng Dma-buf là một cách để không gian người dùng phân bổ các đối tượng dma-buf. Họ là
 thường được sử dụng để phân bổ bộ đệm từ một nhóm phân bổ cụ thể hoặc để chia sẻ

@@ -16,7 +16,7 @@
 
 =======================
 Cơ sở theo dõi ACPICA
-=====================
+=======================
 
 :Bản quyền: ZZ0000ZZ 2015, Tập đoàn Intel
 :Tác giả: Lv Zheng <lv.zheng@intel.com>

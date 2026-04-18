@@ -14,7 +14,7 @@
 
 ================
 Di chuyển trang
-==============
+================
 
 Di chuyển trang cho phép di chuyển vị trí vật lý của các trang giữa
 các nút trong hệ thống NUMA trong khi quá trình đang chạy. Điều này có nghĩa là

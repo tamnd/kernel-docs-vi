@@ -14,7 +14,7 @@
 
 ======================================
 Quản lý tập tin trong nhân Linux
-===================================
+======================================
 
 Tài liệu này mô tả cách khóa file (struct file)
 và bảng mô tả tệp (tệp cấu trúc) hoạt động.

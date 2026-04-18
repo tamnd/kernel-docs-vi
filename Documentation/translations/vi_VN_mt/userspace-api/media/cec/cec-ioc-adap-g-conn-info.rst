@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-..
+............................
 .. Copyright 2019 Google LLC
-..
+............................
 .. c:namespace:: CEC
 
 .. _CEC_ADAP_G_CONNECTOR_INFO:

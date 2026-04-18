@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============================================
+==================================================
 GPIO Không gian người dùng thiết bị ký tự API (v1)
-========================================
+==================================================
 
 .. warning::
    This API is obsoleted by chardev.rst (v2).

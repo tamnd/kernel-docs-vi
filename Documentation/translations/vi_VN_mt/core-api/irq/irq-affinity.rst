@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+===================
 Mối quan hệ SMP IRQ
-================
+===================
 
 Nhật ký thay đổi:
 	- Bắt đầu bởi Ingo Molnar <mingo@redhat.com>

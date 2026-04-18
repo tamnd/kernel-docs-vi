@@ -14,7 +14,7 @@
 
 ========================
 Tự bảo vệ hạt nhân
-======================
+========================
 
 Tự bảo vệ hạt nhân là thiết kế và triển khai các hệ thống và
 cấu trúc bên trong nhân Linux để bảo vệ chống lại các lỗi bảo mật trong

@@ -14,7 +14,7 @@
 
 ========================
 Bóng x86 kvm mmu
-======================
+========================
 
 Mmu (trong Arch/x86/kvm, tệp mmu.[ch] và paging_tmpl.h) chịu trách nhiệm
 để trình bày x86 mmu tiêu chuẩn cho khách, đồng thời dịch cho khách

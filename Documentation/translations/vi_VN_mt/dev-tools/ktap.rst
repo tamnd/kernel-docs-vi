@@ -14,7 +14,7 @@
 
 ========================================================
 Giao thức kiểm tra hạt nhân mọi thứ (KTAP), phiên bản 1
-===================================================
+========================================================
 
 TAP hoặc Giao thức kiểm tra mọi thứ là định dạng để chỉ định kết quả kiểm tra được sử dụng
 bởi một số dự án. Trang web và thông số kỹ thuật của nó có tại ZZ0000ZZ này. Hạt nhân Linux chủ yếu sử dụng đầu ra TAP để thử nghiệm

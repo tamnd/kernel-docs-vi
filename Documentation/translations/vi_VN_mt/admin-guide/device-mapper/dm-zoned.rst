@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========
+==============
 khoanh vùng dm
-========
+==============
 
 Mục tiêu ánh xạ thiết bị được khoanh vùng dm hiển thị một thiết bị khối được khoanh vùng (ZBC và
 thiết bị tương thích ZAC) như một thiết bị khối thông thường mà không cần ghi

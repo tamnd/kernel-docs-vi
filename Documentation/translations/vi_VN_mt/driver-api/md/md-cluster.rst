@@ -14,7 +14,7 @@
 
 ===========
 Cụm MD
-==========
+===========
 
 Cụm MD là thiết bị dùng chung RAID cho một cụm, nó hỗ trợ
 hai cấp độ: raid1 và raid10 (hỗ trợ hạn chế).

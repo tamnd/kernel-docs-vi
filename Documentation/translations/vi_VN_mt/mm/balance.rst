@@ -14,7 +14,7 @@
 
 ==================
 Cân bằng bộ nhớ
-================
+==================
 
 Bắt đầu vào tháng 1 năm 2000 bởi Kanoj Sarcar <kanoj@sgi.com>
 

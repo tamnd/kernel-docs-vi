@@ -14,7 +14,7 @@
 
 ========================================
 Tạm dừng hệ thống và ngắt thiết bị
-====================================
+========================================
 
 Bản quyền (C) 2014 Intel Corp.
 Tác giả: Rafael J. Wysocki <rafael.j.wysocki@intel.com>

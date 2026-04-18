@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+=============================
 Trình điều khiển sym53c500_cs
-=======================
+=============================
 
 Trình điều khiển sym53c500_cs có nguồn gốc là một tiện ích bổ sung cho pcmcia-cs của David Hinds
 gói và được viết bởi Tom Corner (tcorner@via.at).  Việc viết lại là

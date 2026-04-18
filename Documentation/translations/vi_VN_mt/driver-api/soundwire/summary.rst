@@ -14,7 +14,7 @@
 
 ==============================
 Tóm tắt hệ thống con SoundWire
-===========================
+==============================
 
 SoundWire là giao diện mới được Liên minh MIPI phê chuẩn vào năm 2015.
 SoundWire được sử dụng để truyền dữ liệu thường liên quan đến âm thanh

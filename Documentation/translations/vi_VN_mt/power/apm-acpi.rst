@@ -14,7 +14,7 @@
 
 =============
 APM hay ACPI?
-============
+=============
 
 Nếu bạn có hệ thống máy chủ, máy tính để bàn hoặc thiết bị di động x86 tương đối gần đây,
 rất có thể là nó hỗ trợ Quản lý năng lượng nâng cao (APM) hoặc

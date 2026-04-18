@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================
+===============================
 Kiểm soát số liệu thống kê nhóm
-==================
+===============================
 
 Control Groupstats được lấy cảm hứng từ cuộc thảo luận tại
 ZZ0000ZZ và thực hiện thống kê trên mỗi nhóm như

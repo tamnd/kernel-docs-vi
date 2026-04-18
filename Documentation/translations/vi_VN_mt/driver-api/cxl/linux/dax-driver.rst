@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+==================================
 Hoạt động của trình điều khiển DAX
-====================
+==================================
 Trình điều khiển ZZ0000ZZ ban đầu được thiết kế để cung cấp
 cơ chế truy cập giống bộ nhớ tới các thiết bị khối giống bộ nhớ.  Đó là
 được mở rộng để hỗ trợ các Thiết bị bộ nhớ CXL, cung cấp các thiết bị được người dùng định cấu hình

@@ -14,7 +14,7 @@
 
 ===========================
 Bảng trang cơ số chung
-========================
+===========================
 
 .. kernel-doc:: include/linux/generic_pt/common.h
 	:doc: Generic Radix Page Table

@@ -14,7 +14,7 @@
 
 =================================
 Bố cục bộ nhớ trên AArch64 Linux
-==============================
+=================================
 
 Tác giả: Catalin Marinas <catalin.marinas@arm.com>
 

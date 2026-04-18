@@ -14,7 +14,7 @@
 
 ===========================
 Thông tin chung về ext4
-========================
+===========================
 
 Ext4 là cấp độ nâng cao của hệ thống tập tin ext3 kết hợp
 cải tiến khả năng mở rộng và độ tin cậy để hỗ trợ các hệ thống tập tin lớn

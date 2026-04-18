@@ -14,7 +14,7 @@
 
 ===================
 Phần sụn tích hợp
-=================
+===================
 
 Phần sụn có thể được tích hợp sẵn trong kernel, điều này có nghĩa là xây dựng phần sụn
 trực tiếp vào vmlinux, để tránh phải tìm kiếm chương trình cơ sở từ

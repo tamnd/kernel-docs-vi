@@ -14,7 +14,7 @@
 
 ================================================
 Các biến proc/net/tcp và proc/net/tcp6
-============================================
+================================================
 
 Tài liệu này mô tả các giao diện /proc/net/tcp và /proc/net/tcp6.
 Lưu ý rằng các giao diện này không được dùng nữa mà thay vào đó là tcp_diag.

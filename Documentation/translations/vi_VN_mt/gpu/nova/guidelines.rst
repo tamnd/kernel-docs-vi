@@ -14,7 +14,7 @@
 
 ===========
 Hướng dẫn
-==========
+===========
 
 Tài liệu này mô tả các hướng dẫn chung của dự án áp dụng cho nova-core
 và nova-drm.

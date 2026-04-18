@@ -14,7 +14,7 @@
 
 ========================================================
 Hỗ trợ mở rộng ma trận có thể mở rộng cho AArch64 Linux
-===================================================
+========================================================
 
 Tài liệu này phác thảo ngắn gọn giao diện được cung cấp cho không gian người dùng bởi Linux trong
 để hỗ trợ việc sử dụng Tiện ích mở rộng ma trận có thể mở rộng ARM (SME).

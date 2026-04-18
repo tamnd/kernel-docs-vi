@@ -14,7 +14,7 @@
 
 ===========================
 Hỗ trợ proxy minh bạch
-=========================
+===========================
 
 Tính năng này bổ sung hỗ trợ proxy trong suốt giống Linux 2.2 cho các hạt nhân hiện tại.
 Để sử dụng nó, hãy kích hoạt khớp ổ cắm và mục tiêu TPROXY trong cấu hình kernel của bạn.

@@ -14,7 +14,7 @@
 
 ========================
 Thông số hạt nhân SCSI
-======================
+========================
 
 Xem Documentation/admin-guide/kernel-parameters.rst để biết thông tin chung về
 chỉ định các tham số mô-đun.

@@ -14,7 +14,7 @@
 
 =================================
 Tài liệu hệ thống con hạt nhân
-==============================
+=================================
 
 Những cuốn sách này đi sâu vào chi tiết về cách hoạt động của các hệ thống con kernel cụ thể
 từ quan điểm của một nhà phát triển hạt nhân.  Phần lớn thông tin ở đây

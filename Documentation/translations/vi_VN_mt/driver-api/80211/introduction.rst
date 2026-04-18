@@ -14,7 +14,7 @@
 
 =============
 Giới thiệu
-============
+=============
 
 Giải thích mạng không dây 802.11 trong nhân Linux
 

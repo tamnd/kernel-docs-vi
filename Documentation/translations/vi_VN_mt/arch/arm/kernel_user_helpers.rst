@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+==============================================
 Trình trợ giúp người dùng do hạt nhân cung cấp
-============================
+==============================================
 
 Đây là phân đoạn kernel được cung cấp mã người dùng có thể truy cập từ không gian người dùng
 tại một địa chỉ cố định trong bộ nhớ kernel.  Điều này được sử dụng để cung cấp không gian cho người dùng

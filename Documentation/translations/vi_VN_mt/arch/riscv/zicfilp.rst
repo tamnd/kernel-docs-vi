@@ -15,9 +15,9 @@
 :Tác giả: Deepak Gupta <debug@rivosinc.com>
 :Ngày: 12 tháng 1 năm 2024
 
-=========================================================
+===========================================================
 Theo dõi chuyển giao điều khiển gián tiếp trên RISC-V Linux
-====================================================
+===========================================================
 
 Tài liệu này mô tả ngắn gọn giao diện do Linux cung cấp cho không gian người dùng
 để bật theo dõi nhánh gián tiếp cho các ứng dụng ở chế độ người dùng trên RISC-V.

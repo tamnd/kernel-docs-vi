@@ -14,7 +14,7 @@
 
 =======================
 Dấu thời gian ALSA PCM
-=====================
+=======================
 
 ALSA API có thể cung cấp hai dấu thời gian hệ thống khác nhau:
 

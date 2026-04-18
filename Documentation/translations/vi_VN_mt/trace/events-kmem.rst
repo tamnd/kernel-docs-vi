@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+================================
 Điểm theo dõi hệ thống con: kmem
-============================
+================================
 
 Hệ thống theo dõi kmem nắm bắt các sự kiện liên quan đến phân bổ đối tượng và trang
 bên trong hạt nhân. Nói rộng ra có năm phân nhóm chính.

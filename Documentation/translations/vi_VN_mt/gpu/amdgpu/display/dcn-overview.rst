@@ -14,9 +14,9 @@
 
 .. _dcn_overview:
 
-==========================
+============================
 Lõi hiển thị tiếp theo (DCN)
-=======================
+============================
 
 Nhằm trang bị cho độc giả những kiến thức cơ bản về cách AMD Display Core Next
 (DCN) hoạt động, chúng ta cần bắt đầu với cái nhìn tổng quan về quy trình phần cứng. Dưới đây

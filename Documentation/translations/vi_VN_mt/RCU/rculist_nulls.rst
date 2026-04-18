@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================================
+========================================================
 Sử dụng RCU hlist_nulls để bảo vệ danh sách và đối tượng
-=================================================
+========================================================
 
 Phần này mô tả cách sử dụng hlist_nulls để
 bảo vệ danh sách liên kết đọc chủ yếu và

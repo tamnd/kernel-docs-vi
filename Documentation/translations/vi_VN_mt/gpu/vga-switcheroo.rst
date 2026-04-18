@@ -14,9 +14,9 @@
 
 .. _vga_switcheroo:
 
-================
+=================
 Bộ chuyển đổi VGA
-==============
+=================
 
 .. kernel-doc:: drivers/gpu/vga/vga_switcheroo.c
    :doc: Overview

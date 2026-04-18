@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-===========================
+========================================
 Trình điều khiển màn hình cảm ứng N-Trig
-=========================
+========================================
 
 :Bản quyền: ZZ0000ZZ 2008-2010 Rafi Rubin <rafi@seas.upenn.edu>
 :Bản quyền: ZZ0001ZZ 2009-2010 Stephane Chatty

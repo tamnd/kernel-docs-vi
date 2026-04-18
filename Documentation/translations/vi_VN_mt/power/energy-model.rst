@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+===============================
 Mô hình năng lượng của thiết bị
-=======================
+===============================
 
 1. Tổng quan
 -----------

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+===========================
 Giai đoạn đầu ra kernel-doc
-=======================
+===========================
 
 Trình xử lý đầu ra cho các trang man và ReST
 =====================================

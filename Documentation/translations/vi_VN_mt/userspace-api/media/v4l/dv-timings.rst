@@ -16,9 +16,9 @@
 
 .. _dv-timings:
 
-**************************
+*******************************
 Định giờ video kỹ thuật số (DV)
-**************************
+*******************************
 
 Các tiêu chuẩn video được thảo luận cho đến nay đều liên quan đến Analog TV
 và thời gian video tương ứng. Ngày nay có nhiều thứ khác nhau hơn

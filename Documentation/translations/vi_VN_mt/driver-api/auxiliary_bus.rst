@@ -14,9 +14,9 @@
 
 .. _auxiliary_bus:
 
-==============
+===============
 Xe buýt phụ trợ
-=============
+===============
 
 .. kernel-doc:: drivers/base/auxiliary.c
    :doc: PURPOSE

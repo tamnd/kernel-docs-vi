@@ -14,7 +14,7 @@
 
 =================
 Bộ nhớ vật lý
-===============
+=================
 
 Linux có sẵn cho nhiều loại kiến trúc nên cần có một
 sự trừu tượng hóa độc lập với kiến trúc để thể hiện bộ nhớ vật lý. Cái này

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================================================================
+=========================================================================
 Trình điều khiển chức năng ảo cơ sở Linux cho Wangxun(R) Gigabit Ethernet
-==================================================================
+=========================================================================
 
 Trình điều khiển Linux chức năng ảo WangXun Gigabit.
 Copyright(c) 2015 - 2025 Công ty TNHH Công nghệ WangXun Bắc Kinh

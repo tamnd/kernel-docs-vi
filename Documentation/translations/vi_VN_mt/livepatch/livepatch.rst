@@ -14,7 +14,7 @@
 
 ==========
 Livepatch
-=========
+==========
 
 Tài liệu này phác thảo thông tin cơ bản về livepatching kernel.
 

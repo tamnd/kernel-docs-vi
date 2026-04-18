@@ -14,7 +14,7 @@
 
 ======================
 APEI Lỗi phun
-====================
+======================
 
 EINJ cung cấp cơ chế tiêm lỗi phần cứng. Nó rất hữu ích
 để gỡ lỗi và kiểm tra các tính năng APEI và RAS nói chung.

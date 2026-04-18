@@ -14,7 +14,7 @@
 
 =============================================================
 Tùy chọn xác thực TCP Triển khai Linux (RFC5925)
-========================================================
+=============================================================
 
 Tùy chọn xác thực TCP (TCP-AO) cung cấp tiện ích mở rộng TCP nhằm mục đích xác minh
 phân đoạn giữa các đồng nghiệp đáng tin cậy. Nó bổ sung thêm tùy chọn tiêu đề TCP mới với

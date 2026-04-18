@@ -16,7 +16,7 @@
 
 ======================================
 drm/amd/display - Lõi hiển thị (DC)
-===================================
+======================================
 
 Công cụ hiển thị AMD được chia sẻ một phần với các hệ điều hành khác; vì điều này
 lý do, Trình điều khiển lõi hiển thị của chúng tôi được chia thành hai phần:

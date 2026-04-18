@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+======================================
 Mẫu thiết kế trình điều khiển thiết bị
-=============================
+======================================
 
 Tài liệu này mô tả một số mẫu thiết kế phổ biến có trong trình điều khiển thiết bị.
 Có khả năng là những người bảo trì hệ thống con sẽ yêu cầu các nhà phát triển trình điều khiển

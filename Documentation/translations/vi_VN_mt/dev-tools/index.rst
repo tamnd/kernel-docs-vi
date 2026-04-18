@@ -14,7 +14,7 @@
 
 ====================================
 Công cụ phát triển kernel
-================================
+====================================
 
 Tài liệu này là tập hợp các tài liệu về các công cụ phát triển có thể
 được sử dụng để làm việc trên kernel. Hiện tại tài liệu đã được rút ra

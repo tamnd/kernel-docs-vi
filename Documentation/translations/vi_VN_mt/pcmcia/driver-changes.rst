@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+=========================
 Thay đổi trình điều khiển
-==============
+=========================
 
 Tệp này nêu chi tiết những thay đổi trong 2.6 ảnh hưởng đến tác giả trình điều khiển thẻ PCMCIA:
 

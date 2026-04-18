@@ -14,7 +14,7 @@
 
 =============
 Hỗ trợ ACPI
-============
+=============
 
 Ở đây chúng tôi ghi lại chi tiết cách tương tác với các cơ chế khác nhau trong
 hỗ trợ Linux ACPI.

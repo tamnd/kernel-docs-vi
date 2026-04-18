@@ -16,7 +16,7 @@
 
 ===========================
 BPF_MAP_TYPE_BLOOM_FILTER
-=========================
+===========================
 
 .. note::
    - ``BPF_MAP_TYPE_BLOOM_FILTER`` was introduced in kernel version 5.16

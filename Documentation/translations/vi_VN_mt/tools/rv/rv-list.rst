@@ -12,12 +12,12 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======
+============
 danh sách rv
-=======
------------------------
+============
+---------------------------
 Liệt kê các màn hình có sẵn
------------------------
+---------------------------
 
 :Phần hướng dẫn sử dụng: 1
 

@@ -14,7 +14,7 @@
 
 ==================================
 Lựa chọn tính năng vCPU trên arm64
-===============================
+==================================
 
 KVM/arm64 cung cấp hai cơ chế cho phép không gian người dùng định cấu hình
 các tính năng CPU được giới thiệu cho khách.

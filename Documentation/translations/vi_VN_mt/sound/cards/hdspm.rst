@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================
+=================================================
 Giao diện phần mềm Trình điều khiển ALSA-DSP MADI
-=======================================
+=================================================
 
 (dịch từ tiếng Đức nên tiếng Anh không tốt ;-),
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+==================================
 Sử dụng công cụ theo dõi để gỡ lỗi
-==============================
+==================================
 
 Bản quyền 2024 Google LLC.
 

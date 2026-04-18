@@ -14,7 +14,7 @@
 
 ======================
 Đa đường Linux NVMe
-====================
+======================
 
 Tài liệu này mô tả đa đường dẫn NVMe và các chính sách lựa chọn đường dẫn được hỗ trợ
 bởi trình điều khiển máy chủ Linux NVMe.

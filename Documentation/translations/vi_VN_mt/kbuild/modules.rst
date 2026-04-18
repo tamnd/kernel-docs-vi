@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+=============================
 Xây dựng các mô-đun bên ngoài
-=========================
+=============================
 
 Tài liệu này mô tả cách xây dựng một mô-đun hạt nhân ngoài cây.
 

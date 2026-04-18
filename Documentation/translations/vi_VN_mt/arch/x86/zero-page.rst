@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========
+===========
 Trang không
-=========
+===========
 Các trường bổ sung trong struct boot_params như một phần của boot 32-bit
 giao thức của kernel. Những thứ này phải được lấp đầy bởi bootloader hoặc 16-bit
 mã thiết lập chế độ thực của kernel. Tài liệu tham khảo/cài đặt cho nó chủ yếu

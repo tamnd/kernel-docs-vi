@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========
+=============
 dm-tuyến tính
-=========
+=============
 
 Mục tiêu "tuyến tính" của Device-Mapper ánh xạ một phạm vi tuyến tính của Device-Mapper
 thiết bị này lên phạm vi tuyến tính của thiết bị khác.  Đây là tòa nhà cơ bản

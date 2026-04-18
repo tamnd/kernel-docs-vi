@@ -14,7 +14,7 @@
 
 ===========================
 Nhóm Next-hop kiên cường
-=========================
+===========================
 
 Các nhóm kiên cường là một loại nhóm tiếp theo nhằm mục đích giảm thiểu
 sự gián đoạn trong việc định tuyến luồng khi thay đổi thành phần nhóm và

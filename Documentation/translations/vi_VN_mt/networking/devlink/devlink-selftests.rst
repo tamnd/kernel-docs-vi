@@ -14,7 +14,7 @@
 
 ===================
 Tự kiểm tra Devlink
-=================
+===================
 
 ZZ0000ZZ API cho phép thực hiện tự kiểm tra trên thiết bị.
 

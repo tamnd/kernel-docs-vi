@@ -14,7 +14,7 @@
 
 ===============================
 Hỗ trợ Hugepage minh bạch
-============================
+===============================
 
 Tài liệu này mô tả các nguyên tắc thiết kế cho Transparent Hugepage (THP)
 hỗ trợ và tương tác của nó với các phần khác của quản lý bộ nhớ

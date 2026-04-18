@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-=============
+======================
 Trình điều khiển SM501
-============
+======================
 
 :Bản quyền: ZZ0000ZZ 2006, 2007 Simtec Electronics
 

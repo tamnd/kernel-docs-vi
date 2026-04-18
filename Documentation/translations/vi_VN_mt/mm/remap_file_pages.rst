@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+====================================
 lệnh gọi hệ thống remap_file_pages()
-==============================
+====================================
 
 Lệnh gọi hệ thống remap_file_pages() được sử dụng để tạo ánh xạ phi tuyến,
 nghĩa là ánh xạ trong đó các trang của tệp được ánh xạ vào một

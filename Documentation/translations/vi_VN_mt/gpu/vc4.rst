@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+=============================================
  Trình điều khiển đồ họa drm/vc4 Broadcom VC4
-=====================================
+=============================================
 
 .. kernel-doc:: drivers/gpu/drm/vc4/vc4_drv.c
    :doc: Broadcom VC4 Graphics Driver

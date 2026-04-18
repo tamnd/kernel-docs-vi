@@ -14,7 +14,7 @@
 
 ==============================
 Vận hành FCoE bằng bnx2fc
-===========================
+==============================
 Giảm tải Broadcom FCoE thông qua bnx2fc là giảm tải phần cứng ở trạng thái đầy đủ.
 hợp tác với tất cả các giao diện do hệ sinh thái Linux cung cấp cho FC/FCoE và
 Bộ điều khiển SCSI.  Như vậy, chức năng FCoE, một khi được kích hoạt phần lớn sẽ được

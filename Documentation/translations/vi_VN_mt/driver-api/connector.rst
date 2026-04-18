@@ -14,7 +14,7 @@
 
 ==================
 Đầu nối hạt nhân
-================
+==================
 
 Trình kết nối hạt nhân - không gian người dùng dựa trên liên kết mạng mới <-> không gian hạt nhân dễ dàng
 để sử dụng mô-đun truyền thông.

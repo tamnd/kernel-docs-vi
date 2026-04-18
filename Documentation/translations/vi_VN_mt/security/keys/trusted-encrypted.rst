@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+================================
 Khóa đáng tin cậy và được mã hóa
-==========================
+================================
 
 Khóa đáng tin cậy và khóa mã hóa là hai loại khóa mới được thêm vào kernel hiện có
 dịch vụ vòng chìa khóa.  Cả hai loại mới này đều là các khóa đối xứng có độ dài thay đổi,

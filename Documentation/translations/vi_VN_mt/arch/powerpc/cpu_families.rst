@@ -14,7 +14,7 @@
 
 =============
 Gia đình CPU
-============
+=============
 
 Tài liệu này cố gắng tóm tắt một số họ CPU khác nhau hiện có
 và được hỗ trợ bởi Arch/powerpc.

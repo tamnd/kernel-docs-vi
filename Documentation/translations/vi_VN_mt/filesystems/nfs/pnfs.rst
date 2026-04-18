@@ -14,7 +14,7 @@
 
 =============================
 Đếm tham chiếu trong pnfs
-==========================
+=============================
 
 Có một số bộ đệm liên quan đến nhau.  Chúng tôi có bố cục có thể
 tham chiếu nhiều thiết bị, mỗi thiết bị có thể tham chiếu nhiều máy chủ dữ liệu.

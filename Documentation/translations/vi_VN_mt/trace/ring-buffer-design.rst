@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+===============================
 Thiết kế bộ đệm vòng không khóa
-===========================
+===============================
 
 Bản quyền 2009 Red Hat Inc.
 

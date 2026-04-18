@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+==========================================
 Thống kê kết quả giám sát truy cập dữ liệu
-===================================
+==========================================
 
 Thống kê kết quả giám sát truy cập dữ liệu (DAMON_STAT) là một mô-đun hạt nhân tĩnh
 nhằm mục đích được sử dụng để giám sát mẫu truy cập đơn giản.  Nó giám sát các truy cập

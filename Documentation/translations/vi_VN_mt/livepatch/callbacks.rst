@@ -14,7 +14,7 @@
 
 ========================
 (Un) vá các cuộc gọi lại
-======================
+========================
 
 Livepatch (un)patch-callbacks cung cấp cơ chế cho các mô-đun livepatch
 để thực thi các chức năng gọi lại khi một đối tượng kernel được vá (chưa).  Họ

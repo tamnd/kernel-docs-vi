@@ -16,7 +16,7 @@
 
 ============================================
 Triển khai thống kê sử dụng máy khách Xe DRM
-========================================
+============================================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_drm_client.c
    :doc: DRM Client usage stats

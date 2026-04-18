@@ -14,7 +14,7 @@
 
 =================
 Khóa VM_BIND
-===============
+=================
 
 Tài liệu này cố gắng mô tả những gì cần thiết để khóa VM_BIND đúng cách,
 bao gồm cả khóa userptr mmu_notifier. Nó cũng thảo luận về một số

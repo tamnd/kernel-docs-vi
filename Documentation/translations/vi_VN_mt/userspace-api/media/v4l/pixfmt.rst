@@ -16,9 +16,9 @@
 
 .. _pixfmt:
 
-##############
+###############
 Image Định dạng
-#############
+###############
 V4L2 API được thiết kế chủ yếu cho các thiết bị trao đổi dữ liệu hình ảnh
 với các ứng dụng. Cấu trúc ZZ0000ZZ và
 struct ZZ0001ZZ cấu trúc xác định

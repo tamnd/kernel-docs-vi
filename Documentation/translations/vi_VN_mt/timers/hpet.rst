@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================================
+==============================================================
 Trình điều khiển hẹn giờ sự kiện có độ chính xác cao cho Linux
-===========================================
+==============================================================
 
 Phần cứng Bộ đếm thời gian sự kiện có độ chính xác cao (HPET) tuân theo thông số kỹ thuật
 của Intel và Microsoft, bản sửa đổi 1.

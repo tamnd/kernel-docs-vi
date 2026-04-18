@@ -14,7 +14,7 @@
 
 =================
 Python kém nhất
-===============
+=================
 
 Kiểm tra tính nhất quán của các mô-đun python có thể phức tạp. Đôi khi, nó là
 hữu ích để xác định một tập hợp các bài kiểm tra đơn vị nhằm giúp kiểm tra chúng.

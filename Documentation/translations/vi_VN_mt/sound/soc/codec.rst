@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+===============================
 Trình điều khiển lớp Codec ASoC
-=======================
+===============================
 
 Trình điều khiển lớp codec là mã chung và độc lập với phần cứng để cấu hình
 codec, FM, MODEM, BT hoặc DSP bên ngoài để cung cấp khả năng thu và phát lại âm thanh.

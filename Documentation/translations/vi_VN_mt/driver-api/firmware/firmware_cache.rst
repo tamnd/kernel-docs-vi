@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+=========================
 Bộ đệm chương trình cơ sở
-==============
+=========================
 
 Khi Linux tiếp tục tạm dừng một số trình điều khiển thiết bị yêu cầu tra cứu chương trình cơ sở để
 khởi tạo lại thiết bị. Trong quá trình tiếp tục, có thể có một khoảng thời gian trong đó

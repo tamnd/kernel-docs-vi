@@ -14,7 +14,7 @@
 
 =========================================================
 OP-TEE (Môi trường thực thi tin cậy di động mở)
-====================================================
+=========================================================
 
 Trình điều khiển OP-TEE xử lý TEE dựa trên OP-TEE [1]. Hiện tại chỉ có ARM
 Giải pháp OP-TEE dựa trên TrustZone được hỗ trợ.

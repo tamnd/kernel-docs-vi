@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============
+====================
 người tiêu dùng CTNH
-===========
+====================
 Một thiết bị IIO có thể được kết nối trực tiếp với một thiết bị khác trong phần cứng. Trong này
 trường hợp bộ đệm giữa nhà cung cấp IIO và người tiêu dùng IIO được xử lý bằng phần cứng.
 Người tiêu dùng I/O CTNH công nghiệp cung cấp cách liên kết các thiết bị IIO này mà không cần

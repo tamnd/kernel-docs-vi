@@ -14,7 +14,7 @@
 
 =================
 Hàng đợi thực thi
-===============
+=================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_exec_queue.c
    :doc: Execution Queue

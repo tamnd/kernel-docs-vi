@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+=======================================
 Hỗ trợ chụp nhanh trình ánh xạ thiết bị
-==============================
+=======================================
 
 Trình ánh xạ thiết bị cho phép bạn mà không cần sao chép dữ liệu lớn:
 

@@ -14,7 +14,7 @@
 
 =======================
 Bộ thay đổi Devicetree
-=====================
+=======================
 
 Bộ thay đổi Devicetree là một phương pháp cho phép một người áp dụng các thay đổi
 trong cây sống theo cách mà toàn bộ các thay đổi

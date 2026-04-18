@@ -18,7 +18,7 @@
 
 =====================
 Bề mặt ACPI Thông báo
-===================
+=====================
 
 Thiết bị Surface ACPI Notify (SAN) cung cấp cầu nối giữa ACPI và
 Bộ điều khiển SAM. Cụ thể, mã ACPI có thể thực hiện các yêu cầu và xử lý

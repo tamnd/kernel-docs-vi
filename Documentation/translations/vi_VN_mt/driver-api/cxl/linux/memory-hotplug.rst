@@ -14,7 +14,7 @@
 
 ================
 Cắm nóng bộ nhớ
-==============
+================
 Giai đoạn cuối cùng của việc đưa bộ nhớ CXL vào bộ cấp phát trang kernel là dành cho
 trình điều khiển ZZ0000ZZ để hiển thị vùng bộ nhớ ZZ0001ZZ thông qua
 thành phần cắm nóng bộ nhớ.

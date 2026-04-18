@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+===================
 Thiết kế của dm-vdo
-================
+===================
 
 Mục tiêu dm-vdo (trình tối ưu hóa dữ liệu ảo) cung cấp tính năng chống trùng lặp nội tuyến,
 nén, loại bỏ khối không và cung cấp mỏng. Mục tiêu dm-vdo

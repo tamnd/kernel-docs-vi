@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================
+============================================
 Hệ thống tập tin Macintosh HFSPlus cho Linux
-======================================
+============================================
 
 HFSPlus là hệ thống tập tin được giới thiệu lần đầu tiên trong MacOS 8.1.
 HFSPlus có một số phần mở rộng cho HFS, bao gồm phân bổ 32 bit

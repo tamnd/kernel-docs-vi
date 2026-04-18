@@ -14,7 +14,7 @@
 
 =======================
 Sự cố DAWR trên POWER9
-=====================
+=======================
 
 Trên các bộ xử lý POWER9 cũ hơn, Thanh ghi điểm theo dõi địa chỉ dữ liệu (DAWR) có thể
 gây ra lệnh dừng kiểm tra nếu nó trỏ đến bộ nhớ bị ức chế bộ đệm (CI). Hiện nay Linux

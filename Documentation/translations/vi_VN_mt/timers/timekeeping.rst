@@ -14,7 +14,7 @@
 
 ================================================================
 Nguồn đồng hồ, Sự kiện đồng hồ, sched_clock() và bộ hẹn giờ trễ
-===========================================================
+================================================================
 
 Tài liệu này cố gắng giải thích ngắn gọn một số cách chấm công kernel cơ bản
 trừu tượng. Nó một phần liên quan đến các trình điều khiển thường được tìm thấy trong

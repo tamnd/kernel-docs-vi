@@ -14,7 +14,7 @@
 
 ===========================
 Buộc phản hồi cho Linux
-========================
+===========================
 
 :Tác giả: Johann Deneux <johann.deneux@gmail.com> ngày 22/04/2001.
 :Cập nhật: Anssi Hannula <anssi.hannula@gmail.com> vào ngày 09/04/2006.

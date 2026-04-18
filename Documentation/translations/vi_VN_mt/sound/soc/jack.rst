@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+=======================
 Phát hiện giắc cắm ASoC
-===================
+=======================
 
 ALSA có API tiêu chuẩn để thể hiện các giắc cắm vật lý cho không gian người dùng,
 phía kernel của nó có thể được nhìn thấy trong include/sound/jack.h.  ASoC

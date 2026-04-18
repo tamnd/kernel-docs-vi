@@ -14,6 +14,6 @@
 
 ==========
 Gỡ lỗi
-=========
+==========
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_assert.h

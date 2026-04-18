@@ -14,7 +14,7 @@
 
 ========================================
 SRAT - Bảng quan hệ tài nguyên tĩnh
-=====================================
+========================================
 
 Bảng quan hệ tài nguyên hệ thống/tĩnh mô tả tài nguyên (CPU, Bộ nhớ)
 mối quan hệ với "Miền lân cận". Bảng này là tùy chọn về mặt kỹ thuật, nhưng đối với

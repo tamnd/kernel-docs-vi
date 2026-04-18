@@ -14,7 +14,7 @@
 
 ================
 OpenRISC Linux
-==============
+================
 
 Đây là một bản chuyển thể của Linux sang lớp bộ vi xử lý OpenRISC; ban đầu
 kiến trúc mục tiêu cụ thể là họ OpenRISC 1000 32-bit (hoặc 1k).

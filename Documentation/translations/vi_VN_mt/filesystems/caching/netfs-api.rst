@@ -14,7 +14,7 @@
 
 =================================
 Bộ nhớ đệm hệ thống tệp mạng API
-==============================
+=================================
 
 Fscache cung cấp API mà hệ thống tệp mạng có thể sử dụng địa chỉ cục bộ
 cơ sở lưu trữ bộ nhớ đệm.  API được bố trí theo một số nguyên tắc:

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+=================================
 Chức năng trợ giúp cài đặt chế độ
-=============================
+=================================
 
 Hệ thống con DRM nhằm mục đích tách biệt rõ ràng giữa mã lõi và trình trợ giúp
 thư viện. Mã lõi đảm nhiệm việc thiết lập chung, phân tích và giải mã

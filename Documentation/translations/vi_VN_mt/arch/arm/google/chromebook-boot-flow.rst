@@ -14,7 +14,7 @@
 
 =========================================
 Luồng khởi động Chromebook
-======================================
+=========================================
 
 Hầu hết các Chromebook gần đây sử dụng cây thiết bị đều đang sử dụng mã nguồn mở
 bộ nạp khởi động deepcharge_. Depthcharge_ dự kiến ​​HĐH sẽ được đóng gói dưới dạng ZZ0000ZZ chứa hình ảnh HĐH cũng như bộ sưu tập cây thiết bị. Nó

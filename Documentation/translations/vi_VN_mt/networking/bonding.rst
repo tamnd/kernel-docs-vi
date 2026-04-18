@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+==============================================
 Trình điều khiển liên kết Ethernet Linux HOWTO
-===================================
+==============================================
 
 Cập nhật mới nhất: ngày 27 tháng 4 năm 2011
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+=====================================================
 Giao diện trình điều khiển người tiêu dùng điều chỉnh
-===================================
+=====================================================
 
 Văn bản này mô tả giao diện điều chỉnh cho trình điều khiển thiết bị tiêu dùng.
 Vui lòng xem tổng quan.txt để biết mô tả về các thuật ngữ được sử dụng trong văn bản này.

@@ -14,9 +14,9 @@
 
 .. _fs_kfuncs-header-label:
 
-=======================
+===========================
 Hệ thống tập tin BPF kfuncs
-=====================
+===========================
 
 Các chương trình BPF LSM cần truy cập dữ liệu hệ thống tệp từ các hook LSM. Sau đây
 BPF kfuncs có thể được sử dụng để lấy những dữ liệu này.

@@ -14,7 +14,7 @@
 
 ========================================
 FLIC (bộ điều khiển ngắt động)
-====================================
+========================================
 
 FLIC xử lý các ngắt nổi (không phải trên mỗi CPU), tức là I/O, dịch vụ và một số
 kiểm tra máy bị gián đoạn. Tất cả các ngắt được lưu trữ trong danh sách mỗi vm

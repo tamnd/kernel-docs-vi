@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=========================================
 Bộ điều khiển máy chủ cảm ứng Intel (THC)
-=================================
+=========================================
 
 Bộ điều khiển máy chủ cảm ứng là tên của khối IP trong PCH có giao diện với Thiết bị cảm ứng (ví dụ:
 màn hình cảm ứng, bàn di chuột, v.v.). Nó bao gồm 3 khối chức năng chính:

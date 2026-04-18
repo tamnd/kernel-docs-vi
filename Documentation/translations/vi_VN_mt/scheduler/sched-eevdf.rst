@@ -14,7 +14,7 @@
 
 =================
 Bộ lập lịch EEVDF
-===============
+=================
 
 "Thời hạn ảo đủ điều kiện sớm nhất đầu tiên" (EEVDF) lần đầu tiên được giới thiệu
 trong một ấn phẩm khoa học năm 1995 [1]. Nhân Linux bắt đầu

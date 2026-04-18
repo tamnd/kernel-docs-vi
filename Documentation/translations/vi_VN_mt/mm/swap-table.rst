@@ -14,9 +14,9 @@
 
 :Tác giả: Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>
 
-===========
+=============
 Bảng hoán đổi
-==========
+=============
 
 Bảng hoán đổi triển khai bộ đệm trao đổi dưới dạng mảng giá trị bộ đệm trao đổi trên mỗi cụm.
 

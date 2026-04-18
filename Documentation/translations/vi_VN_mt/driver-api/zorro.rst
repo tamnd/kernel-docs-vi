@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============================================
+=================================================
 Viết trình điều khiển thiết bị cho thiết bị Zorro
-========================================
+=================================================
 
 :Tác giả: Viết bởi Geert Uytterhoeven <geert@linux-m68k.org>
 :Sửa đổi lần cuối: Ngày 5 tháng 9 năm 2003

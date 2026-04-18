@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============
+=====================
 Cấu trúc liên kết x86
-============
+=====================
 
 Tài liệu này làm rõ các khía cạnh chính của mô hình hóa cấu trúc liên kết x86 và
 biểu diễn trong kernel. Cập nhật/thay đổi khi thực hiện thay đổi đối với

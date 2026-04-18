@@ -14,7 +14,7 @@
 
 ======================
 Thống kê lịch trình
-====================
+======================
 
 Phiên bản 17 của schedstats đã xóa trường 'lb_imbalance' vì nó không có
 ý nghĩa nữa và thay vào đó đã thêm các lĩnh vực có liên quan hơn, cụ thể là

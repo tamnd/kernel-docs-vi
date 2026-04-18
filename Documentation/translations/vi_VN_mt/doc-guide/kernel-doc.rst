@@ -16,7 +16,7 @@
 
 ==============================
 Viết bình luận kernel-doc
-===========================
+==============================
 
 Các tệp nguồn nhân Linux có thể chứa tài liệu có cấu trúc
 nhận xét ở định dạng kernel-doc để mô tả các chức năng, kiểu
@@ -530,7 +530,7 @@ là duy nhất trong tập tin.
 
 ================================
 Bao gồm các bình luận kernel-doc
-=============================
+================================
 
 Các nhận xét tài liệu có thể được bao gồm trong bất kỳ văn bản reStructuredText nào
 tài liệu sử dụng phần mở rộng chỉ thị Sphinx kernel-doc chuyên dụng.

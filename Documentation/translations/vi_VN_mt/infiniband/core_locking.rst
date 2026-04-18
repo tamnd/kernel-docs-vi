@@ -14,7 +14,7 @@
 
 ==============================
 Khóa lớp giữa InfiniBand
-===========================
+==============================
 
 Hướng dẫn này là một nỗ lực để làm rõ các giả định khóa
   được thực hiện bởi lớp giữa của InfiniBand.  Nó mô tả các yêu cầu về

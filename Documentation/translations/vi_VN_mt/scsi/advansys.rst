@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+=====================================
 Ghi chú của Trình điều khiển AdvanSys
-=====================
+=====================================
 
 AdvanSys (Advanced System Products, Inc.) sản xuất các sản phẩm sau
 Dựa trên RISC, Bus-Mastering, nhanh (10 Mhz) và siêu hẹp (20 Mhz)

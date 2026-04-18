@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================================================
+============================================================================
 Trình điều khiển cơ sở Linux cho bộ điều hợp nhanh WangXun(R) 10 Gigabit PCI
-================================================================
+============================================================================
 
 Trình điều khiển WangXun 10 Gigabit Linux.
 Bản quyền (c) 2015 - 2022 Công ty TNHH Công nghệ WangXun Bắc Kinh

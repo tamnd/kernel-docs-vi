@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+===============================
 Tải lại liên kết nhà phát triển
-==============
+===============================
 
 ZZ0000ZZ cung cấp cơ chế khởi tạo lại các thực thể trình điều khiển, áp dụng
 Giá trị mới của ZZ0001ZZ và ZZ0002ZZ. Nó cũng cung cấp

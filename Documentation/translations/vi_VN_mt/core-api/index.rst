@@ -14,7 +14,7 @@
 
 ========================
 Tài liệu lõi API
-======================
+========================
 
 Đây là phần mở đầu của sách hướng dẫn sử dụng API lõi lõi.  Sự chuyển đổi
 (và việc viết!) tài liệu cho sổ tay này được đánh giá cao!

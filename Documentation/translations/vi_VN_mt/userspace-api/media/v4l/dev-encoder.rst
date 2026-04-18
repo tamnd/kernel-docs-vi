@@ -16,9 +16,9 @@
 
 .. _encoder:
 
-*************************************************
+*********************************************************
 Giao diện bộ mã hóa video trạng thái từ bộ nhớ đến bộ nhớ
-*************************************************
+*********************************************************
 
 Bộ mã hóa video có trạng thái lấy các khung hình video thô theo thứ tự hiển thị và mã hóa
 chúng thành một dòng byte. Nó tạo ra các đoạn hoàn chỉnh của dòng byte, bao gồm

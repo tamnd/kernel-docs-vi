@@ -16,9 +16,9 @@
 
 .. _driverapi_pm_devices:
 
-=================================
+===================================================
 Thông tin cơ bản về quản lý nguồn điện của thiết bị
-==============================
+===================================================
 
 :Bản quyền: ZZ0000ZZ 2010-2011 Rafael J. Wysocki <rjw@sisk.pl>, Novell Inc.
 :Bản quyền: ZZ0001ZZ 2010 Alan Stern <stern@rowland.harvard.edu>

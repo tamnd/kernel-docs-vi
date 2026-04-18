@@ -14,7 +14,7 @@
 
 =======================
 Thứ tự tra cứu firmware
-=====================
+=======================
 
 Chức năng khác nhau có sẵn để cho phép tìm thấy phần sụn.
 Dưới đây là thứ tự thời gian về cách tìm kiếm phần sụn một lần

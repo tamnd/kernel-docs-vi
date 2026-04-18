@@ -18,7 +18,7 @@
 
 ****************
 Tiêu chuẩn Video
-***************
+****************
 
 Các thiết bị video thường hỗ trợ một hoặc nhiều tiêu chuẩn video khác nhau hoặc
 các biến thể của tiêu chuẩn. Mỗi đầu vào và đầu ra video có thể hỗ trợ một đầu vào khác

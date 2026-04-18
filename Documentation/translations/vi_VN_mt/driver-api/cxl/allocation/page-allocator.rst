@@ -14,7 +14,7 @@
 
 ====================
 Bộ cấp phát trang
-==================
+====================
 
 Bộ cấp phát trang kernel phục vụ tất cả các yêu cầu cấp phát trang chung, chẳng hạn như
 như ZZ0000ZZ.  Các bước cấu hình CXL ảnh hưởng đến hoạt động của trang

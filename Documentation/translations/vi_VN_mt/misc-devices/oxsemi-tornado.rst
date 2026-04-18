@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================================================
+=============================================================================
 Những lưu ý về thiết bị cổng nối tiếp Oxford Semiconductor PCIe (Tornado) 950
-====================================================================
+=============================================================================
 
 Các thiết bị cổng nối tiếp Oxford Semiconductor PCIe (Tornado) 950 được điều khiển
 bằng đầu vào xung nhịp 62,5 MHz cố định lấy từ xung nhịp PCI Express 100 MHz.

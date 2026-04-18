@@ -14,7 +14,7 @@
 
 ====================
 Giao thức SMBus
-==================
+====================
 
 Sau đây là bản tóm tắt về giao thức SMBus. Nó áp dụng cho
 tất cả các phiên bản của giao thức (1.0, 1.1 và 2.0).

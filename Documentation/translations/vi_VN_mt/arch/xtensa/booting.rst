@@ -14,7 +14,7 @@
 
 ========================================
 Truyền tham số khởi động cho kernel
-=====================================
+========================================
 
 Các tham số khởi động được biểu diễn dưới dạng danh sách TLV trong bộ nhớ. Xin vui lòng xem
 Arch/xtensa/include/asm/bootparam.h để biết định nghĩa về cấu trúc bp_tag và

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============
+=============
 Trọng tài VGA
-===========
+=============
 
 Các thiết bị đồ họa được truy cập thông qua các phạm vi trong I/O hoặc không gian bộ nhớ. Trong khi hầu hết
 các thiết bị hiện đại cho phép di chuyển các phạm vi như vậy, một số thiết bị VGA "Di sản"

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+=================================================
 Không gian tên người dùng và kiểm soát tài nguyên
-====================================
+=================================================
 
 Hạt nhân chứa nhiều loại đối tượng không có
 giới hạn riêng lẻ hoặc có giới hạn không hiệu quả khi

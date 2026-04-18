@@ -14,7 +14,7 @@
 
 ===================
 Tên miền lập lịch
-=================
+===================
 
 Mỗi CPU có miền lập kế hoạch "cơ sở" (struct sched_domain). Tên miền
 hệ thống phân cấp được xây dựng từ các miền cơ sở này thông qua con trỏ ->parent. ->cha mẹ

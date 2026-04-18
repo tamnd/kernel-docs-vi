@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+====================================
 Điểm theo dõi hệ thống con: sức mạnh
-=============================
+====================================
 
 Hệ thống theo dõi quyền lực nắm bắt các sự kiện liên quan đến chuyển đổi quyền lực
 bên trong hạt nhân. Nói rộng ra có ba tiêu đề chính:

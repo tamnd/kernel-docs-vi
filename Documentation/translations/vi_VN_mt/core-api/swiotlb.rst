@@ -14,7 +14,7 @@
 
 =================
 DMA và swiotlb
-===============
+=================
 
 swiotlb là trình cấp phát bộ nhớ đệm được sử dụng bởi lớp DMA của nhân Linux. Đó là
 thường được sử dụng khi thiết bị thực hiện DMA không thể truy cập trực tiếp vào bộ nhớ đích

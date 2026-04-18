@@ -14,7 +14,7 @@
 
 ======================
 Cây thiết bị (OF) API
-====================
+======================
 
 Cây thiết bị KUnit API được sử dụng để kiểm tra mã phụ thuộc của cây thiết bị (of_*).
 

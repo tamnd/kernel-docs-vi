@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+===========================================
 Trình điều khiển nguyên thủy đồng bộ hóa NT
-===================================
+===========================================
 
 Trang này ghi lại không gian người dùng API cho trình điều khiển ntsync.
 

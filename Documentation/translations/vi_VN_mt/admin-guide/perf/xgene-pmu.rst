@@ -14,7 +14,7 @@
 
 ====================================================
 Thiết bị giám sát hiệu suất SoC APM X-Gene (PMU)
-================================================
+====================================================
 
 X-Gene SoC PMU bao gồm nhiều PMU thiết bị hệ thống độc lập khác nhau như
 (Các) bộ nhớ đệm L3, (các) cầu nối I/O, (các) cầu nối bộ điều khiển bộ nhớ và bộ nhớ

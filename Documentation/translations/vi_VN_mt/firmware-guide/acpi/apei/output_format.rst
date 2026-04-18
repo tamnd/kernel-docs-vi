@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================
+=====================
 Định dạng đầu ra APEI
-==================
+=====================
 
 APEI sử dụng printk làm giao diện báo lỗi phần cứng, đầu ra
 định dạng như sau::

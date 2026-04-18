@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+========================
 Kiểm soát băng thông CFS
-=====================
+========================
 
 .. note::
    This document only discusses CPU bandwidth control for SCHED_NORMAL.

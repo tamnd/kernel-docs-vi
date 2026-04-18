@@ -14,7 +14,7 @@
 
 =======================
 Mã hóa bộ nhớ AMD
-=====================
+=======================
 
 Mã hóa bộ nhớ an toàn (SME) và Ảo hóa mã hóa an toàn (SEV) là
 các tính năng được tìm thấy trên bộ xử lý AMD.

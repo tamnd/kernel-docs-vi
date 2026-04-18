@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+====================
 Sự kiện theo dõi NMI
-================
+====================
 
 Những sự kiện này thường hiển thị ở đây:
 

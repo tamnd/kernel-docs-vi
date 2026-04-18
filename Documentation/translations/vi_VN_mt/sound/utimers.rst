@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+=====================================
 Bộ hẹn giờ theo không gian người dùng
-=======================
+=====================================
 
 :Tác giả: Ivan Orlov <ivan.orlov0322@gmail.com>
 

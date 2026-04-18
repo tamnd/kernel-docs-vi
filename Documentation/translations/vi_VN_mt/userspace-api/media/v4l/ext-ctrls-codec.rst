@@ -16,9 +16,9 @@
 
 .. _codec-controls:
 
-***********************
+**************************
 Tham khảo điều khiển Codec
-***********************
+**************************
 
 Dưới đây tất cả các điều khiển trong lớp điều khiển Codec được mô tả. đầu tiên
 các điều khiển chung, sau đó điều khiển cụ thể cho phần cứng nhất định.

@@ -14,7 +14,7 @@
 
 =============================
 Quản lý tần số Xe GT
-==========================
+=============================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_gt_freq.c
    :doc: Xe GT Frequency Management

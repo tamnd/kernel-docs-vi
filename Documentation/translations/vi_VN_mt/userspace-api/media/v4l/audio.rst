@@ -16,9 +16,9 @@
 
 .. _audio:
 
-*************************
+**************************
 Đầu vào và đầu ra âm thanh
-************************
+**************************
 
 Đầu vào và đầu ra âm thanh là các đầu nối vật lý của thiết bị. Video
 thiết bị chụp có đầu vào, thiết bị đầu ra có đầu ra, không hoặc nhiều hơn

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============
+================
 Công cụ hạt nhân
-============
+================
 
 Cuốn sách này đề cập đến các công cụ trong không gian người dùng được cung cấp cùng với nguồn nhân;
 cần bổ sung thêm ở đây:

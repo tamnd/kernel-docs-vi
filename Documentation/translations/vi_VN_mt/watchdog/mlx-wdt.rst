@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==========================================
 Trình điều khiển cơ quan giám sát Mellanox
-=========================
+==========================================
 
 cho các thiết bị chuyển mạch hệ thống dựa trên x86
 =============================

@@ -18,7 +18,7 @@
 
 *******************
 Định dạng phẳng YUV
-******************
+*******************
 
 Các định dạng phẳng phân chia dữ liệu độ sáng và sắc độ trong các vùng bộ nhớ riêng biệt. Họ
 tồn tại trong hai biến thể:

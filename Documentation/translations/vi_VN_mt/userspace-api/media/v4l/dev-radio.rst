@@ -16,9 +16,9 @@
 
 .. _radio:
 
-****************
+******************
 Giao diện vô tuyến
-***************
+******************
 
 Giao diện này dành cho các máy thu radio AM và FM (analog) và
 máy phát.

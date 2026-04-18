@@ -14,7 +14,7 @@
 
 =============================
 Ánh xạ phiên bản CPU sang ISA
-==========================
+=============================
 
 Ánh xạ một số phiên bản CPU sang các phiên bản ISA có liên quan.
 

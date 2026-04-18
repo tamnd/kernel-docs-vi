@@ -14,7 +14,7 @@
 
 ===================
 Địa chỉ quy trình
-=================
+===================
 
 .. toctree::
    :maxdepth: 3
@@ -920,7 +920,7 @@ Việc mở rộng ngăn xếp làm tăng thêm sự phức tạp mà chúng tô
 là lỗi trang đua xe, do đó chúng tôi gọi ZZ0000ZZ để
 ngăn chặn điều này trong ZZ0001ZZ hoặc ZZ0002ZZ.
 
----------------
+------------------------
 Chức năng và cấu trúc
 ------------------------
 

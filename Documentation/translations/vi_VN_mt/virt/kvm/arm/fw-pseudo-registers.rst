@@ -14,7 +14,7 @@
 
 ==========================================
 Giao diện giả đăng ký phần sụn ARM
-=======================================
+==========================================
 
 KVM xử lý các dịch vụ hypercall theo yêu cầu của khách hàng. Siêu cuộc gọi mới
 các dịch vụ thường xuyên được cung cấp bởi thông số kỹ thuật ARM hoặc KVM (như

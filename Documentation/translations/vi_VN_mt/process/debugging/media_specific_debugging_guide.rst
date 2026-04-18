@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================================
+=================================================
 Gỡ lỗi và truy tìm trong hệ thống con phương tiện
-============================================
+=================================================
 
 Tài liệu này đóng vai trò là điểm khởi đầu và tra cứu thiết bị gỡ lỗi
 trình điều khiển trong hệ thống con phương tiện và gỡ lỗi các trình điều khiển này khỏi không gian người dùng.

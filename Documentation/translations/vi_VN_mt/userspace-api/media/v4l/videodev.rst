@@ -16,9 +16,9 @@
 
 .. _videodev:
 
-****************************************
+************************************************
 Video dành cho Linux Hai biểu tượng uAPI tiêu đề
-***************************************
+************************************************
 
 .. kernel-include:: include/uapi/linux/videodev2.h
     :generate-cross-refs:

@@ -14,8 +14,8 @@
 
 .. _net_types:
 
-**************
+*********************
 Các kiểu dữ liệu ròng
-**************
+*********************
 
 .. kernel-doc:: include/uapi/linux/dvb/net.h

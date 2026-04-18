@@ -14,7 +14,7 @@
 
 =====================================================
 Firmware của bộ điều khiển PCIe cho Renesas R-Car V4H
-=================================================
+=====================================================
 
 Renesas R-Car V4H (r8a779g0) có bộ điều khiển PCIe, yêu cầu một bộ điều khiển cụ thể
 tải xuống firmware trong khi khởi động.

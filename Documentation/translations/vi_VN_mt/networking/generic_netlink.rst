@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+===================
 Liên kết mạng chung
-===============
+===================
 
 Bạn có thể tìm thấy tài liệu wiki về cách sử dụng Generic Netlink tại đây:
 

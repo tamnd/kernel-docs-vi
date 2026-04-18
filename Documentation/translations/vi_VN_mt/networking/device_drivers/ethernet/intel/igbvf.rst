@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================================================
+==================================================================
 Trình điều khiển chức năng ảo cơ sở Linux cho Intel(R) 1G Ethernet
-===========================================================
+==================================================================
 
 Trình điều khiển Linux chức năng ảo Intel Gigabit.
 Bản quyền(c) 1999-2018 Tập đoàn Intel.

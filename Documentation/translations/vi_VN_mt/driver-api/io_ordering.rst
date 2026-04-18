@@ -14,7 +14,7 @@
 
 ==================================================
 Thứ tự ghi I/O vào các địa chỉ được ánh xạ bộ nhớ
-==============================================
+==================================================
 
 Trên một số nền tảng, cái gọi là I/O ánh xạ bộ nhớ được sắp xếp yếu.  Trên đó
 nền tảng, người viết trình điều khiển có trách nhiệm đảm bảo rằng I/O ghi vào

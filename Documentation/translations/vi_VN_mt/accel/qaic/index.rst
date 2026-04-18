@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+===================================================
  Trình điều khiển AI đám mây Qualcomm tăng tốc/qaic
-=====================================
+===================================================
 
 Trình điều khiển accel/qaic hỗ trợ máy học Qualcomm Cloud AI
 thẻ tăng tốc.

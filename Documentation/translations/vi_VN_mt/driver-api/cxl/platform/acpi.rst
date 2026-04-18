@@ -14,7 +14,7 @@
 
 ============
 Bàn ACPI
-===========
+============
 
 ACPI là "Cấu hình nâng cao và giao diện nguồn", là một tiêu chuẩn
 xác định cách các nền tảng và hệ điều hành quản lý nguồn điện cũng như cấu hình phần cứng máy tính.

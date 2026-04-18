@@ -14,7 +14,7 @@
 
 ============
 Hỗ trợ TPH
-===========
+============
 
 :Bản quyền: 2024 Advanced Micro Devices, Inc.
 :Tác giả: - Eric van Tassell <eric.vantassell@amd.com>

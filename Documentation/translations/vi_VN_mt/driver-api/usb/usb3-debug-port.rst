@@ -14,7 +14,7 @@
 
 =================
 Cổng gỡ lỗi USB3
-===============
+=================
 
 :Tác giả: Lu Baolu <baolu.lu@linux.intel.com>
 :Ngày: Tháng 3 năm 2017

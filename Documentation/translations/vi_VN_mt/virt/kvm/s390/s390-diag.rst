@@ -14,7 +14,7 @@
 
 ================================
 S390 DIAGNOSE gọi KVM
-=============================
+================================
 
 KVM trên s390 hỗ trợ lệnh gọi DIAGNOSE để thực hiện siêu cuộc gọi, cho cả
 siêu cuộc gọi gốc và cho các siêu cuộc gọi được chọn được tìm thấy trên s390 khác

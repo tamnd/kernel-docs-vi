@@ -14,7 +14,7 @@
 
 =======================
 Giao diện gỡ lỗi CMA
-=====================
+=======================
 
 Giao diện gỡ lỗi CMA rất hữu ích để truy xuất thông tin cơ bản từ
 các khu vực CMA khác nhau và để kiểm tra việc phân bổ/phát hành ở từng khu vực.

@@ -14,7 +14,7 @@
 
 ====================
 Dự án Linux X.25
-==================
+====================
 
 Khi làm luận án năm thứ ba tại trường Đại học, tôi đã tự mình thực hiện
 viết triển khai X.25 cho Linux. Mục tiêu của tôi là cung cấp X.25 hoàn chỉnh

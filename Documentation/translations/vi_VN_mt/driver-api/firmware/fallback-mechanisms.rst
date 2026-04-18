@@ -14,7 +14,7 @@
 
 =====================
 Cơ chế dự phòng
-===================
+=====================
 
 Cơ chế dự phòng được hỗ trợ để cho phép khắc phục lỗi để thực hiện thao tác trực tiếp
 tra cứu hệ thống tập tin trên hệ thống tập tin gốc hoặc khi không thể tìm thấy phần sụn

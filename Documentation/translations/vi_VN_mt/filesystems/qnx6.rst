@@ -14,7 +14,7 @@
 
 =====================
 Hệ thống tập tin QNX6
-===================
+=====================
 
 Qnx6fs được sử dụng bởi các phiên bản hệ điều hành QNX mới hơn. (ví dụ neutrino)
 Nó được giới thiệu trong QNX 6.4.0 và được sử dụng mặc định kể từ 6.4.1.

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============================================
+==============================================
 Những cân nhắc về ACPI cho cầu nối máy chủ PCI
-========================================
+==============================================
 
 Nguyên tắc chung là không gian tên ACPI phải mô tả mọi thứ
 Hệ điều hành có thể sử dụng trừ khi có cách khác để hệ điều hành tìm thấy nó [1, 2].

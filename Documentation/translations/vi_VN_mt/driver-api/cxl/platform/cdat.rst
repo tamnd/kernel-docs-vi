@@ -14,7 +14,7 @@
 
 =========================================
 Bảng thuộc tính thiết bị mạch lạc (CDAT)
-======================================
+=========================================
 
 CDAT cung cấp các thuộc tính chức năng và hiệu suất của các thiết bị như
 như bộ tăng tốc, công tắc hoặc điểm cuối CXL.  Định dạng bảng là
@@ -29,9 +29,9 @@ DSMADHandle - Một tay cầm duy nhất của thiết bị được liên kết
 được xác định bởi bảng DSMAS.
 
 
-====================================================
+================================================================
 Cấu trúc mối quan hệ trong bộ nhớ trong phạm vi thiết bị (DSMAS)
-===============================================
+================================================================
 
 DSMAS chứa thông tin như DSMADHandle, DPA Base và DPA
 Chiều dài.
@@ -54,7 +54,7 @@ Loại cấu trúc: 00 [DSMAS]
 
 =======================================================================
 Cấu trúc thông tin băng thông và độ trễ trong phạm vi thiết bị (DSLBIS)
-==================================================================
+=======================================================================
 
 Bảng này được Linux sử dụng cùng với DSMAS để xác định
 thuộc tính hiệu suất của thiết bị CXL.  DSLBIS chứa độ trễ
@@ -85,7 +85,7 @@ Loại cấu trúc: 01 [DSLBIS]
 
 =======================================================================
 Cấu trúc thông tin băng thông và độ trễ có phạm vi chuyển đổi (SSLBIS)
-==================================================================
+=======================================================================
 
 SSLBIS chứa thông tin về độ trễ và băng thông của bộ chuyển mạch.
 

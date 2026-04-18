@@ -16,7 +16,7 @@
 
 *************************
 GPIO_GET_LINEEVENT_IOCTL
-************************
+*************************
 
 .. warning::
     This ioctl is part of chardev_v1.rst and is obsoleted by

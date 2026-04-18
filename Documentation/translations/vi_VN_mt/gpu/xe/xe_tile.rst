@@ -14,7 +14,7 @@
 
 ====================
 Thiết bị nhiều ô
-==================
+====================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_tile.c
    :doc: Multi-tile Design

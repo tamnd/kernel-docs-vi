@@ -14,7 +14,7 @@
 
 =====================================
 Giới thiệu mfd không thể thực thi
-==================================
+=====================================
 :Tác giả:
     Daniel Verkamp <dverkamp@chromium.org>
     Jeff Xu <jeffxu@chromium.org>

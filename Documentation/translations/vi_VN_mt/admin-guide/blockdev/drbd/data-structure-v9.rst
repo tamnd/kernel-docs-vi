@@ -14,7 +14,7 @@
 
 ====================================
 cấu trúc dữ liệu hạt nhân cho DRBD-9
-================================
+====================================
 
 Phần này mô tả cấu trúc dữ liệu trong kernel cho DRBD-9. Bắt đầu với
 Linux v3.14 chúng tôi đang tổ chức lại DRBD để sử dụng cấu trúc dữ liệu này.

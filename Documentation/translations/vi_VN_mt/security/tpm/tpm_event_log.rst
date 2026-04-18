@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============
+===================
 Nhật ký sự kiện TPM
-=============
+===================
 
 Tài liệu này mô tả ngắn gọn nhật ký TPM là gì và nó được chuyển giao như thế nào
 từ phần sụn preboot sang hệ điều hành.

@@ -14,7 +14,7 @@
 
 =============================
 Thông số mô-đun WatchDog
-==========================
+=============================
 
 Tập tin này cung cấp thông tin về các tham số mô-đun của nhiều
 trình điều khiển cơ quan giám sát Linux.  Thông số kỹ thuật tham số trình điều khiển Watchdog nên

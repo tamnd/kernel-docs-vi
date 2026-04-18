@@ -14,7 +14,7 @@
 
 ===================================================================
 Đơn vị giám sát hiệu suất Uncore T-Head SoC của Alibaba (PMU)
-=============================================================
+===================================================================
 
 Yitian 710, được sản xuất theo đơn đặt hàng của doanh nghiệp phát triển chip của Tập đoàn Alibaba,
 T-Head, triển khai PMU không lõi để gỡ lỗi hiệu năng và chức năng cho

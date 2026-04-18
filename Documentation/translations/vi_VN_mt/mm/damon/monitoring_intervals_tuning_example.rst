@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================================
+===========================================================
 Ví dụ về điều chỉnh tham số khoảng thời gian theo dõi DAMON
-=================================================
+===========================================================
 
 Các thông số giám sát của DAMON cần được điều chỉnh dựa trên khối lượng công việc nhất định và
 mục đích giám sát.  Có ZZ0000ZZ cho điều đó.  Tài liệu này

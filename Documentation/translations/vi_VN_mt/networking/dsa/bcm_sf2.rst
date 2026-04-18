@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================================
+============================================================
 Trình điều khiển chuyển mạch Ethernet Broadcom Starfighter 2
-=============================================
+============================================================
 
 Khối phần cứng chuyển mạch Ethernet Starfighter 2 của Broadcom thường được tìm thấy và
 triển khai ở các sản phẩm sau:

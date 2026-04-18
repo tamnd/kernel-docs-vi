@@ -1738,9 +1738,9 @@ Một số khía cạnh này có thể được cải thiện để tạo điề
 Các nhà phát triển nhân Linux nhận thức rõ điều này và sẽ rất vui nếu một số
 các cá nhân hoặc một tổ chức sẽ thực hiện sứ mệnh này của họ.
 
-..
+.................
    end-of-content
-..
+.................
    This document is maintained by Thorsten Leemhuis <linux@leemhuis.info>. If
    you spot a typo or small mistake, feel free to let him know directly and
    he'll fix it. You are free to do the same in a mostly informal way if you

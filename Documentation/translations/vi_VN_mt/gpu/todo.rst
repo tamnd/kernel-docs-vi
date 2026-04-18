@@ -14,9 +14,9 @@
 
 .. _todo:
 
-==========
+==============
 Danh sách TODO
-=========
+==============
 
 Phần này chứa danh sách các tác vụ dọn dẹp nhỏ hơn trong kernel DRM
 hệ thống con đồ họa hữu ích cho các dự án người mới. Hoặc cho những ngày mưa chậm.

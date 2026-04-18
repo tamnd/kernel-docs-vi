@@ -14,7 +14,7 @@
 
 ==========================
 Giao diện AMD SIDE BAND
-=======================
+==========================
 
 Một số bộ xử lý dựa trên AMD Zen hỗ trợ quản lý hệ thống
 chức năng thông qua giao diện băng tần bên (SBI) được gọi là

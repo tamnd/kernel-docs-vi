@@ -14,7 +14,7 @@
 
 =============================
 PAT (Bảng thuộc tính trang)
-==========================
+=============================
 
 Bảng thuộc tính trang x86 (PAT) cho phép thiết lập thuộc tính bộ nhớ ở
 mức độ chi tiết ở cấp độ trang. PAT bổ sung cho cài đặt MTRR cho phép

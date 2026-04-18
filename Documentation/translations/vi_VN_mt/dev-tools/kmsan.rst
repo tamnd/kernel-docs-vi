@@ -14,9 +14,9 @@
 
 .. Copyright (C) 2022, Google LLC.
 
-==================================
+====================================
 Bộ khử trùng bộ nhớ hạt nhân (KMSAN)
-===============================
+====================================
 
 KMSAN là một trình phát hiện lỗi động nhằm mục đích tìm kiếm các cách sử dụng chưa được khởi tạo
 các giá trị. Nó dựa trên công cụ biên dịch và khá giống với

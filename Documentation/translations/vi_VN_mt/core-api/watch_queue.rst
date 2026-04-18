@@ -14,7 +14,7 @@
 
 =================================
 Cơ chế thông báo chung
-==============================
+=================================
 
 Cơ chế thông báo chung được xây dựng dựa trên trình điều khiển đường ống tiêu chuẩn
 nhờ đó nó ghép các thông báo thông báo từ kernel vào các đường ống một cách hiệu quả

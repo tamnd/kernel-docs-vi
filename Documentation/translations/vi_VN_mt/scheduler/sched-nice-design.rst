@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+=========================
 Lập kế hoạch Thiết kế đẹp
-=====================
+=========================
 
 Tài liệu này giải thích suy nghĩ về việc cải tiến và sắp xếp hợp lý
 triển khai mức độ tốt đẹp trong bộ lập lịch Linux mới.

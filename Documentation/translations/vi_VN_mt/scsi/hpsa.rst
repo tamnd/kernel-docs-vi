@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================================
+=======================================================
 HPSA - Trình điều khiển mảng thông minh Hewlett Packard
-=========================================
+=======================================================
 
 Tệp này mô tả trình điều khiển hpsa SCSI cho bộ điều khiển HP Smart Array.
 Trình điều khiển hpsa nhằm thay thế trình điều khiển cciss mới hơn

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+=======================
 Trình điều khiển AD7625
-====================
+=======================
 
 Trình điều khiển ADC cho Analog Devices Inc. AD7625, AD7626, AD7960 và AD7961
 thiết bị. Tên mô-đun là ZZ0000ZZ.

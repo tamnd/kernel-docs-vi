@@ -14,7 +14,7 @@
 
 ========================================================================
 Thiết bị giám sát hiệu suất Marvell Odyssey DDR PMU (PMU UNCORE)
-===================================================================
+========================================================================
 
 Hệ thống con Odyssey DRAM hỗ trợ tám bộ đếm để theo dõi hiệu suất
 và phần mềm có thể lập trình các bộ đếm đó để theo dõi bất kỳ thông số nào được xác định

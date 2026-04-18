@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+=======================
 Các ngữ nghĩa Percpu rw
-====================
+=======================
 
 Percpu rw semaphores là một thiết kế semaphore đọc-ghi mới
 được tối ưu hóa để khóa để đọc.

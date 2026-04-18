@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+==========================================
 Khối lượng công việc và điện toán chạy dài
-==================================
+==========================================
 
 Khối lượng công việc chạy dài (tính toán) là khối lượng công việc sẽ không hoàn thành trong 10
 giây. (Thời gian để người dùng chờ trước khi chạm vào nút nguồn).

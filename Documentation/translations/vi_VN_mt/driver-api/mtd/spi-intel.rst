@@ -14,7 +14,7 @@
 
 =================================
 Nâng cấp BIOS bằng spi-intel
-==============================
+=================================
 
 Nhiều CPU Intel như Baytrail và Braswell bao gồm máy chủ flash nối tiếp SPI
 bộ điều khiển được sử dụng để chứa BIOS và dữ liệu cụ thể của nền tảng khác.

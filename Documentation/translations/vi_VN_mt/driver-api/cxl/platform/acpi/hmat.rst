@@ -14,7 +14,7 @@
 
 ===============================================
 HMAT - Bảng thuộc tính bộ nhớ không đồng nhất
-===========================================
+===============================================
 
 Bảng thuộc tính bộ nhớ không đồng nhất chứa thông tin như bộ đệm
 thuộc tính, chi tiết về băng thông và độ trễ cho các miền lân cận bộ nhớ.

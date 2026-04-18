@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+============================================
 Trình điều khiển cơ sở quản lý hệ thống Dell
-===================================
+============================================
 
 Tổng quan
 ========
@@ -95,9 +95,9 @@ tắt nguồn hành động điều khiển máy chủ bằng trình điều khi
 Bảng sau hiển thị giá trị cần ghi vào Host_control_smi_type tới
 thực hiện chu kỳ nguồn hoặc tắt nguồn hành động điều khiển máy chủ:
 
-==========================================
+==============================================
 Điều khiển máy chủ hệ thống PowerEdge Loại SMI
-==========================================
+==============================================
       300HC_SMITYPE_TYPE1
      1300 HC_SMITYPE_TYPE1
      1400 HC_SMITYPE_TYPE2

@@ -14,7 +14,7 @@
 
 ========================
 Giao thức mạng RxRPC
-======================
+========================
 
 Trình điều khiển giao thức RxRPC cung cấp khả năng truyền tải hai pha đáng tin cậy trên UDP
 có thể được sử dụng để thực hiện các hoạt động từ xa RxRPC.  Việc này được thực hiện qua các socket

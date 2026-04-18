@@ -14,7 +14,7 @@
 
 ==================
 Biến bóng
-================
+==================
 
 Biến bóng là một cách đơn giản để các mô-đun livepatch liên kết
 dữ liệu "bóng" bổ sung với cấu trúc dữ liệu hiện có.  Dữ liệu bóng là

@@ -14,7 +14,7 @@
 
 ==============================
 Linux cho S/390 và zSeries
-===========================
+==============================
 
 Hỗ trợ thiết bị chung (CDS)
 Các thói quen hỗ trợ I/O của trình điều khiển thiết bị

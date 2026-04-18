@@ -14,7 +14,7 @@
 
 ===========================================================
 Đơn vị giám sát hiệu suất uncore của HiSilicon SoC (PMU)
-======================================================
+===========================================================
 
 Chip HiSilicon SoC bao gồm nhiều PMU thiết bị hệ thống độc lập khác nhau
 chẳng hạn như bộ đệm L3 (L3C), Hydra Home Agent (HHA) và DDRC. Các PMU này được

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========
+===============
 Trình kích hoạt
-========
+===============
 
 * struct iio_trigger — thiết bị kích hoạt I/O công nghiệp
 * ZZ0000ZZ — iio_trigger_alloc được quản lý tài nguyên

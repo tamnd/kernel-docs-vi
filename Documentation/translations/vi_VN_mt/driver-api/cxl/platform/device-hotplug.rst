@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================
+=========================
 Đầu cắm nóng thiết bị CXL
-==================
+=========================
 
 Hotplug thiết bị đề cập đến hotplug ZZ0000ZZ của một thiết bị (thêm hoặc xóa
 của một thiết bị vật lý từ máy).

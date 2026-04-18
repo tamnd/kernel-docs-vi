@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================================================
+===============================================================================
 DAMON: Hoạt động hệ thống giám sát truy cập dữ liệu và nhận biết quyền truy cập
-================================================================
+===============================================================================
 
 ZZ0000ZZ là hệ thống con nhân Linux cho dữ liệu hiệu quả
 giám sát truy cập và hoạt động của hệ thống nhận biết truy cập.

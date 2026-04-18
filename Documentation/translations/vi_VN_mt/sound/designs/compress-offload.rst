@@ -14,7 +14,7 @@
 
 ===========================
 ALSA Nén-giảm tải API
-=========================
+===========================
 
 Pierre-Louis.Bossart <pierre-louis.bossart@linux.intel.com>
 

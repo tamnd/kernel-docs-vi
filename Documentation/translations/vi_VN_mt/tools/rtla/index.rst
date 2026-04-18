@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+======================================
 Công cụ phân tích Linux thời gian thực
-================================
+======================================
 
 RTLA cung cấp một bộ công cụ để phân tích thời gian thực của kernel
 hành vi trên phần cứng cụ thể.

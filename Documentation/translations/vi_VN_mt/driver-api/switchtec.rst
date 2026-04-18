@@ -14,7 +14,7 @@
 
 ===========================
 Hỗ trợ Switchtec Linux
-========================
+===========================
 
 Dòng thiết bị chuyển mạch PCI "Switchtec" của Microsemi đã có sẵn
 được hỗ trợ bởi kernel với trình điều khiển chuyển đổi PCI tiêu chuẩn. Tuy nhiên,

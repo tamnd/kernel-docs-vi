@@ -16,7 +16,7 @@ Bắt đầu vào tháng 11 năm 1999 bởi Kanoj Sarcar <kanoj@sgi.com>
 
 ==============
 NUMA là gì?
-=============
+==============
 
 Câu hỏi này có thể được trả lời từ một số góc độ:
 chế độ xem phần cứng và chế độ xem phần mềm Linux.

@@ -16,9 +16,9 @@
 
 .. _sdr:
 
-*************************************
+****************************************************
 Giao diện vô tuyến được xác định bằng phần mềm (SDR)
-**************************************
+****************************************************
 
 SDR là tên viết tắt của Đài phát thanh được xác định bằng phần mềm, thiết bị vô tuyến
 sử dụng phần mềm ứng dụng để điều chế hoặc giải điều chế. Giao diện này

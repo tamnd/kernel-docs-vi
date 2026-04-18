@@ -14,7 +14,7 @@
 
 ====================
 Hỗ trợ USB Legacy
-==================
+====================
 
 :Tác giả: Vojtech Pavlik <vojtech@suse.cz>, tháng 1 năm 2004
 

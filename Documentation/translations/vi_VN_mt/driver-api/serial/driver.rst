@@ -14,7 +14,7 @@
 
 ======================
 API nối tiếp cấp thấp
-====================
+======================
 
 
 Tài liệu này nhằm mục đích tổng quan ngắn gọn về một số khía cạnh của ấn phẩm mới

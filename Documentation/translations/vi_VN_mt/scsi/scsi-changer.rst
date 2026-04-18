@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+=============================================
 Trình điều khiển bộ thay đổi phương tiện SCSI
-=========================
+=============================================
 
 Đây là trình điều khiển cho các thiết bị Medium Changer SCSI, được liệt kê
 với "Loại: Bộ thay đổi trung bình" trong /proc/scsi/scsi.

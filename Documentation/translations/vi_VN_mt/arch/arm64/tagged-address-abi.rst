@@ -14,7 +14,7 @@
 
 =============================
 AArch64 TAGGED ADDRESS ABI
-==========================
+=============================
 
 Tác giả: Vincenzo Frascino <vincenzo.frascino@arm.com>
          Bến du thuyền Catalin <catalin.marinas@arm.com>

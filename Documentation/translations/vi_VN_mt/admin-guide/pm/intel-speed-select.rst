@@ -14,7 +14,7 @@
 
 =================================================================
 Hướng dẫn sử dụng công nghệ chọn tốc độ Intel(R)
-============================================================
+=================================================================
 
 Công nghệ chọn tốc độ Intel(R) (Intel(R) SST) cung cấp một giải pháp mới mạnh mẽ
 tập hợp các tính năng giúp kiểm soát chi tiết hơn hiệu suất của CPU.

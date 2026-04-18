@@ -16,7 +16,7 @@
 
 =============================================
 Cách xác minh lỗi và hồi quy chia đôi
-=========================================
+=============================================
 
 Tài liệu này mô tả cách kiểm tra xem một số vấn đề về nhân Linux có xảy ra trong mã hay không
 hiện được các nhà phát triển hỗ trợ -- để sau đó giải thích cách xác định vị trí thay đổi
@@ -2196,9 +2196,9 @@ Tài liệu đọc bổ sung
 * ZZ0003ZZ.
 *ZZ0004ZZ.
 
-..
+.................
    end-of-content
-..
+.................
    This document is maintained by Thorsten Leemhuis <linux@leemhuis.info>. If
    you spot a typo or small mistake, feel free to let him know directly and
    he'll fix it. You are free to do the same in a mostly informal way if you

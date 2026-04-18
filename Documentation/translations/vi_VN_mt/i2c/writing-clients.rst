@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================================
+========================================
 Triển khai trình điều khiển thiết bị I2C
-===============================
+========================================
 
 Đây là hướng dẫn nhỏ dành cho những ai muốn viết kernel driver cho I2C
 hoặc thiết bị SMBus, sử dụng Linux làm máy chủ/máy chủ giao thức (không phải máy phụ).

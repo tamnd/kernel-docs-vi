@@ -14,7 +14,7 @@
 
 ====================
 Cắm nóng bộ nhớ (Un)
-==================
+====================
 
 Tài liệu này mô tả sự hỗ trợ chung của Linux cho việc cắm nóng(un) bộ nhớ với
 tập trung vào Hệ thống RAM, bao gồm hỗ trợ ZONE_MOVABLE.

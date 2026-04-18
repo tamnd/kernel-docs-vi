@@ -20,9 +20,9 @@
         sentence changes don't bleed colors in diff.
         Heading decorations are documented in sphinx.rst.
 
-==========================
+===============================
 Chuyển hệ thống tập tin của bạn
-=======================
+===============================
 
 .. contents:: Table of Contents
    :local:

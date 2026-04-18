@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+==============================================
 Hướng dẫn API không gian người dùng nhân Linux
-=====================================
+==============================================
 
 .. _man-pages: https://www.kernel.org/doc/man-pages/
 

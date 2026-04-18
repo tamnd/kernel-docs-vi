@@ -14,7 +14,7 @@
 
 ==============================
 Máy phát Walkera WK-0701
-===========================
+==============================
 
 Máy phát Walkera WK-0701 được cung cấp kèm theo Walkera sẵn sàng bay
 máy bay trực thăng như HM36, HM37, HM60. Mô-đun walkera0701 cho phép sử dụng

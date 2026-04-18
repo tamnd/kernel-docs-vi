@@ -16,9 +16,9 @@
 
 .. _streaming-par:
 
-********************
+************************
 Thông số phát trực tuyến
-********************
+************************
 
 Các thông số phát trực tuyến nhằm mục đích tối ưu hóa quá trình quay video
 cũng như I/O. Hiện nay các ứng dụng có thể yêu cầu chất lượng cao

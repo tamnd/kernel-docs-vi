@@ -16,7 +16,7 @@
 
 **********************************
 GPIO_HANDLE_SET_LINE_VALUES_IOCTL
-*********************************
+**********************************
 .. warning::
     This ioctl is part of chardev_v1.rst and is obsoleted by
     gpio-v2-line-set-values-ioctl.rst.

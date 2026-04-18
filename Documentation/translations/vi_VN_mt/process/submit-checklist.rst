@@ -14,9 +14,9 @@
 
 .. _submitchecklist:
 
-==========================================
+============================================
 Danh sách kiểm tra gửi bản vá hạt nhân Linux
-=======================================
+============================================
 
 Dưới đây là một số điều cơ bản mà nhà phát triển nên làm nếu họ muốn xem
 việc gửi bản vá kernel được chấp nhận nhanh hơn.

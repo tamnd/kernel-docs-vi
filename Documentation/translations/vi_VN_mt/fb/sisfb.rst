@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+==================================================
 sisfb - Trình điều khiển thiết bị bộ đệm khung SiS
-=====================================
+==================================================
 
 sisfb là trình điều khiển thiết bị bộ đệm khung cho SiS (Hệ thống tích hợp Silicon)
 chip đồ họa. Được hỗ trợ là:

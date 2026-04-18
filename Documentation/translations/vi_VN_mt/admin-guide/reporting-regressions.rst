@@ -441,9 +441,9 @@ các lệnh có thể được tìm thấy trong ZZ0000ZZ và
 ZZ0001ZZ
 cho regzbot.
 
-..
+.................
    end-of-content
-..
+.................
    This text is available under GPL-2.0+ or CC-BY-4.0, as stated at the top
    of the file. If you want to distribute this text under CC-BY-4.0 only,
    please use "The Linux kernel developers" for author attribution and link

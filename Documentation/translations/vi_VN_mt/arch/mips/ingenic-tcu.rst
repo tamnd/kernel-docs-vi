@@ -14,7 +14,7 @@
 
 ====================================================
 Phần cứng Bộ định thời/bộ đếm SoCs Ingenic JZ47xx
-===============================================
+====================================================
 
 Bộ hẹn giờ/bộ đếm (TCU) trong SoC JZ47xx của Ingenic là một bộ đa chức năng
 khối phần cứng. Nó có tới tám kênh, có thể được sử dụng như

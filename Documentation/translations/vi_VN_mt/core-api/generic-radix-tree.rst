@@ -14,7 +14,7 @@
 
 ====================================
 Cây cơ số chung/mảng thưa thớt
-=================================
+====================================
 
 .. kernel-doc:: include/linux/generic-radix-tree.h
    :doc: Generic radix trees/sparse arrays

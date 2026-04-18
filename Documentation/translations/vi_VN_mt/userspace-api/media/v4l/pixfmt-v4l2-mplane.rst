@@ -16,7 +16,7 @@
 
 *******************************
 Cấu trúc định dạng đa mặt phẳng
-******************************
+*******************************
 
 Cấu trúc struct ZZ0000ZZ xác định kích thước
 và bố trí cho từng mặt phẳng theo định dạng nhiều mặt phẳng. các

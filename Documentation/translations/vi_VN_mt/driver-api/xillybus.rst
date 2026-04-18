@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================================
+==================================================
 Trình điều khiển Xillybus cho giao diện FPGA chung
-==========================================
+==================================================
 
 :Tác giả: Eli Billauer, Xillybus Ltd. (ZZ0000ZZ
 :Email: eli.billauer@gmail.com hoặc như được quảng cáo trên trang Xillybus.

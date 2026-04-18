@@ -16,9 +16,9 @@
 
 .. _raw-vbi:
 
-**********************
+*************************
 Giao diện dữ liệu VBI thô
-**********************
+*************************
 
 VBI là tên viết tắt của Khoảng thời gian trống dọc, một khoảng trống trong
 chuỗi các dòng của tín hiệu video analog. Trong VBI không có hình ảnh

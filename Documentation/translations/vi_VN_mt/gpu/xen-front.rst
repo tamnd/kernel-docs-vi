@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================================
+==============================================================
  drm/xen-front Trình điều khiển giao diện ảo hóa song song Xen
-====================================================
+==============================================================
 
 Trình điều khiển giao diện người dùng này triển khai màn hình ảo hóa Xen
 theo giao thức hiển thị được mô tả tại

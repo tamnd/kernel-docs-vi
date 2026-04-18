@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================================
+=============================================================
 Hướng dẫn API của trình triển khai trình điều khiển Linux PCI
-============================================
+=============================================================
 
 .. toctree::
    :caption: Table of contents

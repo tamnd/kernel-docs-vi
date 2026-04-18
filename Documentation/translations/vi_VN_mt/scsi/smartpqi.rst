@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================================================
+=============================================================
 SMARTPQI - Trình điều khiển lưu trữ thông minh Microchip SCSI
-==============================================
+=============================================================
 
 Tệp này mô tả trình điều khiển smartpqi SCSI cho Microchip
 (Bộ điều khiển ZZ0000ZZ PQI. Trình điều khiển smartpqi

@@ -14,7 +14,7 @@
 
 ====================================================
 Thư viện ánh xạ số ngắt irq_domain
-===============================================
+====================================================
 
 Thiết kế hiện tại của nhân Linux sử dụng một số lượng lớn
 không gian trong đó mỗi nguồn IRQ riêng biệt được gán một số duy nhất.

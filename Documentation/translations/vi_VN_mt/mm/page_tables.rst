@@ -14,7 +14,7 @@
 
 ============
 Bảng trang
-===========
+============
 
 Bộ nhớ ảo phân trang được phát minh cùng với bộ nhớ ảo như một khái niệm trong
 1962 trên Máy tính Ferranti Atlas, máy tính đầu tiên có khả năng phân trang

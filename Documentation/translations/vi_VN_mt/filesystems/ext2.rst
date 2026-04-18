@@ -14,7 +14,7 @@
 
 =================================
 Hệ thống tập tin mở rộng thứ hai
-==============================
+=================================
 
 ext2 ban đầu được phát hành vào tháng 1 năm 1993. Viết bởi R\'emy Card,
 Theodore Ts'o và Stephen Tweedie, đây là bản viết lại chính của

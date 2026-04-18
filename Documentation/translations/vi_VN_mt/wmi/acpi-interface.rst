@@ -14,7 +14,7 @@
 
 ====================
 Giao diện ACPI WMI
-==================
+====================
 
 Giao diện ACPI WMI là phần mở rộng độc quyền của thông số kỹ thuật ACPI được tạo ra
 của Microsoft cho phép các nhà cung cấp phần cứng nhúng WMI (Công cụ quản lý Windows)

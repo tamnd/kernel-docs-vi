@@ -14,7 +14,7 @@
 
 ==============
 Thống kê DM
-=============
+==============
 
 Device Mapper hỗ trợ thu thập số liệu thống kê I/O trên các thiết bị do người dùng xác định
 các vùng của thiết bị DM.	 Nếu không có khu vực nào được xác định thì không có số liệu thống kê nào

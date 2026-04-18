@@ -14,7 +14,7 @@
 
 =============
 Giới thiệu
-============
+=============
 
 Hệ thống con tăng tốc tính toán Linux được thiết kế để hiển thị các
 các bộ tăng tốc theo cách chung cho không gian người dùng và cung cấp một tập hợp chung

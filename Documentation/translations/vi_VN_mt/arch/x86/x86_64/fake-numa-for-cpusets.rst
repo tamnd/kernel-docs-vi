@@ -14,7 +14,7 @@
 
 =======================
 NUMA giả cho CPUSets
-=====================
+=======================
 
 :Tác giả: David Rientjes <rientjes@cs.washington.edu>
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================================
+===================================================
 Cramfs - nhồi nhét hệ thống tập tin vào một ROM nhỏ
-===========================================
+===================================================
 
 cramfs được thiết kế đơn giản, nhỏ gọn và nén mọi thứ tốt.
 

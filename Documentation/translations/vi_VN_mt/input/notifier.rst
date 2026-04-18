@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================
+========================
 Trình thông báo bàn phím
-=================
+========================
 
 Người ta có thể sử dụng register_keyboard_notifier để được gọi lại trên bàn phím
 sự kiện (xem hàm kbd_keycode() để biết chi tiết).  Cấu trúc được thông qua là

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================
+=====================
 Bộ đệm được kích hoạt
-=================
+=====================
 
 Bây giờ chúng ta đã biết bộ đệm và trình kích hoạt là gì, hãy xem chúng hoạt động cùng nhau như thế nào.
 

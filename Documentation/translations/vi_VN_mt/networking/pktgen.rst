@@ -14,7 +14,7 @@
 
 ========================================
 HOWTO cho trình tạo gói linux
-====================================
+========================================
 
 Kích hoạt CONFIG_NET_PKTGEN để biên dịch và xây dựng pktgen trong kernel
 hoặc dưới dạng mô-đun.  Ưu tiên một mô-đun; modprobe pktgen nếu cần.  Một lần

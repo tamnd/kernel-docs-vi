@@ -14,7 +14,7 @@
 
 ================================
 Hỗ trợ ánh xạ bộ nhớ No-MMU
-=============================
+================================
 
 Hạt nhân có hỗ trợ hạn chế cho việc ánh xạ bộ nhớ trong các điều kiện không có MMU, chẳng hạn như
 như được sử dụng trong môi trường uClinux. Từ quan điểm không gian người dùng, bộ nhớ

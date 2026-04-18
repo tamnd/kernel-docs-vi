@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============================================
+=============================================
 Hướng dẫn sử dụng ngắn gọn về bộ cấp phát sàn
-========================================
+=============================================
 
 Bộ cấp phát bản sàn bao gồm hỗ trợ gỡ lỗi đầy đủ (khi được xây dựng với
 CONFIG_SLUB_DEBUG=y) nhưng nó bị tắt theo mặc định (trừ khi được tích hợp với

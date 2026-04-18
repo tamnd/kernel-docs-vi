@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+==========================================
 Truy tìm I/O được ánh xạ bộ nhớ trong nhân
-===================================
+==========================================
 
 
 Trang chủ và các liên kết đến các công cụ không gian người dùng tùy chọn:

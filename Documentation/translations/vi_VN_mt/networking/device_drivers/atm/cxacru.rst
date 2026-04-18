@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+====================================
 Trình điều khiển thiết bị cxacru ATM
-========================
+====================================
 
 Cần có chương trình cơ sở cho thiết bị này: ZZ0000ZZ
 

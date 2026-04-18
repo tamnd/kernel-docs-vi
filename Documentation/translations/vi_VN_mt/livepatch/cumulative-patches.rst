@@ -14,7 +14,7 @@
 
 ======================================
 Bản vá thay thế nguyên tử & tích lũy
-===================================
+======================================
 
 Có thể có sự phụ thuộc giữa các bản vá trực tiếp. Nếu cần nhiều bản vá
 để thực hiện các thay đổi khác nhau cho (các) chức năng giống nhau thì chúng ta cần xác định

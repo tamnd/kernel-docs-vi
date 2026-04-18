@@ -18,7 +18,7 @@
 
 *************************************
 Truyền phát I/O (nhập bộ đệm DMA)
-************************************
+*************************************
 
 Khung DMABUF cung cấp một phương thức chung để chia sẻ bộ đệm
 giữa nhiều thiết bị. Trình điều khiển thiết bị hỗ trợ DMABUF có thể xuất

@@ -16,7 +16,7 @@
 
 ====================
 POWERPC ELF HWCAP
-==================
+====================
 
 Tài liệu này mô tả cách sử dụng và ngữ nghĩa của powerpc ELF HWCAP.
 

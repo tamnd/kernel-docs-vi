@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+===============================
 Trình bao bọc khởi động PowerPC
-========================
+===============================
 
 Bản quyền (C) Secret Lab Technologies Ltd.
 

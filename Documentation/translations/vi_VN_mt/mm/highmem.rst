@@ -14,7 +14,7 @@
 
 ======================
 Xử lý bộ nhớ cao
-====================
+======================
 
 Bởi: Peter Zijlstra <a.p.zijlstra@chello.nl>
 

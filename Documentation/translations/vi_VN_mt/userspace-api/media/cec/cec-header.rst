@@ -14,9 +14,9 @@
 
 .. _cec_header:
 
-****************
+*******************
 Biểu tượng uAPI CEC
-****************
+*******************
 
 .. kernel-include:: include/uapi/linux/cec.h
     :generate-cross-refs:

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================
+===========================================
 Thuộc tính thiết bị _DSD liên quan đến GPIO
-======================================
+===========================================
 
 Với việc phát hành ACPI 5.1, đối tượng cấu hình _DSD cuối cùng
 cho phép đặt tên cho GPIO (và cả những thứ khác nữa) được trả lại

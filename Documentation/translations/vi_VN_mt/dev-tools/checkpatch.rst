@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========
+===============
 Bản vá kiểm tra
-==========
+===============
 
 Checkpatch (scripts/checkpatch.pl) là một tập lệnh perl dùng để kiểm tra các lỗi tầm thường
 vi phạm phong cách trong các bản vá và tùy ý sửa chúng.  Bản vá có thể

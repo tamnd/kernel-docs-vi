@@ -14,7 +14,7 @@
 
 =============================
 Giao diện gỡ lỗi Shrinker
-==========================
+=============================
 
 Giao diện gỡ lỗi Shrinker cung cấp khả năng hiển thị vào bộ nhớ kernel
 hệ thống con bộ thu nhỏ và cho phép lấy thông tin về từng bộ thu nhỏ

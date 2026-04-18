@@ -14,9 +14,9 @@
 
 .. _devlink_port:
 
-=============
+============================
 Cổng liên kết nhà phát triển
-============
+============================
 
 ZZ0000ZZ là một cổng tồn tại trên thiết bị. Nó có tính logic
 điểm vào/ra riêng biệt của thiết bị. Cổng devlink có thể là bất kỳ cổng nào

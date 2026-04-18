@@ -16,7 +16,7 @@
 
 ====================
 Xe Thiết Bị Nêm
-==================
+====================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_device.c
    :doc: Xe Device Wedging

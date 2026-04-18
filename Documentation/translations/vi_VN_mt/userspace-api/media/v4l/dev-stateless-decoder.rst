@@ -16,9 +16,9 @@
 
 .. _stateless_decoder:
 
-****************************************************
+****************************************************************
 Giao diện bộ giải mã video không trạng thái từ bộ nhớ đến bộ nhớ
-**************************************************
+****************************************************************
 
 Bộ giải mã không trạng thái là bộ giải mã hoạt động mà không giữ lại bất kỳ loại trạng thái nào
 giữa các khung đã được xử lý. Điều này có nghĩa là mỗi khung hình được giải mã độc lập

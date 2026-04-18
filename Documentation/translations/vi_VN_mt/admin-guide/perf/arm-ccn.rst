@@ -14,7 +14,7 @@
 
 =============================
 Mạng kết hợp bộ đệm ARM
-==========================
+=============================
 
 CCN-504 là kết nối bus vòng bao gồm 11 điểm giao nhau
 (XP), với mỗi điểm chéo hỗ trợ tối đa hai cổng thiết bị,

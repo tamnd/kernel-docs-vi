@@ -16,9 +16,9 @@
 
 .. _detect-controls:
 
-*************************
+*******************************
 Phát hiện tham chiếu điều khiển
-************************
+*******************************
 
 Lớp Phát hiện bao gồm các điều khiển cho các đặc điểm chung của nhiều chuyển động khác nhau
 hoặc các thiết bị có khả năng phát hiện đối tượng.

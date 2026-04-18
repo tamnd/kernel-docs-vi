@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============
+================
 Gắn thẻ hệ thống
-=============
+================
 
 (Gần như nguyên văn từ bản vá gắn thẻ mạng của Eric Biederman
 tin nhắn cam kết)

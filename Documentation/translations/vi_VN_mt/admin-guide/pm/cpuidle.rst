@@ -17,9 +17,9 @@
 .. |struct cpuidle_state| replace:: :c:type:`struct cpuidle_state <cpuidle_state>`
 .. |cpufreq| replace:: :doc:`CPU Performance Scaling <cpufreq>`
 
-===========================
+==============================
 CPU Quản lý thời gian nhàn rỗi
-========================
+==============================
 
 :Bản quyền: ZZ0000ZZ 2018 Tập đoàn Intel
 

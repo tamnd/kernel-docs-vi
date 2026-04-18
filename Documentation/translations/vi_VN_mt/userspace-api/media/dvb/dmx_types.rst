@@ -16,8 +16,8 @@
 
 .. _dmx_types:
 
-****************
+**********************
 Các kiểu dữ liệu Demux
-****************
+**********************
 
 .. kernel-doc:: include/uapi/linux/dvb/dmx.h

@@ -14,7 +14,7 @@
 
 ==========================================================
 Bộ giám sát hiệu suất i.MX8 DDR của Freescale (PMU)
-=====================================================
+==========================================================
 
 Không có bộ đếm hiệu suất bên trong bộ điều khiển DRAM, vì vậy hiệu suất
 tín hiệu được đưa ra rìa của bộ điều khiển nơi có một bộ 4 x 32 bit

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========
+=============
 Hàng làm việc
-=========
+=============
 
 :Ngày: Tháng 9 năm 2010
 :Tác giả: Tejun Heo <tj@kernel.org>

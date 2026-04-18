@@ -16,7 +16,7 @@
 
 =================================
 Xây dựng Linux với Clang/LLVM
-==============================
+=================================
 
 Tài liệu này trình bày cách xây dựng nhân Linux bằng Clang và LLVM
 tiện ích.

@@ -16,7 +16,7 @@
 
 ===================
 Cổng Ethernet
-=================
+===================
 
 Tài liệu này là mô tả cơ bản về cơ sở hạ tầng phy_port,
 được giới thiệu để thể hiện các giao diện vật lý của các thiết bị Ethernet.

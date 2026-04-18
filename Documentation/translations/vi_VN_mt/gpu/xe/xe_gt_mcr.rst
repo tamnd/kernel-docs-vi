@@ -14,7 +14,7 @@
 
 ==================================================
 Hỗ trợ đăng ký GT Multicast/Replicated (MCR)
-==============================================
+==================================================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_gt_mcr.c
    :doc: GT Multicast/Replicated (MCR) Register Support

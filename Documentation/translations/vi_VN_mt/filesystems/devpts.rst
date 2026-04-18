@@ -14,7 +14,7 @@
 
 =======================
 Hệ thống tập tin Devpts
-=====================
+=======================
 
 Mỗi mount của hệ thống tập tin devpts bây giờ đã khác biệt sao cho ptys
 và các chỉ số của chúng được phân bổ trong một mount độc lập với ptys

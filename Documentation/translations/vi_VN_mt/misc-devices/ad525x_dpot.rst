@@ -14,7 +14,7 @@
 
 ================================
 Chiết áp kỹ thuật số AD525x
-=============================
+================================
 
 Trình điều khiển ad525x_dpot xuất giao diện sysfs đơn giản.  Điều này cho phép bạn
 làm việc với các cài đặt kháng cự ngay lập tức cũng như cập nhật phần khởi động đã lưu

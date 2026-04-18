@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-======================================
+============================================
 Hạt nhân hệ thống con phương tiện nội bộ API
-===================================
+============================================
 
 Phần này chứa thông tin sử dụng về hệ thống con phương tiện và
 trình điều khiển được hỗ trợ của nó.

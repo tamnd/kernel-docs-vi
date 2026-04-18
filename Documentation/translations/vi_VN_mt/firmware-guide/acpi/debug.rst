@@ -14,7 +14,7 @@
 
 ======================
 Đầu ra gỡ lỗi ACPI CA
-====================
+======================
 
 ACPI CA có thể tạo đầu ra gỡ lỗi.  Tài liệu này mô tả cách sử dụng
 cơ sở vật chất.

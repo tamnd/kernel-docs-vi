@@ -14,9 +14,9 @@
 
 .. [see the bottom of this file for redistribution information]
 
-===============================================
+======================================================
 Cách nhanh chóng xây dựng kernel Linux đã được cắt bớt
-===========================================
+======================================================
 
 Hướng dẫn này giải thích cách xây dựng nhanh chóng các nhân Linux lý tưởng cho
 mục đích thử nghiệm nhưng cũng hoàn toàn phù hợp để sử dụng hàng ngày.
@@ -1080,9 +1080,9 @@ trường hợp sử dụng bổ sung đáng được mô tả, hãy đề xuấ
 tài liệu, như ZZ0000ZZ.
 
 
-..
+.................
    end-of-content
-..
+.................
    This document is maintained by Thorsten Leemhuis <linux@leemhuis.info>. If
    you spot a typo or small mistake, feel free to let him know directly and
    he'll fix it. You are free to do the same in a mostly informal way if you

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+=====================================
 hỗ trợ liên kết phát triển kvaser_usb
-==========================
+=====================================
 
 Tài liệu này mô tả các tính năng của devlink được triển khai bởi
 Trình điều khiển thiết bị ZZ0000ZZ.

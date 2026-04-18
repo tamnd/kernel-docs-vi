@@ -14,7 +14,7 @@
 
 =============================================
 hỗ trợ rpcsec_gss cho máy chủ kernel RPC
-=========================================
+=============================================
 
 Tài liệu này cung cấp tài liệu tham khảo cho các tiêu chuẩn và giao thức được sử dụng để
 triển khai xác thực RPCGSS trong các máy chủ RPC kernel chẳng hạn như NFS

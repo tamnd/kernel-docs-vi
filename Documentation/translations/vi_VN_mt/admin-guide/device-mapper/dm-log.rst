@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+=================================
 Ghi nhật ký trình ánh xạ thiết bị
-=====================
+=================================
 Mã ghi nhật ký của trình ánh xạ thiết bị được một số người trong trình ánh xạ thiết bị sử dụng.
 RAID nhắm mục tiêu theo dõi các vùng đĩa không nhất quán.
 Một vùng (hoặc một phần không gian địa chỉ) của đĩa có thể

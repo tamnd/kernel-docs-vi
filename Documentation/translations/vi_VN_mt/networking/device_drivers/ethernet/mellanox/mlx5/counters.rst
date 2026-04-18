@@ -16,7 +16,7 @@
 
 ==================
 quầy Ethtool
-================
+==================
 
 :Bản quyền: ZZ0000ZZ 2023, NVIDIA CORPORATION & AFFILIATES. Mọi quyền được bảo lưu.
 

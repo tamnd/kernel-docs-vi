@@ -14,6 +14,6 @@
 
 =======================
  Hỗ trợ AMDGPU XGMI
-=====================
+=======================
 
 .. kernel-doc:: drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c

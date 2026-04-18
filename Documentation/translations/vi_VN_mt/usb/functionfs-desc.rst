@@ -14,7 +14,7 @@
 
 ========================
 Bộ mô tả FunctionFS
-======================
+========================
 
 Một số mô tả có thể được ghi vào tiện ích FFS là
 được mô tả dưới đây. Mô tả thiết bị và cấu hình được xử lý

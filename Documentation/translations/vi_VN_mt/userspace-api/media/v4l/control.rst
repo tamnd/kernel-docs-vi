@@ -16,9 +16,9 @@
 
 .. _control:
 
-*************
+********************
 Kiểm soát người dùng
-*************
+********************
 
 Các thiết bị thường có một số điều khiển mà người dùng có thể cài đặt như
 độ sáng, độ bão hòa, v.v. sẽ được hiển thị cho người dùng

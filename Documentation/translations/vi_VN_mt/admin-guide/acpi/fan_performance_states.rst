@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+==================================
 Trạng thái hiệu suất của quạt ACPI
-===========================
+==================================
 
 Khi đối tượng _FPS tùy chọn xuất hiện trong thiết bị ACPI đại diện cho một
 quạt (ví dụ: PNP0C0B hoặc INT3404), trình điều khiển quạt ACPI tạo thêm

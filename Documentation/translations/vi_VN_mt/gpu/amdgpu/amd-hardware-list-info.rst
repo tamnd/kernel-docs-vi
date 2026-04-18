@@ -14,7 +14,7 @@
 
 =====================================================
  Thông tin linh kiện phần cứng AMD trên mỗi sản phẩm
-=================================================
+=====================================================
 
 Trên trang này, bạn có thể tìm thấy tên sản phẩm AMD và phiên bản thành phần nào
 một phần của nó.

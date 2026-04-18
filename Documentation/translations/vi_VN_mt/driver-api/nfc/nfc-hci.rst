@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+============================
 Phần phụ trợ HCI cho Lõi NFC
-========================
+============================
 
 - Tác giả: Eric Lapuyade, Samuel Ortiz
 - Liên hệ: eric.lapuyade@intel.com, samuel.ortiz@intel.com

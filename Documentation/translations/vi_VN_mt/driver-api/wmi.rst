@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+========================
 Trình điều khiển WMI API
-==============
+========================
 
 Lõi trình điều khiển WMI hỗ trợ giao diện dựa trên bus hiện đại hơn để tương tác
 với các thiết bị WMI và giao diện dựa trên GUID cũ hơn. Giao diện sau là

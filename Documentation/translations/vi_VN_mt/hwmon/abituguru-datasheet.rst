@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+==================
 bảng dữ liệu uGuru
-===============
+==================
 
 Trước hết, những gì tôi biết về uGuru không phải là sự thật dựa trên bất kỳ trợ giúp, gợi ý hay
 bảng dữ liệu từ Abit. Dữ liệu tôi có trên uGuru được tôi tập hợp thông qua

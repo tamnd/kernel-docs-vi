@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-############################################
+##########################################################
 Linux Không gian người dùng Cơ sở hạ tầng truyền thông API
-########################################
+##########################################################
 
 Phần này chứa thông tin phát triển trình điều khiển và API hạt nhân
 được sử dụng bởi các thiết bị truyền thông.

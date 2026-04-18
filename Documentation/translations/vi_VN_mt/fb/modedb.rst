@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+======================================
 hỗ trợ chế độ video mặc định của moddb
-=================================
+======================================
 
 
 Hiện tại tất cả các trình điều khiển thiết bị đệm khung đều có cơ sở dữ liệu chế độ video riêng,

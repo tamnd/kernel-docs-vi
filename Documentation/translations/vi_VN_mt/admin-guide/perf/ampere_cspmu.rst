@@ -14,7 +14,7 @@
 
 ================================================
 Bộ giám sát hiệu suất Ampe SoC (PMU)
-============================================
+================================================
 
 Ampere SoC PMU là IP PMU chung tuân theo kiến ​​trúc Arm CoreSight PMU.
 Do đó, trình điều khiển được triển khai dưới dạng mô-đun con của trình điều khiển arm_cspmu. Tại

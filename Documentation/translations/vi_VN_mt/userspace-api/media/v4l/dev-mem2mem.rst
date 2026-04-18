@@ -16,9 +16,9 @@
 
 .. _mem2mem:
 
-*******************************
+*********************************
 Giao diện bộ nhớ video với bộ nhớ
-********************************
+*********************************
 
 Thiết bị chuyển đổi bộ nhớ sang bộ nhớ V4L2 có thể nén, giải nén, chuyển đổi hoặc
 nếu không thì chuyển đổi dữ liệu video từ định dạng này sang định dạng khác trong bộ nhớ.

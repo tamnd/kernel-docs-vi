@@ -14,7 +14,7 @@
 
 ==================
 PI yêu cầu Futex
-================
+==================
 
 Việc yêu cầu xếp hàng các tác vụ từ futex không PI đến futex PI yêu cầu
 xử lý đặc biệt để đảm bảo rt_mutex cơ bản không bao giờ bị

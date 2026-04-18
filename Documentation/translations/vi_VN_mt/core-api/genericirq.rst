@@ -16,7 +16,7 @@
 
 =============================
 Xử lý IRQ chung của Linux
-==========================
+=============================
 
 :Bản quyền: ZZ0000ZZ 2005-2010: Thomas Gleixner
 :Bản quyền: ZZ0001ZZ 2005-2006: Ingo Molnar

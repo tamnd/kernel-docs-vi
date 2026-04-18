@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+===========================
 Đường dẫn tìm kiếm phần sụn
-=====================
+===========================
 
 Các đường dẫn tìm kiếm sau đây được sử dụng để tìm kiếm chương trình cơ sở trên thiết bị của bạn
 hệ thống tập tin gốc.

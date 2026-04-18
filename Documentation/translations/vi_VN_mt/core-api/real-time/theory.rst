@@ -14,7 +14,7 @@
 
 =======================
 Lý thuyết hoạt động
-=====================
+=======================
 
 :Tác giả: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 

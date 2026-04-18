@@ -14,7 +14,7 @@
 
 =====================================
 Thuộc tính thiết bị chặn SD và MMC
-==================================
+=====================================
 
 Các thuộc tính này được xác định cho các thiết bị khối được liên kết với
 Thiết bị SD hoặc MMC.

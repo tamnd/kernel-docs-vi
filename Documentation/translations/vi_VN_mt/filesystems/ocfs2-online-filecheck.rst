@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+============================================
 Hệ thống tệp OCFS2 - kiểm tra tệp trực tuyến
-=====================================
+============================================
 
 Tài liệu này sẽ mô tả tính năng kiểm tra tệp trực tuyến của OCFS2.
 

@@ -14,7 +14,7 @@
 
 ==================================================
 Giao thức truyền tải thành phần quản lý (MCTP)
-==============================================
+==================================================
 
 net/mctp/ chứa hỗ trợ giao thức cho MCTP, như được xác định bởi tiêu chuẩn DMTF
 DSP0236. Trình điều khiển giao diện vật lý ("ràng buộc" trong thông số kỹ thuật) là

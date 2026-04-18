@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================
+=============================
 Không gian người dùng SPI API
-=================
+=============================
 
 Các thiết bị SPI có không gian người dùng hạn chế API, hỗ trợ chế độ bán song công cơ bản
 quyền truy cập read() và write() vào các thiết bị phụ SPI.  Sử dụng các yêu cầu ioctl(),

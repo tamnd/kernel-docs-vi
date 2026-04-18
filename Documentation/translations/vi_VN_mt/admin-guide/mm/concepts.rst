@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================
+======================
 Tổng quan về khái niệm
-=================
+======================
 
 Việc quản lý bộ nhớ trong Linux là một hệ thống phức tạp được phát triển qua
 năm và bao gồm ngày càng nhiều chức năng để hỗ trợ nhiều loại

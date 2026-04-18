@@ -14,7 +14,7 @@
 
 ================================
 Mạng lưới kết hợp cánh tay PMU
-=============================
+================================
 
 CMN-600 là kết nối lưới có thể định cấu hình bao gồm một hình chữ nhật
 lưới các điểm giao nhau (XP), với mỗi điểm giao nhau hỗ trợ tối đa hai

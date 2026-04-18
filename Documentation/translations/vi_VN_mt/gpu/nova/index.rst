@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+================================
 trình điều khiển nova NVIDIA GPU
-=======================
+================================
 
 Dự án trình điều khiển nova bao gồm hai trình điều khiển riêng biệt nova-core và
 nova-drm và dự định thay thế trình điều khiển mới cho GPU NVIDIA dựa trên

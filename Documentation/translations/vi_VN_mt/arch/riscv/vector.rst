@@ -14,7 +14,7 @@
 
 =============================================
 Hỗ trợ mở rộng vectơ cho RISC-V Linux
-=========================================
+=============================================
 
 Tài liệu này phác thảo ngắn gọn giao diện được Linux cung cấp cho không gian người dùng trong
 để hỗ trợ việc sử dụng Phần mở rộng Vector RISC-V.

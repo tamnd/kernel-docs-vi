@@ -14,7 +14,7 @@
 
 ========================
 PPS - Xung mỗi giây
-======================
+========================
 
 Bản quyền (C) 2007 Rodolfo Giometti <giometti@enneenne.com>
 

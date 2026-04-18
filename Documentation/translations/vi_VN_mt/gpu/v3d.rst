@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+=============================================
  Trình điều khiển đồ họa drm/v3d Broadcom V3D
-=====================================
+=============================================
 
 .. kernel-doc:: drivers/gpu/drm/v3d/v3d_drv.c
    :doc: Broadcom V3D Graphics Driver

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+====================
 Trình quản lý bộ sạc
-===============
+====================
 
 (C) 2011 MyungJoo Ham <myungjoo.ham@samsung.com>, GPL
 

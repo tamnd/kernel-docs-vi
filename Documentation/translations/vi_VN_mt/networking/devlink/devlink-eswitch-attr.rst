@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+===============================
 Thuộc tính E-Switch của Devlink
-==========================
+===============================
 
 Devlink E-Switch hỗ trợ hai chế độ hoạt động: Legacy và Switchdev.
 Chế độ kế thừa hoạt động dựa trên quy tắc lái MAC/VLAN truyền thống. Chuyển đổi

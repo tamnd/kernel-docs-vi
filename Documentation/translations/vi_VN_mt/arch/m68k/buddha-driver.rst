@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+============================================
 Trình điều khiển Phật Amiga và Catweasel IDE
-=====================================
+============================================
 
 Trình điều khiển Amiga Buddha và Catweasel IDE (một phần của ide.c) được viết bởi
 Geert Uytterhoeven dựa trên các thông số kỹ thuật sau:

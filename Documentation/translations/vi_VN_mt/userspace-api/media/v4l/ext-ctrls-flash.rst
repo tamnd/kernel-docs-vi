@@ -16,9 +16,9 @@
 
 .. _flash-controls:
 
-***********************
+*****************************
 Tham khảo điều khiển đèn nháy
-***********************
+*****************************
 
 Điều khiển đèn flash V4L2 nhằm mục đích cung cấp quyền truy cập chung vào đèn flash
 các thiết bị điều khiển. Các thiết bị điều khiển flash thường được sử dụng trong

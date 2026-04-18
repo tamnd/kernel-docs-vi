@@ -14,7 +14,7 @@
 
 ====================================
 IAA (Trình tăng tốc phân tích Intel)
-=================================
+====================================
 
 IAA cung cấp khả năng nén và giải nén phần cứng thông qua tiền điện tử
 API.

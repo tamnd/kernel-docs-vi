@@ -16,9 +16,9 @@
 
 .. _touch:
 
-*************
+****************
 Thiết bị cảm ứng
-*************
+****************
 
 Thiết bị cảm ứng được truy cập thông qua các tệp đặc biệt của thiết bị ký tự có tên
 ZZ0000ZZ đến ZZ0001ZZ với số chính 81 và

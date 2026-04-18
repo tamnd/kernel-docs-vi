@@ -14,7 +14,7 @@
 
 =======================
 Địa chỉ mười bit I2C
-=====================
+=======================
 
 Giao thức I2C biết về hai loại địa chỉ thiết bị: 7 bit bình thường
 địa chỉ và một tập hợp địa chỉ 10 bit mở rộng. Các bộ địa chỉ

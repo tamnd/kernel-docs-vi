@@ -14,7 +14,7 @@
 
 ====================================================
 Thiết bị giám sát hiệu suất StarFive StarLink (PMU)
-================================================
+====================================================
 
 Thiết bị giám sát hiệu suất StarFive StarLink (PMU) tồn tại trong
 Mạng kết hợp StarLink trên Chip (CNoC) kết nối nhiều CPU

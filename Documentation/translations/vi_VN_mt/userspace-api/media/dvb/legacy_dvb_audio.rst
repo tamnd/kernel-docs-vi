@@ -16,9 +16,9 @@
 
 .. _dvb_audio:
 
-==================
+=====================
 Thiết bị âm thanh DVB
-================
+=====================
 
 .. attention:: Do **not** use in new drivers!
              See: :ref:`legacy_dvb_decoder_notes`

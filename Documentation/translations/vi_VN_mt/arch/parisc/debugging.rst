@@ -14,7 +14,7 @@
 
 ===================
 Gỡ lỗi PA-RISC
-=================
+===================
 
 được rồi, đây là một số gợi ý để gỡ lỗi các phần cấp thấp hơn của
 linux/parisc.

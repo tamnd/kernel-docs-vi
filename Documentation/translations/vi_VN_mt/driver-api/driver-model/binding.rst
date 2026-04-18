@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+==========================
 Ràng buộc trình điều khiển
-==============
+==========================
 
 Liên kết trình điều khiển là quá trình liên kết một thiết bị với một thiết bị
 trình điều khiển có thể điều khiển nó. Tài xế xe buýt thường xử lý việc này

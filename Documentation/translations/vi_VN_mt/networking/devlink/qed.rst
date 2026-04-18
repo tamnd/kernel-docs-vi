@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+==================================
 hỗ trợ liên kết nhà phát triển qed
-===================
+==================================
 
 Tài liệu này mô tả các tính năng liên kết nhà phát triển được triển khai bởi lõi ZZ0000ZZ
 trình điều khiển thiết bị.

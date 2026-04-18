@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================
+====================
 Phần cuối bộ đệm API
-=================
+====================
 
 Hệ thống FS-Cache cung cấp API để có thể cung cấp bộ đệm thực tế cho
 FS-Cache để nó sau đó phân phát tới các hệ thống tệp mạng và các hệ thống quan tâm khác

@@ -14,7 +14,7 @@
 
 ===============================
 Hỗ trợ PCI ngang hàng DMA
-============================
+===============================
 
 Xe buýt PCI hỗ trợ khá tốt để thực hiện chuyển DMA
 giữa hai thiết bị trên xe buýt. Loại giao dịch này từ nay trở đi

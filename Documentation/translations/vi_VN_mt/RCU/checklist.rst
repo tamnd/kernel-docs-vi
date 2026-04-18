@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=============================================
 Xem lại danh sách kiểm tra cho các bản vá RCU
-================================
+=============================================
 
 
 Tài liệu này chứa một danh sách kiểm tra để sản xuất và xem xét các bản vá

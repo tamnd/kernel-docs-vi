@@ -14,9 +14,9 @@
 
 .. c:type:: dvb_frontend_parameters
 
-*******************
+*****************************
 thông số giao diện người dùng
-*******************
+*****************************
 
 Loại tham số được truyền tới thiết bị giao diện người dùng để điều chỉnh tùy thuộc vào
 về loại phần cứng bạn đang sử dụng.

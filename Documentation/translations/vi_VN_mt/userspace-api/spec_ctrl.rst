@@ -14,7 +14,7 @@
 
 =====================
 Kiểm soát đầu cơ
-===================
+=====================
 
 Khá nhiều CPU có các tính năng sai liên quan đến suy đoán.
 lỗ hổng thực tế gây rò rỉ dữ liệu dưới nhiều hình thức khác nhau, thậm chí trên khắp

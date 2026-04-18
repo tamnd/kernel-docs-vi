@@ -14,7 +14,7 @@
 
 ===================
 Tấm Lockdep-RCU
-=================
+===================
 
 Lockdep-RCU đã được thêm vào nhân Linux vào đầu năm 2010
 (ZZ0000ZZ Cơ sở này kiểm tra một số thông thường

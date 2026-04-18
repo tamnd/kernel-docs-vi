@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+====================================
 Công cụ xác minh thời gian chạy (rv)
-==============================
+====================================
 
 Công cụ ZZ0000ZZ cung cấp giao diện cho bộ sưu tập xác minh thời gian chạy
 (rv) màn hình.

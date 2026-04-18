@@ -16,7 +16,7 @@
 
 ==========================
 Hướng dẫn phân bổ bộ nhớ
-=======================
+==========================
 
 Linux cung cấp nhiều loại API để phân bổ bộ nhớ. bạn có thể
 phân bổ các khối nhỏ bằng cách sử dụng các họ ZZ0000ZZ hoặc ZZ0001ZZ,

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+================================
 Hỗ trợ không gian người dùng sớm
-=======================
+================================
 
 Cập nhật lần cuối: 20-12-2004 tlh
 

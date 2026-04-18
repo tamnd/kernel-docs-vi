@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+===================================
 Trình điều khiển vận chuyển I/O HID
-=========================
+===================================
 
 Hệ thống con HID độc lập với trình điều khiển vận chuyển cơ bản. Ban đầu,
 chỉ hỗ trợ USB, nhưng các thông số kỹ thuật khác áp dụng thiết kế HID và

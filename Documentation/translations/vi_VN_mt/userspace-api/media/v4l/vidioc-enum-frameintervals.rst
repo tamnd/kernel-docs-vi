@@ -16,7 +16,7 @@
 
 .. _VIDIOC_ENUM_FRAMEINTERVALS:
 
-*******************************
+********************************
 ioctl VIDIOC_ENUM_FRAMEINTERVALS
 ********************************
 

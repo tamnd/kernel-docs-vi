@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+======================================
 Chạy thử nghiệm mà không có kunit_tool
-============================
+======================================
 
 Nếu chúng ta không muốn sử dụng kunit_tool (Ví dụ: chúng ta muốn tích hợp
 với các hệ thống khác hoặc chạy thử nghiệm trên phần cứng thực), chúng tôi có thể

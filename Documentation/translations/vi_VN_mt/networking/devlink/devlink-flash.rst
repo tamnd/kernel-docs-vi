@@ -14,9 +14,9 @@
 
 .. _devlink_flash:
 
-==============
+=============================
 Flash liên kết nhà phát triển
-=============
+=============================
 
 ZZ0000ZZ API cho phép cập nhật chương trình cơ sở của thiết bị. Nó thay thế
 cơ chế ZZ0001ZZ cũ hơn và không yêu cầu thực hiện bất kỳ

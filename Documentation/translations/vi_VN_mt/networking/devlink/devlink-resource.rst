@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+==================================
 Tài nguyên liên kết nhà phát triển
-================
+==================================
 
 ZZ0000ZZ cung cấp khả năng cho người lái xe đăng ký tài nguyên,
 có thể cho phép quản trị viên xem các hạn chế của thiết bị đối với một

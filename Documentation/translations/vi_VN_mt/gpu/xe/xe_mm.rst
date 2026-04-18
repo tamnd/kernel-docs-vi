@@ -14,7 +14,7 @@
 
 ===================
 Quản lý bộ nhớ
-=================
+===================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_bo_doc.h
    :doc: Buffer Objects (BO)

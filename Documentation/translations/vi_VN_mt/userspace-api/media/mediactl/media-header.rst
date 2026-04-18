@@ -14,9 +14,9 @@
 
 .. _media_header:
 
-*****************************
+******************************************
 Ký hiệu uAPI của bộ điều khiển phương tiện
-*****************************
+******************************************
 
 .. kernel-include:: include/uapi/linux/media.h
     :generate-cross-refs:

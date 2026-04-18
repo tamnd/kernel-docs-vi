@@ -14,7 +14,7 @@
 
 ================
 Nhóm kiểm soát
-==============
+================
 
 Được viết bởi Paul Menage <menage@google.com> dựa trên
 Tài liệu/admin-guide/cgroup-v1/cpusets.rst

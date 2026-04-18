@@ -14,7 +14,7 @@
 
 ==========================
 Tổng quan về lớp SoC ALSA
-=======================
+==========================
 
 Mục tiêu tổng thể của dự án của lớp ALSA System on Chip (ASoC) là
 cung cấp hỗ trợ ALSA tốt hơn cho các bộ xử lý hệ thống trên chip nhúng (ví dụ:

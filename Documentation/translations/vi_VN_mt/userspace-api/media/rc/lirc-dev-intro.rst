@@ -54,9 +54,9 @@ chứa các công cụ để làm việc với các thiết bị LIRC:
 
 .. _lirc_modes:
 
-**********
+***********
 Chế độ LIRC
-**********
+***********
 
 LIRC hỗ trợ một số chế độ nhận và gửi mã IR như hình
 trên bảng sau.
@@ -153,16 +153,16 @@ Các giá trị là độ dài xung và không gian xen kẽ, tính bằng micro
 
 Chế độ này chỉ được sử dụng để gửi IR.
 
-*************************************
+************************************************
 Các loại dữ liệu được LIRC_MODE_SCANCODE sử dụng
-*************************************
+************************************************
 
 .. kernel-doc:: include/uapi/linux/lirc.h
     :identifiers: lirc_scancode rc_proto
 
-********************
+**********************************
 Bộ giải mã hồng ngoại dựa trên BPF
-********************
+**********************************
 
 Kernel có hỗ trợ giải mã phổ biến nhất
 ZZ0000ZZ, nhưng ở đó

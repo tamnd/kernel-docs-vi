@@ -14,7 +14,7 @@
 
 =========================================
 Bộ giám sát hiệu suất HNS3 (PMU)
-======================================
+=========================================
 
 HNS3(Hệ thống mạng HiSilicon 3) Đơn vị giám sát hiệu suất (PMU) là một
 Thiết bị End Point thu thập số liệu thống kê hiệu suất của HiSilicon SoC NIC.

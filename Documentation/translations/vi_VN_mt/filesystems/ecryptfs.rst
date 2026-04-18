@@ -14,7 +14,7 @@
 
 ===========================================================
 eCryptfs: Hệ thống tệp mật mã xếp chồng cho Linux
-======================================================
+===========================================================
 
 eCryptfs là phần mềm miễn phí. Vui lòng xem tệp COPYING để biết chi tiết.
 Để biết tài liệu, vui lòng xem các tập tin trong thư mục con doc/.  cho

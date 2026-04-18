@@ -27,9 +27,9 @@
         Sections are manually numbered because apparently that's what everyone
         does in the kernel.
 
-========================
+============================
 XFS Thiết kế Fsck trực tuyến
-======================
+============================
 
 Tài liệu này ghi lại thiết kế của tính năng kiểm tra hệ thống tập tin trực tuyến cho
 XFS.

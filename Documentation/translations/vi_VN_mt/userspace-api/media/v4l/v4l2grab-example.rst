@@ -16,9 +16,9 @@
 
 .. _v4l2grab-example:
 
-**********************************
+*************************************
 Ví dụ về Video Grabber sử dụng libv4l
-**********************************
+*************************************
 
 Chương trình này trình bày cách lấy hình ảnh V4L2 ở định dạng ppm bằng cách sử dụng
 trình xử lý libv4l. Ưu điểm là công cụ lấy này có khả năng hoạt động

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+================================================================
 Tài liệu tham khảo lập trình trình điều khiển linux ETMv4 sysfs.
-===============================================
+================================================================
 
 :Tác giả: Mike Leach <mike.leach@linaro.org>
     :Ngày: 11 tháng 10 năm 2019

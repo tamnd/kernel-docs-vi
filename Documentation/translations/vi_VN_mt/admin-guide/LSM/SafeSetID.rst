@@ -14,7 +14,7 @@
 
 ==========
 ID an toàn
-=========
+==========
 SafeSetID là một mô-đun LSM kiểm soát nhóm hệ thống setid để hạn chế
 UID/GID chuyển đổi từ UID/GID nhất định sang chỉ những chuyển đổi được phê duyệt bởi một
 danh sách cho phép trên toàn hệ thống. Những hạn chế này cũng cấm các UID/GID nhất định

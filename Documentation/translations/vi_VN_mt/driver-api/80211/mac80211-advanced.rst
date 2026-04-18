@@ -14,7 +14,7 @@
 
 ================================
 hệ thống con mac80211 (nâng cao)
-=============================
+================================
 
 Thông tin trong phần này của cuốn sách chỉ được quan tâm
 để tương tác nâng cao của mac80211 với trình điều khiển để khai thác thêm

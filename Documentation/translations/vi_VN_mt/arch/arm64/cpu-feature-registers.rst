@@ -14,7 +14,7 @@
 
 ==============================
 Thanh ghi tính năng ARM64 CPU
-===========================
+==============================
 
 Tác giả: Suzuki K Poulose <suzuki.poulose@arm.com>
 

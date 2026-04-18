@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+========================================================
  drm/tegra NVIDIA Tegra GPU và trình điều khiển hiển thị
-===============================================
+========================================================
 
 NVIDIA Tegra SoC hỗ trợ một bộ chức năng hiển thị, đồ họa và video thông qua
 bộ điều khiển Host1x. Host1x cung cấp các luồng lệnh, được thu thập từ một lần đẩy

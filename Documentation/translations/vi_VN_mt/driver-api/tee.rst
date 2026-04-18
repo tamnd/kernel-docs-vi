@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+===========================================================
 Trình điều khiển TEE (Môi trường thực thi đáng tin cậy) API
-===============================================
+===========================================================
 
 Kernel cung cấp cơ sở hạ tầng bus TEE nơi có Ứng dụng đáng tin cậy
 được biểu thị dưới dạng một thiết bị được xác định thông qua Mã định danh duy nhất toàn cầu (UUID) và

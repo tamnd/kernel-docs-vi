@@ -14,7 +14,7 @@
 
 ======================
 Xem xét phần cứng
-====================
+======================
 
 :Tác giả: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 

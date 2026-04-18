@@ -14,7 +14,7 @@
 
 =============================
 Chức năng điểm cuối PCI NTB
-==========================
+=============================
 
 1) Tạo thư mục con cho thư mục pci_epf_ntb trong configfs.
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+=============================================
 Cơ sở hạ tầng có thể lưu chuyển của Netfilter
-====================================
+=============================================
 
 Tài liệu này mô tả cơ sở hạ tầng có thể lưu chuyển của Netfilter cho phép
 bạn xác định đường dẫn nhanh thông qua đường dẫn dữ liệu có thể điều chỉnh. Cơ sở hạ tầng này

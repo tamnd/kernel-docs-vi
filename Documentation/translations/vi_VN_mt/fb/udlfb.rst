@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+============================================
 udlfb - Trình điều khiển DisplayLink USB 2.0
-==================================
+============================================
 
 Đây là driver cho chip đồ họa DisplayLink USB 2.0.
 

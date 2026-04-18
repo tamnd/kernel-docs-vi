@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+=========================================================
 Tiện ích mở rộng gắn thẻ bộ nhớ (MTE) trong AArch64 Linux
-===============================================
+=========================================================
 
 Tác giả: Vincenzo Frascino <vincenzo.frascino@arm.com>
          Bến du thuyền Catalin <catalin.marinas@arm.com>

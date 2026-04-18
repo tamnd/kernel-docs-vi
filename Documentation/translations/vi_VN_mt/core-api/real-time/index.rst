@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+===========================
 Ưu tiên theo thời gian thực
-=====================
+===========================
 
 Tài liệu này dành cho các nhà phát triển và cộng tác viên nhân Linux
 quan tâm đến hoạt động bên trong của PREEMPT_RT. Nó giải thích các khái niệm chính và

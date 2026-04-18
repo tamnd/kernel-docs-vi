@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============
+====================
 Trình điều khiển NTB
-===========
+====================
 
 NTB (Non-Transparent Bridge) là loại chip cầu nối PCI-Express kết nối
 hệ thống bộ nhớ riêng biệt của hai hoặc nhiều máy tính cho cùng một PCI-Express

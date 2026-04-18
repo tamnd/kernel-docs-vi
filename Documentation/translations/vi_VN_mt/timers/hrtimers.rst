@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================================================
+========================================================================
 hrtimers - hệ thống con dành cho bộ định thời kernel có độ phân giải cao
-======================================================
+========================================================================
 
 Bản vá này giới thiệu một hệ thống con mới dành cho bộ đếm thời gian kernel có độ phân giải cao.
 

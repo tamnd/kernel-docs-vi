@@ -16,9 +16,9 @@
 
 .. _fm-rx-controls:
 
-*****************************
+*******************************
 Tham khảo điều khiển máy thu FM
-*****************************
+*******************************
 
 Lớp Bộ thu FM (FM_RX) bao gồm các điều khiển cho các tính năng chung của
 Thiết bị có khả năng thu sóng FM.

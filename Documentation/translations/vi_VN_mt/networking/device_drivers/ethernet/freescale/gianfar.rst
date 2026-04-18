@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+=================================
 Trình điều khiển Ethernet Gianfar
-===========================
+=================================
 
 :Tác giả: Andy Fleming <afleming@freescale.com>
 :Cập nhật: 28-07-2005

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+========================================
 Các vectơ phụ trợ ELF dành riêng cho x86
-==================================
+========================================
 
 Tài liệu này mô tả ngữ nghĩa của các vectơ phụ trợ x86.
 

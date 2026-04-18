@@ -14,7 +14,7 @@
 
 ===================
 Khóa SoundWire
-=================
+===================
 
 Tài liệu này giải thích cơ chế khóa của SoundWire Bus. Sử dụng xe buýt
 theo các khóa để tránh tình trạng chạy đua trong hoạt động Xe buýt trên

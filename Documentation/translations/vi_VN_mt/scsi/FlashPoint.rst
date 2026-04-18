@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+=========================================
 Trình điều khiển BusLogic FlashPoint SCSI
-===================================
+=========================================
 
 Bộ điều hợp máy chủ BusLogic FlashPoint SCSI hiện được hỗ trợ đầy đủ trên Linux.
 Chương trình nâng cấp được mô tả bên dưới đã chính thức chấm dứt có hiệu lực

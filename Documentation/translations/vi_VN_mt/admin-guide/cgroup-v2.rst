@@ -16,7 +16,7 @@
 
 ==================
 Nhóm kiểm soát v2
-================
+==================
 
 :Ngày: Tháng 10 năm 2015
 :Tác giả: Tejun Heo <tj@kernel.org>

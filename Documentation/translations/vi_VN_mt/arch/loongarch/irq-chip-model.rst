@@ -14,7 +14,7 @@
 
 ==========================================
 Model chip IRQ (phân cấp) của LoongArch
-=======================================
+==========================================
 
 Hiện tại, bộ xử lý dựa trên LoongArch (ví dụ Loongson-3A5000) chỉ có thể hoạt động cùng nhau
 với chipset LS7A. Các chip irq trong máy tính LoongArch bao gồm CPUINTC (CPU Core

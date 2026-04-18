@@ -14,7 +14,7 @@
 
 ===============================
 Tài liệu hệ thống con SCSI
-============================
+===============================
 
 Dự án Tài liệu Linux (LDP) duy trì một tài liệu mô tả
 hệ thống con SCSI trong dòng nhân Linux (lk) 2.4. Xem:

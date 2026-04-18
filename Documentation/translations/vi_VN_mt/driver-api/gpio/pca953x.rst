@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================================
+===========================================================
 Danh sách tương thích với thiết bị mở rộng PCA953x I²C GPIO
-============================================
+===========================================================
 
 :Tác giả: Levente Révész <levente.revesz@eilabs.com>
 

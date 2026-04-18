@@ -14,7 +14,7 @@
 
 =====================================
 Cổng hack địa chỉ IP động v0.03
-==================================
+=====================================
 
 Công cụ này cho phép các kết nối quay số ONESHOT được thiết lập bởi
 thay đổi động địa chỉ nguồn gói (và ổ cắm nếu các tiến trình cục bộ).

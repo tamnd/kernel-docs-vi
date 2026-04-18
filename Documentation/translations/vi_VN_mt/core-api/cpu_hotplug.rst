@@ -14,7 +14,7 @@
 
 ===========================
 Hotplug CPU trong Kernel
-=========================
+===========================
 
 :Ngày: Tháng 9 năm 2021
 :Tác giả: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,

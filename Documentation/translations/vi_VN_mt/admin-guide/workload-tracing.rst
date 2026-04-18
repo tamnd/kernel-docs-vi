@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================================================
+======================================================================
 Khám phá các hệ thống con nhân Linux được khối lượng công việc sử dụng
-======================================================
+======================================================================
 
 :Tác giả: - Shuah Khan <skhan@linuxfoundation.org>
           - Shefali Sharma <sshefali021@gmail.com>

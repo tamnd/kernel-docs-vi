@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+=================
 Mục nhập hạt nhân
-==============
+=================
 
 Tệp này ghi lại một số mục kernel trong
 Arch/x86/entry/entry_64.S.  Phần lớn lời giải thích này được chuyển thể từ

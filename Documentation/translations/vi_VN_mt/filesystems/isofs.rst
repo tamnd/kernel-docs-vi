@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================
+========================
 Hệ thống tập tin ISO9660
-==================
+========================
 
 Các tùy chọn gắn kết tương tự như đối với phân vùng msdos và vfat.
 

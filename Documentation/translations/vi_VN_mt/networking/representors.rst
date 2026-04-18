@@ -16,7 +16,7 @@
 
 ================================
 Đại diện chức năng mạng
-=============================
+================================
 
 Tài liệu này mô tả ngữ nghĩa và cách sử dụng các thiết bị mạng đại diện, như
 được sử dụng để kiểm soát chuyển đổi nội bộ trên SmartNIC.  Đối với cảng có quan hệ mật thiết

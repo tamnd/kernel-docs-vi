@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================================
+=============================================================
 Mở tài liệu dành cho nhà phát triển đường dẫn dữ liệu vSwitch
-=============================================
+=============================================================
 
 Mô-đun hạt nhân Open vSwitch cho phép kiểm soát không gian người dùng linh hoạt
 xử lý gói cấp luồng trên các thiết bị mạng được chọn.  Nó có thể

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==================================
 TPM CRB trên Trình điều khiển FF-A
-========================
+==================================
 
 Giao diện Bộ đệm phản hồi lệnh TPM (CRB) là giao diện TPM tiêu chuẩn
 được xác định trong Thông số kỹ thuật Cấu hình TPM của Nền tảng máy khách PC TCG (PTP) [1]_.

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+===========================
 Cách sử dụng bàn giao Kexec
-====================
+===========================
 
 Kexec HandOver (KHO) là cơ chế cho phép Linux bảo toàn bộ nhớ
 các vùng có thể chứa các trạng thái hệ thống được tuần tự hóa trên kexec.

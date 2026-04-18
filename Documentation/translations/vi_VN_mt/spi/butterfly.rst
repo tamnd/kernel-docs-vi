@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================================
+===================================================================
 spi_butterfly - trình điều khiển bộ chuyển đổi parport-to-butterfly
-===================================================
+===================================================================
 
 Đây là một dự án phần cứng và phần mềm bao gồm việc xây dựng và sử dụng
 cáp bộ chuyển đổi cổng song song, cùng với "AVR Butterfly" để chạy

@@ -16,9 +16,9 @@
 
 .. _joystick-parport:
 
-=================================
+==============================================
 Trình điều khiển cần điều khiển cổng song song
-==============================
+==============================================
 
 :Bản quyền: ZZ0000ZZ 1998-2000 Vojtech Pavlik <vojtech@ucw.cz>
 :Bản quyền: ZZ0001ZZ 1998 Andree Borrmann <a.borrmann@tu-bs.de>

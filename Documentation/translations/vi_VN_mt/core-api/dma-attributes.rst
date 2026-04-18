@@ -14,7 +14,7 @@
 
 ================
 Thuộc tính DMA
-==============
+================
 
 Tài liệu này mô tả ngữ nghĩa của các thuộc tính DMA
 được định nghĩa trong linux/dma-mapping.h.

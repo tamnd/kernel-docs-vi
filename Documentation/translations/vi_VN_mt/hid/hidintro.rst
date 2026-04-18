@@ -14,7 +14,7 @@
 
 =========================================
 Giới thiệu về bộ mô tả báo cáo HID
-======================================
+=========================================
 
 Chương này nhằm mục đích cung cấp một cái nhìn tổng quan về nội dung báo cáo của HID
 mô tả là gì và cách một lập trình viên bình thường (không có kernel) có thể xử lý

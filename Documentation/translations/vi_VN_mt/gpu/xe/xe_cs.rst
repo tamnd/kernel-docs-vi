@@ -14,7 +14,7 @@
 
 ====================
 Gửi lệnh
-==================
+====================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_exec.c
    :doc: Execbuf (User GPU command submission)

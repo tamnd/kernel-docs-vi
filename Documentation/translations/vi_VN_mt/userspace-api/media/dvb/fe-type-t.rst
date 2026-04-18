@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-*************
+*************************
 Loại giao diện người dùng
-*************
+*************************
 
 Vì lý do lịch sử, các loại giao diện người dùng được đặt tên theo loại
 điều chế được sử dụng trong truyền dẫn. Các loại fontend được đưa ra bởi

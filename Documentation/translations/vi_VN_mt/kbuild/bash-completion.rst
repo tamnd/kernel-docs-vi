@@ -14,7 +14,7 @@
 
 =============================
 Hoàn thành Bash cho Kbuild
-==========================
+=============================
 
 Hệ thống xây dựng kernel được viết bằng Makefiles và hoàn thành Bash
 đối với lệnh ZZ0001ZZ có sẵn thông qua dự án ZZ0000ZZ.

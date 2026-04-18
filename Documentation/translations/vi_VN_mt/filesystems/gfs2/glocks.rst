@@ -14,7 +14,7 @@
 
 ===============================
 Quy tắc khóa nội bộ của Glock
-============================
+===============================
 
 Tài liệu này ghi lại các nguyên tắc cơ bản của máy trạng thái glock
 nội bộ. Mỗi glock (struct gfs2_glock trong fs/gfs2/incore.h)

@@ -16,9 +16,9 @@
 
 .. _tch-formats:
 
-*************
+*****************
 Định dạng cảm ứng
-*************
+*****************
 
 Các định dạng này chỉ được sử dụng cho giao diện ZZ0000ZZ.
 

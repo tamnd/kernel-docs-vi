@@ -16,7 +16,7 @@
 
 =======================
 Giao diện lập trình
-=====================
+=======================
 
 :Tác giả: Ragnar Hojland Espinosa <ragnar@macula.net> - 7 tháng 8 năm 1998
 

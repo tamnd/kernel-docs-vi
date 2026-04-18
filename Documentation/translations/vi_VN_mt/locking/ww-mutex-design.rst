@@ -14,7 +14,7 @@
 
 =========================================
 Thiết kế Mutex chống bế tắc/chờ đợi
-======================================
+=========================================
 
 Vui lòng đọc mutex-design.rst trước vì nó cũng áp dụng cho các mutex chờ/vết thương.
 

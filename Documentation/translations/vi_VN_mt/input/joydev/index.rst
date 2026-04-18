@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-========================
+===========================
 Hỗ trợ cần điều khiển Linux
-======================
+===========================
 
 :Bản quyền: ZZ0000ZZ 1996-2000 Vojtech Pavlik <vojtech@ucw.cz> - Được tài trợ bởi SuSE
 

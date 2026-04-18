@@ -16,9 +16,9 @@
 
 .. _camera-controls:
 
-*************************
+***************************
 Tham khảo điều khiển camera
-************************
+***************************
 
 Lớp Camera bao gồm các điều khiển cho cơ khí (hoặc tương đương)
 kỹ thuật số) của một thiết bị như ống kính hoặc cảm biến có thể điều khiển được.

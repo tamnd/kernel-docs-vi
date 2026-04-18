@@ -14,9 +14,9 @@
 
 .. note: can be edited and viewed with /usr/bin/formiko-vim
 
-===============================================================
+=========================================================================
 Trình điều khiển PCI VFIO dành cho dòng bộ chuyển đổi AMD/Pensando(R) DSC
-==========================================================
+=========================================================================
 
 Trình điều khiển thiết bị AMD/Pensando Linux VFIO PCI
 Bản quyền(c) 2023 Advanced Micro Devices, Inc.

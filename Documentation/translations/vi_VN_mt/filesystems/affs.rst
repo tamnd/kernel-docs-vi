@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+===================================
 Tổng quan về hệ thống tập tin Amiga
-=============================
+===================================
 
 Không phải tất cả các loại hệ thống tập tin Amiga đều được hỗ trợ để đọc và
 viết. Amiga hiện biết sáu hệ thống tập tin khác nhau:

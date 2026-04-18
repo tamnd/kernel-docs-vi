@@ -14,7 +14,7 @@
 
 ==========
 đinh bafb
-=========
+==========
 
 Tridentfb là trình điều khiển bộ đệm khung cho một số thẻ dựa trên chip Trident.
 

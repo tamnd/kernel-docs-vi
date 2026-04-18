@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+==============================
 hỗ trợ liên kết phát triển sfc
-===================
+==============================
 
 Tài liệu này mô tả các tính năng của devlink được ZZ0000ZZ triển khai
 trình điều khiển thiết bị cho thiết bị ef10 và ef100.

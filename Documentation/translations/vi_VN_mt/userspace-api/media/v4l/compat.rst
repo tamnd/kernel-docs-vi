@@ -16,9 +16,9 @@
 
 .. _compat:
 
-*******
+********
 Thay đổi
-*******
+********
 
 Các chương sau ghi lại quá trình phát triển của V4L2 API, lỗi hoặc
 phần mở rộng. Chúng cũng nhằm mục đích trợ giúp ứng dụng và trình điều khiển

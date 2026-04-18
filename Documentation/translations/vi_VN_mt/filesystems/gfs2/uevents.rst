@@ -14,7 +14,7 @@
 
 ==================
 sự kiện và GFS2
-================
+==================
 
 Trong suốt thời gian sử dụng của giá treo GFS2, một số sự kiện sẽ được tạo ra.
 Tài liệu này giải thích các sự kiện là gì và chúng được sử dụng như thế nào

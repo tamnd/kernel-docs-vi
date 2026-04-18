@@ -16,7 +16,7 @@
 
 =====================
 BPF_MAP_TYPE_XSKMAP
-===================
+=====================
 
 .. note::
    - ``BPF_MAP_TYPE_XSKMAP`` was introduced in kernel version 4.18

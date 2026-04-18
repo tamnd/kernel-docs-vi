@@ -14,7 +14,7 @@
 
 ==================================
 Tài liệu quản lý bộ nhớ
-===============================
+==================================
 
 Đây là hướng dẫn để hiểu hệ thống con quản lý bộ nhớ
 của Linux.  Nếu bạn đang tìm kiếm lời khuyên về cách phân bổ bộ nhớ đơn giản,

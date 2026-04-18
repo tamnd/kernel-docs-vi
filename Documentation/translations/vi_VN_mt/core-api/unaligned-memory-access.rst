@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==================================
 Truy cập bộ nhớ không được sắp xếp
-=========================
+==================================
 
 :Tác giả: Daniel Drake <dsd@gentoo.org>,
 :Tác giả: Johannes Berg <johannes@sipsolutions.net>

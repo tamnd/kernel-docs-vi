@@ -14,7 +14,7 @@
 
 ======================================
 Thiết bị Linux và cổng song song IDE
-===================================
+======================================
 
 PARIDE v1.03 (c) 1997-8 Grant Guenther <grant@torque.net>
 PATA_PARPORT (c) 2023 Ondrej Zary

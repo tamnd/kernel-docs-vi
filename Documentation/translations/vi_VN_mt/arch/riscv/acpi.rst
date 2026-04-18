@@ -14,6 +14,6 @@
 
 ================
 ACPI trên RISC-V
-==============
+================
 
 Các quy tắc phân tích chuỗi ISA cho ACPI được xác định bởi ZZ0000ZZ

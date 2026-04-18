@@ -16,9 +16,9 @@
 
 .. _packed-yuv:
 
-*******************
+*******************************
 Các định dạng YUV được đóng gói
-******************
+*******************************
 
 Tương tự như các định dạng RGB được đóng gói, các định dạng YUV được đóng gói lưu trữ Y, Cb và
 Các thành phần Cr liên tiếp trong bộ nhớ. Họ có thể áp dụng việc lấy mẫu con cho sắc độ

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================
+=======================
 Khách tạm dừng bỏ phiếu
-==================
+=======================
 
 Trình điều khiển cpuidle_haltpoll, với bộ điều chỉnh dừng cuộc thăm dò, cho phép
 vcpus khách sẽ thăm dò ý kiến trong một khoảng thời gian nhất định trước khi

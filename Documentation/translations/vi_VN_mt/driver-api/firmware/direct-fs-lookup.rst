@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==================================
 Tra cứu hệ thống tập tin trực tiếp
-========================
+==================================
 
 Tra cứu hệ thống tập tin trực tiếp là hình thức tra cứu phần sụn phổ biến nhất được thực hiện
 bởi hạt nhân. Kernel tìm kiếm firmware trực tiếp trên root

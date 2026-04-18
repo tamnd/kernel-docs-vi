@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+================================
 Phong cách kiểm tra và danh pháp
-===========================
+================================
 
 Để làm cho việc tìm kiếm, viết và sử dụng các bài kiểm tra KUnit trở nên đơn giản nhất có thể,
 khuyến khích mạnh mẽ rằng chúng được đặt tên và viết theo hướng dẫn

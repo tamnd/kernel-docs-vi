@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========
+=================
 MM đang hoạt động
-=========
+=================
 
 Lưu ý, số lần đếm mm_count có thể không còn bao gồm những người dùng "lười biếng" nữa
 (chạy các tác vụ với ->active_mm == mm && ->mm == NULL) trên hạt nhân

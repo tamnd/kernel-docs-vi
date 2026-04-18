@@ -14,7 +14,7 @@
 
 ==================================
 Hỗ trợ hệ thống hiển thị IBM 3270
-===============================
+==================================
 
 Tệp này mô tả trình điều khiển hỗ trợ tệp đính kèm kênh cục bộ
 của thiết bị IBM 3270.  Nó bao gồm ba phần:

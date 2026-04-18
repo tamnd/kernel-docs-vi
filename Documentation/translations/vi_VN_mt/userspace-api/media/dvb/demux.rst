@@ -14,9 +14,9 @@
 
 .. _dvb_demux:
 
-#########################
+###########################
 Digital Thiết bị giải mã TV
-#######################
+###########################
 
 Thiết bị demux TV kỹ thuật số điều khiển các bộ lọc MPEG-TS cho
 truyền hình kỹ thuật số. Nếu trình điều khiển và phần cứng hỗ trợ, những bộ lọc đó sẽ

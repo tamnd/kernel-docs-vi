@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+==============================================
 Ghi chú về trình điều khiển dòng Qlogic FASXXX
-=================================
+==============================================
 
 Trình điều khiển này hỗ trợ dòng chip Qlogic FASXXX.  Người lái xe này
 chỉ hoạt động với các phiên bản ISA, VLB và PCMCIA của Qlogic

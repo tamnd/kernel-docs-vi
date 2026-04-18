@@ -14,7 +14,7 @@
 
 =============================================================
 Những câu hỏi thường gặp về hệ thống đồng hồ sunxi
-=======================================================
+=============================================================
 
 Tài liệu này chứa những thông tin hữu ích mà mọi người có xu hướng hỏi
 về hệ thống đồng hồ sunxi, cũng như nghệ thuật ASCII đi kèm khi đầy đủ.

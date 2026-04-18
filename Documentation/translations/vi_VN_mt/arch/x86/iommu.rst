@@ -14,7 +14,7 @@
 
 ===================
 Hỗ trợ x86 IOMMU
-=================
+===================
 
 Thông số kỹ thuật kiến ​​trúc có thể được lấy từ các trang web của nhà cung cấp.
 Tìm kiếm các tài liệu sau để có được phiên bản mới nhất:

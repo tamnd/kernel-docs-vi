@@ -16,9 +16,9 @@
 
 .. _subdev:
 
-********************
+**********************
 Giao diện thiết bị phụ
-********************
+**********************
 
 Bản chất phức tạp của các thiết bị V4L2, trong đó phần cứng thường được làm bằng
 một số mạch tích hợp cần tương tác với nhau trong một

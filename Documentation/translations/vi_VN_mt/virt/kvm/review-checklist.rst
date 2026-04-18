@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=============================================
 Xem lại danh sách kiểm tra cho các bản vá kvm
-================================
+=============================================
 
 1. Bản vá phải tuân theo Documentation/process/coding-style.rst và
     Tài liệu/quy trình/gửi-patches.rst.

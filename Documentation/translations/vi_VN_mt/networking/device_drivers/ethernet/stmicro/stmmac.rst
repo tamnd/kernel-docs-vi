@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================================================================
+======================================================================
 Trình điều khiển Linux cho Bộ điều khiển Ethernet Synopsys(R) "stmmac"
-==============================================================
+======================================================================
 
 Tác giả: Giuseppe Cavallaro <peppe.cavallaro@st.com>,
 Alexandre Torgue <alexandre.torgue@st.com>, Jose Abreu <joabreu@synopsys.com>

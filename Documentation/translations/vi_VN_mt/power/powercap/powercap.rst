@@ -14,7 +14,7 @@
 
 ==========================
 Khung giới hạn năng lượng
-=======================
+==========================
 
 Khung giới hạn năng lượng cung cấp giao diện nhất quán giữa kernel
 và không gian người dùng cho phép trình điều khiển giới hạn nguồn hiển thị các cài đặt

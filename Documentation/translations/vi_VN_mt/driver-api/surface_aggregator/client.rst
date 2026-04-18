@@ -35,9 +35,9 @@
 .. |ssam_event_mask| replace:: :c:type:`enum ssam_event_mask <ssam_event_mask>`
 
 
-========================
+===============================
 Viết trình điều khiển máy khách
-======================
+===============================
 
 Để biết tài liệu về API, hãy tham khảo:
 

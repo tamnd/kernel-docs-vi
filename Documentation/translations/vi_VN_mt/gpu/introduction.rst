@@ -14,7 +14,7 @@
 
 =============
 Giới thiệu
-============
+=============
 
 Lớp DRM của Linux chứa mã nhằm hỗ trợ các nhu cầu của
 các thiết bị đồ họa phức tạp, thường chứa các đường ống có thể lập trình tốt

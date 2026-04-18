@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+====================
 dm-thời gian phục vụ
-===============
+====================
 
 dm-service-time là mô-đun chọn đường dẫn cho các mục tiêu của trình ánh xạ thiết bị,
 trong đó chọn đường đi có thời gian phục vụ ước tính ngắn nhất cho

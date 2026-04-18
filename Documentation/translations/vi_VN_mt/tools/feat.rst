@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+===========================================
 Mô-đun phân tích cú pháp tính năng tài liệu
-====================================
+===========================================
 
 .. automodule:: lib.python.feat.parse_features
    :members:

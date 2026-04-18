@@ -14,7 +14,7 @@
 
 ====================
 Logic khớp thẻ
-==================
+====================
 
 Tiêu chuẩn MPI xác định một bộ quy tắc, được gọi là khớp thẻ, để khớp
 hoạt động gửi nguồn đến đích nhận.  Các thông số sau đây phải

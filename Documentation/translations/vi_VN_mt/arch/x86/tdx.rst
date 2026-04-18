@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+=========================================
 Phần mở rộng miền tin cậy của Intel (TDX)
-=====================================
+=========================================
 
 Tiện ích mở rộng miền tin cậy của Intel (TDX) bảo vệ các máy ảo khách bí mật khỏi
 máy chủ và các cuộc tấn công vật lý bằng cách cô lập trạng thái đăng ký khách và bằng cách

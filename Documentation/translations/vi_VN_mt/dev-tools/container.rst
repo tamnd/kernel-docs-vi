@@ -14,9 +14,9 @@
 
 .. Copyright (C) 2025 Guillaume Tucker
 
-======================
+==================================
 Bản dựng được chứa trong container
-====================
+==================================
 
 Công cụ ZZ0000ZZ có thể được sử dụng để chạy bất kỳ lệnh nào trong cây nguồn kernel
 từ bên trong một thùng chứa.  Làm như vậy sẽ tạo điều kiện thuận lợi cho việc tái tạo các bản dựng trên

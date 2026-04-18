@@ -16,7 +16,7 @@
 
 ============================================
  drm/amdgpu - Đồ họa và Điện toán (GC)
-========================================
+============================================
 
 Mối quan hệ giữa CPU và GPU có thể được mô tả là
 vấn đề nhà sản xuất-người tiêu dùng, trong đó CPU điền vào bộ đệm bằng các thao tác

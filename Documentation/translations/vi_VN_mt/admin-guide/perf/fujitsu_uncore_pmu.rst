@@ -14,7 +14,7 @@
 
 ====================================================
 Bộ giám sát hiệu suất Uncore của Fujitsu (PMU)
-================================================
+====================================================
 
 Trình điều khiển này hỗ trợ các PMU Uncore MAC và các PMU Uncore PCI được tìm thấy
 trong chip Fujitsu.

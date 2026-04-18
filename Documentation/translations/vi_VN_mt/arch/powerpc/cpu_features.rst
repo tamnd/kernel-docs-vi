@@ -14,7 +14,7 @@
 
 =============
 Tính năng CPU
-============
+=============
 
 Hollis Blanchard <hollis@austin.ibm.com>
 5 tháng 6 năm 2002

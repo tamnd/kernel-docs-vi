@@ -14,7 +14,7 @@
 
 ====================================
 WBRF - Băng tần Wifi RFI Giảm nhẹ
-=================================
+====================================
 
 Do những hạn chế về điện và cơ khí trong một số thiết kế nền tảng nhất định
 có thể có sự can thiệp của các sóng hài công suất tương đối cao của

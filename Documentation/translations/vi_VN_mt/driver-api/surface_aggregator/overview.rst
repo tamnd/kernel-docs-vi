@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========
+=========
 Tổng quan
-========
+=========
 
 Mô-đun tổng hợp bề mặt/hệ thống (SAM, SSAM) là một (được cho là ZZ0000ZZ)
 bộ điều khiển nhúng (EC) trên các thiết bị Microsoft Surface. Ban đầu nó đã được

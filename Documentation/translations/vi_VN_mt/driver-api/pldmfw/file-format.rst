@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+==================================================
 Tổng quan về định dạng tệp chương trình cơ sở PLDM
-==================================
+==================================================
 
 Gói chương trình cơ sở PLDM là một tệp nhị phân chứa tiêu đề
 mô tả nội dung của gói phần mềm cơ sở. Điều này bao gồm một ban đầu

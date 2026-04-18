@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+==========================
 Chương trình sk_lookup BPF
-=====================
+==========================
 
 Loại chương trình BPF sk_lookup (ZZ0000ZZ) giới thiệu khả năng lập trình
 vào việc tra cứu socket được thực hiện bởi lớp vận chuyển khi một gói được

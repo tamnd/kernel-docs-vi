@@ -18,7 +18,7 @@
 
 *************
 Định dạng RGB
-***********
+*************
 
 Các định dạng này mã hóa từng pixel dưới dạng bộ ba giá trị RGB. Chúng được đóng gói
 định dạng, nghĩa là các giá trị RGB cho một pixel được lưu trữ liên tiếp trong

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+================================
 Ghi nhật ký tin nhắn bằng printk
-===========================
+================================
 
 printk() là một trong những hàm được biết đến rộng rãi nhất trong nhân Linux. Đó là
 công cụ tiêu chuẩn mà chúng tôi có để in tin nhắn và thường là cách cơ bản nhất để

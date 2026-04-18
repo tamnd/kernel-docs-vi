@@ -14,7 +14,7 @@
 
 =================================================
 Thông số khởi tạo kernel trên ARM Linux
-=============================================
+=================================================
 
 Tài liệu sau đây mô tả tham số khởi tạo kernel
 cấu trúc, còn được gọi là 'struct param_struct' được sử dụng

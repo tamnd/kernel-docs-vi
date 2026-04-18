@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+==============================
 Âm thanh bật lên và nhấp chuột
-=====================
+==============================
 
 Tiếng bật và tiếng click là các tạo tác âm thanh không mong muốn do việc tăng và giảm nguồn điện
 của các thành phần trong hệ thống con âm thanh. Điều này dễ nhận thấy trên PC khi một

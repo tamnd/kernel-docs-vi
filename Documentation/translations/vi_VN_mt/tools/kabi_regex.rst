@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+===============================================
 Lớp biểu tượng tìm kiếm biểu thức chính quy ABI
-=============================
+===============================================
 
 .. automodule:: lib.python.abi.abi_regex
    :members:

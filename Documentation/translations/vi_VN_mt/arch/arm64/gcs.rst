@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+========================================================
 Hỗ trợ ngăn xếp điều khiển được bảo vệ cho AArch64 Linux
-===============================================
+========================================================
 
 Tài liệu này phác thảo ngắn gọn giao diện được cung cấp cho không gian người dùng bởi Linux trong
 để hỗ trợ sử dụng tính năng Ngăn xếp điều khiển được bảo vệ ARM (GCS).

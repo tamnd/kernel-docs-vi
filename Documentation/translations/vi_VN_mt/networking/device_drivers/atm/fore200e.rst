@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================================
+========================================================
 Trình điều khiển FORE Hệ thống PCA-200E/SBA-200E ATM NIC
-=============================================
+========================================================
 
 Trình điều khiển này bổ sung hỗ trợ cho bộ điều hợp ATM FORE Systems 200E-series
 sang hệ điều hành Linux. Nó dựa trên trình điều khiển PCA-200E trước đó

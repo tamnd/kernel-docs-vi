@@ -14,7 +14,7 @@
 
 ================
 Gỡ lỗi AMDGPUFS
-==============
+================
 
 Trình điều khiển amdgpu cung cấp một số tệp debugfs để hỗ trợ việc gỡ lỗi
 các vấn đề trong trình điều khiển.  Những thứ này thường được tìm thấy ở

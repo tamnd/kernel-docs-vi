@@ -14,7 +14,7 @@
 
 ====================================
 CEDT - Bảng khám phá ban đầu CXL
-================================
+====================================
 
 Bảng khám phá ban đầu CXL được tạo bởi BIOS để mô tả bộ nhớ CXL
 các vùng được cấu hình khi khởi động bởi BIOS.

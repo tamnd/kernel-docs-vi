@@ -16,7 +16,7 @@
 
 ========================================
 Sử dụng Sphinx cho tài liệu kernel
-=====================================
+========================================
 
 Nhân Linux sử dụng ZZ0004ZZ để tạo tài liệu đẹp từ
 Các tệp ZZ0005ZZ trong ZZ0000ZZ. Để xây dựng tài liệu trong

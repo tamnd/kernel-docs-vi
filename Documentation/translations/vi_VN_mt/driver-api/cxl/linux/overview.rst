@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========
+=========
 Tổng quan
-========
+=========
 
 Phần này trình bày quy trình cấu hình của thiết bị bộ nhớ CXL Type-3,
 và cuối cùng nó được hiển thị như thế nào với người dùng dưới dạng thiết bị ZZ0000ZZ hoặc

@@ -14,7 +14,7 @@
 
 ======================
 Giao diện vm chung
-====================
+======================
 
 "Thiết bị" máy ảo cũng chấp nhận ioctls KVM_SET_DEVICE_ATTR,
 KVM_GET_DEVICE_ATTR và KVM_HAS_DEVICE_ATTR. Giao diện sử dụng tương tự

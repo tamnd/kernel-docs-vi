@@ -14,7 +14,7 @@
 
 ===========================
 Lỗi tiêm Linux I2C
-=========================
+===========================
 
 Trình điều khiển chính bus I2C dựa trên GPIO có thể được cấu hình để cung cấp lỗi
 khả năng tiêm. Sau đó nó được kết nối với một bus I2C khác

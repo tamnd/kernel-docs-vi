@@ -18,7 +18,7 @@
 
 *******************************
 Truyền phát I/O (Ánh xạ bộ nhớ)
-******************************
+*******************************
 
 Các thiết bị đầu vào và đầu ra hỗ trợ phương thức I/O này khi
 Cờ ZZ0003ZZ trong trường ZZ0004ZZ của cấu trúc

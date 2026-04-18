@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=========================================
 Khả năng không gian người dùng Infiniband
-=================================
+=========================================
 
 Khả năng của người dùng (UCAP) cung cấp khả năng kiểm soát chi tiết đối với các
    các tính năng phần sụn trong thiết bị Infiniband (IB). Cách tiếp cận này cung cấp

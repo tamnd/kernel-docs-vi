@@ -14,7 +14,7 @@
 
 ====================================
 Hướng dẫn công nghệ truy tìm Linux
-================================
+====================================
 
 Truy tìm trong nhân Linux là một cơ chế mạnh mẽ cho phép
 nhà phát triển và quản trị viên hệ thống để phân tích và gỡ lỗi hệ thống

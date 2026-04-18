@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+============================================
 Ghi chú của Trình giải quyết động Devicetree
-=================================
+============================================
 
 Tài liệu này mô tả việc triển khai trong kernel
 Trình phân giải DeviceTree, nằm trong driver/of/resolver.c

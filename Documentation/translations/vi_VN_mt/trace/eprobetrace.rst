@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+==========================================
 Eprobe - Truy tìm thăm dò dựa trên sự kiện
-==================================
+==========================================
 
 :Tác giả: Steven Rostedt <rostedt@goodmis.org>
 

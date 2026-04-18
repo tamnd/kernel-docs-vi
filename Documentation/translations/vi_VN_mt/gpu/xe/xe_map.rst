@@ -14,7 +14,7 @@
 
 ==========
 Lớp bản đồ
-=========
+==========
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_map.h
    :doc: Map layer

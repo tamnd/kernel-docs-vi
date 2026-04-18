@@ -14,7 +14,7 @@
 
 =====================================
 Khởi tạo thiết bị (deinit)
-==================================
+=====================================
 Quá trình deinit rất phức tạp và có thể thay đổi. Tài liệu này cung cấp một mức độ cao
 tổng quan bằng cách sử dụng dòng Ampere GPU làm ví dụ. Mục đích là cung cấp một khái niệm
 tổng quan về quy trình để hỗ trợ hiểu mã hạt nhân tương ứng.

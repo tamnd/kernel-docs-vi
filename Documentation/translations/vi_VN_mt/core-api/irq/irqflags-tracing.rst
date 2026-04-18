@@ -14,7 +14,7 @@
 
 ==========================
 Theo dõi trạng thái cờ IRQ
-=======================
+==========================
 
 :Tác giả: bắt đầu bởi Ingo Molnar <mingo@redhat.com>
 

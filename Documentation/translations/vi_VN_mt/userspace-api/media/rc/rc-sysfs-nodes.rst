@@ -14,9 +14,9 @@
 
 .. _remote_controllers_sysfs_nodes:
 
-*******************************
+*************************************
 Các nút sysfs của Bộ điều khiển từ xa
-*******************************
+*************************************
 
 Như được định nghĩa tại Documentation/ABI/testing/sysfs-class-rc, đó là
 các nút sysfs điều khiển Bộ điều khiển từ xa:

@@ -14,7 +14,7 @@
 
 =============
 Bảng thiết bị
-============
+=============
 
 Việc kết nối thiết bị PCMCIA với trình điều khiển được thực hiện bằng cách sử dụng một hoặc nhiều
 tiêu chí sau:

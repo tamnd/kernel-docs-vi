@@ -14,7 +14,7 @@
 
 =============
 Bản in sớm
-============
+=============
 
 Mini-HOWTO để sử dụng tùy chọn khởi động Earlyprintk=dbgp với
 USB2 Khóa cổng gỡ lỗi và cáp gỡ lỗi trên hệ thống x86.

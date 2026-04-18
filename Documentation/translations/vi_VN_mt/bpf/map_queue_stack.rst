@@ -16,7 +16,7 @@
 
 =============================================
 BPF_MAP_TYPE_QUEUE và BPF_MAP_TYPE_STACK
-=========================================
+=============================================
 
 .. note::
    - ``BPF_MAP_TYPE_QUEUE`` and ``BPF_MAP_TYPE_STACK`` were introduced

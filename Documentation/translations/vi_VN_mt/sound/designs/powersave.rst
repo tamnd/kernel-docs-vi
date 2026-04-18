@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+====================================
 Lưu ý về Chế độ tiết kiệm năng lượng
-==========================
+====================================
 
 Trình điều khiển âm thanh AC97 và HD có chế độ tiết kiệm năng lượng tự động.
 Tính năng này được kích hoạt thông qua Kconfig ZZ0000ZZ

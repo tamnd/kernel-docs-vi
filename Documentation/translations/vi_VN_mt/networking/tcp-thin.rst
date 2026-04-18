@@ -14,7 +14,7 @@
 
 ======================
 Dòng mỏng và TCP
-====================
+======================
 
 Một loạt các dịch vụ dựa trên Internet sử dụng phương tiện truyền tải đáng tin cậy
 các giao thức hiển thị cái mà chúng tôi gọi là thuộc tính dòng mỏng. Điều này có nghĩa

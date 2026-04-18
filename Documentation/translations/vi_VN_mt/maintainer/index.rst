@@ -14,7 +14,7 @@
 
 =============================
 Sổ tay bảo trì hạt nhân
-==========================
+=============================
 
 Tài liệu này là sự khởi đầu khiêm tốn của một sổ tay hướng dẫn dành cho những người bảo trì kernel.
 Vẫn còn rất nhiều thứ để đi đến đây!  Xin vui lòng đề xuất (và viết)

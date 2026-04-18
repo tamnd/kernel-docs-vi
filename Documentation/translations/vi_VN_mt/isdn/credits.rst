@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======
+========
 Tín dụng
-=======
+========
 
 
 Tôi muốn cảm ơn tất cả những người đã đóng góp cho dự án này và đặc biệt là:

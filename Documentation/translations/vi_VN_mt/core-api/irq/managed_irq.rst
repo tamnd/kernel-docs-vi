@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+=================================
 Ngắt được quản lý bởi mối quan hệ
-===========================
+=================================
 
 Lõi IRQ cung cấp hỗ trợ quản lý các ngắt theo một quy trình cụ thể
 Mối quan hệ CPU. Trong hoạt động bình thường, một ngắt được liên kết với một

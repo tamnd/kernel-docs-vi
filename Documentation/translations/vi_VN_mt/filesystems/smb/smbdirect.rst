@@ -14,7 +14,7 @@
 
 ==============================
 SMB Trực tiếp - SMB3 trên RDMA
-===========================
+==============================
 
 Tài liệu này mô tả cách thiết lập máy khách và máy chủ Linux SMB để
 sử dụng RDMA.

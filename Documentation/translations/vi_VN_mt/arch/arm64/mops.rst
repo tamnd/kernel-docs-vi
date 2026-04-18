@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+==========================================
 Hướng dẫn sao chép/thiết lập bộ nhớ (MOPS)
-===================================
+==========================================
 
 Thao tác sao chép/thiết lập bộ nhớ MOPS bao gồm ba CPY* hoặc SET* liên tiếp
 hướng dẫn: phần mở đầu, phần chính và phần kết (ví dụ: CPYP, CPYM, CPYE).

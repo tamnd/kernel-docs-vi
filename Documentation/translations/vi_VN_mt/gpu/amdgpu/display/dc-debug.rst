@@ -14,7 +14,7 @@
 
 ===========================
 Công cụ gỡ lỗi lõi hiển thị
-========================
+===========================
 
 Trong phần này, bạn sẽ tìm thấy thông tin hữu ích về cách gỡ lỗi amdgpu.
 trình điều khiển từ góc độ hiển thị. Trang này giới thiệu cơ chế gỡ lỗi và

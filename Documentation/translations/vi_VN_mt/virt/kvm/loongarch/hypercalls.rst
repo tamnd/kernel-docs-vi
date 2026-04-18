@@ -14,7 +14,7 @@
 
 ======================================
 Giao diện ảo LoongArch
-===================================
+======================================
 
 Siêu cuộc gọi KVM sử dụng lệnh HVCL với mã 0x100 và siêu cuộc gọi
 số được đặt trong a0. Có thể đặt tối đa năm đối số trong các thanh ghi a1 - a5.

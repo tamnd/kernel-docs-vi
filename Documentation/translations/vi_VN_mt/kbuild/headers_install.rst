@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================================
+====================================================
 Xuất tiêu đề kernel để không gian người dùng sử dụng
-=============================================
+====================================================
 
 Lệnh "make headers_install" xuất các tệp tiêu đề của kernel theo dạng
 hình thức phù hợp để sử dụng bởi các chương trình không gian người dùng.

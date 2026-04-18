@@ -16,9 +16,9 @@
 
 .. _colorimetry-controls:
 
-*****************************
+***********************************
 Tài liệu tham khảo kiểm soát đo màu
-*****************************
+***********************************
 
 Lớp Đo màu bao gồm các điều khiển cho Dải động cao
 hình ảnh để thể hiện màu sắc trong hình ảnh kỹ thuật số và video. các

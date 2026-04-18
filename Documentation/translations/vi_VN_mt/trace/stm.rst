@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+========================
 Mô-đun theo dõi hệ thống
-===================
+========================
 
 Mô-đun theo dõi hệ thống (STM) là một thiết bị được mô tả trong thông số kỹ thuật MIPI STP như
 Trình tạo luồng dấu vết STP. STP (Giao thức theo dõi hệ thống) là một dấu vết

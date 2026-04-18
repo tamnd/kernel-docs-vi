@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============
+=================
 Mục nhập hệ thống
-=============
+=================
 
 Các tệp sysfs RapidIO đã được chuyển đến:
 Tài liệu/ABI/thử nghiệm/sysfs-bus-rapidio và

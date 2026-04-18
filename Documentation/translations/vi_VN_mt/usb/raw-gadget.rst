@@ -14,7 +14,7 @@
 
 ================
 Tiện ích thô USB
-==============
+================
 
 USB Raw Gadget là trình điều khiển tiện ích cung cấp cho không gian người dùng quyền kiểm soát cấp thấp đối với
 quá trình giao tiếp của tiện ích.

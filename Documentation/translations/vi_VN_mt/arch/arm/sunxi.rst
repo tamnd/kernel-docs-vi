@@ -14,7 +14,7 @@
 
 ====================
 SoC Allwinner ARM
-==================
+====================
 
 Tài liệu này liệt kê tất cả các SoC ARM Allwinner hiện đang
 được hỗ trợ trong dòng chính bởi nhân Linux. Tài liệu này cũng sẽ

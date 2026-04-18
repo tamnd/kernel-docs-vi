@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+====================================
 Trình điều khiển hạt nhân cho lm3556
-========================
+====================================
 
 * Nhạc cụ Texas:
   1.5 Trình điều khiển Flash LED tăng cường đồng bộ với nguồn hiện tại phía cao

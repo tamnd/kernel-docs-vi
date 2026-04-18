@@ -14,7 +14,7 @@
 
 =================
 Phần GPU RFC
-===============
+=================
 
 Đối với công việc phức tạp, đặc biệt là uapi mới, việc đạt được mức cao thường là điều tốt
 các vấn đề về thiết kế trước khi bị lạc vào các chi tiết mã. Phần này nhằm mục đích

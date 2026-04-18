@@ -14,7 +14,7 @@
 
 ==============
 Lớp phủ SSDT
-=============
+==============
 
 Để hỗ trợ các cấu hình phần cứng mở ACPI (ví dụ: phát triển
 board), chúng tôi cần một cách để tăng cường cấu hình ACPI do phần sụn cung cấp

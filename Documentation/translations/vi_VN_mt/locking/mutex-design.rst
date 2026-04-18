@@ -14,7 +14,7 @@
 
 ==========================
 Hệ thống con Mutex chung
-=======================
+==========================
 
 bắt đầu bởi Ingo Molnar <mingo@redhat.com>
 

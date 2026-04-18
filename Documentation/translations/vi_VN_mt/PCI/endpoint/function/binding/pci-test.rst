@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+================================
 Chức năng điểm cuối kiểm tra PCI
-==========================
+================================
 
 Tên: Phải là "pci_epf_test" để liên kết với trình điều khiển pci_epf_test.
 

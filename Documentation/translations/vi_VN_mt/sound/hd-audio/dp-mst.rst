@@ -14,7 +14,7 @@
 
 ==========================
 Hỗ trợ âm thanh HD DP-MST
-=======================
+==========================
 
 Để hỗ trợ âm thanh DP MST, trình điều khiển codec hdmi HD Audio giới thiệu pin ảo
 và phân công pcm động.

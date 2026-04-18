@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+=========================
 Tổng quan về Intel(R) TXT
-=====================
+=========================
 
 Công nghệ của Intel cho khả năng tính toán an toàn hơn, Intel(R) Trusted Execution
 Công nghệ (Intel(R) TXT), xác định các cải tiến ở cấp độ nền tảng

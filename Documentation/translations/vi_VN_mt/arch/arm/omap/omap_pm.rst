@@ -14,7 +14,7 @@
 
 =======================
 Giao diện OMAP PM
-=====================
+=======================
 
 Tài liệu này mô tả giao diện OMAP PM tạm thời.  Người lái xe
 tác giả sử dụng các chức năng này để truyền đạt độ trễ tối thiểu hoặc

@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-====================================================
+=====================================================
 Lý thuyết hoạt động của trình điều khiển Express Link
-===============================================
+=====================================================
 
 Thiết bị bộ nhớ liên kết điện toán nhanh là thành phần CXL thực hiện
 Giao thức CXL.mem. Nó chứa một lượng bộ nhớ khả biến, bộ nhớ liên tục,

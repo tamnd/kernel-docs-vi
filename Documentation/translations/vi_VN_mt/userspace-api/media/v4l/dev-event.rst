@@ -16,9 +16,9 @@
 
 .. _event:
 
-****************
+*****************
 Giao diện sự kiện
-***************
+*****************
 
 Giao diện sự kiện V4L2 cung cấp phương tiện để người dùng nhận được ngay lập tức
 được thông báo về một số điều kiện nhất định diễn ra trên thiết bị. Điều này có thể

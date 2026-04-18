@@ -14,7 +14,7 @@
 
 =======================
 Kiểu dữ liệu errseq_t
-=====================
+=======================
 
 Errseq_t là một cách ghi lại lỗi ở một nơi và cho phép mọi lỗi xảy ra.
 số lượng "người đăng ký" để biết liệu nó có thay đổi so với lần trước không

@@ -14,7 +14,7 @@
 
 ===========================
 Thống kê công văn VCPU
-========================
+===========================
 
 Đối với LPAR của bộ xử lý dùng chung, POWER Hypervisor duy trì mức độ tương đối
 ánh xạ tĩnh của bộ xử lý LPAR (vcpus) sang bộ xử lý vật lý

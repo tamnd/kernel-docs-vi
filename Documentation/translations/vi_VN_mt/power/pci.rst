@@ -14,7 +14,7 @@
 
 ======================
 Quản lý năng lượng PCI
-====================
+======================
 
 Bản quyền (c) 2010 Rafael J. Wysocki <rjw@sisk.pl>, Novell Inc.
 

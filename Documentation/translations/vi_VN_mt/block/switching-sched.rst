@@ -14,7 +14,7 @@
 
 =====================
 Chuyển đổi lịch trình
-===================
+=====================
 
 Mỗi hàng đợi io có một tập hợp các bộ điều chỉnh lịch trình io được liên kết với nó. Những cái này
 điều chỉnh kiểm soát cách hoạt động của bộ lập lịch io. Bạn có thể tìm thấy những mục này

@@ -14,7 +14,7 @@
 
 ================================
 Trình tự khởi tạo MMUv3
-=============================
+================================
 
 Mã trong macro khởi tạo_mmu thiết lập ánh xạ bộ nhớ MMUv3
 giống hệt với ánh xạ bộ nhớ cố định MMUv2. Tùy thuộc vào

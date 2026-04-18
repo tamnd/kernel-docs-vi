@@ -14,7 +14,7 @@
 
 ==========================================
 Những hạn chế đã biết của ảo hóa CPU
-=======================================
+==========================================
 
 Bất cứ khi nào việc mô phỏng hoàn hảo tính năng CPU là không thể hoặc quá khó, KVM
 phải lựa chọn giữa việc không triển khai tính năng nào cả hoặc giới thiệu

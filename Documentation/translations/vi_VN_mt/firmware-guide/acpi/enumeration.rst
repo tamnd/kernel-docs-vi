@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+===================================
 Bảng liệt kê thiết bị dựa trên ACPI
-=============================
+===================================
 
 ACPI 5 đã giới thiệu một bộ tài nguyên mới (UartTSerialBus, I2cSerialBus,
 SpiSerialBus, GpioIo và GpioInt) có thể được sử dụng để liệt kê nô lệ

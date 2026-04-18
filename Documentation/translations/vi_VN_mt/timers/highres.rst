@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================================
+================================================================
 Bộ hẹn giờ có độ phân giải cao và ghi chú thiết kế đánh dấu động
-=====================================================
+================================================================
 
 Thông tin thêm có thể được tìm thấy trong bài nói chuyện OLS 2006 "hrtimers
 và hơn thế nữa". Bài viết này là một phần của Kỷ yếu OLS 2006 Tập 1, có thể

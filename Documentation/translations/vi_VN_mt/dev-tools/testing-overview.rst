@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+===========================
 Hướng dẫn kiểm tra hạt nhân
-====================
+===========================
 
 
 Có một số công cụ khác nhau để kiểm tra nhân Linux, vì vậy việc biết

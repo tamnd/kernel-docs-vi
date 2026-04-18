@@ -14,7 +14,7 @@
 
 =======================
 Mã lỗi I2C/SMBUS
-=====================
+=======================
 
 Đây là bản tóm tắt các quy ước quan trọng nhất khi sử dụng lỗi.
 mã trong ngăn xếp I2C/SMBus.

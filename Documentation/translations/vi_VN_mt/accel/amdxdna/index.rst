@@ -14,7 +14,7 @@
 
 ========================================
  trình điều khiển accel/amdxdna NPU
-=====================================
+========================================
 
 Trình điều khiển accel/amdxdna hỗ trợ AMD NPU (Bộ xử lý thần kinh).
 

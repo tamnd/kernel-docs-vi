@@ -18,7 +18,7 @@
 
 *************
 Định dạng HSV
-***********
+*************
 
 Các định dạng này lưu trữ thông tin màu sắc của hình ảnh
 trong một biểu diễn hình học. Màu sắc được ánh xạ vào một

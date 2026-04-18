@@ -18,7 +18,7 @@
 
 *************************
 Đầu vào và đầu ra video
-************************
+*************************
 
 Đầu vào và đầu ra video là các đầu nối vật lý của thiết bị. Những cái này có thể
 ví dụ: Đầu nối RF (ăng-ten/cáp), CVBS hay còn gọi là Composite

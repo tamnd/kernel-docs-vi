@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+=======================================================
 pvr2fb - Trình điều khiển bộ đệm khung đồ họa PowerVR 2
-===============================================
+=======================================================
 
 Đây là trình điều khiển cho bộ đệm khung đồ họa dựa trên PowerVR 2, chẳng hạn như
 một cái được tìm thấy trong Dreamcast.

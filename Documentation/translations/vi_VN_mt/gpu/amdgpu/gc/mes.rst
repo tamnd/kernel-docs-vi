@@ -16,7 +16,7 @@
 
 ================================
  Bộ lập lịch MicroEngine (MES)
-=============================
+================================
 
 .. note::
    Queue and ring buffer are used as a synonymous.

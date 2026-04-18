@@ -14,7 +14,7 @@
 
 ========================================
 Quản lý bộ nhớ không đồng nhất (HMM)
-=====================================
+========================================
 
 Cung cấp cơ sở hạ tầng và trợ giúp để tích hợp bộ nhớ không thông thường (thiết bị
 bộ nhớ như GPU trên bộ nhớ bo mạch) vào đường dẫn kernel thông thường, với nền tảng

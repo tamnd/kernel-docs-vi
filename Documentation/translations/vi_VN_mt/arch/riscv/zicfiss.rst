@@ -17,7 +17,7 @@
 
 ==============================================================
 Ngăn xếp bóng để bảo vệ chức năng trả về trên RISC-V Linux
-=========================================================
+==============================================================
 
 Tài liệu này mô tả ngắn gọn giao diện do Linux cung cấp cho không gian người dùng
 để bật ngăn xếp bóng cho các ứng dụng chế độ người dùng trên RISC-V.

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+==================================
 Quản lý bộ nhớ thời gian khởi động
-===========================
+==================================
 
 Khởi tạo hệ thống sớm không thể sử dụng quản lý bộ nhớ "bình thường"
 đơn giản vì nó chưa được thiết lập. Nhưng vẫn cần phải

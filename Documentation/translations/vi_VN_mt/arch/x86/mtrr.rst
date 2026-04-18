@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================================
+===============================================
 Điều khiển MTRR (Thanh ghi phạm vi loại bộ nhớ)
-=========================================
+===============================================
 
 :Tác giả: - Richard Gooch <rgooch@atnf.csiro.au> - 3 tháng 6 năm 1999
           - Luis R. Rodriguez <mcgrof@do-not-panic.com> - Ngày 9 tháng 4 năm 2015

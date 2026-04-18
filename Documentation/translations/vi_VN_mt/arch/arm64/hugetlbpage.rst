@@ -14,9 +14,9 @@
 
 .. _hugetlbpage_index:
 
-======================
+========================
 Trang TLB lớn trên ARM64
-====================
+========================
 
 Hugepage dựa vào việc sử dụng TLB hiệu quả để cải thiện hiệu suất của
 dịch địa chỉ. Lợi ích phụ thuộc vào cả hai -

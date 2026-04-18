@@ -14,7 +14,7 @@
 
 ===========================
 Khung Clk chung
-========================
+===========================
 
 :Tác giả: Mike Turquette <mturquette@ti.com>
 

@@ -15,9 +15,9 @@
 Đây là một trình bao bọc đơn giản để đưa Atomic_t.txt vào thế giới RST
    cho đến khi tập tin đó có thể được chuyển đổi trực tiếp.
 
-=============
+==================
 Các loại nguyên tử
-============
+==================
 
 .. raw:: latex
 

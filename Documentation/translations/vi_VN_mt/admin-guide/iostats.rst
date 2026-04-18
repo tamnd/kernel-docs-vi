@@ -14,7 +14,7 @@
 
 =======================
 Các trường thống kê I/O
-=====================
+=======================
 
 Hạt nhân hiển thị số liệu thống kê đĩa thông qua ZZ0000ZZ và
 ZZ0001ZZ. Các số liệu thống kê này thường được truy cập thông qua các công cụ

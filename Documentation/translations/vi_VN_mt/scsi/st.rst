@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+==========================
 Trình điều khiển băng SCSI
-====================
+==========================
 
 Tệp này chứa thông tin ngắn gọn về trình điều khiển băng SCSI.
 Người lái xe hiện được Kai Mäkisara bảo trì (email

@@ -14,7 +14,7 @@
 
 ====================================
 Lưu ý về hỗ trợ âm thanh Maya44 USB
-=================================
+====================================
 
 .. note::
    The following is the original document of Rainer's patch that the

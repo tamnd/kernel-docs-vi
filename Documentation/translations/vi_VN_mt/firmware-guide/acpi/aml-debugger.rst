@@ -16,7 +16,7 @@
 
 ==================
 Trình gỡ lỗi AML
-================
+==================
 
 :Bản quyền: ZZ0000ZZ 2016, Tập đoàn Intel
 :Tác giả: Lv Zheng <lv.zheng@intel.com>

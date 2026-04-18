@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+====================
 CoreSight - Hoàn hảo
-================
+====================
 
 :Tác giả: Carsten Haitzler <carsten.haitzler@arm.com>
     :Ngày: 29 tháng 6 năm 2022

@@ -14,7 +14,7 @@
 
 ===========================
  Cách ly quy trình AMDGPU
-=========================
+===========================
 
 Trình điều khiển AMDGPU bao gồm một tính năng cho phép cách ly quy trình tự động trên công cụ đồ họa. Tính năng này tuần tự hóa quyền truy cập vào công cụ đồ họa và thêm trình đổ bóng rõ ràng hơn để xóa Kho dữ liệu cục bộ (LDS) và Thanh ghi mục đích chung (GPR) giữa các công việc. Tất cả các quy trình sử dụng GPU, bao gồm cả khối lượng công việc đồ họa và điện toán, đều được tuần tự hóa khi tính năng này được bật. Trên các GPU hỗ trợ công cụ đồ họa có thể phân vùng, tính năng này có thể được bật trên cơ sở từng phân vùng.
 

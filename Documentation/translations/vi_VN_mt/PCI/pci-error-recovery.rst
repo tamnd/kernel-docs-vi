@@ -14,7 +14,7 @@
 
 ====================
 Phục hồi lỗi PCI
-==================
+====================
 
 
 :Tác giả: - Linas Vepstas <linasvepstas@gmail.com>

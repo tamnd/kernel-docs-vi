@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============================================
+===================================================
 Phân tích cú pháp thủ công của bộ mô tả báo cáo HID
-========================================
+===================================================
 
 Hãy xem xét lại bộ mô tả báo cáo chuột HID
 được giới thiệu trong Documentation/hid/hidintro.rst::

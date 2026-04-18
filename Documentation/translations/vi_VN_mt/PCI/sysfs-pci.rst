@@ -14,7 +14,7 @@
 
 ================================================
 Truy cập tài nguyên thiết bị PCI thông qua sysfs
-============================================
+================================================
 
 sysfs, thường được gắn tại /sys, cung cấp quyền truy cập vào tài nguyên PCI trên nền tảng
 hỗ trợ nó.  Ví dụ: một xe buýt nhất định có thể trông như thế này::

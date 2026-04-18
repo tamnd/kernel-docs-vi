@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========
+================
 Đồng bộ hóa XFRM
-=========
+================
 
 Hoạt động của các bản vá đồng bộ dựa trên các bản vá ban đầu từ
 Krisztian <hidden@balabit.hu> và những người khác và các bản vá bổ sung

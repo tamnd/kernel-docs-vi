@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+====================================
 hỗ trợ liên kết phát triển netdevsim
-=========================
+====================================
 
 Tài liệu này mô tả các tính năng ZZ0000ZZ được hỗ trợ bởi
 Trình điều khiển thiết bị ZZ0001ZZ.

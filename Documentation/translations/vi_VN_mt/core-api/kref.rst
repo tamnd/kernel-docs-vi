@@ -14,7 +14,7 @@
 
 ========================================================
 Thêm bộ đếm tham chiếu (krefs) vào đối tượng kernel
-===================================================
+========================================================
 
 :Tác giả: Corey Minyard <minyard@acm.org>
 :Tác giả: Thomas Hellström <thomas.hellstrom@linux.intel.com>

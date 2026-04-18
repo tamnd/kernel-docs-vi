@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================================
+========================================
  Trình điều khiển drm/nouveau NVIDIA GPU
-===============================
+========================================
 
 Trình điều khiển drm/nouveau cung cấp hỗ trợ cho nhiều loại GPU NVIDIA,
 bao gồm các dòng GeForce, Quadro và Tesla, từ kiến trúc NV04 trở lên

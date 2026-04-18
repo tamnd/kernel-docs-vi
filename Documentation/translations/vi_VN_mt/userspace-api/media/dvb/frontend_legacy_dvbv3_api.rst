@@ -14,9 +14,9 @@
 
 .. _frontend_legacy_dvbv3_api:
 
-*************************************************
+*******************************************************************
 Giao diện người dùng truyền hình kỹ thuật số API (còn gọi là DVBv3)
-***********************************************
+*******************************************************************
 
 Việc sử dụng API này không được dùng nữa vì nó không hỗ trợ tất cả các kỹ thuật số
 Các tiêu chuẩn truyền hình không cung cấp các phép đo thống kê tốt và cung cấp

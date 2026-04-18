@@ -16,7 +16,7 @@
 
 ######################
 Digital TV CA Thiết bị
-####################
+######################
 
 Thiết bị Digital TV CA điều khiển phần cứng truy cập có điều kiện. Nó
 có thể được truy cập thông qua ZZ0000ZZ. Các kiểu dữ liệu và ioctl

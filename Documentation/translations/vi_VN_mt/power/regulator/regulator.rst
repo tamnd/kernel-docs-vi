@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+========================================
 Giao diện trình điều khiển bộ điều chỉnh
-==========================
+========================================
 
 Giao diện trình điều khiển bộ điều chỉnh tương đối đơn giản và được thiết kế để cho phép
 trình điều khiển để đăng ký dịch vụ của họ với khung cốt lõi.

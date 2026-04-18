@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+=============================
 Sử dụng dòng GPIO trong Linux
-=========================
+=============================
 
 Nhân Linux tồn tại để trừu tượng hóa và trình bày phần cứng cho người dùng. Dòng GPIO
 như vậy thường không phải là sự trừu tượng mà người dùng phải đối mặt. Điều hiển nhiên nhất, tự nhiên nhất

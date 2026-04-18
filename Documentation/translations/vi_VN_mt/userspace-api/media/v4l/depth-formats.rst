@@ -16,9 +16,9 @@
 
 .. _depth-formats:
 
-*************
+****************
 Định dạng độ sâu
-*************
+****************
 
 Dữ liệu độ sâu cung cấp khoảng cách đến các điểm, được ánh xạ lên mặt phẳng hình ảnh
 

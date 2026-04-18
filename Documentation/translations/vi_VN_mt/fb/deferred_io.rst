@@ -14,7 +14,7 @@
 
 ============
 IO hoãn lại
-===========
+============
 
 IO trì hoãn là một cách để trì hoãn và tái sử dụng IO. Nó sử dụng bộ nhớ máy chủ như một
 bộ đệm và lỗi trang MMU làm công cụ kích hoạt trước khi thực hiện thiết bị

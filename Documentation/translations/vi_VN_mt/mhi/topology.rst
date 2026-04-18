@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============
+=====================
 Cấu trúc liên kết MHI
-============
+=====================
 
 Tài liệu này cung cấp thông tin về mô hình cấu trúc liên kết MHI và
 biểu diễn trong kernel.

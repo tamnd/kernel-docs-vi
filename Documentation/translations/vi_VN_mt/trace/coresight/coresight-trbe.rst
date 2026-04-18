@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+===================================
 Phần mở rộng bộ đệm dấu vết (TRBE).
-==============================
+===================================
 
 :Tác giả: Anshuman Khandual <anshuman.khandual@arm.com>
     :Ngày: Tháng 11 năm 2020

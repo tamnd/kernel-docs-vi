@@ -14,7 +14,7 @@
 
 ============
 Bí danh IP
-===========
+============
 
 Bí danh IP là một cách lỗi thời để quản lý nhiều địa chỉ/mặt nạ IP
 mỗi giao diện. Các công cụ mới hơn như iproute2 hỗ trợ nhiều

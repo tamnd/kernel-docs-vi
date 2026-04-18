@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================================================
+===========================================================================================
 Kiểm soát liên kết trình điều khiển thiết bị I2C từ không gian người dùng trong hạt nhân cũ
-================================================================
+===========================================================================================
 
 .. NOTE::
    Note: this section is only relevant if you are handling some old code

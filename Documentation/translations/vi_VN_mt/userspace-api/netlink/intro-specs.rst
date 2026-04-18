@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+===========================================
 Sử dụng thông số kỹ thuật giao thức Netlink
-=====================================
+===========================================
 
 Tài liệu này là hướng dẫn bắt đầu nhanh để sử dụng giao thức Netlink
 thông số kỹ thuật. Để biết mô tả chi tiết hơn về thông số kỹ thuật, hãy xem ZZ0000ZZ.

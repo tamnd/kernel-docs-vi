@@ -14,7 +14,7 @@
 
 ======================
 Di dời BPF LLVM
-====================
+======================
 
 Tài liệu này mô tả các loại di dời phụ trợ LLVM BPF.
 
@@ -257,7 +257,7 @@ Phần di dời '.rel.BTF.ext' ở offset 0x548 chứa 2 mục:
 
 ===================
 Di dời CO-RE
-=================
+===================
 
 Từ quan điểm của tệp đối tượng, cơ chế CO-RE được triển khai dưới dạng một tập hợp
 của hồ sơ di dời cụ thể CO-RE. Những hồ sơ di dời này không

@@ -16,7 +16,7 @@
 
 ===========================================================================
 Giao diện, tính năng ngôn ngữ, thuộc tính và quy ước không được dùng nữa
-=====================================================================
+===========================================================================
 
 Trong một thế giới hoàn hảo, có thể chuyển đổi tất cả các phiên bản của
 một số API không được dùng nữa chuyển sang API mới và loại bỏ hoàn toàn API cũ trong

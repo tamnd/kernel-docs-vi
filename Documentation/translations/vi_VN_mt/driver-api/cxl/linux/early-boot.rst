@@ -14,7 +14,7 @@
 
 ==========================
 Linux Init (Khởi động sớm)
-=======================
+==========================
 
 Cấu hình Linux được chia thành hai bước chính: Khởi động sớm và mọi bước khác.
 

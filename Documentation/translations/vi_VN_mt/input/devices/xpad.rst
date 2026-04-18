@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================================================
+====================================================================
 xpad - Trình điều khiển Linux USB cho bộ điều khiển tương thích Xbox
-=======================================================
+====================================================================
 
 Trình điều khiển này hiển thị tất cả các tính năng tương thích với Xbox của bên thứ nhất và bên thứ ba
 bộ điều khiển. Nó có một lịch sử lâu dài và được sử dụng đáng kể

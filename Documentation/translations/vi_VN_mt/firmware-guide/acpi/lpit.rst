@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+==================================
 Bàn nhàn rỗi công suất thấp (LPIT)
-===========================
+==================================
 
 Để liệt kê các trạng thái Không sử dụng năng lượng thấp của nền tảng, các nền tảng Intel đang sử dụng
 “Bàn nhàn rỗi công suất thấp” (LPIT). Thông tin chi tiết về bảng này có thể được

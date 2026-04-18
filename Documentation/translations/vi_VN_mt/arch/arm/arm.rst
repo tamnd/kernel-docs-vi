@@ -14,7 +14,7 @@
 
 ==========================
 ARM Linux 2.6 trở lên
-=======================
+==========================
 
 Vui lòng kiểm tra <ftp://ftp.arm.linux.org.uk/pub/armlinux> để biết
     cập nhật.

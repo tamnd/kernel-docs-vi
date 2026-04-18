@@ -14,7 +14,7 @@
 
 ===============================
 Hệ thống tệp phân tán Ceph
-============================
+===============================
 
 Ceph là một hệ thống tập tin mạng phân tán được thiết kế để cung cấp khả năng
 hiệu suất, độ tin cậy và khả năng mở rộng.

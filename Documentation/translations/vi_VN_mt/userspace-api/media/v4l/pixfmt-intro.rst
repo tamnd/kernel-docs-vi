@@ -14,9 +14,9 @@
 
 .. c:namespace:: V4L
 
-**********************
+*****************************
 Định dạng hình ảnh tiêu chuẩn
-**********************
+*****************************
 
 Để trao đổi hình ảnh giữa trình điều khiển và ứng dụng, cần
 cần thiết phải có các định dạng dữ liệu hình ảnh tiêu chuẩn mà cả hai bên sẽ

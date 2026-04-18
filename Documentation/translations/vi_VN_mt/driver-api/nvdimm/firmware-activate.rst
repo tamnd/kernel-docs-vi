@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+==================================================
 Kích hoạt chương trình cơ sở thời gian chạy NVDIMM
-==================================
+==================================================
 
 Một số thiết bị bộ nhớ liên tục chạy chương trình cơ sở cục bộ trên thiết bị /
 "DIMM" để thực hiện các nhiệm vụ như quản lý phương tiện, cung cấp năng lực,

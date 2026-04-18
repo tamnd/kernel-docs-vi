@@ -16,7 +16,7 @@
 
 ======================
 CPU Hotplug và ACPI
-====================
+======================
 
 Hotplug CPU trong thế giới arm64 thường được sử dụng để mô tả việc lấy kernel
 CPU trực tuyến/ngoại tuyến sử dụng PSCI. Tài liệu này nói về phần mềm ACPI cho phép

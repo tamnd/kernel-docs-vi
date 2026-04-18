@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+==================================
 Falcon (Bộ điều khiển logic nhanh)
-==============================
+==================================
 Các phần sau đây mô tả lõi Falcon và ucode chạy trên nó.
 Các mô tả dựa trên Ampere GPU hoặc các thiết kế trước đó; tuy nhiên, họ
 chủ yếu nên áp dụng cho các thiết kế trong tương lai, nhưng mọi thứ đều phải tuân theo

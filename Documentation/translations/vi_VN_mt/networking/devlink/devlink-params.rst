@@ -14,7 +14,7 @@
 
 ================
 Thông số Devlink
-==============
+================
 
 ZZ0000ZZ cung cấp khả năng cho trình điều khiển hiển thị các thông số thiết bị ở mức thấp
 cấp độ chức năng của thiết bị. Vì devlink có thể hoạt động trên toàn thiết bị

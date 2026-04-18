@@ -14,7 +14,7 @@
 
 ====================================
 Giao diện ảo PPC KVM
-=================================
+====================================
 
 Nguyên tắc thực thi cơ bản mà KVM hoạt động trên PowerPC là chạy tất cả kernel
 mã khoảng trắng trong PR=1 là không gian người dùng. Bằng cách này chúng ta bẫy tất cả những người có đặc quyền

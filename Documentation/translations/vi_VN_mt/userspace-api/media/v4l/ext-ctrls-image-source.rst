@@ -16,9 +16,9 @@
 
 .. _image-source-controls:
 
-*******************************
+***********************************
 Tham chiếu kiểm soát nguồn hình ảnh
-******************************
+***********************************
 
 Lớp điều khiển Nguồn hình ảnh được thiết kế để kiểm soát mức độ thấp của
 các thiết bị nguồn hình ảnh như cảm biến hình ảnh. Các thiết bị có tính năng

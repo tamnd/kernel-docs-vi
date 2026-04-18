@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============
+================
 Máy trộn VIA82xx
-=============
+================
 
 Trên nhiều bo mạch VIA82xx, điều khiển bộ trộn ZZ0000ZZ không hoạt động.
 Đặt nó thành ZZ0001ZZ trên các bảng như vậy sẽ khiến quá trình ghi bị treo hoặc không thành công

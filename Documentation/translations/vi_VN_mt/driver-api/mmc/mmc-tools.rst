@@ -14,7 +14,7 @@
 
 ========================
 Giới thiệu công cụ MMC
-======================
+========================
 
 Có một công cụ kiểm tra MMC được gọi là mmc-utils, được duy trì bởi Ulf Hansson,
 bạn có thể tìm thấy nó ở kho git công khai bên dưới:

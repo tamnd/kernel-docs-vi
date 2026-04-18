@@ -16,7 +16,7 @@
 
 =============================
 Lớp lập lịch mở rộng
-==========================
+=============================
 
 sched_ext là lớp lập lịch có hành vi có thể được xác định bởi một tập hợp BPF
 các chương trình - bộ lập lịch BPF.

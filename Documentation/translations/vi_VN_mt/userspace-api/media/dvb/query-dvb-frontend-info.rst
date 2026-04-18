@@ -14,9 +14,9 @@
 
 .. _query-dvb-frontend-info:
 
-*****************************
+***************************************
 Truy vấn thông tin giao diện người dùng
-*****************************
+***************************************
 
 Thông thường, việc đầu tiên cần làm khi mở giao diện người dùng là kiểm tra
 khả năng của giao diện người dùng. Việc này được thực hiện bằng cách sử dụng

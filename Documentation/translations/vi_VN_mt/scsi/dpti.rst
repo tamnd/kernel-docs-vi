@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+=============================
 Trình điều khiển Adaptec dpti
-===================
+=============================
 
 Việc phân phối lại và sử dụng ở dạng nguồn, có hoặc không có sửa đổi, là
 được phép với điều kiện là việc phân phối lại mã nguồn phải giữ nguyên

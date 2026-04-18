@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+=================
 Kiểm tra tiện ích
-==============
+=================
 
 Tệp này tóm tắt thông tin về kiểm tra cơ bản các chức năng USB
 được cung cấp bởi các tiện ích.

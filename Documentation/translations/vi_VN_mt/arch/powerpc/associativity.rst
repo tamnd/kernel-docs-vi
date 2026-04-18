@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+================================
 Khả năng kết hợp tài nguyên NUMA
-============================
+================================
 
 Tính kết hợp đại diện cho việc nhóm các tài nguyên nền tảng khác nhau thành
 các lĩnh vực có hiệu suất trung bình tương tự nhau so với các nguồn lực bên ngoài

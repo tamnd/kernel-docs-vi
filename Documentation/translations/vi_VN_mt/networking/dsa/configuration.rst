@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================
+================================================
 Cấu hình chuyển đổi DSA từ không gian người dùng
-=======================================
+================================================
 
 Cấu hình switch DSA không được tích hợp vào không gian người dùng chính
 bộ cấu hình mạng bây giờ và phải được thực hiện thủ công.

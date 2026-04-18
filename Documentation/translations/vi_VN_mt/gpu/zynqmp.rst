@@ -14,7 +14,7 @@
 
 ====================================================
 Hệ thống con Xilinx ZynqMP Ultrascale+ DisplayPort
-===============================================
+====================================================
 
 Hệ thống con này xử lý đầu ra âm thanh và video DisplayPort trên ZynqMP. Nó
 hỗ trợ bộ đệm khung trong bộ nhớ với bộ điều khiển DisplayPort DMA

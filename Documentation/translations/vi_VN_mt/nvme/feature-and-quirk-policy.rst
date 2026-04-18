@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+======================================================
 Tính năng và chính sách khắc phục sự cố của Linux NVMe
-===================================
+======================================================
 
 Tệp này giải thích chính sách được sử dụng để quyết định những gì được hỗ trợ bởi
 Trình điều khiển Linux NVMe và những gì không.

@@ -14,7 +14,7 @@
 
 ==========================================
 ABI nội bộ giữa kernel và HYP
-=======================================
+==========================================
 
 Tệp này ghi lại sự tương tác giữa nhân Linux và
 lớp ảo hóa khi chạy Linux với tư cách là một trình ảo hóa (ví dụ:

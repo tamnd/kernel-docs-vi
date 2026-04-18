@@ -14,7 +14,7 @@
 
 =======================
 Khởi động AArch64 Linux
-=====================
+=======================
 
 Tác giả: Will Deacon <will.deacon@arm.com>
 

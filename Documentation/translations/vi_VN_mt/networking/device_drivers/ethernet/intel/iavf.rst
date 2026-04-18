@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================================================================
+=========================================================================
 Trình điều khiển cơ sở Linux cho chức năng ảo thích ứng Ethernet Intel(R)
-=================================================================
+=========================================================================
 
 Trình điều khiển Linux chức năng ảo thích ứng Intel Ethernet.
 Bản quyền(c) 2013-2018 Tập đoàn Intel.

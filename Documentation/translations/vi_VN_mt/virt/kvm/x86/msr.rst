@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================
+======================
 MSR dành riêng cho KVM
-=================
+======================
 
 :Tác giả: Glauber Costa <glommer@redhat.com>, Red Hat Inc, 2010
 

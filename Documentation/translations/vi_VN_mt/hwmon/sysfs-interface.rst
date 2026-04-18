@@ -106,9 +106,9 @@ trình điều khiển nhất định nếu chip có tính năng này.
 Xem Documentation/ABI/testing/sysfs-class-hwmon để biết mô tả đầy đủ
 của các thuộc tính.
 
-*****************
+*******************
 Thuộc tính toàn cầu
-*****************
+*******************
 
 ZZ0000ZZ
 		Tên chip.
@@ -176,9 +176,9 @@ ZZ0000ZZ
 Đồng thời xem phần Cảnh báo để biết các cờ trạng thái liên quan đến điện áp.
 
 
-****
+************
 người hâm mộ
-****
+************
 
 ZZ0000ZZ
 		Giá trị tối thiểu của quạt
@@ -245,7 +245,7 @@ value (tốc độ quạt nhanh nhất) sẽ thắng.
 
 *************
 Nhiệt độ
-************
+*************
 
 ZZ0000ZZ
 		Lựa chọn loại cảm biến.
@@ -326,9 +326,9 @@ kênh của người lái xe.
 Đồng thời xem phần Cảnh báo để biết các cờ trạng thái liên quan đến nhiệt độ.
 
 
-********
+*********
 Dòng điện
-********
+*********
 
 ZZ0000ZZ
 		Giá trị tối đa hiện tại.
@@ -373,9 +373,9 @@ ZZ0000ZZ
 
 Đồng thời xem phần Cảnh báo để biết các cờ trạng thái liên quan đến dòng điện.
 
-*****
+*********
 Quyền lực
-*****
+*********
 
 ZZ0000ZZ
 		Sử dụng điện năng trung bình.
@@ -474,9 +474,9 @@ RO
 
 Đồng thời xem phần Cảnh báo để biết các cờ trạng thái liên quan đến chỉ số nguồn.
 
-******
+**********
 Năng lượng
-******
+**********
 
 ZZ0000ZZ
 				Sử dụng năng lượng tích lũy
@@ -512,9 +512,9 @@ ZZ0000ZZ
 ZZ0000ZZ
 		Độ ẩm định mức tối đa.
 
-*******
+********
 Báo thức
-******
+********
 
 Mỗi kênh hoặc giới hạn có thể có một tệp cảnh báo liên quan, chứa một
 giá trị boolean. 1 nghĩa là tồn tại tình trạng cảnh báo, 0 nghĩa là không có cảnh báo.

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+===================================
 Tài liệu trình điều khiển máy khách
-===========================
+===================================
 
 Đây là tài liệu dành cho chính các trình điều khiển của khách hàng. tham khảo
 Documentation/driver-api/surface_aggregator/client.rst để biết tài liệu

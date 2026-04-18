@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==============================
 membarrier() Cuộc gọi hệ thống
-========================
+==============================
 
 MEMBARRIER_CMD_{PRIVATE,GLOBAL}_EXPEDITED - Yêu cầu về kiến ​​trúc
 =====================================================================

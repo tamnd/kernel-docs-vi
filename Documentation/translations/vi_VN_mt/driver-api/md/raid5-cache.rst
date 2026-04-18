@@ -14,7 +14,7 @@
 
 ==================
 Bộ đệm RAID 4/5/6
-================
+==================
 
 Raid 4/5/6 có thể bao gồm một đĩa bổ sung để lưu trữ dữ liệu bên cạnh RAID thông thường
 đĩa. Vai trò của đĩa RAID không thay đổi với đĩa đệm. Đĩa đệm

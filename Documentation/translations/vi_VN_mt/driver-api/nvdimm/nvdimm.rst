@@ -14,7 +14,7 @@
 
 ==================================
 LIBNVDIMM: Thiết bị không bay hơi
-===============================
+==================================
 
 libnvdimm - kernel/libndctl - thư viện trợ giúp không gian người dùng
 

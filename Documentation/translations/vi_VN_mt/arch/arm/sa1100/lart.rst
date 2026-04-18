@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+================================================
 Thiết bị đầu cuối vô tuyến nâng cao Linux (LART)
-====================================
+================================================
 
 LART là bo mạch SA-1100 nhỏ (7,5 x 10 cm), được thiết kế để nhúng
 ứng dụng. Nó có 32 MB DRAM, 4 MB Flash ROM, gấp đôi RS232 và tất cả

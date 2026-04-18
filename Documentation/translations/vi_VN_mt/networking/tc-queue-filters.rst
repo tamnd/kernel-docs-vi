@@ -14,7 +14,7 @@
 
 ===========================
 Lọc dựa trên hàng đợi TC
-=========================
+===========================
 
 TC có thể được sử dụng để định hướng lưu lượng đến một tập hợp các hàng đợi hoặc
 vào một hàng đợi duy nhất ở cả phía phát và phía nhận.

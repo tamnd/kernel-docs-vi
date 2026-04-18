@@ -14,7 +14,7 @@
 
 ======================================
 Tài liệu cho /proc/sys/kernel/
-===================================
+======================================
 
 .. See scripts/check-sysctl-docs to keep this up to date
 

@@ -16,7 +16,7 @@
 
 =================
 Hỗ trợ cổng C2
-===============
+=================
 
 (C) Bản quyền 2007 Rodolfo Giometti <giometti@enneenne.com>
 

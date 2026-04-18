@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=======================================
 Nhiều thiết bị trên mỗi cầu nối máy chủ
-================================
+=======================================
 
 Trong hệ thống ví dụ này, chúng ta sẽ có một ổ cắm duy nhất và một cầu nối máy chủ CXL.
 Có hai bộ mở rộng bộ nhớ CXL với 4GB được gắn vào cầu nối máy chủ.

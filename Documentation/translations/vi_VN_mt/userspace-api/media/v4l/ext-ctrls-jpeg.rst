@@ -16,9 +16,9 @@
 
 .. _jpeg-controls:
 
-**********************
+*************************
 Tham khảo điều khiển JPEG
-**********************
+*************************
 
 Lớp JPEG bao gồm các điều khiển cho các tính năng phổ biến của bộ mã hóa JPEG
 và bộ giải mã. Hiện tại nó bao gồm các tính năng để triển khai codec

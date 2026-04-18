@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================
+===========================================
 efivarfs - một hệ thống tập tin biến (U)EFI
-=======================================
+===========================================
 
 Hệ thống tập tin efivarfs được tạo ra để giải quyết những thiếu sót của
 sử dụng các mục trong sysfs để duy trì các biến EFI. Hệ thống cũ EFI

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+========================================
 Giai đoạn phân tích cú pháp hạt nhân-doc
-=======================
+========================================
 
 Quy tắc thay thế C được trình phân tích cú pháp sử dụng
 ======================================

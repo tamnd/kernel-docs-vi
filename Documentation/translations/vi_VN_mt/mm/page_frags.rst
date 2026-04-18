@@ -14,7 +14,7 @@
 
 ================
 mảnh trang
-==============
+================
 
 Một đoạn trang là một vùng bộ nhớ có độ dài tùy ý
 nằm trong một trang phức hợp bậc 0 hoặc cao hơn.  Nhiều

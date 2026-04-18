@@ -14,7 +14,7 @@
 
 ===========
 VBIOS
-==========
+===========
 Tài liệu này mô tả bố cục của hình ảnh VBIOS là một chuỗi các hình ảnh được ghép nối
 hình ảnh trong ROM của GPU. VBIOS được phản chiếu vào không gian BAR 0 và được đọc
 bởi cả firmware Boot ROM (còn được gọi là IFR hoặc firmware init-from-rom) trên GPU để

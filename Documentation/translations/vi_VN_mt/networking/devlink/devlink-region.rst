@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+===============================
 Khu vực liên kết nhà phát triển
-==============
+===============================
 
 Các vùng ZZ0000ZZ cho phép truy cập vào các vùng địa chỉ do trình điều khiển xác định bằng cách sử dụng
 devlink.

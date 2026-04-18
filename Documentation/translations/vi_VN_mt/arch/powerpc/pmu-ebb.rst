@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==============================
 Các nhánh dựa trên sự kiện PMU
-========================
+==============================
 
 Nhánh dựa trên sự kiện (EBB) là một tính năng cho phép phần cứng
 phân nhánh trực tiếp đến một địa chỉ không gian người dùng được chỉ định khi một số sự kiện nhất định xảy ra.

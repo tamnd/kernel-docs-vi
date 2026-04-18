@@ -14,7 +14,7 @@
 
 ===================
 Máy khách hạt nhân
-=================
+===================
 
 .. kernel-doc:: drivers/gpu/drm/drm_client.c
    :doc: overview

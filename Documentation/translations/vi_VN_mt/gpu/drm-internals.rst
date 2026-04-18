@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============
+=====================
 Bộ phận bên trong DRM
-=============
+=====================
 
 Chương này ghi lại nội bộ DRM có liên quan đến tác giả trình điều khiển và
 các nhà phát triển đang làm việc để thêm hỗ trợ cho các tính năng mới nhất cho các tính năng hiện có

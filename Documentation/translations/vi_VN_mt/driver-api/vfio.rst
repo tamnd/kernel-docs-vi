@@ -14,7 +14,7 @@
 
 =====================================
 VFIO - "I/O chức năng ảo" [1]_
-==================================
+=====================================
 
 Nhiều hệ thống hiện đại hiện cung cấp DMA và làm gián đoạn cơ sở ánh xạ lại
 để giúp đảm bảo các thiết bị I/O hoạt động trong giới hạn mà chúng đã đặt ra

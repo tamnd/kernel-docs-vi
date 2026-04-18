@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+============================================
 Lệnh gọi lại dành riêng cho trình điều khiển
-=========================
+============================================
 
 Mô-đun ZZ0000ZZ dựa vào trình điều khiển thiết bị để triển khai thiết bị
 hành vi cụ thể bằng cách sử dụng các hoạt động sau đây.

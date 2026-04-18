@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========
+============
 Thiết bị DAX
-==========
+============
 
 Giao diện device-dax sử dụng kỹ thuật chống trùng lặp đuôi được giải thích trong
 Tài liệu/mm/vmemmap_dedup.rst

@@ -14,7 +14,7 @@
 
 ==========================
 Cải tạo dựa trên DAMON
-=======================
+==========================
 
 Reclaimation dựa trên DAMON (DAMON_RECLAIM) là một mô-đun hạt nhân tĩnh nhằm mục đích
 được sử dụng để thu hồi chủ động và nhẹ nhàng dưới áp lực bộ nhớ nhẹ.

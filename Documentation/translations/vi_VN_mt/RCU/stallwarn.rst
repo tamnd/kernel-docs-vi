@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+====================================
 Sử dụng Máy dò gian hàng CPU của RCU
-==============================
+====================================
 
 Tài liệu này lần đầu tiên thảo luận về các loại vấn đề RCU của gian hàng CPU
 trình phát hiện có thể xác định vị trí và sau đó thảo luận về các tham số kernel và Kconfig

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+======================
 Hệ thống con hạn ngạch
-===============
+======================
 
 Hệ thống con hạn ngạch cho phép quản trị viên hệ thống đặt giới hạn về không gian đã sử dụng và
 số lượng inode được sử dụng (inode là cấu trúc hệ thống tập tin được liên kết với

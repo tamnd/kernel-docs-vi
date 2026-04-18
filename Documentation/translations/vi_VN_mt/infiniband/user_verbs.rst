@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+======================================
 Truy cập động từ không gian người dùng
-======================
+======================================
 
 Mô-đun ib_uverbs, được xây dựng bằng cách bật CONFIG_INFINIBAND_USER_VERBS,
   cho phép truy cập trực tiếp không gian người dùng vào phần cứng IB thông qua "động từ", như

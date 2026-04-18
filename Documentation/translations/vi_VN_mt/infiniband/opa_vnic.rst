@@ -14,7 +14,7 @@
 
 =======================================================================
 Bộ điều khiển giao diện mạng ảo Intel Omni-Path (OPA) (VNIC)
-=================================================================
+=======================================================================
 
 Tính năng Bộ điều khiển giao diện mạng ảo Intel Omni-Path (OPA) (VNIC)
 hỗ trợ chức năng Ethernet trên kết cấu Omni-Path bằng cách đóng gói

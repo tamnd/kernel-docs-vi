@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+=====================================================
 Trình điều khiển cho chức năng kiểm tra điểm cuối PCI
-=====================================
+=====================================================
 
 Trình điều khiển này nên được sử dụng làm trình điều khiển phía máy chủ nếu phức hợp gốc
 được kết nối với điểm cuối PCI có thể định cấu hình đang chạy chức năng ZZ0000ZZ

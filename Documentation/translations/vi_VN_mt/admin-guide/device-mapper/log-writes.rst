@@ -14,7 +14,7 @@
 
 ==============
 dm-log-ghi
-=============
+==============
 
 Mục tiêu này cần 2 thiết bị, một thiết bị chuyển tất cả IO sang bình thường và một thiết bị ghi nhật ký tất cả
 của các hoạt động ghi vào.  Điều này dành cho các nhà phát triển hệ thống tập tin mong muốn

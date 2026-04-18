@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=====================================
 Mux I2C và cấu trúc liên kết phức tạp
-================================
+=====================================
 
 Có một số lý do để xây dựng cấu trúc liên kết I2C phức tạp hơn
 hơn bus I2C đơn giản với một bộ chuyển đổi và một hoặc nhiều thiết bị.

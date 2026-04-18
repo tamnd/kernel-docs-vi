@@ -18,7 +18,7 @@
 
 ****************************
 Mã định dạng dành riêng
-***************************
+****************************
 
 Các định dạng này không được xác định bởi đặc tả này, chúng chỉ
 được liệt kê để tham khảo và tránh xung đột đặt tên. Nếu bạn muốn

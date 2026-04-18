@@ -14,7 +14,7 @@
 
 ==================
 ARM SoC Marvell
-================
+==================
 
 Tài liệu này liệt kê tất cả các SoC ARM Marvell hiện đang được sử dụng
 được hỗ trợ trong dòng chính bởi nhân Linux. Là gia đình Marvell của

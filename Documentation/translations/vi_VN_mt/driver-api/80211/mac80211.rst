@@ -14,7 +14,7 @@
 
 ==============================
 hệ thống con mac80211 (cơ bản)
-===========================
+==============================
 
 Bạn nên đọc và hiểu thông tin trong tài liệu này
 một phần của cuốn sách khi triển khai trình điều khiển mac80211. Ở một số chương,

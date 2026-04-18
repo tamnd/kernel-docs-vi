@@ -14,7 +14,7 @@
 
 ===========================
 Đăng ký xử lý bảng
-=========================
+===========================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_rtp.c
    :doc: Register Table Processing

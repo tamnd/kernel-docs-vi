@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+==================================================================
 Các siêu cuộc gọi dành riêng cho KVM/arm64 được tiếp xúc với khách
-===============================================
+==================================================================
 
 Tệp này ghi lại các siêu lệnh dành riêng cho KVM/arm64 có thể
 KVM/arm64 tiếp xúc với các hệ điều hành khách. Những siêu cuộc gọi này là

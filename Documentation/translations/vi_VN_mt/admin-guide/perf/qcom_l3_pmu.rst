@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================================================================
+====================================================================================
 Thiết bị giám sát hiệu suất bộ nhớ đệm L3 của Qualcomm Datacenter Technologies (PMU)
-===========================================================================
+====================================================================================
 
 Trình điều khiển này hỗ trợ PMU bộ đệm L3 có trong Công nghệ trung tâm dữ liệu Qualcomm
 Centriq SoC. Bộ đệm L3 trên các SOC này bao gồm nhiều lát, được chia sẻ

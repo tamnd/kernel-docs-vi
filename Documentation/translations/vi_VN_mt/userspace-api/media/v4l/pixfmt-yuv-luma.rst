@@ -16,9 +16,9 @@
 
 .. _yuv-luma-only:
 
-*****************
+*********************
 Định dạng chỉ có Luma
-*****************
+*********************
 
 Họ định dạng này chỉ lưu trữ thành phần luma của hình ảnh Y'CbCr. Họ
 thường được gọi là định dạng thang độ xám.

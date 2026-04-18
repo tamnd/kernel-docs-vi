@@ -16,9 +16,9 @@
 
 .. _fm-tx-controls:
 
-*******************************
+*****************************************
 Tài liệu tham khảo điều khiển máy phát FM
-********************************
+*****************************************
 
 Lớp Máy phát FM (FM_TX) bao gồm các điều khiển cho các tính năng phổ biến
 của các thiết bị có khả năng truyền sóng FM. Hiện tại lớp này bao gồm

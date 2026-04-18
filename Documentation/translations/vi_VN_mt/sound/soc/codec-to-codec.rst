@@ -14,7 +14,7 @@
 
 ==================================================
 Tạo codec sang codec dai link cho ALSA dapm
-==============================================
+==================================================
 
 Hầu hết luồng âm thanh luôn từ CPU đến codec để hệ thống của bạn
 sẽ trông như dưới đây:

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+=============================================
 GPIO Không gian người dùng thiết bị ký tự API
-===================================
+=============================================
 
 Đây là phiên bản mới nhất (v2) của thiết bị ký tự API, như được định nghĩa trong
 ZZ0000ZZ

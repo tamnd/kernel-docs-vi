@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+===========================================
 Người bảo trì tính năng và trình điều khiển
-==============================
+===========================================
 
 Thuật ngữ "người duy trì" bao gồm rất nhiều cấp độ tham gia
 từ những người xử lý các bản vá và yêu cầu kéo gần như là một công việc toàn thời gian

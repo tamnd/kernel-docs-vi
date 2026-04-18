@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==============================
 Xe buýt MDIO và PHY trong ACPI
-=========================
+==============================
 
 Các PHY trên bus MDIO [phy] được thăm dò và đăng ký bằng cách sử dụng
 fwnode_mdiobus_register_phy().

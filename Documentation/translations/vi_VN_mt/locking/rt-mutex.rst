@@ -14,7 +14,7 @@
 
 =====================================
 Hệ thống con RT-mutex có hỗ trợ PI
-==================================
+=====================================
 
 RT-mutexes có tính kế thừa ưu tiên được sử dụng để hỗ trợ PI-futexes,
 cho phép các thuộc tính kế thừa ưu tiên pthread_mutex_t

@@ -14,9 +14,9 @@
 
 .. _v4l2-isp:
 
-*************************
+****************************
 Các định dạng V4L2 ISP chung
-************************
+****************************
 
 Các định dạng ISP chung là các định dạng siêu dữ liệu xác định cơ chế để vượt qua ISP
 các tham số và thống kê giữa không gian người dùng và trình điều khiển trong bộ đệm V4L2. Họ

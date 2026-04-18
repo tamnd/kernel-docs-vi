@@ -14,7 +14,7 @@
 
 =======================
 Kích hoạt tức thời LED
-=====================
+=======================
 
 Hiện tại trigger hẹn giờ led chưa có giao diện để kích hoạt
 một bộ đếm thời gian một lần bắn. Hỗ trợ hiện tại cho phép cài đặt hai bộ hẹn giờ, một cho

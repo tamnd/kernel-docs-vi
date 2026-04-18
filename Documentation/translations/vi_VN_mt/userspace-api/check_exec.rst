@@ -14,9 +14,9 @@
 
 .. Copyright © 2024 Microsoft Corporation
 
-=====================
+==========================
 Kiểm tra khả năng thực thi
-===================
+==========================
 
 Cờ ZZ0001ZZ ZZ0000ZZ và
 Các bit bảo mật ZZ0002ZZ và ZZ0003ZZ

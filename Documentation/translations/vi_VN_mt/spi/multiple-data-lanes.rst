@@ -14,7 +14,7 @@
 
 ========================================
 Thiết bị SPI có nhiều làn dữ liệu
-====================================
+========================================
 
 Một số bộ điều khiển và thiết bị ngoại vi SPI chuyên dụng hỗ trợ nhiều làn dữ liệu
 cho phép đọc nhiều từ cùng một lúc. Điều này khác
@@ -24,9 +24,9 @@ từ SPI kép/bốn/bát phân trong đó nhiều bit của một từ được 
 Ví dụ: bộ điều khiển hỗ trợ bộ nhớ flash song song có tính năng này
 cũng như một số ADC lấy mẫu đồng thời trong đó mỗi kênh có làn dữ liệu riêng.
 
----------------------
+-----------------------
 Mô tả hệ thống dây điện
----------------------
+-----------------------
 
 Thuộc tính ZZ0000ZZ và ZZ0001ZZ trong cây thiết bị
 được sử dụng để mô tả có bao nhiêu làn dữ liệu được kết nối giữa bộ điều khiển
@@ -130,9 +130,9 @@ Các giá trị mặc định của ZZ0000ZZ và ZZ0001ZZ là ZZ0002ZZ,
 vì vậy các thuộc tính này vẫn có thể bị bỏ qua ngay cả khi ZZ0003ZZ và
 ZZ0004ZZ được sử dụng.
 
-----------------------------
+---------------------------------------
 Sử dụng trong trình điều khiển ngoại vi
-----------------------------
+---------------------------------------
 
 Các loại bộ điều khiển SPI này thường không hỗ trợ việc sử dụng tùy ý
 nhiều làn đường. Thay vào đó, chúng hoạt động ở một trong số ít chế độ được xác định. Ngoại vi
@@ -215,9 +215,9 @@ Sau khi chuyển, ZZ0000ZZ (từ từ SDO 0) và
     ZZ0001ZZ (từ từ SDO 1).
 
 
------------------------------
+-----------------------------------------
 Hỗ trợ trình điều khiển bộ điều khiển SPI
------------------------------
+-----------------------------------------
 
 Để hỗ trợ nhiều làn dữ liệu, trình điều khiển bộ điều khiển SPI cần thiết lập
 ZZ0000ZZ thành một giá trị

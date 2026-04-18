@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================================
+=================================================
 Bộ trộn trực tiếp Sound Blaster / mã DSP mặc định
-===========================================
+=================================================
 
 
 Các chip EMU10K1 có bộ phận DSP có thể được lập trình để hỗ trợ

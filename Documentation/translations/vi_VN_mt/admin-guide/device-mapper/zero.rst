@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======
+========
 dm-không
-=======
+========
 
 Mục tiêu "không" của Device-Mapper cung cấp một thiết bị khối luôn trả về
 dữ liệu bằng không khi đọc và âm thầm bỏ ghi. Đây là hành vi tương tự như

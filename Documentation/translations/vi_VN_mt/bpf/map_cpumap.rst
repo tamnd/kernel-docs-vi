@@ -16,7 +16,7 @@
 
 =====================
 BPF_MAP_TYPE_CPUMAP
-===================
+=====================
 
 .. note::
    - ``BPF_MAP_TYPE_CPUMAP`` was introduced in kernel version 4.15

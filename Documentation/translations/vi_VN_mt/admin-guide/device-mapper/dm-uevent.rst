@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+=======================
 sự kiện ánh xạ thiết bị
-====================
+=======================
 
 Mã sự kiện của trình ánh xạ thiết bị bổ sung khả năng cho trình ánh xạ thiết bị để tạo
 và gửi các sự kiện kobject (uevent).  Các sự kiện ánh xạ thiết bị trước đây chỉ

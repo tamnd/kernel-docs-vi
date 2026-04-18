@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-=============================
+============================================
 Hướng dẫn cài đặt trình điều khiển MSI HOWTO
-==========================
+============================================
 
 :Tác giả: Tom L Nguyễn; Martine Silbermann; Matthew Wilcox
 

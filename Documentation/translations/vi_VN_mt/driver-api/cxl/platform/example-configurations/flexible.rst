@@ -14,7 +14,7 @@
 
 =======================
 Trình bày linh hoạt
-=====================
+=======================
 Hệ thống này có một ổ cắm duy nhất với hai cầu nối máy chủ CXL. Mỗi cầu chủ
 có hai bộ mở rộng bộ nhớ CXL với bộ nhớ 4GB (tổng cộng 32 GB).
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================
+==============================================
 Terse nơi nhận thông tin trợ giúp về ZIP Drive
-======================================
+==============================================
 
 Trang tổng hợp ổ đĩa Iomega ZIP cho Linux:
 ZZ0000ZZ

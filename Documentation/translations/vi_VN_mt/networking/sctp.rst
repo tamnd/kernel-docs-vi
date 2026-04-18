@@ -14,7 +14,7 @@
 
 ===================
 Hạt nhân Linux SCTP
-=================
+===================
 
 Đây là bản phát hành BETA hiện tại của hạt nhân Linux SCTP tham khảo
 thực hiện.

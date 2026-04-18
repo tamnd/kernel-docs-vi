@@ -14,7 +14,7 @@
 
 =============
 Paravirt_ops
-============
+=============
 
 Linux cung cấp hỗ trợ cho các công nghệ ảo hóa ảo hóa khác nhau.
 Về mặt lịch sử, các hạt nhân nhị phân khác nhau sẽ được yêu cầu để hỗ trợ

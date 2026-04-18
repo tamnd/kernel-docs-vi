@@ -14,7 +14,7 @@
 
 ===========================
 Kiểm tra RCU và lockdep
-========================
+===========================
 
 Tất cả các phiên bản của RCU đều có tính năng kiểm tra lockdep, vì vậy lockdep là
 nhận thức được thời điểm mỗi tác vụ được thực hiện và để lại bất kỳ hương vị nào của phần đọc RCU

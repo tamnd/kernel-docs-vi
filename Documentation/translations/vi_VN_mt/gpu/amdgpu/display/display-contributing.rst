@@ -16,7 +16,7 @@
 
 =================================
 AMDGPU - Đóng góp hiển thị
-==============================
+=================================
 
 Trước hết, nếu bạn ở đây, có lẽ bạn muốn đưa ra một số thông tin kỹ thuật
 đóng góp cho mã hiển thị và vì điều đó, chúng tôi xin gửi lời cảm ơn :)

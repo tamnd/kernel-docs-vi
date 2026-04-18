@@ -14,7 +14,7 @@
 
 ============
 Thuật ngữ DC
-===========
+============
 
 Trên trang này, chúng tôi cố gắng theo dõi các từ viết tắt liên quan đến màn hình
 thành phần. Nếu bạn không tìm thấy những gì bạn đang tìm kiếm, hãy nhìn vào

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===================
+=========================
 Không gian tên biểu tượng
-=================
+=========================
 
 Tài liệu sau đây mô tả cách sử dụng Không gian tên Biểu tượng để cấu trúc
 bề mặt xuất của các ký hiệu trong kernel được xuất thông qua họ biểu tượng

@@ -14,7 +14,7 @@
 
 ===================
 Quản lý bộ nhớ
-=================
+===================
 
 Hệ thống con quản lý bộ nhớ Linux chịu trách nhiệm, như tên gọi của nó,
 để quản lý bộ nhớ trong hệ thống. Điều này bao gồm việc thực hiện

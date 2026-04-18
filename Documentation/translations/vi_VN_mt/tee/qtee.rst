@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================================
+====================================================
 QTEE (Môi trường thực thi đáng tin cậy của Qualcomm)
-=============================================
+====================================================
 
 Trình điều khiển QTEE xử lý giao tiếp với Qualcomm TEE [1].
 

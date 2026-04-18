@@ -14,7 +14,7 @@
 
 =====================
 Hướng dẫn kế thừa
-===================
+=====================
 
 Cổng arm64 của nhân Linux cung cấp cơ sở hạ tầng để hỗ trợ
 mô phỏng các hướng dẫn đã không còn được dùng nữa hoặc đã lỗi thời trong

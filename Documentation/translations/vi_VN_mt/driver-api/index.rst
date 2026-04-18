@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+======================================
 Hướng dẫn cài đặt trình điều khiển API
-==============================
+======================================
 
 Kernel cung cấp nhiều giao diện khác nhau để hỗ trợ sự phát triển
 của trình điều khiển thiết bị.  Tài liệu này là một bộ sưu tập duy nhất có tổ chức

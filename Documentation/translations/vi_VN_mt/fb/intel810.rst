@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+===========================================
 Trình điều khiển bộ đệm khung Intel 810/815
-================================
+===========================================
 
 Tony Daplas <adaplas@pol.net>
 

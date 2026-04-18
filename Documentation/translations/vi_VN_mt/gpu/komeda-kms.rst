@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+==============================================
  trình điều khiển hiển thị cánh tay drm/komeda
-==============================
+==============================================
 
 Trình điều khiển drm/komeda hỗ trợ bộ xử lý màn hình Arm D71 và các sản phẩm mới hơn,
 tài liệu này cung cấp một cái nhìn tổng quan ngắn gọn về thiết kế trình điều khiển: nó hoạt động như thế nào và tại sao

@@ -14,7 +14,7 @@
 
 =================================
 Bí mật bí mật máy tính
-==============================
+=================================
 
 Tài liệu này mô tả cách xử lý việc đưa bí mật Máy tính Bí mật vào
 từ phần sụn đến hệ điều hành, trong trình điều khiển EFI và efi_secret

@@ -14,7 +14,7 @@
 
 ===================
 Gỡ lỗi lập lịch
-=================
+===================
 
 Khởi động kernel có bật debugfs sẽ cấp quyền truy cập vào
 các tệp gỡ lỗi cụ thể của bộ lập lịch trong /sys/kernel/debug/sched. Một số

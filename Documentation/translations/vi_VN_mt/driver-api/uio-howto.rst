@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+===============================
 Không gian người dùng I/O HOWTO
-=======================
+===============================
 
 :Tác giả: Nhà phát triển Hans-Jürgen Koch Linux, Linutronix
 :Ngày: 11-12-2006

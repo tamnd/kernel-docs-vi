@@ -14,7 +14,7 @@
 
 ====================
 Xe thiết bị Coredump
-==================
+====================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_devcoredump.c
    :doc: Xe device coredump

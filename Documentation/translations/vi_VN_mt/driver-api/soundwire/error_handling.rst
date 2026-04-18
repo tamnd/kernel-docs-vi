@@ -14,7 +14,7 @@
 
 ===========================
 Xử lý lỗi SoundWire
-========================
+===========================
 
 SoundWire PHY được thiết kế cẩn thận và các lỗi trên xe buýt sẽ xảy ra
 rất khó xảy ra và nếu chúng xảy ra thì nên giới hạn ở một bit

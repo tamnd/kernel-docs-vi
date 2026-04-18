@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+==============================
 Hệ thống tập tin BFS cho Linux
-========================
+==============================
 
 Hệ thống tập tin BFS được hệ điều hành UnixWare SCO sử dụng cho lát /stand,
 thường chứa hình ảnh hạt nhân và một vài tập tin khác cần thiết cho

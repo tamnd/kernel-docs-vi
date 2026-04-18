@@ -14,8 +14,8 @@
 
 .. _ca_data_types:
 
-*************
+*******************
 Các kiểu dữ liệu CA
-*************
+*******************
 
 .. kernel-doc:: include/uapi/linux/dvb/ca.h

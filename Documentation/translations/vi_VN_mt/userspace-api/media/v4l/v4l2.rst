@@ -17,9 +17,9 @@
 
 .. _v4l2spec:
 
-##############################
+#################################
 Part I - Video dành cho Linux API
-############################
+#################################
 
 Phần này mô tả thông số kỹ thuật Video dành cho Linux API phiên bản 2 (V4L2 API).
 

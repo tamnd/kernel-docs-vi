@@ -16,7 +16,7 @@
 
 =====================
 Giao diện người dùng
-===================
+=====================
 
 Nói chung, lõi DRM xuất một số giao diện cho các ứng dụng
 dự định sẽ được sử dụng thông qua các hàm bao bọc libdrm tương ứng. trong

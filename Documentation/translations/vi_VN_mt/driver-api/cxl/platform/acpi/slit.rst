@@ -14,7 +14,7 @@
 
 ============================================
 SLIT - Bảng thông tin địa phương hệ thống
-========================================
+============================================
 
 Bảng thông tin vị trí hệ thống cung cấp “khoảng cách trừu tượng” giữa
 các nút truy cập và bộ nhớ.  Nút không có bộ khởi tạo (cpus) là vô hạn (FF)

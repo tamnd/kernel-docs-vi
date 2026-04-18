@@ -154,9 +154,9 @@ Additional reading material
 * `Using Git bisect to figure out when brokenness was introduced <http://webchick.net/node/99>`_.
 * `Fully automated bisecting with 'git bisect run' <https://lwn.net/Articles/317154>`_.
 
-..
+.................
    end-of-content
-..
+.................
    This document is maintained by Thorsten Leemhuis <linux@leemhuis.info>. If
    you spot a typo or small mistake, feel free to let him know directly and
    he'll fix it. You are free to do the same in a mostly informal way if you

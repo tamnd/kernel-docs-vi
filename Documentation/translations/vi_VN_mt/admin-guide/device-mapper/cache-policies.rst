@@ -14,7 +14,7 @@
 
 ================================
 Hướng dẫn viết chính sách
-=============================
+================================
 
 Cố gắng giữ giao dịch ra khỏi nó.  Cốt lõi là cẩn thận để
 tránh hỏi về bất cứ điều gì đang di chuyển.  Đây là một nỗi đau, nhưng

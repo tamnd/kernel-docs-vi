@@ -14,7 +14,7 @@
 
 ==============================================
 Khóa được mã hóa cho hệ thống tệp eCryptfs
-==========================================
+==============================================
 
 ECryptfs là một hệ thống tập tin xếp chồng lên nhau, mã hóa và giải mã một cách minh bạch từng tập tin.
 tệp bằng Khóa mã hóa tệp được tạo ngẫu nhiên (FEK).

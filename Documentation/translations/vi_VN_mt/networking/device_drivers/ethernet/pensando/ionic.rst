@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================================================
+================================================================
 Trình điều khiển Linux cho dòng bộ điều hợp Ethernet Pensando(R)
-========================================================
+================================================================
 
 Trình điều khiển Ethernet Pensando Linux.
 Bản quyền(c) 2019 Pensando Systems, Inc

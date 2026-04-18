@@ -14,7 +14,7 @@
 
 ==========================================
 Tài liệu thiết kế FUSE-over-io-uring
-=======================================
+==========================================
 
 Tài liệu này bao gồm các chi tiết cơ bản về cách cầu chì
 giao tiếp kernel/không gian người dùng thông qua io-uring được định cấu hình

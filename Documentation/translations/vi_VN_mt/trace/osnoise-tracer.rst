@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+====================
 Máy theo dõi OSNOISE
-==============
+====================
 
 Trong bối cảnh điện toán hiệu năng cao (HPC), Hệ điều hành
 Tiếng ồn (ZZ0000ZZ) đề cập đến sự can thiệp mà ứng dụng gặp phải

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================================================
+=============================================================================
 Trình điều khiển mạng nhân Linux cho Điểm cuối NIC của Octeon PCI của Marvell
-====================================================================
+=============================================================================
 
 Trình điều khiển mạng cho Marvell's Octeon PCI EndPoint NIC.
 Bản quyền (c) 2020 Marvell International Ltd.

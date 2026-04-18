@@ -16,7 +16,7 @@
 
 ==================================
 Phát hiện và xử lý khóa xe buýt
-===============================
+==================================
 
 :Bản quyền: ZZ0000ZZ 2021 Tập đoàn Intel
 :Tác giả: - Fenghua Yu <fenghua.yu@intel.com>

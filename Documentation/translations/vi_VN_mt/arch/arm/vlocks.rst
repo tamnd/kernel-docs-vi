@@ -14,7 +14,7 @@
 
 =========================================
 vlocks để loại trừ lẫn nhau kim loại trần
-======================================
+=========================================
 
 Khóa biểu quyết hoặc "vlocks" cung cấp loại trừ lẫn nhau ở mức độ thấp đơn giản
 cơ chế, với yêu cầu hợp lý nhưng tối thiểu về bộ nhớ

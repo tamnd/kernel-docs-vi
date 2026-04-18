@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+===================================================
 Trình điều khiển TPS6594 PFSM của Texas Instruments
-=====================================
+===================================================
 
 Tác giả: Julien Panis (jpanis@baylibre.com)
 

@@ -14,9 +14,9 @@
 
 :mồ côi:
 
-=======================
+============================
 Định dạng kết xuất sự cố MSM
-=====================
+============================
 
 Sau khi treo GPU, trình điều khiển MSM xuất thông tin gỡ lỗi qua
 /sys/kernel/dri/X/show hoặc thông qua devcoredump (/sys/class/devcoredump/dcdX/data).

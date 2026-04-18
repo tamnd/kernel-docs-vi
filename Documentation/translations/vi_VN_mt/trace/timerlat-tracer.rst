@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-################
+#####################
 Timerlat máy theo dõi
-###############
+#####################
 
 Công cụ theo dõi timelat nhằm mục đích giúp các nhà phát triển hạt nhân ưu tiên
 tìm nguồn gốc của độ trễ đánh thức của các luồng thời gian thực. Giống như kiểm tra chu kỳ,

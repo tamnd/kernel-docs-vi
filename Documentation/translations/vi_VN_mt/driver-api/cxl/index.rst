@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+========================
 Tính toán liên kết nhanh
-====================
+========================
 
 Cấu hình thiết bị CXL có sự chuyển giao phức tạp giữa nền tảng (Phần cứng,
 BIOS, EFI), hệ điều hành (khởi động sớm, kernel lõi, trình điều khiển) và các quyết định chính sách người dùng

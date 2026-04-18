@@ -16,7 +16,7 @@
 
 ================================
 Kiểm tra thiết bị với kselftest
-=============================
+================================
 
 
 Nói chung, có một số kselftests khác nhau dành cho các thiết bị thử nghiệm,

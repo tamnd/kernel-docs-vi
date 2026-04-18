@@ -14,7 +14,7 @@
 
 =================================
 Tạo mã C thông số Netlink
-==============================
+=================================
 
 Tài liệu này mô tả cách sử dụng các thông số kỹ thuật của Netlink để hiển thị
 Mã C (uAPI, chính sách, v.v.). Nó cũng xác định các thuộc tính bổ sung

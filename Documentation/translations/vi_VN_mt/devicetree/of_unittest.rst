@@ -14,7 +14,7 @@
 
 ====================================
 Mở Firmware Devicetree Unittest
-=================================
+====================================
 
 Tác giả: Gaurav Minocha <gaurav.minocha.os@gmail.com>
 

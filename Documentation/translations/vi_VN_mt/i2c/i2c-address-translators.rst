@@ -14,7 +14,7 @@
 
 ==========================
 Trình dịch địa chỉ I2C
-=======================
+==========================
 
 Tác giả: Luca Ceresoli <luca@lucaceresoli.net>
 Tác giả: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>

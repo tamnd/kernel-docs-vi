@@ -18,7 +18,7 @@
 
 *************
 Thứ tự trường
-***********
+*************
 
 Chúng ta phải phân biệt giữa video lũy tiến và xen kẽ.
 Video lũy tiến truyền tuần tự tất cả các dòng của hình ảnh video.

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================================
+===================================
 Giao diện chất lượng dịch vụ của PM
-===============================
+===================================
 
 Giao diện này cung cấp kernel và giao diện chế độ người dùng để đăng ký
 kỳ vọng về hiệu suất của trình điều khiển, hệ thống con và ứng dụng không gian người dùng trên

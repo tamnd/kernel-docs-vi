@@ -14,7 +14,7 @@
 
 ================================
 Triển khai máy chủ NFSv4.1
-=============================
+================================
 
 Hỗ trợ máy chủ cho phiên bản nhỏ 1 có thể được kiểm soát bằng cách sử dụng
 Tệp kiểm soát /proc/fs/nfsd/versions.  Đầu ra chuỗi được trả về

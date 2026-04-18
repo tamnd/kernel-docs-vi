@@ -14,7 +14,7 @@
 
 =================================
 Xử lý Flash LED trong Linux
-==============================
+=================================
 
 Một số thiết bị LED cung cấp hai chế độ - đèn pin và đèn flash. Trong hệ thống con LED
 các chế độ đó được lớp LED hỗ trợ (xem Tài liệu/leds/leds-class.rst)

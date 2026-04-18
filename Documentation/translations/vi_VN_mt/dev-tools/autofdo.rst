@@ -14,7 +14,7 @@
 
 ======================================
 Sử dụng AutoFDO với nhân Linux
-===================================
+======================================
 
 Điều này cho phép hỗ trợ xây dựng AutoFDO cho kernel khi sử dụng
 trình biên dịch Clang. AutoFDO (Tối ưu hóa theo hướng phản hồi tự động)

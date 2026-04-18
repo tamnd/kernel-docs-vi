@@ -16,9 +16,9 @@
 
 .. _sliced:
 
-*************************
+**********************************
 Giao diện dữ liệu VBI được cắt lát
-*************************
+**********************************
 
 VBI là viết tắt của Khoảng trống theo chiều dọc, một khoảng trống trong chuỗi
 dòng tín hiệu video analog. Trong VBI không có thông tin hình ảnh

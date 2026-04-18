@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+================================
 Trình điều khiển Linux ACM v0.16
-======================
+================================
 
 Bản quyền (c) 1999 Vojtech Pavlik <vojtech@suse.cz>
 

@@ -16,7 +16,7 @@
 
 ===================
 Nhập mã sự kiện
-=================
+===================
 
 
 Giao thức đầu vào sử dụng bản đồ các loại và mã để thể hiện giá trị thiết bị đầu vào

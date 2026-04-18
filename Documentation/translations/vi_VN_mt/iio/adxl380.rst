@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+========================
 Trình điều khiển ADXL380
-===============
+========================
 
 Trình điều khiển này hỗ trợ ADXL380/382 của Thiết bị Analog trên bus SPI/I2C.
 

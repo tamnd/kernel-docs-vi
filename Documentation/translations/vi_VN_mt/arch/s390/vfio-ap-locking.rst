@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+=========================
 Tổng quan về khóa AP VFIO
-======================
+=========================
 Tài liệu này mô tả các khóa thích hợp cho hoạt động an toàn
 của trình điều khiển thiết bị vfio_ap. Trong suốt tài liệu này, các biến sau
 sẽ được sử dụng để biểu thị các trường hợp của cấu trúc được mô tả ở đây:

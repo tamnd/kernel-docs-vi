@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=============================================
 Tiêu đề hình ảnh khởi động trong RISC-V Linux
-=================================
+=============================================
 
 :Tác giả: Atish Patra <atish.patra@wdc.com>
 :Ngày: 20 tháng 5 năm 2019

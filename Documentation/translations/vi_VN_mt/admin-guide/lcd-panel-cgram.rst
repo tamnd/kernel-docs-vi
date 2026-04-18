@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================
+==================================================
 Hỗ trợ cổng song song LCD/Bảng điều khiển bàn phím
-======================================
+==================================================
 
 Một số màn hình LCD cho phép bạn xác định tối đa 8 ký tự, được ánh xạ tới ASCII
 ký tự từ 0 đến 7. Mã thoát để xác định ký tự mới là

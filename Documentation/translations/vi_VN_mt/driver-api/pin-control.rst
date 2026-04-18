@@ -14,7 +14,7 @@
 
 ==================================
 Hệ thống con PINCTRL (PIN CONTROL)
-===============================
+==================================
 
 Tài liệu này phác thảo hệ thống con điều khiển pin trong Linux
 

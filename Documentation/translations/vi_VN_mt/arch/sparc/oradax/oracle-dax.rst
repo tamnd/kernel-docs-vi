@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================
+=============================================
 Trình tăng tốc phân tích dữ liệu Oracle (DAX)
-=======================================
+=============================================
 
 DAX là bộ đồng xử lý nằm trên SPARC M7 (DAX1) và M8
 (DAX2) chip xử lý và có quyền truy cập trực tiếp vào bộ đệm L3 của CPU

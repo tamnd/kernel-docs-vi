@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-#########
+#######################
 ZZ0000ZZ Cách thực hiện
-#########
+#######################
 
 .. contents:: :local:
 
@@ -597,7 +597,7 @@ sẽ được tự động kết nối với nhau với LAN ảo.
 
 *************
 Chạy UML
-***********
+*************
 
 Phần này giả định rằng gói user-mode-linux từ
 phân phối hoặc kernel được xây dựng tùy chỉnh đã được cài đặt trên máy chủ.

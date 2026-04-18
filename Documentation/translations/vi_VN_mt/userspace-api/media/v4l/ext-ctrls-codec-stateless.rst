@@ -16,9 +16,9 @@
 
 .. _codec-stateless-controls:
 
-**********************************
+***************************************************
 Tài liệu tham khảo kiểm soát Codec không trạng thái
-*********************************
+***************************************************
 
 Lớp điều khiển Stateless Codec nhằm hỗ trợ
 bộ giải mã và mã hóa không trạng thái (tức là bộ tăng tốc phần cứng).

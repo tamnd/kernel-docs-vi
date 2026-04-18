@@ -14,7 +14,7 @@
 
 ====================
 Lớp HDLC chung
-==================
+====================
 
 Krzysztof Halasa <khc@pm.waw.pl>
 

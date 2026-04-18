@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+=================================
 Cách sử dụng mô-đun bảo mật Linux
-===========================
+=================================
 
 Khung Mô-đun bảo mật Linux (LSM) cung cấp cơ chế cho
 các kiểm tra bảo mật khác nhau sẽ được thực hiện bởi các phần mở rộng kernel mới. Tên

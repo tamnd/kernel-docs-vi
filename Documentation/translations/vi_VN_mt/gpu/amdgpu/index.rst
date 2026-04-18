@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+===================================
  trình điều khiển AMDgpu drm/amdgpu
-==========================
+===================================
 
 Trình điều khiển drm/amdgpu hỗ trợ tất cả GPU Radeon AMD dựa trên Graphics Core
 Các kiến trúc tiếp theo (GCN), Radeon DNA (RDNA) và Điện toán DNA (CDNA).

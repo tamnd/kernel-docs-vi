@@ -16,7 +16,7 @@
 
 =============
 Giới thiệu
-============
+=============
 
 :Bản quyền: ZZ0000ZZ 1999-2001 Vojtech Pavlik <vojtech@ucw.cz> - Được tài trợ bởi SuSE
 

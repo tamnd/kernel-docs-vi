@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============
+======================
  Trình điều khiển QAIC
-=============
+======================
 
 Trình điều khiển QAIC là Trình điều khiển chế độ hạt nhân (KMD) cho dòng AI AIC100
 sản phẩm máy gia tốc.

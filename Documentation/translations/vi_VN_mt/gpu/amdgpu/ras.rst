@@ -14,7 +14,7 @@
 
 ======================
  Hỗ trợ AMDGPU RAS
-====================
+======================
 
 Các giao diện AMDGPU RAS được hiển thị thông qua sysfs (đối với các truy vấn thông tin) và
 debugfs (để chèn lỗi).

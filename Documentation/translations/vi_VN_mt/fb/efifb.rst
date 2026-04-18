@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+===========================================
 efifb - Trình điều khiển nền tảng EFI chung
-===================================
+===========================================
 
 Đây là trình điều khiển nền tảng EFI chung dành cho các hệ thống có chương trình cơ sở UEFI. các
 hệ thống phải được khởi động thông qua sơ khai EFI để có thể sử dụng được. hỗ trợ efifb

@@ -14,7 +14,7 @@
 
 ====================
 IP qua InfiniBand
-==================
+====================
 
 Trình điều khiển ib_ipoib là việc triển khai IP qua InfiniBand
   giao thức được chỉ định bởi RFC 4391 và 4392, do IETF ipoib ban hành

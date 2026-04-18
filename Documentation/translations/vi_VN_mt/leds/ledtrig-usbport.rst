@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+===========================
 Cổng USB Kích hoạt cổng LED
-====================
+===========================
 
 Trình kích hoạt LED này có thể được sử dụng để báo hiệu cho người dùng về sự hiện diện của thiết bị USB
 trong một cổng nhất định. Nó chỉ đơn giản là bật LED khi thiết bị xuất hiện và tắt nó đi

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================================
+================================================================
 matroxfb - Trình điều khiển bộ đệm khung cho các thiết bị Matrox
-================================================
+================================================================
 
 Đây là trình điều khiển cho bộ đệm khung đồ họa cho các thiết bị Matrox trên
 Hộp Alpha, Intel và PPC.

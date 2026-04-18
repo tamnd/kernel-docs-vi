@@ -14,7 +14,7 @@
 
 ==========================
 Khởi động Linux/LoongArch
-=======================
+==========================
 
 :Tác giả: Yanteng Si <siyanteng@loongson.cn>
 :Ngày: 18 tháng 11 năm 2022

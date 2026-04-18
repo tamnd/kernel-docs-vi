@@ -14,7 +14,7 @@
 
 ==================
 Bộ đệm tròn
-================
+==================
 
 :Tác giả: David Howells <dhowells@redhat.com>
 :Tác giả: Paul E. McKenney <paulmck@linux.ibm.com>

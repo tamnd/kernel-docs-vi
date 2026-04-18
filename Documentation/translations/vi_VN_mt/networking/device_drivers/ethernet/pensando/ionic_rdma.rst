@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================================================
+========================================================================
 Trình điều khiển RDMA dành cho dòng bộ điều hợp Ethernet AMD Pensando(R)
-===========================================================
+========================================================================
 
 Trình điều khiển AMD Pensando RDMA.
 Bản quyền (C) 2018-2025, Advanced Micro Devices, Inc.

@@ -14,7 +14,7 @@
 
 =================================
 Cách khởi tạo thiết bị I2C
-==============================
+=================================
 
 Không giống như các thiết bị PCI hoặc USB, các thiết bị I2C không được liệt kê ở phần cứng
 cấp độ. Thay vào đó, phần mềm phải biết thiết bị nào được kết nối trên mỗi thiết bị.

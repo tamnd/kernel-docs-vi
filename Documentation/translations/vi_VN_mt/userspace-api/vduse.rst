@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+===================================================
 VDUSE - "Thiết bị vDPA trong không gian người dùng"
-==================================
+===================================================
 
 Thiết bị vDPA (tăng tốc đường dẫn dữ liệu virtio) là thiết bị sử dụng
 đường dẫn dữ liệu tuân thủ các thông số kỹ thuật virtio với nhà cung cấp

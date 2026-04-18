@@ -14,7 +14,7 @@
 
 ===========================
 Ghi chú lớp phủ Devicetree
-========================
+===========================
 
 Tài liệu này mô tả việc triển khai trong kernel
 chức năng lớp phủ cây thiết bị nằm trong driver/of/overlay.c và là một

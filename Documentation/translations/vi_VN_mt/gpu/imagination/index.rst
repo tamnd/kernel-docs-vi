@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================
+===============================================
 drm/tưởng tượng Trình điều khiển đồ họa PowerVR
-=======================================
+===============================================
 
 .. kernel-doc:: drivers/gpu/drm/imagination/pvr_drv.c
    :doc: PowerVR (Series 6 and later) and IMG Graphics Driver

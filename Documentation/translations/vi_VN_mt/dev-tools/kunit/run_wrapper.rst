@@ -14,7 +14,7 @@
 
 ================================
 Chạy thử nghiệm với kunit_tool
-=============================
+================================
 
 Chúng tôi có thể chạy thử nghiệm KUnit bằng kunit_tool hoặc có thể chạy thử nghiệm
 theo cách thủ công, sau đó sử dụng kunit_tool để phân tích kết quả. Để chạy thử nghiệm

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============
+=============
 tập tin sysfs
-===========
+=============
 
 Giao diện sysfs đã được chuyển sang
 Tài liệu/ABI/ổn định/sysfs-class-infiniband.

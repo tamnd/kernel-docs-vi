@@ -14,7 +14,7 @@
 
 ==========================
 Giới thiệu về Netlink
-=======================
+==========================
 
 Netlink thường được mô tả là sự thay thế ioctl().
 Nó nhằm mục đích thay thế các cấu trúc C có định dạng cố định như được cung cấp

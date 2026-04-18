@@ -14,7 +14,7 @@
 
 ==============================================================
 Thuật toán tránh cuộc đua tăng/tắt nguồn trên toàn cụm
-=========================================================
+==============================================================
 
 Tệp này ghi lại thuật toán được sử dụng để phối hợp CPU và
 các hoạt động thiết lập và phân chia cụm và để quản lý tính nhất quán của phần cứng

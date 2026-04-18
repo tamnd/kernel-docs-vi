@@ -14,7 +14,7 @@
 
 ====================================================
 Công nghệ tưởng tượng Bộ điều khiển đầu vào SPDIF
-================================================
+====================================================
 
 Bộ điều khiển đầu vào Imagination Technologies SPDIF chứa các thành phần sau:
 điều khiển:

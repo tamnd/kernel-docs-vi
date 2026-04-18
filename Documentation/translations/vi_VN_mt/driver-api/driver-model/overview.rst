@@ -14,7 +14,7 @@
 
 ================================
 Mô hình thiết bị hạt nhân Linux
-=============================
+================================
 
 Patrick Mochel <mochel@digitalimplant.org>
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+=========================
 Trình điều khiển máy ASoC
-===================
+=========================
 
 Trình điều khiển máy (hoặc bo mạch) ASoC là mã kết dính tất cả các
 trình điều khiển thành phần (ví dụ: codec, nền tảng và DAI). Nó cũng mô tả các

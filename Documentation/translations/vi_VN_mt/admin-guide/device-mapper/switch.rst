@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========
+=============
 chuyển đổi dm
-=========
+=============
 
 Mục tiêu chuyển đổi trình ánh xạ thiết bị tạo ra một thiết bị hỗ trợ
 ánh xạ tùy ý các vùng I/O có kích thước cố định trên một tập hợp cố định

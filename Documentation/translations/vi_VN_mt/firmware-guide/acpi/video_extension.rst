@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+===========================
 Tiện ích mở rộng video ACPI
-=====================
+===========================
 
 Trình điều khiển này triển khai Tiện ích mở rộng ACPI cho Bộ điều hợp hiển thị cho
 thiết bị đồ họa tích hợp trên bo mạch chủ, như được chỉ định trong ACPI 2.0

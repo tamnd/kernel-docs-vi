@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+===================================
 Điều chỉnh lịch trình I/O của Kyber
-============================
+===================================
 
 Hai điều chỉnh duy nhất cho bộ lập lịch Kyber là độ trễ mục tiêu cho
 đọc và ghi đồng bộ. Kyber sẽ điều chỉnh các yêu cầu để đáp ứng

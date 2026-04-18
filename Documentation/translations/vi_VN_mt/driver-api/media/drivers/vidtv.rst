@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=========================================
 vidtv: Trình điều khiển TV kỹ thuật số ảo
-================================
+=========================================
 
 Tác giả: Daniel W. S. Almeida <dwlsalmeida@gmail.com>, tháng 6 năm 2020.
 

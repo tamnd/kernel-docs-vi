@@ -16,9 +16,9 @@
 
 .. _meta-formats:
 
-****************
+**********************
 Định dạng siêu dữ liệu
-****************
+**********************
 
 Các định dạng này chỉ được sử dụng cho giao diện ZZ0000ZZ.
 

@@ -14,7 +14,7 @@
 
 ======================
 request_firmware API
-====================
+======================
 
 Thông thường, bạn sẽ tải chương trình cơ sở và sau đó tải nó vào thiết bị của mình bằng cách nào đó.
 Luồng công việc phần sụn điển hình được phản ánh bên dưới::

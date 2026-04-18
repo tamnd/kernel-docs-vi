@@ -14,7 +14,7 @@
 
 ===============================
 Hỗ trợ bộ nhớ giao dịch
-============================
+===============================
 
 Hỗ trợ kernel POWER cho tính năng này hiện bị giới hạn ở việc hỗ trợ
 việc sử dụng nó bởi các chương trình người dùng.  Hiện tại nó không được sử dụng bởi chính kernel.

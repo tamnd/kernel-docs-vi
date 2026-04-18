@@ -14,7 +14,7 @@
 
 =============================
 Hiểu cmap của fbdev
-==========================
+=============================
 
 Những ghi chú này giải thích cách lớp dix của X sử dụng cấu trúc cmap của fbdev.
 

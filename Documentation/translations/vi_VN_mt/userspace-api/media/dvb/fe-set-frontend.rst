@@ -18,7 +18,7 @@
 
 ****************
 FE_SET_FRONTEND
-***************
+****************
 
 .. attention:: This ioctl is deprecated.
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================
+======================
 Siêu dữ liệu AF_XDP TX
-==================
+======================
 
 Tài liệu này mô tả cách kích hoạt tính năng giảm tải khi truyền gói tin
 thông qua ZZ0000ZZ. Tham khảo ZZ0001ZZ về cách truy cập tương tự

@@ -16,7 +16,7 @@
 
 ============
 Xe Configfs
-===========
+============
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_configfs.c
    :doc: Xe Configfs

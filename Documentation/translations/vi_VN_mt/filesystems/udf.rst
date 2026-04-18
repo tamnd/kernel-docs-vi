@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+====================
 Hệ thống tập tin UDF
-===============
+====================
 
 Nếu bạn gặp vấn đề khi đọc đĩa UDF bằng trình điều khiển này,
 vui lòng báo cáo chúng theo tệp MAINTAINERS.

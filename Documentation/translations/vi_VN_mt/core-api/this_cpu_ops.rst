@@ -14,7 +14,7 @@
 
 =====================
 hoạt động this_cpu
-===================
+=====================
 
 :Tác giả: Christoph Lameter, ngày 4 tháng 8 năm 2014
 :Tác giả: Pranith Kumar, ngày 2 tháng 8 năm 2014

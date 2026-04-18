@@ -14,9 +14,9 @@
 
 .. _Remote_controllers_table_change:
 
-*******************************************
+********************************************
 Thay đổi ánh xạ Bộ điều khiển từ xa mặc định
-*******************************************
+********************************************
 
 Giao diện sự kiện cung cấp hai ioctls được sử dụng để chống lại
 /dev/input/event device, để cho phép thay đổi sơ đồ bàn phím mặc định.

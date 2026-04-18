@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+========================================
 Hệ thống tập tin Macintosh HFS cho Linux
-==================================
+========================================
 
 
 .. Note:: This filesystem doesn't have a maintainer.

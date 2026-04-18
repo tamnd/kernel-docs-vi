@@ -14,7 +14,7 @@
 
 ====================================================
 Giao diện phần mềm mở rộng hợp nhất (UEFI)
-================================================
+====================================================
 
 UEFI, Giao diện phần mềm mở rộng hợp nhất, là thông số kỹ thuật
 quản lý hành vi của các giao diện phần mềm tương thích. Đó là

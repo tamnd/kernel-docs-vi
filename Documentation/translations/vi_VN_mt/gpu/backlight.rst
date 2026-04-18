@@ -14,7 +14,7 @@
 
 ===================
 Hỗ trợ đèn nền
-=================
+===================
 
 .. kernel-doc:: drivers/video/backlight/backlight.c
    :doc: overview

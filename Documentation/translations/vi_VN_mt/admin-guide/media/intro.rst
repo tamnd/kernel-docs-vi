@@ -14,7 +14,7 @@
 
 =============
 Giới thiệu
-============
+=============
 
 Hệ thống con phương tiện bao gồm sự hỗ trợ của Linux cho một số loại khác nhau
 của các thiết bị:

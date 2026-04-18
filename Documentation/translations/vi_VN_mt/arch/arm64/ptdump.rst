@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+============================
 Kết xuất bảng trang hạt nhân
-======================
+============================
 
 ptdump là một giao diện debugfs cung cấp kết xuất chi tiết của
 bảng trang hạt nhân. Nó cung cấp một cái nhìn tổng quan toàn diện về kernel

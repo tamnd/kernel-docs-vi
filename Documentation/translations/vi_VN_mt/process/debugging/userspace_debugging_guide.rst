@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+=======================================
 Lời khuyên gỡ lỗi không gian người dùng
-==========================
+=======================================
 
 Tài liệu này cung cấp một cái nhìn tổng quan ngắn gọn về các công cụ phổ biến để gỡ lỗi Linux
 Hạt nhân từ không gian người dùng.

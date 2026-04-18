@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+======================
 Hệ thống tập tin OCFS2
-================
+======================
 
 OCFS2 là tệp cụm đĩa chia sẻ dựa trên phạm vi mục đích chung
 hệ thống có nhiều điểm tương đồng với ext3. Nó hỗ trợ inode 64 bit

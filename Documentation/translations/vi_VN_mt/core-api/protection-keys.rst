@@ -14,7 +14,7 @@
 
 ========================
 Phím bảo vệ bộ nhớ
-======================
+========================
 
 Khóa bảo vệ bộ nhớ cung cấp cơ chế thực thi dựa trên trang
 các biện pháp bảo vệ mà không yêu cầu sửa đổi bảng trang khi

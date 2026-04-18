@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+==============================
 Tìm kiếm liên minh trong Linux
-====================
+==============================
 
 
 :Ngày: 21 tháng 6 năm 2024

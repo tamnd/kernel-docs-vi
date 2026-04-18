@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+====================
 Sự kiện theo dõi MSR
-================
+====================
 
 Nhân x86 hỗ trợ theo dõi hầu hết các truy cập MSR (Đăng ký cụ thể theo mẫu).
 Để xem định nghĩa của MSR trên hệ thống Intel, vui lòng xem SDM

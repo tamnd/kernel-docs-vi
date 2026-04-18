@@ -30,9 +30,9 @@
 .. |RQID| replace:: ``RQID``
 .. |CID| replace:: ``CID``
 
-==============================
+===================================
 Giao thức trung tâm nối tiếp bề mặt
-===========================
+===================================
 
 Surface Serial Hub (SSH) là giao diện truyền thông trung tâm cho
 Bộ điều khiển Mô-đun tổng hợp bề mặt được nhúng (SAM hoặc EC), được tìm thấy trên phiên bản mới hơn

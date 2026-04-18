@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================================
+=========================================
 DSCR (Thanh ghi điều khiển luồng dữ liệu)
-===================================
+=========================================
 
 Đăng ký DSCR trong powerpc cho phép người dùng có một số quyền kiểm soát việc tìm nạp trước dữ liệu
 luồng trong bộ xử lý. Vui lòng tham khảo tài liệu ISA hoặc hướng dẫn sử dụng liên quan

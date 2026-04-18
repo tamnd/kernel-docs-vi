@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=============================================
 Trình điều khiển cho bộ điều khiển PXA25x LCD
-================================
+=============================================
 
 Trình điều khiển hỗ trợ các tùy chọn sau, thông qua
 options=<OPTIONS> khi ở chế độ mô-đun hoặc video=pxafb:<OPTIONS> khi được tích hợp sẵn.

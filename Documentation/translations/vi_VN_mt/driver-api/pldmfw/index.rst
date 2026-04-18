@@ -14,7 +14,7 @@
 
 =====================================
 Thư viện cập nhật Flash Firmware PLDM
-==================================
+=====================================
 
 ZZ0000ZZ triển khai chức năng cập nhật flash trên thiết bị bằng cách sử dụng
 PLDM dành cho tiêu chuẩn Cập nhật chương trình cơ sở

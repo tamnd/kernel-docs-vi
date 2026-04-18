@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+=======================
 Hỏi đáp về thiết kế BPF
-==============
+=======================
 
 Khả năng mở rộng và ứng dụng của BPF vào mạng, truy tìm, bảo mật
 trong nhân linux và một số triển khai không gian người dùng của BPF

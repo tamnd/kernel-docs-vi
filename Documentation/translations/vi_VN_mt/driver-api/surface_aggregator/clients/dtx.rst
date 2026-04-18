@@ -18,9 +18,9 @@
 .. |sdtx_base_info| replace:: :c:type:`struct sdtx_base_info <sdtx_base_info>`
 .. |sdtx_device_mode| replace:: :c:type:`struct sdtx_device_mode <sdtx_device_mode>`
 
-===========================================================
+============================================================
 Giao diện DTX (Hệ thống tách bảng tạm) không gian người dùng
-======================================================
+============================================================
 
 Trình điều khiển ZZ0000ZZ chịu trách nhiệm tách clipboard thích hợp
 và xử lý việc đính kèm lại. Để đạt được mục đích này, nó cung cấp ZZ0001ZZ

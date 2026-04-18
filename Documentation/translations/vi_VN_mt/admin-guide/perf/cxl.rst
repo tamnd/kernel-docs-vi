@@ -14,7 +14,7 @@
 
 =========================================
 Bộ giám sát hiệu suất CXL (CPMU)
-======================================
+=========================================
 
 Thông số kỹ thuật CXL rev 3.0 cung cấp định nghĩa về Hiệu suất CXL
 Đơn vị giám sát trong phần 13.2: Giám sát hiệu suất.

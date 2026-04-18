@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================
+===================================================
 Coresight - Truy tìm phần cứng được hỗ trợ trên ARM
-======================================
+===================================================
 
 :Tác giả: Mathieu Poirier <mathieu.poirier@linaro.org>
    :Ngày: 11 tháng 9 năm 2014

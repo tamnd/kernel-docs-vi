@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====
+============
 Cách sử dụng
-=====
+============
 
 Mô-đun này hỗ trợ dòng giao thức mạng tiên tiến SMB3 (cũng như
 như các phương ngữ cũ hơn, ban đầu được gọi là "CIFS" hoặc SMB1).

@@ -14,7 +14,7 @@
 
 ======================
 Kích hoạt LED một lần
-====================
+======================
 
 Đây là trình kích hoạt LED hữu ích để báo hiệu cho người dùng về một sự kiện khi có
 không có điểm bẫy rõ ràng để đặt cài đặt bật và tắt đèn led tiêu chuẩn.  Sử dụng cái này

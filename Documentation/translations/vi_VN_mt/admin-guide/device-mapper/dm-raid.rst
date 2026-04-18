@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======
+================
 cuộc đột kích dm
-=======
+================
 
 Mục tiêu RAID (dm-raid) của trình ánh xạ thiết bị cung cấp cầu nối từ DM đến MD.
 Nó cho phép truy cập trình điều khiển MD RAID bằng trình ánh xạ thiết bị

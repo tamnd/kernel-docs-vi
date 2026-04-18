@@ -14,7 +14,7 @@
 
 ================================================================
 Thiết bị giám sát hiệu suất băng thông Amlogic SoC DDR (PMU)
-===========================================================
+================================================================
 
 Amlogic Meson G12 SoC chứa bộ giám sát băng thông bên trong bộ điều khiển DRAM.
 Màn hình bao gồm 4 kênh. Mỗi kênh có thể đếm yêu cầu truy cập

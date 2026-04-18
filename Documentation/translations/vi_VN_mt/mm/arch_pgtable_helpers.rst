@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================================
+===================================
 Trình trợ giúp bảng trang kiến trúc
-===============================
+===================================
 
 MM chung mong đợi các kiến trúc (với MMU) sẽ cung cấp những người trợ giúp để tạo, truy cập
 và sửa đổi các mục trong bảng trang ở nhiều cấp độ khác nhau cho các chức năng bộ nhớ khác nhau.

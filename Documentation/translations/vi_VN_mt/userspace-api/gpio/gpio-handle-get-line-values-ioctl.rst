@@ -14,7 +14,7 @@
 
 .. _GPIOHANDLE_GET_LINE_VALUES_IOCTL:
 
-*******************************
+********************************
 GPIOHANDLE_GET_LINE_VALUES_IOCTL
 ********************************
 .. warning::

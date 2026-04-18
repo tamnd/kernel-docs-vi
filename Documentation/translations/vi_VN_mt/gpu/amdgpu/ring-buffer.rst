@@ -14,7 +14,7 @@
 
 ==============
  Bộ đệm vòng
-=============
+==============
 
 Để xử lý giao tiếp giữa không gian người dùng và không gian kernel, GPU AMD sử dụng
 thiết kế bộ đệm vòng để cấp nguồn cho động cơ (GFX, Tính toán, SDMA, UVD, VCE, VCN, VPE,

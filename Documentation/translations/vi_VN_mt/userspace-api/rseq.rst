@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+=============================
 Trình tự có thể khởi động lại
-=====================
+=============================
 
 Trình tự có thể khởi động lại cho phép đăng ký một vùng bộ nhớ không gian người dùng trên mỗi luồng
 được sử dụng làm ABI giữa kernel và không gian người dùng cho ba mục đích:

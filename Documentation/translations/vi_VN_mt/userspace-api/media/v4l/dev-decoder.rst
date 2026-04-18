@@ -16,9 +16,9 @@
 
 .. _decoder:
 
-*************************************************
+**********************************************************
 Giao diện bộ giải mã video trạng thái từ bộ nhớ đến bộ nhớ
-*************************************************
+**********************************************************
 
 Bộ giải mã video có trạng thái lấy các đoạn hoàn chỉnh của dòng byte (ví dụ: Phụ lục-B
 luồng H.264/HEVC, luồng VP8/9 thô) và giải mã chúng thành các khung hình video thô trong

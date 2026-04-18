@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================================
+============================================================
 Hỗ trợ chương trình cơ sở cho hotplug CPU trong Linux/x86-64
-===================================================
+============================================================
 
 Linux/x86-64 hiện hỗ trợ hotplug CPU. Vì nhiều lý do khác nhau Linux muốn
 biết trước thời gian khởi động số lượng CPU tối đa có thể được cắm

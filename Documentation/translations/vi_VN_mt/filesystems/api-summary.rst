@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================
+==================================
 Tóm tắt hệ thống tập tin Linux API
-=============================
+==================================
 
 Phần này chứa tài liệu cấp API, chủ yếu được lấy từ nguồn
 mã của chính nó.

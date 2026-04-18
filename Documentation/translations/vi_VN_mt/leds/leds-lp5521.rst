@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+====================================
 Trình điều khiển hạt nhân cho lp5521
-========================
+====================================
 
 * Chip điều khiển led LP5521 bán dẫn quốc gia
 * Bảng dữ liệu: ZZ0000ZZ

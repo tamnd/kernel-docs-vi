@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+=======================
 Stacktrace đáng tin cậy
-===================
+=======================
 
 Tài liệu này phác thảo thông tin cơ bản về phương pháp dò tìm ngăn xếp đáng tin cậy.
 

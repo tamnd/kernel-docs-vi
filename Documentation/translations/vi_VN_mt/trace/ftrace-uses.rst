@@ -14,7 +14,7 @@
 
 ====================================
 Sử dụng ftrace để nối vào các hàm
-=================================
+====================================
 
 .. Copyright 2017 VMware Inc.
 ..   Author:   Steven Rostedt <srostedt@goodmis.org>

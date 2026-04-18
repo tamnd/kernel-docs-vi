@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+=============================
 Cài đặt chế độ hạt nhân (KMS)
-=========================
+=============================
 
 Trình điều khiển phải khởi tạo lõi cài đặt chế độ bằng cách gọi
 drmm_mode_config_init() trên thiết bị DRM. chức năng

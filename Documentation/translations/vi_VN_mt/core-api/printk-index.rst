@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============
+==============
 Chỉ mục Printk
-============
+==============
 
 Có nhiều cách để theo dõi trạng thái của hệ thống. Một điều quan trọng
 nguồn thông tin là nhật ký hệ thống. Nó cung cấp rất nhiều thông tin,

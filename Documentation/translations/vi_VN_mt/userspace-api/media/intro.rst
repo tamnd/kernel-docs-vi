@@ -14,7 +14,7 @@
 
 =============
 Giới thiệu
-============
+=============
 
 Tài liệu này bao gồm Nhân Linux cho Không gian người dùng API được video sử dụng
 và các thiết bị phát sóng vô tuyến, bao gồm máy quay video, analog và kỹ thuật số

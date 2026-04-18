@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============
+===================
 Trạng thái hiện tại
-=============
+===================
 
 Phần sau đây mô tả trạng thái hiện tại của dấu phẩy động của NetWinder
 giả lập.

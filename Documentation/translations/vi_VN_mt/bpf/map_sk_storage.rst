@@ -16,7 +16,7 @@
 
 ==========================
 BPF_MAP_TYPE_SK_STORAGE
-=======================
+==========================
 
 .. note::
    - ``BPF_MAP_TYPE_SK_STORAGE`` was introduced in kernel version 5.2

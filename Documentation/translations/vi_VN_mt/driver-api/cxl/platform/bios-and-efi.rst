@@ -14,7 +14,7 @@
 
 ========================
 Cấu hình BIOS/EFI
-======================
+========================
 
 BIOS và EFI chịu trách nhiệm chính trong việc định cấu hình thông tin tĩnh về
 các thiết bị (hoặc các thiết bị tiềm năng trong tương lai) để Linux có thể xây dựng hệ thống thích hợp

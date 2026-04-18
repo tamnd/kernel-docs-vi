@@ -14,7 +14,7 @@
 
 ====================================
 TS-TEE (Dự án dịch vụ đáng tin cậy)
-=================================
+====================================
 
 Trình điều khiển này cung cấp quyền truy cập vào các dịch vụ an toàn do Dịch vụ đáng tin cậy triển khai.
 

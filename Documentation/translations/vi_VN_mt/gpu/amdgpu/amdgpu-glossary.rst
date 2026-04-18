@@ -14,7 +14,7 @@
 
 =================
 Thuật ngữ AMDGPU
-===============
+=================
 
 Tại đây bạn có thể tìm thấy một số từ viết tắt chung được sử dụng trong trình điều khiển amdgpu. Chú ý rằng
 chúng tôi có bảng thuật ngữ dành riêng cho Display Core tại

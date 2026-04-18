@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============
+=================================
 Thông tin liên kết nhà phát triển
-============
+=================================
 
 Cơ chế ZZ0000ZZ cho phép trình điều khiển thiết bị báo cáo thiết bị
 (phần cứng và phần sụn) theo cách tiêu chuẩn, có thể mở rộng.

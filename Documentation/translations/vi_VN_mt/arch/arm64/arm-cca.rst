@@ -14,7 +14,7 @@
 
 ========================================
 Kiến trúc điện toán bí mật của Arm
-=====================================
+========================================
 
 Các hệ thống cánh tay hỗ trợ Tiện ích mở rộng quản lý vương quốc (RME) chứa
 phần cứng để cho phép máy khách VM chạy theo cách bảo vệ mã

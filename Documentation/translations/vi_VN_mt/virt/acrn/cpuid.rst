@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+==================
 Các bit ACRN CPUID
-===============
+==================
 
 Một VM khách chạy trên bộ ảo hóa ACRN có thể kiểm tra một số tính năng của nó bằng cách sử dụng
 CPUID.

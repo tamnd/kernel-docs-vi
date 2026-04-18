@@ -19,7 +19,7 @@
 
 *******************************
 V4L2_PIX_FMT_CNF4 ('CNF4')
-******************************
+*******************************
 
 Thông tin về độ tin cậy của cảm biến độ sâu dưới dạng mảng được đóng gói 4 bit trên mỗi pixel
 

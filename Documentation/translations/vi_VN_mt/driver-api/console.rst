@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+================================
 Trình điều khiển bảng điều khiển
-===============
+================================
 
 Nhân Linux có 2 loại trình điều khiển bảng điều khiển chung.  Loại đầu tiên là
 được kernel gán cho tất cả các bảng điều khiển ảo trong quá trình khởi động.

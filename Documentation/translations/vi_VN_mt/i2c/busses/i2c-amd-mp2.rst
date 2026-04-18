@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+=====================================
 Trình điều khiển hạt nhân i2c-amd-mp2
-=========================
+=====================================
 
 Bộ điều hợp được hỗ trợ:
   * Giao diện PCIe AMD MP2

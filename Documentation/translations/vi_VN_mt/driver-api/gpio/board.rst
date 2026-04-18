@@ -14,7 +14,7 @@
 
 ==============
 Ánh xạ GPIO
-=============
+==============
 
 Tài liệu này giải thích cách GPIO có thể được gán cho các thiết bị và chức năng nhất định.
 

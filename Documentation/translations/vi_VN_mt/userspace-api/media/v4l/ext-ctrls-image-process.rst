@@ -16,9 +16,9 @@
 
 .. _image-process-controls:
 
-*******************************
+***************************************
 Tham chiếu kiểm soát quá trình hình ảnh
-*******************************
+***************************************
 
 Lớp điều khiển Quá trình Hình ảnh được thiết kế để kiểm soát mức độ thấp của
 chức năng xử lý ảnh. Không giống như ZZ0000ZZ,

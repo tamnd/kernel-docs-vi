@@ -14,7 +14,7 @@
 
 ==================================================
 Phòng dữ liệu riêng Netdev cho 6 giao diện lowpan
-==============================================
+==================================================
 
 Tất cả các thiết bị mạng có khả năng 6lowpan, nghĩa là tất cả các giao diện với ARPHRD_6LOWPAN,
 phải có "struct lowpan_priv" ở đầu netdev_priv.

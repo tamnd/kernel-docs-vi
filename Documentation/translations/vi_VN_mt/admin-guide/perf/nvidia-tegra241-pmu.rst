@@ -14,7 +14,7 @@
 
 =================================================================
 Bộ giám sát hiệu suất Uncore NVIDIA Tegra241 SoC (PMU)
-============================================================
+=================================================================
 
 NVIDIA Tegra241 SoC bao gồm nhiều PMU hệ thống khác nhau để đo hiệu suất chính
 các số liệu như băng thông bộ nhớ, độ trễ và mức sử dụng:

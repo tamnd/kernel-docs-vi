@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======
+=============
 được sao chép
-======
+=============
 
 Kcopyd cung cấp khả năng sao chép một loạt các lĩnh vực từ một thiết bị khối
 tới một hoặc nhiều thiết bị khối khác, với quá trình hoàn thành không đồng bộ

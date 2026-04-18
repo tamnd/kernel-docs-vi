@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+==================================
 Ghi chú thiết kế bộ điều chỉnh API
-==========================
+==================================
 
 Tài liệu này cung cấp một cái nhìn tổng quan ngắn gọn, có cấu trúc một phần về một số
 trong số những cân nhắc về thiết kế ảnh hưởng đến thiết kế bộ điều chỉnh API.

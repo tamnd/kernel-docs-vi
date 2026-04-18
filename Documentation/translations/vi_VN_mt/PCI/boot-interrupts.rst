@@ -14,7 +14,7 @@
 
 =================
 Ngắt khởi động
-===============
+=================
 
 :Tác giả: - Sean V Kelley <sean.v.kelley@linux.intel.com>
 

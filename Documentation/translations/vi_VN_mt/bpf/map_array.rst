@@ -16,7 +16,7 @@
 
 ====================================================
 BPF_MAP_TYPE_ARRAY và BPF_MAP_TYPE_PERCPU_ARRAY
-================================================
+====================================================
 
 .. note::
    - ``BPF_MAP_TYPE_ARRAY`` was introduced in kernel version 3.19

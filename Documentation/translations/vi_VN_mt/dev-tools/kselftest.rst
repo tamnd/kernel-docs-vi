@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+==========================
 Tự kiểm tra hạt nhân Linux
-======================
+==========================
 
 Hạt nhân chứa một tập hợp các "tự kiểm tra" trong tools/testing/selftests/
 thư mục. Đây là những thử nghiệm nhỏ để thực thi mã riêng lẻ

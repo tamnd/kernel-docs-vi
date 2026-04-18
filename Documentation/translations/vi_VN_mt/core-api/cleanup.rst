@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+=======================================
 Người trợ giúp dọn dẹp dựa trên phạm vi
-===========================
+=======================================
 
 .. kernel-doc:: include/linux/cleanup.h
    :doc: scope-based cleanup helpers

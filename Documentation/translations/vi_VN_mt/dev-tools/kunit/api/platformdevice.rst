@@ -14,7 +14,7 @@
 
 =====================
 Thiết bị nền tảng API
-===================
+=====================
 
 Thiết bị nền tảng KUnit API được sử dụng để kiểm tra các thiết bị nền tảng.
 

@@ -16,7 +16,7 @@
 
 ===========================
 Trao đổi bộ đệm pixel
-========================
+===========================
 
 Theo thiết kế ban đầu, hệ thống con đồ họa Linux có rất nhiều hạn chế
 hỗ trợ chia sẻ phân bổ bộ đệm pixel giữa các quy trình, thiết bị và

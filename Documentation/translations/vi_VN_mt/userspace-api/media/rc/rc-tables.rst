@@ -16,7 +16,7 @@
 
 *************************
 Bảng điều khiển từ xa
-************************
+*************************
 
 Thật không may, trong nhiều năm, không có nỗ lực nào để tạo ra sự thống nhất
 Mã khóa IR cho các thiết bị khác nhau. Điều này khiến cho tên khóa IR giống nhau được

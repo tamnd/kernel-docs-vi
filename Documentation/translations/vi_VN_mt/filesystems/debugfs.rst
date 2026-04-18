@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-=======
+========
 Gỡ lỗiFS
-=======
+========
 
 Bản quyền ZZ0000ZZ 2009 Jonathan Corbet <corbet@lwn.net>
 

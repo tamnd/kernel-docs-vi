@@ -16,9 +16,9 @@
 
 .. _pixfmt-indexed:
 
-**************
+**************************
 Định dạng được lập chỉ mục
-**************
+**************************
 
 Ở định dạng này, mỗi pixel được biểu thị bằng chỉ số 8 bit thành 256
 mục bảng màu ARGB. Nó được dành cho

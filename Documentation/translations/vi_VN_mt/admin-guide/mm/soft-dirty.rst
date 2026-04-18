@@ -14,7 +14,7 @@
 
 =================
 PTE mềm-bẩn
-===============
+=================
 
 Tính năng soft-dirty có một chút trên PTE, giúp theo dõi tác vụ ở trang nào
 viết vào. Để thực hiện việc theo dõi này người ta phải

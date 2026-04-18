@@ -14,7 +14,7 @@
 
 ===========================
 Lớp phủ đa tầng (MPO)
-========================
+===========================
 
 .. note:: You will get more from this page if you have already read the
    'Documentation/gpu/amdgpu/display/dcn-overview.rst'.

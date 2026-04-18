@@ -14,9 +14,9 @@
 
 .. _device_link:
 
-=============
+=================
 Liên kết thiết bị
-============
+=================
 
 Theo mặc định, lõi trình điều khiển chỉ thực thi sự phụ thuộc giữa các thiết bị
 được sinh ra từ mối quan hệ cha mẹ/con cái trong thiết bị

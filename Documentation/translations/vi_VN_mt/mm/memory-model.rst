@@ -14,7 +14,7 @@
 
 =======================
 Mô hình bộ nhớ vật lý
-=====================
+=======================
 
 Bộ nhớ vật lý trong một hệ thống có thể được xử lý theo nhiều cách khác nhau. các
 trường hợp đơn giản nhất là khi bộ nhớ vật lý bắt đầu ở địa chỉ 0 và

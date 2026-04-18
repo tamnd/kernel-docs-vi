@@ -14,7 +14,7 @@
 
 ====================================================
 Cơ chế xếp hàng IO khối nhiều hàng đợi (blk-mq)
-================================================
+====================================================
 
 Cơ chế xếp hàng IO khối nhiều hàng đợi là API để cho phép lưu trữ nhanh
 thiết bị để đạt được số lượng lớn hoạt động đầu vào/đầu ra mỗi giây (IOPS)

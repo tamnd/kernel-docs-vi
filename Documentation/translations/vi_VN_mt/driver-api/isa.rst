@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============
+====================
 Trình điều khiển ISA
-===========
+====================
 
 Văn bản sau đây được phỏng theo thông điệp cam kết của lần đầu tiên
 cam kết của tài xế xe buýt ISA của tác giả Rene Herman.

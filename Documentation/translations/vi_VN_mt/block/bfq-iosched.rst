@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+================================
 BFQ (Xếp hàng hội chợ ngân sách)
-==========================
+================================
 
 BFQ là bộ lập lịch I/O chia sẻ theo tỷ lệ, với một số tính năng bổ sung
 khả năng có độ trễ thấp. Ngoài sự hỗ trợ của cgroups (blkio hoặc io

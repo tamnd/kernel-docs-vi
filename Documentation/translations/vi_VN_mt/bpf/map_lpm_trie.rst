@@ -16,7 +16,7 @@
 
 =======================
 BPF_MAP_TYPE_LPM_TRIE
-=====================
+=======================
 
 .. note::
    - ``BPF_MAP_TYPE_LPM_TRIE`` was introduced in kernel version 4.11

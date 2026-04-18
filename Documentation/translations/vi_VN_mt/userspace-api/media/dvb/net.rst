@@ -14,9 +14,9 @@
 
 .. _net:
 
-########################
+############################
 Digital Mạng truyền hình API
-######################
+############################
 
 Thiết bị mạng TV kỹ thuật số điều khiển việc ánh xạ các gói dữ liệu là một phần
 của luồng truyền tải được ánh xạ vào giao diện mạng ảo,

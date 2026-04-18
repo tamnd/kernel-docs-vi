@@ -15,9 +15,9 @@
 Đây là một trình bao bọc đơn giản để đưa Atomic_bitops.txt vào thế giới RST
    cho đến khi tập tin đó có thể được chuyển đổi trực tiếp.
 
-==============
+===============
 Bitop nguyên tử
-=============
+===============
 
 .. raw:: latex
 

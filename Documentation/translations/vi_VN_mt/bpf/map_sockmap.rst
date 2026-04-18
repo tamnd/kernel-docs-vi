@@ -16,7 +16,7 @@
 
 ==================================================
 BPF_MAP_TYPE_SOCKMAP và BPF_MAP_TYPE_SOCKHASH
-==============================================
+==================================================
 
 .. note::
    - ``BPF_MAP_TYPE_SOCKMAP`` was introduced in kernel version 4.14

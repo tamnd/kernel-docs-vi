@@ -14,7 +14,7 @@
 
 ============
 suy đoán
-===========
+============
 
 Tài liệu này giải thích những tác động tiềm tàng của việc đầu cơ và mức độ không mong muốn
 các hiệu ứng có thể được giảm thiểu một cách linh hoạt bằng cách sử dụng các API phổ biến.

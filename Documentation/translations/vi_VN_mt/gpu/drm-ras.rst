@@ -14,7 +14,7 @@
 
 ===============================
 DRM RAS qua Netlink chung
-============================
+===============================
 
 Giao diện DRM RAS (Độ tin cậy, Tính khả dụng, Khả năng phục vụ) cung cấp một
 cách tiêu chuẩn hóa cho trình điều khiển máy gia tốc/GPU để hiển thị bộ đếm lỗi và

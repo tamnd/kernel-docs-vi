@@ -14,7 +14,7 @@
 
 =============
 Giới thiệu
-============
+=============
 
 Chuẩn RapidIO là một chuẩn kết nối vải dựa trên gói được thiết kế cho
 sử dụng trong các hệ thống nhúng. Việc phát triển tiêu chuẩn RapidIO được chỉ đạo bởi

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+===============================================
  Trình điều khiển tăng tốc/tên lửa Rockchip NPU
-=====================================
+===============================================
 
 Trình điều khiển accel/rocket hỗ trợ Bộ xử lý thần kinh (NPU) bên trong một số
 Rockchip SoC như RK3588. Rockchip gọi nó là RKNN và đôi khi là RKNPU.

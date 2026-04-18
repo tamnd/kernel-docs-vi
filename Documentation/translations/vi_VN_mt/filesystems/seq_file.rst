@@ -14,7 +14,7 @@
 
 ========================
 Giao diện seq_file
-======================
+========================
 
 Bản quyền 2003 Jonathan Corbet <corbet@lwn.net>
 

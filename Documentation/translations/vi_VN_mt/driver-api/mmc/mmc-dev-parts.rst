@@ -14,7 +14,7 @@
 
 ===============================
 Phân vùng thiết bị SD và MMC
-============================
+===============================
 
 Phân vùng thiết bị là các thiết bị khối logic bổ sung có trên
 Thiết bị SD/MMC.

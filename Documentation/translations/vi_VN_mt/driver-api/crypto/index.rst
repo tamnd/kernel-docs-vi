@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+=============================
 Trình điều khiển tiền điện tử
-==============
+=============================
 
 Tài liệu dành cho trình điều khiển tiền điện tử có thể cần thiết lập và sử dụng nhiều hơn
 cấu hình.

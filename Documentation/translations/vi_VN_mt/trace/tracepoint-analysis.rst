@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================================================
+=====================================================================
 Lưu ý về phân tích hành vi bằng cách sử dụng sự kiện và điểm theo dõi
-=========================================================
+=====================================================================
 :Tác giả: Mel Gorman (thông tin PCL chủ yếu dựa vào email từ Ingo Molnar)
 
 1. Giới thiệu

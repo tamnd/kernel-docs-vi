@@ -14,7 +14,7 @@
 
 ==================
 Giao thức I2C
-================
+==================
 
 Tài liệu này là tổng quan về các giao dịch I2C cơ bản và kernel
 API để thực hiện chúng.

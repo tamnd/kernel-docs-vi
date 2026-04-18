@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+==================================
 Trình điều khiển hạt nhân apds990x
-======================
+==================================
 
 Chip được hỗ trợ:
 Avago APDS990X

@@ -21,7 +21,7 @@
 
 =================================================
 Làm việc với cộng đồng phát triển kernel
-=============================================
+=================================================
 
 Vì vậy, bạn muốn trở thành một nhà phát triển nhân Linux?  Chào mừng!  Trong khi có rất nhiều
 Để tìm hiểu về kernel theo nghĩa kỹ thuật, điều quan trọng là

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+===========================================
 giao diện chuyển tiếp (trước đây là rơlefs)
-==================================
+===========================================
 
 Giao diện chuyển tiếp cung cấp phương tiện cho các ứng dụng hạt nhân
 ghi nhật ký và truyền tải lượng lớn dữ liệu từ kernel một cách hiệu quả

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+==========================================
 Trình điều khiển hệ thống con sử dụng GPIO
-============================
+==========================================
 
 Lưu ý rằng trình điều khiển hạt nhân tiêu chuẩn tồn tại cho các tác vụ GPIO phổ biến và sẽ cung cấp
 các API/ABI trong nhân và không gian người dùng phù hợp cho công việc và những điều này

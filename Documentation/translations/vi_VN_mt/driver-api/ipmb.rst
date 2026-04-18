@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================================
+====================================
 Trình điều khiển IPMB cho MC vệ tinh
-==============================
+====================================
 
 Bus quản lý nền tảng thông minh hoặc IPMB, là một
 Bus I2C cung cấp kết nối tiêu chuẩn hóa giữa

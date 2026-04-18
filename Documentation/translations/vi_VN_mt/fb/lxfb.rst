@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================
+=================================================
 lxfb - Trình điều khiển bộ đệm khung AMD Geode LX
-======================================
+=================================================
 
 Đây là trình điều khiển bộ đệm khung đồ họa cho bộ xử lý dựa trên AMD Geode LX.
 

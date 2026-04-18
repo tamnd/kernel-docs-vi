@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================
+=============================
 Đèn LED không gian người dùng
-==============
+=============================
 
 Trình điều khiển uleds hỗ trợ đèn LED không gian người dùng. Điều này có thể hữu ích cho việc thử nghiệm
 kích hoạt và cũng có thể được sử dụng để triển khai đèn LED ảo.

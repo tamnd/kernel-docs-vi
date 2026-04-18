@@ -16,7 +16,7 @@
 
 ================
 Ưu tiên MSM
-==============
+================
 
 Quyền ưu tiên cho phép GPU Adreno chuyển sang vòng ưu tiên cao hơn khi công việc kết thúc.
 được đẩy tới đó, giảm độ trễ cho các nội dung gửi có mức độ ưu tiên cao.

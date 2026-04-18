@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+=============================
 DCTCP (Trung tâm dữ liệu TCP)
-======================
+=============================
 
 DCTCP là một cải tiến của thuật toán kiểm soát tắc nghẽn TCP cho dữ liệu
 mạng trung tâm và tận dụng Thông báo tắc nghẽn rõ ràng (ECN) trong

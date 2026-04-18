@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================================
+===================================================
 vesafb - Trình điều khiển bộ đệm khung đồ họa chung
-===========================================
+===================================================
 
 Đây là trình điều khiển chung cho bộ đệm khung đồ họa trên hộp intel.
 

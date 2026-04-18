@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================
+================================================
 tgafb - Trình điều khiển bộ đệm khung đồ họa TGA
-=======================================
+================================================
 
 Đây là trình điều khiển cho bộ đệm khung đồ họa dựa trên DECChip 21030, hay còn gọi là TGA
 thẻ, thường được tìm thấy trong các hệ thống Digital Alpha cũ hơn. các

@@ -14,7 +14,7 @@
 
 =============================
 I915 Phần BAR RFC nhỏ
-==========================
+=============================
 Bắt đầu từ DG2, chúng tôi sẽ hỗ trợ BAR có thể thay đổi kích thước cho bộ nhớ cục bộ của thiết bị (tức là
 I915_MEMORY_CLASS_DEVICE), nhưng trong một số trường hợp, kích thước BAR cuối cùng có thể vẫn là
 nhỏ hơn tổng kích thước thăm dò. Trong những trường hợp như vậy, chỉ một số tập con của

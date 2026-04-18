@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
---------------------------
+-------------------------------
 Thông số kỹ thuật gamepad Linux
----------------------------
+-------------------------------
 
 :Tác giả: 2013 của David Herrmann <dh.herrmann@gmail.com>
 

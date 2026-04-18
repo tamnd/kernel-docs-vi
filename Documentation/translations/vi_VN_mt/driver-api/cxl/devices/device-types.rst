@@ -14,7 +14,7 @@
 
 =======================
 Thiết bị và giao thức
-=====================
+=======================
 
 Loại thiết bị CXL (Bộ nhớ, Bộ tăng tốc, v.v.) quy định nhiều bước cấu hình. Phần này
 bao gồm một số thông tin cơ bản về loại thiết bị và tài nguyên trên thiết bị được nền tảng và hệ điều hành sử dụng

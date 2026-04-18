@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================================
+=============================================
 Trình điều khiển cho bộ điều khiển EP93xx LCD
-================================
+=============================================
 
 Bộ điều khiển EP93xx LCD có thể điều khiển cả màn hình máy tính để bàn tiêu chuẩn và
 màn hình LCD được nhúng. Nếu bạn có một màn hình máy tính để bàn tiêu chuẩn thì bạn

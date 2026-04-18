@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+===============================
 Bộ điều khiển tài nguyên bộ nhớ
-==========================
+===============================
 
 .. caution::
       This document is hopelessly outdated and it asks for a complete

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+======================
 ACPI trên hệ thống Arm
-===================
+======================
 
 ACPI có thể được sử dụng cho các hệ thống Armv8 và Armv9 được thiết kế để tuân theo
 BSA (Kiến trúc hệ thống cơ sở cánh tay) [0] và BBR (Arm

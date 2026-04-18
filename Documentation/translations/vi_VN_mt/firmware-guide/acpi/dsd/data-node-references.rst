@@ -16,7 +16,7 @@
 
 ======================================
 Tham chiếu các nút dữ liệu phân cấp
-===================================
+======================================
 
 :Bản quyền: ZZ0000ZZ 2018, 2021 Tập đoàn Intel
 :Tác giả: Sakari Ailus <sakari.ailus@linux.intel.com>

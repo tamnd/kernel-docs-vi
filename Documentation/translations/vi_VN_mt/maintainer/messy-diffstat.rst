@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================================
+==========================================
 Xử lý các khác biệt về yêu cầu kéo lộn xộn
-=====================================
+==========================================
 
 Người bảo trì hệ thống con thường xuyên sử dụng ZZ0000ZZ như một phần của
 quá trình gửi công việc ngược dòng.  Thông thường, kết quả bao gồm một

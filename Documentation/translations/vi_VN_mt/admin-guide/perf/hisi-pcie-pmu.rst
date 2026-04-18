@@ -14,7 +14,7 @@
 
 ====================================================
 Bộ giám sát hiệu suất PCIe HiSilicon (PMU)
-================================================
+====================================================
 
 Trên Hip09, Bộ giám sát hiệu suất PCIe HiSilicon (PMU) có thể giám sát
 băng thông, độ trễ, mức sử dụng bus và dữ liệu chiếm dụng bộ đệm của PCIe.

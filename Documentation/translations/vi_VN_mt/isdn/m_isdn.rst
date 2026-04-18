@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============
+======================
 Trình điều khiển mISDN
-============
+======================
 
 mISDN là trình điều khiển ISDN mô-đun mới, về lâu dài nó sẽ thay thế
 kiến trúc trình điều khiển I4L cũ cho thẻ ISDN thụ động.

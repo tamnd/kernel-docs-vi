@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==================
+=======================
 Cập nhật trực tiếp uAPI
-================
+=======================
 :Tác giả: Pasha Tatashin <pasha.tatashin@soleen.com>
 
 giao diện ioctl

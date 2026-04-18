@@ -14,7 +14,7 @@
 
 ======================================
  Nén bộ đệm khung cánh tay (AFBC)
-===================================
+======================================
 
 AFBC là giao thức và định dạng nén ảnh không mất dữ liệu độc quyền.
 Nó cung cấp quyền truy cập ngẫu nhiên chi tiết và giảm thiểu số lượng

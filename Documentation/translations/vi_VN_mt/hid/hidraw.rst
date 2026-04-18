@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================================================
+=============================================================================
 HIDRAW - Quyền truy cập thô vào USB và thiết bị giao diện con người Bluetooth
-================================================================
+=============================================================================
 
 Trình điều khiển hidraw cung cấp giao diện thô cho USB và Bluetooth Human
 Thiết bị giao diện (HID).  Nó khác với hiddev ở chỗ các báo cáo được gửi và

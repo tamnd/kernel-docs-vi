@@ -14,7 +14,7 @@
 
 =============================
 Trình tải vi mã Linux
-==========================
+=============================
 
 :Tác giả: - Fenghua Yu <fenghua.yu@intel.com>
           - Borislav Petkov <bp@suse.de>

@@ -14,7 +14,7 @@
 
 ==============
 Di chuyển lớp
-=============
+==============
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_migrate_doc.h
    :doc: Migrate Layer

@@ -14,7 +14,7 @@
 
 =============================
 Phương pháp ACPI _OSI và _REV
-==========================
+=============================
 
 ACPI BIOS có thể sử dụng phương thức "Giao diện hệ điều hành" (_OSI)
 để tìm hiểu xem hệ điều hành hỗ trợ những gì. Ví dụ. Nếu BIOS

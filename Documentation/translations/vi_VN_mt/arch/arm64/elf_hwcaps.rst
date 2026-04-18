@@ -16,7 +16,7 @@
 
 ==================
 ARM64 ELF hwcaps
-================
+==================
 
 Tài liệu này mô tả cách sử dụng và ngữ nghĩa của hwcaps arm64 ELF.
 

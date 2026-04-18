@@ -14,7 +14,7 @@
 
 ============
 Bàn ACPI
-===========
+============
 
 Kỳ vọng của các bảng ACPI riêng lẻ được thảo luận trong danh sách
 theo sau.

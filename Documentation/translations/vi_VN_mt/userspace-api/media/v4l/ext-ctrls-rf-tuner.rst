@@ -16,9 +16,9 @@
 
 .. _rf-tuner-controls:
 
-**************************
+***********************************
 Tham chiếu điều khiển bộ dò sóng RF
-**************************
+***********************************
 
 Lớp Bộ điều chỉnh RF (RF_TUNER) bao gồm các điều khiển cho các tính năng chung của
 các thiết bị có bộ thu sóng RF.

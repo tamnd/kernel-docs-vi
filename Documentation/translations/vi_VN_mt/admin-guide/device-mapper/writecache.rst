@@ -14,7 +14,7 @@
 
 ===================
 Mục tiêu ghi bộ đệm
-=================
+===================
 
 Bộ nhớ đệm đích writecache ghi trên bộ nhớ liên tục hoặc trên SSD. Nó
 không đọc bộ đệm vì các lần đọc được cho là được lưu trong bộ đệm trang

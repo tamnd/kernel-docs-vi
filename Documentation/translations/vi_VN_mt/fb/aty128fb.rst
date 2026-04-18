@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================================
+====================================================
 aty128fb - Trình điều khiển bộ đệm khung ATI Rage128
-=========================================
+====================================================
 
 Đây là trình điều khiển cho bộ đệm khung đồ họa cho các thiết bị dựa trên ATI Rage128
 trên các hộp Intel và PPC.

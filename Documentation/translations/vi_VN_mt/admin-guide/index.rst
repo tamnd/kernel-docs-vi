@@ -14,7 +14,7 @@
 
 =====================================================
 Hướng dẫn sử dụng nhân Linux và quản trị viên
-=================================================
+=====================================================
 
 Sau đây là tập hợp các tài liệu hướng tới người dùng đã được
 được thêm vào kernel theo thời gian.  Cho đến nay, có rất ít thứ tự tổng thể hoặc

@@ -14,7 +14,7 @@
 
 =====================================
 Công cụ kết xuất s390 SCSI (zfcpdump)
-==================================
+=====================================
 
 Máy System z (z900 trở lên) cung cấp hỗ trợ phần cứng để tạo hệ thống
 đổ vào đĩa SCSI. Quá trình kết xuất được bắt đầu bằng cách khởi động một công cụ kết xuất, công cụ này

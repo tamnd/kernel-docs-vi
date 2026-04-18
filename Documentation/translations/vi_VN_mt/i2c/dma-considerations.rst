@@ -14,7 +14,7 @@
 
 ===================
 Linux I2C và DMA
-=================
+===================
 
 Cho rằng I2C là một bus tốc độ thấp, qua đó phần lớn các tin nhắn
 được chuyển nhỏ, nó không được coi là người dùng chính của quyền truy cập DMA. Lúc này

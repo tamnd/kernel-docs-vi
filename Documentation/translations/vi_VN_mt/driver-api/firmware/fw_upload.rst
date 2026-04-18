@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+==============================
 Tải lên chương trình cơ sở API
-===================
+==============================
 
 Trình điều khiển thiết bị đăng ký với trình tải chương trình cơ sở sẽ hiển thị
 các nút sysfs liên tục để cho phép người dùng bắt đầu cập nhật chương trình cơ sở cho

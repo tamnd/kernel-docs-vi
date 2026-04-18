@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+=================================
 Chính sách quản lý nguồn liên kết
-==========================
+=================================
 
 Tham số này cho phép người dùng thiết lập quản lý nguồn liên kết (giao diện).
 Có 6 lựa chọn có thể:

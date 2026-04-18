@@ -14,7 +14,7 @@
 
 =======================
 Khóa bảng chia trang
-=====================
+=======================
 
 Ban đầu, spinlock mm->page_table_lock bảo vệ tất cả các bảng trang của
 mm_struct. Nhưng cách tiếp cận này dẫn đến khả năng mở rộng lỗi trang kém của

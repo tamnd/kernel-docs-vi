@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========
+=========
 Tổng quan
-========
+=========
 
 Giao diện điều khiển môi trường nền tảng (PECI) là một giao tiếp
 giao diện giữa bộ xử lý Intel và bộ điều khiển quản lý

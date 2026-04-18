@@ -16,7 +16,7 @@
 
 ==============================================
  drm/vkms Cài đặt chế độ hạt nhân ảo
-==========================================
+==============================================
 
 .. kernel-doc:: drivers/gpu/drm/vkms/vkms_drv.c
    :doc: vkms (Virtual Kernel Modesetting)

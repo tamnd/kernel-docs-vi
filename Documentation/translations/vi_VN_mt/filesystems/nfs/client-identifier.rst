@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+============================
 Mã định danh máy khách NFSv4
-=======================
+============================
 
 Tài liệu này giải thích cách giao thức NFSv4 xác định máy khách
 các trường hợp để duy trì trạng thái mở và khóa tệp trong quá trình

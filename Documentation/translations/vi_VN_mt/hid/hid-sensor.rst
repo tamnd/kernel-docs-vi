@@ -14,7 +14,7 @@
 
 =======================
 Khung cảm biến HID
-=====================
+=======================
 Khung cảm biến HID cung cấp các giao diện cần thiết để triển khai trình điều khiển cảm biến,
 được kết nối với một trung tâm cảm biến. Trung tâm cảm biến là một thiết bị HID và nó cung cấp
 một bộ mô tả báo cáo phù hợp với bảng sử dụng cảm biến HID 1.12.

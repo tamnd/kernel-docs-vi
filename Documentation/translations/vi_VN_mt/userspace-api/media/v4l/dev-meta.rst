@@ -16,9 +16,9 @@
 
 .. _metadata:
 
-*******************
+**********************
 Giao diện siêu dữ liệu
-******************
+**********************
 
 Siêu dữ liệu đề cập đến bất kỳ dữ liệu phi hình ảnh nào bổ sung cho khung hình video bằng
 thông tin bổ sung. Điều này có thể bao gồm số liệu thống kê được tính toán trên hình ảnh,

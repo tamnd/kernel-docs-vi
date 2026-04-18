@@ -14,7 +14,7 @@
 
 ==============================
 BPF_PROG_TYPE_CGROUP_SYSCTL
-===========================
+==============================
 
 Tài liệu này mô tả loại chương trình ZZ0000ZZ
 cung cấp hook cgroup-bpf cho sysctl.

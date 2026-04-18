@@ -14,7 +14,7 @@
 
 ==========
 dm-sự thật
-=========
+==========
 
 Mục tiêu "xác thực" của Device-Mapper cung cấp khả năng kiểm tra tính toàn vẹn minh bạch của
 chặn các thiết bị bằng cách sử dụng bản tóm tắt mật mã được cung cấp bởi kernel crypto API.

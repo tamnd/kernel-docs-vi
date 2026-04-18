@@ -14,7 +14,7 @@
 
 ==============================
 Mô-đun Livepatch định dạng ELF
-===========================
+==============================
 
 Tài liệu này phác thảo các yêu cầu về định dạng ELF mà các mô-đun bản vá trực tiếp phải tuân theo.
 

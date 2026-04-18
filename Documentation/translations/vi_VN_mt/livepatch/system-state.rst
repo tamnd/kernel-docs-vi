@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+============================
 Thay đổi trạng thái hệ thống
-====================
+============================
 
 Một số người dùng thực sự miễn cưỡng khởi động lại hệ thống. Điều này mang đến sự cần thiết
 để cung cấp nhiều bản vá trực tiếp hơn và duy trì khả năng tương thích giữa chúng.

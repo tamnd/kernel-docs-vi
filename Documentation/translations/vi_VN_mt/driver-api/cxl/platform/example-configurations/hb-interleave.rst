@@ -14,7 +14,7 @@
 
 ===============================
 Cross-Host-Cầu nối xen kẽ
-============================
+===============================
 Hệ thống này có một ổ cắm duy nhất với hai cầu nối máy chủ CXL. Mỗi cầu chủ
 có một bộ mở rộng bộ nhớ CXL duy nhất với bộ nhớ 4GB.
 

@@ -18,7 +18,7 @@
 
 **********************
 Khả năng truy vấn
-*********************
+**********************
 
 Vì V4L2 bao gồm nhiều loại thiết bị nên không phải tất cả các khía cạnh của API
 đều được áp dụng như nhau cho tất cả các loại thiết bị. Hơn nữa các thiết bị của

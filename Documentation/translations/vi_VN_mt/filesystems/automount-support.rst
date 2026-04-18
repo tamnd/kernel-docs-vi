@@ -14,7 +14,7 @@
 
 ===================
 Hỗ trợ tự động
-=================
+===================
 
 
 Hỗ trợ có sẵn cho các hệ thống tập tin muốn thực hiện tự động đếm

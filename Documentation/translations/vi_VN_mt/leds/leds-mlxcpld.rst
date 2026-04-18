@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================================
+=======================================================
 Trình điều khiển hạt nhân cho đèn LED hệ thống Mellanox
-=======================================
+=======================================================
 
 Cung cấp hệ thống hỗ trợ LED cho hệ thống Mellanox tiếp theo:
 "msx6710", "msx6720", "msb7700", "msn2700", "msx1410",

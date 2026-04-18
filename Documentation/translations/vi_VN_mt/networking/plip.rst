@@ -14,7 +14,7 @@
 
 ====================================================
 PLIP: Thiết bị giao thức Internet đường song song
-================================================
+====================================================
 
 Donald Becker (becker@super.org)
 I.D.A. Trung tâm nghiên cứu siêu máy tính, Bowie MD 20715

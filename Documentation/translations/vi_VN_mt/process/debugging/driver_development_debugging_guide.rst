@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-============================================
+================================================
 Lời khuyên gỡ lỗi để phát triển trình điều khiển
-========================================
+================================================
 
 Tài liệu này đóng vai trò là điểm khởi đầu chung và tra cứu để gỡ lỗi
 trình điều khiển thiết bị.

@@ -14,7 +14,7 @@
 
 ==================
 Căn chỉnh bộ nhớ
-================
+==================
 
 Quá nhiều vấn đề xuất hiện do việc truy cập bộ nhớ bị sai lệch không được chú ý trong
 mã hạt nhân gần đây.  Do đó, việc sửa lỗi căn chỉnh hiện nay là vô điều kiện

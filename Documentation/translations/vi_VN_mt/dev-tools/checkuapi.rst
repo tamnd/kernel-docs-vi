@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============
+===================
 Trình kiểm tra UAPI
-============
+===================
 
 Trình kiểm tra UAPI (ZZ0000ZZ) là một tập lệnh shell
 kiểm tra các tệp tiêu đề UAPI để biết khả năng tương thích ngược của không gian người dùng trên

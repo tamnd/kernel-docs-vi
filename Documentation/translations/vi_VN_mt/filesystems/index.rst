@@ -16,7 +16,7 @@
 
 ==================================
 Hệ thống tập tin trong nhân Linux
-===============================
+==================================
 
 Sổ tay hướng dẫn đang được phát triển này, một ngày nào đó huy hoàng, sẽ cung cấp
 thông tin toàn diện về cách lớp hệ thống tệp ảo Linux (VFS)

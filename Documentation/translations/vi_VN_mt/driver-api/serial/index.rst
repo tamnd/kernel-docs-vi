@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+================================
 Hỗ trợ cho các thiết bị nối tiếp
-==========================
+================================
 
 .. toctree::
     :maxdepth: 1

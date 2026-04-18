@@ -14,7 +14,7 @@
 
 =============
 Kiến trúc
-============
+=============
 
 Tài liệu này mô tả hệ thống con ZZ0000ZZ
 nguyên tắc thiết kế, những hạn chế, sự tương tác với các hệ thống con khác và cách

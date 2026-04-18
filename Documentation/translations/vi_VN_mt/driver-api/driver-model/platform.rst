@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================
+=====================================
 Thiết bị và trình điều khiển nền tảng
-============================
+=====================================
 
 Xem <linux/platform_device.h> để biết giao diện mô hình trình điều khiển cho
 bus nền tảng: platform_device và platform_driver.  Xe buýt giả này

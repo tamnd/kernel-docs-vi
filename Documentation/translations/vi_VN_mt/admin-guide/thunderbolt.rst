@@ -14,7 +14,7 @@
 
 ========================
  USB4 và Thunderbolt
-======================
+========================
 USB4 là thông số kỹ thuật công khai dựa trên giao thức Thunderbolt 3 với
 một số khác biệt ở cấp độ đăng ký trong số những thứ khác. Kết nối
 người quản lý là một thực thể chạy trên bộ định tuyến máy chủ (bộ điều khiển máy chủ)

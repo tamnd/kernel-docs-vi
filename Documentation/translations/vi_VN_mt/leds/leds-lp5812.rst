@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+====================================
 Trình điều khiển hạt nhân cho lp5812
-========================
+====================================
 
 * Trình điều khiển TI/National Semiconductor LP5812 LED
 * Bảng dữ liệu: ZZ0000ZZ

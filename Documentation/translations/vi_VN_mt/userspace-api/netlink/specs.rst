@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================================
+================================================
 Thông số kỹ thuật giao thức Netlink (trong YAML)
-=========================================
+================================================
 
 Thông số kỹ thuật của giao thức Netlink đã hoàn tất, các mô tả về máy có thể đọc được
 Giao thức Netlink được viết bằng YAML. Mục tiêu của thông số kỹ thuật là cho phép

@@ -18,7 +18,7 @@
 
 *************
 Định dạng YUV
-***********
+*************
 
 YUV là định dạng dành riêng cho tín hiệu video tổng hợp và phát sóng truyền hình. Nó
 tách thông tin độ sáng (Y) khỏi thông tin màu (U

@@ -18,9 +18,9 @@
 ..   it and/or modify it under the terms of the GNU General Public
 ..   License version 2 as published by the Free Software Foundation.
 
-====================================
+======================================
 Bộ điều chỉnh điện áp và dòng điện API
-=================================
+======================================
 
 :Tác giả: Liam Girdwood
 :Tác giả: Mark Brown

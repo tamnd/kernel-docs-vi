@@ -14,7 +14,7 @@
 
 =============================
 KSMBD - Máy chủ hạt nhân SMB3
-==========================
+=============================
 
 KSMBD là máy chủ hạt nhân linux thực hiện giao thức SMB3 trong không gian hạt nhân
 để chia sẻ tập tin qua mạng.

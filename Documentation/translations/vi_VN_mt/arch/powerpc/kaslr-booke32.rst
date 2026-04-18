@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================
+================================
 KASLR dành cho Freescale BookE32
-===========================
+================================
 
 Từ KASLR là viết tắt của Ngẫu nhiên bố cục không gian địa chỉ hạt nhân.
 

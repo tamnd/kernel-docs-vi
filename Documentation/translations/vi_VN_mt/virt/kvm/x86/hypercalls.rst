@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================
+=======================
 Siêu cuộc gọi Linux KVM
-===================
+=======================
 
 X86:
  KVM Hypercall có chuỗi ba byte của vmcall hoặc vmmcall

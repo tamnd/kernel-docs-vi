@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==============================================
+=========================================================
 Giảm hiện tượng giật hệ điều hành do kthread trên mỗi CPU
-==========================================
+=========================================================
 
 Tài liệu này liệt kê các kthread trên mỗi CPU trong nhân Linux và trình bày
 các tùy chọn để kiểm soát jitter hệ điều hành của họ.  Lưu ý rằng các kthread không phải theo CPU là

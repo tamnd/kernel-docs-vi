@@ -14,9 +14,9 @@
 
 .. include:: <isonum.txt>
 
-===========================
+==============================
 Giao thức cảm ứng đa điểm (MT)
-=========================
+==============================
 
 :Bản quyền: ZZ0000ZZ 2009-2010 Henrik Rydberg <rydberg@euromail.se>
 

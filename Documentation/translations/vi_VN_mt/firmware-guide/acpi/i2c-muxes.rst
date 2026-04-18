@@ -14,7 +14,7 @@
 
 ================
 Mux ACPI I2C
-==============
+================
 
 Mô tả hệ thống phân cấp thiết bị I2C bao gồm các mux I2C yêu cầu ACPI
 Phạm vi thiết bị () trên mỗi kênh mux.

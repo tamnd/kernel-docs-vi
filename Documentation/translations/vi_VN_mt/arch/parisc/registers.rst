@@ -14,7 +14,7 @@
 
 ====================================
 Đăng ký sử dụng Linux/PA-RISC
-================================
+====================================
 
 [dấu hoa thị được sử dụng cho việc sử dụng theo kế hoạch hiện chưa được triển khai]
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======
+========
 Thay đổi
-=======
+========
 
 Xem ZZ0000ZZ để biết tóm tắt
 thông tin về các bản sửa lỗi/cải tiến đối với hỗ trợ CIFS/SMB2/SMB3 (các thay đổi

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+=============================
 Hệ thống con hiển thị OMAP2/3
-=========================
+=============================
 
 Đây là bản viết lại gần như toàn bộ trình điều khiển OMAP FB trong trình điều khiển/video/omap
 (hãy gọi nó là DSS1). Sự khác biệt chính giữa DSS1 và DSS2 là DSI,

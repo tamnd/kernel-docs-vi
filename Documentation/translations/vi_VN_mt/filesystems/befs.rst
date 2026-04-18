@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===========================
+===============================
 Hệ thống tập tin BeOS cho Linux
-=========================
+===============================
 
 Tài liệu được cập nhật lần cuối: ngày 6 tháng 12 năm 2001
 

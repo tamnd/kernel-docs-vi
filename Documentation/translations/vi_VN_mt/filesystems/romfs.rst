@@ -14,7 +14,7 @@
 
 ==========================
 ROMFS - Hệ thống tệp ROM
-=======================
+==========================
 
 Đây là một hệ thống tập tin chỉ đọc, khá ngớ ngẩn, chủ yếu dành cho RAM ban đầu
 đĩa của đĩa cài đặt.  Nó đã lớn lên bởi nhu cầu có

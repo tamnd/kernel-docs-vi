@@ -14,7 +14,7 @@
 
 ==============
 LRU đa thế hệ
-=============
+==============
 LRU đa thế hệ là một triển khai LRU thay thế giúp tối ưu hóa
 lấy lại trang và cải thiện hiệu suất dưới áp lực bộ nhớ. Trang
 lấy lại quyết định chính sách bộ nhớ đệm của kernel và khả năng vượt mức

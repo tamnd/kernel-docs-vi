@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+================================
 ELF Lưu ý Không gian tên PowerPC
-==========================
+================================
 
 Không gian tên PowerPC trong ELF Ghi chú của nhị phân kernel được sử dụng để lưu trữ
 các khả năng và thông tin có thể được sử dụng bởi bộ nạp khởi động hoặc vùng người dùng.

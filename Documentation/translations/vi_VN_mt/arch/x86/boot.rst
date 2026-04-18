@@ -14,7 +14,7 @@
 
 ==============================
 Giao thức khởi động Linux/x86
-===========================
+==============================
 
 Trên nền x86, nhân Linux sử dụng cách khởi động khá phức tạp
 quy ước.  Điều này đã phát triển một phần do các khía cạnh lịch sử, như

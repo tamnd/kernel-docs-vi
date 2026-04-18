@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+================================
 Hợp nhất cùng một trang hạt nhân
-=======================
+================================
 
 KSM là tính năng khử trùng lặp tiết kiệm bộ nhớ, được kích hoạt bởi CONFIG_KSM=y,
 được thêm vào nhân Linux trong 2.6.32.  Xem ZZ0000ZZ để biết cách triển khai,

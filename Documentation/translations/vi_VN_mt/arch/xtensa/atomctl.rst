@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-===============================================
+================================================
 Đăng ký điều khiển hoạt động nguyên tử (ATOMCTL)
-===========================================
+================================================
 
 Chúng tôi có Đăng ký Kiểm soát Hoạt động Nguyên tử (ATOMCTL).
 Thanh ghi này xác định hiệu quả của việc sử dụng lệnh S32C1I

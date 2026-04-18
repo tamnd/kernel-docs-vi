@@ -14,7 +14,7 @@
 
 ==========================
 Đầu dò hạt nhân (Kprobes)
-=======================
+==========================
 
 :Tác giả: Jim Keniston <jkenisto@us.ibm.com>
 :Tác giả: Prasanna S Panchamukhi <prasanna.panchamukhi@gmail.com>

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=======================
+========================
 Định dạng loại BPF (BTF)
-=====================
+========================
 
 1. Giới thiệu
 ===============
@@ -247,7 +247,7 @@ biểu diễn chuỗi cho mảng nhiều chiều.
 2.2.4 BTF_KIND_STRUCT
 ~~~~~~~~~~~~~~~~~~~~~
 2.2.5 BTF_KIND_UNION
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Yêu cầu mã hóa ZZ0000ZZ:
   * ZZ0001ZZ: 0 hoặc bù vào mã định danh C hợp lệ

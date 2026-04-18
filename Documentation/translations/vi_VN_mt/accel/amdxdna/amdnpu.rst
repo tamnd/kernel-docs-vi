@@ -16,7 +16,7 @@
 
 ==========
  AMD NPU
-=========
+==========
 
 :Bản quyền: ZZ0000ZZ 2024 Advanced Micro Devices, Inc.
 :Tác giả: Sonal Santan <sonal.santan@amd.com>

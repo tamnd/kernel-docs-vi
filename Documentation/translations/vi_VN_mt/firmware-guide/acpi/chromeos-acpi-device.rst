@@ -14,7 +14,7 @@
 
 =======================
 Thiết bị Chrome OS ACPI
-=====================
+=======================
 
 Chức năng phần cứng dành riêng cho Chrome OS được hiển thị thông qua thiết bị Chrome OS ACPI.
 ID plug and play của thiết bị Chrome OS ACPI là GGL0001 và ID phần cứng là

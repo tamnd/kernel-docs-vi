@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-==========================
+=================================
 Trình điều khiển drm/xe Intel GFX
-=======================
+=================================
 
 Trình điều khiển drm/xe hỗ trợ một số thẻ GFX trong tương lai với khả năng kết xuất, hiển thị,
 tính toán và phương tiện truyền thông. Hỗ trợ các nền tảng hiện có như TGL, ADL,

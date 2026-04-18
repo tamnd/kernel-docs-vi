@@ -14,7 +14,7 @@
 
 =============================
 MHI (Giao diện máy chủ Modem)
-==========================
+=============================
 
 Tài liệu này cung cấp thông tin về giao thức MHI.
 

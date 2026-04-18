@@ -53,9 +53,9 @@
 .. |ssam_event_queue| replace:: :c:type:`struct ssam_event_queue <ssam_event_queue>`
 .. |ssam_request_sync_submit| replace:: :c:func:`ssam_request_sync_submit`
 
-=======================
+===============================
 Nội bộ trình điều khiển cốt lõi
-=====================
+===============================
 
 Tổng quan về kiến trúc của lõi Mô-đun tổng hợp hệ thống bề mặt (SSAM)
 và trình điều khiển Surface Serial Hub (SSH). Để biết tài liệu về API, hãy tham khảo:

@@ -14,7 +14,7 @@
 
 ============
 Thiết bị DAX
-===========
+============
 Dung lượng CXL được hiển thị dưới dạng thiết bị DAX có thể được truy cập trực tiếp qua mmap.
 Người dùng có thể muốn sử dụng cơ chế giao diện này để viết vùng người dùng của riêng họ
 Bộ cấp phát CXL hoặc tới các vùng bộ nhớ được chia sẻ hoặc liên tục được quản lý trên nhiều

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=====================================
+=========================================
 Giao diện âm thanh kỹ thuật số ASoC (DAI)
-==================================
+=========================================
 
 ASoC hiện hỗ trợ ba Giao diện âm thanh kỹ thuật số chính (DAI) được tìm thấy trên
 Bộ điều khiển SoC và CODEC âm thanh di động hiện nay, cụ thể là AC97, I2S và PCM.

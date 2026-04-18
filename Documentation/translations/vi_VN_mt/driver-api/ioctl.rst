@@ -14,7 +14,7 @@
 
 ========================
 giao diện dựa trên ioctl
-======================
+========================
 
 ioctl() là cách phổ biến nhất để các ứng dụng giao tiếp với nhau
 với trình điều khiển thiết bị. Nó linh hoạt và dễ dàng mở rộng bằng cách thêm mới

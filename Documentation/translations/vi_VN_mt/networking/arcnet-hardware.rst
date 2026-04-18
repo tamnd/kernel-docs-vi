@@ -14,7 +14,7 @@
 
 =================
 Phần cứng ARCnet
-===============
+=================
 
 :Tác giả: Avery Pennarun <apenwarr@worldvisions.ca>
 

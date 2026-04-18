@@ -14,7 +14,7 @@
 
 ====================================
 HOWTO tương tác với hệ thống con BPF
-=================================
+====================================
 
 Tài liệu này cung cấp thông tin cho hệ thống con BPF về nhiều
 quy trình công việc liên quan đến báo cáo lỗi, gửi bản vá và xếp hàng

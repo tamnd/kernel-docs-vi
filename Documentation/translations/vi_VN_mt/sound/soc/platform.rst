@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+==============================
 Trình điều khiển nền tảng ASoC
-====================
+==============================
 
 Một lớp trình điều khiển nền tảng ASoC có thể được chia thành các trình điều khiển âm thanh DMA, SoC DAI
 trình điều khiển và trình điều khiển DSP. Trình điều khiển nền tảng chỉ nhắm mục tiêu SoC CPU và phải

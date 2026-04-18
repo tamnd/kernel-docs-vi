@@ -14,7 +14,7 @@
 
 ====================================
 Tạo sớm các thiết bị được ánh xạ
-================================
+====================================
 
 Có thể định cấu hình thiết bị ánh xạ thiết bị để hoạt động như thiết bị gốc cho
 hệ thống của bạn theo hai cách.

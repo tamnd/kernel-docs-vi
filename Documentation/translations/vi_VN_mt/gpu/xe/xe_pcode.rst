@@ -29,7 +29,7 @@ API nội bộ
 
 ====================
 Chế độ sống sót
-==================
+====================
 
 .. kernel-doc:: drivers/gpu/drm/xe/xe_survivability_mode.c
    :doc: Survivability Mode

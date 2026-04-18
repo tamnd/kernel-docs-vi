@@ -14,7 +14,7 @@
 
 ========================================
 Kết nối chip mạng trên cánh tay PMU
-====================================
+========================================
 
 NI-700 và những người bạn triển khai PMU riêng biệt cho từng miền đồng hồ trong
 kết nối với nhau. Tương ứng, trình điều khiển hiển thị nhiều thiết bị PMU có tên

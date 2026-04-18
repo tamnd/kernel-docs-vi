@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-========================
+=========================
 Không có cờ đặc quyền mới
-======================
+=========================
 
 Cuộc gọi hệ thống thực thi có thể cấp các đặc quyền của chương trình mới bắt đầu
 cha mẹ của nó không có.  Các ví dụ rõ ràng nhất là setuid/setgid

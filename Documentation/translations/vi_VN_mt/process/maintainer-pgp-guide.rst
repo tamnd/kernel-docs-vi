@@ -16,7 +16,7 @@
 
 ==============================
 Hướng dẫn bảo trì hạt nhân PGP
-===========================
+==============================
 
 :Tác giả: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
 

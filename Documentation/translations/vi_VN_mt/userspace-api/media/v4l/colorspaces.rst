@@ -16,9 +16,9 @@
 
 .. _colorspaces:
 
-*************
+**************
 Không gian màu
-***********
+**************
 
 'Màu sắc' là một khái niệm rất phức tạp và phụ thuộc vào vật lý, hóa học và
 sinh học. Chỉ vì bạn có ba con số mô tả 'màu đỏ',

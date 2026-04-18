@@ -14,7 +14,7 @@
 
 =======================
 Báo cáo trang miễn phí
-=====================
+=======================
 
 Báo cáo trang miễn phí là API mà thiết bị có thể đăng ký để nhận
 danh sách các trang hiện không được hệ thống sử dụng. Điều này hữu ích trong

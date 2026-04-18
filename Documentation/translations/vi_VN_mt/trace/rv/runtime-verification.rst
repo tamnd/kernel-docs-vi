@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-======================
+=======================
 Xác minh thời gian chạy
-====================
+=======================
 
 Xác minh thời gian chạy (RV) là một phương pháp nhẹ (nhưng nghiêm ngặt)
 bổ sung cho các kỹ thuật xác minh toàn diện cổ điển (chẳng hạn như *model

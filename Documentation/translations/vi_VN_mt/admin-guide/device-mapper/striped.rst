@@ -14,7 +14,7 @@
 
 ==========
 sọc dm
-=========
+==========
 
 Mục tiêu "sọc" của Device-Mapper được sử dụng để tạo sọc (tức là RAID-0)
 thiết bị trên một hoặc nhiều thiết bị cơ bản. Dữ liệu được ghi theo "khối",

@@ -16,9 +16,9 @@
 
 .. _iosm_driver_doc:
 
-===============================================
+=======================================================
 Trình điều khiển IOSM cho Modem dựa trên Intel M.2 PCIe
-===========================================
+=======================================================
 Trình điều khiển IOSM (IPC trên bộ nhớ dùng chung) là trình điều khiển máy chủ WWAN được phát triển
 dành cho nền tảng linux hoặc chrome để trao đổi dữ liệu qua giao diện PCIe giữa
 Nền tảng máy chủ & Modem Intel M.2. Trình điều khiển hiển thị giao diện phù hợp với

@@ -14,9 +14,9 @@
 
 .. _dvb_frontend:
 
-########################
+###################################
 Digital Giao diện người dùng TV API
-#######################
+###################################
 
 Giao diện truyền hình kỹ thuật số API được thiết kế để hỗ trợ ba nhóm phân phối
 Hệ thống: Mặt đất, cáp và vệ tinh. Hiện tại, sau đây

@@ -14,7 +14,7 @@
 
 ===========================
 FWSEC (Bảo mật phần sụn)
-=========================
+===========================
 Tài liệu này mô tả ngắn gọn/khái niệm về hình ảnh FWSEC (Firmware Security)
 và vai trò của nó trong trình tự khởi động GPU. Như vậy, thông tin này phải tuân theo
 thay đổi trong tương lai và chỉ hiện tại đối với dòng Ampere GPU. Tuy nhiên,

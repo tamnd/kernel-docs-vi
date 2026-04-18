@@ -16,7 +16,7 @@
 
 =======================
 Thanh ghi đo lường
-=====================
+=======================
 
 .. kernel-doc:: include/linux/tsm-mr.h
    :internal:

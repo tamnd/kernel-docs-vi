@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=========================================
+=================================================
 UltraSoc - Truy tìm phần mềm được hỗ trợ trên SoC
-======================================
+=================================================
 :Tác giả: Tề Lưu <liuqi115@huawei.com>
    :Ngày: Tháng 1 năm 2023
 

@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=============================
+======================================
 Các tính năng cốt lõi của Firmware API
-==========================
+======================================
 
 Phần sụn API có sẵn một bộ tính năng cốt lõi phong phú. Phần này
 ghi lại các tính năng này.

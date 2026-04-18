@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-=================
+=====================
 Hệ thống tập tin Ext3
-===============
+=====================
 
 Ext3 ban đầu được phát hành vào tháng 9 năm 1999. Viết bởi Stephen Tweedie
 cho nhánh 2.2 và được chuyển sang hạt nhân 2.4 bởi Peter Braam, Andreas Dilger,

@@ -17,7 +17,7 @@
 
 =============================
 Ghi chú triển khai Linux
-==========================
+=============================
 
 Tài liệu này cung cấp thêm chi tiết cụ thể về việc triển khai nhân Linux của tập lệnh eBPF.
 

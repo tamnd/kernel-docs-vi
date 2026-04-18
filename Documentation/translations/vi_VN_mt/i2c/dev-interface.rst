@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-================================================
+====================================================================
 Triển khai trình điều khiển thiết bị I2C trong không gian người dùng
-============================================
+====================================================================
 
 Thông thường, các thiết bị I2C được điều khiển bởi trình điều khiển kernel. Nhưng nó cũng
 có thể truy cập tất cả các thiết bị trên bộ chuyển đổi từ không gian người dùng, thông qua

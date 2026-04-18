@@ -14,7 +14,7 @@
 
 ==============
 Yếu tố cốt lõi
-=============
+==============
 
 Lõi I/O công nghiệp cung cấp cả một khuôn khổ thống nhất để viết trình điều khiển cho
 nhiều loại cảm biến nhúng khác nhau và giao diện chuẩn cho không gian người dùng

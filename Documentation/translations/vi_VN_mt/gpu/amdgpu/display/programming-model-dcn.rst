@@ -14,7 +14,7 @@
 
 ======================
 Mô hình lập trình DC
-====================
+======================
 
 Trong các trang ZZ0000ZZ và ZZ0001ZZ, bạn đã tìm hiểu về các thành phần phần cứng và cách chúng
 tương tác với nhau. Trên trang này, tiêu điểm được chuyển sang màn hình

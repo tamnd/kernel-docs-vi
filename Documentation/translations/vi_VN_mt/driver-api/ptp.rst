@@ -14,7 +14,7 @@
 
 ===============================================
 Cơ sở hạ tầng đồng hồ phần cứng PTP cho Linux
-===========================================
+===============================================
 
 Bộ bản vá này giới thiệu hỗ trợ cho đồng hồ IEEE 1588 PTP trong
   Linux. Cùng với các tùy chọn ổ cắm SO_TIMESTAMPING, điều này

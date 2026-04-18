@@ -14,7 +14,7 @@
 
 ================================
 Giới thiệu về I2C và SMBus
-=============================
+================================
 
 I²C (phát âm: Tôi bình phương C và viết I2C trong tài liệu kernel) là
 một giao thức được phát triển bởi Philips. Nó là một giao thức hai dây có thể thay đổi

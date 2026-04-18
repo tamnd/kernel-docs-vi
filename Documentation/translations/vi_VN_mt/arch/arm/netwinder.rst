@@ -14,7 +14,7 @@
 
 ====================================
 Tài liệu cụ thể của NetWinder
-================================
+====================================
 
 NetWinder là một máy tính nhỏ có công suất thấp, được thiết kế chủ yếu
 để chạy Linux.  Nó dựa trên bộ xử lý StrongARM RISC,

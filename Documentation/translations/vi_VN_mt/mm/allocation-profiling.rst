@@ -14,7 +14,7 @@
 
 ==============================
 MEMORY ALLOCATION PROFILING
-===========================
+==============================
 
 Tính toán chi phí thấp (phù hợp cho sản xuất) đối với tất cả việc phân bổ bộ nhớ,
 được theo dõi bởi tập tin và số dòng.

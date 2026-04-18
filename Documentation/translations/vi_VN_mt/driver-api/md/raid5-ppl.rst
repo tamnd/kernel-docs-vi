@@ -12,9 +12,9 @@
    biệt với bản gốc, bản gốc luôn là chuẩn. Bản dịch chất lượng cao (được
    review) được đặt trong thư mục vi_VN/.
 
-====================
+========================
 Nhật ký chẵn lẻ một phần
-==================
+========================
 
 Nhật ký chẵn lẻ một phần (PPL) là một tính năng có sẵn cho mảng RAID5. vấn đề
 được giải quyết bởi PPL là sau khi tắt máy không đúng cách, tính chẵn lẻ của một sọc cụ thể
