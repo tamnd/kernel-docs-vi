@@ -1,0 +1,381 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/5.Posting.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_posting:
+
+Đăng các bản vá
+===============
+
+Sớm hay muộn, thời điểm tác phẩm của bạn đã sẵn sàng được trình bày trước
+cộng đồng để xem xét và cuối cùng đưa vào dòng chính
+hạt nhân.  Không có gì đáng ngạc nhiên, cộng đồng phát triển kernel đã phát triển một bộ
+các quy ước và thủ tục được sử dụng khi đăng các bản vá lỗi;
+theo dõi họ sẽ làm cho cuộc sống dễ dàng hơn nhiều cho tất cả mọi người tham gia.  Cái này
+tài liệu sẽ cố gắng trình bày những mong đợi này một cách chi tiết hợp lý;
+thêm thông tin cũng có thể được tìm thấy trong các tập tin
+ZZ0000ZZ
+và ZZ0001ZZ.
+
+
+Khi nào đăng bài
+------------
+
+Luôn có sự cám dỗ để tránh đăng các bản vá trước khi chúng được tung ra.
+hoàn toàn “sẵn sàng”.  Đối với các bản vá đơn giản, đó không phải là vấn đề.  Nếu
+Tuy nhiên, công việc đang được thực hiện rất phức tạp, có thể đạt được rất nhiều điều bằng cách
+phản hồi từ cộng đồng trước khi công việc hoàn thành.  Vì vậy bạn nên
+hãy cân nhắc việc đăng tác phẩm đang thực hiện hoặc thậm chí tạo sẵn một cây git để
+rằng các nhà phát triển quan tâm có thể bắt kịp công việc của bạn bất cứ lúc nào.
+
+Khi đăng mã chưa được coi là sẵn sàng để đưa vào, đó là một
+ý tưởng tốt để nói như vậy trong bài đăng.  Cũng đề cập đến bất kỳ công việc lớn
+những việc còn phải làm và bất kỳ vấn đề nào đã biết.  Sẽ ít người xem hơn
+những bản vá được cho là chưa hoàn thiện, nhưng những bản vá đó sẽ xuất hiện
+với ý tưởng rằng họ có thể giúp bạn điều khiển công việc đi đúng hướng.
+
+
+Trước khi tạo bản vá
+-----------------------
+
+Có một số việc cần phải làm trước khi bạn cân nhắc
+gửi bản vá cho cộng đồng phát triển.  Chúng bao gồm:
+
+- Kiểm tra mã trong phạm vi có thể.  Tận dụng kernel
+   công cụ gỡ lỗi, đảm bảo rằng kernel sẽ được xây dựng với tất cả các
+   kết hợp các tùy chọn cấu hình, sử dụng trình biên dịch chéo để xây dựng cho
+   các kiến trúc khác nhau, v.v. Thêm các thử nghiệm, có thể sử dụng một thử nghiệm hiện có
+   khung thử nghiệm như KUnit và bao gồm chúng như một thành viên riêng biệt
+   trong loạt bản vá của bạn (xem phần tiếp theo để biết thêm về loạt bản vá).
+   Lưu ý rằng điều này có thể là bắt buộc khi ảnh hưởng đến một số hệ thống con. cho
+   ví dụ, các hàm thư viện (nằm trong lib/) được sử dụng rộng rãi
+   hầu hết mọi nơi và dự kiến sẽ được kiểm tra một cách thích hợp.
+
+- Đảm bảo mã của bạn tuân thủ kiểu mã hóa kernel
+   hướng dẫn.
+
+- Thay đổi của bạn có tác động đến hiệu suất không?  Nếu vậy, bạn nên chạy
+   điểm chuẩn cho thấy tác động (hoặc lợi ích) của sự thay đổi của bạn là gì; một
+   bản tóm tắt kết quả nên được đính kèm với bản vá.
+
+- Hãy chắc chắn rằng bạn có quyền đăng mã.  Nếu công việc này được thực hiện
+   đối với người sử dụng lao động, người sử dụng lao động có thể có quyền làm việc và phải
+   đồng ý với việc phát hành nó dưới GPL.
+
+Theo nguyên tắc chung, việc suy nghĩ thêm trước khi đăng mã hầu như
+luôn đền đáp công sức trong thời gian ngắn.
+
+
+Chuẩn bị bản vá
+-----------------
+
+Việc chuẩn bị các bản vá để đăng có thể là một khối lượng công việc đáng ngạc nhiên,
+nhưng, một lần nữa, cố gắng tiết kiệm thời gian ở đây nói chung là không nên
+ngay cả trong ngắn hạn.
+
+Các bản vá phải được chuẩn bị dựa trên một phiên bản kernel cụ thể.  Như một
+nguyên tắc chung, một bản vá phải dựa trên dòng chính hiện tại như được tìm thấy trong
+Cây git của Linus.  Khi dựa trên dòng chính, hãy bắt đầu với một bản phát hành nổi tiếng
+điểm - bản phát hành ổn định hoặc -rc - thay vì phân nhánh khỏi dòng chính tại
+một chỗ tùy ý.
+
+Có thể cần phải tạo các phiên bản dựa trên -mm, linux-next hoặc
+Tuy nhiên, cây hệ thống con để tạo điều kiện cho việc thử nghiệm và đánh giá rộng hơn.  Tùy theo
+trên khu vực bản vá của bạn và những gì đang diễn ra ở nơi khác, dựa trên bản vá
+chống lại những cây khác này có thể đòi hỏi một lượng công việc đáng kể
+giải quyết xung đột và xử lý các thay đổi của API.
+
+Chỉ những thay đổi đơn giản nhất mới được định dạng dưới dạng một bản vá duy nhất;
+mọi thứ khác nên được thực hiện như một chuỗi thay đổi hợp lý.  Tách
+vá lỗi là một chút nghệ thuật; một số nhà phát triển dành nhiều thời gian để tìm hiểu
+cách thực hiện điều đó theo cách mà cộng đồng mong đợi.  Có một vài
+tuy nhiên, quy tắc ngón tay cái có thể giúp ích đáng kể:
+
+- Series patch bạn đăng gần như chắc chắn sẽ không phải là series của
+   những thay đổi được tìm thấy trong hệ thống kiểm soát sửa đổi làm việc của bạn.  Thay vào đó,
+   những thay đổi bạn đã thực hiện cần được xem xét ở dạng cuối cùng, sau đó
+   tách ra theo những cách có ý nghĩa.  Các nhà phát triển quan tâm đến
+   những thay đổi riêng biệt, khép kín, không phải con đường bạn đã đi để đạt được những thay đổi đó
+   những thay đổi.
+
+- Mỗi thay đổi độc lập về mặt logic phải được định dạng riêng biệt
+   vá.  Những thay đổi này có thể nhỏ ("thêm trường vào cấu trúc này") hoặc
+   lớn (chẳng hạn như thêm một trình điều khiển mới quan trọng), nhưng chúng phải
+   về mặt khái niệm nhỏ và có thể tuân theo một mô tả một dòng.  Mỗi bản vá
+   nên thực hiện một thay đổi cụ thể có thể được xem xét riêng và
+   đã được xác minh để làm những gì nó nói.
+
+- Để khẳng định lại nguyên tắc trên: không trộn lẫn các loại khác nhau
+   những thay đổi trong cùng một bản vá.  Nếu một bản vá duy nhất khắc phục được một vấn đề bảo mật quan trọng
+   lỗi, sắp xếp lại một số cấu trúc và định dạng lại mã, có một
+   rất có thể nó sẽ được bỏ qua và bản sửa lỗi quan trọng sẽ là
+   bị mất.
+
+- Mỗi bản vá phải mang lại một hạt nhân được xây dựng và chạy đúng cách; nếu bạn
+   chuỗi bản vá bị gián đoạn ở giữa, kết quả vẫn phải là
+   hạt nhân làm việc.  Việc áp dụng một phần loạt bản vá là một điều phổ biến
+   kịch bản khi sử dụng công cụ "git bisect" để tìm hồi quy; nếu
+   kết quả là một kernel bị hỏng, bạn sẽ khiến cuộc sống của các nhà phát triển và các nhà phát triển trở nên khó khăn hơn
+   những người dùng đang tham gia vào công việc cao cả là theo dõi các vấn đề.
+
+- Tuy nhiên, đừng lạm dụng nó.  Một nhà phát triển đã từng đăng một bộ chỉnh sửa
+   vào một tệp duy nhất dưới dạng 500 bản vá riêng biệt - một hành động không khiến anh ta
+   người nổi tiếng nhất trong danh sách gửi thư hạt nhân.  Một bản vá duy nhất có thể
+   có kích thước hợp lý miễn là nó vẫn chứa một ZZ0000ZZ
+   thay đổi.
+
+- Việc bổ sung thêm một cơ sở hạ tầng hoàn toàn mới với một loạt các
+   các bản vá, nhưng để cơ sở hạ tầng đó không được sử dụng cho đến bản vá cuối cùng
+   trong chuỗi cho phép toàn bộ điều.  Sự cám dỗ này nên được
+   tránh nếu có thể; nếu chuỗi đó thêm hồi quy, phép chia đôi sẽ
+   coi bản vá cuối cùng là nguyên nhân gây ra sự cố, mặc dù
+   lỗi thực sự là ở nơi khác.  Bất cứ khi nào có thể, một bản vá bổ sung thêm các tính năng mới
+   mã sẽ làm cho mã đó hoạt động ngay lập tức.
+
+Làm việc để tạo ra chuỗi bản vá hoàn hảo có thể là một quá trình khó chịu
+việc này mất khá nhiều thời gian và suy nghĩ sau khi "công việc thực sự" đã được hoàn thành.
+xong.  Tuy nhiên, khi được thực hiện đúng cách, đó là thời gian được sử dụng hiệu quả.
+
+
+Định dạng bản vá và nhật ký thay đổi
+-------------------------------
+
+Vậy là bây giờ bạn đã có một loạt bản vá hoàn hảo để đăng, nhưng công việc còn dang dở.
+vẫn chưa xong hẳn.  Mỗi bản vá cần được định dạng thành một thông báo
+truyền đạt mục đích của mình một cách nhanh chóng và rõ ràng tới phần còn lại của thế giới.  Đến
+Cuối cùng, mỗi bản vá sẽ bao gồm những phần sau:
+
+- Một dòng "Từ" tùy chọn nêu tên tác giả của bản vá.  Dòng này là
+   chỉ cần thiết nếu bạn chuyển bản vá của người khác qua email,
+   nhưng sẽ không bao giờ đau lòng khi thêm nó khi nghi ngờ.
+
+- Mô tả một dòng về chức năng của bản vá.  Tin nhắn này nên được
+   đủ để người đọc nhìn thấy nó mà không cần bối cảnh nào khác để tìm ra
+   phạm vi của bản vá; đó là dòng sẽ hiển thị ở dạng "dạng ngắn"
+   nhật ký thay đổi.  Thông báo này thường được định dạng bằng các thông tin liên quan
+   tên hệ thống con đầu tiên, tiếp theo là mục đích của bản vá.  Ví dụ:
+
+   ::
+
+gpio: sửa bản dựng trên CONFIG_GPIO_SYSFS=n
+
+- Một dòng trống, sau đó mô tả chi tiết nội dung của
+   vá.  Mô tả này có thể dài tùy theo yêu cầu; nó nên nói
+   bản vá có tác dụng gì và tại sao nên áp dụng bản vá đó cho kernel.
+
+- Một hoặc nhiều dòng thẻ, trong đó tối thiểu có một dòng Signed-off-by: từ
+   tác giả của bản vá.  Các thẻ sẽ được mô tả chi tiết hơn bên dưới.
+
+Các mục ở trên cùng nhau tạo thành nhật ký thay đổi cho bản vá.  Viết tốt
+nhật ký thay đổi là một nghệ thuật quan trọng nhưng thường bị bỏ qua; nó đáng để chi tiêu
+một khoảnh khắc khác thảo luận về vấn đề này.  Khi viết nhật ký thay đổi, bạn nên
+hãy nhớ rằng sẽ có nhiều người khác nhau đọc lời nói của bạn.
+Những người này bao gồm người bảo trì hệ thống con và người đánh giá, những người cần quyết định
+có nên đưa vào bản vá hay không, nhà phân phối và nhà bảo trì khác
+cố gắng quyết định liệu một bản vá có nên được chuyển sang các hạt nhân khác hay không, lỗi
+thợ săn tự hỏi liệu bản vá có phải là nguyên nhân gây ra sự cố hay không
+theo đuổi, những người dùng muốn biết kernel đã thay đổi như thế nào, v.v.  A
+nhật ký thay đổi tốt sẽ truyền tải thông tin cần thiết tới tất cả những người này trong
+cách trực tiếp và ngắn gọn nhất có thể.
+
+Để đạt được mục đích đó, dòng tóm tắt nên mô tả tác động và động lực của
+để có sự thay đổi tốt nhất có thể với ràng buộc một dòng.  các
+mô tả chi tiết sau đó có thể khuếch đại các chủ đề đó và cung cấp bất kỳ thông tin nào
+cần thêm thông tin.  Nếu bản vá sửa được lỗi, hãy trích dẫn cam kết
+đã giới thiệu lỗi nếu có thể (và vui lòng cung cấp cả ID cam kết
+và tiêu đề khi trích dẫn các cam kết).  Nếu một vấn đề liên quan đến
+đầu ra nhật ký hoặc trình biên dịch cụ thể, bao gồm đầu ra đó để giúp đỡ người khác
+tìm kiếm giải pháp cho cùng một vấn đề.  Nếu sự thay đổi có nghĩa là
+hỗ trợ những thay đổi khác trong bản vá sau, hãy nói như vậy.  Nếu các API nội bộ
+đã thay đổi, nêu chi tiết những thay đổi đó và cách các nhà phát triển khác sẽ phản hồi.  trong
+Nói chung, bạn càng có thể đặt mình vào vị trí của những người sẽ
+đang đọc nhật ký thay đổi của bạn thì nhật ký thay đổi đó (và kernel dưới dạng
+toàn bộ) sẽ được.
+
+Không cần phải nói, nhật ký thay đổi phải là văn bản được sử dụng khi thực hiện
+thay đổi sang hệ thống kiểm soát sửa đổi.  Nó sẽ được theo sau bởi:
+
+- Bản thân bản vá có định dạng bản vá hợp nhất ("-u").  Sử dụng "-p"
+   tùy chọn khác biệt sẽ liên kết tên hàm với các thay đổi, làm cho
+   bản vá kết quả dễ dàng hơn cho người khác đọc.
+
+Các thẻ đã được đề cập ngắn gọn ở trên được sử dụng để cung cấp thông tin chi tiết về cách
+bản vá đã ra đời. Chúng được mô tả chi tiết trong
+ZZ0000ZZ
+tài liệu; những gì tiếp theo ở đây là một bản tóm tắt ngắn gọn.
+
+Một thẻ được sử dụng để đề cập đến các cam kết trước đó đã đưa ra các vấn đề được khắc phục bởi
+bản vá::
+
+Các bản sửa lỗi: 1f2e3d4c5b6a ("Dòng đầu tiên của cam kết được chỉ định bởi 12 ký tự đầu tiên của ID SHA-1 của nó")
+
+Một thẻ khác được sử dụng để liên kết các trang web với nền bổ sung hoặc
+chi tiết, ví dụ như một cuộc thảo luận trước đó dẫn đến bản vá hoặc một
+tài liệu có thông số kỹ thuật được thực hiện bởi bản vá::
+
+Liên kết: ZZ0000ZZ tùy chọn-thứ khác
+
+Theo hướng dẫn của Chief Penguin, thẻ Link: chỉ nên được thêm vào
+một cam kết nếu nó dẫn đến thông tin hữu ích không được tìm thấy trong cam kết
+chính nó.
+
+Nếu URL trỏ đến một báo cáo lỗi công khai đang được bản vá sửa, hãy sử dụng
+Thay vào đó, hãy gắn thẻ "Đóng:"::
+
+Đóng: ZZ0000ZZ tùy chọn-thứ khác
+
+Một số trình theo dõi lỗi có khả năng tự động đóng các vấn đề khi
+cam kết với thẻ như vậy được áp dụng. Một số bot theo dõi danh sách gửi thư có thể
+cũng theo dõi các thẻ như vậy và thực hiện một số hành động nhất định. Trình theo dõi lỗi riêng tư và
+URL không hợp lệ bị cấm.
+
+Một loại thẻ khác được sử dụng để ghi lại những người tham gia vào việc phát triển
+bản vá. Mỗi trong số này sử dụng định dạng này ::
+
+tag: Tên đầy đủ <địa chỉ email> tùy chọn-khác-thứ
+
+Các thẻ được sử dụng phổ biến là:
+
+- Người ký tên: đây là chứng nhận của nhà phát triển mà họ có
+   quyền gửi bản vá để đưa vào kernel.  Nó là một
+   đồng với Giấy chứng nhận xuất xứ của Nhà phát triển, toàn văn của
+   có thể tìm thấy trong ZZ0000ZZ
+   Mã không có chữ ký thích hợp sẽ không thể được hợp nhất vào dòng chính.
+
+- Đồng phát triển bởi: nêu rõ rằng bản vá được một số nhà phát triển đồng tạo ra;
+   nó được sử dụng để ghi công cho các đồng tác giả (ngoài tác giả
+   được gán bởi thẻ From:) khi nhiều người làm việc trên một bản vá.
+   Mọi Người đồng phát triển: phải được theo sau ngay bởi Người ký tắt: của
+   đồng tác giả liên quan.  Chi tiết và ví dụ có thể được tìm thấy trong
+   ZZ0000ZZ.
+
+- Được xác nhận bởi: biểu thị sự đồng ý của nhà phát triển khác (thường là
+   người duy trì mã liên quan) rằng bản vá phù hợp với
+   đưa vào kernel.
+
+- Tested-by: cho biết người được nêu tên đã thử nghiệm bản vá và tìm thấy
+   nó để làm việc.
+
+- Người đánh giá: nhà phát triển có tên đã xem xét tính chính xác của bản vá;
+   xem tuyên bố của người đánh giá trong ZZ0000ZZ
+   để biết thêm chi tiết.
+
+- Người báo cáo: nêu tên người dùng đã báo cáo sự cố được khắc phục bằng cách này
+   vá; thẻ này được sử dụng để ghi công cho (thường bị đánh giá thấp)
+   những người kiểm tra mã của chúng tôi và cho chúng tôi biết khi mọi thứ không hoạt động
+   một cách chính xác. Lưu ý, theo sau thẻ này phải là thẻ Closes: trỏ tới
+   báo cáo, trừ khi báo cáo không có sẵn trên web. Liên kết: thẻ
+   có thể được sử dụng thay vì Đóng: nếu bản vá khắc phục được một phần của (các) sự cố
+   đang được báo cáo.
+
+- Thẻ Đề xuất: cho biết ý tưởng bản vá được đề xuất bởi người đó
+   được đặt tên và đảm bảo tín dụng cho người có ý tưởng. Điều này hy vọng sẽ
+   truyền cảm hứng cho họ để giúp đỡ chúng tôi một lần nữa trong tương lai.
+
+- Cc: người có tên đã nhận được bản vá và có
+   cơ hội để bình luận về nó.
+
+Hãy cẩn thận khi thêm các thẻ nói trên vào bản vá của bạn, vì tất cả
+ngoại trừ Cc:, Người báo cáo:, và Người gợi ý: cần có sự cho phép rõ ràng của
+người có tên. Đối với ba sự cho phép ngầm đó là đủ nếu người đó
+đã đóng góp cho nhân Linux bằng tên và địa chỉ email đó theo
+vào kho lưu trữ truyền thuyết hoặc lịch sử cam kết -- và trong trường hợp Người báo cáo:
+và Người được đề xuất: đã báo cáo hoặc đề xuất trước công chúng. Lưu ý,
+bugzilla.kernel.org theo nghĩa này là một nơi công cộng, nhưng địa chỉ email
+được sử dụng có riêng tư; vì vậy đừng để chúng trong thẻ, trừ khi người đó
+đã sử dụng chúng trong những đóng góp trước đó.
+
+
+Gửi bản vá
+-----------------
+
+Trước khi gửi các bản vá lỗi của mình qua đường bưu điện, có một số điều khác bạn nên làm
+chăm sóc:
+
+- Bạn có chắc chắn rằng người gửi thư của bạn sẽ không làm hỏng các bản vá lỗi không?  Bản vá lỗi
+   đã thực hiện các thay đổi khoảng trắng hoặc ngắt dòng vô cớ
+   bởi ứng dụng thư khách sẽ không áp dụng ở đầu bên kia và thường sẽ không
+   được kiểm tra chi tiết.  Nếu có bất kỳ nghi ngờ nào, hãy gửi bản vá qua đường bưu điện
+   với chính mình và thuyết phục bản thân rằng nó vẫn còn nguyên vẹn.
+
+ZZ0000ZZ có một số
+   những gợi ý hữu ích về cách làm cho các ứng dụng thư cụ thể hoạt động hiệu quả trong việc gửi các bản vá.
+
+- Bạn có chắc bản vá của mình không có lỗi ngớ ngẩn không?  Bạn nên luôn luôn
+   chạy các bản vá thông qua scripts/checkpatch.pl và giải quyết các khiếu nại đó
+   nghĩ ra.  Xin lưu ý rằng checkpatch.pl, trong khi là
+   hiện thân của một lượng suy nghĩ hợp lý về những bản vá kernel nào nên
+   có vẻ như không thông minh hơn bạn.  Nếu khắc phục khiếu nại checkpatch.pl
+   sẽ làm cho mã tệ hơn, đừng làm điều đó.
+
+Các bản vá phải luôn được gửi dưới dạng văn bản thuần túy.  Vui lòng không gửi chúng dưới dạng
+tệp đính kèm; điều đó khiến người đánh giá khó trích dẫn các phần của
+bản vá trong câu trả lời của họ.  Thay vào đó, chỉ cần đặt bản vá trực tiếp vào
+tin nhắn.
+
+Khi gửi các bản vá lỗi, điều quan trọng là phải gửi bản sao cho bất kỳ ai có thể
+quan tâm đến nó.  Không giống như một số dự án khác, kernel khuyến khích
+mọi người mắc sai lầm khi gửi quá nhiều bản sao; đừng cho rằng
+những người có liên quan sẽ thấy bài đăng của bạn trên danh sách gửi thư.  Đặc biệt,
+bản sao nên đi đến:
+
+- (Những) người bảo trì (các) hệ thống con bị ảnh hưởng.  Như đã mô tả trước đó,
+   tệp MAINTAINERS là nơi đầu tiên tìm kiếm những người này.
+
+- Các nhà phát triển khác đang làm việc trong cùng lĩnh vực - đặc biệt
+   những người có thể đang làm việc ở đó bây giờ.  Sử dụng git để xem ai khác có
+   việc sửa đổi các tập tin bạn đang làm việc có thể hữu ích.
+
+- Nếu bạn đang phản hồi một báo cáo lỗi hoặc một yêu cầu tính năng, hãy sao chép
+   áp phích gốc là tốt.
+
+- Gửi một bản sao đến danh sách gửi thư có liên quan, hoặc, nếu không có gì khác áp dụng,
+   danh sách hạt nhân linux.
+
+- Nếu bạn đang sửa một lỗi, hãy nghĩ xem liệu việc sửa lỗi có nên được đưa vào
+   bản cập nhật ổn định tiếp theo.  Nếu vậy, stable@vger.kernel.org sẽ nhận được một bản sao của
+   bản vá.  Đồng thời thêm "Cc: stable@vger.kernel.org" vào các thẻ bên trong
+   bản vá; điều đó sẽ khiến nhóm ổn định nhận được thông báo
+   khi bản sửa lỗi của bạn đi vào dòng chính.
+
+Khi chọn người nhận bản vá, tốt nhất bạn nên biết ai là người nhận bản vá đó.
+bạn nghĩ cuối cùng sẽ chấp nhận bản vá và hợp nhất nó.  Trong khi nó
+có thể gửi các bản vá trực tiếp tới Linus Torvalds và yêu cầu anh ta hợp nhất
+họ, mọi việc thường không được thực hiện theo cách đó.  Linus đang bận và có
+người bảo trì hệ thống con trông coi các phần cụ thể của kernel.  Thông thường
+bạn sẽ muốn người bảo trì đó hợp nhất các bản vá của bạn.  Nếu không có
+người bảo trì rõ ràng, Andrew Morton thường là mục tiêu vá lỗi cuối cùng.
+
+Các bản vá cần dòng chủ đề tốt.  Định dạng chuẩn cho một dòng vá là
+một cái gì đó như:
+
+::
+
+Hệ thống con [PATCH nn/mm]: mô tả một dòng về bản vá
+
+trong đó "nn" là số thứ tự của miếng vá, "mm" là tổng số
+các bản vá trong chuỗi và "subsys" là tên của hệ thống con bị ảnh hưởng.
+Rõ ràng, nn/mm có thể được bỏ qua cho một bản vá độc lập.
+
+Nếu bạn có một loạt bản vá đáng kể, thông thường bạn nên gửi một
+mô tả giới thiệu như phần số không.  Quy ước này không phổ biến
+mặc dù đã theo sau; nếu bạn sử dụng nó, hãy nhớ thông tin đó trong
+phần giới thiệu không được đưa vào nhật ký thay đổi kernel.  Vì vậy hãy đảm bảo
+rằng bản thân các bản vá có thông tin thay đổi đầy đủ.
+
+Nói chung, phần thứ hai và phần tiếp theo của bản vá nhiều phần phải được
+được gửi dưới dạng câu trả lời cho phần đầu tiên để tất cả chúng kết nối với nhau tại
+nhận được kết thúc.  Các công cụ như git và quilt có các lệnh để gửi một tập hợp
+các bản vá với luồng thích hợp.  Tuy nhiên, nếu bạn có một loạt phim dài và
+đang sử dụng git, vui lòng tránh xa tùy chọn --chain-reply-to để tránh
+tạo ra sự làm tổ đặc biệt sâu.

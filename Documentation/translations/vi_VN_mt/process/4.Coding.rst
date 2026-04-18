@@ -1,0 +1,437 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/process/4.Coding.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. _development_coding:
+
+Lấy mã đúng
+======================
+
+Mặc dù có nhiều điều để nói về một thiết kế chắc chắn và hướng tới cộng đồng
+quá trình, bằng chứng của bất kỳ dự án phát triển hạt nhân nào đều nằm ở kết quả
+mã.  Đây là mã sẽ được các nhà phát triển khác kiểm tra và hợp nhất
+(hoặc không) vào cây đường chính.  Vì vậy, chất lượng của mã này là điều
+sẽ quyết định sự thành công cuối cùng của dự án.
+
+Phần này sẽ xem xét quá trình mã hóa.  Chúng ta sẽ bắt đầu bằng việc xem xét một
+số cách mà các nhà phát triển hạt nhân có thể mắc sai lầm.  Sau đó trọng tâm
+sẽ chuyển sang làm những việc đúng đắn và các công cụ có thể trợ giúp việc đó
+nhiệm vụ.
+
+
+cạm bẫy
+---------
+
+Phong cách mã hóa
+************
+
+Hạt nhân từ lâu đã có kiểu mã hóa tiêu chuẩn, được mô tả trong
+ZZ0000ZZ.  Đối với phần lớn
+vào thời điểm đó, các chính sách được mô tả trong tệp đó được coi là nhiều nhất
+tư vấn.  Kết quả là có một lượng mã đáng kể trong kernel
+không đáp ứng các nguyên tắc về phong cách mã hóa.  Sự hiện diện của mã đó
+dẫn đến hai mối nguy hiểm độc lập cho các nhà phát triển hạt nhân.
+
+Đầu tiên trong số này là tin rằng các tiêu chuẩn mã hóa hạt nhân không
+quan trọng và không được thi hành.  Sự thật của vấn đề là việc thêm mới
+mã vào kernel sẽ rất khó khăn nếu mã đó không được mã hóa theo
+tiêu chuẩn; nhiều nhà phát triển sẽ yêu cầu mã được định dạng lại
+thậm chí trước khi họ xem xét nó.  Cơ sở mã lớn như kernel
+đòi hỏi một số tính đồng nhất của mã để giúp các nhà phát triển có thể
+nhanh chóng hiểu được bất kỳ phần nào của nó.  Vì thế không còn chỗ cho
+mã có định dạng lạ.
+
+Đôi khi, kiểu mã hóa của kernel sẽ xung đột với một kiểu
+phong cách bắt buộc của nhà tuyển dụng.  Trong những trường hợp như vậy, kiểu của kernel sẽ phải
+win trước khi mã có thể được hợp nhất.  Đưa mã vào kernel có nghĩa là
+từ bỏ một mức độ kiểm soát theo một số cách - bao gồm cả việc kiểm soát
+mã được định dạng như thế nào.
+
+Cái bẫy khác là cho rằng mã đã có trong kernel là
+đang rất cần sửa lỗi kiểu mã hóa.  Các nhà phát triển có thể bắt đầu tạo
+định dạng lại các bản vá như một cách để làm quen với quy trình, hoặc
+như một cách để đưa tên của họ vào nhật ký thay đổi kernel - hoặc cả hai.  Nhưng
+Các bản sửa lỗi về phong cách mã hóa thuần túy bị cộng đồng phát triển coi là gây ồn ào;
+họ có xu hướng nhận được sự tiếp đón lạnh lùng.  Vì vậy, loại bản vá này là tốt nhất
+tránh được.  Việc sửa kiểu của một đoạn mã trong khi làm việc là điều đương nhiên
+trên đó vì những lý do khác, nhưng không nên thực hiện thay đổi kiểu mã hóa cho
+vì lợi ích riêng của họ.
+
+Tài liệu về phong cách mã hóa cũng không nên được đọc như một luật tuyệt đối
+không bao giờ có thể vi phạm.  Nếu có lý do chính đáng để chống lại
+kiểu dáng (một dòng sẽ trở nên khó đọc hơn nhiều nếu được chia nhỏ để vừa với phần
+Giới hạn 80 cột chẳng hạn), cứ làm đi.
+
+Lưu ý rằng bạn cũng có thể sử dụng công cụ ZZ0001ZZ để giúp bạn
+các quy tắc này, để tự động định dạng lại các phần mã của bạn một cách nhanh chóng,
+và xem lại toàn bộ tệp để phát hiện các lỗi về kiểu mã hóa,
+lỗi chính tả và những cải tiến có thể có. Nó cũng thuận tiện cho việc sắp xếp ZZ0002ZZ,
+để căn chỉnh các biến/macro, để chỉnh lại văn bản và các tác vụ tương tự khác.
+Xem file ZZ0000ZZ
+để biết thêm chi tiết.
+
+Một số cài đặt soạn thảo cơ bản, chẳng hạn như thụt lề và kết thúc dòng, sẽ được
+được đặt tự động nếu bạn đang sử dụng trình chỉnh sửa tương thích với
+EditorConfig. Xem trang web EditorConfig chính thức để biết thêm thông tin:
+ZZ0000ZZ
+
+Lớp trừu tượng
+******************
+
+Các giáo sư Khoa học Máy tính dạy sinh viên cách sử dụng rộng rãi các
+các lớp trừu tượng nhân danh tính linh hoạt và ẩn giấu thông tin.
+Chắc chắn hạt nhân sử dụng rộng rãi tính trừu tượng; không có dự án
+liên quan đến hàng triệu dòng mã có thể làm khác và tồn tại.
+Nhưng kinh nghiệm đã chỉ ra rằng việc trừu tượng hóa quá mức hoặc quá sớm có thể
+cũng có hại như tối ưu hóa sớm.  Sự trừu tượng nên được sử dụng để
+mức độ yêu cầu và không có thêm.
+
+Ở mức độ đơn giản, hãy xem xét một hàm có đối số là
+luôn được thông qua bằng 0 bởi tất cả người gọi.  Người ta có thể giữ lại lập luận đó chỉ
+trong trường hợp ai đó cuối cùng cần sử dụng tính linh hoạt bổ sung mà nó
+cung cấp.  Tuy nhiên, vào thời điểm đó, rất có thể mã đó
+thực hiện đối số bổ sung này đã bị phá vỡ theo một cách tinh tế nào đó
+không bao giờ để ý - bởi vì nó chưa bao giờ được sử dụng.  Hoặc khi có nhu cầu
+sự linh hoạt tăng thêm phát sinh, nó không làm như vậy theo cách phù hợp với
+mong đợi ban đầu của người lập trình.  Các nhà phát triển hạt nhân sẽ thường xuyên gửi
+các bản vá để loại bỏ các đối số không sử dụng; nói chung, chúng không nên được thêm vào
+ngay từ đầu.
+
+Các lớp trừu tượng ẩn quyền truy cập vào phần cứng - thường cho phép số lượng lớn
+của một trình điều khiển được sử dụng với nhiều hệ điều hành - đặc biệt là
+cau mày.  Các lớp như vậy che khuất mã và có thể áp đặt hiệu suất
+hình phạt; chúng không thuộc về nhân Linux.
+
+Mặt khác, nếu bạn thấy mình đang sao chép một lượng lớn mã
+từ một hệ thống con kernel khác, đã đến lúc đặt câu hỏi liệu trên thực tế, liệu nó có
+nên rút một số mã đó vào một thư viện riêng hoặc
+thực hiện chức năng đó ở cấp độ cao hơn.  Không có giá trị trong
+sao chép cùng một mã trong toàn bộ kernel.
+
+
+#ifdef và sử dụng tiền xử lý nói chung
+**************************************
+
+Bộ tiền xử lý C dường như có sức hấp dẫn mạnh mẽ đối với một số người dùng C.
+lập trình viên, những người coi đó là một cách để mã hóa hiệu quả rất nhiều
+linh hoạt thành một tập tin nguồn.  Nhưng bộ tiền xử lý không phải là C và nặng
+việc sử dụng nó dẫn đến mã khó đọc hơn nhiều đối với người khác và
+trình biên dịch khó kiểm tra tính chính xác hơn.  Sử dụng bộ tiền xử lý nặng
+hầu như luôn là dấu hiệu của mã cần được dọn dẹp.
+
+Biên dịch có điều kiện với #ifdef thực sự là một tính năng mạnh mẽ và nó
+được sử dụng trong kernel.  Nhưng có rất ít mong muốn được xem mã
+rắc tự do các khối #ifdef.  Theo nguyên tắc chung, #ifdef sử dụng
+nên được giới hạn trong các tệp tiêu đề bất cứ khi nào có thể.
+Mã được biên dịch có điều kiện có thể được giới hạn ở các hàm mà nếu mã
+không phải là hiện diện, đơn giản trở thành trống rỗng.  Trình biên dịch sau đó sẽ lặng lẽ
+tối ưu hóa cuộc gọi đến hàm trống.  Kết quả sạch hơn nhiều
+mã dễ theo dõi hơn.
+
+Các macro tiền xử lý C có một số mối nguy hiểm, bao gồm cả khả năng
+đánh giá nhiều biểu thức có tác dụng phụ và không có loại an toàn.
+Nếu bạn muốn xác định một macro, hãy cân nhắc việc tạo một hàm nội tuyến
+thay vào đó.  Mã cho kết quả sẽ giống nhau, nhưng các hàm nội tuyến thì khác
+dễ đọc hơn, không đánh giá lập luận của họ nhiều lần và cho phép
+trình biên dịch để thực hiện kiểm tra kiểu trên các đối số và giá trị trả về.
+
+
+Hàm nội tuyến
+****************
+
+Tuy nhiên, các hàm nội tuyến có mối nguy hiểm riêng.  Lập trình viên có thể
+trở nên say mê với hiệu quả được cảm nhận vốn có trong việc tránh một chức năng
+gọi và điền vào tệp nguồn với các hàm nội tuyến.  Những chức năng đó
+tuy nhiên, thực sự có thể làm giảm hiệu suất.  Vì mã của họ được sao chép
+tại mỗi địa điểm cuộc gọi, chúng sẽ làm tăng kích thước của hạt nhân đã biên dịch.
+Ngược lại, điều đó sẽ tạo ra áp lực lên bộ nhớ đệm của bộ xử lý, điều này có thể
+thực hiện chậm đáng kể.  Các hàm nội tuyến, như một quy luật, phải khá
+nhỏ và tương đối hiếm.  Xét cho cùng, chi phí của một cuộc gọi hàm không phải là
+cao thế; việc tạo ra số lượng lớn các hàm nội tuyến là một công việc cổ điển
+ví dụ về tối ưu hóa sớm
+
+Nói chung, các lập trình viên kernel bỏ qua các hiệu ứng bộ nhớ đệm khi gặp nguy hiểm.  các
+sự cân bằng thời gian/không gian cổ điển được dạy trong các lớp cấu trúc dữ liệu mới bắt đầu
+thường không áp dụng cho phần cứng hiện đại.  Không gian ZZ0000ZZ thời gian, trong đó a
+chương trình lớn hơn sẽ chạy chậm hơn chương trình nhỏ gọn hơn.
+
+Các trình biên dịch gần đây hơn đóng vai trò ngày càng tích cực trong việc quyết định liệu
+một hàm nhất định có thực sự được nội tuyến hay không.  Vì thế người tự do
+vị trí của các từ khóa "nội tuyến" có thể không chỉ quá mức; nó cũng có thể là
+không liên quan.
+
+
+Khóa
+*******
+
+Vào tháng 5 năm 2006, ngăn xếp mạng "Devicescape" đã có hiệu suất tuyệt vời
+phô trương, được phát hành dưới tên GPL và có sẵn để đưa vào
+hạt nhân chính.  Khoản quyên góp này là một tin đáng hoan nghênh; hỗ trợ không dây
+mạng trong Linux tốt nhất được coi là không đạt tiêu chuẩn và Devicescape
+stack đưa ra lời hứa sẽ khắc phục tình trạng đó.  Tuy nhiên, mã này đã không
+thực sự được đưa vào dòng chính cho đến tháng 6 năm 2007 (2.6.22).  Chuyện gì đã xảy ra thế?
+
+Mã này cho thấy một số dấu hiệu đã được phát triển đằng sau
+cửa công ty.  Nhưng một vấn đề lớn đặc biệt là nó không
+được thiết kế để hoạt động trên các hệ thống đa bộ xử lý.  Trước ngăn xếp mạng này
+(bây giờ được gọi là mac80211) có thể được hợp nhất, cần có một sơ đồ khóa
+trang bị thêm vào nó.
+
+Ngày xửa ngày xưa, mã nhân Linux có thể được phát triển mà không cần suy nghĩ
+về các vấn đề tương tranh do hệ thống đa bộ xử lý đưa ra.  Bây giờ,
+tuy nhiên, tài liệu này đang được viết trên một máy tính xách tay lõi kép.  Ngay cả trên
+hệ thống xử lý đơn, công việc đang được thực hiện để cải thiện khả năng đáp ứng sẽ
+nâng cao mức độ đồng thời trong kernel.  Những ngày mà hạt nhân
+mã có thể được viết mà không cần nghĩ đến việc khóa đã qua lâu rồi.
+
+Bất kỳ tài nguyên nào (cấu trúc dữ liệu, thanh ghi phần cứng, v.v.) có thể
+được truy cập đồng thời bởi nhiều hơn một luồng phải được bảo vệ bằng khóa.
+Mã mới phải được viết với yêu cầu này; trang bị thêm
+khóa sau khi thực tế là một nhiệm vụ khá khó khăn hơn.  Nhà phát triển hạt nhân
+nên dành thời gian để hiểu rõ về các nguyên tắc khóa có sẵn
+đủ để chọn công cụ phù hợp cho công việc.  Mã cho thấy thiếu
+sự chú ý đến sự đồng thời sẽ có một con đường khó khăn vào dòng chính.
+
+
+hồi quy
+***********
+
+Một mối nguy hiểm cuối cùng đáng được đề cập là: việc thực hiện một
+thay đổi (có thể mang lại những cải tiến lớn) khiến một cái gì đó bị phá vỡ
+cho người dùng hiện tại.  Loại thay đổi này được gọi là "hồi quy" và
+hồi quy đã trở nên không được chào đón nhất trong hạt nhân dòng chính.  Với ít
+ngoại lệ, những thay đổi gây ra sự hồi quy sẽ bị loại bỏ nếu
+hồi quy không thể được khắc phục kịp thời.  Tốt hơn hết là tránh
+sự hồi quy ngay từ đầu.
+
+Người ta thường lập luận rằng sự hồi quy có thể được biện minh nếu nó khiến mọi thứ
+làm việc cho nhiều người hơn là tạo ra vấn đề.  Tại sao không làm một
+thay đổi nếu nó mang lại chức năng mới cho mười hệ thống cho mỗi hệ thống.
+nghỉ giải lao?  Câu trả lời đúng nhất cho câu hỏi này đã được Linus bày tỏ vào tháng 7
+2007:
+
+::
+
+Vì vậy, chúng tôi không sửa lỗi bằng cách đưa ra các vấn đề mới.  Lối đó nằm
+	điên rồ, và không ai biết liệu bạn có thực sự làm được điều gì đó thực sự hay không
+	tiến bộ chút nào. Là tiến hai bước, lùi một bước hay một bước?
+	bước tiến và lùi hai bước?
+
+(ZZ0000ZZ
+
+Một kiểu hồi quy đặc biệt không được chào đón là bất kỳ loại thay đổi nào đối với
+không gian người dùng ABI.  Khi một giao diện đã được xuất sang không gian người dùng, nó phải
+được hỗ trợ vô thời hạn.  Thực tế này làm cho việc tạo ra không gian người dùng
+giao diện đặc biệt khó khăn: vì chúng không thể thay đổi trong
+những cách không tương thích, chúng phải được thực hiện ngay lần đầu tiên.  Vì điều này
+lý do, rất nhiều suy nghĩ, tài liệu rõ ràng và đánh giá rộng rãi cho
+giao diện không gian người dùng luôn được yêu cầu.
+
+
+Công cụ kiểm tra mã
+-------------------
+
+Ít nhất cho đến nay, việc viết mã không có lỗi vẫn là một ý tưởng lý tưởng mà ít người có thể thực hiện được.
+trong chúng ta có thể tiếp cận.  Tuy nhiên, điều chúng ta có thể hy vọng làm là nắm bắt và khắc phục những
+càng nhiều lỗi càng tốt trước khi mã của chúng tôi đi vào dòng chính
+hạt nhân.  Để đạt được mục đích đó, các nhà phát triển hạt nhân đã tạo ra một công cụ ấn tượng
+một loạt các công cụ có thể giải quyết được nhiều vấn đề khó hiểu trong một
+cách tự động.  Bất kỳ vấn đề nào được máy tính phát hiện đều là một vấn đề sẽ
+không gây phiền toái cho người dùng sau này, vì vậy có lý do là hệ thống tự động
+công cụ nên được sử dụng bất cứ khi nào có thể.
+
+Bước đầu tiên chỉ đơn giản là chú ý đến các cảnh báo do trình biên dịch tạo ra.
+Các phiên bản hiện đại của gcc có thể phát hiện (và cảnh báo) một số lượng lớn
+những lỗi tiềm ẩn.  Khá thường xuyên, những cảnh báo này chỉ ra những vấn đề thực sự.
+Theo quy định, mã được gửi để xem xét không được tạo ra bất kỳ trình biên dịch nào
+cảnh báo.  Khi tắt tiếng cảnh báo, hãy chú ý tìm hiểu nguyên nhân thực sự
+và cố gắng tránh "sửa lỗi" khiến cảnh báo biến mất mà không giải quyết được
+nguyên nhân của nó.
+
+Lưu ý rằng không phải tất cả các cảnh báo của trình biên dịch đều được bật theo mặc định.  Xây dựng
+kernel bằng "make KCFLAGS=-W" để có bộ đầy đủ.
+
+Kernel cung cấp một số tùy chọn cấu hình để bật gỡ lỗi
+tính năng; hầu hết chúng đều được tìm thấy trong menu con "kernel hack".  Một số
+trong số các tùy chọn này phải được bật cho bất kỳ hạt nhân nào được sử dụng để phát triển hoặc
+mục đích thử nghiệm.  Đặc biệt, bạn nên bật:
+
+- FRAME_WARN để nhận cảnh báo về các khung ngăn xếp lớn hơn số lượng nhất định.
+   Đầu ra được tạo ra có thể dài dòng, nhưng người ta không cần phải lo lắng về
+   cảnh báo từ các phần khác của kernel.
+
+- DEBUG_OBJECTS sẽ thêm mã để theo dõi vòng đời của nhiều đối tượng khác nhau
+   được tạo bởi kernel và cảnh báo khi mọi thứ được thực hiện không theo thứ tự.  Nếu
+   bạn đang thêm một hệ thống con tạo (và xuất) các đối tượng phức tạp
+   của riêng nó, hãy xem xét thêm hỗ trợ cho việc gỡ lỗi đối tượng
+   cơ sở hạ tầng.
+
+- DEBUG_SLAB có thể tìm thấy nhiều lỗi phân bổ và sử dụng bộ nhớ; nó
+   nên được sử dụng trên hầu hết các hạt nhân phát triển.
+
+- DEBUG_SPINLOCK, DEBUG_ATOMIC_SLEEP và DEBUG_MUTEXES sẽ tìm thấy
+   số lỗi khóa thường gặp.
+
+Có khá nhiều tùy chọn gỡ lỗi khác, một số trong số đó sẽ
+được thảo luận dưới đây.  Một số trong số chúng có tác động đáng kể đến hiệu suất và
+không nên sử dụng mọi lúc.  Nhưng một thời gian dành cho việc học
+các lựa chọn có sẵn có thể sẽ được hoàn trả nhiều lần trong thời gian ngắn.
+
+Một trong những công cụ gỡ lỗi nặng hơn là trình kiểm tra khóa hoặc "lockdep".
+Công cụ này sẽ theo dõi việc thu thập và giải phóng mọi khóa (spinlock hoặc
+mutex) trong hệ thống, thứ tự các khóa được lấy tương ứng với
+nhau, môi trường ngắt hiện tại, v.v.  Sau đó nó có thể
+đảm bảo rằng các khóa luôn được lấy theo cùng một thứ tự, giống nhau
+các giả định về ngắt được áp dụng trong mọi tình huống, v.v.  Nói cách khác,
+lockdep có thể tìm thấy một số tình huống trong đó hệ thống có thể, trong một số trường hợp hiếm hoi
+dịp, bế tắc.  Loại vấn đề này có thể gây đau đớn (đối với cả hai
+nhà phát triển và người dùng) trong hệ thống được triển khai; lockdep cho phép chúng được tìm thấy
+một cách tự động trước thời hạn.  Mã với bất kỳ loại không tầm thường
+khóa phải được chạy với lockdep được kích hoạt trước khi được gửi cho
+sự hòa nhập.
+
+Là một lập trình viên kernel siêng năng, chắc chắn bạn sẽ kiểm tra kết quả trả về
+trạng thái của bất kỳ hoạt động nào (chẳng hạn như cấp phát bộ nhớ) có thể bị lỗi.  các
+Tuy nhiên, thực tế của vấn đề là các đường dẫn khôi phục lỗi dẫn đến
+có lẽ là hoàn toàn chưa được kiểm tra.  Mã chưa được kiểm tra có xu hướng bị hỏng;
+bạn có thể tự tin hơn nhiều về mã của mình nếu tất cả việc xử lý lỗi đó
+đường dẫn đã được thực hiện một vài lần.
+
+Hạt nhân cung cấp một khung tiêm lỗi có thể thực hiện chính xác điều đó,
+đặc biệt là khi có liên quan đến việc phân bổ bộ nhớ.  Với lỗi tiêm
+được bật, phần trăm phân bổ bộ nhớ có thể định cấu hình sẽ được thực hiện để
+thất bại; những lỗi này có thể bị hạn chế ở một phạm vi mã cụ thể.
+Chạy với tính năng chèn lỗi cho phép người lập trình xem cách thực hiện
+mã phản hồi khi mọi thứ trở nên tồi tệ.  Xem
+Tài liệu/fault-injection/fault-injection.rst để biết thêm thông tin về
+cách sử dụng tiện ích này.
+
+Các loại lỗi khác có thể được tìm thấy bằng công cụ phân tích tĩnh "thưa thớt".
+Với thưa thớt, người lập trình có thể được cảnh báo về sự nhầm lẫn giữa
+địa chỉ không gian người dùng và không gian hạt nhân, sự kết hợp giữa địa chỉ big-endian và
+số lượng endian nhỏ, việc truyền các giá trị nguyên trong đó một tập hợp bit
+cờ được mong đợi, v.v.  Sparse phải được cài đặt riêng biệt (nó có thể
+được tìm thấy tại ZZ0000ZZ nếu bạn
+nhà phân phối không đóng gói); sau đó nó có thể được chạy trên mã bằng cách thêm
+"C=1" vào lệnh thực hiện của bạn.
+
+Công cụ "Coccinelle" (ZZ0001ZZ có thể tìm thấy nhiều
+nhiều vấn đề mã hóa tiềm ẩn; nó cũng có thể đề xuất các bản sửa lỗi cho những
+vấn đề.  Khá nhiều "bản vá ngữ nghĩa" cho kernel đã được đóng gói
+trong thư mục scripts/coccinelle; chạy "make coccicheck" sẽ chạy
+thông qua các bản vá lỗi ngữ nghĩa đó và báo cáo mọi vấn đề được tìm thấy.  Xem
+ZZ0000ZZ
+để biết thêm thông tin.
+
+Các loại lỗi di động khác được tìm thấy tốt nhất bằng cách biên dịch mã của bạn cho
+các kiến trúc khác.  Nếu bạn không có hệ thống S/390 hoặc
+Bảng phát triển Blackfin tiện dụng, bạn vẫn có thể thực hiện việc biên dịch
+bước.  Có thể tìm thấy một bộ lớn các trình biên dịch chéo cho hệ thống x86 tại
+
+ZZ0000ZZ
+
+Việc dành chút thời gian cài đặt và sử dụng các trình biên dịch này sẽ giúp tránh được
+ngượng ngùng sau này.
+
+
+Tài liệu
+-------------
+
+Tài liệu thường là ngoại lệ hơn quy tắc với kernel
+sự phát triển.  Mặc dù vậy, tài liệu đầy đủ sẽ giúp dễ dàng việc sáp nhập
+mã mới vào kernel, giúp cuộc sống của các nhà phát triển khác dễ dàng hơn và
+sẽ hữu ích cho người dùng của bạn.  Trong nhiều trường hợp, việc bổ sung
+tài liệu về cơ bản đã trở thành bắt buộc.
+
+Phần tài liệu đầu tiên cho bất kỳ bản vá nào đều được liên kết với nó.
+thay đổi.  Các mục nhật ký phải mô tả vấn đề đang được giải quyết, biểu mẫu
+của giải pháp, những người thực hiện bản vá, mọi thông tin liên quan
+ảnh hưởng đến hiệu suất và bất kỳ điều gì khác có thể cần thiết để
+hiểu bản vá.  Hãy chắc chắn rằng nhật ký thay đổi cho biết bản vá ZZ0000ZZ là
+đáng áp dụng; một số lượng đáng ngạc nhiên các nhà phát triển không cung cấp được điều đó
+thông tin.
+
+Bất kỳ mã nào thêm giao diện không gian người dùng mới - bao gồm cả sysfs mới hoặc
+/proc - nên bao gồm tài liệu về giao diện đó cho phép
+các nhà phát triển không gian người dùng để biết họ đang làm việc với cái gì.  Xem
+Documentation/ABI/README để biết mô tả về cách sử dụng tài liệu này
+được định dạng và thông tin nào cần được cung cấp.
+
+Tệp ZZ0000ZZ mô tả tất cả các tham số thời gian khởi động của kernel.
+Bất kỳ bản vá nào thêm tham số mới nên thêm các mục thích hợp vào
+tập tin này.
+
+Bất kỳ tùy chọn cấu hình mới nào cũng phải kèm theo văn bản trợ giúp.
+giải thích rõ ràng các tùy chọn và thời điểm người dùng có thể muốn chọn chúng.
+
+Thông tin nội bộ API cho nhiều hệ thống con được ghi lại bằng cách
+nhận xét có định dạng đặc biệt; những bình luận này có thể được trích xuất và định dạng
+theo một số cách bằng tập lệnh "kernel-doc".  Nếu bạn đang làm việc trong
+một hệ thống con có chú thích kerneldoc, bạn nên duy trì chúng và thêm
+chúng, nếu thích hợp, cho các chức năng có sẵn bên ngoài.  Ngay cả ở những khu vực
+chưa được ghi lại, không có hại gì khi thêm kerneldoc
+ý kiến cho tương lai; thực sự, đây có thể là một hoạt động hữu ích cho
+nhà phát triển hạt nhân mới bắt đầu.  Định dạng của những bình luận này, cùng với một số
+thông tin về cách tạo các mẫu kerneldoc có thể được tìm thấy tại
+ZZ0000ZZ.
+
+Bất kỳ ai đọc qua một lượng đáng kể mã hạt nhân hiện có sẽ
+lưu ý rằng, thông thường, các bình luận đáng chú ý nhất là do chúng vắng mặt.  Một lần nữa,
+kỳ vọng về mã mới cao hơn trước đây;
+việc hợp nhất mã không chú thích sẽ khó hơn.  Điều đó nói rằng, có rất ít ham muốn
+cho mã nhận xét bằng lời nói.  Bản thân mã phải có thể đọc được, với
+bình luận giải thích các khía cạnh tinh tế hơn.
+
+Một số điều nhất định phải luôn luôn được bình luận.  Việc sử dụng các rào cản bộ nhớ nên
+kèm theo một dòng giải thích lý do tại sao rào cản là cần thiết.  các
+quy tắc khóa cho cấu trúc dữ liệu thường cần được giải thích ở đâu đó.
+Cấu trúc dữ liệu chính cần tài liệu toàn diện nói chung.
+Cần chỉ ra sự phụ thuộc không rõ ràng giữa các đoạn mã riêng biệt
+ra ngoài.  Bất cứ điều gì có thể khiến người gác cổng mắc lỗi sai
+"dọn dẹp" cần một bình luận cho biết lý do tại sao nó lại được thực hiện như vậy.  Và vân vân.
+
+
+Thay đổi nội bộ API
+--------------------
+
+Giao diện nhị phân do kernel cung cấp cho không gian người dùng không thể bị phá vỡ
+ngoại trừ trong những trường hợp nghiêm trọng nhất.  Bên trong hạt nhân
+thay vào đó, giao diện lập trình rất linh hoạt và có thể thay đổi khi
+nhu cầu phát sinh.  Nếu bạn thấy mình phải làm việc với kernel API,
+hoặc đơn giản là không sử dụng một chức năng cụ thể nào đó vì nó không đáp ứng được yêu cầu của bạn.
+nhu cầu, đó có thể là dấu hiệu cho thấy API cần thay đổi.  Là một hạt nhân
+nhà phát triển, bạn có quyền thực hiện những thay đổi đó.
+
+Tất nhiên, có một số sản phẩm đánh bắt được.  Có thể thực hiện các thay đổi API, nhưng chúng cần
+để được biện minh tốt.  Vì vậy, bất kỳ bản vá nào thực hiện thay đổi API nội bộ đều phải được
+kèm theo mô tả về sự thay đổi là gì và tại sao lại như vậy
+cần thiết.  Loại thay đổi này cũng nên được chia thành một phần riêng biệt
+vá, thay vì chôn trong một miếng vá lớn hơn.
+
+Vấn đề còn lại là nhà phát triển thay đổi API nội bộ là
+thường được giao nhiệm vụ sửa bất kỳ mã nào trong cây hạt nhân
+bị phá vỡ bởi sự thay đổi.  Đối với một chức năng được sử dụng rộng rãi, nhiệm vụ này có thể
+thực sự dẫn đến hàng trăm hoặc hàng ngàn thay đổi - nhiều trong số đó là
+có khả năng xung đột với công việc đang được thực hiện bởi các nhà phát triển khác.  Không cần thiết
+chẳng hạn, đây có thể là một công việc lớn, vì vậy tốt nhất hãy chắc chắn rằng
+sự biện minh là vững chắc.  Lưu ý rằng công cụ Coccinelle có thể trợ giúp
+thay đổi API trên phạm vi rộng.
+
+Khi thực hiện thay đổi API không tương thích, bất cứ khi nào có thể, người ta nên:
+đảm bảo rằng mã chưa được cập nhật sẽ bị trình biên dịch bắt được.
+Điều này sẽ giúp bạn chắc chắn rằng bạn đã tìm thấy tất cả các cách sử dụng trên cây của điều đó
+giao diện.  Nó cũng sẽ cảnh báo cho các nhà phát triển về mã out-of-tree rằng có
+một sự thay đổi mà họ cần phải đáp ứng.  Không hỗ trợ mã ngoài cây
+điều mà các nhà phát triển hạt nhân cần phải lo lắng, nhưng chúng tôi cũng lo lắng
+không cần phải làm cho cuộc sống của các nhà phát triển ngoài cây trở nên khó khăn hơn mức cần thiết
+được.

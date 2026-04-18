@@ -1,0 +1,26 @@
+.. SPDX-License-Identifier: GPL-2.0-only
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/accel/qaic/aic080.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==================================
+ Đám mây Qualcomm AI 80 (AIC080)
+===============================
+
+Tổng quan
+========
+
+Dòng sản phẩm Qualcomm Cloud AI 80/AIC080 là phiên bản phái sinh của AIC100.
+Số lượng NSP và tốc độ xung nhịp được giảm xuống để phù hợp với tài nguyên
+giải pháp hạn chế. ID sản phẩm PCIe là 0xa080.
+
+Là một sản phẩm phái sinh, tất cả tài liệu AIC100 đều được áp dụng.
