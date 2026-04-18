@@ -1,0 +1,289 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/filesystems/9p.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==========================================
+v9fs: Kế hoạch chia sẻ tài nguyên 9 cho Linux
+=======================================
+
+Về
+=====
+
+v9fs là một triển khai Unix của giao thức hệ thống tệp từ xa Plan 9 9p.
+
+Phần mềm này ban đầu được phát triển bởi Ron Trinich <rminnich@sandia.gov>
+và Maya Gokhale.  Phát triển bổ sung bởi Greg Watson
+<gwatson@lanl.gov> và gần đây nhất là Eric Van Hensbergen
+<ericvh@gmail.com>, Latchesar Ionkov <lucho@ionkov.net> và Russ Cox
+<rsc@swtch.com>.
+
+Lời giải thích chi tiết nhất về việc triển khai và ứng dụng Linux của
+ứng dụng khách 9p có sẵn ở dạng giấy USENIX:
+
+ZZ0000ZZ
+
+Các ứng dụng khác được mô tả trong các bài viết sau:
+
+* XCPU & Phân cụm
+	  ZZ0000ZZ
+	* KVMFS: hệ thống tập tin điều khiển cho KVM
+	  ZZ0001ZZ
+	* CellFS: Mô hình lập trình mới cho Cell BE
+	  ZZ0002ZZ
+	* PROSE I/O: Sử dụng 9p để kích hoạt Phân vùng ứng dụng
+	  ZZ0003ZZ
+	* VirtFS: Truyền qua hệ thống tệp nhận biết ảo hóa
+	  ZZ0004ZZ
+
+Cách sử dụng
+=====
+
+Đối với máy chủ tập tin từ xa::
+
+gắn kết -t 9p 10.10.1.2 /mnt/9
+
+Dành cho Gói 9 Từ các ứng dụng Không gian người dùng (ZZ0000ZZ
+
+mount -t 9p ZZ0000ZZ/acme /mnt/9 -o trans=unix,uname=$USER
+
+Đối với máy chủ chạy trên máy chủ QEMU có khả năng truyền tải virtio::
+
+mount -t 9p -o trans=virtio <mount_tag> /mnt/9
+
+trong đó mount_tag là thẻ được máy chủ tạo cho mỗi tệp được xuất
+điểm gắn kết. Mỗi lần xuất 9P được khách hàng xem như một thiết bị virtio có
+thuộc tính "mount_tag" được liên kết. Thẻ gắn kết có sẵn có thể
+được nhìn thấy bằng cách đọc các tệp /sys/bus/virtio/drivers/9pnet_virtio/virtio<n>/mount_tag.
+
+Cách sử dụng USBG
+==========
+
+Để gắn FS 9p trên Máy chủ USB có thể truy cập được qua tiện ích khi chạy::
+
+mount -t 9p -o trans=usbg,aname=/path/to/fs <device> /mnt/9
+
+Để gắn FS 9p trên Máy chủ USB có thể truy cập thông qua tiện ích dưới dạng hệ thống tệp gốc::
+
+root=<device> rootfstype=9p rootflags=trans=usbg,cache=loose,uname=root,access=0,dfltuid=0,dfltgid=0,aname=/path/to/rootfs
+
+trong đó <device> là thẻ được liên kết bởi tiện ích usb vận chuyển.
+Nó được xác định bởi tên cá thể configfs.
+
+Ví dụ về USBG
+============
+
+Máy chủ USB xuất hệ thống tệp, trong khi tiện ích trên thiết bị USB
+bên làm cho nó có thể gắn kết được.
+
+Diod (máy chủ 9pfs) và bộ chuyển tiếp nằm trên máy chủ phát triển, trong đó
+hệ thống tập tin gốc thực sự được lưu trữ. Tiện ích được khởi tạo trong thời gian
+khởi động (hoặc mới hơn) trên bảng nhúng. Sau đó người giao nhận sẽ tìm thấy nó
+trên bus USB và bắt đầu chuyển tiếp yêu cầu.
+
+Trong trường hợp này, các yêu cầu 9p đến từ thiết bị và được xử lý bởi
+chủ nhà. Lý do là các cổng thiết bị USB thường không có sẵn trên
+PC, do đó kết nối theo hướng khác sẽ không hoạt động.
+
+Khi sử dụng usbg Transport, hiện tại không có máy chủ USB gốc
+dịch vụ có khả năng xử lý các yêu cầu từ trình điều khiển tiện ích. cho
+cái này chúng ta phải sử dụng thêm công cụ python p9_fwd.py từ tools/usb.
+
+Chỉ cần khởi động máy chủ mạng có khả năng 9pfs như diod/nfs-ganesha, ví dụ::
+
+$ diod -f -n -d 0 -S -l 0.0.0.0:9999 -e $PWD
+
+Tùy chọn quét xe buýt của bạn nếu có nhiều hơn một tiện ích usbg để tìm đường dẫn của chúng ::
+
+$ python danh sách $kernel_dir/tools/usb/p9_fwd.py
+
+Xe buýt ZZ0000ZZ Nhà sản xuất ZZ0001ZZ ID | Đường dẫn
+        --- ZZ0002ZZ ---------------- ZZ0003ZZ --------- | ----
+          2 ZZ0004ZZ không xác định ZZ0005ZZ 1d6b:0109 | 2-1.1.2
+          2 ZZ0006ZZ không xác định ZZ0007ZZ 1d6b:0109 | 2-1.1.3
+
+Sau đó bắt đầu vận chuyển python ::
+
+$ python $kernel_dir/tools/usb/p9_fwd.py --path 2-1.1.2 kết nối -p 9999
+
+Sau đó, trình điều khiển tiện ích có thể được sử dụng như mô tả ở trên.
+
+Một trường hợp sử dụng là sử dụng nó như một giải pháp thay thế cho việc khởi động root NFS trong quá trình
+sự phát triển của các thiết bị Linux nhúng.
+
+Tùy chọn
+=======
+
+============== =====================================================================
+  trans=name chọn phương tiện di chuyển thay thế.  Các tùy chọn hợp lệ là
+  		hiện tại:
+
+=========================================================
+			unix chỉ định một điểm gắn ống được đặt tên
+			tcp chỉ định kết nối TCP/IP bình thường
+			fd đã sử dụng các bộ mô tả tệp đã được chuyển để kết nối
+                                  (xem rfdno và wfdno)
+			virtio kết nối với kênh virtio tiếp theo có sẵn
+				  (từ QEMU với mô-đun trans_virtio)
+			rdma kết nối với kênh RDMA được chỉ định
+			usbg kết nối với kênh tiện ích usb được chỉ định
+			=========================================================
+
+uname=name tên người dùng để thử gắn kết như trên máy chủ từ xa.  các
+  		máy chủ có thể ghi đè hoặc bỏ qua giá trị này.  Người dùng nhất định
+		tên có thể yêu cầu xác thực.
+
+aname=name aname chỉ định cây tập tin để truy cập khi máy chủ
+  		cung cấp một số hệ thống tập tin được xuất khẩu.
+
+cache=mode chỉ định chính sách bộ đệm.  Theo mặc định, không có bộ đệm nào được sử dụng.
+		Chế độ này có thể được chỉ định dưới dạng bitmask hoặc bằng cách sử dụng một trong các
+		những 'phím tắt' phổ biến đã có từ trước.
+		Mặt nạ bit được mô tả bên dưới: (các bit không xác định được đặt trước)
+
+====================================================================
+			0b00000000 tất cả bộ đệm bị vô hiệu hóa, mmap bị vô hiệu hóa
+			Đã bật bộ đệm tệp 0b00000001
+			Đã bật bộ đệm siêu dữ liệu 0b00000010
+			Hành vi ghi lại 0b00000100 (trái ngược với hành vi ghi lại)
+			0b00001000 bộ đệm lỏng lẻo (không có tính nhất quán rõ ràng với máy chủ)
+			Đã bật 0b10000000 fscache để lưu vào bộ nhớ đệm liên tục
+			====================================================================
+
+Các phím tắt hiện tại và bitmask liên quan của chúng là:
+
+===================================================================
+			không có 0b00000000 (không có bộ nhớ đệm)
+			đọc trước 0b00000001 (chỉ lưu vào bộ nhớ đệm tệp đọc trước)
+			mmap 0b00000101 (bộ đệm tệp đọc trước + ghi lại)
+			mất 0b00001111 (tệp không mạch lạc và bộ đệm siêu dữ liệu)
+			fscache 0b10001111 (bộ đệm lỏng liên tục)
+			===================================================================
+
+NOTE: chỉ những phím tắt này mới được thử nghiệm các chế độ hoạt động tại
+		thời điểm, vì vậy việc sử dụng các kết hợp mẫu bit khác không phải là
+		được biết đến để làm việc.  Công việc hỗ trợ bộ đệm tốt hơn đang được tiến hành.
+
+IMPORTANT: bộ nhớ đệm lỏng lẻo (và hiện tại có phần mở rộng là fscache)
+		không nhất thiết phải xác thực các giá trị được lưu trong bộ nhớ cache trên máy chủ.  Ở nơi khác
+		những thay đổi từ trên máy chủ không được đảm bảo được phản ánh
+		trên hệ thống khách hàng.  Chỉ sử dụng chế độ hoạt động này nếu bạn
+		có một giá treo độc quyền và máy chủ sẽ không sửa đổi
+		hệ thống tập tin bên dưới bạn.
+
+debug=n chỉ định mức độ gỡ lỗi.  Mức gỡ lỗi là bitmask.
+
+===== ===================================
+			0x01 hiển thị thông báo lỗi dài dòng
+			Gỡ lỗi dành cho nhà phát triển 0x02 (DEBUG_CURRENT)
+			0x04 hiển thị dấu vết 9p
+			0x08 hiển thị dấu vết VFS
+			Hiển thị 0x10 Gỡ lỗi Marshalling
+			Hiển thị 0x20 gỡ lỗi RPC
+			Gỡ lỗi vận chuyển hiển thị 0x40
+			Gỡ lỗi phân bổ hiển thị 0x80
+			Gỡ lỗi thông báo giao thức hiển thị 0x100
+			Gỡ lỗi Fid hiển thị 0x200
+			Gỡ lỗi gói hiển thị 0x400
+			0x800 hiển thị gỡ lỗi theo dõi fscache
+			===== ===================================
+
+rfdno=n bộ mô tả tệp để đọc với trans=fd
+
+wfdno=n bộ mô tả tập tin để ghi với trans=fd
+
+msize=n số byte sử dụng cho tải trọng gói 9p
+
+port=n port để kết nối trên máy chủ từ xa
+
+chế độ kế thừa lực lượng không mở rộng (không có ngữ nghĩa 9p2000.u hoặc 9p2000.L)
+
+version=name Chọn phiên bản giao thức 9P. Các tùy chọn hợp lệ là:
+
+=========================================
+			9p2000 Chế độ kế thừa (giống như noextend)
+			9p2000.u Sử dụng giao thức 9P2000.u
+			9p2000.L Sử dụng giao thức 9P2000.L
+			=========================================
+
+dfltuid cố gắng gắn kết dưới dạng uid cụ thể
+
+dfltgid cố gắng gắn kết với một gid cụ thể
+
+kênh bảo mật afid - được sử dụng bởi các giao thức xác thực Plan 9
+
+nodevmap không ánh xạ các tệp đặc biệt - thể hiện chúng dưới dạng tệp thông thường.
+  		Điều này có thể được sử dụng để chia sẻ các thiết bị/ống dẫn/ổ cắm được đặt tên giữa
+		chủ nhà.  Chức năng này sẽ được mở rộng trong các phiên bản sau.
+
+directio bỏ qua bộ đệm trang trên tất cả các hoạt động đọc/ghi
+
+ignqv bỏ qua qid.version==0 làm điểm đánh dấu để bỏ qua bộ đệm
+
+noxattr không cung cấp chức năng xattr trên thú cưỡi này.
+
+truy cập có bốn chế độ truy cập.
+			người dùng
+				nếu người dùng cố gắng truy cập một tệp trên v9fs
+			        hệ thống tập tin lần đầu tiên, v9fs sẽ gửi một
+			        lệnh đính kèm (Tattach) cho người dùng đó.
+				Đây là chế độ mặc định.
+			<uid>
+				chỉ cho phép người dùng có uid=<uid> truy cập
+				các tập tin trên hệ thống tập tin được gắn kết
+			bất kỳ
+				v9fs thực hiện đính kèm một lần và thực hiện tất cả
+				hoạt động như một người dùng
+			khách hàng
+				 Kiểm tra quyền truy cập dựa trên ACL trên máy khách 9p
+			         bên để xác nhận quyền truy cập
+
+thẻ bộ đệm cachetag để sử dụng bộ đệm liên tục được chỉ định.
+		thẻ bộ đệm cho các phiên bộ đệm hiện có có thể được liệt kê tại
+		/sys/fs/9p/caches. (chỉ áp dụng cho cache=fscache)
+  ============== =====================================================================
+
+Hành vi
+========
+
+Phần này nhằm mục đích mô tả những 'điều kỳ quặc' của 9p có thể khác
+từ hành vi hệ thống tập tin cục bộ.
+
+- Đặt O_NONBLOCK trên một tệp sẽ khiến máy khách đọc trở lại sớm hơn
+   vì máy chủ trả về một số dữ liệu thay vì cố gắng điền dữ liệu đã đọc
+   bộ đệm với số lượng byte được yêu cầu hoặc đạt đến cuối tệp.
+
+Tài nguyên
+=========
+
+Thông số kỹ thuật giao thức được duy trì trên github:
+ZZ0000ZZ
+
+Việc triển khai máy khách và máy chủ 9p được liệt kê trên
+ZZ0000ZZ
+
+Máy chủ 9p2000.L đang được LLNL phát triển và có thể tìm thấy
+tại ZZ0000ZZ
+
+Có sẵn danh sách gửi thư của người dùng và nhà phát triển thông qua dự án v9fs
+trên sourceforge (ZZ0000ZZ
+
+Tin tức và thông tin khác được duy trì trên Wiki.
+(ZZ0000ZZ
+
+Báo cáo lỗi được phát hành tốt nhất thông qua danh sách gửi thư.
+
+Để biết thêm thông tin về Hệ điều hành Plan 9, hãy xem
+ZZ0000ZZ
+
+Để biết thông tin về Gói 9 từ Không gian người dùng (Các ứng dụng và thư viện của Gói 9
+được chuyển sang Linux/BSD/OSX/etc), hãy kiểm tra ZZ0000ZZ

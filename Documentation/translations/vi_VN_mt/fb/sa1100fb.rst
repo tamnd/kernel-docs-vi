@@ -1,0 +1,51 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/fb/sa1100fb.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=====================================================
+sa1100fb - Trình điều khiển bộ đệm khung đồ họa SA-1100 LCD
+=================================================
+
+Đây là trình điều khiển cho bộ đệm khung đồ họa cho SA-1100 LCD
+bộ điều khiển.
+
+Cấu hình
+==============
+
+Đối với hầu hết các màn hình thụ động phổ biến, đưa ra tùy chọn::
+
+video=sa1100fb:bpp:<value>,lccr0:<value>,lccr1:<value>,lccr2:<value>,lccr3:<value>
+
+trên dòng lệnh kernel là đủ để cấu hình
+bộ điều khiển. Giá trị bit trên mỗi pixel (bpp) phải là 4, 8, 12 hoặc
+16. Các giá trị LCCR dành riêng cho màn hình và phải được tính như sau
+được ghi lại trong Hướng dẫn dành cho nhà phát triển SA-1100, Phần 11.7. Bảng điều khiển kép
+màn hình được hỗ trợ miễn là bit SDS được đặt trong LCCR0; GPIO<9:2>
+được sử dụng cho bảng phía dưới.
+
+Đối với màn hình đang hoạt động hoặc màn hình yêu cầu cấu hình bổ sung
+(điều khiển đèn nền, bật nguồn LCD, v.v.), dòng lệnh
+các tùy chọn có thể không đủ để cấu hình màn hình. Thêm phần vào
+sa1100fb_init_fbinfo(), sa1100fb_activate_var(),
+sa1100fb_disable_lcd_controller() và sa1100fb_enable_lcd_controller()
+có lẽ sẽ cần thiết.
+
+Tùy chọn được chấp nhận::
+
+bpp:<value> Định cấu hình cho các bit <value> trên mỗi pixel
+	lccr0:<value> Cấu hình thanh ghi điều khiển LCD 0 (11.7.3)
+	lccr1:<value> Cấu hình thanh ghi điều khiển LCD 1 (11.7.4)
+	lccr2:<value> Cấu hình thanh ghi điều khiển LCD 2 (11.7.5)
+	lccr3:<value> Cấu hình thanh ghi điều khiển LCD 3 (11.7.6)
+
+Mark Huang <mhuang@livetoy.com>

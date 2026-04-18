@@ -1,0 +1,81 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/driver-api/w1.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+========================
+W1: Xe buýt 1 dây của Dallas
+======================
+
+:Tác giả: David Fries
+
+W1 API bên trong kernel
+=============================
+
+bao gồm/linux/w1.h
+~~~~~~~~~~~~~~~~~~
+
+Chức năng API của hạt nhân W1.
+
+.. kernel-doc:: include/linux/w1.h
+   :internal:
+
+trình điều khiển/w1/w1.c
+~~~~~~~~~~~~~~~
+
+Chức năng cốt lõi của W1.
+
+.. kernel-doc:: drivers/w1/w1.c
+   :internal:
+
+trình điều khiển/w1/w1_family.c
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Cho phép đăng ký hoạt động nhóm thiết bị.
+
+.. kernel-doc:: drivers/w1/w1_family.c
+   :export:
+
+trình điều khiển/w1/w1_internal.h
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Khởi tạo nội bộ W1 cho các thiết bị chính.
+
+.. kernel-doc:: drivers/w1/w1_internal.h
+   :internal:
+
+trình điều khiển/w1/w1_int.c
+~~~~~~~~~~~~~~~~~~~~
+
+Khởi tạo nội bộ W1 cho các thiết bị chính.
+
+.. kernel-doc:: drivers/w1/w1_int.c
+   :export:
+
+trình điều khiển/w1/w1_netlink.h
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Các cấu trúc và lệnh của liên kết mạng bên ngoài W1 API.
+
+.. kernel-doc:: drivers/w1/w1_netlink.h
+   :internal:
+
+trình điều khiển/w1/w1_io.c
+~~~~~~~~~~~~~~~~~~~
+
+Đầu vào/đầu ra W1.
+
+.. kernel-doc:: drivers/w1/w1_io.c
+   :export:
+
+.. kernel-doc:: drivers/w1/w1_io.c
+   :internal:

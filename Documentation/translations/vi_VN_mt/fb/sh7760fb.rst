@@ -1,0 +1,144 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/fb/sh7760fb.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+====================================================
+SH7760/SH7763 tích hợp trình điều khiển Bộ đệm khung LCDC
+================================================
+
+0. Tổng quan
+-----------
+SH7760/SH7763 có bộ điều khiển hiển thị LCD tích hợp (LCDC)
+hỗ trợ (về lý thuyết) độ phân giải từ 1x1 đến 1024x1024,
+với độ sâu màu từ 1 đến 16 bit, trên các Bảng STN, DSTN và TFT.
+
+Hãy cẩn thận:
+
+* Bộ nhớ đệm khung phải là một khối lớn được phân bổ ở trên cùng
+  của Khu vực 3 (yêu cầu CTNH). Vì yêu cầu này bạn nên NOT
+  biến trình điều khiển thành một mô-đun vì trong thời gian chạy, có thể không thể thực hiện được
+  có được một đoạn bộ nhớ liền kề đủ lớn.
+
+* Trình điều khiển không hỗ trợ thay đổi độ phân giải trong khi tải
+  (dù sao màn hình cũng không thể cắm nóng được)
+
+* Có thể quan sát thấy nhấp nháy nặng
+  a) nếu bạn đang sử dụng chế độ màu 15/16bit ở độ phân giải >= 640x480 px,
+  b) trong hoạt động PCMCIA (hoặc bất kỳ xe buýt chậm nào khác).
+
+* Xoay chỉ hoạt động 90 độ theo chiều kim đồng hồ và chỉ khi nằm ngang
+  độ phân giải là <= 320 pixel.
+
+Tập tin:
+	- trình điều khiển/video/sh7760fb.c
+	- bao gồm/asm-sh/sh7760fb.h
+	- Tài liệu/fb/sh7760fb.rst
+
+1. Thiết lập nền tảng
+-----------------
+SH7760:
+ Dữ liệu video được tìm nạp thông qua công cụ DMABRG DMA, vì vậy bạn phải
+ định cấu hình SH DMAC cho chế độ DMABRG (ghi 0x94808080 vào
+ DMARSRA đăng ký ở đâu đó khi khởi động).
+
+Các thanh ghi PFC PCCR và PCDR phải được đặt ở chế độ ngoại vi.
+ (viết số không cho cả hai).
+
+Trình điều khiển thực hiện NOT thực hiện những việc trên cho bạn vì việc thiết lập bo mạch là công việc
+của mã thiết lập bảng.
+
+2. Định nghĩa bảng
+--------------------
+LCDC phải được thông báo rõ ràng về loại bảng LCD
+đính kèm.  Dữ liệu phải được gói trong "struct sh7760fb_platdata" và
+được chuyển cho trình điều khiển dưới dạng platform_data.
+
+Đề nghị bạn xem kỹ hơn Hướng dẫn sử dụng SH7760, Phần 30.
+(ZZ0000ZZ
+
+Đoạn mã sau minh họa những gì cần phải làm để
+để bộ đệm khung hoạt động trên TFT 640x480::
+
+#include <linux/fb.h>
+  #include <asm/sh7760fb.h>
+
+/*
+   * NEC NL6440bc26-01 640x480 TFT
+   * đồng hồ chấm 25175 kHz
+   * Xres 640 Yres 480
+   * Htotal 800Vtotal 525
+   * HsynStart 656 VsynStart 490
+   * HsynLenn 30 VsynLenn 2
+   *
+   * Lớp bộ đệm khung linux không sử dụng syncstart/synclen
+   * giá trị nhưng giá trị lề phải/trái/trên/dưới. Các ý kiến
+   * đối với x_margin, hãy giải thích cách tính những giá trị đó từ đã cho
+   * thời gian đồng bộ hóa bảng điều khiển.
+   */
+  cấu trúc tĩnh fb_videomode nl6448bc26 = {
+         .name = "NL6448BC26",
+         .refresh = 60,
+         .xres = 640,
+         .yres = 480,
+         .pixclock = 39683, /* tính bằng pico giây! */
+         .hsync_len = 30,
+         .vsync_len = 2,
+         .left_margin = 114, /* HTOT - (HSYNSLEN + HSYNSTART) */
+         .right_margin = 16, /* HSYNSTART - XRES */
+         .upper_margin = 33, /* VTOT - (VSYNLEN + VSYNSTART) */
+         .low_margin = 10, /* VSYNSTART - YRES */
+         .sync = FB_SYNC_HOR_HIGH_ACT | FB_SYNC_VERT_HIGH_ACT,
+         .vmode = FB_VMODE_NONINTERLACED,
+         .flag = 0,
+  };
+
+cấu trúc tĩnh sh7760fb_platdata sh7760fb_nl6448 = {
+         .def_mode = &nl6448bc26,
+         .ldmtr = LDMTR_TFT_COLOR_16, /* Bảng điều khiển TFT 16bit */
+         .lddfr = LDDFR_8BPP, /* chúng tôi muốn đầu ra 8bit */
+         .ldpmmr = 0x0070,
+         .ldpspr = 0x0500,
+         .ldaclnr = 0,
+         .ldickr = LDICKR_CLKSRC(LCDC_CLKSRC_EXTERNAL) |
+			 LDICKR_CLKDIV(1),
+         .rotate = 0,
+         .novsync = 1,
+         .blank = NULL,
+  };
+
+/* SH7760:
+   * 0xFE300800: RAM bảng màu 256 * 4byte xRGB
+   * 0xFE300C00: thanh ghi ctrl 42 byte
+   */
+  tài nguyên cấu trúc tĩnh sh7760_lcdc_res[] = {
+         [0] = {
+	       .start = 0xFE300800,
+	       .end = 0xFE300CFF,
+	       .flags = IORESOURCE_MEM,
+         },
+         [1] = {
+	       .bắt đầu = 65,
+	       .end = 65,
+	       .flags = IORESOURCE_IRQ,
+         },
+  };
+
+cấu trúc tĩnh platform_device sh7760_lcdc_dev = {
+         .dev = {
+	       .platform_data = &sh7760fb_nl6448,
+         },
+         .name = "sh7760-lcdc",
+         .id = -1,
+         .resource = sh7760_lcdc_res,
+         .num_resource = ARRAY_SIZE(sh7760_lcdc_res),
+  };

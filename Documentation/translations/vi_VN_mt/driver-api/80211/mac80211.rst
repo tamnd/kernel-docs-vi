@@ -1,0 +1,169 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/driver-api/80211/mac80211.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+==============================
+hệ thống con mac80211 (cơ bản)
+===========================
+
+Bạn nên đọc và hiểu thông tin trong tài liệu này
+một phần của cuốn sách khi triển khai trình điều khiển mac80211. Ở một số chương,
+việc sử dụng nâng cao được ghi chú, những phần này có thể bị bỏ qua nếu không cần thiết.
+
+Phần này của cuốn sách chỉ đề cập đến chế độ trạm và màn hình
+chức năng, thông tin bổ sung cần thiết để thực hiện các chức năng khác
+các chế độ được đề cập trong phần thứ hai của cuốn sách.
+
+Xử lý phần cứng cơ bản
+=======================
+
+TBD
+
+Chương này sẽ chứa thông tin về cách phân bổ cấu trúc hw
+và đăng ký với mac80211.
+
+Vì cần phải phân bổ mức giá/phương thức trước khi đăng ký hw
+struct, chương này cũng sẽ chứa thông tin về việc thiết lập
+cấu trúc tốc độ/chế độ.
+
+Ngoài ra, một số cuộc thảo luận về các cuộc gọi lại và các vấn đề chung
+mô hình lập trình nên có ở đây, bao gồm cả định nghĩa về
+ieee80211_ops sẽ được nhắc đến nhiều.
+
+Cuối cùng, một cuộc thảo luận về khả năng phần cứng nên được thực hiện với
+tham khảo các phần khác của cuốn sách.
+
+.. kernel-doc:: include/net/mac80211.h
+   :functions:
+	ieee80211_hw
+	ieee80211_hw_flags
+	SET_IEEE80211_DEV
+	SET_IEEE80211_PERM_ADDR
+	ieee80211_ops
+	ieee80211_alloc_hw
+	ieee80211_register_hw
+	ieee80211_unregister_hw
+	ieee80211_free_hw
+
+Cấu hình PHY
+=================
+
+TBD
+
+Chương này sẽ mô tả cách xử lý PHY bao gồm các cuộc gọi lại bắt đầu/dừng
+và các cấu trúc khác nhau được sử dụng.
+
+.. kernel-doc:: include/net/mac80211.h
+   :functions:
+	ieee80211_conf
+	ieee80211_conf_flags
+
+Giao diện ảo
+==================
+
+TBD
+
+Chương này sẽ mô tả những điều cơ bản về giao diện ảo có liên quan
+cho trình điều khiển (VLAN, MGMT, v.v. thì không.) Nó sẽ giải thích việc sử dụng
+các lệnh gọi lại add_iface/remove_iface cũng như giao diện
+cuộc gọi lại cấu hình.
+
+Những điều liên quan đến chế độ AP nên được thảo luận ở đó.
+
+Những thứ liên quan đến việc hỗ trợ nhiều giao diện nên có trong
+chương thích hợp, một ghi chú BIG FAT sẽ có ở đây về vấn đề này và
+khuyến nghị chỉ cho phép một giao diện duy nhất ở chế độ STA tại
+đầu tiên!
+
+.. kernel-doc:: include/net/mac80211.h
+   :functions: ieee80211_vif
+
+Xử lý nhận và truyền
+===============================
+
+những gì nên có ở đây
+-------------------
+
+TBD
+
+Điều này sẽ mô tả các đường dẫn nhận và truyền trong mac80211/the
+trình điều khiển cũng như xử lý trạng thái truyền tải.
+
+Định dạng khung
+------------
+
+.. kernel-doc:: include/net/mac80211.h
+   :doc: Frame format
+
+Căn chỉnh gói
+----------------
+
+.. kernel-doc:: net/mac80211/rx.c
+   :doc: Packet alignment
+
+Gọi vào mac80211 từ các ngắt
+-------------------------------------
+
+.. kernel-doc:: include/net/mac80211.h
+   :doc: Calling mac80211 from interrupts
+
+hàm/định nghĩa
+---------------------
+
+.. kernel-doc:: include/net/mac80211.h
+   :functions:
+	ieee80211_rx_status
+	mac80211_rx_encoding_flags
+	mac80211_rx_flags
+	mac80211_tx_info_flags
+	mac80211_tx_control_flags
+	mac80211_rate_control_flags
+	ieee80211_tx_rate
+	ieee80211_tx_info
+	ieee80211_tx_info_clear_status
+	ieee80211_rx
+	ieee80211_rx_ni
+	ieee80211_rx_irqsafe
+	ieee80211_tx_status_skb
+	ieee80211_tx_status_ni
+	ieee80211_tx_status_irqsafe
+	ieee80211_rts_get
+	ieee80211_rts_duration
+	ieee80211_ctstoself_get
+	ieee80211_ctstoself_duration
+	ieee80211_generic_frame_duration
+	ieee80211_wake_queue
+	ieee80211_stop_queue
+	ieee80211_wake_queues
+	ieee80211_stop_queues
+	ieee80211_queue_stopped
+
+Lọc khung
+===============
+
+.. kernel-doc:: include/net/mac80211.h
+   :doc: Frame filtering
+
+.. kernel-doc:: include/net/mac80211.h
+   :functions: ieee80211_filter_flags
+
+Chuỗi công việc mac80211
+======================
+
+.. kernel-doc:: include/net/mac80211.h
+   :doc: mac80211 workqueue
+
+.. kernel-doc:: include/net/mac80211.h
+   :functions:
+	ieee80211_queue_work
+	ieee80211_queue_delayed_work

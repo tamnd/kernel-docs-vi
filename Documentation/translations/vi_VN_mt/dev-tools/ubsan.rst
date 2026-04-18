@@ -1,0 +1,91 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/dev-tools/ubsan.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+Chất khử trùng hành vi không xác định - UBSAN
+====================================
+
+UBSAN là trình kiểm tra hành vi không xác định trong thời gian chạy.
+
+UBSAN sử dụng thiết bị đo thời gian biên dịch để phát hiện hành vi không xác định (UB).
+Trình biên dịch chèn mã thực hiện một số loại kiểm tra nhất định trước khi thực hiện các thao tác
+điều đó có thể gây ra UB. Nếu kiểm tra không thành công (tức là đã phát hiện thấy UB) __ubsan_handle_*
+chức năng được gọi để in thông báo lỗi.
+
+GCC có tính năng đó kể từ phiên bản 4.9.x [1_] (xem tùy chọn ZZ0000ZZ và
+các tùy chọn phụ của nó). GCC 5.x đã triển khai nhiều trình kiểm tra hơn [2_].
+
+Báo cáo ví dụ
+--------------
+
+::
+
+=======================================================================================
+	 UBSAN: Hành vi không xác định trong ../include/linux/bitops.h:110:33
+	 số mũ thay đổi 32 là lớn đối với loại 32 bit 'unsign int'
+	 CPU: 0 PID: 0 Comm: bộ trao đổi Không bị nhiễm độc 4.4.0-rc1+ #26
+	  0000000000000000 ffffffff82403cc8 ffffffff815e6cd6 0000000000000001
+	  ffffffff82403cf8 ffffffff82403ce0 ffffffff8163a5ed 00000000000000020
+	  ffffffff82403d78 ffffffff8163ac2b ffffffff815f0001 00000000000000002
+	 Theo dõi cuộc gọi:
+	  [<ffffffff815e6cd6>] dump_stack+0x45/0x5f
+	  [<ffffffff8163a5ed>] ubsan_epilogue+0xd/0x40
+	  [<ffffffff8163ac2b>] __ubsan_handle_shift_out_of_bounds+0xeb/0x130
+	  [<ffffffff815f0001>] ? cơ số_tree_gang_lookup_slot+0x51/0x150
+	  [<ffffffff8173c586>] _mix_pool_bytes+0x1e6/0x480
+	  [<ffffffff83105653>] ? dmi_walk_early+0x48/0x5c
+	  [<ffffffff8173c881>] add_device_randomness+0x61/0x130
+	  [<ffffffff83105b35>] ? dmi_save_one_device+0xaa/0xaa
+	  [<ffffffff83105653>] dmi_walk_early+0x48/0x5c
+	  [<ffffffff831066ae>] dmi_scan_machine+0x278/0x4b4
+	  [<ffffffff8111d58a>] ? vprintk_default+0x1a/0x20
+	  [<ffffffff830ad120>] ? Early_idt_handler_array+0x120/0x120
+	  [<ffffffff830b2240>] setup_arch+0x405/0xc2c
+	  [<ffffffff830ad120>] ? Early_idt_handler_array+0x120/0x120
+	  [<ffffffff830ae053>] start_kernel+0x83/0x49a
+	  [<ffffffff830ad120>] ? Early_idt_handler_array+0x120/0x120
+	  [<ffffffff830ad386>] x86_64_start_reservations+0x2a/0x2c
+	  [<ffffffff830ad4f3>] x86_64_start_kernel+0x16b/0x17a
+	 =======================================================================================
+
+Cách sử dụng
+-----
+
+Để bật UBSAN, hãy định cấu hình kernel bằng::
+
+CONFIG_UBSAN=y
+
+Để loại trừ các tệp khỏi bị đo lường, hãy sử dụng::
+
+UBSAN_SANITIZE_main.o := n
+
+và để loại trừ tất cả các mục tiêu trong một thư mục, hãy sử dụng ::
+
+UBSAN_SANITIZE := n
+
+Khi bị tắt cho tất cả các mục tiêu, các tệp cụ thể có thể được bật bằng cách sử dụng ::
+
+UBSAN_SANITIZE_main.o := y
+
+Phát hiện các truy cập không được phân bổ được kiểm soát thông qua tùy chọn riêng biệt -
+CONFIG_UBSAN_ALIGNMENT. Theo mặc định, nó bị tắt trên các kiến trúc hỗ trợ
+truy cập không được phân bổ (CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS=y). Người ta có thể
+vẫn kích hoạt nó trong config, chỉ cần lưu ý là nó sẽ tạo ra rất nhiều UBSAN
+báo cáo.
+
+Tài liệu tham khảo
+----------
+
+.. _1: https://gcc.gnu.org/onlinedocs/gcc-4.9.0/gcc/Debugging-Options.html
+.. _2: https://gcc.gnu.org/onlinedocs/gcc/Debugging-Options.html
+.. _3: https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html

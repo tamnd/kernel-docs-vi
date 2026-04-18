@@ -1,0 +1,126 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../../disclaimer-vi.rst
+
+:Original: Documentation/driver-api/rapidio/tsi721.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+===============================================================================
+Trình điều khiển mport hệ thống con RapidIO cho cầu IDT Tsi721 PCI Express-to-SRIO.
+=========================================================================
+
+1. Tổng quan
+===========
+
+Trình điều khiển này triển khai tất cả các chức năng gọi lại mport RapidIO hiện được xác định.
+Nó hỗ trợ các hoạt động đọc và ghi bảo trì, RapidIO vào và ra
+chuông cửa, ghi cổng bảo trì gửi đến và nhắn tin RapidIO.
+
+Để tạo các giao dịch bảo trì SRIO, trình điều khiển này sử dụng một trong các Tsi721 DMA
+các kênh. Cơ chế này cung cấp quyền truy cập vào phạm vi số bước nhảy lớn hơn và
+ID đích mà không cần thay đổi bản dịch cửa sổ gửi đi.
+
+Hỗ trợ nhắn tin RapidIO sử dụng các kênh nhắn tin dành riêng cho từng hộp thư.
+Đối với tin nhắn gửi đến, trình điều khiển này sử dụng kết hợp ID đích để chuyển tiếp tin nhắn
+vào hàng đợi tin nhắn tương ứng. Các cuộc gọi lại bằng tin nhắn được triển khai để
+hoàn toàn tương thích với trình điều khiển RIONET (Ethernet qua dịch vụ nhắn tin RapidIO).
+
+1. Thông số mô-đun:
+
+- 'dbg_level'
+      - Tham số này cho phép kiểm soát lượng thông tin gỡ lỗi
+        được tạo bởi trình điều khiển thiết bị này. Tham số này được hình thành bởi tập hợp
+        Tham số này có thể được thay đổi mặt nạ bit tương ứng với các thông số cụ thể
+        khối chức năng.
+        Để biết định nghĩa mặt nạ, hãy xem 'drivers/rapidio/devices/tsi721.h'
+        Tham số này có thể được thay đổi linh hoạt.
+        Sử dụng CONFIG_RAPIDIO_DEBUG=y để bật đầu ra gỡ lỗi ở cấp cao nhất.
+
+- 'dma_desc_per_channel'
+      - Tham số này xác định số lượng bộ đệm phần cứng
+        bộ mô tả được phân bổ cho mỗi kênh Tsi721 DMA đã đăng ký.
+        Giá trị mặc định của nó là 128.
+
+- 'dma_txqueue_sz'
+      - Kích thước hàng đợi giao dịch DMA. Xác định số lượng đang chờ xử lý
+        các yêu cầu giao dịch có thể được chấp nhận bởi mỗi kênh DMA.
+        Giá trị mặc định là 16.
+
+- 'dma_sel'
+      - Mặt nạ chọn kênh DMA. Bitmask xác định phần cứng nào
+        Các kênh DMA (0 ... 6) sẽ được đăng ký với lõi DmaEngine.
+        Nếu bit được đặt thành 1, kênh DMA tương ứng sẽ được đăng ký.
+        Các kênh DMA không được mặt nạ này chọn sẽ không được thiết bị này sử dụng
+        người lái xe. Giá trị mặc định là 0x7f (sử dụng tất cả các kênh).
+
+- 'pcie_mrrs'
+      - giá trị ghi đè cho Kích thước yêu cầu đọc tối đa của PCIe (MRRS).
+        Tham số này cung cấp khả năng ghi đè giá trị MRRS được đặt trong PCIe
+        quá trình cấu hình. Tsi721 hỗ trợ kích thước yêu cầu đọc lên tới 4096B.
+        Giá trị cho tham số này phải được đặt theo quy định của thông số kỹ thuật PCIe:
+        0 = 128B, 1 = 256B, 2 = 512B, 3 = 1024B, 4 = 2048B và 5 = 4096B.
+        Giá trị mặc định là '-1' (= giữ nguyên cài đặt nền tảng).
+
+- 'mbox_sel'
+      - RIO nhắn tin mặt nạ lựa chọn MBOX. Đây là một bitmask xác định
+        MBOX nhắn tin được quản lý bởi trình điều khiển thiết bị này. Mặt nạ bit 0 - 3
+        tương ứng với MBOX0 - MBOX3. MBOX nằm dưới sự kiểm soát của người lái xe nếu
+        bit tương ứng được đặt thành '1'. Giá trị mặc định là 0x0f (= tất cả).
+
+2. Các vấn đề đã biết
+=================
+
+Không có.
+
+3. Hỗ trợ động cơ DMA
+=====================
+
+Trình điều khiển mport Tsi721 hỗ trợ truyền dữ liệu DMA giữa bộ nhớ hệ thống cục bộ và
+thiết bị RapidIO từ xa. Chức năng này được triển khai theo SLAVE
+chế độ API được xác định bởi khung Công cụ DMA nhân Linux phổ biến.
+
+Tùy thuộc vào yêu cầu hệ thống, các hoạt động RapidIO DMA có thể được bao gồm/loại trừ
+bằng cách cài đặt tùy chọn CONFIG_RAPIDIO_DMA_ENGINE. Trình điều khiển miniport Tsi721 sử dụng bảy
+trong số tám kênh BDMA có sẵn để hỗ trợ truyền dữ liệu DMA.
+Một kênh BDMA được dành riêng để tạo các yêu cầu đọc/ghi bảo trì.
+
+Nếu trình điều khiển mport Tsi721 đã được xây dựng có hỗ trợ RAPIDIO_DMA_ENGINE,
+trình điều khiển này sẽ chấp nhận tham số mô-đun dành riêng cho DMA:
+
+"dma_desc_per_channel"
+			 - xác định số lượng bộ mô tả bộ đệm phần cứng được sử dụng bởi
+                           mỗi kênh BDMA của Tsi721 (theo mặc định - 128).
+
+4. Lịch sử phiên bản
+
+===== ==========================================================================
+  1.1.0 Hoạt động của DMA được làm lại để hỗ trợ danh sách phân tán/thu thập dữ liệu lớn hơn
+          hơn vòng mô tả bộ đệm phần cứng.
+  1.0.0 Bản phát hành trình điều khiển đầu tiên.
+  ===== ==========================================================================
+
+5. Giấy phép
+===========
+
+Bản quyền(c) 2011 Integrated Device Technology, Inc. Mọi quyền được bảo lưu.
+
+Chương trình này là phần mềm miễn phí; bạn có thể phân phối lại nó và/hoặc sửa đổi nó
+  theo các điều khoản của Giấy phép Công cộng GNU do Free
+  Quỹ phần mềm; phiên bản 2 của Giấy phép hoặc (tùy theo lựa chọn của bạn)
+  bất kỳ phiên bản sau này.
+
+Chương trình này được phân phối với hy vọng nó sẽ hữu ích, nhưng WITHOUT
+  ANY WARRANTY; thậm chí không có sự bảo đảm ngụ ý của MERCHANTABILITY hoặc
+  FITNESS FOR A PARTICULAR PURPOSE.  Xem Giấy phép Công cộng GNU để biết
+  biết thêm chi tiết.
+
+Bạn hẳn đã nhận được một bản sao Giấy phép Công cộng GNU cùng với
+  chương trình này; nếu không, hãy viết thư cho Free Software Foundation, Inc.,
+  59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.

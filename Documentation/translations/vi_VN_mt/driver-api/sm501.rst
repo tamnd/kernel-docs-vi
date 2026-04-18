@@ -1,0 +1,88 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/driver-api/sm501.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+.. include:: <isonum.txt>
+
+=============
+Trình điều khiển SM501
+============
+
+:Bản quyền: ZZ0000ZZ 2006, 2007 Simtec Electronics
+
+Chip đồng hành đa phương tiện Silicon Motion SM501 là một thiết bị đa chức năng
+có thể cung cấp nhiều giao diện bao gồm tiện ích USB của bộ điều khiển máy chủ USB,
+cổng nối tiếp không đồng bộ, chức năng âm thanh và giao diện video hiển thị kép.
+Thiết bị có thể được kết nối bằng PCI hoặc bus cục bộ với các chức năng khác nhau được bật.
+
+Cốt lõi
+----
+
+Trình điều khiển cốt lõi trong driver/mfd cung cấp các dịch vụ chung cho
+trình điều khiển quản lý các khối phần cứng cụ thể. Những dịch vụ này
+bao gồm khóa các thanh ghi chung, điều khiển đồng hồ và tài nguyên
+quản lý.
+
+Trình điều khiển đăng ký lõi cho cả PCI và bus chung
+chip thông qua thiết bị nền tảng và hệ thống trình điều khiển.
+
+Khi phát hiện một thiết bị, lõi sẽ khởi chạy chip (có thể
+được chỉ định bởi dữ liệu nền tảng) và sau đó xuất dữ liệu đã chọn
+thiết bị ngoại vi làm thiết bị nền tảng cho các trình điều khiển cụ thể.
+
+Lõi tái sử dụng hệ thống thiết bị nền tảng làm thiết bị nền tảng
+hệ thống cung cấp đủ tính năng để hỗ trợ người lái xe mà không cần
+cần tạo một loại bus mới và mã liên quan đi kèm với nó.
+
+
+Tài nguyên
+---------
+
+Mỗi thiết bị ngoại vi có một cái nhìn về thiết bị được thu hẹp hoàn toàn
+tập hợp các tài nguyên cụ thể mà thiết bị ngoại vi yêu cầu để
+hoạt động chính xác.
+
+Việc phân bổ bộ nhớ tập trung cho phép người lái xe đảm bảo rằng
+phân bổ tài nguyên tối đa có thể được thực hiện cho hệ thống con video
+vì đây là chức năng nhạy cảm nhất về tài nguyên trên chip.
+
+Vấn đề chính với việc cấp phát bộ nhớ là việc di chuyển video
+bộ đệm khi chế độ hiển thị được chọn. Quả thực khi chế độ video thay đổi
+xảy ra sự thay đổi dung lượng bộ nhớ của hệ thống con video.
+
+Vì bộ nhớ video khó di chuyển mà không thay đổi cách hiển thị
+(trừ khi có thể cung cấp đủ bộ nhớ liền kề cho cái cũ và cái mới
+chế độ đồng thời), trình điều khiển video tận dụng tối đa vùng bộ nhớ
+được cung cấp cho nó bằng cách căn chỉnh fb0 ở đầu vùng và fb1 ở cuối
+của nó. Bất kỳ bộ nhớ nào còn sót lại ở giữa sẽ được sử dụng để tăng tốc
+các chức năng tạm thời và do đó vị trí của chúng ít quan trọng hơn
+vì nó có thể được di chuyển.
+
+
+Cấu hình
+-------------
+
+Trình điều khiển thiết bị nền tảng sử dụng một tập hợp dữ liệu nền tảng để chuyển
+cấu hình thông qua các trình điều khiển lõi và phụ
+để có thể hỗ trợ nhiều hơn một hệ thống mang
+một SM501 được tích hợp trong một hình ảnh hạt nhân.
+
+Trình điều khiển PCI giả định rằng thẻ PCI hoạt động theo tiêu chuẩn Silicon
+Thiết kế tham chiếu chuyển động
+
+Có lỗi (AB-5) ảnh hưởng đến việc lựa chọn
+của tần số M1XCLK và M1CLK. Hai chiếc đồng hồ này
+phải có nguồn gốc từ cùng một PLL, mặc dù sau đó chúng có thể
+được chia nhỏ riêng lẻ. Nếu điều này không được đặt thì SM501 có thể
+khóa và treo toàn bộ hệ thống. Người lái xe sẽ từ chối
+đính kèm nếu lựa chọn PLL khác.

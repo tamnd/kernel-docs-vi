@@ -1,0 +1,29 @@
+.. SPDX-License-Identifier: GPL-2.0
+
+.. include:: ../../disclaimer-vi.rst
+
+:Original: Documentation/fb/sm501.rst
+:Translator: Google Translate (machine translation)
+:Upstream-at: 8541d8f725c6
+
+.. warning::
+   Tai lieu nay duoc dich tu dong bang may va chua duoc review boi nguoi dich.
+   Noi dung co the khong chinh xac hoac kho hieu o mot so cho. Khi co su khac
+   biet voi ban goc, ban goc luon la chuan. Ban dich chat luong cao (duoc
+   review) duoc dat trong thu muc vi_VN/.
+
+=======
+sm501fb
+=======
+
+Cấu hình:
+
+Bạn có thể chuyển các tùy chọn dòng lệnh kernel sau cho sm501
+bộ đệm khung video::
+
+sm501fb.bpp= SM501 Trình điều khiển hiển thị:
+			Chỉ định số bit trên mỗi pixel nếu không được chỉ định bởi 'chế độ'
+
+sm501fb.mode= SM501 Trình điều khiển hiển thị:
+			Chỉ định độ phân giải là
+			"<xres>x<yres>[-<bpp>][@<refresh>]"
